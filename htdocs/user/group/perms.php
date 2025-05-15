@@ -31,7 +31,7 @@ if (!defined('CSRFCHECK_WITH_TOKEN')) {
 	define('CSRFCHECK_WITH_TOKEN', '1'); // Force use of CSRF protection with tokens even for GET
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/user/class/usergroup.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/usergroups.lib.php';
@@ -168,7 +168,7 @@ if ($object->id > 0) {
 					if ($modName) {
 						include_once $dir.$file;
 						$objMod = new $modName($db);
-						'@phan-var-force DolibarrModules $objMod';
+						'@phan-var-force OnLiModules $objMod';
 						// Load all lang files of module
 						if (isset($objMod->langfiles) && is_array($objMod->langfiles)) {
 							foreach ($objMod->langfiles as $domain) {

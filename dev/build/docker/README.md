@@ -1,4 +1,4 @@
-# How to use run Dolibarr with docker ?
+# How to use run OnLi with docker ?
 
 
 ## For a fast run of a demo of the local version, you can build the docker image from this current repository by running
@@ -20,4 +20,4 @@ Warning: There is no persistency of data. This process is for dev purpose only.
 
 ## For a more robust or a production usage
 
-If you want to execute an official Docker package, you can find it and read the doc on ihttps://hub.docker.com/r/dolibarr/dolibarr 
+If you want to execute an official Docker package, you can find it and read the doc on ihttps://hub.docker.com/r/onli/onli 

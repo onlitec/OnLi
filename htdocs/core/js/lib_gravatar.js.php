@@ -52,12 +52,12 @@ session_cache_limiter('public');
 
 require_once '../../main.inc.php';
 /**
- * @var int $dolibarr_nocache
+ * @var int $onli_nocache
  */
 // Define javascript type
 top_httphead('text/javascript; charset=UTF-8');
-// Important: Following code is to avoid page request by browser and PHP CPU at each Dolibarr page access.
-if (empty($dolibarr_nocache)) {
+// Important: Following code is to avoid page request by browser and PHP CPU at each OnLi page access.
+if (empty($onli_nocache)) {
 	header('Cache-Control: max-age=10800, public, must-revalidate');
 } else {
 	header('Cache-Control: no-cache');

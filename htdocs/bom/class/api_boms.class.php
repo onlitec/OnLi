@@ -34,9 +34,9 @@ require_once DOL_DOCUMENT_ROOT.'/bom/class/bom.class.php';
  * API class for BOM
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Boms extends DolibarrApi
+class Boms extends OnLiApi
 {
 	/**
 	 * @var BOM {@type BOM}
@@ -71,7 +71,7 @@ class Boms extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -80,8 +80,8 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom', $this->bom->id, 'bom_bom')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom', $this->bom->id, 'bom_bom')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($this->bom);
@@ -109,21 +109,21 @@ class Boms extends DolibarrApi
 	 */
 	public function index($sortfield = "t.rowid", $sortorder = 'ASC', $limit = 100, $page = 0, $sqlfilters = '', $properties = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'read')) {
 			throw new RestException(403);
 		}
 
 		$obj_ret = array();
 		$tmpobject = new BOM($this->db);
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : '';
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : '';
 
 		$restrictonsocid = 0; // Set to 1 if there is a field socid in table of object
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if ($restrictonsocid && !DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if ($restrictonsocid && !OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -194,7 +194,7 @@ class Boms extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'write')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -212,7 +212,7 @@ class Boms extends DolibarrApi
 
 		$this->checkRefNumbering();
 
-		if (!$this->bom->create(DolibarrApiAccess::$user)) {
+		if (!$this->bom->create(OnLiApiAccess::$user)) {
 			throw new RestException(500, "Error creating BOM", array_merge(array($this->bom->error), $this->bom->errors));
 		}
 		return $this->bom->id;
@@ -235,7 +235,7 @@ class Boms extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -244,8 +244,8 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom', $this->bom->id, 'bom_bom')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom', $this->bom->id, 'bom_bom')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -269,7 +269,7 @@ class Boms extends DolibarrApi
 
 		$this->checkRefNumbering();
 
-		if ($this->bom->update(DolibarrApiAccess::$user) > 0) {
+		if ($this->bom->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->bom->error);
@@ -290,7 +290,7 @@ class Boms extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'delete')) {
 			throw new RestException(403);
 		}
 		$result = $this->bom->fetch($id);
@@ -298,11 +298,11 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom', $this->bom->id, 'bom_bom')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom', $this->bom->id, 'bom_bom')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->bom->delete(DolibarrApiAccess::$user)) {
+		if (!$this->bom->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when deleting BOM : '.$this->bom->error);
 		}
 
@@ -330,7 +330,7 @@ class Boms extends DolibarrApi
 	 */
 	public function getLines($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -339,8 +339,8 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		$this->bom->getLinesArray();
 		$result = array();
@@ -368,7 +368,7 @@ class Boms extends DolibarrApi
 	 */
 	public function postLine($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -377,8 +377,8 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$request_data = (object) $request_data;
@@ -422,7 +422,7 @@ class Boms extends DolibarrApi
 	 */
 	public function putLine($id, $lineid, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -431,8 +431,8 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$request_data = (object) $request_data;
@@ -477,7 +477,7 @@ class Boms extends DolibarrApi
 	 */
 	public function deleteLine($id, $lineid)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('bom', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('bom', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -486,8 +486,8 @@ class Boms extends DolibarrApi
 			throw new RestException(404, 'BOM not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('bom_bom', $this->bom->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		//Check the rowid is a line of current bom object
@@ -502,7 +502,7 @@ class Boms extends DolibarrApi
 			throw new RestException(500, 'Line to delete (rowid: '.$lineid.') is not a line of BOM (id: '.$this->bom->id.')');
 		}
 
-		$updateRes = $this->bom->deleteLine(DolibarrApiAccess::$user, $lineid);
+		$updateRes = $this->bom->deleteLine(OnLiApiAccess::$user, $lineid);
 		if ($updateRes > 0) {
 			return array(
 				'success' => array(

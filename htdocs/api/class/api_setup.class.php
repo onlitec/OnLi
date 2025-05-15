@@ -36,9 +36,9 @@ require_once DOL_DOCUMENT_ROOT.'/hrm/class/establishment.class.php';
  * API class for dictionaries
  *
  * @access protected
- * @class DolibarrApiAccess {@requires user,external}
+ * @class OnLiApiAccess {@requires user,external}
  */
-class Setup extends DolibarrApi
+class Setup extends OnLiApi
 {
 	/**
 	 * @var ?Translate
@@ -150,7 +150,7 @@ class Setup extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('commande', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('commande', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -216,7 +216,7 @@ class Setup extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('commande', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('commande', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -283,7 +283,7 @@ class Setup extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('propal', 'lire') && !DolibarrApiAccess::$user->hasRight('commande', 'lire') && !DolibarrApiAccess::$user->hasRight('facture', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('propal', 'lire') && !OnLiApiAccess::$user->hasRight('commande', 'lire') && !OnLiApiAccess::$user->hasRight('facture', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -361,11 +361,11 @@ class Setup extends DolibarrApi
 		// Add sql filters
 		if ($sqlfilters) {
 			$errormessage = '';
-			if (!DolibarrApi::_checkFilters($sqlfilters, $errormessage)) {
+			if (!OnLiApi::_checkFilters($sqlfilters, $errormessage)) {
 				throw new RestException(400, 'Error when validating parameter sqlfilters -> '.$errormessage);
 			}
 			$regexstring = '\(([^:\'\(\)]+:[^:\'\(\)]+:[^\(\)]+)\)';
-			$sql .= " AND (".preg_replace_callback('/'.$regexstring.'/', 'DolibarrApi::_forge_criteria_callback', $sqlfilters).")";
+			$sql .= " AND (".preg_replace_callback('/'.$regexstring.'/', 'OnLiApi::_forge_criteria_callback', $sqlfilters).")";
 		}
 
 		$sql .= $this->db->order($sortfield, $sortorder);
@@ -441,7 +441,7 @@ class Setup extends DolibarrApi
 	 *
 	 * The names of the states will be translated to the given language if
 	 * the $lang parameter is provided. The value of $lang must be a language
-	 * code supported by Dolibarr, for example 'en_US' or 'fr_FR'.
+	 * code supported by OnLi, for example 'en_US' or 'fr_FR'.
 	 * The returned list is sorted by state ID.
 	 *
 	 * @param string    $sortfield  Sort field
@@ -556,7 +556,7 @@ class Setup extends DolibarrApi
 	 *
 	 * The names of the countries will be translated to the given language if
 	 * the $lang parameter is provided. The value of $lang must be a language
-	 * code supported by Dolibarr, for example 'en_US' or 'fr_FR'.
+	 * code supported by OnLi, for example 'en_US' or 'fr_FR'.
 	 * The returned list is sorted by country ID.
 	 *
 	 * @param string    $sortfield  Sort field
@@ -787,7 +787,7 @@ class Setup extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('commande', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('commande', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1249,8 +1249,8 @@ class Setup extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->admin
-			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_EXTRAFIELDS') || DolibarrApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_EXTRAFIELDS'))) {
+		if (!OnLiApiAccess::$user->admin
+			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_EXTRAFIELDS') || OnLiApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_EXTRAFIELDS'))) {
 			throw new RestException(403, 'Error API open to admin users only or to the users with logins defined into constant API_LOGINS_ALLOWED_FOR_GET_EXTRAFIELDS');
 		}
 
@@ -1332,7 +1332,7 @@ class Setup extends DolibarrApi
 	 */
 	public function deleteExtrafieldsFromNames($attrname, $elementtype)
 	{
-		if (!DolibarrApiAccess::$user->admin) {
+		if (!OnLiApiAccess::$user->admin) {
 			throw new RestException(403, 'Only an admin user can delete an extrafield by attrname and elementtype');
 		}
 
@@ -1373,7 +1373,7 @@ class Setup extends DolibarrApi
 	{
 		$answer = array();
 
-		if (!DolibarrApiAccess::$user->admin) {
+		if (!OnLiApiAccess::$user->admin) {
 			throw new RestException(403, 'Only an admin user can get list of extrafields');
 		}
 
@@ -1449,7 +1449,7 @@ class Setup extends DolibarrApi
 	 */
 	public function postExtrafields($attrname, $elementtype, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->admin) {
+		if (!OnLiApiAccess::$user->admin) {
 			throw new RestException(403, 'Only an admin user can create an extrafield');
 		}
 
@@ -1467,7 +1467,7 @@ class Setup extends DolibarrApi
 			$extrafields->$field = $this->_checkValForAPI($field, $value, $extrafields);
 		}
 
-		$entity = DolibarrApiAccess::$user->entity;
+		$entity = OnLiApiAccess::$user->entity;
 		if (empty($entity)) {
 			$entity = 1;
 		}
@@ -1538,7 +1538,7 @@ class Setup extends DolibarrApi
 	 */
 	public function updateExtrafields($attrname, $elementtype, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->admin) {
+		if (!OnLiApiAccess::$user->admin) {
 			throw new RestException(403, 'Only an admin user can create an extrafield');
 		}
 
@@ -1553,7 +1553,7 @@ class Setup extends DolibarrApi
 			$extrafields->$field = $this->_checkValForAPI($field, $value, $extrafields);
 		}
 
-		$entity = DolibarrApiAccess::$user->entity;
+		$entity = OnLiApiAccess::$user->entity;
 		if (empty($entity)) {
 			$entity = 1;
 		}
@@ -1700,7 +1700,7 @@ class Setup extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('propal', 'lire') && !DolibarrApiAccess::$user->hasRight('commande', 'lire') && !DolibarrApiAccess::$user->hasRight('facture', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('propal', 'lire') && !OnLiApiAccess::$user->hasRight('commande', 'lire') && !OnLiApiAccess::$user->hasRight('facture', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -2288,11 +2288,11 @@ class Setup extends DolibarrApi
 		// Add sql filters
 		if ($sqlfilters) {
 			$errormessage = '';
-			if (!DolibarrApi::_checkFilters($sqlfilters, $errormessage)) {
+			if (!OnLiApi::_checkFilters($sqlfilters, $errormessage)) {
 				throw new RestException(400, 'Error when validating parameter sqlfilters -> '.$errormessage);
 			}
 			$regexstring = '\(([^:\'\(\)]+:[^:\'\(\)]+:[^\(\)]+)\)';
-			$sql .= " AND (".preg_replace_callback('/'.$regexstring.'/', 'DolibarrApi::_forge_criteria_callback', $sqlfilters).")";
+			$sql .= " AND (".preg_replace_callback('/'.$regexstring.'/', 'OnLiApi::_forge_criteria_callback', $sqlfilters).")";
 		}
 
 
@@ -2338,8 +2338,8 @@ class Setup extends DolibarrApi
 	{
 		global $conf, $mysoc;
 
-		if (!DolibarrApiAccess::$user->admin
-			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_COMPANY') || DolibarrApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_COMPANY'))) {
+		if (!OnLiApiAccess::$user->admin
+			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_COMPANY') || OnLiApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_COMPANY'))) {
 			throw new RestException(403, 'Error API open to admin users only or to the users with logins defined into constant API_LOGINS_ALLOWED_FOR_GET_COMPANY');
 		}
 
@@ -2461,8 +2461,8 @@ class Setup extends DolibarrApi
 	{
 		global $conf;
 
-		if (!DolibarrApiAccess::$user->admin
-			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_CONST_READ') || DolibarrApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_CONST_READ'))) {
+		if (!OnLiApiAccess::$user->admin
+			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_CONST_READ') || OnLiApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_CONST_READ'))) {
 			throw new RestException(403, 'Error API open to admin users only or to the users with logins defined into constant API_LOGINS_ALLOWED_FOR_CONST_READ');
 		}
 
@@ -2479,7 +2479,7 @@ class Setup extends DolibarrApi
 	/**
 	 * Do a test of integrity for files and setup.
 	 *
-	 * @param string	$target			Can be 'local' or 'default' or Url of the signatures file to use for the test. Must be reachable by the tested Dolibarr.
+	 * @param string	$target			Can be 'local' or 'default' or Url of the signatures file to use for the test. Must be reachable by the tested OnLi.
 	 * @return array					Result of file and setup integrity check
 	 * @phan-return array{resultcode:string,resultcomment:string,expectedchecksum:string,currentchecksum:string,out:string}
 	 * @phpstan-return array{resultcode:string,resultcomment:string,expectedchecksum:string,currentchecksum:string,out:string}
@@ -2494,8 +2494,8 @@ class Setup extends DolibarrApi
 	{
 		global $langs, $conf;
 
-		if (!DolibarrApiAccess::$user->admin
-			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_INTEGRITY_CHECK') || DolibarrApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_INTEGRITY_CHECK'))) {
+		if (!OnLiApiAccess::$user->admin
+			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_INTEGRITY_CHECK') || OnLiApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_INTEGRITY_CHECK'))) {
 			throw new RestException(403, 'Error API open to admin users only or to the users with logins defined into constant API_LOGINS_ALLOWED_FOR_INTEGRITY_CHECK');
 		}
 
@@ -2528,7 +2528,7 @@ class Setup extends DolibarrApi
 			$xmlremote = getDolGlobalString($param);
 		}
 		if (empty($xmlremote)) {
-			$xmlremote = 'https://www.dolibarr.org/files/stable/signatures/filelist-'.DOL_VERSION.'.xml';
+			$xmlremote = 'https://www.onli.org/files/stable/signatures/filelist-'.DOL_VERSION.'.xml';
 		}
 		if ($xmlremote && !preg_match('/^https?:\/\//i', $xmlremote)) {
 			$langs->load("errors");
@@ -2572,7 +2572,7 @@ class Setup extends DolibarrApi
 			$out = '';
 
 			// Forced constants
-			if (is_object($xml->dolibarr_constants[0])) {
+			if (is_object($xml->onli_constants[0])) {
 				$out .= load_fiche_titre($langs->trans("ForcedConstants"));
 
 				$out .= '<div class="div-table-responsive-no-min">';
@@ -2585,7 +2585,7 @@ class Setup extends DolibarrApi
 				$out .= '</tr>'."\n";
 
 				$i = 0;
-				foreach ($xml->dolibarr_constants[0]->constant as $constant) {    // $constant is a simpleXMLElement
+				foreach ($xml->onli_constants[0]->constant as $constant) {    // $constant is a simpleXMLElement
 					$constname = $constant['name'];
 					$constvalue = (string) $constant;
 					$constvalue = (empty($constvalue) ? '0' : $constvalue);
@@ -2617,8 +2617,8 @@ class Setup extends DolibarrApi
 			}
 
 			// Scan htdocs
-			if (is_object($xml->dolibarr_htdocs_dir[0])) {
-				$includecustom = (empty($xml->dolibarr_htdocs_dir[0]['includecustom']) ? 0 : $xml->dolibarr_htdocs_dir[0]['includecustom']);
+			if (is_object($xml->onli_htdocs_dir[0])) {
+				$includecustom = (empty($xml->onli_htdocs_dir[0]['includecustom']) ? 0 : $xml->onli_htdocs_dir[0]['includecustom']);
 
 				// Define qualified files (must be same than into generate_filelist_xml.php and in api_setup.class.php)
 				$regextoinclude = '\.(php|php3|php4|php5|phtml|phps|phar|inc|css|scss|html|xml|js|json|tpl|jpg|jpeg|png|gif|ico|sql|lang|txt|yml|bak|md|mp3|mp4|wav|mkv|z|gz|zip|rar|tar|less|svg|eot|woff|woff2|ttf|manifest)$';
@@ -2626,7 +2626,7 @@ class Setup extends DolibarrApi
 				$scanfiles = dol_dir_list(DOL_DOCUMENT_ROOT, 'files', 1, $regextoinclude, $regextoexclude);
 
 				// Fill file_list with files in signature, new files, modified files
-				$ret = getFilesUpdated($file_list, $xml->dolibarr_htdocs_dir[0], '', DOL_DOCUMENT_ROOT, $checksumconcat); // Fill array $file_list
+				$ret = getFilesUpdated($file_list, $xml->onli_htdocs_dir[0], '', DOL_DOCUMENT_ROOT, $checksumconcat); // Fill array $file_list
 				'@phan-var-force array{insignature:string[],missing?:array<array{filename:string,expectedmd5:string,expectedsize:string}>,updated:array<array{filename:string,expectedmd5:string,expectedsize:string,md5:string}>} $file_list';
 				// Complete with list of new files
 				foreach ($scanfiles as $keyfile => $valfile) {
@@ -2764,14 +2764,14 @@ class Setup extends DolibarrApi
 					//setEventMessages($langs->trans("FileIntegritySomeFilesWereRemovedOrModified"), null, 'warnings');
 				}
 			} else {
-				throw new RestException(500, 'Error: Failed to found dolibarr_htdocs_dir into XML file '.$xmlfile);
+				throw new RestException(500, 'Error: Failed to found onli_htdocs_dir into XML file '.$xmlfile);
 			}
 
 
 			// Scan scripts
 			asort($checksumconcat); // Sort list of checksum
 			$checksumget = md5(implode(',', $checksumconcat));
-			$checksumtoget = trim((string) $xml->dolibarr_htdocs_dir_checksum);
+			$checksumtoget = trim((string) $xml->onli_htdocs_dir_checksum);
 
 			$outexpectedchecksum = ($checksumtoget ? $checksumtoget : $langs->trans("Unknown"));
 			if ($checksumget == $checksumtoget) {
@@ -2815,8 +2815,8 @@ class Setup extends DolibarrApi
 	{
 		global $conf;
 
-		if (!DolibarrApiAccess::$user->admin
-			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_MODULES') || DolibarrApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_MODULES'))) {
+		if (!OnLiApiAccess::$user->admin
+			&& (!getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_MODULES') || OnLiApiAccess::$user->login != getDolGlobalString('API_LOGINS_ALLOWED_FOR_GET_MODULES'))) {
 			throw new RestException(403, 'Error API open to admin users only or to the users with logins defined into constant API_LOGINS_ALLOWED_FOR_GET_MODULES');
 		}
 

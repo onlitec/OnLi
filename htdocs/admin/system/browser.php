@@ -20,10 +20,10 @@
 
 /**
  *  \file       htdocs/admin/system/browser.php
- *  \brief      Page to show Dolibarr information
+ *  \brief      Page to show OnLi information
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

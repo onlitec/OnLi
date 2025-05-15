@@ -32,9 +32,9 @@ require_once DOL_DOCUMENT_ROOT.'/variants/class/ProductCombination2ValuePair.cla
  * API class for products
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Products extends DolibarrApi
+class Products extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when create and update object
@@ -184,13 +184,13 @@ class Products extends DolibarrApi
 	{
 		global $db, $conf;
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
 		$obj_ret = array();
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : '';
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : '';
 
 		$sql = "SELECT t.rowid, t.ref, t.ref_ext";
 		$sql .= " FROM ".$this->db->prefix()."product as t";
@@ -256,7 +256,7 @@ class Products extends DolibarrApi
 				if (!$ids_only) {
 					$product_static = new Product($this->db);
 					if ($product_static->fetch($obj->rowid)) {
-						if (!empty($includestockdata) && DolibarrApiAccess::$user->hasRight('stock', 'lire')) {
+						if (!empty($includestockdata) && OnLiApiAccess::$user->hasRight('stock', 'lire')) {
 							$product_static->load_stock();
 
 							if (is_array($product_static->stock_warehouse)) {
@@ -312,7 +312,7 @@ class Products extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -327,7 +327,7 @@ class Products extends DolibarrApi
 
 			$this->product->$field = $this->_checkValForAPI($field, $value, $this->product);
 		}
-		if ($this->product->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->product->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating product", array_merge(array($this->product->error), $this->product->errors));
 		}
 
@@ -348,7 +348,7 @@ class Products extends DolibarrApi
 					$newpricemin = $this->product->multiprices_min_ttc[$key];
 				}
 				if ($newprice > 0) {
-					$result = $this->product->updatePrice($newprice, $newbasetype, DolibarrApiAccess::$user, $newvat, $newpricemin, $key, $newnpr, 0, 0, array(), $newvatsrccode);
+					$result = $this->product->updatePrice($newprice, $newbasetype, OnLiApiAccess::$user, $newvat, $newpricemin, $key, $newnpr, 0, 0, array(), $newvatsrccode);
 				}
 			}
 		}
@@ -373,7 +373,7 @@ class Products extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -382,8 +382,8 @@ class Products extends DolibarrApi
 			throw new RestException(404, 'Product not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $this->product->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $this->product->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$oldproduct = dol_clone($this->product, 2);
@@ -415,7 +415,7 @@ class Products extends DolibarrApi
 			$updatetype = true;
 		}
 
-		$result = $this->product->update($id, DolibarrApiAccess::$user, 1, 'update', $updatetype);
+		$result = $this->product->update($id, OnLiApiAccess::$user, 1, 'update', $updatetype);
 
 		// If price mode is 1 price per product
 		if ($result > 0 && getDolGlobalString('PRODUCT_PRICE_UNIQ')) {
@@ -463,7 +463,7 @@ class Products extends DolibarrApi
 					$newpricemin = $this->product->price_min_ttc;
 				}
 
-				$result = $this->product->updatePrice($newprice, $this->product->price_base_type, DolibarrApiAccess::$user, $newvat, $newpricemin, 0, $newnpr, 0, 0, array(), $newvatsrccode);
+				$result = $this->product->updatePrice($newprice, $this->product->price_base_type, OnLiApiAccess::$user, $newvat, $newpricemin, 0, $newnpr, 0, 0, array(), $newvatsrccode);
 			}
 		}
 
@@ -508,7 +508,7 @@ class Products extends DolibarrApi
 						$newpricemin = $this->product->multiprices_min_ttc[$key];
 					}
 
-					$result = $this->product->updatePrice($newprice, $newbasetype, DolibarrApiAccess::$user, $newvat, $newpricemin, $key, $newnpr, 0, 0, array(), $newvatsrccode);
+					$result = $this->product->updatePrice($newprice, $newbasetype, OnLiApiAccess::$user, $newvat, $newpricemin, $key, $newnpr, 0, 0, array(), $newvatsrccode);
 				}
 			}
 		}
@@ -530,7 +530,7 @@ class Products extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'supprimer')) {
 			throw new RestException(403);
 		}
 		$result = $this->product->fetch($id);
@@ -538,15 +538,15 @@ class Products extends DolibarrApi
 			throw new RestException(404, 'Product not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $this->product->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $this->product->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		// The Product::delete() method uses the global variable $user.
 		global $user;
-		$user = DolibarrApiAccess::$user;
+		$user = OnLiApiAccess::$user;
 
-		$res = $this->product->delete(DolibarrApiAccess::$user);
+		$res = $this->product->delete(OnLiApiAccess::$user);
 		if ($res < 0) {
 			throw new RestException(500, "Can't delete, error occurs");
 		} elseif ($res == 0) {
@@ -577,12 +577,12 @@ class Products extends DolibarrApi
 	 */
 	public function getSubproducts($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$childrenArbo = $this->product->getChildsArbo($id, 1);
@@ -615,12 +615,12 @@ class Products extends DolibarrApi
 	 */
 	public function addSubproducts($id, $subproduct_id, $qty, $incdec = 1)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->product->add_sousproduit($id, $subproduct_id, $qty, $incdec);
@@ -645,12 +645,12 @@ class Products extends DolibarrApi
 	 */
 	public function delSubproducts($id, $subproduct_id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->product->del_sousproduit($id, $subproduct_id);
@@ -676,7 +676,7 @@ class Products extends DolibarrApi
 	 */
 	public function getCategories($id, $sortfield = "s.rowid", $sortorder = 'ASC', $limit = 0, $page = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('categorie', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('categorie', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -704,7 +704,7 @@ class Products extends DolibarrApi
 	{
 		global $conf;
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -746,7 +746,7 @@ class Products extends DolibarrApi
 	{
 		global $conf;
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -754,9 +754,9 @@ class Products extends DolibarrApi
 			throw new RestException(400, 'API not available: this mode of pricing is not enabled by setup');
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : '';
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : '';
 		if ($socid > 0 && $socid != $thirdparty_id) {
-			throw new RestException(403, 'Getting prices for all customers or for the customer ID '.$thirdparty_id.' is not allowed for login '.DolibarrApiAccess::$user->login);
+			throw new RestException(403, 'Getting prices for all customers or for the customer ID '.$thirdparty_id.' is not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->product->fetch($id);
@@ -795,7 +795,7 @@ class Products extends DolibarrApi
 	{
 		global $conf;
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -855,7 +855,7 @@ class Products extends DolibarrApi
 	 */
 	public function addPurchasePrice($id, $qty, $buyprice, $price_base_type, $fourn_id, $availability, $ref_fourn, $tva_tx, $charges = 0, $remise_percent = 0, $remise = 0, $newnpr = 0, $delivery_time_days = 0, $supplier_reputation = '', $localtaxes_array = array(), $newdefaultvatcode = '', $multicurrency_buyprice = 0, $multicurrency_price_base_type = 'HT', $multicurrency_tx = 1, $multicurrency_code = '', $desc_fourn = '', $barcode = '', $fk_barcode_type = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -864,16 +864,16 @@ class Products extends DolibarrApi
 			throw new RestException(404, 'Product not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $this->productsupplier->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $this->productsupplier->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : '';
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : '';
 		if ($socid > 0 && $socid != $fourn_id) {
-			throw new RestException(403, 'Adding purchase price for the supplier ID '.$fourn_id.' is not allowed for login '.DolibarrApiAccess::$user->login);
+			throw new RestException(403, 'Adding purchase price for the supplier ID '.$fourn_id.' is not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		$result = $this->productsupplier->add_fournisseur(DolibarrApiAccess::$user, $fourn_id, $ref_fourn, $qty);
+		$result = $this->productsupplier->add_fournisseur(OnLiApiAccess::$user, $fourn_id, $ref_fourn, $qty);
 		if ($result < 0) {
 			throw new RestException(500, "Error adding supplier to product : ".$this->db->lasterror());
 		}
@@ -889,7 +889,7 @@ class Products extends DolibarrApi
 		$desc_fourn = sanitizeVal($desc_fourn, 'restricthtml');
 		$barcode = sanitizeVal($barcode, 'alphanohtml');
 
-		$result = $this->productsupplier->update_buyprice($qty, $buyprice, DolibarrApiAccess::$user, $price_base_type, $fourn, $availability, $ref_fourn, $tva_tx, $charges, $remise_percent, $remise, $newnpr, $delivery_time_days, $supplier_reputation, $localtaxes_array, $newdefaultvatcode, $multicurrency_buyprice, $multicurrency_price_base_type, $multicurrency_tx, $multicurrency_code, $desc_fourn, $barcode, $fk_barcode_type);
+		$result = $this->productsupplier->update_buyprice($qty, $buyprice, OnLiApiAccess::$user, $price_base_type, $fourn, $availability, $ref_fourn, $tva_tx, $charges, $remise_percent, $remise, $newnpr, $delivery_time_days, $supplier_reputation, $localtaxes_array, $newdefaultvatcode, $multicurrency_buyprice, $multicurrency_price_base_type, $multicurrency_tx, $multicurrency_code, $desc_fourn, $barcode, $fk_barcode_type);
 
 		if ($result <= 0) {
 			throw new RestException(500, "Error updating buy price : ".$this->db->lasterror());
@@ -912,7 +912,7 @@ class Products extends DolibarrApi
 	 */
 	public function deletePurchasePrice($id, $priceid)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'supprimer')) {
 			throw new RestException(403);
 		}
 		$result = $this->productsupplier->fetch($id);
@@ -920,8 +920,8 @@ class Products extends DolibarrApi
 			throw new RestException(404, 'Product not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $this->productsupplier->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $this->productsupplier->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$resultsupplier = 0;
@@ -953,14 +953,14 @@ class Products extends DolibarrApi
 	{
 		global $db, $conf;
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
 		$obj_ret = array();
 
 		// Force id of company for external users
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : '';
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : '';
 		if ($socid > 0) {
 			if ($supplier != $socid || empty($supplier)) {
 				throw new RestException(403, 'As an external user, you can request only for your supplier id = '.$socid);
@@ -1067,19 +1067,19 @@ class Products extends DolibarrApi
 
 		$id = (empty($id) ? 0 : $id);
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : '';
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : '';
 
 		$result = $this->product->fetch($id, $ref, $ref_ext, $barcode);
 		if (!$result) {
 			throw new RestException(404, 'Product not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $this->product->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $this->product->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$product_fourn_list = array();
@@ -1117,7 +1117,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributes($sortfield = "t.ref", $sortorder = 'ASC', $limit = 100, $page = 0, $sqlfilters = '', $properties = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1179,7 +1179,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributeById($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1224,7 +1224,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributesByRef($ref)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1276,7 +1276,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributesByRefExt($ref_ext)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1328,7 +1328,7 @@ class Products extends DolibarrApi
 	 */
 	public function addAttributes($ref, $label, $ref_ext = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1337,7 +1337,7 @@ class Products extends DolibarrApi
 		$prodattr->ref = $ref;
 		$prodattr->ref_ext = $ref_ext;
 
-		$resid = $prodattr->create(DolibarrApiAccess::$user);
+		$resid = $prodattr->create(OnLiApiAccess::$user);
 		if ($resid <= 0) {
 			throw new RestException(500, "Error creating new attribute");
 		}
@@ -1362,7 +1362,7 @@ class Products extends DolibarrApi
 	 */
 	public function putAttributes($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1388,7 +1388,7 @@ class Products extends DolibarrApi
 			$prodattr->$field = $this->_checkValForAPI($field, $value, $prodattr);
 		}
 
-		if ($prodattr->update(DolibarrApiAccess::$user) > 0) {
+		if ($prodattr->update(OnLiApiAccess::$user) > 0) {
 			$result = $prodattr->fetch((int) $id);
 			if ($result == 0) {
 				throw new RestException(404, 'Attribute not found');
@@ -1414,13 +1414,13 @@ class Products extends DolibarrApi
 	 */
 	public function deleteAttributes($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'supprimer')) {
 			throw new RestException(403);
 		}
 
 		$prodattr = new ProductAttribute($this->db);
 		$prodattr->id = (int) $id;
-		$result = $prodattr->delete(DolibarrApiAccess::$user);
+		$result = $prodattr->delete(OnLiApiAccess::$user);
 
 		if ($result <= 0) {
 			throw new RestException(500, "Error deleting attribute");
@@ -1444,7 +1444,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributeValueById($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1487,7 +1487,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributeValueByRef($id, $ref)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1529,7 +1529,7 @@ class Products extends DolibarrApi
 	 */
 	public function deleteAttributeValueByRef($id, $ref)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'supprimer')) {
 			throw new RestException(403);
 		}
 
@@ -1551,7 +1551,7 @@ class Products extends DolibarrApi
 
 		$attrval = new ProductAttributeValue($this->db);
 		$attrval->id = $result->rowid;
-		$result = $attrval->delete(DolibarrApiAccess::$user);
+		$result = $attrval->delete(OnLiApiAccess::$user);
 		if ($result > 0) {
 			return 1;
 		}
@@ -1574,7 +1574,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributeValues($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1607,7 +1607,7 @@ class Products extends DolibarrApi
 	 */
 	public function getAttributeValuesByRef($ref)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1649,7 +1649,7 @@ class Products extends DolibarrApi
 	 */
 	public function addAttributeValue($id, $ref, $value)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1662,7 +1662,7 @@ class Products extends DolibarrApi
 		$objectval->ref = $ref;
 		$objectval->value = $value;
 
-		if ($objectval->create(DolibarrApiAccess::$user) > 0) {
+		if ($objectval->create(OnLiApiAccess::$user) > 0) {
 			return $objectval->id;
 		}
 		throw new RestException(500, "Error creating new attribute value");
@@ -1684,7 +1684,7 @@ class Products extends DolibarrApi
 	 */
 	public function putAttributeValue($id, $request_data)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1710,7 +1710,7 @@ class Products extends DolibarrApi
 			$objectval->$field = $this->_checkValForAPI($field, $value, $objectval);
 		}
 
-		if ($objectval->update(DolibarrApiAccess::$user) > 0) {
+		if ($objectval->update(OnLiApiAccess::$user) > 0) {
 			$result = $objectval->fetch((int) $id);
 			if ($result == 0) {
 				throw new RestException(404, 'Attribute not found');
@@ -1736,14 +1736,14 @@ class Products extends DolibarrApi
 	 */
 	public function deleteAttributeValueById($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'supprimer')) {
 			throw new RestException(403);
 		}
 
 		$objectval = new ProductAttributeValue($this->db);
 		$objectval->id = (int) $id;
 
-		if ($objectval->delete(DolibarrApiAccess::$user) > 0) {
+		if ($objectval->delete(OnLiApiAccess::$user) > 0) {
 			return 1;
 		}
 		throw new RestException(500, "Error deleting attribute value");
@@ -1765,7 +1765,7 @@ class Products extends DolibarrApi
 	 */
 	public function getVariants($id, $includestock = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1777,7 +1777,7 @@ class Products extends DolibarrApi
 			$combinations[$key]->attributes = $prodc2vp->fetchByFkCombination((int) $combination->id);
 			$combinations[$key] = $this->_cleanObjectDatas($combinations[$key]);
 
-			if (!empty($includestock) && DolibarrApiAccess::$user->hasRight('stock', 'lire')) {
+			if (!empty($includestock) && OnLiApiAccess::$user->hasRight('stock', 'lire')) {
 				$productModel = new Product($this->db);
 				$productModel->fetch((int) $combination->fk_product_child);
 				$productModel->load_stock((string) $includestock);
@@ -1803,7 +1803,7 @@ class Products extends DolibarrApi
 	 */
 	public function getVariantsByProdRef($ref)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -1848,7 +1848,7 @@ class Products extends DolibarrApi
 	 */
 	public function addVariant($id, $weight_impact, $price_impact, $price_impact_is_percent, $features, $reference = '', $ref_ext = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1883,7 +1883,7 @@ class Products extends DolibarrApi
 
 		$prodcomb = new ProductCombination($this->db);
 
-		$result = $prodcomb->createProductCombination(DolibarrApiAccess::$user, $this->product, $cleanedFeatures, array(), $price_impact_is_percent, (is_numeric($price_impact) ? (float) $price_impact : false), (is_numeric($weight_impact) ? (float) $weight_impact : false), $reference, $ref_ext);
+		$result = $prodcomb->createProductCombination(OnLiApiAccess::$user, $this->product, $cleanedFeatures, array(), $price_impact_is_percent, (is_numeric($price_impact) ? (float) $price_impact : false), (is_numeric($weight_impact) ? (float) $weight_impact : false), $reference, $ref_ext);
 		if ($result > 0) {
 			return $result;
 		} else {
@@ -1913,7 +1913,7 @@ class Products extends DolibarrApi
 	 */
 	public function addVariantByProductRef($ref, $weight_impact, $price_impact, $price_impact_is_percent, $features)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1944,7 +1944,7 @@ class Products extends DolibarrApi
 
 		$prodcomb = new ProductCombination($this->db);
 		if (!$prodcomb->fetchByProductCombination2ValuePairs($this->product->id, $cleanedFeatures)) {
-			$result = $prodcomb->createProductCombination(DolibarrApiAccess::$user, $this->product, $cleanedFeatures, array(), $price_impact_is_percent, (is_numeric($price_impact) ? (float) $price_impact : false), (is_numeric($weight_impact) ? (float) $weight_impact : false));
+			$result = $prodcomb->createProductCombination(OnLiApiAccess::$user, $this->product, $cleanedFeatures, array(), $price_impact_is_percent, (is_numeric($price_impact) ? (float) $price_impact : false), (is_numeric($weight_impact) ? (float) $weight_impact : false));
 			if ($result > 0) {
 				return $result;
 			} else {
@@ -1971,7 +1971,7 @@ class Products extends DolibarrApi
 	 */
 	public function putVariant($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -1991,7 +1991,7 @@ class Products extends DolibarrApi
 			$prodcomb->$field = $this->_checkValForAPI($field, $value, $prodcomb);
 		}
 
-		$result = $prodcomb->update(DolibarrApiAccess::$user);
+		$result = $prodcomb->update(OnLiApiAccess::$user);
 		if ($result > 0) {
 			return 1;
 		}
@@ -2011,13 +2011,13 @@ class Products extends DolibarrApi
 	 */
 	public function deleteVariant($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'supprimer')) {
 			throw new RestException(403);
 		}
 
 		$prodcomb = new ProductCombination($this->db);
 		$prodcomb->id = (int) $id;
-		$result = $prodcomb->delete(DolibarrApiAccess::$user);
+		$result = $prodcomb->delete(OnLiApiAccess::$user);
 		if ($result <= 0) {
 			throw new RestException(500, "Error deleting variant");
 		}
@@ -2040,12 +2040,12 @@ class Products extends DolibarrApi
 	 */
 	public function getStock($id, $selected_warehouse_id = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire') || !DolibarrApiAccess::$user->hasRight('stock', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire') || !OnLiApiAccess::$user->hasRight('stock', 'lire')) {
 			throw new RestException(403);
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$product_model = new Product($this->db);
@@ -2129,7 +2129,7 @@ class Products extends DolibarrApi
 
 		unset($object->supplierprices);	// Must use another API to get them
 
-		if (!DolibarrApiAccess::$user->hasRight('stock', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('stock', 'lire')) {
 			unset($object->stock_reel);
 			unset($object->stock_theorique);
 			unset($object->stock_warehouse);
@@ -2187,7 +2187,7 @@ class Products extends DolibarrApi
 
 		$id = (empty($id) ? 0 : $id);
 
-		if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -2196,11 +2196,11 @@ class Products extends DolibarrApi
 			throw new RestException(404, 'Product not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('product', $this->product->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('product', $this->product->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!empty($includestockdata) && DolibarrApiAccess::$user->hasRight('stock', 'lire')) {
+		if (!empty($includestockdata) && OnLiApiAccess::$user->hasRight('stock', 'lire')) {
 			$this->product->load_stock((string) $includestockdata);
 
 			if (is_array($this->product->stock_warehouse)) {

@@ -23,7 +23,7 @@
  *    \brief      HRM module setup page
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/hrm.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
@@ -74,7 +74,7 @@ if ($action == 'update') {
 	foreach ($list as $constname) {  // @phan-suppress-current-line PhanEmptyForeach
 		$constvalue = GETPOST($constname, 'alpha');
 
-		if (!dolibarr_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
+		if (!onli_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
 			$error++;
 		}
 	}

@@ -31,7 +31,7 @@
  *		\brief      Page to setup the module Foundation
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/member.lib.php';
@@ -97,7 +97,7 @@ if ($action == 'updateall') {
 		$typetouse = empty($oldtypetonewone[$consttype]) ? $consttype : $oldtypetonewone[$consttype];
 		$constvalue = preg_replace('/:member$/', '', $constvalue);
 
-		$res = dolibarr_set_const($db, $constname, $constvalue, $consttype, 0, $constnote, $conf->entity);
+		$res = onli_set_const($db, $constname, $constvalue, $consttype, 0, $constnote, $conf->entity);
 		if ($res <= 0) {
 			$error++;
 			$action = 'list';
@@ -125,7 +125,7 @@ if ($action == 'update' || $action == 'add') {
 	$typetouse = empty($oldtypetonewone[$consttype]) ? $consttype : $oldtypetonewone[$consttype];
 	$constvalue = preg_replace('/:member$/', '', $constvalue);
 
-	$res = dolibarr_set_const($db, $constname, $constvalue, $typetouse, 0, $constnote, $conf->entity);
+	$res = onli_set_const($db, $constname, $constvalue, $typetouse, 0, $constnote, $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;

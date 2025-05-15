@@ -32,7 +32,7 @@ if (!defined('NOLOGIN')) {
 }
 
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1');     // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1');     // Do not check IP defined into conf $onli_main_restrict_ip
 }
 
 if (!defined('NOBROWSERNOTIF')) {
@@ -47,7 +47,7 @@ if (is_numeric($entity)) {
 	define("DOLENTITY", $entity);
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/ticket/class/actions_ticket.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formticket.class.php';

@@ -29,13 +29,13 @@
  * - The class name must be InterfaceMyTrigger
  */
 
-require_once DOL_DOCUMENT_ROOT.'/core/triggers/dolibarrtriggers.class.php';
+require_once DOL_DOCUMENT_ROOT.'/core/triggers/onlitriggers.class.php';
 
 
 /**
  *  Class of triggers for MyModule module
  */
-class InterfaceMyModuleTriggers extends DolibarrTriggers
+class InterfaceMyModuleTriggers extends OnLiTriggers
 {
 	/**
 	 * Constructor
@@ -52,7 +52,7 @@ class InterfaceMyModuleTriggers extends DolibarrTriggers
 	}
 
 	/**
-	 * Function called when a Dolibarr business event is done.
+	 * Function called when a OnLi business event is done.
 	 * All functions "runTrigger" are triggered if the file is inside the directory core/triggers
 	 *
 	 * @param string 		$action 	Event action code
@@ -68,7 +68,7 @@ class InterfaceMyModuleTriggers extends DolibarrTriggers
 			return 0; // If module is not enabled, we do nothing
 		}
 
-		// Put here code you want to execute when a Dolibarr business events occurs.
+		// Put here code you want to execute when a OnLi business events occurs.
 		// Data and type of action are stored into $object and $action
 
 		// You can isolate code for each action in a separate method: this method should be named like the trigger in camelCase.

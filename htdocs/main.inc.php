@@ -36,7 +36,7 @@
 /**
  *	\file       htdocs/main.inc.php
  *	\ingroup	core
- *	\brief      File that defines environment for Dolibarr GUI pages only (file not required by scripts)
+ *	\brief      File that defines environment for OnLi GUI pages only (file not required by scripts)
  */
 
 //@ini_set('memory_limit', '128M');	// This may be useless if memory is hard limited by your PHP
@@ -65,7 +65,7 @@ if (defined('NOREQUIREUSER') && !defined('NOREQUIREMENU')) {
 	exit;
 }
 
-// This is to make Dolibarr working with Plesk
+// This is to make OnLi working with Plesk
 if (!empty($_SERVER['DOCUMENT_ROOT']) && substr($_SERVER['DOCUMENT_ROOT'], -6) !== 'htdocs') {
 	set_include_path($_SERVER['DOCUMENT_ROOT'].'/htdocs');
 }
@@ -107,8 +107,8 @@ if (!empty($php_session_save_handler) && $php_session_save_handler == 'db') {
 	require_once 'core/lib/phpsessionin'.$php_session_save_handler.'.lib.php';
 }
 
-// Init session. Name of session is specific to Dolibarr instance.
-// Must be done after the include of filefunc.inc.php so global variables of conf file are defined (like $dolibarr_main_instance_unique_id or $dolibarr_main_force_https).
+// Init session. Name of session is specific to OnLi instance.
+// Must be done after the include of filefunc.inc.php so global variables of conf file are defined (like $onli_main_instance_unique_id or $onli_main_force_https).
 // Note: the function dol_getprefix() is defined into functions.lib.php but may have been defined to return a different key to manage another area to protect.
 $prefix = dol_getprefix('');
 $sessionname = 'DOLSESSID_'.$prefix;
@@ -121,14 +121,14 @@ if (!empty($_COOKIE[$sessiontimeout])) {
 // We need this lock as long as we read/write $_SESSION ['vars']. We can remove lock when finished.
 if (!defined('NOSESSION')) {
 	if (PHP_VERSION_ID < 70300) {
-		session_set_cookie_params(0, '/', null, !(empty($dolibarr_main_force_https) && isHTTPS() === false), true); // Add tag secure and httponly on session cookie (same as setting session.cookie_httponly into php.ini). Must be called before the session_start.
+		session_set_cookie_params(0, '/', null, !(empty($onli_main_force_https) && isHTTPS() === false), true); // Add tag secure and httponly on session cookie (same as setting session.cookie_httponly into php.ini). Must be called before the session_start.
 	} else {
 		// Only available for php >= 7.3
 		$sessioncookieparams = array(
 			'lifetime' => 0,
 			'path' => '/',
 			//'domain' => '.mywebsite.com', // the dot at the beginning allows compatibility with subdomains
-			'secure' => !(empty($dolibarr_main_force_https) && isHTTPS() === false),
+			'secure' => !(empty($onli_main_force_https) && isHTTPS() === false),
 			'httponly' => true,
 			'samesite' => 'Lax'	// None || Lax  || Strict
 		);
@@ -183,7 +183,7 @@ register_shutdown_function('dol_shutdown');
 if (isModEnabled('debugbar') && !GETPOST('dol_use_jmobile') && empty($_SESSION['dol_use_jmobile'])) {
 	global $debugbar;
 	include_once DOL_DOCUMENT_ROOT.'/debugbar/class/DebugBar.php';
-	$debugbar = new DolibarrDebugBar();
+	$debugbar = new OnLiDebugBar();
 	$renderer = $debugbar->getJavascriptRenderer();
 	if (!getDolGlobalString('MAIN_HTML_HEADER')) {
 		$conf->global->MAIN_HTML_HEADER = '';
@@ -220,7 +220,7 @@ if (GETPOSTINT('textbrowser') || (!empty($conf->browser->name) && $conf->browser
 	$conf->global->MAIN_OPTIMIZEFORTEXTBROWSER = 2;
 }
 
-// Force HTTPS if required ($conf->file->main_force_https is 0/1 or 'https dolibarr root url')
+// Force HTTPS if required ($conf->file->main_force_https is 0/1 or 'https onli root url')
 // $_SERVER["HTTPS"] is 'on' when link is https, otherwise $_SERVER["HTTPS"] is empty or 'off'
 if (!empty($conf->file->main_force_https) && !isHTTPS() && !defined('NOHTTPSREDIRECT')) {
 	$newurl = '';
@@ -241,16 +241,16 @@ if (!empty($conf->file->main_force_https) && !isHTTPS() && !defined('NOHTTPSREDI
 	// Start redirect
 	if ($newurl) {
 		header_remove(); // Clean header already set to be sure to remove any header like "Set-Cookie: DOLSESSID_..." from non HTTPS answers
-		dol_syslog("main.inc: dolibarr_main_force_https is on, we make a redirect to ".$newurl);
+		dol_syslog("main.inc: onli_main_force_https is on, we make a redirect to ".$newurl);
 		header("Location: ".$newurl);
 		exit;
 	} else {
-		dol_syslog("main.inc: dolibarr_main_force_https is on but we failed to forge new https url so no redirect is done", LOG_WARNING);
+		dol_syslog("main.inc: onli_main_force_https is on but we failed to forge new https url so no redirect is done", LOG_WARNING);
 	}
 }
 
-if (!defined('NOLOGIN') && !defined('NOIPCHECK') && !empty($dolibarr_main_restrict_ip)) {
-	$listofip = explode(',', $dolibarr_main_restrict_ip);
+if (!defined('NOLOGIN') && !defined('NOIPCHECK') && !empty($onli_main_restrict_ip)) {
+	$listofip = explode(',', $onli_main_restrict_ip);
 	$found = false;
 	foreach ($listofip as $ip) {
 		$ip = trim($ip);
@@ -290,9 +290,9 @@ if (!getDolGlobalString('MAIN_VERSION_LAST_UPGRADE') && getDolGlobalString('MAIN
 if ($checkifupgraderequired) {
 	$versiontocompare = getDolGlobalString('MAIN_VERSION_LAST_UPGRADE', getDolGlobalString('MAIN_VERSION_LAST_INSTALL'));
 	require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
-	$dolibarrversionlastupgrade = preg_split('/[.-]/', $versiontocompare);
-	$dolibarrversionprogram = preg_split('/[.-]/', DOL_VERSION);
-	$rescomp = versioncompare($dolibarrversionprogram, $dolibarrversionlastupgrade);
+	$onliversionlastupgrade = preg_split('/[.-]/', $versiontocompare);
+	$onliversionprogram = preg_split('/[.-]/', DOL_VERSION);
+	$rescomp = versioncompare($onliversionprogram, $onliversionlastupgrade);
 	if ($rescomp > 0) {   // Programs have a version higher than database.
 		if (!getDolGlobalString('MAIN_NO_UPGRADE_REDIRECT_ON_LEVEL_3_CHANGE') || $rescomp < 3) {
 			// We did not add "&& $rescomp < 3" because we want upgrade process for build upgrades
@@ -327,10 +327,10 @@ if (!defined('NOTOKENRENEWAL') && !defined('NOSESSION')) {
 	}
 }
 
-//dol_syslog("CSRF info: ".defined('NOCSRFCHECK')." - ".$dolibarr_nocsrfcheck." - ".$conf->global->MAIN_SECURITY_CSRF_WITH_TOKEN." - ".$_SERVER['REQUEST_METHOD']." - ".GETPOST('token', 'alpha'));
+//dol_syslog("CSRF info: ".defined('NOCSRFCHECK')." - ".$onli_nocsrfcheck." - ".$conf->global->MAIN_SECURITY_CSRF_WITH_TOKEN." - ".$_SERVER['REQUEST_METHOD']." - ".GETPOST('token', 'alpha'));
 
 // Check validity of token, only if option MAIN_SECURITY_CSRF_WITH_TOKEN enabled or if constant CSRFCHECK_WITH_TOKEN is set into page
-if ((!defined('NOCSRFCHECK') && empty($dolibarr_nocsrfcheck) && getDolGlobalInt('MAIN_SECURITY_CSRF_WITH_TOKEN')) || defined('CSRFCHECK_WITH_TOKEN')) {
+if ((!defined('NOCSRFCHECK') && empty($onli_nocsrfcheck) && getDolGlobalInt('MAIN_SECURITY_CSRF_WITH_TOKEN')) || defined('CSRFCHECK_WITH_TOKEN')) {
 	$tmpaction = GETPOST('action', 'aZ09');
 	// Array of action code where CSRFCHECK with token will be forced (so token must be provided on url request)
 	$sensitiveget = false;
@@ -381,7 +381,7 @@ if ((!defined('NOCSRFCHECK') && empty($dolibarr_nocsrfcheck) && getDolGlobalInt(
 				} else {
 					dol_syslog("--- Access to ".(empty($_SERVER["REQUEST_METHOD"]) ? '' : $_SERVER["REQUEST_METHOD"].' ').$_SERVER["PHP_SELF"]." refused by CSRF protection (POST method or GET with a sensible value for 'action' parameter) in main.inc.php. Token not provided.", LOG_WARNING);
 					print "Access to this page this way (POST method or GET with a sensible value for 'action' parameter) is refused by CSRF protection in main.inc.php. Token not provided.\n";
-					print "If you access your server behind a proxy using url rewriting and the parameter is provided by caller, you might check that all HTTP header are propagated (or add the line \$dolibarr_nocsrfcheck=1 into your conf.php file or MAIN_SECURITY_CSRF_WITH_TOKEN to 0";
+					print "If you access your server behind a proxy using url rewriting and the parameter is provided by caller, you might check that all HTTP header are propagated (or add the line \$onli_nocsrfcheck=1 into your conf.php file or MAIN_SECURITY_CSRF_WITH_TOKEN to 0";
 					if (getDolGlobalString('MAIN_SECURITY_CSRF_WITH_TOKEN')) {
 						print " instead of " . getDolGlobalString('MAIN_SECURITY_CSRF_WITH_TOKEN');
 					}
@@ -475,27 +475,27 @@ $login = '';
 $error = 0;
 if (!defined('NOLOGIN')) {
 	// $authmode lists the different method of identification to be tested in order of preference.
-	// Example: 'http', 'dolibarr', 'ldap', 'http,forceuser', '...'
+	// Example: 'http', 'onli', 'ldap', 'http,forceuser', '...'
 
 	if (defined('MAIN_AUTHENTICATION_MODE')) {
-		$dolibarr_main_authentication = constant('MAIN_AUTHENTICATION_MODE');
+		$onli_main_authentication = constant('MAIN_AUTHENTICATION_MODE');
 	} else {
 		// Authentication mode
-		if (empty($dolibarr_main_authentication)) {
-			$dolibarr_main_authentication = 'dolibarr';
+		if (empty($onli_main_authentication)) {
+			$onli_main_authentication = 'onli';
 		}
 		// Authentication mode: forceuser
-		if ($dolibarr_main_authentication == 'forceuser' && empty($dolibarr_auto_user)) {
-			$dolibarr_auto_user = 'auto';
+		if ($onli_main_authentication == 'forceuser' && empty($onli_auto_user)) {
+			$onli_auto_user = 'auto';
 		}
 	}
 	// Set authmode
-	$authmode = explode(',', $dolibarr_main_authentication);
+	$authmode = explode(',', $onli_main_authentication);
 
 	// No authentication mode
 	if (!count($authmode)) {
 		$langs->load('main');
-		dol_print_error(null, $langs->trans("ErrorConfigParameterNotDefined", 'dolibarr_main_authentication'));
+		dol_print_error(null, $langs->trans("ErrorConfigParameterNotDefined", 'onli_main_authentication'));
 		exit;
 	}
 
@@ -522,7 +522,7 @@ if (!defined('NOLOGIN')) {
 		$dol_use_jmobile = GETPOSTINT('dol_use_jmobile', 3); // 0=default, 1=to say we use app from a webview app, 2=to say we use app from a webview app and keep ajax
 
 		// If in demo mode, we check we go to home page through the public/demo/index.php page
-		if (!empty($dolibarr_main_demo) && $_SERVER['PHP_SELF'] == DOL_URL_ROOT.'/index.php') {  // We ask index page
+		if (!empty($onli_main_demo) && $_SERVER['PHP_SELF'] == DOL_URL_ROOT.'/index.php') {  // We ask index page
 			if (empty($_SERVER['HTTP_REFERER']) || !preg_match('/public/', $_SERVER['HTTP_REFERER'])) {
 				dol_syslog("Call index page from another url than demo page (call is done from page ".(empty($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER']).")");
 				$url = '';
@@ -631,8 +631,8 @@ if (!defined('NOLOGIN')) {
 		if (defined('MAIN_AUTHENTICATION_POST_METHOD')) {
 			$allowedmethodtopostusername = constant('MAIN_AUTHENTICATION_POST_METHOD');	// Note a value of 2 is not compatible with some authentication methods that put username as GET parameter
 		}
-		// TODO Remove use of $_COOKIE['login_dolibarr'] by replacing line with $usertotest = GETPOST("username", "alpha", $allowedmethodtopostusername); ?
-		$usertotest = (!empty($_COOKIE['login_dolibarr']) ? preg_replace('/[^a-zA-Z0-9_@\-\.]/', '', $_COOKIE['login_dolibarr']) : GETPOST("username", "alpha", $allowedmethodtopostusername));
+		// TODO Remove use of $_COOKIE['login_onli'] by replacing line with $usertotest = GETPOST("username", "alpha", $allowedmethodtopostusername); ?
+		$usertotest = (!empty($_COOKIE['login_onli']) ? preg_replace('/[^a-zA-Z0-9_@\-\.]/', '', $_COOKIE['login_onli']) : GETPOST("username", "alpha", $allowedmethodtopostusername));
 		$passwordtotest = GETPOST('password', 'password', $allowedmethodtopostusername);
 		$entitytotest = (GETPOSTINT('entity') ? GETPOSTINT('entity') : (!empty($conf->entity) ? $conf->entity : 1));
 
@@ -641,7 +641,7 @@ if (!defined('NOLOGIN')) {
 		if (isset($_SERVER["REMOTE_USER"]) && in_array('http', $authmode)) {	// For http basic login test
 			$goontestloop = true;
 		}
-		if ($dolibarr_main_authentication == 'forceuser' && !empty($dolibarr_auto_user)) {	// For automatic login with a forced user
+		if ($onli_main_authentication == 'forceuser' && !empty($onli_auto_user)) {	// For automatic login with a forced user
 			$goontestloop = true;
 		}
 		if (GETPOST("username", "alpha", $allowedmethodtopostusername)) {	// For posting the login form
@@ -653,7 +653,7 @@ if (!defined('NOLOGIN')) {
 		if (GETPOST('beforeoauthloginredirect') || GETPOST('afteroauthloginreturn')) {	// For oauth login
 			$goontestloop = true;
 		}
-		if (!empty($_COOKIE['login_dolibarr'])) {	// TODO For ? Remove this ?
+		if (!empty($_COOKIE['login_onli'])) {	// TODO For ? Remove this ?
 			$goontestloop = true;
 		}
 
@@ -670,9 +670,9 @@ if (!defined('NOLOGIN')) {
 		// Validation of login/pass/entity
 		// If ok, the variable login will be returned
 		// If error, we will put error message in session under the name dol_loginmesg
-		if ($test && $goontestloop && GETPOST('actionlogin', 'aZ09') != 'disabled' && (GETPOST('actionlogin', 'aZ09') == 'login' || $dolibarr_main_authentication != 'dolibarr')) {
+		if ($test && $goontestloop && GETPOST('actionlogin', 'aZ09') != 'disabled' && (GETPOST('actionlogin', 'aZ09') == 'login' || $onli_main_authentication != 'onli')) {
 			// Loop on each test mode defined into $authmode
-			// $authmode is an array for example: array('0'=>'dolibarr', '1'=>'googleoauth');
+			// $authmode is an array for example: array('0'=>'onli', '1'=>'googleoauth');
 			$oauthmodetotestarray = array('google');
 			foreach ($oauthmodetotestarray as $oauthmodetotest) {
 				if (in_array($oauthmodetotest.'oauth', $authmode)) {	// This is an authmode that is currently qualified. Do we have to remove it ?
@@ -780,7 +780,7 @@ if (!defined('NOLOGIN')) {
 		if ($resultFetchUser <= 0 || $user->isNotIntoValidityDateRange()) {
 			dol_syslog('User not found or not valid, connection refused');
 			session_destroy();
-			session_set_cookie_params(0, '/', null, !empty($dolibarr_main_force_https), true); // Add tag secure and httponly on session cookie
+			session_set_cookie_params(0, '/', null, !empty($onli_main_force_https), true); // Add tag secure and httponly on session cookie
 			session_name($sessionname);
 			dol_session_start();
 
@@ -788,9 +788,9 @@ if (!defined('NOLOGIN')) {
 				// Load translation files required by page
 				$langs->loadLangs(array('main', 'errors'));
 
-				$_SESSION["dol_loginmesg"] = $langs->transnoentitiesnoconv("ErrorCantLoadUserFromDolibarrDatabase", $login);
+				$_SESSION["dol_loginmesg"] = $langs->transnoentitiesnoconv("ErrorCantLoadUserFromOnLiDatabase", $login);
 
-				$user->context['audit'] = 'ErrorCantLoadUserFromDolibarrDatabase - login='.$login;
+				$user->context['audit'] = 'ErrorCantLoadUserFromOnLiDatabase - login='.$login;
 			} elseif ($resultFetchUser < 0) {
 				$_SESSION["dol_loginmesg"] = $user->error;
 
@@ -867,16 +867,16 @@ if (!defined('NOLOGIN')) {
 				dol_syslog("The user login has a validity between [".$user->datestartvalidity." and ".$user->dateendvalidity."], current date is ".dol_now());
 			}
 			session_destroy();
-			session_set_cookie_params(0, '/', null, !empty($dolibarr_main_force_https), true); // Add tag secure and httponly on session cookie
+			session_set_cookie_params(0, '/', null, !empty($onli_main_force_https), true); // Add tag secure and httponly on session cookie
 			session_name($sessionname);
 			dol_session_start();
 
 			if ($resultFetchUser == 0) {
 				$langs->loadLangs(array('main', 'errors'));
 
-				$_SESSION["dol_loginmesg"] = $langs->transnoentitiesnoconv("ErrorCantLoadUserFromDolibarrDatabase", $login);
+				$_SESSION["dol_loginmesg"] = $langs->transnoentitiesnoconv("ErrorCantLoadUserFromOnLiDatabase", $login);
 
-				$user->context['audit'] = 'ErrorCantLoadUserFromDolibarrDatabase - login='.$login;
+				$user->context['audit'] = 'ErrorCantLoadUserFromOnLiDatabase - login='.$login;
 			} elseif ($resultFetchUser < 0) {
 				$_SESSION["dol_loginmesg"] = $user->error;
 
@@ -1597,14 +1597,14 @@ function top_htmlhead($head, $title = '', $disablejs = 0, $disablehead = 0, $arr
 		print '<meta charset="utf-8">'."\n";
 		print '<meta name="robots" content="'.($disablenoindex ? 'index' : 'noindex').($disablenofollow ? ',follow' : ',nofollow').'">'."\n"; // Do not index
 		print '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n"; // Scale for mobile device
-		print '<meta name="author" content="Dolibarr Development Team">'."\n";
+		print '<meta name="author" content="OnLi Development Team">'."\n";
 		print '<meta name="anti-csrf-newtoken" content="'.newToken().'">'."\n";
 		print '<meta name="anti-csrf-currenttoken" content="'.currentToken().'">'."\n";
 		if (getDolGlobalInt('MAIN_FEATURES_LEVEL')) {
 			print '<meta name="MAIN_FEATURES_LEVEL" content="'.getDolGlobalInt('MAIN_FEATURES_LEVEL').'">'."\n";
 		}
 		// Favicon
-		$favicon = DOL_URL_ROOT.'/theme/dolibarr_256x256_color.png';
+		$favicon = DOL_URL_ROOT.'/theme/onli_256x256_color.png';
 		$appletouchicon = DOL_URL_ROOT.'/theme/apple-touch-icon.png';
 		if (!empty($mysoc->logo_squarred_mini)) {
 			$favicon = DOL_URL_ROOT.'/viewimage.php?cache=1&modulepart=mycompany&file='.urlencode('logos/thumbs/'.$mysoc->logo_squarred_mini);
@@ -1674,7 +1674,7 @@ function top_htmlhead($head, $title = '', $disablejs = 0, $disablehead = 0, $arr
 		// Refresh value of MAIN_IHM_PARAMS_REV before forging the parameter line.
 		if (GETPOST('dol_resetcache')) {
 			include_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
-			dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 		}
 
 		$themeparam = '?lang='.$langs->defaultlang.'&amp;theme='.$conf->theme.(GETPOST('optioncss', 'aZ09') ? '&amp;optioncss='.GETPOST('optioncss', 'aZ09', 1) : '').(empty($user->id) ? '' : ('&amp;userid='.$user->id)).'&amp;entity='.$conf->entity;
@@ -1753,7 +1753,7 @@ function top_htmlhead($head, $title = '', $disablejs = 0, $disablehead = 0, $arr
 		}
 
 		if (!defined('DISABLE_CSS_DEFAULT_THEME')) {
-			print '<!-- Includes CSS for Dolibarr theme -->'."\n";
+			print '<!-- Includes CSS for OnLi theme -->'."\n";
 			print '<link rel="stylesheet" type="text/css" href="' . $themepath . $themeparam . '">' . "\n";
 		}
 
@@ -1914,13 +1914,13 @@ function top_htmlhead($head, $title = '', $disablejs = 0, $disablehead = 0, $arr
 					$enablebrowsernotif = false;
 				}
 				if ($enablebrowsernotif) {
-					print '<!-- Includes JS of Dolibarr (browser layout = '.$conf->browser->layout.')-->'."\n";
+					print '<!-- Includes JS of OnLi (browser layout = '.$conf->browser->layout.')-->'."\n";
 					print '<script nonce="'.getNonce().'" src="'.DOL_URL_ROOT.'/core/js/lib_notification.js.php?lang='.$langs->defaultlang.($ext ? '&amp;'.$ext : '').'"></script>'."\n";
 				}
 			}
 
 			// Global js function
-			print '<!-- Includes JS of Dolibarr -->'."\n";
+			print '<!-- Includes JS of OnLi -->'."\n";
 			if (!defined('DISABLE_LIB_HEAD_JS')) {
 				print '<script nonce="' . getNonce() . '" src="' . DOL_URL_ROOT . '/core/js/lib_head.js.php?lang=' . $langs->defaultlang . ($ext ? '&amp;' . $ext : '') . '"></script>' . "\n";
 			}
@@ -2006,7 +2006,7 @@ function top_htmlhead($head, $title = '', $disablejs = 0, $disablehead = 0, $arr
 function top_menu($head, $title = '', $target = '', $disablejs = 0, $disablehead = 0, $arrayofjs = array(), $arrayofcss = array(), $morequerystring = '', $helppagename = '')
 {
 	global $user, $conf, $langs, $db, $form;
-	global $dolibarr_main_authentication, $dolibarr_main_demo;
+	global $onli_main_authentication, $onli_main_demo;
 	global $hookmanager, $menumanager;
 
 	$searchform = '';
@@ -2177,7 +2177,7 @@ function top_menu($head, $title = '', $target = '', $disablejs = 0, $disablehead
 			$toprightmenu .= $form->textwithtooltip('', $langs->trans("PrintContentArea"), 2, 1, $text, 'login_block_elem', 2);
 		}
 
-		// Link to Dolibarr wiki pages
+		// Link to OnLi wiki pages
 		if (!getDolGlobalString('MAIN_HELP_DISABLELINK') && !getDolGlobalString('MAIN_OPTIMIZEFORTEXTBROWSER')) {
 			$langs->load("help");
 
@@ -2289,7 +2289,7 @@ function top_menu($head, $title = '', $target = '', $disablejs = 0, $disablehead
 function top_menu_user($hideloginname = 0, $urllogout = '')
 {
 	global $langs, $conf, $db, $hookmanager, $user, $mysoc;
-	global $dolibarr_main_authentication, $dolibarr_main_demo;
+	global $onli_main_authentication, $onli_main_demo;
 	global $menumanager;
 
 	// Return empty in some case
@@ -2377,7 +2377,7 @@ function top_menu_user($hideloginname = 0, $urllogout = '')
 	if (getDolGlobalString('MAIN_MODULE_MULTICOMPANY')) {
 		$dropdownBody .= '<br><b>'.$langs->trans("ConnectedOnMultiCompany").':</b> '.$conf->entity.' (user entity '.$user->entity.')';
 	}
-	$dropdownBody .= '<br><b>'.$langs->trans("AuthenticationMode").':</b> '.$_SESSION["dol_authmode"].(empty($dolibarr_main_demo) ? '' : ' (demo)');
+	$dropdownBody .= '<br><b>'.$langs->trans("AuthenticationMode").':</b> '.$_SESSION["dol_authmode"].(empty($onli_main_demo) ? '' : ' (demo)');
 	$dropdownBody .= '<br><b>'.$langs->trans("ConnectedSince").':</b> '.dol_print_date($user->datelastlogin, "dayhour", 'tzuser');
 	$dropdownBody .= '<br><b>'.$langs->trans("PreviousConnexion").':</b> '.dol_print_date($user->datepreviouslogin, "dayhour", 'tzuser');
 	$dropdownBody .= '<br><b>'.$langs->trans("CurrentTheme").':</b> '.$conf->theme;
@@ -3283,29 +3283,29 @@ function left_menu($menu_array_before, $helppagename = '', $notused = '', $menu_
 			$menumanager->showmenu('left', array('searchform' => $searchform)); // output menu_array and menu found in database
 		}
 
-		// Dolibarr version + help + bug report link
+		// OnLi version + help + bug report link
 		print "\n";
 		print "<!-- Begin Help Block-->\n";
 		print '<div id="blockvmenuhelp" class="blockvmenuhelp">'."\n";
 
 		// Version
 		if (getDolGlobalString('MAIN_SHOW_VERSION')) {    // Version is already on help picto and on login page.
-			$doliurl = 'https://www.dolibarr.org';
+			$doliurl = 'https://www.onli.org';
 			//local communities
 			if (preg_match('/fr/i', $langs->defaultlang)) {
-				$doliurl = 'https://www.dolibarr.fr';
+				$doliurl = 'https://www.onli.fr';
 			}
 			if (preg_match('/es/i', $langs->defaultlang)) {
-				$doliurl = 'https://www.dolibarr.es';
+				$doliurl = 'https://www.onli.es';
 			}
 			if (preg_match('/de/i', $langs->defaultlang)) {
-				$doliurl = 'https://www.dolibarr.de';
+				$doliurl = 'https://www.onli.de';
 			}
 			if (preg_match('/it/i', $langs->defaultlang)) {
-				$doliurl = 'https://www.dolibarr.it';
+				$doliurl = 'https://www.onli.it';
 			}
 			if (preg_match('/gr/i', $langs->defaultlang)) {
-				$doliurl = 'https://www.dolibarr.gr';
+				$doliurl = 'https://www.onli.gr';
 			}
 
 			$appli = constant('DOL_APPLICATION_TITLE');
@@ -3342,7 +3342,7 @@ function left_menu($menu_array_before, $helppagename = '', $notused = '', $menu_
 			require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 
 			if (getDolGlobalString('MAIN_BUGTRACK_ENABLELINK') == 'github') {
-				$bugbaseurl = 'https://github.com/Dolibarr/dolibarr/issues/new?labels=Bug';
+				$bugbaseurl = 'https://github.com/OnLi/onli/issues/new?labels=Bug';
 				$bugbaseurl .= '&title=';
 				$bugbaseurl .= urlencode("Bug: ");
 				$bugbaseurl .= '&body=';
@@ -3370,7 +3370,7 @@ function left_menu($menu_array_before, $helppagename = '', $notused = '', $menu_
 				$bugbaseurl .= urlencode("## Steps to reproduce the behavior\n");
 				$bugbaseurl .= urlencode("[*Verbose description*]\n");
 				$bugbaseurl .= urlencode("\n");
-				$bugbaseurl .= urlencode("## [Attached files](https://help.github.com/articles/issue-attachments) (Screenshots, screencasts, dolibarr.log, debugging information…)\n");
+				$bugbaseurl .= urlencode("## [Attached files](https://help.github.com/articles/issue-attachments) (Screenshots, screencasts, onli.log, debugging information…)\n");
 				$bugbaseurl .= urlencode("[*Files*]\n");
 				$bugbaseurl .= urlencode("\n");
 
@@ -3504,25 +3504,25 @@ function getHelpParamFor($helppagename, $langs)
 		// If WIKI URL
 		$reg = array();
 		if (preg_match('/^es/i', $langs->defaultlang)) {
-			$helpbaseurl = 'http://wiki.dolibarr.org/index.php/%s';
+			$helpbaseurl = 'http://wiki.onli.org/index.php/%s';
 			if (preg_match('/ES:([^|]+)/i', $helppagename, $reg)) {
 				$helppage = $reg[1];
 			}
 		}
 		if (preg_match('/^fr/i', $langs->defaultlang)) {
-			$helpbaseurl = 'http://wiki.dolibarr.org/index.php/%s';
+			$helpbaseurl = 'http://wiki.onli.org/index.php/%s';
 			if (preg_match('/FR:([^|]+)/i', $helppagename, $reg)) {
 				$helppage = $reg[1];
 			}
 		}
 		if (preg_match('/^de/i', $langs->defaultlang)) {
-			$helpbaseurl = 'http://wiki.dolibarr.org/index.php/%s';
+			$helpbaseurl = 'http://wiki.onli.org/index.php/%s';
 			if (preg_match('/DE:([^|]+)/i', $helppagename, $reg)) {
 				$helppage = $reg[1];
 			}
 		}
 		if (empty($helppage)) {	// If help page not already found
-			$helpbaseurl = 'http://wiki.dolibarr.org/index.php/%s';
+			$helpbaseurl = 'http://wiki.onli.org/index.php/%s';
 			if (preg_match('/EN:([^|]+)/i', $helppagename, $reg)) {
 				$helppage = $reg[1];
 			}
@@ -3596,7 +3596,7 @@ if (!function_exists("llxFooter")) {
 		global $conf, $db, $langs, $user, $mysoc, $object, $hookmanager, $action;
 		global $delayedhtmlcontent;
 		global $contextpage, $page, $limit, $mode;
-		global $dolibarr_distrib;
+		global $onli_distrib;
 
 		$ext = 'layout='.urlencode($conf->browser->layout).'&version='.urlencode(DOL_VERSION);
 
@@ -3708,7 +3708,7 @@ if (!function_exists("llxFooter")) {
 		}
 
 		if (!empty($conf->use_javascript_ajax)) {
-			print "\n".'<!-- Includes JS Footer of Dolibarr -->'."\n";
+			print "\n".'<!-- Includes JS Footer of OnLi -->'."\n";
 			print '<script src="'.DOL_URL_ROOT.'/core/js/lib_foot.js.php?lang='.$langs->defaultlang.($ext ? '&'.$ext : '').'"></script>'."\n";
 		}
 
@@ -3761,7 +3761,7 @@ if (!function_exists("llxFooter")) {
 		$forceping = GETPOST('forceping', 'alpha');
 		if (($_SERVER["PHP_SELF"] == DOL_URL_ROOT.'/index.php') || $forceping) {
 			//print '<!-- instance_unique_id='.$conf->file->instance_unique_id.' MAIN_FIRST_PING_OK_ID='.$conf->global->MAIN_FIRST_PING_OK_ID.' -->';
-			$hash_unique_id = dol_hash('dolibarr'.$conf->file->instance_unique_id, 'sha256');	// Note: if the global salt changes, this hash changes too so ping may be counted twice. We don't mind. It is for statistics purpose only.
+			$hash_unique_id = dol_hash('onli'.$conf->file->instance_unique_id, 'sha256');	// Note: if the global salt changes, this hash changes too so ping may be counted twice. We don't mind. It is for statistics purpose only.
 
 			if (!getDolGlobalString('MAIN_FIRST_PING_OK_DATE')
 				|| (!empty($conf->file->instance_unique_id) && ($hash_unique_id != $conf->global->MAIN_FIRST_PING_OK_ID) && (getDolGlobalString('MAIN_FIRST_PING_OK_ID') != 'disabled'))
@@ -3777,21 +3777,21 @@ if (!function_exists("llxFooter")) {
 					} else {
 						include_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 
-						print "\n".'<!-- Includes JS for Ping of Dolibarr forceping='.$forceping.' MAIN_FIRST_PING_OK_DATE='.getDolGlobalString("MAIN_FIRST_PING_OK_DATE").' MAIN_FIRST_PING_OK_ID='.getDolGlobalString("MAIN_FIRST_PING_OK_ID").' MAIN_LAST_PING_KO_DATE='.getDolGlobalString("MAIN_LAST_PING_KO_DATE").' -->'."\n";
+						print "\n".'<!-- Includes JS for Ping of OnLi forceping='.$forceping.' MAIN_FIRST_PING_OK_DATE='.getDolGlobalString("MAIN_FIRST_PING_OK_DATE").' MAIN_FIRST_PING_OK_ID='.getDolGlobalString("MAIN_FIRST_PING_OK_ID").' MAIN_LAST_PING_KO_DATE='.getDolGlobalString("MAIN_LAST_PING_KO_DATE").' -->'."\n";
 						print "\n<!-- JS CODE TO ENABLE the anonymous Ping -->\n";
-						$url_for_ping = getDolGlobalString('MAIN_URL_FOR_PING', "https://ping.dolibarr.org/");
+						$url_for_ping = getDolGlobalString('MAIN_URL_FOR_PING', "https://ping.onli.org/");
 						// Try to guess the distrib used
 						$distrib = 'standard';
 						if ($_SERVER["SERVER_ADMIN"] == 'doliwamp@localhost') {
 							$distrib = 'doliwamp';
 						}
-						if (!empty($dolibarr_distrib)) {
-							$distrib = $dolibarr_distrib;
+						if (!empty($onli_distrib)) {
+							$distrib = $onli_distrib;
 						}
 						?>
 							<script>
 							jQuery(document).ready(function (tmp) {
-								console.log("Try Ping with hash_unique_id is dol_hash('dolibarr'+instance_unique_id, 'sha256')");
+								console.log("Try Ping with hash_unique_id is dol_hash('onli'+instance_unique_id, 'sha256')");
 								$.ajax({
 									  method: "POST",
 									  url: "<?php echo $url_for_ping ?>",
@@ -3800,7 +3800,7 @@ if (!function_exists("llxFooter")) {
 									  data: {
 										  hash_algo: 'dol_hash-sha256',
 										  hash_unique_id: '<?php echo dol_escape_js($hash_unique_id); ?>',
-										  action: 'dolibarrping',
+										  action: 'onliping',
 										  version: '<?php echo (float) DOL_VERSION; ?>',
 										  entity: '<?php echo (int) $conf->entity; ?>',
 										  dbtype: '<?php echo dol_escape_js($db->type); ?>',
@@ -3840,8 +3840,8 @@ if (!function_exists("llxFooter")) {
 					$now = dol_now();
 					print "\n<!-- NO JS CODE TO ENABLE the anonymous Ping. It was disabled -->\n";
 					include_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
-					dolibarr_set_const($db, 'MAIN_FIRST_PING_OK_DATE', dol_print_date($now, 'dayhourlog', 'gmt'), 'chaine', 0, '', $conf->entity);
-					dolibarr_set_const($db, 'MAIN_FIRST_PING_OK_ID', 'disabled', 'chaine', 0, '', $conf->entity);
+					onli_set_const($db, 'MAIN_FIRST_PING_OK_DATE', dol_print_date($now, 'dayhourlog', 'gmt'), 'chaine', 0, '', $conf->entity);
+					onli_set_const($db, 'MAIN_FIRST_PING_OK_ID', 'disabled', 'chaine', 0, '', $conf->entity);
 				}
 			}
 		}

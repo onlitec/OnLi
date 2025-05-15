@@ -26,7 +26,7 @@
  * \brief		Page to show book-entry
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/accounting.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/accountancy/class/bookkeeping.class.php';

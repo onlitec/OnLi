@@ -63,8 +63,8 @@ $left = ($langs->trans("DIRECTION") == 'rtl' ? 'right' : 'left');
  * View
  */
 
-// Important: Following code is to avoid page request by browser and PHP CPU at each Dolibarr page access.
-if (empty($dolibarr_nocache) && GETPOSTINT('cache')) {
+// Important: Following code is to avoid page request by browser and PHP CPU at each OnLi page access.
+if (empty($onli_nocache) && GETPOSTINT('cache')) {
 	header('Cache-Control: max-age='.GETPOSTINT('cache').', public');
 	// For a .php, we must set an Expires to avoid to have it forced to an expired value by the web server
 	header('Expires: '.gmdate('D, d M Y H:i:s', dol_now('gmt') + GETPOSTINT('cache')).' GMT');
@@ -77,7 +77,7 @@ if (empty($dolibarr_nocache) && GETPOSTINT('cache')) {
 
 $title = $langs->trans("Bookmarks");
 
-// URL http://mydolibarr/core/bookmarks_page?dol_use_jmobile=1 can be used for tests
+// URL http://myonli/core/bookmarks_page?dol_use_jmobile=1 can be used for tests
 $head = '<!-- Bookmarks -->'."\n";	// This is used by DoliDroid to know page is a bookmark selection page
 $arrayofjs = array();
 $arrayofcss = array();

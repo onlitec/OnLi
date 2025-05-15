@@ -68,7 +68,7 @@ function showOnlineSignatureUrl($type, $ref, $obj = null, $mode = '')
  */
 function getOnlineSignatureUrl($mode, $type, $ref = '', $localorexternal = 1, $obj = null)
 {
-	global $dolibarr_main_url_root;
+	global $onli_main_url_root;
 
 	if (empty($obj)) {
 		// For compatibility with 15.0 -> 19.0
@@ -84,7 +84,7 @@ function getOnlineSignatureUrl($mode, $type, $ref = '', $localorexternal = 1, $o
 	$out = '';
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

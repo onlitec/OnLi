@@ -228,7 +228,7 @@ class CMailFile
 	 */
 	public function __construct($subject, $to, $from, $msg, $filename_list = array(), $mimetype_list = array(), $mimefilename_list = array(), $addr_cc = "", $addr_bcc = "", $deliveryreceipt = 0, $msgishtml = 0, $errors_to = '', $css = '', $trackid = '', $moreinheader = '', $sendcontext = 'standard', $replyto = '', $upload_dir_tmp = '', $in_reply_to = '', $references = '')
 	{
-		global $conf, $dolibarr_main_data_root, $user;
+		global $conf, $onli_main_data_root, $user;
 
 		dol_syslog("CMailFile::CMailfile: charset=".$conf->file->character_set_client." from=$from, to=$to, addr_cc=$addr_cc, addr_bcc=$addr_bcc, errors_to=$errors_to, replyto=$replyto trackid=$trackid sendcontext=$sendcontext");
 		dol_syslog("CMailFile::CMailfile: subject=".$subject.", deliveryreceipt=".$deliveryreceipt.", msgishtml=".$msgishtml, LOG_DEBUG);
@@ -281,10 +281,10 @@ class CMailFile
 		$this->mixed_boundary = "multipart_x.".time().".x_boundary";
 
 		// On defini related_boundary
-		$this->related_boundary = 'mul_'.dol_hash(uniqid("dolibarr2"), '3'); // Force md5 hash (does not contain special chars)
+		$this->related_boundary = 'mul_'.dol_hash(uniqid("onli2"), '3'); // Force md5 hash (does not contain special chars)
 
 		// On defini alternative_boundary
-		$this->alternative_boundary = 'mul_'.dol_hash(uniqid("dolibarr3"), '3'); // Force md5 hash (does not contain special chars)
+		$this->alternative_boundary = 'mul_'.dol_hash(uniqid("onli3"), '3'); // Force md5 hash (does not contain special chars)
 
 		if (empty($subject)) {
 			dol_syslog("CMailFile::CMailfile: Try to send an email with empty subject");
@@ -306,10 +306,10 @@ class CMailFile
 			$this->msgishtml = $msgishtml;
 		}
 
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -331,7 +331,7 @@ class CMailFile
 				// Note because media links are public, this should be useless, except avoid blocking images with email browser.
 				// This converts an embed file with src="/viewimage.php?modulepart... into a cid link
 				// TODO Exclude viewimage used for the read tracker ?
-				$findimg = $this->findHtmlImages($dolibarr_main_data_root.'/medias');
+				$findimg = $this->findHtmlImages($onli_main_data_root.'/medias');
 				if ($findimg < 0) {
 					dol_syslog("CMailFile::CMailfile: Error on findHtmlImages");
 					$this->error = 'ErrorInAddAttachmentsImageBaseOnMedia';
@@ -589,7 +589,7 @@ class CMailFile
 				$smtps->setMoreInHeader($moreinheader);
 			}
 
-			//X-Dolibarr-TRACKID, In-Reply-To, References and $moreinheader will be added to header inside the smtps->getHeader
+			//X-OnLi-TRACKID, In-Reply-To, References and $moreinheader will be added to header inside the smtps->getHeader
 
 			if (!empty($this->html)) {
 				if (!empty($css)) {
@@ -651,7 +651,7 @@ class CMailFile
 				$smtps->setOptions($options);
 			}
 
-			$this->msgid = time().'.SMTPs-dolibarr-'.$this->trackid.'@'.$host;
+			$this->msgid = time().'.SMTPs-onli-'.$this->trackid.'@'.$host;
 
 			$this->smtps = $smtps;
 		} elseif ($this->sendmode == 'swiftmailer') {
@@ -673,8 +673,8 @@ class CMailFile
 			// Adding a trackid header to a message
 			$headers = $this->message->getHeaders();
 
-			$headers->addTextHeader('X-Dolibarr-TRACKID', $this->trackid.'@'.$host);
-			$this->msgid = time().'.swiftmailer-dolibarr-'.$this->trackid.'@'.$host;
+			$headers->addTextHeader('X-OnLi-TRACKID', $this->trackid.'@'.$host);
+			$this->msgid = time().'.swiftmailer-onli-'.$this->trackid.'@'.$host;
 			$headerID = $this->msgid;
 			$msgid = $headers->get('Message-ID');
 			if ($msgid instanceof Swift_Mime_Headers_IdentificationHeader) {
@@ -1217,7 +1217,7 @@ class CMailFile
 					$result = $this->smtps->sendMsg();
 
 					if (getDolGlobalString('MAIN_MAIL_DEBUG')) {
-						$this->dump_mail();	// Create file dolibarr_mail.log or dolibarr_mail.log.vXXX if option for archive is on
+						$this->dump_mail();	// Create file onli_mail.log or onli_mail.log.vXXX if option for archive is on
 					}
 
 					$smtperrorcode = 0;
@@ -1501,10 +1501,10 @@ class CMailFile
 	public function dump_mail()
 	{
 		// phpcs:enable
-		global $dolibarr_main_data_root;
+		global $onli_main_data_root;
 
-		if (@is_writable($dolibarr_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
-			$outputfile = $dolibarr_main_data_root."/dolibarr_mail.log";
+		if (@is_writable($onli_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
+			$outputfile = $onli_main_data_root."/onli_mail.log";
 			$fp = fopen($outputfile, "w");	// overwrite
 
 			if ($fp) {
@@ -1522,7 +1522,7 @@ class CMailFile
 				fclose($fp);
 				dolChmod($outputfile);
 
-				// Move dolibarr_mail.log into a dolibarr_mail.log.v123456789
+				// Move onli_mail.log into a onli_mail.log.v123456789
 				if (getDolGlobalInt('MAIN_MAIL_DEBUG_LOG_WITH_DATE')) {
 					require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 					archiveOrBackupFile($outputfile, getDolGlobalInt('MAIN_MAIL_DEBUG_LOG_WITH_DATE'));
@@ -1541,13 +1541,13 @@ class CMailFile
 	 */
 	public function save_dump_mail_in_err($message = '')
 	{
-		global $dolibarr_main_data_root;
+		global $onli_main_data_root;
 
-		if (@is_writable($dolibarr_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
-			$srcfile = $dolibarr_main_data_root."/dolibarr_mail.log";
+		if (@is_writable($onli_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
+			$srcfile = $onli_main_data_root."/onli_mail.log";
 
-			// Add message to dolibarr_mail.log. We do not use dol_syslog() on purpose,
-			// to be sure to write into dolibarr_mail.log
+			// Add message to onli_mail.log. We do not use dol_syslog() on purpose,
+			// to be sure to write into onli_mail.log
 			if ($message) {
 				// Test constant SYSLOG_FILE_NO_ERROR (should stay a constant defined with define('SYSLOG_FILE_NO_ERROR',1);
 				if (defined('SYSLOG_FILE_NO_ERROR')) {
@@ -1562,11 +1562,11 @@ class CMailFile
 				}
 			}
 
-			// Move dolibarr_mail.log into a dolibarr_mail.err or dolibarr_mail.date.err
+			// Move onli_mail.log into a onli_mail.err or onli_mail.date.err
 			if (getDolGlobalString('MAIN_MAIL_DEBUG_ERR_WITH_DATE')) {
-				$destfile = $dolibarr_main_data_root."/dolibarr_mail.".dol_print_date(dol_now(), 'dayhourlog', 'gmt').".err";
+				$destfile = $onli_main_data_root."/onli_mail.".dol_print_date(dol_now(), 'dayhourlog', 'gmt').".err";
 			} else {
-				$destfile = $dolibarr_main_data_root."/dolibarr_mail.err";
+				$destfile = $onli_main_data_root."/onli_mail.err";
 			}
 
 			require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -1677,9 +1677,9 @@ class CMailFile
 
 		$trackid = $this->trackid;
 		if ($trackid) {
-			$this->msgid = time().'.phpmail-dolibarr-'.$trackid.'@'.$host;
+			$this->msgid = time().'.phpmail-onli-'.$trackid.'@'.$host;
 			$out .= 'Message-ID: <'.$this->msgid.">".$this->eol2; // Uppercase seems replaced by phpmail
-			$out .= 'X-Dolibarr-TRACKID: '.$trackid.'@'.$host.$this->eol2;
+			$out .= 'X-OnLi-TRACKID: '.$trackid.'@'.$host.$this->eol2;
 		} else {
 			$this->msgid = time().'.phpmail@'.$host;
 			$out .= 'Message-ID: <'.$this->msgid.">".$this->eol2;
@@ -1697,7 +1697,7 @@ class CMailFile
 		if (!empty($_SERVER['REMOTE_ADDR'])) {
 			$out .= "X-RemoteAddr: ".$_SERVER['REMOTE_ADDR'].$this->eol2;
 		}
-		$out .= "X-Mailer: Dolibarr version ".DOL_VERSION." (using php mail)".$this->eol2;
+		$out .= "X-Mailer: OnLi version ".DOL_VERSION." (using php mail)".$this->eol2;
 		$out .= "Mime-Version: 1.0".$this->eol2;
 
 		//$out.= "From: ".$this->getValidAddress($this->addr_from,3,1).$this->eol;
@@ -2030,7 +2030,7 @@ class CMailFile
 	/**
 	 * Search images into html message and init array this->images_encoded if found
 	 *
-	 * @param	string	$images_dir		Path to store physical images files. For example $dolibarr_main_data_root.'/medias'
+	 * @param	string	$images_dir		Path to store physical images files. For example $onli_main_data_root.'/medias'
 	 * @return	int 		        	>0 if OK, <0 if KO
 	 */
 	private function findHtmlImages($images_dir)
@@ -2117,7 +2117,7 @@ class CMailFile
 	 * Seearch images with data:image format into html message.
 	 * If we find some, we create it on disk.
 	 *
-	 * @param	string	$images_dir		Location of where to store physically images files. For example $dolibarr_main_data_root.'/medias'
+	 * @param	string	$images_dir		Location of where to store physically images files. For example $onli_main_data_root.'/medias'
 	 * @return	int 		        	>0 if OK, <0 if KO
 	 */
 	private function findHtmlImagesIsSrcData($images_dir)
@@ -2140,8 +2140,8 @@ class CMailFile
 
 		// Uncomment this for debug
 		/*
-		global $dolibarr_main_data_root;
-		$outputfile = $dolibarr_main_data_root."/dolibarr_mail.log";
+		global $onli_main_data_root;
+		$outputfile = $onli_main_data_root."/onli_mail.log";
 		$fp = fopen($outputfile, "w+");
 		fwrite($fp, $this->html);
 		fclose($fp);

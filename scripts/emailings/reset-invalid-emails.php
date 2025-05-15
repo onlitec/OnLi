@@ -59,7 +59,7 @@ require_once DOL_DOCUMENT_ROOT."/comm/mailing/class/mailing.class.php";
  * @var DoliDB $db
  * @var HookManager $hookmanager
  *
- * @var int $dolibarr_main_db_readonly
+ * @var int $onli_main_db_readonly
  */
 // Global variables
 $version = DOL_VERSION;
@@ -87,7 +87,7 @@ if (!in_array($type, array('all', 'thirdparties', 'contacts', 'users', 'members'
 	exit(1);
 }
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }

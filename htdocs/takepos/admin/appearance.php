@@ -24,7 +24,7 @@
  *	\brief      Setup page for TakePos module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php'; // Load $user and permissions
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
@@ -54,10 +54,10 @@ $error = 0;
 if (GETPOST('action', 'alpha') == 'set') {
 	$db->begin();
 
-	$res = dolibarr_set_const($db, "TAKEPOS_COLOR_THEME", GETPOST('TAKEPOS_COLOR_THEME', 'alpha'), 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "TAKEPOS_LINES_TO_SHOW", GETPOST('TAKEPOS_LINES_TO_SHOW', 'alpha'), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "TAKEPOS_COLOR_THEME", GETPOST('TAKEPOS_COLOR_THEME', 'alpha'), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "TAKEPOS_LINES_TO_SHOW", GETPOST('TAKEPOS_LINES_TO_SHOW', 'alpha'), 'chaine', 0, '', $conf->entity);
 	if (GETPOSTISSET('TAKEPOS_SHOW_PRODUCT_REFERENCE')) {
-		$res = dolibarr_set_const($db, "TAKEPOS_SHOW_PRODUCT_REFERENCE", GETPOST('TAKEPOS_SHOW_PRODUCT_REFERENCE', 'alpha'), 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "TAKEPOS_SHOW_PRODUCT_REFERENCE", GETPOST('TAKEPOS_SHOW_PRODUCT_REFERENCE', 'alpha'), 'chaine', 0, '', $conf->entity);
 	}
 
 	dol_syslog("admin/cashdesk: level ".GETPOST('level', 'alpha'));

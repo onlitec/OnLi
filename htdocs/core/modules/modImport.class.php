@@ -18,19 +18,19 @@
 
 /**
  *  \defgroup   import      Module import
- *  \brief      Module to make generic import of data into dolibarr database
+ *  \brief      Module to make generic import of data into onli database
  *	\file       htdocs/core/modules/modImport.class.php
  *	\ingroup    import
  *	\brief      Description and activation file for the module Import
  */
 
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to describe and enable module Import
  */
-class modImport extends DolibarrModules
+class modImport extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -46,9 +46,9 @@ class modImport extends DolibarrModules
 		$this->module_position = '70';
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
-		$this->description = "Outils d'imports de donnees Dolibarr (via un assistant)";
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or 'dolibarr_deprecated' or version
-		$this->version = 'dolibarr';
+		$this->description = "Outils d'imports de donnees OnLi (via un assistant)";
+		// Possible values for version are: 'development', 'experimental', 'onli' or 'onli_deprecated' or version
+		$this->version = 'onli';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'technic';
 
@@ -65,7 +65,7 @@ class modImport extends DolibarrModules
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module - Need auto_detect_line_endings php option to solve MAC pbs.
 		$this->phpmax = array();
-		$this->need_dolibarr_version = array(2, 7, -1); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(2, 7, -1); // Minimum version of OnLi required by module
 		$this->enabled_bydefault = true; // Will be enabled during install
 
 		// Constants

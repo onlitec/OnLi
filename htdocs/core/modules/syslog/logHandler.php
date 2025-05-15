@@ -70,7 +70,7 @@ abstract class LogHandler
 	}
 
 	/**
-	 * Version of the module ('x.y.z' or 'dolibarr' or 'experimental' or 'development')
+	 * Version of the module ('x.y.z' or 'onli' or 'experimental' or 'development')
 	 *
 	 * @return string
 	 */

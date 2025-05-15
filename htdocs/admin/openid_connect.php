@@ -22,7 +22,7 @@
  *		\brief      Page to setup openid_connect module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/openid_connect.lib.php';
@@ -55,56 +55,56 @@ $error = 0;
 
 if ($action == 'set') {
 	$client_id = GETPOST('MAIN_AUTHENTICATION_OIDC_LOGIN_CLAIM', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_LOGIN_CLAIM', $client_id, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_LOGIN_CLAIM', $client_id, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$client_id = GETPOST('MAIN_AUTHENTICATION_OIDC_CLIENT_ID', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_CLIENT_ID', $client_id, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_CLIENT_ID', $client_id, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$client_secret = GETPOST('MAIN_AUTHENTICATION_OIDC_CLIENT_SECRET', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_CLIENT_SECRET', $client_secret, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_CLIENT_SECRET', $client_secret, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$scopes = GETPOST('MAIN_AUTHENTICATION_OIDC_SCOPES', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_SCOPES', $scopes, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_SCOPES', $scopes, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$authorize_url = GETPOST('MAIN_AUTHENTICATION_OIDC_AUTHORIZE_URL', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_AUTHORIZE_URL', $authorize_url, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_AUTHORIZE_URL', $authorize_url, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$value = GETPOST('MAIN_AUTHENTICATION_OIDC_TOKEN_URL', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_TOKEN_URL', $value, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_TOKEN_URL', $value, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$value = GETPOST('MAIN_AUTHENTICATION_OIDC_USERINFO_URL', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_USERINFO_URL', $value, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_USERINFO_URL', $value, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
 	}
 
 	$logout_url = GETPOST('MAIN_AUTHENTICATION_OIDC_LOGOUT_URL', 'alpha');
-	$res = dolibarr_set_const($db, 'MAIN_AUTHENTICATION_OIDC_LOGOUT_URL', $logout_url, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, 'MAIN_AUTHENTICATION_OIDC_LOGOUT_URL', $logout_url, 'chaine', 0, '', 0);
 	if (!$res > 0) {
 		$errors[] = $db->lasterror();
 		$error++;
@@ -137,7 +137,7 @@ print dol_get_fiche_head($head, 'settings', $langs->trans("Parameters"), -1, 'ac
 
 print $langs->trans("SeeWikiDocForHelpInSetupOpenIDCOnnect");
 print ' - ';
-print img_picto('', 'url', 'class="pictofixedwidth"').'<a target="_blank" href="https://wiki.dolibarr.org/index.php?title=Authentication,_SSO_and_SSL#Mode_openid_connect">';
+print img_picto('', 'url', 'class="pictofixedwidth"').'<a target="_blank" href="https://wiki.onli.org/index.php?title=Authentication,_SSO_and_SSL#Mode_openid_connect">';
 print $langs->trans("SeeHere");
 print '</a>';
 

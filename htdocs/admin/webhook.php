@@ -23,7 +23,7 @@
  * \brief   Webhook setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
 require_once DOL_DOCUMENT_ROOT.'/webhook/lib/webhook.lib.php';
@@ -84,7 +84,7 @@ if ($action == 'updateMask') {
 	$maskvalue = GETPOST('maskvalue', 'alpha');
 
 	if ($maskconst && preg_match('/_MASK$/', $maskconst)) {
-		$res = dolibarr_set_const($db, $maskconst, $maskvalue, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconst, $maskvalue, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
@@ -100,7 +100,7 @@ if ($action == 'updateMask') {
 	$tmpobjectkey = GETPOST('object', 'aZ09');
 	if (!empty($tmpobjectkey)) {
 		$constforval = 'WEBHOOK_'.strtoupper($tmpobjectkey)."_ADDON";
-		dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
 	}
 } elseif ($action == 'set') {
 	// Activate a model
@@ -112,7 +112,7 @@ if ($action == 'updateMask') {
 		if (!empty($tmpobjectkey)) {
 			$constforval = 'WEBHOOK_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
 			if (getDolGlobalString($constforval) == "$value") {
-				dolibarr_del_const($db, $constforval, $conf->entity);
+				onli_del_const($db, $constforval, $conf->entity);
 			}
 		}
 	}
@@ -121,7 +121,7 @@ if ($action == 'updateMask') {
 	$tmpobjectkey = GETPOST('object', 'aZ09');
 	if (!empty($tmpobjectkey)) {
 		$constforval = 'WEBHOOK_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
-		if (dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
+		if (onli_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
 			// The constant that was read before the new set
 			// We therefore requires a variable to have a coherent view
 			$conf->global->$constforval = $value;
@@ -137,7 +137,7 @@ if ($action == 'updateMask') {
 	$tmpobjectkey = GETPOST('object', 'aZ09');
 	if (!empty($tmpobjectkey)) {
 		$constforval = 'WEBHOOK_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
-		dolibarr_del_const($db, $constforval, $conf->entity);
+		onli_del_const($db, $constforval, $conf->entity);
 	}
 }
 

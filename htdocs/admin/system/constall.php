@@ -21,10 +21,10 @@
 
 /**
  *		\file 		htdocs/admin/system/constall.php
- *		\brief      Page to show all Dolibarr setup (config file and database constants)
+ *		\brief      Page to show all OnLi setup (config file and database constants)
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**
@@ -35,8 +35,8 @@ require '../../main.inc.php';
  * @var User $user
  *
  * @var string $conffile
- * @var string $dolibarr_main_document_root_alt
- * @var string $dolibarr_main_url_root_alt
+ * @var string $onli_main_document_root_alt
+ * @var string $onli_main_url_root_alt
  */
 
 // Load translation files required by the page
@@ -61,51 +61,51 @@ print load_fiche_titre($langs->trans("SummaryConst"), '', 'title_setup');
 print load_fiche_titre($langs->trans("ConfigurationFile").' ('.basename($conffile).')');
 // Parameters in conf.php file (when a parameter start with ?, it is shown only if defined)
 $configfileparameters = array(
-							'dolibarr_main_url_root',
-							'dolibarr_main_url_root_alt',
-							'dolibarr_main_document_root',
-							'dolibarr_main_document_root_alt',
-							'dolibarr_main_data_root',
+							'onli_main_url_root',
+							'onli_main_url_root_alt',
+							'onli_main_document_root',
+							'onli_main_document_root_alt',
+							'onli_main_data_root',
 							'separator',
-							'dolibarr_main_db_host',
-							'dolibarr_main_db_port',
-							'dolibarr_main_db_name',
-							'dolibarr_main_db_type',
-							'dolibarr_main_db_user',
-							'dolibarr_main_db_pass',
-							'dolibarr_main_db_character_set',
-							'dolibarr_main_db_collation',
-							'?dolibarr_main_db_prefix',
+							'onli_main_db_host',
+							'onli_main_db_port',
+							'onli_main_db_name',
+							'onli_main_db_type',
+							'onli_main_db_user',
+							'onli_main_db_pass',
+							'onli_main_db_character_set',
+							'onli_main_db_collation',
+							'?onli_main_db_prefix',
 							'separator',
-							'dolibarr_main_authentication',
+							'onli_main_authentication',
 							'separator',
-							'?dolibarr_main_auth_ldap_login_attribute',
-							'?dolibarr_main_auth_ldap_host',
-							'?dolibarr_main_auth_ldap_port',
-							'?dolibarr_main_auth_ldap_version',
-							'?dolibarr_main_auth_ldap_dn',
-							'?dolibarr_main_auth_ldap_admin_login',
-							'?dolibarr_main_auth_ldap_admin_pass',
-							'?dolibarr_main_auth_ldap_debug',
+							'?onli_main_auth_ldap_login_attribute',
+							'?onli_main_auth_ldap_host',
+							'?onli_main_auth_ldap_port',
+							'?onli_main_auth_ldap_version',
+							'?onli_main_auth_ldap_dn',
+							'?onli_main_auth_ldap_admin_login',
+							'?onli_main_auth_ldap_admin_pass',
+							'?onli_main_auth_ldap_debug',
 							'separator',
-							'?dolibarr_lib_FPDF_PATH',
-							'?dolibarr_lib_TCPDF_PATH',
-							'?dolibarr_lib_FPDI_PATH',
-							'?dolibarr_lib_TCPDI_PATH',
-							'?dolibarr_lib_NUSOAP_PATH',
-							'?dolibarr_lib_GEOIP_PATH',
-							'?dolibarr_lib_ODTPHP_PATH',
-							'?dolibarr_lib_ODTPHP_PATHTOPCLZIP',
-							'?dolibarr_js_CKEDITOR',
-							'?dolibarr_js_JQUERY',
-							'?dolibarr_js_JQUERY_UI',
-							'?dolibarr_font_DOL_DEFAULT_TTF',
-							'?dolibarr_font_DOL_DEFAULT_TTF_BOLD',
+							'?onli_lib_FPDF_PATH',
+							'?onli_lib_TCPDF_PATH',
+							'?onli_lib_FPDI_PATH',
+							'?onli_lib_TCPDI_PATH',
+							'?onli_lib_NUSOAP_PATH',
+							'?onli_lib_GEOIP_PATH',
+							'?onli_lib_ODTPHP_PATH',
+							'?onli_lib_ODTPHP_PATHTOPCLZIP',
+							'?onli_js_CKEDITOR',
+							'?onli_js_JQUERY',
+							'?onli_js_JQUERY_UI',
+							'?onli_font_DOL_DEFAULT_TTF',
+							'?onli_font_DOL_DEFAULT_TTF_BOLD',
 							'separator',
-							'?dolibarr_mailing_limit_sendbyweb',
-							'?dolibarr_mailing_limit_sendbycli',
-							'?dolibarr_mailing_limit_sendbyday',
-							'?dolibarr_strict_mode'
+							'?onli_mailing_limit_sendbyweb',
+							'?onli_mailing_limit_sendbycli',
+							'?onli_mailing_limit_sendbyday',
+							'?onli_strict_mode'
 						);
 $configfilelib = array(
 //					'separator',
@@ -127,26 +127,26 @@ $configfilelib = array(
 					'separator',
 					$langs->trans("AuthenticationMode"),
 					'separator',
-					'dolibarr_main_auth_ldap_login_attribute',
-					'dolibarr_main_auth_ldap_host',
-					'dolibarr_main_auth_ldap_port',
-					'dolibarr_main_auth_ldap_version',
-					'dolibarr_main_auth_ldap_dn',
-					'dolibarr_main_auth_ldap_admin_login',
-					'dolibarr_main_auth_ldap_admin_pass',
-					'dolibarr_main_auth_ldap_debug',
+					'onli_main_auth_ldap_login_attribute',
+					'onli_main_auth_ldap_host',
+					'onli_main_auth_ldap_port',
+					'onli_main_auth_ldap_version',
+					'onli_main_auth_ldap_dn',
+					'onli_main_auth_ldap_admin_login',
+					'onli_main_auth_ldap_admin_pass',
+					'onli_main_auth_ldap_debug',
 					'separator',
-					'dolibarr_lib_TCPDF_PATH',
-					'dolibarr_lib_FPDI_PATH',
-					'dolibarr_lib_NUSOAP_PATH',
-					'dolibarr_lib_GEOIP_PATH',
-					'dolibarr_lib_ODTPHP_PATH',
-					'dolibarr_lib_ODTPHP_PATHTOPCLZIP',
-					'dolibarr_js_CKEDITOR',
-					'dolibarr_js_JQUERY',
-					'dolibarr_js_JQUERY_UI',
-					'dolibarr_font_DOL_DEFAULT_TTF',
-					'dolibarr_font_DOL_DEFAULT_TTF_BOLD',
+					'onli_lib_TCPDF_PATH',
+					'onli_lib_FPDI_PATH',
+					'onli_lib_NUSOAP_PATH',
+					'onli_lib_GEOIP_PATH',
+					'onli_lib_ODTPHP_PATH',
+					'onli_lib_ODTPHP_PATHTOPCLZIP',
+					'onli_js_CKEDITOR',
+					'onli_js_JQUERY',
+					'onli_js_JQUERY_UI',
+					'onli_font_DOL_DEFAULT_TTF',
+					'onli_font_DOL_DEFAULT_TTF_BOLD',
 					'separator',
 					'Limit nb of email sent by page',
 					'Strict mode is on/off'
@@ -159,10 +159,10 @@ print '<td></td>';
 print '</tr>'."\n";
 $i = 0;
 foreach ($configfileparameters as $key) {
-	if ($key == 'dolibarr_main_url_root_alt' && empty($dolibarr_main_url_root_alt)) {
+	if ($key == 'onli_main_url_root_alt' && empty($onli_main_url_root_alt)) {
 		continue;
 	}
-	if ($key == 'dolibarr_main_document_root_alt' && empty($dolibarr_main_document_root_alt)) {
+	if ($key == 'onli_main_document_root_alt' && empty($onli_main_document_root_alt)) {
 		continue;
 	}
 
@@ -188,14 +188,14 @@ foreach ($configfileparameters as $key) {
 		print '<td>'.$newkey.'</td>';
 		// Value
 		print "<td>";
-		if ($newkey == 'dolibarr_main_db_pass') {
+		if ($newkey == 'onli_main_db_pass') {
 			print preg_replace('/./i', '*', ${$newkey});
-		} elseif ($newkey == 'dolibarr_main_url_root' && preg_match('/__auto__/', ${$newkey})) {
+		} elseif ($newkey == 'onli_main_url_root' && preg_match('/__auto__/', ${$newkey})) {
 			print ${$newkey}.' => '.constant('DOL_MAIN_URL_ROOT');
 		} else {
 			print ${$newkey};
 		}
-		if ($newkey == 'dolibarr_main_url_root' && ${$newkey} != DOL_MAIN_URL_ROOT) {
+		if ($newkey == 'onli_main_url_root' && ${$newkey} != DOL_MAIN_URL_ROOT) {
 			print ' (currently overwritten by autodetected value: '.DOL_MAIN_URL_ROOT.')';
 		}
 		print "</td>";

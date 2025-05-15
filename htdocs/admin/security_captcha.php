@@ -24,7 +24,7 @@
  *      \brief      Security captcha options setup
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -56,7 +56,7 @@ $handler = GETPOST('handler', 'aZ09');
 if (preg_match('/set_([a-z0-9_\-]+)/i', $action, $reg)) {
 	$code = $reg[1];
 	$value = (GETPOST($code, 'alpha') ? GETPOST($code, 'alpha') : 1);
-	if (dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity) > 0) {
+	if (onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity) > 0) {
 		header("Location: ".$_SERVER["PHP_SELF"]);
 		exit;
 	} else {
@@ -64,14 +64,14 @@ if (preg_match('/set_([a-z0-9_\-]+)/i', $action, $reg)) {
 	}
 } elseif (preg_match('/del_([a-z0-9_\-]+)/i', $action, $reg)) {
 	$code = $reg[1];
-	if (dolibarr_del_const($db, $code, $conf->entity) > 0) {
+	if (onli_del_const($db, $code, $conf->entity) > 0) {
 		header("Location: ".$_SERVER["PHP_SELF"]);
 		exit;
 	} else {
 		dol_print_error($db);
 	}
 } elseif ($action == 'setcaptchahandler') {
-	if (!dolibarr_set_const($db, 'MAIN_SECURITY_ENABLECAPTCHA_HANDLER', GETPOST("value", "aZ09"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'MAIN_SECURITY_ENABLECAPTCHA_HANDLER', GETPOST("value", "aZ09"), 'chaine', 0, '', $conf->entity)) {
 		dol_print_error($db);
 	}
 }

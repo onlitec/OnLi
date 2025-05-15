@@ -29,9 +29,9 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/notify.class.php';
  * API class for users
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Users extends DolibarrApi
+class Users extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when create and update object
@@ -76,14 +76,14 @@ class Users extends DolibarrApi
 	 */
 	public function index($sortfield = "t.rowid", $sortorder = 'ASC', $limit = 100, $page = 0, $user_ids = '0', $category = 0, $sqlfilters = '', $properties = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin)) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403, "You are not allowed to read list of users");
 		}
 
 		$obj_ret = array();
 
 		// case of external user, $societe param is ignored and replaced by user's socid
-		//$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : $societe;
+		//$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : $societe;
 
 		$sql = "SELECT t.rowid";
 		$sql .= " FROM ".MAIN_DB_PREFIX."user AS t LEFT JOIN ".MAIN_DB_PREFIX."user_extrafields AS ef ON (ef.fk_object = t.rowid)"; // Modification VMR Global Solutions to include extrafields as search parameters in the API GET call, so we will be able to filter on extrafields
@@ -155,7 +155,7 @@ class Users extends DolibarrApi
 	 */
 	public function get($id, $includepermissions = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin) && $id != 0 && DolibarrApiAccess::$user->id != $id) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin) && $id != 0 && OnLiApiAccess::$user->id != $id) {
 			throw new RestException(403, 'Not allowed');
 		}
 
@@ -168,8 +168,8 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'User not found');
 		}
 
-		if ($id > 0 && !DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if ($id > 0 && !OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		if ($includepermissions) {
@@ -200,7 +200,7 @@ class Users extends DolibarrApi
 			throw new RestException(400, 'Bad parameters');
 		}
 
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin) && DolibarrApiAccess::$user->login != $login) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin) && OnLiApiAccess::$user->login != $login) {
 			throw new RestException(403, 'Not allowed');
 		}
 
@@ -209,8 +209,8 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'User not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		if ($includepermissions) {
@@ -241,7 +241,7 @@ class Users extends DolibarrApi
 			throw new RestException(400, 'Bad parameters');
 		}
 
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin) && DolibarrApiAccess::$user->email != $email) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin) && OnLiApiAccess::$user->email != $email) {
 			throw new RestException(403, 'Not allowed');
 		}
 
@@ -250,8 +250,8 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'User not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		if ($includepermissions) {
@@ -274,19 +274,19 @@ class Users extends DolibarrApi
 	 */
 	public function getInfo($includepermissions = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'self', 'creer') && !DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin)) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'self', 'creer') && !OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403, 'Not allowed');
 		}
 
-		$apiUser = DolibarrApiAccess::$user;
+		$apiUser = OnLiApiAccess::$user;
 
 		$result = $this->useraccount->fetch($apiUser->id);
 		if (!$result) {
 			throw new RestException(404, 'User not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		if ($includepermissions) {
@@ -317,8 +317,8 @@ class Users extends DolibarrApi
 	public function post($request_data = null)
 	{
 		// Check user authorization
-		if (!DolibarrApiAccess::$user->hasRight('user', 'creer') && empty(DolibarrApiAccess::$user->admin)) {
-			throw new RestException(403, "User creation not allowed for login ".DolibarrApiAccess::$user->login);
+		if (!OnLiApiAccess::$user->hasRight('user', 'creer') && empty(OnLiApiAccess::$user->admin)) {
+			throw new RestException(403, "User creation not allowed for login ".OnLiApiAccess::$user->login);
 		}
 
 		// check mandatory fields
@@ -341,7 +341,7 @@ class Users extends DolibarrApi
 				continue;
 			}
 			/*if ($field == 'pass') {
-				if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'password')) {
+				if (!OnLiApiAccess::$user->hasRight('user', 'user', 'password')) {
 					throw new RestException(403, 'You are not allowed to modify/set password of other users');
 					continue;
 				}
@@ -351,7 +351,7 @@ class Users extends DolibarrApi
 			$this->useraccount->$field = $this->_checkValForAPI($field, $value, $this->useraccount);
 		}
 
-		if ($this->useraccount->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->useraccount->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating', array_merge(array($this->useraccount->error), $this->useraccount->errors));
 		}
 		return $this->useraccount->id;
@@ -374,7 +374,7 @@ class Users extends DolibarrApi
 	public function put($id, $request_data = null)
 	{
 		// Check user authorization
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer') && empty(DolibarrApiAccess::$user->admin)) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403, "User update not allowed");
 		}
 
@@ -383,8 +383,8 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'Account not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -396,10 +396,10 @@ class Users extends DolibarrApi
 				continue;
 			}
 			if ($field == 'pass') {
-				if ($this->useraccount->id != DolibarrApiAccess::$user->id && !DolibarrApiAccess::$user->hasRight('user', 'user', 'password')) {
+				if ($this->useraccount->id != OnLiApiAccess::$user->id && !OnLiApiAccess::$user->hasRight('user', 'user', 'password')) {
 					throw new RestException(403, 'You are not allowed to modify password of other users');
 				}
-				if ($this->useraccount->id == DolibarrApiAccess::$user->id && !DolibarrApiAccess::$user->hasRight('user', 'self', 'password')) {
+				if ($this->useraccount->id == OnLiApiAccess::$user->id && !OnLiApiAccess::$user->hasRight('user', 'self', 'password')) {
 					throw new RestException(403, 'You are not allowed to modify your own password');
 				}
 			}
@@ -415,7 +415,7 @@ class Users extends DolibarrApi
 				continue;
 			}
 
-			if (DolibarrApiAccess::$user->admin) {	// If user for API is admin
+			if (OnLiApiAccess::$user->admin) {	// If user for API is admin
 				if ($field == 'admin' && $value != $this->useraccount->admin && empty($value)) {
 					throw new RestException(403, 'Reseting the admin status of a user is not possible using the API');
 				}
@@ -442,7 +442,7 @@ class Users extends DolibarrApi
 
 		// If there is no error, update() returns the number of affected
 		// rows so if the update is a no op, the return value is zezo.
-		if ($this->useraccount->update(DolibarrApiAccess::$user) >= 0) {
+		if ($this->useraccount->update(OnLiApiAccess::$user) >= 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->useraccount->error);
@@ -474,8 +474,8 @@ class Users extends DolibarrApi
 			throw new RestException(403, "Error: password reset APIs are disabled by default. To allow this, the option API_ALLOW_PASSWORD_RESET must be set.");
 		}
 
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer') && empty(DolibarrApiAccess::$user->admin)) {
-			throw new RestException(403, "setPassword on user not allowed for login ".DolibarrApiAccess::$user->login);
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer') && empty(OnLiApiAccess::$user->admin)) {
+			throw new RestException(403, "setPassword on user not allowed for login ".OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->useraccount->fetch($id);
@@ -483,8 +483,8 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'User not found, no password changed');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access on this object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access on this object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$newpassword = $this->useraccount->setPassword($this->useraccount, '');	// This will generate a new password
@@ -519,7 +519,7 @@ class Users extends DolibarrApi
 	 */
 	public function getGroups($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin)) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403);
 		}
 
@@ -557,8 +557,8 @@ class Users extends DolibarrApi
 	{
 		global $conf;
 
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer') && empty(DolibarrApiAccess::$user->admin)) {
-			throw new RestException(403, 'setGroup on users not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer') && empty(OnLiApiAccess::$user->admin)) {
+			throw new RestException(403, 'setGroup on users not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->useraccount->fetch($id);
@@ -566,16 +566,16 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'User not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (isModEnabled('multicompany') && getDolGlobalString('MULTICOMPANY_TRANSVERSE_MODE') && !empty(DolibarrApiAccess::$user->admin) && empty(DolibarrApiAccess::$user->entity)) {
+		if (isModEnabled('multicompany') && getDolGlobalString('MULTICOMPANY_TRANSVERSE_MODE') && !empty(OnLiApiAccess::$user->admin) && empty(OnLiApiAccess::$user->entity)) {
 			$entity = (!empty($entity) ? $entity : $conf->entity);
 		} else {
 			// When using API, action is done on entity of logged user because a user of entity X with permission to create user should not be able to
 			// hack the security by giving himself permissions on another entity.
-			$entity = (DolibarrApiAccess::$user->entity > 0 ? DolibarrApiAccess::$user->entity : $conf->entity);
+			$entity = (OnLiApiAccess::$user->entity > 0 ? OnLiApiAccess::$user->entity : $conf->entity);
 		}
 
 		$result = $this->useraccount->SetInGroup($group, $entity);
@@ -612,13 +612,13 @@ class Users extends DolibarrApi
 	{
 		$obj_ret = array();
 
-		if ((!getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin)) ||
-			getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !DolibarrApiAccess::$user->hasRight('user', 'group_advance', 'read') && empty(DolibarrApiAccess::$user->admin)) {
+		if ((!getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin)) ||
+			getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !OnLiApiAccess::$user->hasRight('user', 'group_advance', 'read') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403, "You are not allowed to read groups");
 		}
 
 		// case of external user, $societe param is ignored and replaced by user's socid
-		//$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : $societe;
+		//$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : $societe;
 
 		$sql = "SELECT t.rowid";
 		$sql .= " FROM ".MAIN_DB_PREFIX."usergroup AS t LEFT JOIN ".MAIN_DB_PREFIX."usergroup_extrafields AS ef ON (ef.fk_object = t.rowid)"; // Modification VMR Global Solutions to include extrafields as search parameters in the API GET call, so we will be able to filter on extrafields
@@ -682,8 +682,8 @@ class Users extends DolibarrApi
 	 */
 	public function infoGroups($group, $load_members = 0)
 	{
-		if ((!getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin)) ||
-			getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !DolibarrApiAccess::$user->hasRight('user', 'group_advance', 'read') && empty(DolibarrApiAccess::$user->admin)) {
+		if ((!getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin)) ||
+			getDolGlobalString('MAIN_USE_ADVANCED_PERMS') && !OnLiApiAccess::$user->hasRight('user', 'group_advance', 'read') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403, "You are not allowed to read groups");
 		}
 
@@ -710,7 +710,7 @@ class Users extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'supprimer') && empty(DolibarrApiAccess::$user->admin)) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'supprimer') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403, 'Not allowed');
 		}
 		$result = $this->useraccount->fetch($id);
@@ -718,12 +718,12 @@ class Users extends DolibarrApi
 			throw new RestException(404, 'User not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $this->useraccount->id, 'user')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		$this->useraccount->oldcopy = clone $this->useraccount; // @phan-suppress-current-line PhanTypeMismatchProperty
 
-		if (!$this->useraccount->delete(DolibarrApiAccess::$user)) {
+		if (!$this->useraccount->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500);
 		}
 
@@ -755,11 +755,11 @@ class Users extends DolibarrApi
 		if (empty($id)) {
 			throw new RestException(400, 'user ID is mandatory');
 		}
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && empty(DolibarrApiAccess::$user->admin)) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && empty(OnLiApiAccess::$user->admin)) {
 			throw new RestException(403);
 		}
-		if (!DolibarrApi::_checkAccessToResource('user', $id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('user', $id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		/**
@@ -826,7 +826,7 @@ class Users extends DolibarrApi
 	 */
 	public function createUserNotification($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer')) {
 			throw new RestException(403, "User has no right to update users");
 		}
 		if ($this->useraccount->fetch($id) <= 0) {
@@ -856,11 +856,11 @@ class Users extends DolibarrApi
 			throw new RestException(403, 'Notification already exists');
 		}
 
-		if ($notification->create(DolibarrApiAccess::$user) < 0) {
+		if ($notification->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating User Notification');
 		}
 
-		if ($notification->update(DolibarrApiAccess::$user) < 0) {
+		if ($notification->update(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error updating values');
 		}
 
@@ -887,7 +887,7 @@ class Users extends DolibarrApi
 	 */
 	public function createUserNotificationByCode($id, $code, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer')) {
 			throw new RestException(403, "User has no right to update users");
 		}
 		if ($this->useraccount->fetch($id) <= 0) {
@@ -928,11 +928,11 @@ class Users extends DolibarrApi
 			throw new RestException(403, 'Notification already exists');
 		}
 
-		if ($notification->create(DolibarrApiAccess::$user) < 0) {
+		if ($notification->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating User Notification, are request_data well formed?');
 		}
 
-		if ($notification->update(DolibarrApiAccess::$user) < 0) {
+		if ($notification->update(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error updating values');
 		}
 
@@ -955,7 +955,7 @@ class Users extends DolibarrApi
 	 */
 	public function deleteUserNotification($id, $notification_id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer')) {
 			throw new RestException(403, "User has no right to update users");
 		}
 
@@ -966,7 +966,7 @@ class Users extends DolibarrApi
 		$fk_user = (int) $notification->fk_user;
 
 		if ($fk_user == $id) {
-			return $notification->delete(DolibarrApiAccess::$user);
+			return $notification->delete(OnLiApiAccess::$user);
 		} else {
 			throw new RestException(403, "Not allowed due to bad consistency of input data");
 		}
@@ -991,7 +991,7 @@ class Users extends DolibarrApi
 	 */
 	public function updateUserNotification($id, $notification_id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('user', 'user', 'creer')) {
 			throw new RestException(403, "User has no right to update users");
 		}
 		if ($this->useraccount->fetch($id) <= 0) {
@@ -1010,7 +1010,7 @@ class Users extends DolibarrApi
 			$notification->$field = $value;
 		}
 
-		if ($notification->update(DolibarrApiAccess::$user) < 0) {
+		if ($notification->update(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error updating values');
 		}
 
@@ -1063,7 +1063,7 @@ class Users extends DolibarrApi
 		unset($object->lines);
 		unset($object->model_pdf);
 
-		$canreadsalary = ((isModEnabled('salaries') && DolibarrApiAccess::$user->hasRight('salaries', 'read')) || !isModEnabled('salaries'));
+		$canreadsalary = ((isModEnabled('salaries') && OnLiApiAccess::$user->hasRight('salaries', 'read')) || !isModEnabled('salaries'));
 
 		if (!$canreadsalary) {
 			unset($object->salary);

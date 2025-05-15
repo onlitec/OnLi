@@ -67,7 +67,7 @@ class WebservicesOtherTest extends CommonClassTest
 
 		$WS_DOL_URL = DOL_MAIN_URL_ROOT.'/webservices/server_other.php';
 		$WS_METHOD  = 'getVersions';
-		$ns = 'http://www.dolibarr.org/ns/';
+		$ns = 'http://www.onli.org/ns/';
 
 		// Set the WebService URL
 		print __METHOD__." create nusoap_client for URL=".$WS_DOL_URL."\n";
@@ -79,7 +79,7 @@ class WebservicesOtherTest extends CommonClassTest
 
 		// Call the WebService method and store its result in $result.
 		$authentication = array(
-			'dolibarrkey' => getDolGlobalString('WEBSERVICES_KEY'),
+			'onlikey' => getDolGlobalString('WEBSERVICES_KEY'),
 			'sourceapplication' => 'DEMO',
 			'login' => 'admin',
 			'password' => 'admin',

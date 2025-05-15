@@ -17,12 +17,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
- * Path to WSDL is: http://localhost/dolibarr/webservices/server_productorservice.php?wsdl
+ * Path to WSDL is: http://localhost/onli/webservices/server_productorservice.php?wsdl
  */
 
 /**
  *       \file       htdocs/webservices/server_productorservice.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -62,14 +62,14 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -79,8 +79,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrProductOrService', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiProductOrService', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -92,7 +92,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -359,7 +359,7 @@ $server->register(
 /**
  * Get produt or service
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Id of object
  * @param	string		$ref				Ref of object
  * @param	string		$ref_ext			Ref external of object
@@ -502,7 +502,7 @@ function getProductOrService($authentication, $id = 0, $ref = '', $ref_ext = '',
 /**
  * Create an invoice
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,type:string,label:string,description:string,date_creation:string,date_modification:string,note:string,status_tobuy:string,status_tosell:string,barcode:string,barcode_type:string,country_id:string,country_code:string,customcode:string,price_net:string,price:string,price_min_net:string,price_min:string,price_base_type:string,vat_rate:string,vat_npr:string,localtax1_tx:string,localtax2_tx:string,stock_alert:string,stock_real:string,stock_pmp:string,warehouse_ref:string,canvas:string,import_key:string,dir:string,images:array<array{photo:string,photo_vignette:string,imgWidth:string,imgHeight:string}>}		$product			Product
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -668,7 +668,7 @@ function createProductOrService($authentication, $product)
 /**
  * Update a product or service
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,type:string,label:string,description:string,date_creation:string,date_modification:string,note:string,status_tobuy:string,status_tosell:string,barcode:string,barcode_type:string,country_id:string,country_code:string,customcode:string,price_net:string,price:string,price_min_net:string,price_min:string,price_base_type:string,vat_rate:string,vat_npr:string,localtax1_tx:string,localtax2_tx:string,stock_alert:string,stock_real:string,stock_pmp:string,warehouse_ref:string,canvas:string,import_key:string,dir:string,images:array<array{photo:string,photo_vignette:string,imgWidth:string,imgHeight:string}>}		$product			Product
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -835,7 +835,7 @@ function updateProductOrService($authentication, $product)
 /**
  * Delete a product or service
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	string		$listofidstring		List of id with comma
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -922,7 +922,7 @@ function deleteProductOrService($authentication, $listofidstring)
 /**
  * getListOfProductsOrServices
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array<string,mixed>		$filterproduct		Filter fields
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -996,7 +996,7 @@ function getListOfProductsOrServices($authentication, $filterproduct)
 /**
  * Get list of products for a category
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Category id
  * @param	string		$lang				Force lang
  * @return array{result:array{result_code:string,result_label:string}} Array result

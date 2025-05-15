@@ -22,7 +22,7 @@
 
 /**
  *		\file       htdocs/viewimage.php
- *		\brief      Wrapper to show images into Dolibarr screens.
+ *		\brief      Wrapper to show images into OnLi screens.
  *		\remarks    Call to wrapper is :
  *					DOL_URL_ROOT.'/viewimage.php?modulepart=diroffile&file=relativepathofofile&cache=0
  *					DOL_URL_ROOT.'/viewimage.php?hashp=sharekey
@@ -99,7 +99,7 @@ if (!$needlogin) {
 		define("NOCSRFCHECK", 1); // We accept to go on this page from external web site.
 	}
 	if (!defined("NOIPCHECK")) {
-		define("NOIPCHECK", 1); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+		define("NOIPCHECK", 1); // Do not check IP defined into conf $onli_main_restrict_ip
 	}
 }
 
@@ -195,11 +195,11 @@ if ($modulepart == 'fckeditor') {
 
 $cachestring = GETPOST("cache", 'aZ09');	// May be 1, or an int, or a hash
 if ($cachestring) {
-	// Important: The following code is to avoid a page request by the browser and PHP CPU at each Dolibarr page access.
+	// Important: The following code is to avoid a page request by the browser and PHP CPU at each OnLi page access.
 	// We are here when param cache=xxx to force a cache policy:
 	//  xxx=1 means cache of 3600s
 	//  xxx=abcdef or 123456789 means a cache of 1 week (the key will be modified to get break cache use)
-	if (empty($dolibarr_nocache)) {
+	if (empty($onli_nocache)) {
 		$delaycache = ((is_numeric($cachestring) && (int) $cachestring > 1 && (int) $cachestring < 999999) ? $cachestring : '3600');
 		header('Cache-Control: max-age='.$delaycache.', public, must-revalidate');
 		header('Pragma: cache'); // This is to avoid to have Pragma: no-cache set by proxy or web server
@@ -208,7 +208,7 @@ if ($cachestring) {
 		// If any cache on files were disable by config file (for test purpose)
 		header('Cache-Control: no-cache');
 	}
-	//print $dolibarr_nocache; exit;
+	//print $onli_nocache; exit;
 }
 
 // If we have a hash public (hashp), we guess the original_file.

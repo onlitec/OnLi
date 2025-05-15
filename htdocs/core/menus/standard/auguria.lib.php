@@ -42,7 +42,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/menubase.class.php';
 function print_auguria_menu($db, $atarget, $type_user, &$tabMenu, &$menu, $noout = 0, $mode = '')
 {
 	global $user, $conf, $langs, $mysoc;
-	global $dolibarr_main_db_name;
+	global $onli_main_db_name;
 
 	$mainmenu = (empty($_SESSION["mainmenu"]) ? '' : $_SESSION["mainmenu"]);
 	$leftmenu = (empty($_SESSION["leftmenu"]) ? '' : $_SESSION["leftmenu"]);
@@ -82,7 +82,7 @@ function print_auguria_menu($db, $atarget, $type_user, &$tabMenu, &$menu, $noout
 			// Phan issue #4881 requires that we reforce the type
 			'@phan-var-force array<array{rowid:string,fk_menu:string,langs:string,enabled:int<0,2>,type:string,fk_mainmenu:string,fk_leftmenu:string,url:string,titre:string,perms:string,target:string,mainmenu:string,leftmenu:string,position:int,positionfull:int|string,showtopmenuinframe:int,level?:int,prefix:string}> $newTabMenu';
 
-			// url = url from host, shorturl = relative path into dolibarr sources
+			// url = url from host, shorturl = relative path into onli sources
 			$url = $shorturl = $newTabMenu[$i]['url'];
 
 			if (!preg_match("/^(http:\/\/|https:\/\/)/i", $newTabMenu[$i]['url'])) {	// Do not change url content for external links
@@ -174,7 +174,7 @@ function print_auguria_menu($db, $atarget, $type_user, &$tabMenu, &$menu, $noout
 			$urllogo=DOL_URL_ROOT.'/viewimage.php?cache=1&amp;modulepart=mycompany&amp;file='.urlencode('logos/thumbs/'.$mysoc->logo_mini);
 			}*/
 		} else {
-			$urllogo = DOL_URL_ROOT.'/theme/dolibarr_512x512_white.png';
+			$urllogo = DOL_URL_ROOT.'/theme/onli_512x512_white.png';
 			$logoContainerAdditionalClass = '';
 		}
 
@@ -342,7 +342,7 @@ function print_end_menu_array_auguria()
 function print_left_auguria_menu($db, $menu_array_before, $menu_array_after, &$tabMenu, &$menu, $noout = 0, $forcemainmenu = '', $forceleftmenu = '', $moredata = null, $type_user = 0)
 {
 	global $user, $conf, $langs, $hookmanager;
-	global $dolibarr_main_db_name, $mysoc;
+	global $onli_main_db_name, $mysoc;
 
 	$newmenu = $menu;
 

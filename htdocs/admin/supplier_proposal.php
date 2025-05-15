@@ -25,7 +25,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/pdf.lib.php';
@@ -72,7 +72,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstsupplier_proposal && preg_match('/_MASK$/', $maskconstsupplier_proposal)) {
-		$res = dolibarr_set_const($db, $maskconstsupplier_proposal, $masksupplier_proposal, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstsupplier_proposal, $masksupplier_proposal, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -126,7 +126,7 @@ if ($action == 'specimen') {
 if ($action == 'set_SUPPLIER_PROPOSAL_DRAFT_WATERMARK') {
 	$draft = GETPOST('SUPPLIER_PROPOSAL_DRAFT_WATERMARK', 'alpha');
 
-	$res = dolibarr_set_const($db, "SUPPLIER_PROPOSAL_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "SUPPLIER_PROPOSAL_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -141,7 +141,7 @@ if ($action == 'set_SUPPLIER_PROPOSAL_DRAFT_WATERMARK') {
 if ($action == 'set_SUPPLIER_PROPOSAL_FREE_TEXT') {
 	$freetext = GETPOST('SUPPLIER_PROPOSAL_FREE_TEXT', 'restricthtml'); // No alpha here, we want exact string
 
-	$res = dolibarr_set_const($db, "SUPPLIER_PROPOSAL_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "SUPPLIER_PROPOSAL_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -155,7 +155,7 @@ if ($action == 'set_SUPPLIER_PROPOSAL_FREE_TEXT') {
 }
 
 if ($action == 'set_BANK_ASK_PAYMENT_BANK_DURING_SUPPLIER_PROPOSAL') {
-	$res = dolibarr_set_const($db, "BANK_ASK_PAYMENT_BANK_DURING_SUPPLIER_PROPOSAL", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "BANK_ASK_PAYMENT_BANK_DURING_SUPPLIER_PROPOSAL", $value, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -175,11 +175,11 @@ if ($action == 'set') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if ($conf->global->SUPPLIER_PROPOSAL_ADDON_PDF == "$value") {
-			dolibarr_del_const($db, 'SUPPLIER_PROPOSAL_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'SUPPLIER_PROPOSAL_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') {
-	if (dolibarr_set_const($db, "SUPPLIER_PROPOSAL_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "SUPPLIER_PROPOSAL_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		$conf->global->SUPPLIER_PROPOSAL_ADDON_PDF = $value;
 	}
 
@@ -192,7 +192,7 @@ if ($action == 'set') {
 	// TODO Verify if the chosen numbering module can be activated
 	// by calling method canBeActivated
 
-	dolibarr_set_const($db, "SUPPLIER_PROPOSAL_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "SUPPLIER_PROPOSAL_ADDON", $value, 'chaine', 0, '', $conf->entity);
 } elseif (preg_match('/set_(.*)/', $action, $reg)) {
 	$code = $reg[1];
 	if ($code == "SUPPLIER_PROPOSAL_FREE_TEXT") {
@@ -200,7 +200,7 @@ if ($action == 'set') {
 	} else {
 		$value = (GETPOST($code) ? GETPOST($code) : 1);
 	}
-	$res = dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -214,7 +214,7 @@ if ($action == 'set') {
 	}
 } elseif (preg_match('/del_(.*)/', $action, $reg)) {
 	$code = $reg[1];
-	$res = dolibarr_del_const($db, $code, $conf->entity);
+	$res = onli_del_const($db, $code, $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -532,7 +532,7 @@ if (!getDolGlobalString('PDF_ALLOW_HTML_FOR_FREE_TEXT')) {
 	print '<textarea name="'.$variablename.'" class="flat" cols="120">'.getDolGlobalString($variablename).'</textarea>';
 } else {
 	include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'dolibarr_notes');
+	$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'onli_notes');
 	print $doleditor->Create();
 }
 print '</td><td class="right">';

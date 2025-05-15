@@ -24,7 +24,7 @@
  *  \brief      Page of Mo events
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 require_once DOL_DOCUMENT_ROOT.'/projet/class/project.class.php';

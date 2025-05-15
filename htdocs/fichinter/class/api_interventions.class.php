@@ -33,9 +33,9 @@ require_once DOL_DOCUMENT_ROOT.'/fichinter/class/fichinter.class.php';
  * @since	7.0.0	Initial implementation
  *
  * @access	protected
- * @class	DolibarrApiAccess {@requires user,external}
+ * @class	OnLiApiAccess {@requires user,external}
  */
-class Interventions extends DolibarrApi
+class Interventions extends OnLiApi
 {
 	/**
 	 * @var string[]	Mandatory fields, checked when create and update object
@@ -86,7 +86,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function get($id, $ref = '', $ref_ext = '', $contact_list = 1)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -95,8 +95,8 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		if ($contact_list > -1) {
@@ -140,19 +140,19 @@ class Interventions extends DolibarrApi
 	 */
 	public function index($sortfield = "t.rowid", $sortorder = 'ASC', $limit = 100, $page = 0, $thirdparty_ids = '', $sqlfilters = '', $properties = '', $contact_type = '', $pagination_data = false)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'lire')) {
 			throw new RestException(403);
 		}
 
 		$obj_ret = array();
 
 		// case of external user, $thirdparty_ids param is ignored and replaced by user's socid
-		$socids = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : $thirdparty_ids;
+		$socids = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : $thirdparty_ids;
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if (!DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socids) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if (!OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socids) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -247,7 +247,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'creer')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		// Check mandatory fields
@@ -262,7 +262,7 @@ class Interventions extends DolibarrApi
 			$this->fichinter->$field = $this->_checkValForAPI($field, $value, $this->fichinter);
 		}
 
-		if ($this->fichinter->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->fichinter->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating intervention", array_merge(array($this->fichinter->error), $this->fichinter->errors));
 		}
 
@@ -284,7 +284,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -293,8 +293,8 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Fichinter not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		foreach ($request_data as $field => $value) {
 			if ($field == 'id') {
@@ -315,7 +315,7 @@ class Interventions extends DolibarrApi
 			$this->fichinter->$field = $this->_checkValForAPI($field, $value, $this->fichinter);
 		}
 
-		if ($this->fichinter->update(DolibarrApiAccess::$user) > 0) {
+		if ($this->fichinter->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->fichinter->error);
@@ -334,7 +334,7 @@ class Interventions extends DolibarrApi
 	/* TODO
 	public function getLines($id)
 	{
-		if(! DolibarrApiAccess::$user->hasRight('ficheinter', 'lire')) {
+		if(! OnLiApiAccess::$user->hasRight('ficheinter', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -343,8 +343,8 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if( ! DolibarrApi::_checkAccessToResource('fichinter',$this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if( ! OnLiApi::_checkAccessToResource('fichinter',$this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		$this->fichinter->getLinesArray();
 		$result = array();
@@ -373,7 +373,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function postLine($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'creer')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		// Check mandatory fields
@@ -393,12 +393,12 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$updateRes = $this->fichinter->addLine(
-			DolibarrApiAccess::$user,
+			OnLiApiAccess::$user,
 			$id,
 			$this->fichinter->description,
 			$this->fichinter->date,
@@ -426,7 +426,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'supprimer')) {
 			throw new RestException(403);
 		}
 		$result = $this->fichinter->fetch($id);
@@ -434,11 +434,11 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->fichinter->delete(DolibarrApiAccess::$user)) {
+		if (!$this->fichinter->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when delete intervention : '.$this->fichinter->error);
 		}
 
@@ -465,7 +465,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function reopen($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'creer')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		$result = $this->fichinter->fetch($id);
@@ -473,10 +473,10 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
-		$result = $this->fichinter->setDraft(DolibarrApiAccess::$user);
+		$result = $this->fichinter->setDraft(OnLiApiAccess::$user);
 		if ($result == 0) {
 			throw new RestException(304, 'Error nothing done. May be object is already set as draft');
 		}
@@ -508,7 +508,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function validate($id, $notrigger = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'creer')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		$result = $this->fichinter->fetch($id);
@@ -516,11 +516,11 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		$result = $this->fichinter->setValid(DolibarrApiAccess::$user, $notrigger);
+		$result = $this->fichinter->setValid(OnLiApiAccess::$user, $notrigger);
 		if ($result == 0) {
 			throw new RestException(304, 'Error nothing done. May be object is already validated');
 		}
@@ -548,7 +548,7 @@ class Interventions extends DolibarrApi
 	 */
 	public function closeFichinter($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ficheinter', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('ficheinter', 'creer')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		$result = $this->fichinter->fetch($id);
@@ -556,8 +556,8 @@ class Interventions extends DolibarrApi
 			throw new RestException(404, 'Intervention not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('fichinter', $this->fichinter->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->fichinter->setStatut(3);

@@ -190,7 +190,7 @@ if ($action == 'update' && $permissiontobind) {
 		$error = 0;
 
 		if (in_array($accounting_product_mode, $accounting_product_modes)) {
-			if (!dolibarr_set_const($db, 'ACCOUNTING_PRODUCT_MODE', $accounting_product_mode, 'chaine', 0, '', $conf->entity)) {
+			if (!onli_set_const($db, 'ACCOUNTING_PRODUCT_MODE', $accounting_product_mode, 'chaine', 0, '', $conf->entity)) {
 				$error++;
 			}
 		} else {

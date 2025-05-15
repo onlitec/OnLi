@@ -32,9 +32,9 @@ dol_include_once('/partnership/class/partnership.class.php');
  * API class for partnership partnership
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Partnerships extends DolibarrApi
+class Partnerships extends OnLiApi
 {
 	/**
 	 * @var Partnership {@type Partnership}
@@ -68,7 +68,7 @@ class Partnerships extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('partnership', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('partnership', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -77,8 +77,8 @@ class Partnerships extends DolibarrApi
 			throw new RestException(404, 'Partnership not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('partnership', $this->partnership->id, 'partnership')) {
-			throw new RestException(403, 'Access to instance id='.$this->partnership->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('partnership', $this->partnership->id, 'partnership')) {
+			throw new RestException(403, 'Access to instance id='.$this->partnership->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($this->partnership);
@@ -109,18 +109,18 @@ class Partnerships extends DolibarrApi
 		$obj_ret = array();
 		$tmpobject = new Partnership($this->db);
 
-		if (!DolibarrApiAccess::$user->hasRight('partnership', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('partnership', 'read')) {
 			throw new RestException(403);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : 0;
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : 0;
 
 		$restrictonsocid = 0; // Set to 1 if there is a field socid in table of object
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if ($restrictonsocid && !DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if ($restrictonsocid && !OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -192,7 +192,7 @@ class Partnerships extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('partnership', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('partnership', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -212,7 +212,7 @@ class Partnerships extends DolibarrApi
 		// Clean data
 		// $this->partnership->abc = sanitizeVal($this->partnership->abc, 'alphanohtml');
 
-		if ($this->partnership->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->partnership->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating Partnership", array_merge(array($this->partnership->error), $this->partnership->errors));
 		}
 		return $this->partnership->id;
@@ -233,7 +233,7 @@ class Partnerships extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('partnership', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('partnership', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -242,8 +242,8 @@ class Partnerships extends DolibarrApi
 			throw new RestException(404, 'Partnership not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('partnership', $this->partnership->id, 'partnership')) {
-			throw new RestException(403, 'Access to instance id='.$this->partnership->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('partnership', $this->partnership->id, 'partnership')) {
+			throw new RestException(403, 'Access to instance id='.$this->partnership->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -268,7 +268,7 @@ class Partnerships extends DolibarrApi
 		// Clean data
 		// $this->partnership->abc = sanitizeVal($this->partnership->abc, 'alphanohtml');
 
-		if ($this->partnership->update(DolibarrApiAccess::$user, 0) > 0) {
+		if ($this->partnership->update(OnLiApiAccess::$user, 0) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->partnership->error);
@@ -289,7 +289,7 @@ class Partnerships extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('partnership', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('partnership', 'delete')) {
 			throw new RestException(403);
 		}
 		$result = $this->partnership->fetch($id);
@@ -297,11 +297,11 @@ class Partnerships extends DolibarrApi
 			throw new RestException(404, 'Partnership not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('partnership', $this->partnership->id, 'partnership')) {
-			throw new RestException(403, 'Access to instance id='.$this->partnership->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('partnership', $this->partnership->id, 'partnership')) {
+			throw new RestException(403, 'Access to instance id='.$this->partnership->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->partnership->delete(DolibarrApiAccess::$user)) {
+		if (!$this->partnership->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when deleting Partnership : '.$this->partnership->error);
 		}
 

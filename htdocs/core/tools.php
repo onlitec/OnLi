@@ -23,7 +23,7 @@
  *       \brief      Home page for top menu tools
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 /**

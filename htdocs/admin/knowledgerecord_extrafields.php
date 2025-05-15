@@ -27,7 +27,7 @@
  *		\brief      Page to setup extra fields of knowledgerecord
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 require_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';

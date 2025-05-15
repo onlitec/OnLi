@@ -26,7 +26,7 @@
  *      \brief      Page to setup external calendars for agenda module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formadmin.class.php';
@@ -77,7 +77,7 @@ if (preg_match('/set_(.*)/', $action, $reg)) {
 	$code = $reg[1];
 	$value = (GETPOST($code) ? GETPOST($code) : 1);
 
-	$res = dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 		$errors[] = $db->lasterror();
@@ -97,7 +97,7 @@ if (preg_match('/set_(.*)/', $action, $reg)) {
 
 	$code = $reg[1];
 
-	$res = dolibarr_del_const($db, $code, $conf->entity);
+	$res = onli_del_const($db, $code, $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 		$errors[] = $db->lasterror();
@@ -116,7 +116,7 @@ if (preg_match('/set_(.*)/', $action, $reg)) {
 	$db->begin();
 
 	$disableext = GETPOST('AGENDA_DISABLE_EXT', 'alpha');
-	$res = dolibarr_set_const($db, 'AGENDA_DISABLE_EXT', $disableext, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'AGENDA_DISABLE_EXT', $disableext, 'chaine', 0, '', $conf->entity);
 
 	$i = 1;
 	$errorsaved = 0;
@@ -141,23 +141,23 @@ if (preg_match('/set_(.*)/', $action, $reg)) {
 
 		//print '-name='.$name.'-color='.$color;
 		// @phan-suppress-next-line PhanPluginSuspiciousParamPosition
-		$res = dolibarr_set_const($db, 'AGENDA_EXT_NAME'.$i, $name, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AGENDA_EXT_NAME'.$i, $name, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
-		$res = dolibarr_set_const($db, 'AGENDA_EXT_SRC'.$i, $src, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AGENDA_EXT_SRC'.$i, $src, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
-		$res = dolibarr_set_const($db, 'AGENDA_EXT_OFFSETTZ'.$i, $offsettz, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AGENDA_EXT_OFFSETTZ'.$i, $offsettz, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
-		$res = dolibarr_set_const($db, 'AGENDA_EXT_COLOR'.$i, $color, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AGENDA_EXT_COLOR'.$i, $color, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
-		$res = dolibarr_set_const($db, 'AGENDA_EXT_ENABLED'.$i, $enabled, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AGENDA_EXT_ENABLED'.$i, $enabled, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
@@ -166,7 +166,7 @@ if (preg_match('/set_(.*)/', $action, $reg)) {
 
 	// Save nb of agenda
 	if (!$error) {
-		$res = dolibarr_set_const($db, 'AGENDA_EXT_NB', GETPOSTINT('AGENDA_EXT_NB'), 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AGENDA_EXT_NB', GETPOSTINT('AGENDA_EXT_NB'), 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}

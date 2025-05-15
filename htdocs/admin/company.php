@@ -30,7 +30,7 @@
  *	\brief      Setup page to configure company/foundation
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
@@ -91,7 +91,7 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 	if (!empty($tmparray['id'])) {
 		if ($tmparray['code'] == 'FR' && $tmparray['id'] != $mysoc->country_id) {
 			// For FR, default value of option to show profid SIREN is on by default
-			$res = dolibarr_set_const($db, "MAIN_PROFID1_IN_ADDRESS", 1, 'chaine', 0, '', $conf->entity);
+			$res = onli_set_const($db, "MAIN_PROFID1_IN_ADDRESS", 1, 'chaine', 0, '', $conf->entity);
 		}
 
 		$mysoc->country_id   = $tmparray['id'];
@@ -99,7 +99,7 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 		$mysoc->country_label = $tmparray['label'];
 
 		$s = $mysoc->country_id.':'.$mysoc->country_code.':'.$mysoc->country_label;
-		dolibarr_set_const($db, "MAIN_INFO_SOCIETE_COUNTRY", $s, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_INFO_SOCIETE_COUNTRY", $s, 'chaine', 0, '', $conf->entity);
 
 		activateModulesRequiredByCountry($mysoc->country_code);
 	}
@@ -111,26 +111,26 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 		$mysoc->state_label = $tmparray['label'];
 
 		$s = $mysoc->state_id.':'.$mysoc->state_code.':'.$mysoc->state_label;
-		dolibarr_set_const($db, "MAIN_INFO_SOCIETE_STATE", $s, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_INFO_SOCIETE_STATE", $s, 'chaine', 0, '', $conf->entity);
 	} else {
-		dolibarr_del_const($db, "MAIN_INFO_SOCIETE_STATE", $conf->entity);
+		onli_del_const($db, "MAIN_INFO_SOCIETE_STATE", $conf->entity);
 	}
 
 	$db->begin();
 
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_NOM", GETPOST("name", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_ADDRESS", GETPOST("MAIN_INFO_SOCIETE_ADDRESS", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_TOWN", GETPOST("MAIN_INFO_SOCIETE_TOWN", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_ZIP", GETPOST("MAIN_INFO_SOCIETE_ZIP", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_REGION", GETPOST("region_code", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_MONNAIE", GETPOST("currency", 'aZ09'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_TEL", GETPOST("phone", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_MOBILE", GETPOST("phone_mobile", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_FAX", GETPOST("fax", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_MAIL", GETPOST("mail", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_WEB", GETPOST("web", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_NOTE", GETPOST("note", 'restricthtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_GENCOD", GETPOST("barcode", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_NOM", GETPOST("name", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_ADDRESS", GETPOST("MAIN_INFO_SOCIETE_ADDRESS", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_TOWN", GETPOST("MAIN_INFO_SOCIETE_TOWN", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_ZIP", GETPOST("MAIN_INFO_SOCIETE_ZIP", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_REGION", GETPOST("region_code", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MONNAIE", GETPOST("currency", 'aZ09'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_TEL", GETPOST("phone", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_MOBILE", GETPOST("phone_mobile", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_FAX", GETPOST("fax", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_MAIL", GETPOST("mail", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_WEB", GETPOST("web", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_NOTE", GETPOST("note", 'restricthtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_GENCOD", GETPOST("barcode", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 
 	$dirforimage = $conf->mycompany->dir_output.'/logos/';
 
@@ -163,7 +163,7 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 						$constant = "MAIN_INFO_SOCIETE_LOGO_SQUARRED";
 					}
 
-					dolibarr_set_const($db, $constant, $original_file, 'chaine', 0, '', $conf->entity);
+					onli_set_const($db, $constant, $original_file, 'chaine', 0, '', $conf->entity);
 
 					// Create thumbs of logo (Note that PDF use original file and not thumbs)
 					if ($isimage > 0) {
@@ -175,7 +175,7 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 						$imgThumbSmall = vignette($dirforimage.$original_file, $maxwidthsmall, $maxheightsmall, '_small', $quality);
 						if (image_format_supported($imgThumbSmall) >= 0 && preg_match('/([^\\/:]+)$/i', $imgThumbSmall, $reg)) {
 							$imgThumbSmall = $reg[1]; // Save only basename
-							dolibarr_set_const($db, $constant."_SMALL", $imgThumbSmall, 'chaine', 0, '', $conf->entity);
+							onli_set_const($db, $constant."_SMALL", $imgThumbSmall, 'chaine', 0, '', $conf->entity);
 						} else {
 							dol_syslog($imgThumbSmall);
 						}
@@ -184,7 +184,7 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 						$imgThumbMini = vignette($dirforimage.$original_file, $maxwidthmini, $maxheightmini, '_mini', $quality);
 						if (image_format_supported($imgThumbMini) >= 0 && preg_match('/([^\\/:]+)$/i', $imgThumbMini, $reg)) {
 							$imgThumbMini = $reg[1]; // Save only basename
-							dolibarr_set_const($db, $constant."_MINI", $imgThumbMini, 'chaine', 0, '', $conf->entity);
+							onli_set_const($db, $constant."_MINI", $imgThumbMini, 'chaine', 0, '', $conf->entity);
 						} else {
 							dol_syslog($imgThumbMini);
 						}
@@ -212,25 +212,25 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 		/*}*/
 	}
 
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_MANAGERS", GETPOST("MAIN_INFO_SOCIETE_MANAGERS", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_GDPR", GETPOST("MAIN_INFO_GDPR", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_CAPITAL", GETPOST("capital", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_FORME_JURIDIQUE", GETPOST("forme_juridique_code", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SIREN", GETPOST("siren", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SIRET", GETPOST("siret", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_APE", GETPOST("ape", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_RCS", GETPOST("rcs", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_PROFID5", GETPOST("MAIN_INFO_PROFID5", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_PROFID6", GETPOST("MAIN_INFO_PROFID6", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_PROFID7", GETPOST("MAIN_INFO_PROFID7", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_PROFID8", GETPOST("MAIN_INFO_PROFID8", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_PROFID9", GETPOST("MAIN_INFO_PROFID9", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_PROFID10", GETPOST("MAIN_INFO_PROFID10", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_MANAGERS", GETPOST("MAIN_INFO_SOCIETE_MANAGERS", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_GDPR", GETPOST("MAIN_INFO_GDPR", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_CAPITAL", GETPOST("capital", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_FORME_JURIDIQUE", GETPOST("forme_juridique_code", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SIREN", GETPOST("siren", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SIRET", GETPOST("siret", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_APE", GETPOST("ape", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_RCS", GETPOST("rcs", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_PROFID5", GETPOST("MAIN_INFO_PROFID5", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_PROFID6", GETPOST("MAIN_INFO_PROFID6", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_PROFID7", GETPOST("MAIN_INFO_PROFID7", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_PROFID8", GETPOST("MAIN_INFO_PROFID8", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_PROFID9", GETPOST("MAIN_INFO_PROFID9", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_PROFID10", GETPOST("MAIN_INFO_PROFID10", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 
-	dolibarr_set_const($db, "MAIN_INFO_TVAINTRA", GETPOST("tva", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_INFO_SOCIETE_OBJECT", GETPOST("socialobject", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_TVAINTRA", GETPOST("tva", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_INFO_SOCIETE_OBJECT", GETPOST("socialobject", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 
-	dolibarr_set_const($db, "SOCIETE_FISCAL_MONTH_START", GETPOSTINT("SOCIETE_FISCAL_MONTH_START"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "SOCIETE_FISCAL_MONTH_START", GETPOSTINT("SOCIETE_FISCAL_MONTH_START"), 'chaine', 0, '', $conf->entity);
 
 	// Sale tax options
 	$usevat = GETPOST("optiontva", 'aZ09');
@@ -245,37 +245,37 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))
 		$error++;
 	}
 
-	dolibarr_set_const($db, "FACTURE_TVAOPTION", $usevat, 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "FACTURE_LOCAL_TAX1_OPTION", $uselocaltax1, 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "FACTURE_LOCAL_TAX2_OPTION", $uselocaltax2, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "FACTURE_TVAOPTION", $usevat, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "FACTURE_LOCAL_TAX1_OPTION", $uselocaltax1, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "FACTURE_LOCAL_TAX2_OPTION", $uselocaltax2, 'chaine', 0, '', $conf->entity);
 
 	if (GETPOST("optionlocaltax1") == "localtax1on") {
 		if (!GETPOSTISSET('lt1')) {
-			dolibarr_set_const($db, "MAIN_INFO_VALUE_LOCALTAX1", 0, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_INFO_VALUE_LOCALTAX1", 0, 'chaine', 0, '', $conf->entity);
 		} else {
-			dolibarr_set_const($db, "MAIN_INFO_VALUE_LOCALTAX1", GETPOST('lt1', 'aZ09'), 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_INFO_VALUE_LOCALTAX1", GETPOST('lt1', 'aZ09'), 'chaine', 0, '', $conf->entity);
 		}
-		dolibarr_set_const($db, "MAIN_INFO_LOCALTAX_CALC1", GETPOST("clt1", 'aZ09'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_INFO_LOCALTAX_CALC1", GETPOST("clt1", 'aZ09'), 'chaine', 0, '', $conf->entity);
 	}
 	if (GETPOST("optionlocaltax2") == "localtax2on") {
 		if (!GETPOSTISSET('lt2')) {
-			dolibarr_set_const($db, "MAIN_INFO_VALUE_LOCALTAX2", 0, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_INFO_VALUE_LOCALTAX2", 0, 'chaine', 0, '', $conf->entity);
 		} else {
-			dolibarr_set_const($db, "MAIN_INFO_VALUE_LOCALTAX2", GETPOST('lt2', 'aZ09'), 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_INFO_VALUE_LOCALTAX2", GETPOST('lt2', 'aZ09'), 'chaine', 0, '', $conf->entity);
 		}
-		dolibarr_set_const($db, "MAIN_INFO_LOCALTAX_CALC2", GETPOST("clt2", 'aZ09'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_INFO_LOCALTAX_CALC2", GETPOST("clt2", 'aZ09'), 'chaine', 0, '', $conf->entity);
 	}
 
 	// Credentials for AADE webservices, applicable only for Greece
 	if ($mysoc->country_code == 'GR') {
-		dolibarr_set_const($db, "MYDATA_AADE_USER", GETPOST("MYDATA_AADE_USER", 'alpha'), 'chaine', 0, '', $conf->entity);
-		dolibarr_set_const($db, "MYDATA_AADE_KEY", GETPOST("MYDATA_AADE_KEY", 'alpha'), 'chaine', 0, '', $conf->entity);
-		dolibarr_set_const($db, "AADE_WEBSERVICE_USER", GETPOST("AADE_WEBSERVICE_USER", 'alpha'), 'chaine', 0, '', $conf->entity);
-		dolibarr_set_const($db, "AADE_WEBSERVICE_KEY", GETPOST("AADE_WEBSERVICE_KEY", 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MYDATA_AADE_USER", GETPOST("MYDATA_AADE_USER", 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MYDATA_AADE_KEY", GETPOST("MYDATA_AADE_KEY", 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "AADE_WEBSERVICE_USER", GETPOST("AADE_WEBSERVICE_USER", 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "AADE_WEBSERVICE_KEY", GETPOST("AADE_WEBSERVICE_KEY", 'alpha'), 'chaine', 0, '', $conf->entity);
 	}
 
 	// Remove constant MAIN_INFO_SOCIETE_SETUP_TODO_WARNING
-	dolibarr_del_const($db, "MAIN_INFO_SOCIETE_SETUP_TODO_WARNING", $conf->entity);
+	onli_del_const($db, "MAIN_INFO_SOCIETE_SETUP_TODO_WARNING", $conf->entity);
 
 	if (!$error) {
 		if (GETPOST('save')) {	// To avoid to show message when we juste switch the country that resubmit the form.
@@ -312,7 +312,7 @@ if ($action == 'addthumb' || $action == 'addthumbsquarred') {  // Regenerate thu
 			$imgThumbSmall = vignette($conf->mycompany->dir_output.'/logos/'.GETPOST("file"), $maxwidthsmall, $maxheightsmall, '_small', $quality);
 			if (image_format_supported($imgThumbSmall) >= 0 && preg_match('/([^\\/:]+)$/i', $imgThumbSmall, $reg)) {
 				$imgThumbSmall = $reg[1]; // Save only basename
-				dolibarr_set_const($db, $constant."_SMALL", $imgThumbSmall, 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, $constant."_SMALL", $imgThumbSmall, 'chaine', 0, '', $conf->entity);
 			} else {
 				dol_syslog($imgThumbSmall);
 			}
@@ -321,7 +321,7 @@ if ($action == 'addthumb' || $action == 'addthumbsquarred') {  // Regenerate thu
 			$imgThumbMini = vignette($conf->mycompany->dir_output.'/logos/'.GETPOST("file"), $maxwidthmini, $maxheightmini, '_mini', $quality);
 			if (image_format_supported($imgThumbSmall) >= 0 && preg_match('/([^\\/:]+)$/i', $imgThumbMini, $reg)) {
 				$imgThumbMini = $reg[1]; // Save only basename
-				dolibarr_set_const($db, $constant."_MINI", $imgThumbMini, 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, $constant."_MINI", $imgThumbMini, 'chaine', 0, '', $conf->entity);
 			} else {
 				dol_syslog($imgThumbMini);
 			}
@@ -362,7 +362,7 @@ if ($action == 'removelogo' || $action == 'removelogo_squarred') {
 	if ($logofilename != '' && $logofilename != $logofilenamebis) {
 		dol_delete_file($logofile);
 	}
-	dolibarr_del_const($db, $constant, $conf->entity);
+	onli_del_const($db, $constant, $conf->entity);
 	if ($action == 'removelogo_squarred') {
 		$mysoc->logo_squarred = '';
 	} else {
@@ -380,7 +380,7 @@ if ($action == 'removelogo' || $action == 'removelogo_squarred') {
 	if ($logofilename != '' && $logofilename != $logofilenamebis) {
 		dol_delete_file($logosmallfile);
 	}
-	dolibarr_del_const($db, $constant."_SMALL", $conf->entity);
+	onli_del_const($db, $constant."_SMALL", $conf->entity);
 	if ($action == 'removelogo_squarred') {
 		$mysoc->logo_squarred_small = '';
 	} else {
@@ -398,7 +398,7 @@ if ($action == 'removelogo' || $action == 'removelogo_squarred') {
 	if ($logofilename != '' && $logofilename != $logofilenamebis) {
 		dol_delete_file($logominifile);
 	}
-	dolibarr_del_const($db, $constant."_MINI", $conf->entity);
+	onli_del_const($db, $constant."_MINI", $conf->entity);
 	if ($action == 'removelogo_squarred') {
 		$mysoc->logo_squarred_mini = '';
 	} else {

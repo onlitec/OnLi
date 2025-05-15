@@ -25,7 +25,7 @@
  * \brief   Ai setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
 require_once DOL_DOCUMENT_ROOT."/core/class/doleditor.class.php";
@@ -251,7 +251,7 @@ if (getDolGlobalString("AI_API_SERVICE")) {
 	print $out;
 
 	print '<br>';
-	$doleditor = new DolEditor($htmlname, '', '', 100, 'dolibarr_details');
+	$doleditor = new DolEditor($htmlname, '', '', 100, 'onli_details');
 	print $doleditor->Create(1);
 
 

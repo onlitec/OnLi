@@ -17,7 +17,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/agpl-3.0.html>.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../../../main.inc.php';
 
 /**
@@ -122,9 +122,9 @@ if (!GETPOST('hidenavmenu')) {
 				<div class="documentation-example">
 					<div class="documentation-img-picto-icon-list">
 						<?php
-						$arrayofdolibarriconkey = getImgPictoNameList();
+						$arrayofonliiconkey = getImgPictoNameList();
 
-						foreach ($arrayofdolibarriconkey as $iconName) {
+						foreach ($arrayofonliiconkey as $iconName) {
 							$labelAlt = 'Text on title tag for tooltip';
 
 							if ($displayMode == 'kanban') {

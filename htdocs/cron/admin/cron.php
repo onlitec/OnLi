@@ -25,7 +25,7 @@
  *		\ingroup    cron
  */
 
-// Dolibarr environment
+// OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/cron.lib.php';
@@ -54,7 +54,7 @@ if (!empty($actionsave)) {
 
 	$db->begin();
 
-	$i += dolibarr_set_const($db, 'CRON_KEY', GETPOST("CRON_KEY"), 'chaine', 0, '', 0);
+	$i += onli_set_const($db, 'CRON_KEY', GETPOST("CRON_KEY"), 'chaine', 0, '', 0);
 
 	if ($i >= 1) {
 		$db->commit();

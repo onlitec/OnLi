@@ -389,7 +389,7 @@ class vCard
 			$text .= $newkey.":".$value."\r\n";
 		}
 		$text .= "REV:".date("Ymd")."T".date("His")."Z\r\n";
-		//$text .= "MAILER: Dolibarr\r\n";
+		//$text .= "MAILER: OnLi\r\n";
 		$text .= "END:VCARD\r\n";
 
 		return $text;
@@ -418,11 +418,11 @@ class vCard
 	 */
 	public function buildVCardString($object, $company, $langs, $urlphoto = '', $outdir = '')
 	{
-		global $dolibarr_main_instance_unique_id;
+		global $onli_main_instance_unique_id;
 
-		$this->setProdId('Dolibarr '.DOL_VERSION);
+		$this->setProdId('OnLi '.DOL_VERSION);
 
-		$this->setUID('DOL-USERID-'.dol_trunc(md5('vcard'.$dolibarr_main_instance_unique_id), 8, 'right', 'UTF-8', 1).'-'.$object->id);
+		$this->setUID('DOL-USERID-'.dol_trunc(md5('vcard'.$onli_main_instance_unique_id), 8, 'right', 'UTF-8', 1).'-'.$object->id);
 		$this->setName($object->lastname, $object->firstname, "", $object->civility_code, "");
 		$this->setFormattedName($object->getFullName($langs, 1));
 

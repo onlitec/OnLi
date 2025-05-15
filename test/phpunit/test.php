@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 /**
- * \file scripts/company/sync_contacts_dolibarr2ldap.php
- * \ingroup ldap company
- * \brief Script to update all contacts from Dolibarr into a LDAP database
+ * \file scripts/company/sync_contacts_onli2ldap.php
+ * \author Laurent Destailleur
+ * \brief Script to update all contacts from OnLi into a LDAP database
  */
 
 include "../../htdocs/master.inc.php";

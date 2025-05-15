@@ -20,16 +20,16 @@
 /**
  *	    \file       htdocs/core/doxygen.php
  *      \ingroup    core
- *		\mainpage	Dolibarr documentation of source code
+ *		\mainpage	OnLi documentation of source code
  *
- *	    This is source documentation for Dolibarr ERP/CRM.<br>
- *      This documentation can be built or updated running the script <b>dev/build/doxygen/dolibarr-doxygen-build.pl</b> or from Eclipse with Doxygen plugin.<br>
+ *	    This is source documentation for OnLi ERP/CRM.<br>
+ *      This documentation can be built or updated running the script <b>dev/build/doxygen/onli-doxygen-build.pl</b> or from Eclipse with Doxygen plugin.<br>
  *      <br>
- *      Dolibarr official web site: <a href="https://www.dolibarr.org">www.dolibarr.org</a><br>
+ *      OnLi official web site: <a href="https://www.onli.org">www.onli.org</a><br>
  *      <br>
- *      Dolibarr french portal: <a href="https://www.dolibarr.fr">www.dolibarr.fr</a><br>
- *      Dolibarr spanish portal: <a href="https://www.dolibarr.es">www.dolibarr.es</a><br>
- *      Dolibarr italian portal: <a href="https://www.dolibarr.it">www.dolibarr.it</a><br>
- *      Dolibarr german portal: <a href="https://www.dolibarr.de">www.dolibarr.de</a><br>
+ *      OnLi french portal: <a href="https://www.onli.fr">www.onli.fr</a><br>
+ *      OnLi spanish portal: <a href="https://www.onli.es">www.onli.es</a><br>
+ *      OnLi italian portal: <a href="https://www.onli.it">www.onli.it</a><br>
+ *      OnLi german portal: <a href="https://www.onli.de">www.onli.de</a><br>
  *      <br>
  */

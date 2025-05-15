@@ -288,7 +288,7 @@ class EmailSenderProfile extends CommonObject
 	public function getNomUrl($withpicto = 0)
 	{
 		global $db, $conf, $langs;
-		global $dolibarr_main_authentication, $dolibarr_main_demo;
+		global $onli_main_authentication, $onli_main_demo;
 		global $menumanager;
 
 		$result = '';

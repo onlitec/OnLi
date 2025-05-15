@@ -27,7 +27,7 @@
  *       \brief     File of page to resize photos
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/product.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/images.lib.php';
@@ -288,7 +288,7 @@ if ($modulepart == 'produit' || $modulepart == 'product' || $modulepart == 'serv
 		$dir = $conf->fournisseur->dir_output.'/facture'; // By default
 	}
 } elseif ($modulepart == 'medias') {
-	$dir = $dolibarr_main_data_root.'/'.$modulepart;
+	$dir = $onli_main_data_root.'/'.$modulepart;
 } else {
 	print 'Bug: Action crop for modulepart = '.$modulepart.' is not supported yet by photos_resize.php.';
 }

@@ -269,9 +269,9 @@ class FormFile
 			if ($perm && empty($conf->dol_optimize_smallscreen)) {
 				$langs->load('other');
 
-				$menudolibarrsetupmax = $langs->transnoentitiesnoconv("Home").' - '.$langs->transnoentitiesnoconv("Setup").' - '.$langs->transnoentitiesnoconv("Security");
+				$menuonlisetupmax = $langs->transnoentitiesnoconv("Home").' - '.$langs->transnoentitiesnoconv("Setup").' - '.$langs->transnoentitiesnoconv("Security");
 
-				$tooltiptext = $langs->trans("ThisLimitIsDefinedInSetupAt", $menudolibarrsetupmax, $max, $maxphptoshowparam, $maxphptoshow);
+				$tooltiptext = $langs->trans("ThisLimitIsDefinedInSetupAt", $menuonlisetupmax, $max, $maxphptoshowparam, $maxphptoshow);
 				if (getDolGlobalString('MAIN_SAVE_FILE_CONTENT_AS_TEXT')) {
 					$tooltiptext .= '<br><br>Option to extract the file content in text to save it in database is ON <span class="opacitymedium">('.getDolGlobalString('MAIN_SAVE_FILE_CONTENT_AS_TEXT').')</span>';
 				}
@@ -425,7 +425,7 @@ class FormFile
 	 *
 	 *      @param      string				$modulepart         Module the files are related to ('propal', 'facture', 'facture_fourn', 'mymodule', 'mymodule:MyObject', 'mymodule_temp', ...)
 	 *      @param      string				$modulesubdir       Existing (so sanitized) sub-directory to scan (Example: '0/1/10', 'FA/DD/MM/YY/9999'). Use '' if file is not into a subdir of module.
-	 *      @param      string				$filedir            Directory to scan (must not end with a /). Example: '/mydolibarrdocuments/facture/FAYYMM-1234'
+	 *      @param      string				$filedir            Directory to scan (must not end with a /). Example: '/myonlidocuments/facture/FAYYMM-1234'
 	 *      @param      string				$urlsource          Url of origin page (for return)
 	 *      @param      int<0,1>|string[]	$genallowed         Generation is allowed (1/0 or array list of templates)
 	 *      @param      int<0,1>			$delallowed         Remove is allowed (1/0)
@@ -448,7 +448,7 @@ class FormFile
 	 */
 	public function showdocuments($modulepart, $modulesubdir, $filedir, $urlsource, $genallowed, $delallowed = 0, $modelselected = '', $allowgenifempty = 1, $forcenomultilang = 0, $iconPDF = 0, $notused = 0, $noform = 0, $param = '', $title = '', $buttonlabel = '', $codelang = '', $morepicto = '', $object = null, $hideifempty = 0, $removeaction = 'remove_file', $tooltipontemplatecombo = '')
 	{
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		// Deprecation warning
 		if (!empty($iconPDF)) {
@@ -1024,7 +1024,7 @@ class FormFile
 					$out .= '<td class="nowraponall">';
 					if (!empty($file['share'])) {
 						// Define $urlwithroot
-						$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+						$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 						$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 						//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -1305,7 +1305,7 @@ class FormFile
 		// phpcs:enable
 		global $user, $conf, $langs, $hookmanager, $form;
 		global $sortfield, $sortorder;
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		if ($disablecrop == -1) {
 			$disablecrop = 1;
@@ -1339,7 +1339,7 @@ class FormFile
 
 		// For example here $upload_dir = '/pathtodocuments/commande/SO2001-123/'
 		// For example here $upload_dir = '/pathtodocuments/tax/vat/1'
-		// For example here $upload_dir = '/home/ldestailleur/git/dolibarr_dev/documents/fournisseur/facture/6/1/SI2210-0013' and relativedir='fournisseur/facture/6/1/SI2210-0013'
+		// For example here $upload_dir = '/home/ldestailleur/git/onli_dev/documents/fournisseur/facture/6/1/SI2210-0013' and relativedir='fournisseur/facture/6/1/SI2210-0013'
 
 		$hookmanager->initHooks(array('formfile'));
 		$parameters = array(
@@ -1634,7 +1634,7 @@ class FormFile
 						} else {
 							if ($file['share']) {
 								// Define $urlwithroot
-								$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+								$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 								$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 								//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -1829,7 +1829,7 @@ class FormFile
 		global $conf, $langs, $hookmanager, $form;
 		global $sortfield, $sortorder;
 		global $search_doc_ref;
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		dol_syslog(get_class($this).'::list_of_autoecmfiles upload_dir='.$upload_dir.' modulepart='.$modulepart);
 
@@ -2158,7 +2158,7 @@ class FormFile
 				print '<td class="right">';
 				if (!empty($file['share'])) {
 					// Define $urlwithroot
-					$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+					$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 					$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 					//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -2346,8 +2346,8 @@ class FormFile
 				print '<td class="center">'.dol_print_date($link->datea, "dayhour", "tzuser").'</td>';
 				print '<td class="center">';
 				if ($link->share) {
-					global $dolibarr_main_url_root;
-					$urlwithouturlroot = preg_replace('/' . preg_quote(DOL_URL_ROOT, '/') . '$/i', '', trim($dolibarr_main_url_root));
+					global $onli_main_url_root;
+					$urlwithouturlroot = preg_replace('/' . preg_quote(DOL_URL_ROOT, '/') . '$/i', '', trim($onli_main_url_root));
 					$urlwithroot = $urlwithouturlroot . DOL_URL_ROOT; // This is to use external domain name found into config file
 					$fulllink = $urlwithroot.'/document.php?type=link&hashp=' . $link->share;
 

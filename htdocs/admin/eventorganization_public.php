@@ -23,7 +23,7 @@
  * \brief   EventOrganization setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 // Libraries
@@ -38,7 +38,7 @@ require_once DOL_DOCUMENT_ROOT.'/categories/class/categorie.class.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Translations
@@ -134,7 +134,7 @@ if ($action == 'edit') {
 				print "</textarea>\n";
 			} elseif ($val['type'] == 'html') {
 				require_once DOL_DOCUMENT_ROOT . '/core/class/doleditor.class.php';
-				$doleditor = new DolEditor($constname, getDolGlobalString($constname), '', 160, 'dolibarr_notes', '', false, false, isModEnabled('fckeditor'), ROWS_5, '90%');
+				$doleditor = new DolEditor($constname, getDolGlobalString($constname), '', 160, 'onli_notes', '', false, false, isModEnabled('fckeditor'), ROWS_5, '90%');
 				$doleditor->Create();
 			} elseif ($val['type'] == 'yesno') {
 				print $form->selectyesno($constname, getDolGlobalString($constname), 1);
@@ -238,7 +238,7 @@ if (isModEnabled('multicompany')) {
 }
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

@@ -32,7 +32,7 @@
  *	\brief      Setup page of module Order
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/pdf.lib.php';
@@ -78,7 +78,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstorder && preg_match('/_MASK$/', $maskconstorder)) {
-		$res = dolibarr_set_const($db, $maskconstorder, $maskorder, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstorder, $maskorder, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -133,12 +133,12 @@ if ($action == 'updateMask') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (getDolGlobalString('COMMANDE_ADDON_PDF') == $value) {
-			dolibarr_del_const($db, 'COMMANDE_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'COMMANDE_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') {
 	// Set default model
-	if (dolibarr_set_const($db, "COMMANDE_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "COMMANDE_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// The constant that was read before the new set
 		// We therefore requires a variable to have a coherent view
 		$conf->global->COMMANDE_ADDON_PDF = $value;
@@ -153,10 +153,10 @@ if ($action == 'updateMask') {
 	// TODO Check if numbering module chosen can be activated
 	// by calling method canBeActivated
 
-	dolibarr_set_const($db, "COMMANDE_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "COMMANDE_ADDON", $value, 'chaine', 0, '', $conf->entity);
 } elseif ($action == 'set_COMMANDE_DRAFT_WATERMARK') {
 	$draft = GETPOST("COMMANDE_DRAFT_WATERMARK");
-	$res = dolibarr_set_const($db, "COMMANDE_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "COMMANDE_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -170,7 +170,7 @@ if ($action == 'updateMask') {
 } elseif ($action == 'set_ORDER_FREE_TEXT') {
 	$freetext = GETPOST("ORDER_FREE_TEXT", 'restricthtml'); // No alpha here, we want exact string
 
-	$res = dolibarr_set_const($db, "ORDER_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ORDER_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -185,8 +185,8 @@ if ($action == 'updateMask') {
 	$rib = GETPOST('rib', 'alpha');
 	$chq = GETPOST('chq', 'alpha');
 
-	$res = dolibarr_set_const($db, "FACTURE_RIB_NUMBER", $rib, 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "FACTURE_CHQ_NUMBER", $chq, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FACTURE_RIB_NUMBER", $rib, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FACTURE_CHQ_NUMBER", $chq, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -201,7 +201,7 @@ if ($action == 'updateMask') {
 	$code = $reg[1];
 	$value = (GETPOST($code) ? GETPOST($code) : 1);
 
-	$res = dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -215,7 +215,7 @@ if ($action == 'updateMask') {
 	}
 } elseif (preg_match('/del_(.*)/', $action, $reg)) {
 	$code = $reg[1];
-	$res = dolibarr_del_const($db, $code, $conf->entity);
+	$res = onli_del_const($db, $code, $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -231,7 +231,7 @@ if ($action == 'updateMask') {
 }
 /*elseif ($action == 'set_BANK_ASK_PAYMENT_BANK_DURING_ORDER') {
 	// Activate ask for payment bank
-	$res = dolibarr_set_const($db, "BANK_ASK_PAYMENT_BANK_DURING_ORDER", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "BANK_ASK_PAYMENT_BANK_DURING_ORDER", $value, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -244,7 +244,7 @@ if ($action == 'updateMask') {
 	}
 } elseif ($action == 'set_WAREHOUSE_ASK_WAREHOUSE_DURING_ORDER') {
 	// Activate ask for warehouse
-	$res = dolibarr_set_const($db, "WAREHOUSE_ASK_WAREHOUSE_DURING_ORDER", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "WAREHOUSE_ASK_WAREHOUSE_DURING_ORDER", $value, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -671,7 +671,7 @@ if (!getDolGlobalString('PDF_ALLOW_HTML_FOR_FREE_TEXT')) {
 	print '<textarea name="'.$variablename.'" class="flat" cols="120">'.getDolGlobalString($variablename).'</textarea>';
 } else {
 	include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'dolibarr_notes');
+	$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'onli_notes');
 	print $doleditor->Create();
 }
 print '</td><td class="right">';

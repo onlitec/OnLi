@@ -26,7 +26,7 @@
  *		\brief      Page to setup late delays
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -194,13 +194,13 @@ if ($action == 'update') {
 		if (isModEnabled($module)) {
 			foreach ($delays as $delay) {
 				if (GETPOST($delay['code']) != '') {
-					dolibarr_set_const($db, $delay['code'], GETPOST($delay['code']), 'chaine', 0, '', $conf->entity);
+					onli_set_const($db, $delay['code'], GETPOST($delay['code']), 'chaine', 0, '', $conf->entity);
 				}
 			}
 		}
 	}
-	dolibarr_set_const($db, "MAIN_DISABLE_METEO", GETPOST("MAIN_DISABLE_METEO"), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_USE_METEO_WITH_PERCENTAGE", GETPOST("MAIN_USE_METEO_WITH_PERCENTAGE"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_DISABLE_METEO", GETPOST("MAIN_DISABLE_METEO"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_USE_METEO_WITH_PERCENTAGE", GETPOST("MAIN_USE_METEO_WITH_PERCENTAGE"), 'chaine', 0, '', $conf->entity);
 
 	// For update value with percentage
 	$plus = '';
@@ -210,7 +210,7 @@ if ($action == 'update') {
 	// Update values
 	for ($i = 0; $i < 4; $i++) {
 		if (GETPOSTISSET('MAIN_METEO'.$plus.'_LEVEL'.$i)) {
-			dolibarr_set_const($db, 'MAIN_METEO'.$plus.'_LEVEL'.$i, GETPOSTINT('MAIN_METEO'.$plus.'_LEVEL'.$i), 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, 'MAIN_METEO'.$plus.'_LEVEL'.$i, GETPOSTINT('MAIN_METEO'.$plus.'_LEVEL'.$i), 'chaine', 0, '', $conf->entity);
 		}
 	}
 

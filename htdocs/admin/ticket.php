@@ -27,7 +27,7 @@
  *     \brief       Page to setup the module ticket
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/class/html.formcategory.class.php";
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
@@ -82,7 +82,7 @@ include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 
 if (GETPOSTISSET('TICKET_CHECK_NOTIFY_THIRDPARTY_AT_CREATION')) {	// only for no js case
 	$param_disable_email = GETPOST('TICKET_CHECK_NOTIFY_THIRDPARTY_AT_CREATION', 'alpha');
-	$res = dolibarr_set_const($db, 'TICKET_CHECK_NOTIFY_THIRDPARTY_AT_CREATION', $param_disable_email, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'TICKET_CHECK_NOTIFY_THIRDPARTY_AT_CREATION', $param_disable_email, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 		setEventMessages($db->lasterror(), null, 'errors');
@@ -96,7 +96,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstticket && preg_match('/_MASK$/', $maskconstticket)) {
-		$res = dolibarr_set_const($db, $maskconstticket, $maskticket, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstticket, $maskticket, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -115,25 +115,25 @@ if ($action == 'updateMask') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if ($conf->global->TICKET_ADDON_PDF == "$value") {
-			dolibarr_del_const($db, 'TICKET_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'TICKET_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif (preg_match('/set_(.*)/', $action, $reg)) {
 	$code = $reg[1];
 	$value = GETPOSTISSET($code) ? GETPOSTINT($code) : 1;
-	$res = dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 } elseif (preg_match('/del_(.*)/', $action, $reg)) {
 	$code = $reg[1];
-	$res = dolibarr_del_const($db, $code, $conf->entity);
+	$res = onli_del_const($db, $code, $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 } elseif ($action == 'setdoc') {
 	// Set default model
-	if (dolibarr_set_const($db, "TICKET_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "TICKET_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// The constant that was read before the new set
 		// We therefore requires a variable to have a coherent view
 		$conf->global->TICKET_ADDON_PDF = $value;
@@ -148,49 +148,49 @@ if ($action == 'updateMask') {
 	// TODO check if the chosen numbering module can be activated
 	// by calling the canBeActivated method
 
-	dolibarr_set_const($db, "TICKET_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "TICKET_ADDON", $value, 'chaine', 0, '', $conf->entity);
 } elseif ($action == 'setvarworkflow') {
 	// For compatibility when javascript is not enabled
 	if (empty($conf->use_javascript_ajax)) {
 		$param_auto_read = GETPOST('TICKET_AUTO_READ_WHEN_CREATED_FROM_BACKEND', 'alpha');
-		$res = dolibarr_set_const($db, 'TICKET_AUTO_READ_WHEN_CREATED_FROM_BACKEND', $param_auto_read, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'TICKET_AUTO_READ_WHEN_CREATED_FROM_BACKEND', $param_auto_read, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
 
 		$param_auto_assign = GETPOST('TICKET_AUTO_ASSIGN_USER_CREATE', 'alpha');
-		$res = dolibarr_set_const($db, 'TICKET_AUTO_ASSIGN_USER_CREATE', $param_auto_assign, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'TICKET_AUTO_ASSIGN_USER_CREATE', $param_auto_assign, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
 
 		$param_auto_notify_close = GETPOST('TICKET_NOTIFY_AT_CLOSING', 'alpha');
-		$res = dolibarr_set_const($db, 'TICKET_NOTIFY_AT_CLOSING', $param_auto_notify_close, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'TICKET_NOTIFY_AT_CLOSING', $param_auto_notify_close, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
 	}
 
 	$param_limit_view = GETPOST('TICKET_LIMIT_VIEW_ASSIGNED_ONLY', 'alpha');
-	$res = dolibarr_set_const($db, 'TICKET_LIMIT_VIEW_ASSIGNED_ONLY', $param_limit_view, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'TICKET_LIMIT_VIEW_ASSIGNED_ONLY', $param_limit_view, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 
 	$param_status = GETPOST('TICKET_SET_STATUS_ON_ANSWER');
-	$res = dolibarr_set_const($db, 'TICKET_SET_STATUS_ON_ANSWER', $param_status, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'TICKET_SET_STATUS_ON_ANSWER', $param_status, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 
 	$param_delay_first_response = GETPOSTINT('delay_first_response');
-	$res = dolibarr_set_const($db, 'TICKET_DELAY_BEFORE_FIRST_RESPONSE', $param_delay_first_response, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'TICKET_DELAY_BEFORE_FIRST_RESPONSE', $param_delay_first_response, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 
 	$param_delay_between_responses = GETPOSTINT('delay_between_responses');
-	$res = dolibarr_set_const($db, 'TICKET_DELAY_SINCE_LAST_RESPONSE', $param_delay_between_responses, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'TICKET_DELAY_SINCE_LAST_RESPONSE', $param_delay_between_responses, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -198,11 +198,11 @@ if ($action == 'updateMask') {
 	include_once DOL_DOCUMENT_ROOT."/core/lib/files.lib.php";
 
 	$notification_email = GETPOST('TICKET_NOTIFICATION_EMAIL_FROM', 'alpha');
-	$notification_email_description = "Sender of ticket replies sent from Dolibarr";
+	$notification_email_description = "Sender of ticket replies sent from OnLi";
 	if (!empty($notification_email)) {
-		$res = dolibarr_set_const($db, 'TICKET_NOTIFICATION_EMAIL_FROM', $notification_email, 'chaine', 0, $notification_email_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_NOTIFICATION_EMAIL_FROM', $notification_email, 'chaine', 0, $notification_email_description, $conf->entity);
 	} else { // If an empty e-mail address is providen, use the global "FROM" since an empty field will cause other issues
-		$res = dolibarr_set_const($db, 'TICKET_NOTIFICATION_EMAIL_FROM', $conf->global->MAIN_MAIL_EMAIL_FROM, 'chaine', 0, $notification_email_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_NOTIFICATION_EMAIL_FROM', $conf->global->MAIN_MAIL_EMAIL_FROM, 'chaine', 0, $notification_email_description, $conf->entity);
 	}
 	if (!($res > 0)) {
 		$error++;
@@ -210,33 +210,33 @@ if ($action == 'updateMask') {
 
 	// altairis : differentiate notification email FROM and TO
 	$notification_email_to = GETPOST('TICKET_NOTIFICATION_EMAIL_TO', 'alpha');
-	$notification_email_to_description = "Notified e-mail for ticket replies sent from Dolibarr";
+	$notification_email_to_description = "Notified e-mail for ticket replies sent from OnLi";
 	if (!empty($notification_email_to)) {
-		$res = dolibarr_set_const($db, 'TICKET_NOTIFICATION_EMAIL_TO', $notification_email_to, 'chaine', 0, $notification_email_to_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_NOTIFICATION_EMAIL_TO', $notification_email_to, 'chaine', 0, $notification_email_to_description, $conf->entity);
 	} else {
-		$res = dolibarr_set_const($db, 'TICKET_NOTIFICATION_EMAIL_TO', '', 'chaine', 0, $notification_email_to_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_NOTIFICATION_EMAIL_TO', '', 'chaine', 0, $notification_email_to_description, $conf->entity);
 	}
 	if (!($res > 0)) {
 		$error++;
 	}
 
 	$mail_intro = GETPOST('TICKET_MESSAGE_MAIL_INTRO', 'restricthtml');
-	$mail_intro_description = "Introduction text of ticket replies sent from Dolibarr";
+	$mail_intro_description = "Introduction text of ticket replies sent from OnLi";
 	if (!empty($mail_intro)) {
-		$res = dolibarr_set_const($db, 'TICKET_MESSAGE_MAIL_INTRO', $mail_intro, 'chaine', 0, $mail_intro_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_MESSAGE_MAIL_INTRO', $mail_intro, 'chaine', 0, $mail_intro_description, $conf->entity);
 	} else {
-		$res = dolibarr_set_const($db, 'TICKET_MESSAGE_MAIL_INTRO', '', 'chaine', 0, $mail_intro_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_MESSAGE_MAIL_INTRO', '', 'chaine', 0, $mail_intro_description, $conf->entity);
 	}
 	if (!($res > 0)) {
 		$error++;
 	}
 
 	$mail_signature = GETPOST('TICKET_MESSAGE_MAIL_SIGNATURE', 'restricthtml');
-	$signature_description = "Signature of ticket replies sent from Dolibarr";
+	$signature_description = "Signature of ticket replies sent from OnLi";
 	if (!empty($mail_signature)) {
-		$res = dolibarr_set_const($db, 'TICKET_MESSAGE_MAIL_SIGNATURE', $mail_signature, 'chaine', 0, $signature_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_MESSAGE_MAIL_SIGNATURE', $mail_signature, 'chaine', 0, $signature_description, $conf->entity);
 	} else {
-		$res = dolibarr_set_const($db, 'TICKET_MESSAGE_MAIL_SIGNATURE', '', 'chaine', 0, $signature_description, $conf->entity);
+		$res = onli_set_const($db, 'TICKET_MESSAGE_MAIL_SIGNATURE', '', 'chaine', 0, $signature_description, $conf->entity);
 	}
 	if (!($res > 0)) {
 		$error++;
@@ -692,7 +692,7 @@ $mail_intro = getDolGlobalString('TICKET_MESSAGE_MAIL_INTRO', '');
 print '<tr class="oddeven"><td>'.$langs->trans("TicketMessageMailIntro");
 print '</td><td>';
 require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-$doleditor = new DolEditor('TICKET_MESSAGE_MAIL_INTRO', $mail_intro, '100%', 90, 'dolibarr_mailings', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_MAIL'), ROWS_2, '70');
+$doleditor = new DolEditor('TICKET_MESSAGE_MAIL_INTRO', $mail_intro, '100%', 90, 'onli_mailings', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_MAIL'), ROWS_2, '70');
 $doleditor->Create();
 print '</td>';
 print '<td class="center">';
@@ -704,7 +704,7 @@ $mail_signature = getDolGlobalString('TICKET_MESSAGE_MAIL_SIGNATURE');
 print '<tr class="oddeven"><td>'.$langs->trans("TicketMessageMailFooter").'</label>';
 print '</td><td>';
 require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-$doleditor = new DolEditor('TICKET_MESSAGE_MAIL_SIGNATURE', $mail_signature, '100%', 90, 'dolibarr_mailings', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_MAIL'), ROWS_2, '70');
+$doleditor = new DolEditor('TICKET_MESSAGE_MAIL_SIGNATURE', $mail_signature, '100%', 90, 'onli_mailings', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_MAIL'), ROWS_2, '70');
 $doleditor->Create();
 print '</td>';
 print '<td class="center">';

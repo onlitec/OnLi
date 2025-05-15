@@ -24,7 +24,7 @@
  *		\brief		File of class to manage subscriptions of foundation members
  */
 
-//namespace DolibarrMember;
+//namespace OnLiMember;
 
 require_once DOL_DOCUMENT_ROOT.'/core/class/commonobject.class.php';
 

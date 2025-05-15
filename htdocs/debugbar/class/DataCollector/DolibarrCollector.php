@@ -17,7 +17,7 @@
  */
 
 /**
- *	\file       htdocs/debugbar/class/DataCollector/DolibarrCollector.php
+ *	\file       htdocs/debugbar/class/DataCollector/OnLiCollector.php
  *	\brief      Class for debugbar collection
  *	\ingroup    debugbar
  */
@@ -27,10 +27,10 @@ use DebugBar\DataCollector\DataCollector;
 use DebugBar\DataCollector\Renderable;
 
 /**
- * DolibarrCollector class
+ * OnLiCollector class
  */
 
-class DolibarrCollector extends DataCollector implements Renderable, AssetProvider
+class OnLiCollector extends DataCollector implements Renderable, AssetProvider
 {
 	/**
 	 *	Return collector name
@@ -39,7 +39,7 @@ class DolibarrCollector extends DataCollector implements Renderable, AssetProvid
 	 */
 	public function getName()
 	{
-		return 'dolibarr';
+		return 'onli';
 	}
 
 	/**
@@ -74,14 +74,14 @@ class DolibarrCollector extends DataCollector implements Renderable, AssetProvid
 	}
 
 	/**
-	 *	Return dolibarr info as an HTML string
+	 *	Return onli info as an HTML string
 	 *
 	 * @return string      HTML string
 	 */
-	protected function getDolibarrInfo()
+	protected function getOnLiInfo()
 	{
 		global $conf, $langs;
-		global $dolibarr_main_prod, $dolibarr_nocsrfcheck;
+		global $onli_main_prod, $onli_nocsrfcheck;
 
 		$info  = $langs->trans('Version').': <strong>'.DOL_VERSION.'</strong><br>';
 		$info .= $langs->trans('Theme').': <strong>'.$conf->theme.'</strong><br>';
@@ -90,8 +90,8 @@ class DolibarrCollector extends DataCollector implements Renderable, AssetProvid
 		$info .= $langs->trans('Entity').': <strong>'.$conf->entity.'</strong><br>';
 		$info .= $langs->trans('MaxSizeList').': <strong>'.($conf->liste_limit ?: getDolGlobalString('MAIN_SIZE_LISTE_LIMIT')).'</strong><br>';
 		$info .= $langs->trans('MaxSizeForUploadedFiles').': <strong>' . getDolGlobalString('MAIN_UPLOAD_DOC').'</strong><br>';
-		$info .= '$dolibarr_main_prod = <strong>'.$dolibarr_main_prod.'</strong><br>';
-		$info .= '$dolibarr_nocsrfcheck = <strong>'.$dolibarr_nocsrfcheck.'</strong><br>';
+		$info .= '$onli_main_prod = <strong>'.$onli_main_prod.'</strong><br>';
+		$info .= '$onli_nocsrfcheck = <strong>'.$onli_nocsrfcheck.'</strong><br>';
 		$info .= 'MAIN_SECURITY_CSRF_WITH_TOKEN = <strong>' . getDolGlobalString('MAIN_SECURITY_CSRF_WITH_TOKEN').'</strong><br>';
 		$info .= 'MAIN_FEATURES_LEVEL = <strong>' . getDolGlobalString('MAIN_FEATURES_LEVEL').'</strong><br>';
 
@@ -106,7 +106,7 @@ class DolibarrCollector extends DataCollector implements Renderable, AssetProvid
 	protected function getMailInfo()
 	{
 		global $conf, $langs;
-		global $dolibarr_mailing_limit_sendbyweb, $dolibarr_mailing_limit_sendbycli, $dolibarr_mailing_limit_sendbyday;
+		global $onli_mailing_limit_sendbyweb, $onli_mailing_limit_sendbycli, $onli_mailing_limit_sendbyday;
 
 		$info  = $langs->trans('Method').': <strong>'.getDolGlobalString("MAIN_MAIL_SENDMODE").'</strong><br>';
 		$info .= $langs->trans('Server').': <strong>'.getDolGlobalString("MAIN_MAIL_SMTP_SERVER").'</strong><br>';
@@ -115,9 +115,9 @@ class DolibarrCollector extends DataCollector implements Renderable, AssetProvid
 		$info .= $langs->trans('Pwd').': <strong>'.preg_replace('/./', '*', getDolGlobalString("MAIN_MAIL_SMTPS_PW")).'</strong><br>';
 		$info .= $langs->trans('TLS/STARTTLS').': <strong>'.getDolGlobalString("MAIN_MAIL_EMAIL_TLS").'</strong> / <strong>'.getDolGlobalString("MAIN_MAIL_EMAIL_STARTTLS").'</strong><br>';
 		$info .= $langs->trans('MAIN_DISABLE_ALL_MAILS').': <strong>'.(!getDolGlobalString('MAIN_DISABLE_ALL_MAILS') ? $langs->trans('No') : $langs->trans('Yes')).'</strong><br>';
-		$info .= 'dolibarr_mailing_limit_sendbyweb = <strong>'.$dolibarr_mailing_limit_sendbyweb.'</strong><br>';
-		$info .= 'dolibarr_mailing_limit_sendbycli = <strong>'.$dolibarr_mailing_limit_sendbycli.'</strong><br>';
-		$info .= 'dolibarr_mailing_limit_sendbyday = <strong>'.$dolibarr_mailing_limit_sendbyday.'</strong><br>';
+		$info .= 'onli_mailing_limit_sendbyweb = <strong>'.$onli_mailing_limit_sendbyweb.'</strong><br>';
+		$info .= 'onli_mailing_limit_sendbycli = <strong>'.$onli_mailing_limit_sendbycli.'</strong><br>';
+		$info .= 'onli_mailing_limit_sendbyday = <strong>'.$onli_mailing_limit_sendbyday.'</strong><br>';
 
 		return $info;
 	}
@@ -140,11 +140,11 @@ class DolibarrCollector extends DataCollector implements Renderable, AssetProvid
 				"map" => "",
 				"default" => ""
 			),
-			"dolibarr_info" => array(
+			"onli_info" => array(
 				"icon" => "desktop",
 				"indicator" => "PhpDebugBar.DebugBar.TooltipIndicator",
 				"tooltip" => array(
-					"html" => $this->getDolibarrInfo(),
+					"html" => $this->getOnLiInfo(),
 					"class" => "tooltip-wide"
 				),
 				"map" => "",

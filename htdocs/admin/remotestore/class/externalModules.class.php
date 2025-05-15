@@ -134,14 +134,14 @@ class ExternalModules
 	{
 		global $langs;
 
-		$this->dolistore_api_url = getDolGlobalString('MAIN_MODULE_DOLISTORE_API_SRV', 'https://admin2.dolibarr.org/api/index.php/marketplace');
+		$this->dolistore_api_url = getDolGlobalString('MAIN_MODULE_DOLISTORE_API_SRV', 'https://admin2.onli.org/api/index.php/marketplace');
 		$this->dolistore_api_key = getDolGlobalString('MAIN_MODULE_DOLISTORE_API_KEY', 'dolistorepublicapi');
 		$this->shop_url  = getDolGlobalString('MAIN_MODULE_DOLISTORE_SHOP_URL', 'https://www.dolistore.com');
 
 		$this->debug_api = $debug;
 
 		$this->url       = DOL_URL_ROOT.'/admin/modules.php?mode=marketplace';
-		$this->file_source_url = "https://raw.githubusercontent.com/Dolibarr/dolibarr-community-modules/refs/heads/main/index.yaml";
+		$this->file_source_url = "https://raw.githubusercontent.com/OnLi/onli-community-modules/refs/heads/main/index.yaml";
 		$this->cache_file = DOL_DATA_ROOT.'/admin/temp/remote_github_modules_file.yaml';
 
 		$lang       = $langs->defaultlang;
@@ -305,7 +305,7 @@ class ExternalModules
 
 		$html       = "";
 		$last_month = dol_now() - (30 * 24 * 60 * 60);
-		$dolibarrversiontouse = DOL_VERSION;	// full string with version
+		$onliversiontouse = DOL_VERSION;	// full string with version
 
 		$this->products = array();
 
@@ -426,43 +426,43 @@ class ExternalModules
 
 			// Set and check version
 			$version = '';
-			if ($this->version_compare($product["dolibarr_min"], $dolibarrversiontouse) <= 0) {
-				if (!empty($product["dolibarr_max"]) && $product["dolibarr_max"] != 'auto' && $product["dolibarr_max"] != 'unknown' && $this->version_compare($product["dolibarr_max"], $dolibarrversiontouse) >= 0) {
+			if ($this->version_compare($product["onli_min"], $onliversiontouse) <= 0) {
+				if (!empty($product["onli_max"]) && $product["onli_max"] != 'auto' && $product["onli_max"] != 'unknown' && $this->version_compare($product["onli_max"], $onliversiontouse) >= 0) {
 					//compatible
 					$version = '<span class="compatible">'.$langs->trans(
 						'CompatibleUpTo',
-						$dolibarrversiontouse,
-						(float) $product["dolibarr_min"],
-						(float) $product["dolibarr_max"]
+						$onliversiontouse,
+						(float) $product["onli_min"],
+						(float) $product["onli_max"]
 					).'</span>';
 					$compatible = '';
 				} else {
 					// never compatible, module expired
 					$version = '<span class="notcompatible">'.$langs->trans(
 						'NotCompatible',
-						$dolibarrversiontouse,
-						(float)	$product["dolibarr_min"],
-						(float) $product["dolibarr_max"]
+						$onliversiontouse,
+						(float)	$product["onli_min"],
+						(float) $product["onli_max"]
 					).'</span>';
 					$compatible = 'NotCompatible';
 				}
 			} else {
-				if ($product["dolibarr_min"] == 'auto' || $product["dolibarr_min"] != 'unknown') {
+				if ($product["onli_min"] == 'auto' || $product["onli_min"] != 'unknown') {
 					// never compatible, module expired
 					$version = '<span class="notcompatible">'.$langs->trans(
 						'NotCompatible',
-						$dolibarrversiontouse,
-						(float)	$product["dolibarr_min"],
-						(float) $product["dolibarr_max"]
+						$onliversiontouse,
+						(float)	$product["onli_min"],
+						(float) $product["onli_max"]
 					).'</span>';
 					$compatible = 'NotCompatible';
 				} else {
 					//need update
 					$version = '<span class="compatibleafterupdate">'.$langs->trans(
 						'CompatibleAfterUpdate',
-						$dolibarrversiontouse,
-						$product["dolibarr_min"],
-						$product["dolibarr_max"]
+						$onliversiontouse,
+						$product["onli_min"],
+						$product["onli_max"]
 					).'</span>';
 					$compatible = 'NotCompatible';
 				}
@@ -887,11 +887,11 @@ class ExternalModules
 						? date('Y-m-d H:i:s', strtotime($package['last_updated_at']))
 						: '',
 					'price_ttc' => 0,
-					'dolibarr_min' => !empty($package['dolibarrmin'])
-						? $package['dolibarrmin']
+					'onli_min' => !empty($package['onlimin'])
+						? $package['onlimin']
 						: 'unknown',
-					'dolibarr_max' => !empty($package['dolibarrmax'])
-						? $package['dolibarrmax']
+					'onli_max' => !empty($package['onlimax'])
+						? $package['onlimax']
 						: 'unknown',
 					'phpmin' => !empty($package['phpmin'])
 						? $package['phpmin']
@@ -934,8 +934,8 @@ class ExternalModules
 					'datec' => $package['datec'],
 					'tms' => $package['tms'],
 					'price_ttc' => $package['price_ttc'],
-					'dolibarr_min' => $package['dolibarr_min'],
-					'dolibarr_max' => $package['dolibarr_max'],
+					'onli_min' => $package['onli_min'],
+					'onli_max' => $package['onli_max'],
 					'phpmin' => $package['phpmin'],
 					'phpmax' => $package['phpmax'],
 					'module_version' => $package['module_version'],

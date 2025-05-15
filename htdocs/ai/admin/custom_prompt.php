@@ -24,7 +24,7 @@
  * \brief   Ai other custom page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
 require_once DOL_DOCUMENT_ROOT."/ai/lib/ai.lib.php";
@@ -143,7 +143,7 @@ if ($action == 'update' && !$cancel && !$test) {
 	}
 
 	$newConfigurationsJson = json_encode($currentConfigurations, JSON_UNESCAPED_UNICODE);
-	$result = dolibarr_set_const($db, 'AI_CONFIGURATIONS_PROMPT', $newConfigurationsJson, 'chaine', 0, '', $conf->entity);
+	$result = onli_set_const($db, 'AI_CONFIGURATIONS_PROMPT', $newConfigurationsJson, 'chaine', 0, '', $conf->entity);
 	if (!$error) {
 		if ($result) {
 			header("Location: ".$_SERVER['PHP_SELF']);
@@ -168,7 +168,7 @@ if ($action == 'updatePrompts' && !$test) {
 	];
 
 	$newConfigurationsJson = json_encode($currentConfigurations, JSON_UNESCAPED_UNICODE);
-	$result = dolibarr_set_const($db, 'AI_CONFIGURATIONS_PROMPT', $newConfigurationsJson, 'chaine', 0, '', $conf->entity);
+	$result = onli_set_const($db, 'AI_CONFIGURATIONS_PROMPT', $newConfigurationsJson, 'chaine', 0, '', $conf->entity);
 	if (!$error) {
 		$action = 'edit';
 		if ($result) {
@@ -190,7 +190,7 @@ if ($action == 'confirm_deleteproperty' && GETPOST('confirm') == 'yes') {
 		unset($currentConfigurations[$key]);
 
 		$newConfigurationsJson = json_encode($currentConfigurations, JSON_UNESCAPED_UNICODE);
-		$res = dolibarr_set_const($db, 'AI_CONFIGURATIONS_PROMPT', $newConfigurationsJson, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'AI_CONFIGURATIONS_PROMPT', $newConfigurationsJson, 'chaine', 0, '', $conf->entity);
 		if ($res) {
 			header("Location: ".$_SERVER['PHP_SELF']);
 			setEventMessages($langs->trans("RecordDeleted"), null, 'mesgs');

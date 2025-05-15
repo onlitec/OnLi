@@ -46,7 +46,7 @@ if (!defined('NOREQUIREMENU')) {
 	define('NOREQUIREMENU', '1'); // If there is no need to load and show top and left menu
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 if (!defined('NOSESSION')) {
 	define('NOSESSION', '1');
@@ -94,7 +94,7 @@ function llxFooter($comment = '', $zone = 'private', $disabledoutputofmessages =
 }
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 /**
  * @var DoliDB $db

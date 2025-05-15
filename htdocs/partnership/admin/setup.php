@@ -23,7 +23,7 @@
  * \brief   Partnership setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
 require_once '../lib/partnership.lib.php';
@@ -63,7 +63,7 @@ if ($action == 'setting') {
 	require_once DOL_DOCUMENT_ROOT."/core/modules/modPartnership.class.php";
 
 	$modulemenu = (GETPOST('PARTNERSHIP_IS_MANAGED_FOR', 'alpha') == 'member') ? 'member' : 'thirdparty';
-	$res = dolibarr_set_const($db, "PARTNERSHIP_IS_MANAGED_FOR", $modulemenu, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PARTNERSHIP_IS_MANAGED_FOR", $modulemenu, 'chaine', 0, '', $conf->entity);
 
 	$partnership = new modPartnership($db);
 
@@ -74,10 +74,10 @@ if ($action == 'setting') {
 	$error += $partnership->insert_menus();
 
 	if (GETPOSTISSET("PARTNERSHIP_NBDAYS_AFTER_MEMBER_EXPIRATION_BEFORE_CANCEL")) {
-		dolibarr_set_const($db, "PARTNERSHIP_NBDAYS_AFTER_MEMBER_EXPIRATION_BEFORE_CANCEL", GETPOSTINT("PARTNERSHIP_NBDAYS_AFTER_MEMBER_EXPIRATION_BEFORE_CANCEL"), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "PARTNERSHIP_NBDAYS_AFTER_MEMBER_EXPIRATION_BEFORE_CANCEL", GETPOSTINT("PARTNERSHIP_NBDAYS_AFTER_MEMBER_EXPIRATION_BEFORE_CANCEL"), 'chaine', 0, '', $conf->entity);
 	}
 
-	dolibarr_set_const($db, "PARTNERSHIP_BACKLINKS_TO_CHECK", GETPOST("PARTNERSHIP_BACKLINKS_TO_CHECK"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "PARTNERSHIP_BACKLINKS_TO_CHECK", GETPOST("PARTNERSHIP_BACKLINKS_TO_CHECK"), 'chaine', 0, '', $conf->entity);
 }
 
 if ($action) {
@@ -178,7 +178,7 @@ print '<td>';
 $backlinks = getDolGlobalString('PARTNERSHIP_BACKLINKS_TO_CHECK');
 print '<input class="minwidth400" type="text" name="PARTNERSHIP_BACKLINKS_TO_CHECK" value="'.$backlinks.'">';
 print '</td>';
-print '<td><span class="opacitymedium">dolibarr.org|dolibarr.fr|dolibarr.es</span></td>';
+print '<td><span class="opacitymedium">onli.org|onli.fr|onli.es</span></td>';
 print '</tr>';
 
 print '</table>';

@@ -190,7 +190,7 @@ if ($this->control->tpl['action_delete']) {
 
 <?php if (isModEnabled('member')) { ?>
 <tr>
-	<td width="25%" valign="top"><?php echo $langs->trans("LinkedToDolibarrMember"); ?></td>
+	<td width="25%" valign="top"><?php echo $langs->trans("LinkedToOnLiMember"); ?></td>
 	<td colspan="3"><?php echo $this->control->tpl['linked_member']; ?></td>
 </tr>
 <?php } ?>

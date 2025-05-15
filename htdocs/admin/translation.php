@@ -23,7 +23,7 @@
  *       \brief      Page to show translation information
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -118,9 +118,9 @@ if (GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x'
 
 if ($action == 'setMAIN_ENABLE_OVERWRITE_TRANSLATION') {
 	if (GETPOST('value')) {
-		dolibarr_set_const($db, 'MAIN_ENABLE_OVERWRITE_TRANSLATION', 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MAIN_ENABLE_OVERWRITE_TRANSLATION', 1, 'chaine', 0, '', $conf->entity);
 	} else {
-		dolibarr_set_const($db, 'MAIN_ENABLE_OVERWRITE_TRANSLATION', 0, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MAIN_ENABLE_OVERWRITE_TRANSLATION', 0, 'chaine', 0, '', $conf->entity);
 	}
 }
 
@@ -365,7 +365,7 @@ if ($mode == 'overwrite') {
 
 	$infoOnTransProcess = '<div class="justify"><span class="opacitymedium">';
 	$infoOnTransProcess .= img_info().' '.$langs->trans("SomeTranslationAreUncomplete");
-	$urlwikitranslatordoc = 'https://wiki.dolibarr.org/index.php/Translator_documentation';
+	$urlwikitranslatordoc = 'https://wiki.onli.org/index.php/Translator_documentation';
 	$infoOnTransProcess .= ' ('.str_replace('{s1}', '<a href="'.$urlwikitranslatordoc.'" target="_blank" rel="noopener noreferrer external">'.$langs->trans("Here").'</a>', $langs->trans("SeeAlso", '{s1}')).')<br>';
 	$infoOnTransProcess .= '<br>';
 	$infoOnTransProcess .= $langs->trans("TranslationOverwriteDesc", $langs->transnoentitiesnoconv("Language"), $langs->transnoentitiesnoconv("TranslationKey"), $langs->transnoentitiesnoconv("NewTranslationStringToShow"))."\n";
@@ -677,8 +677,8 @@ if ($mode == 'searchkey') {
 
 			if (getDolGlobalInt('MAIN_FEATURES_LEVEL')) {
 				$transifexlangfile = '$'; // $ means 'All'
-				//$transifexurl = 'https://www.transifex.com/dolibarr-association/dolibarr/translate/#'.$langcode.'/'.$transifexlangfile.'?key='.$key;
-				$transifexurl = 'https://www.transifex.com/dolibarr-association/dolibarr/translate/#'.$langcode.'/'.$transifexlangfile.'?q=key%3A'.$key;
+				//$transifexurl = 'https://www.transifex.com/onli-association/onli/translate/#'.$langcode.'/'.$transifexlangfile.'?key='.$key;
+				$transifexurl = 'https://www.transifex.com/onli-association/onli/translate/#'.$langcode.'/'.$transifexlangfile.'?q=key%3A'.$key;
 
 				print ' &nbsp; <a href="'.$transifexurl.'" target="transifex">'.img_picto($langs->trans('FixOnTransifex'), 'globe').'</a>';
 			}

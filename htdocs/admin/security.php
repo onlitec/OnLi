@@ -25,7 +25,7 @@
  *      \brief      Page of setup of security
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/security2.lib.php';
@@ -39,7 +39,7 @@ $action = GETPOST('action', 'aZ09');
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_db_pass
+ * @var string $onli_main_db_pass
  */
 
 // Load translation files required by the page
@@ -58,7 +58,7 @@ $allow_disable_encryption = false;
  */
 
 if ($action == 'setgeneraterule') {
-	if (!dolibarr_set_const($db, 'USER_PASSWORD_GENERATED', GETPOST("value", "alphanohtml"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'USER_PASSWORD_GENERATED', GETPOST("value", "alphanohtml"), 'chaine', 0, '', $conf->entity)) {
 		dol_print_error($db);
 	}
 }
@@ -69,10 +69,10 @@ if ($action == 'activate_encrypt') {
 	$db->begin();
 
 	// On old version, a bug created the constant into user entity, so we delete it to be sure such entry won't exists. We want it in entity 0 or nowhere.
-	dolibarr_del_const($db, "DATABASE_PWD_ENCRYPTED", $conf->entity);
+	onli_del_const($db, "DATABASE_PWD_ENCRYPTED", $conf->entity);
 	// We set entity=0 (all) because DATABASE_PWD_ENCRYPTED is a setup into conf file, so always shared for everybody
 	$entityforall = 0;
-	dolibarr_set_const($db, "DATABASE_PWD_ENCRYPTED", "1", 'chaine', 0, '', $entityforall);
+	onli_set_const($db, "DATABASE_PWD_ENCRYPTED", "1", 'chaine', 0, '', $entityforall);
 
 	$sql = "SELECT u.rowid, u.pass, u.pass_crypted";
 	$sql .= " FROM ".MAIN_DB_PREFIX."user as u";
@@ -116,8 +116,8 @@ if ($action == 'activate_encrypt') {
 	// By default, $allow_disable_encryption is false we do not allow to disable encryption because passwords can't be decoded once encrypted.
 	// We set entity=0 (all) because DATABASE_PWD_ENCRYPTED is a setup into conf file, so always shared for everybody
 	if ($allow_disable_encryption) {
-		dolibarr_del_const($db, "DATABASE_PWD_ENCRYPTED", $conf->entity);
-		dolibarr_del_const($db, "DATABASE_PWD_ENCRYPTED", 0);
+		onli_del_const($db, "DATABASE_PWD_ENCRYPTED", $conf->entity);
+		onli_del_const($db, "DATABASE_PWD_ENCRYPTED", 0);
 	}
 }
 
@@ -127,11 +127,11 @@ if ($action == 'activate_encryptdbpassconf') {
 		sleep(3); // Don't know why but we need to wait file is completely saved before making the reload. Even with flush and clearstatcache, we need to wait.
 
 		// database value not required
-		// dolibarr_set_const($db, "MAIN_DATABASE_PWD_CONFIG_ENCRYPTED", "1");
+		// onli_set_const($db, "MAIN_DATABASE_PWD_CONFIG_ENCRYPTED", "1");
 		header("Location: security.php");
 		exit;
 	} else {
-		setEventMessages($langs->trans('InstrucToEncodePass', dol_encode($dolibarr_main_db_pass)), null, 'warnings');
+		setEventMessages($langs->trans('InstrucToEncodePass', dol_encode($onli_main_db_pass)), null, 'warnings');
 	}
 } elseif ($action == 'disable_encryptdbpassconf') {
 	$result = encodedecode_dbpassconf(0);
@@ -139,19 +139,19 @@ if ($action == 'activate_encryptdbpassconf') {
 		sleep(3); // Don't know why but we need to wait file is completely saved before making the reload. Even with flush and clearstatcache, we need to wait.
 
 		// database value not required
-		// dolibarr_del_const($db, "MAIN_DATABASE_PWD_CONFIG_ENCRYPTED",$conf->entity);
+		// onli_del_const($db, "MAIN_DATABASE_PWD_CONFIG_ENCRYPTED",$conf->entity);
 		header("Location: security.php");
 		exit;
 	} else {
-		// setEventMessages($langs->trans('InstrucToClearPass', $dolibarr_main_db_pass), null, 'warnings');
+		// setEventMessages($langs->trans('InstrucToClearPass', $onli_main_db_pass), null, 'warnings');
 		setEventMessages($langs->trans('InstrucToClearPass', $langs->transnoentitiesnoconv("DatabasePassword")), null, 'warnings');
 	}
 }
 
 if ($action == 'activate_MAIN_SECURITY_DISABLEFORGETPASSLINK') {
-	dolibarr_set_const($db, "MAIN_SECURITY_DISABLEFORGETPASSLINK", '1', 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_SECURITY_DISABLEFORGETPASSLINK", '1', 'chaine', 0, '', $conf->entity);
 } elseif ($action == 'disable_MAIN_SECURITY_DISABLEFORGETPASSLINK') {
-	dolibarr_del_const($db, "MAIN_SECURITY_DISABLEFORGETPASSLINK", $conf->entity);
+	onli_del_const($db, "MAIN_SECURITY_DISABLEFORGETPASSLINK", $conf->entity);
 }
 
 if ($action == 'updatepattern') {
@@ -168,7 +168,7 @@ if ($action == 'updatepattern') {
 	}
 
 	if (!$patternInError) {
-		dolibarr_set_const($db, "USER_PASSWORD_PATTERN", $pattern, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "USER_PASSWORD_PATTERN", $pattern, 'chaine', 0, '', $conf->entity);
 		setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');
 		header("Location: security.php");
 		exit;
@@ -444,21 +444,21 @@ print '</tr>';
 print '<tr class="oddeven">';
 print '<td colspan="3">'.$langs->trans("MainDbPasswordFileConfEncrypted").'</td>';
 print '<td align="center" width="60">';
-if (preg_match('/crypted:/i', $dolibarr_main_db_pass) || !empty($dolibarr_main_db_encrypted_pass)) {
+if (preg_match('/crypted:/i', $onli_main_db_pass) || !empty($onli_main_db_encrypted_pass)) {
 	print img_picto($langs->trans("Active"), 'tick');
 }
 
 print '</td>';
 
 print '<td class="center" width="100">';
-if (empty($dolibarr_main_db_pass) && empty($dolibarr_main_db_encrypted_pass)) {
+if (empty($onli_main_db_pass) && empty($onli_main_db_encrypted_pass)) {
 	$langs->load("errors");
 	print img_warning($langs->trans("WarningPassIsEmpty"));
 } else {
-	if (empty($dolibarr_main_db_encrypted_pass)) {
+	if (empty($onli_main_db_encrypted_pass)) {
 		print '<a class="reposition" href="'.$_SERVER["PHP_SELF"].'?action=activate_encryptdbpassconf&token='.newToken().'">'.$langs->trans("Activate").'</a>';
 	}
-	if (!empty($dolibarr_main_db_encrypted_pass)) {
+	if (!empty($onli_main_db_encrypted_pass)) {
 		print '<a class="reposition" href="'.$_SERVER["PHP_SELF"].'?action=disable_encryptdbpassconf&token='.newToken().'">'.$langs->trans("Disable").'</a>';
 	}
 }

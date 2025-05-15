@@ -19,11 +19,11 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
  * This file is base on pg2mysql provided as Open source by lightbox.org.
- * It was enhanced and updated by the Dolibarr team.
+ * It was enhanced and updated by the OnLi team.
  */
 
 /**
- * \file    dev/tools/dolibarr-postgres2mysql.php
+ * \file    dev/tools/onli-postgres2mysql.php
  * \brief   Script to migrate a postgresql dump into a mysql dump
  */
 

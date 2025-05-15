@@ -26,7 +26,7 @@
  *	\brief      Setup page for logs module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -114,8 +114,8 @@ if ($action == 'set') {
 			}
 			foreach ($module->configure() as $option) {
 				if (GETPOSTISSET($option['constant'])) {
-					dolibarr_del_const($db, $option['constant'], -1);
-					dolibarr_set_const($db, $option['constant'], trim(GETPOST($option['constant'])), 'chaine', 0, '', 0);
+					onli_del_const($db, $option['constant'], -1);
+					onli_set_const($db, $option['constant'], trim(GETPOST($option['constant'])), 'chaine', 0, '', 0);
 				}
 			}
 		}
@@ -123,8 +123,8 @@ if ($action == 'set') {
 
 	$activeModules = $newActiveModules;
 
-	dolibarr_del_const($db, 'SYSLOG_HANDLERS', -1); // To be sure there is not a setup into another entity
-	dolibarr_set_const($db, 'SYSLOG_HANDLERS', json_encode($activeModules), 'chaine', 0, '', 0);
+	onli_del_const($db, 'SYSLOG_HANDLERS', -1); // To be sure there is not a setup into another entity
+	onli_set_const($db, 'SYSLOG_HANDLERS', json_encode($activeModules), 'chaine', 0, '', 0);
 	$error = 0;
 	$errors = [];
 	// Check configuration
@@ -151,7 +151,7 @@ if ($action == 'set') {
 // Set level
 if ($action == 'setlevel') {
 	$level = GETPOST("level");
-	$res = dolibarr_set_const($db, "SYSLOG_LEVEL", $level, 'chaine', 0, '', 0);
+	$res = onli_set_const($db, "SYSLOG_LEVEL", $level, 'chaine', 0, '', 0);
 	dol_syslog("admin/syslog: level ".$level);
 
 	if (!($res > 0)) {
@@ -160,7 +160,7 @@ if ($action == 'setlevel') {
 
 	if (!$error) {
 		$file_saves = GETPOST("file_saves");
-		$res = dolibarr_set_const($db, "SYSLOG_FILE_SAVES", $file_saves, 'chaine', 0, '', 0);
+		$res = onli_set_const($db, "SYSLOG_FILE_SAVES", $file_saves, 'chaine', 0, '', 0);
 		dol_syslog("admin/syslog: file saves  ".$file_saves);
 
 		if (!($res > 0)) {
@@ -188,14 +188,14 @@ $linkback = '<a href="'.DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_valu
 print load_fiche_titre($langs->trans("SyslogSetup"), $linkback, 'title_setup');
 print '<br>';
 
-$syslogfacility = $defaultsyslogfacility = dolibarr_get_const($db, "SYSLOG_FACILITY", 0);
-$syslogfile = $defaultsyslogfile = dolibarr_get_const($db, "SYSLOG_FILE", 0);
+$syslogfacility = $defaultsyslogfacility = onli_get_const($db, "SYSLOG_FACILITY", 0);
+$syslogfile = $defaultsyslogfile = onli_get_const($db, "SYSLOG_FILE", 0);
 
 if (!$defaultsyslogfacility) {
 	$defaultsyslogfacility = 'LOG_USER';
 }
 if (!$defaultsyslogfile) {
-	$defaultsyslogfile = 'dolibarr.log';
+	$defaultsyslogfile = 'onli.log';
 }
 $optionmc = '';
 if (isModEnabled('multicompany') && $user->entity) {

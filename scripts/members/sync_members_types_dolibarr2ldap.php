@@ -22,9 +22,9 @@
  */
 
 /**
- * \file scripts/members/sync_members_types_dolibarr2ldap.php
+ * \file scripts/members/sync_members_types_onli2ldap.php
  * \ingroup ldap core
- * \brief Script de mise a jour des types de membres dans LDAP depuis base Dolibarr
+ * \brief Script de mise a jour des types de membres dans LDAP depuis base OnLi
  */
 
 if (!defined('NOSESSION')) {
@@ -77,12 +77,12 @@ dol_syslog($script_file." launched with arg ".implode(',', $argv));
 
 /*
  * if (getDolGlobalString('LDAP_SYNCHRO_ACTIVE')) {
- * print $langs->trans("LDAPSynchronizationNotSetupInDolibarr");
+ * print $langs->trans("LDAPSynchronizationNotSetupInOnLi");
  * exit(1);
  * }
  */
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }

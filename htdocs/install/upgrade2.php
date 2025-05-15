@@ -44,18 +44,18 @@
 define('ALLOWED_IF_UPGRADE_UNLOCK_FOUND', 1);
 include_once 'inc.php';
 if (!file_exists($conffile)) {
-	print 'Error: Dolibarr config file was not found. This may means that Dolibarr is not installed yet. Please call the page "/install/index.php" instead of "/install/upgrade.php").';
+	print 'Error: OnLi config file was not found. This may means that OnLi is not installed yet. Please call the page "/install/index.php" instead of "/install/upgrade.php").';
 }
 require_once $conffile;
-require_once $dolibarr_main_document_root.'/compta/facture/class/facture.class.php';
-require_once $dolibarr_main_document_root.'/comm/propal/class/propal.class.php';
-require_once $dolibarr_main_document_root.'/contrat/class/contrat.class.php';
-require_once $dolibarr_main_document_root.'/commande/class/commande.class.php';
-require_once $dolibarr_main_document_root.'/fourn/class/fournisseur.commande.class.php';
-require_once $dolibarr_main_document_root.'/core/lib/price.lib.php';
-require_once $dolibarr_main_document_root.'/core/class/menubase.class.php';
-require_once $dolibarr_main_document_root.'/core/lib/admin.lib.php';
-require_once $dolibarr_main_document_root.'/core/lib/files.lib.php';
+require_once $onli_main_document_root.'/compta/facture/class/facture.class.php';
+require_once $onli_main_document_root.'/comm/propal/class/propal.class.php';
+require_once $onli_main_document_root.'/contrat/class/contrat.class.php';
+require_once $onli_main_document_root.'/commande/class/commande.class.php';
+require_once $onli_main_document_root.'/fourn/class/fournisseur.commande.class.php';
+require_once $onli_main_document_root.'/core/lib/price.lib.php';
+require_once $onli_main_document_root.'/core/class/menubase.class.php';
+require_once $onli_main_document_root.'/core/lib/admin.lib.php';
+require_once $onli_main_document_root.'/core/lib/files.lib.php';
 
 global $langs;
 
@@ -83,20 +83,20 @@ $enablemodules = GETPOST("enablemodules", 'alpha', 3) ? GETPOST("enablemodules",
 
 $langs->loadLangs(array("admin", "install", "bills", "suppliers"));
 
-if ($dolibarr_main_db_type == 'mysqli') {
+if ($onli_main_db_type == 'mysqli') {
 	$choix = 1;
 }
-if ($dolibarr_main_db_type == 'pgsql') {
+if ($onli_main_db_type == 'pgsql') {
 	$choix = 2;
 }
-if ($dolibarr_main_db_type == 'mssql') {
+if ($onli_main_db_type == 'mssql') {
 	$choix = 3;
 }
 
 
-dolibarr_install_syslog("--- upgrade2: entering upgrade2.php page ".$versionfrom." ".$versionto." ".$enablemodules);
+onli_install_syslog("--- upgrade2: entering upgrade2.php page ".$versionfrom." ".$versionto." ".$enablemodules);
 if (!is_object($conf)) {
-	dolibarr_install_syslog("upgrade2: conf file not initialized", LOG_ERR);
+	onli_install_syslog("upgrade2: conf file not initialized", LOG_ERR);
 }
 
 
@@ -131,49 +131,49 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 	print '<table class="centpercent">';
 
 	// If password is encoded, we decode it
-	if ((!empty($dolibarr_main_db_pass) && preg_match('/crypted:/i', $dolibarr_main_db_pass)) || !empty($dolibarr_main_db_encrypted_pass)) {
-		require_once $dolibarr_main_document_root.'/core/lib/security.lib.php';
-		if (!empty($dolibarr_main_db_pass) && preg_match('/crypted:/i', $dolibarr_main_db_pass)) {
-			$dolibarr_main_db_pass = preg_replace('/crypted:/i', '', $dolibarr_main_db_pass);
-			$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_pass);
-			$dolibarr_main_db_encrypted_pass = $dolibarr_main_db_pass; // We need to set this as it is used to know the password was initially encrypted
+	if ((!empty($onli_main_db_pass) && preg_match('/crypted:/i', $onli_main_db_pass)) || !empty($onli_main_db_encrypted_pass)) {
+		require_once $onli_main_document_root.'/core/lib/security.lib.php';
+		if (!empty($onli_main_db_pass) && preg_match('/crypted:/i', $onli_main_db_pass)) {
+			$onli_main_db_pass = preg_replace('/crypted:/i', '', $onli_main_db_pass);
+			$onli_main_db_pass = dol_decode($onli_main_db_pass);
+			$onli_main_db_encrypted_pass = $onli_main_db_pass; // We need to set this as it is used to know the password was initially encrypted
 		} else {
-			$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_encrypted_pass);
+			$onli_main_db_pass = dol_decode($onli_main_db_encrypted_pass);
 		}
 	}
 
 	// $conf is already instantiated inside inc.php
-	$conf->db->type = $dolibarr_main_db_type;
-	$conf->db->host = $dolibarr_main_db_host;
-	$conf->db->port = $dolibarr_main_db_port;
-	$conf->db->name = $dolibarr_main_db_name;
-	$conf->db->user = $dolibarr_main_db_user;
-	$conf->db->pass = $dolibarr_main_db_pass;
+	$conf->db->type = $onli_main_db_type;
+	$conf->db->host = $onli_main_db_host;
+	$conf->db->port = $onli_main_db_port;
+	$conf->db->name = $onli_main_db_name;
+	$conf->db->user = $onli_main_db_user;
+	$conf->db->pass = $onli_main_db_pass;
 
 	$db = getDoliDBInstance($conf->db->type, $conf->db->host, $conf->db->user, $conf->db->pass, $conf->db->name, (int) $conf->db->port);
 
 	if (!$db->connected) {
 		print '<tr><td colspan="4">'.$langs->trans("ErrorFailedToConnectToDatabase", $conf->db->name).'</td><td class="right">'.$langs->trans('Error').'</td></tr>';
-		dolibarr_install_syslog('upgrade2: failed to connect to database :'.$conf->db->name.' on '.$conf->db->host.' for user '.$conf->db->user, LOG_ERR);
+		onli_install_syslog('upgrade2: failed to connect to database :'.$conf->db->name.' on '.$conf->db->host.' for user '.$conf->db->user, LOG_ERR);
 		$error++;
 	}
 
 	if (!$error) {
 		if ($db->database_selected) {
-			dolibarr_install_syslog('upgrade2: database connection successful :'.$dolibarr_main_db_name);
+			onli_install_syslog('upgrade2: database connection successful :'.$onli_main_db_name);
 		} else {
 			$error++;
 		}
 	}
 
-	if (empty($dolibarr_main_db_encryption)) {
-		$dolibarr_main_db_encryption = 0;
+	if (empty($onli_main_db_encryption)) {
+		$onli_main_db_encryption = 0;
 	}
-	$conf->db->dolibarr_main_db_encryption = $dolibarr_main_db_encryption;
-	if (empty($dolibarr_main_db_cryptkey)) {
-		$dolibarr_main_db_cryptkey = '';
+	$conf->db->onli_main_db_encryption = $onli_main_db_encryption;
+	if (empty($onli_main_db_cryptkey)) {
+		$onli_main_db_cryptkey = '';
 	}
-	$conf->db->dolibarr_main_db_cryptkey = $dolibarr_main_db_cryptkey;
+	$conf->db->onli_main_db_cryptkey = $onli_main_db_cryptkey;
 
 	// Load global conf
 	$conf->setValues($db);
@@ -202,7 +202,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 	 *
 	 ***************************************************************************************/
 
-	// Force to execute this at begin to avoid the new core code into Dolibarr to be broken.
+	// Force to execute this at begin to avoid the new core code into OnLi to be broken.
 	$sql = 'ALTER TABLE '.MAIN_DB_PREFIX.'user ADD COLUMN birth date';
 	$db->query($sql, 1);
 	$sql = 'ALTER TABLE '.MAIN_DB_PREFIX.'user ADD COLUMN dateemployment date';
@@ -248,7 +248,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 
 			// Current version is $conf->global->MAIN_VERSION_LAST_UPGRADE
 			// Version to install is DOL_VERSION
-			$dolibarrlastupgradeversionarray = preg_split('/[\.-]/', isset($conf->global->MAIN_VERSION_LAST_UPGRADE) ? $conf->global->MAIN_VERSION_LAST_UPGRADE : (isset($conf->global->MAIN_VERSION_LAST_INSTALL) ? $conf->global->MAIN_VERSION_LAST_INSTALL : ''));
+			$onlilastupgradeversionarray = preg_split('/[\.-]/', isset($conf->global->MAIN_VERSION_LAST_UPGRADE) ? $conf->global->MAIN_VERSION_LAST_UPGRADE : (isset($conf->global->MAIN_VERSION_LAST_INSTALL) ? $conf->global->MAIN_VERSION_LAST_INSTALL : ''));
 
 			// Chaque action de migration doit renvoyer une ligne sur 4 colonnes avec
 			// dans la 1ere colonne, la description de l'action a faire
@@ -756,9 +756,9 @@ $ret = 0;
 if ($error && isset($argv[1])) {
 	$ret = 1;
 }
-dolibarr_install_syslog("Exit ".$ret);
+onli_install_syslog("Exit ".$ret);
 
-dolibarr_install_syslog("--- upgrade2: end");
+onli_install_syslog("--- upgrade2: end");
 pFooter($error ? 2 : 0, $setuplang);
 
 if ($db->connected) {
@@ -798,7 +798,7 @@ function migrate_paiements($db, $langs, $conf)
 		$row = array();
 		$num = 0;
 
-		dolibarr_install_syslog("upgrade2::migrate_paiements");
+		onli_install_syslog("upgrade2::migrate_paiements");
 		if ($resql) {
 			$i = 0;
 			$num = $db->num_rows($resql);
@@ -882,7 +882,7 @@ function migrate_paiements_orphelins_1($db, $langs, $conf)
 
 		$resql = $db->query($sql);
 
-		dolibarr_install_syslog("upgrade2::migrate_paiements_orphelins_1");
+		onli_install_syslog("upgrade2::migrate_paiements_orphelins_1");
 		$row = array();
 		if ($resql) {
 			$i = $j = 0;
@@ -991,7 +991,7 @@ function migrate_paiements_orphelins_2($db, $langs, $conf)
 
 		$resql = $db->query($sql);
 
-		dolibarr_install_syslog("upgrade2::migrate_paiements_orphelins_2");
+		onli_install_syslog("upgrade2::migrate_paiements_orphelins_2");
 		$row = array();
 		if ($resql) {
 			$i = $j = 0;
@@ -1113,7 +1113,7 @@ function migrate_contracts_det($db, $langs, $conf)
 	$sql .= " WHERE cd.rowid IS NULL AND p.rowid IS NOT NULL";
 	$resql = $db->query($sql);
 
-	dolibarr_install_syslog("upgrade2::migrate_contracts_det");
+	onli_install_syslog("upgrade2::migrate_contracts_det");
 	if ($resql) {
 		$i = 0;
 		$row = array();
@@ -1196,7 +1196,7 @@ function migrate_links_transfert($db, $langs, $conf)
 	$sql .= " AND bu.fk_bank IS NULL";
 	$resql = $db->query($sql);
 
-	dolibarr_install_syslog("upgrade2::migrate_links_transfert");
+	onli_install_syslog("upgrade2::migrate_links_transfert");
 	if ($resql) {
 		$i = 0;
 		$row = array();
@@ -1217,7 +1217,7 @@ function migrate_links_transfert($db, $langs, $conf)
 				$sql .= ")";
 
 				//print $sql.'<br>';
-				dolibarr_install_syslog("migrate_links_transfert");
+				onli_install_syslog("migrate_links_transfert");
 
 				if (!$db->query($sql)) {
 					dol_print_error($db);
@@ -1261,7 +1261,7 @@ function migrate_contracts_date1($db, $langs, $conf)
 	print '<b>'.$langs->trans('MigrationContractsEmptyDatesUpdate')."</b><br>\n";
 
 	$sql = "update ".MAIN_DB_PREFIX."contrat set date_contrat=tms where date_contrat is null";
-	dolibarr_install_syslog("upgrade2::migrate_contracts_date1");
+	onli_install_syslog("upgrade2::migrate_contracts_date1");
 	$resql = $db->query($sql);
 	if (!$resql) {
 		dol_print_error($db);
@@ -1273,7 +1273,7 @@ function migrate_contracts_date1($db, $langs, $conf)
 	}
 
 	$sql = "update ".MAIN_DB_PREFIX."contrat set datec=tms where datec is null";
-	dolibarr_install_syslog("upgrade2::migrate_contracts_date1");
+	onli_install_syslog("upgrade2::migrate_contracts_date1");
 	$resql = $db->query($sql);
 	if (!$resql) {
 		dol_print_error($db);
@@ -1311,7 +1311,7 @@ function migrate_contracts_date2($db, $langs, $conf)
 	$sql .= " GROUP BY c.rowid, c.date_contrat";
 	$resql = $db->query($sql);
 
-	dolibarr_install_syslog("upgrade2::migrate_contracts_date2");
+	onli_install_syslog("upgrade2::migrate_contracts_date2");
 	if ($resql) {
 		$i = 0;
 		$row = array();
@@ -1371,7 +1371,7 @@ function migrate_contracts_date3($db, $langs, $conf)
 	print '<b>'.$langs->trans('MigrationContractsIncoherentCreationDateUpdate')."</b><br>\n";
 
 	$sql = "update ".MAIN_DB_PREFIX."contrat set datec=date_contrat where datec is null or datec > date_contrat";
-	dolibarr_install_syslog("upgrade2::migrate_contracts_date3");
+	onli_install_syslog("upgrade2::migrate_contracts_date3");
 	$resql = $db->query($sql);
 	if (!$resql) {
 		dol_print_error($db);
@@ -1402,7 +1402,7 @@ function migrate_contracts_open($db, $langs, $conf)
 
 	$sql = "SELECT c.rowid as cref FROM ".MAIN_DB_PREFIX."contrat as c, ".MAIN_DB_PREFIX."contratdet as cd";
 	$sql .= " WHERE cd.statut = 4 AND c.statut=2 AND c.rowid=cd.fk_contrat";
-	dolibarr_install_syslog("upgrade2::migrate_contracts_open");
+	onli_install_syslog("upgrade2::migrate_contracts_open");
 	$resql = $db->query($sql);
 	if (!$resql) {
 		dol_print_error($db);
@@ -1475,7 +1475,7 @@ function migrate_paiementfourn_facturefourn($db, $langs, $conf)
 		$select_sql .= ' FROM '.MAIN_DB_PREFIX.'paiementfourn';
 		$select_sql .= ' WHERE fk_facture_fourn IS NOT NULL';
 
-		dolibarr_install_syslog("upgrade2::migrate_paiementfourn_facturefourn");
+		onli_install_syslog("upgrade2::migrate_paiementfourn_facturefourn");
 		$select_resql = $db->query($select_sql);
 		if ($select_resql) {
 			$select_num = $db->num_rows($select_resql);
@@ -1574,7 +1574,7 @@ function migrate_price_facture($db, $langs, $conf)
 	$sql .= " AND (((fd.total_ttc = 0 AND fd.remise_percent != 100) or fd.total_ttc IS NULL) or f.total_ttc IS NULL)";
 	//print $sql;
 
-	dolibarr_install_syslog("upgrade2::migrate_price_facture");
+	onli_install_syslog("upgrade2::migrate_price_facture");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$num = $db->num_rows($resql);
@@ -1605,7 +1605,7 @@ function migrate_price_facture($db, $langs, $conf)
 				$facligne->total_tva = (float) $total_tva;
 				$facligne->total_ttc = (float) $total_ttc;
 
-				dolibarr_install_syslog("upgrade2: line ".$rowid.": facid=".$obj->facid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global." -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
+				onli_install_syslog("upgrade2: line ".$rowid.": facid=".$obj->facid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global." -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
 				print '. ';
 				$facligne->update_total();
 
@@ -1676,7 +1676,7 @@ function migrate_price_propal($db, $langs, $conf)
 	$sql .= " WHERE pd.fk_propal = p.rowid";
 	$sql .= " AND ((pd.total_ttc = 0 AND pd.remise_percent != 100) or pd.total_ttc IS NULL)";
 
-	dolibarr_install_syslog("upgrade2::migrate_price_propal");
+	onli_install_syslog("upgrade2::migrate_price_propal");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$num = $db->num_rows($resql);
@@ -1706,7 +1706,7 @@ function migrate_price_propal($db, $langs, $conf)
 				$propalligne->total_tva = (float) $total_tva;
 				$propalligne->total_ttc = (float) $total_ttc;
 
-				dolibarr_install_syslog("upgrade2: Line ".$rowid.": propalid=".$obj->rowid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global." -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
+				onli_install_syslog("upgrade2: Line ".$rowid.": propalid=".$obj->rowid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global." -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
 				print '. ';
 				$propalligne->update_total();
 
@@ -1760,7 +1760,7 @@ function migrate_price_contrat($db, $langs, $conf)
 	$sql .= " WHERE cd.fk_contrat = c.rowid";
 	$sql .= " AND ((cd.total_ttc = 0 AND cd.remise_percent != 100 AND cd.subprice > 0) or cd.total_ttc IS NULL)";
 
-	dolibarr_install_syslog("upgrade2::migrate_price_contrat");
+	onli_install_syslog("upgrade2::migrate_price_contrat");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$num = $db->num_rows($resql);
@@ -1790,7 +1790,7 @@ function migrate_price_contrat($db, $langs, $conf)
 				$contratligne->total_tva = (float) $total_tva;
 				$contratligne->total_ttc = (float) $total_ttc;
 
-				dolibarr_install_syslog("upgrade2: Line ".$rowid.": contratdetid=".$obj->rowid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent."  -> ".$total_ht.", ".$total_tva." , ".$total_ttc);
+				onli_install_syslog("upgrade2: Line ".$rowid.": contratdetid=".$obj->rowid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent."  -> ".$total_ht.", ".$total_tva." , ".$total_ttc);
 				print '. ';
 				$contratligne->update_total();
 
@@ -1841,7 +1841,7 @@ function migrate_price_commande($db, $langs, $conf)
 	$sql .= " WHERE cd.fk_commande = c.rowid";
 	$sql .= " AND ((cd.total_ttc = 0 AND cd.remise_percent != 100) or cd.total_ttc IS NULL)";
 
-	dolibarr_install_syslog("upgrade2::migrate_price_commande");
+	onli_install_syslog("upgrade2::migrate_price_commande");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$num = $db->num_rows($resql);
@@ -1871,7 +1871,7 @@ function migrate_price_commande($db, $langs, $conf)
 				$commandeligne->total_tva = (float) $total_tva;
 				$commandeligne->total_ttc = (float) $total_ttc;
 
-				dolibarr_install_syslog("upgrade2: Line ".$rowid." : commandeid=".$obj->rowid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global."  -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
+				onli_install_syslog("upgrade2: Line ".$rowid." : commandeid=".$obj->rowid." pu=".$pu." qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global."  -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
 				print '. ';
 				$commandeligne->update_total();
 
@@ -1934,7 +1934,7 @@ function migrate_price_commande_fournisseur($db, $langs, $conf)
 	$sql .= " WHERE cd.fk_commande = c.rowid";
 	$sql .= " AND ((cd.total_ttc = 0 AND cd.remise_percent != 100) or cd.total_ttc IS NULL)";
 
-	dolibarr_install_syslog("upgrade2::migrate_price_commande_fournisseur");
+	onli_install_syslog("upgrade2::migrate_price_commande_fournisseur");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$num = $db->num_rows($resql);
@@ -1964,7 +1964,7 @@ function migrate_price_commande_fournisseur($db, $langs, $conf)
 				$commandeligne->total_tva = (float) $total_tva;
 				$commandeligne->total_ttc = (float) $total_ttc;
 
-				dolibarr_install_syslog("upgrade2: Line ".$rowid.": commandeid=".$obj->rowid." pu=".$pu."  qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global." -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
+				onli_install_syslog("upgrade2: Line ".$rowid.": commandeid=".$obj->rowid." pu=".$pu."  qty=".$qty." vatrate=".$vatrate." remise_percent=".$remise_percent." remise_global=".$remise_percent_global." -> ".$total_ht.", ".$total_tva.", ".$total_ttc);
 				print '. ';
 				$commandeligne->update_total();
 
@@ -2011,7 +2011,7 @@ function migrate_modeles($db, $langs, $conf)
 	//print '<br>';
 	//print '<b>'.$langs->trans('UpdateModelsTable')."</b><br>\n";
 
-	dolibarr_install_syslog("upgrade2::migrate_modeles");
+	onli_install_syslog("upgrade2::migrate_modeles");
 
 	if (isModEnabled('invoice')) {
 		include_once DOL_DOCUMENT_ROOT.'/core/modules/facture/modules_facture.php';
@@ -2066,7 +2066,7 @@ function migrate_modeles($db, $langs, $conf)
  */
 function migrate_commande_expedition($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_commande_expedition");
+	onli_install_syslog("upgrade2::migrate_commande_expedition");
 
 	print '<tr><td colspan="4">';
 
@@ -2131,7 +2131,7 @@ function migrate_commande_expedition($db, $langs, $conf)
  */
 function migrate_commande_livraison($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_commande_livraison");
+	onli_install_syslog("upgrade2::migrate_commande_livraison");
 
 	print '<tr><td colspan="4">';
 
@@ -2211,7 +2211,7 @@ function migrate_commande_livraison($db, $langs, $conf)
  */
 function migrate_detail_livraison($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_detail_livraison");
+	onli_install_syslog("upgrade2::migrate_detail_livraison");
 
 	print '<tr><td colspan="4">';
 
@@ -2313,7 +2313,7 @@ function migrate_detail_livraison($db, $langs, $conf)
  */
 function migrate_stocks($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_stocks");
+	onli_install_syslog("upgrade2::migrate_stocks");
 
 	print '<tr><td colspan="4">';
 
@@ -2375,7 +2375,7 @@ function migrate_stocks($db, $langs, $conf)
  */
 function migrate_menus($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_menus");
+	onli_install_syslog("upgrade2::migrate_menus");
 
 	print '<tr><td colspan="4">';
 
@@ -2442,7 +2442,7 @@ function migrate_menus($db, $langs, $conf)
  */
 function migrate_commande_deliveryaddress($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_commande_deliveryaddress");
+	onli_install_syslog("upgrade2::migrate_commande_deliveryaddress");
 
 	print '<tr><td colspan="4">';
 
@@ -2512,11 +2512,11 @@ function migrate_commande_deliveryaddress($db, $langs, $conf)
  */
 function migrate_restore_missing_links($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_restore_missing_links");
+	onli_install_syslog("upgrade2::migrate_restore_missing_links");
 
 	if (($db->type == 'mysql' || $db->type == 'mysqli')) {
 		if (versioncompare($db->getVersionArray(), array(4, 0)) < 0) {
-			dolibarr_install_syslog("upgrade2::migrate_restore_missing_links Version of database too old to make this migrate action");
+			onli_install_syslog("upgrade2::migrate_restore_missing_links Version of database too old to make this migrate action");
 			return 0;
 		}
 	}
@@ -2542,7 +2542,7 @@ function migrate_restore_missing_links($db, $langs, $conf)
 	$sql .= " (SELECT t2.rowid FROM ".MAIN_DB_PREFIX.$table2." as t2";
 	$sql .= " WHERE t1.rowid = t2.".$field2.")";
 
-	dolibarr_install_syslog("upgrade2::migrate_restore_missing_links DIRECTION 1");
+	onli_install_syslog("upgrade2::migrate_restore_missing_links DIRECTION 1");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$i = 0;
@@ -2602,7 +2602,7 @@ function migrate_restore_missing_links($db, $langs, $conf)
 	$sql .= " (SELECT t2.rowid FROM ".MAIN_DB_PREFIX.$table2." as t2";
 	$sql .= " WHERE t1.rowid = t2.".$field2.")";
 
-	dolibarr_install_syslog("upgrade2::migrate_restore_missing_links DIRECTION 2");
+	onli_install_syslog("upgrade2::migrate_restore_missing_links DIRECTION 2");
 	$resql = $db->query($sql);
 	if ($resql) {
 		$i = 0;
@@ -2655,7 +2655,7 @@ function migrate_restore_missing_links($db, $langs, $conf)
  */
 function migrate_project_user_resp($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_project_user_resp");
+	onli_install_syslog("upgrade2::migrate_project_user_resp");
 
 	print '<tr><td colspan="4">';
 
@@ -2736,7 +2736,7 @@ function migrate_project_user_resp($db, $langs, $conf)
  */
 function migrate_project_task_actors($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_project_task_actors");
+	onli_install_syslog("upgrade2::migrate_project_task_actors");
 
 	print '<tr><td colspan="4">';
 
@@ -2826,7 +2826,7 @@ function migrate_relationship_tables($db, $langs, $conf, $table, $fk_source, $so
 	$error = 0;
 
 	if ($db->DDLInfoTable(MAIN_DB_PREFIX.$table)) {
-		dolibarr_install_syslog("upgrade2::migrate_relationship_tables table = ".MAIN_DB_PREFIX.$table);
+		onli_install_syslog("upgrade2::migrate_relationship_tables table = ".MAIN_DB_PREFIX.$table);
 
 		$db->begin();
 
@@ -2897,7 +2897,7 @@ function migrate_relationship_tables($db, $langs, $conf, $table, $fk_source, $so
  */
 function migrate_element_time($db, $langs, $conf)
 {
-	dolibarr_install_syslog("upgrade2::migrate_element_time");
+	onli_install_syslog("upgrade2::migrate_element_time");
 
 	print '<tr><td colspan="4">';
 
@@ -3014,7 +3014,7 @@ function migrate_customerorder_shipping($db, $langs, $conf)
 	$obj1 = $db->fetch_object($result1);
 	$obj2 = $db->fetch_object($result2);
 	if (!$obj1 && !$obj2) {
-		dolibarr_install_syslog("upgrade2::migrate_customerorder_shipping");
+		onli_install_syslog("upgrade2::migrate_customerorder_shipping");
 
 		$db->begin();
 
@@ -3096,7 +3096,7 @@ function migrate_shipping_delivery($db, $langs, $conf)
 	$result = $db->DDLDescTable(MAIN_DB_PREFIX."livraison", "fk_expedition");
 	$obj = $db->fetch_object($result);
 	if ($obj) {
-		dolibarr_install_syslog("upgrade2::migrate_shipping_delivery");
+		onli_install_syslog("upgrade2::migrate_shipping_delivery");
 
 		$db->begin();
 
@@ -3188,7 +3188,7 @@ function migrate_shipping_delivery2($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_shipping_delivery2");
+	onli_install_syslog("upgrade2::migrate_shipping_delivery2");
 
 	$db->begin();
 
@@ -3272,7 +3272,7 @@ function migrate_actioncomm_element($db, $langs, $conf)
 		$result = $db->DDLDescTable(MAIN_DB_PREFIX."actioncomm", $field);
 		$obj = $db->fetch_object($result);
 		if ($obj) {
-			dolibarr_install_syslog("upgrade2::migrate_actioncomm_element field=".$field);
+			onli_install_syslog("upgrade2::migrate_actioncomm_element field=".$field);
 
 			$db->begin();
 
@@ -3329,7 +3329,7 @@ function migrate_mode_reglement($db, $langs, $conf)
 	foreach ($elements['old_id'] as $key => $old_id) {
 		$error = 0;
 
-		dolibarr_install_syslog("upgrade2::migrate_mode_reglement code=".$elements['code'][$key]);
+		onli_install_syslog("upgrade2::migrate_mode_reglement code=".$elements['code'][$key]);
 
 		$sqlSelect = "SELECT id";
 		$sqlSelect .= " FROM ".MAIN_DB_PREFIX."c_paiement";
@@ -3411,7 +3411,7 @@ function migrate_clean_association($db, $langs, $conf)
 			$children = array();
 			$sql = "SELECT fk_categorie_mere, fk_categorie_fille";
 			$sql .= " FROM ".MAIN_DB_PREFIX."categorie_association";
-			dolibarr_install_syslog("upgrade: search duplicate");
+			onli_install_syslog("upgrade: search duplicate");
 			$resql = $db->query($sql);
 			if ($resql) {
 				$num = $db->num_rows($resql);
@@ -3424,7 +3424,7 @@ function migrate_clean_association($db, $langs, $conf)
 					}
 				}
 
-				dolibarr_install_syslog("upgrade: result is num=".$num." count(couples)=".count($couples));
+				onli_install_syslog("upgrade: result is num=".$num." count(couples)=".count($couples));
 
 				// If there is duplicates couples or child with two parents
 				if (count($couples) > 0 && $num > count($couples)) {
@@ -3434,14 +3434,14 @@ function migrate_clean_association($db, $langs, $conf)
 
 					// We delete all
 					$sql = "DELETE FROM ".MAIN_DB_PREFIX."categorie_association";
-					dolibarr_install_syslog("upgrade: delete association");
+					onli_install_syslog("upgrade: delete association");
 					$resqld = $db->query($sql);
 					if ($resqld) {
 						// And we insert only each record once
 						foreach ($couples as $key => $val) {
 							$sql = "INSERT INTO ".MAIN_DB_PREFIX."categorie_association(fk_categorie_mere,fk_categorie_fille)";
 							$sql .= " VALUES(".((int) $val['mere']).", ".((int) $val['fille']).")";
-							dolibarr_install_syslog("upgrade: insert association");
+							onli_install_syslog("upgrade: insert association");
 							$resqli = $db->query($sql);
 							if (!$resqli) {
 								$error++;
@@ -3486,7 +3486,7 @@ function migrate_categorie_association($db, $langs, $conf)
 	$error = 0;
 
 	if ($db->DDLInfoTable(MAIN_DB_PREFIX."categorie_association")) {
-		dolibarr_install_syslog("upgrade2::migrate_categorie_association");
+		onli_install_syslog("upgrade2::migrate_categorie_association");
 
 		$db->begin();
 
@@ -3551,7 +3551,7 @@ function migrate_event_assignement($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_event_assignement");
+	onli_install_syslog("upgrade2::migrate_event_assignement");
 
 	$db->begin();
 
@@ -3617,7 +3617,7 @@ function migrate_event_assignement_contact($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_event_assignement");
+	onli_install_syslog("upgrade2::migrate_event_assignement");
 
 	$db->begin();
 
@@ -3688,7 +3688,7 @@ function migrate_reset_blocked_log($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_reset_blocked_log");
+	onli_install_syslog("upgrade2::migrate_reset_blocked_log");
 
 	$db->begin();
 
@@ -3783,7 +3783,7 @@ function migrate_remise_entity($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_remise_entity");
+	onli_install_syslog("upgrade2::migrate_remise_entity");
 
 	$db->begin();
 
@@ -3849,7 +3849,7 @@ function migrate_remise_except_entity($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_remise_except_entity");
+	onli_install_syslog("upgrade2::migrate_remise_except_entity");
 
 	$db->begin();
 
@@ -3940,7 +3940,7 @@ function migrate_user_rights_entity($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_user_rights_entity");
+	onli_install_syslog("upgrade2::migrate_user_rights_entity");
 
 	$db->begin();
 
@@ -4005,7 +4005,7 @@ function migrate_usergroup_rights_entity($db, $langs, $conf)
 
 	$error = 0;
 
-	dolibarr_install_syslog("upgrade2::migrate_usergroup_rights_entity");
+	onli_install_syslog("upgrade2::migrate_usergroup_rights_entity");
 
 	$db->begin();
 
@@ -4066,10 +4066,10 @@ function migrate_usergroup_rights_entity($db, $langs, $conf)
  */
 function migrate_rename_directories($db, $langs, $conf, $oldname, $newname)
 {
-	dolibarr_install_syslog("upgrade2::migrate_rename_directories");
+	onli_install_syslog("upgrade2::migrate_rename_directories");
 
 	if (is_dir(DOL_DATA_ROOT.$oldname) && !file_exists(DOL_DATA_ROOT.$newname)) {
-		dolibarr_install_syslog("upgrade2::migrate_rename_directories move ".DOL_DATA_ROOT.$oldname.' into '.DOL_DATA_ROOT.$newname);
+		onli_install_syslog("upgrade2::migrate_rename_directories move ".DOL_DATA_ROOT.$oldname.' into '.DOL_DATA_ROOT.$newname);
 		@rename(DOL_DATA_ROOT.$oldname, DOL_DATA_ROOT.$newname);
 	}
 }
@@ -4087,7 +4087,7 @@ function migrate_delete_old_files($db, $langs, $conf)
 {
 	$ret = true;
 
-	dolibarr_install_syslog("upgrade2::migrate_delete_old_files");
+	onli_install_syslog("upgrade2::migrate_delete_old_files");
 
 	// List of files to delete
 	$filetodeletearray = array(
@@ -4122,7 +4122,7 @@ function migrate_delete_old_files($db, $langs, $conf)
 		'/core/modules/mailings/contacts3.modules.php',
 		'/core/modules/mailings/contacts4.modules.php',
 		'/core/modules/mailings/framboise.modules.php',
-		'/core/modules/mailings/dolibarr_services_expired.modules.php',
+		'/core/modules/mailings/onli_services_expired.modules.php',
 		'/core/modules/mailings/peche.modules.php',
 		'/core/modules/mailings/poire.modules.php',
 		'/core/modules/mailings/kiwi.modules.php',
@@ -4192,7 +4192,7 @@ function migrate_delete_old_dir($db, $langs, $conf)
 {
 	$ret = true;
 
-	dolibarr_install_syslog("upgrade2::migrate_delete_old_dir");
+	onli_install_syslog("upgrade2::migrate_delete_old_dir");
 
 	// List of files to delete
 	$filetodeletearray = array(
@@ -4246,7 +4246,7 @@ function migrate_reload_modules($db, $langs, $conf, $listofmodule = array(), $fo
 		$user = new User($db);	// To avoid error during migration
 	}
 
-	dolibarr_install_syslog("upgrade2::migrate_reload_modules force=".$force.", listofmodule=".implode(',', array_keys($listofmodule)));
+	onli_install_syslog("upgrade2::migrate_reload_modules force=".$force.", listofmodule=".implode(',', array_keys($listofmodule)));
 
 	$reloadactionformodules = array(
 		'MAIN_MODULE_AGENDA' => array('class' => 'modAgenda', 'remove' => 1),
@@ -4288,7 +4288,7 @@ function migrate_reload_modules($db, $langs, $conf, $listofmodule = array(), $fo
 		$mod = null;
 
 		if (!empty($reloadactionformodules[$moduletoreload])) {
-			dolibarr_install_syslog("upgrade2::migrate_reload_modules Reactivate module ".$moduletoreload." with mode ".$reloadmode);
+			onli_install_syslog("upgrade2::migrate_reload_modules Reactivate module ".$moduletoreload." with mode ".$reloadmode);
 
 			$val = $reloadactionformodules[$moduletoreload];
 			$classformodule = $val['class'];
@@ -4316,34 +4316,34 @@ function migrate_reload_modules($db, $langs, $conf, $listofmodule = array(), $fo
 					$moduletoreloadshort = $reg[1];
 				}
 
-				dolibarr_install_syslog("upgrade2::migrate_reload_modules Reactivate module ".$moduletoreloadshort." with mode ".$reloadmode." (generic code)");
+				onli_install_syslog("upgrade2::migrate_reload_modules Reactivate module ".$moduletoreloadshort." with mode ".$reloadmode." (generic code)");
 
 				$res = @include_once DOL_DOCUMENT_ROOT.'/core/modules/mod'.$moduletoreloadshort.'.class.php';
 				if ($res) {
 					$classname = 'mod'.$moduletoreloadshort;
 					$mod = new $classname($db);
-					'@phan-var-force DolibarrModules $mod';
+					'@phan-var-force OnLiModules $mod';
 
 					//$mod->remove('noboxes');
 					$mod->delete_menus(); // We must delete to be sure it is inserted with new values
 					$mod->init($reloadmode);
 				} else {
-					dolibarr_install_syslog('Failed to include '.DOL_DOCUMENT_ROOT.'/core/modules/mod'.$moduletoreloadshort.'.class.php');
+					onli_install_syslog('Failed to include '.DOL_DOCUMENT_ROOT.'/core/modules/mod'.$moduletoreloadshort.'.class.php');
 
 					$res = @dol_include_once(strtolower($moduletoreloadshort).'/core/modules/mod'.$moduletoreloadshort.'.class.php');
 					if ($res) {
 						$classname = 'mod'.$moduletoreloadshort;
 						$mod = new $classname($db);
-						'@phan-var-force DolibarrModules $mod';
+						'@phan-var-force OnLiModules $mod';
 						$mod->init($reloadmode);
 					} else {
-						dolibarr_install_syslog('Failed to include '.strtolower($moduletoreloadshort).'/core/modules/mod'.$moduletoreloadshort.'.class.php', LOG_ERR);
+						onli_install_syslog('Failed to include '.strtolower($moduletoreloadshort).'/core/modules/mod'.$moduletoreloadshort.'.class.php', LOG_ERR);
 						print "Error, can't find module with name ".$moduletoreload."\n";
 						return -1;
 					}
 				}
 			} else {
-				dolibarr_install_syslog("Error, can't find module with name ".$moduletoreload, LOG_ERR);
+				onli_install_syslog("Error, can't find module with name ".$moduletoreload, LOG_ERR);
 				print "Error, can't find module with name ".$moduletoreload."\n";
 				return -1;
 			}
@@ -4375,7 +4375,7 @@ function migrate_reload_modules($db, $langs, $conf, $listofmodule = array(), $fo
 function migrate_reload_menu($db, $langs, $conf)
 {
 	global $conf;
-	dolibarr_install_syslog("upgrade2::migrate_reload_menu");
+	onli_install_syslog("upgrade2::migrate_reload_menu");
 
 	// Define list of menu handlers to initialize
 	$listofmenuhandler = array();
@@ -5163,7 +5163,7 @@ function migrate_invoice_export_models()
 	if (! $migrationNeeded) {
 		print $langs->trans("AlreadyDone");
 		print '</td></tr>';
-		dolibarr_set_const($db, 'MIGRATION_FLAG_INVOICE_MODELS_V20', 1, 'chaine', 0, 'To flag the upgrade of invoice template has been set', 0);
+		onli_set_const($db, 'MIGRATION_FLAG_INVOICE_MODELS_V20', 1, 'chaine', 0, 'To flag the upgrade of invoice template has been set', 0);
 		return;
 	}
 
@@ -5210,7 +5210,7 @@ function migrate_invoice_export_models()
 
 	$db->commit();
 
-	dolibarr_set_const($db, 'MIGRATION_FLAG_INVOICE_MODELS_V20', 1, 'chaine', 0, 'To flag the upgrade of invoice template has been set', 0);
+	onli_set_const($db, 'MIGRATION_FLAG_INVOICE_MODELS_V20', 1, 'chaine', 0, 'To flag the upgrade of invoice template has been set', 0);
 
 	echo '</td></tr>';
 }
@@ -5231,7 +5231,7 @@ function migrate_accountingbookkeeping(int $entity)
 
 	// For the moment we set the numbering rule to neon (the rule argon has a lot of critical bugs to fix first).
 	if (getDolGlobalString('BOOKKEEPING_ADDON') == '') {
-		dolibarr_set_const($db, 'BOOKKEEPING_ADDON', 'mod_bookkeeping_neon', 'chaine', 0, '', $entity);
+		onli_set_const($db, 'BOOKKEEPING_ADDON', 'mod_bookkeeping_neon', 'chaine', 0, '', $entity);
 		$bookKeepingAddon = 'mod_bookkeeping_neon';
 	}
 

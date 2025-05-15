@@ -19,14 +19,14 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
  * You can also make a direct call the page with parameter like this:
- * htdocs/modulebuilder/index.php?module=Inventory@/pathtodolibarr/htdocs/product
+ * htdocs/modulebuilder/index.php?module=Inventory@/pathtoonli/htdocs/product
  */
 
 /**
  *       \file       htdocs/modulebuilder/index.php
  *       \brief      Home page for module builder module
  *
- *       You can add parameter dirins=/home/ldestailleur/git/dolibarr/htdocs/mymodule to force generation of module
+ *       You can add parameter dirins=/home/ldestailleur/git/onli/htdocs/mymodule to force generation of module
  *       into the dirins directory.
  */
 
@@ -34,7 +34,7 @@ if (!defined('NOSCANPOSTFORINJECTION')) {
 	define('NOSCANPOSTFORINJECTION', '1'); // Do not check anti SQL+XSS injection attack test
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
@@ -51,8 +51,8 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/utils.class.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_document_root
- * @var string $dolibarr_main_document_root_alt
+ * @var string $onli_main_document_root
+ * @var string $onli_main_document_root_alt
  */
 
 // Load translation files required by the page
@@ -107,7 +107,7 @@ if (!$user->hasRight("modulebuilder", "run")) {
 }
 
 // Dir for custom dirs
-$tmp = explode(',', $dolibarr_main_document_root_alt);
+$tmp = explode(',', $onli_main_document_root_alt);
 $dirins = $tmp[0];
 $dirread = $dirins;
 $forceddirread = 0;
@@ -213,7 +213,7 @@ foreach ($dirsrootforscan as $tmpdirread) {
 		$newdircustom = img_warning();
 	}
 	// If dirread was forced to somewhere else, by using URL
-	// htdocs/modulebuilder/index.php?module=Inventory@/home/ldestailleur/git/dolibarr/htdocs/product
+	// htdocs/modulebuilder/index.php?module=Inventory@/home/ldestailleur/git/onli/htdocs/product
 	if (empty($i)) {
 		$textforlistofdirs .= $langs->trans("DirScanned").' : ';
 	} else {
@@ -953,9 +953,9 @@ if ($dirins && $action == 'addlanguage' && !empty($module) && $user->hasRight("m
 		// Dir for module
 		$diroflang = dol_buildpath($modulelowercase, 0);
 
-		if ($diroflang == $dolibarr_main_document_root.'/'.$modulelowercase) {
+		if ($diroflang == $onli_main_document_root.'/'.$modulelowercase) {
 			// This is not a custom module, we force diroflang to htdocs root
-			$diroflang = $dolibarr_main_document_root;
+			$diroflang = $onli_main_document_root;
 
 			$srcfile = $diroflang.'/langs/en_US/'.$modulelowercase.'.lang';
 			$destfile = $diroflang.'/langs/'.$newlangcode.'/'.$modulelowercase.'.lang';
@@ -1420,8 +1420,8 @@ if ($dirins && $action == 'initobject' && $module && $objectname && $user->hasRi
 			if (class_exists($class)) {
 				try {
 					$moduleobj = new $class($db);
-					'@phan-var-force DolibarrModules $moduleobj';
-					/** @var DolibarrModules $moduleobj */
+					'@phan-var-force OnLiModules $moduleobj';
+					/** @var OnLiModules $moduleobj */
 				} catch (Exception $e) {
 					$error++;
 					dol_print_error($db, $e->getMessage());
@@ -1598,8 +1598,8 @@ if ($dirins && $action == 'initobject' && $module && $objectname && $user->hasRi
 		if (class_exists($class)) {
 			try {
 				$moduleobj = new $class($db);
-				'@phan-var-force DolibarrModules $moduleobj';
-				/** @var DolibarrModules $moduleobj */
+				'@phan-var-force OnLiModules $moduleobj';
+				/** @var OnLiModules $moduleobj */
 			} catch (Exception $e) {
 				$error++;
 				dol_print_error($db, $e->getMessage());
@@ -1700,7 +1700,7 @@ if ($dirins && $action == 'initobject' && $module && $objectname && $user->hasRi
 	// check if module is enabled
 	if (isModEnabled(strtolower($module))) {
 		$result = unActivateModule(strtolower($module));
-		dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 		if ($result) {
 			setEventMessages($result, null, 'errors');
 		}
@@ -1735,8 +1735,8 @@ if ($dirins && $action == 'initdic' && $module && empty($cancel) && $user->hasRi
 		if (class_exists($class)) {
 			try {
 				$moduleobj = new $class($db);
-				'@phan-var-force DolibarrModules $moduleobj';
-				/** @var DolibarrModules $moduleobj */
+				'@phan-var-force OnLiModules $moduleobj';
+				/** @var OnLiModules $moduleobj */
 			} catch (Exception $e) {
 				$error++;
 				dol_print_error($db, $e->getMessage());
@@ -1987,8 +1987,8 @@ if ($dirins && $action == 'confirm_deletemodule' && $user->hasRight("modulebuild
 		if (class_exists($class)) {
 			try {
 				$moduleobj = new $class($db);
-				'@phan-var-force DolibarrModules $moduleobj';
-				/** @var DolibarrModules $moduleobj */
+				'@phan-var-force OnLiModules $moduleobj';
+				/** @var OnLiModules $moduleobj */
 			} catch (Exception $e) {
 				$error++;
 				dol_print_error($db, $e->getMessage());
@@ -2071,8 +2071,8 @@ if ($dirins && $action == 'confirm_deleteobject' && $objectname && $user->hasRig
 		if (class_exists($class)) {
 			try {
 				$moduleobj = new $class($db);
-				'@phan-var-force DolibarrModules $moduleobj';
-				/** @var DolibarrModules $moduleobj */
+				'@phan-var-force OnLiModules $moduleobj';
+				/** @var OnLiModules $moduleobj */
 			} catch (Exception $e) {
 				$error++;
 				dol_print_error($db, $e->getMessage());
@@ -2139,7 +2139,7 @@ if ($dirins && $action == 'confirm_deleteobject' && $objectname && $user->hasRig
 	// check if module is enabled
 	if (isModEnabled(strtolower($module))) {
 		$result = unActivateModule(strtolower($module));
-		dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 		if ($result) {
 			setEventMessages($result, null, 'errors');
 		}
@@ -2174,8 +2174,8 @@ if (($dirins && $action == 'confirm_deletedictionary' && $dicname) || ($dirins &
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2260,8 +2260,8 @@ if ($dirins && $action == 'updatedictionary' && GETPOST('dictionnarykey') && $us
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2330,8 +2330,8 @@ if ($dirins && $action == 'generatepackage' && $user->hasRight("modulebuilder", 
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2382,8 +2382,8 @@ if ($dirins && $action == 'addright' && !empty($module) && empty($cancel) && $us
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2449,7 +2449,7 @@ if ($dirins && $action == 'addright' && !empty($module) && empty($cancel) && $us
 
 		if (isModEnabled(strtolower($module))) {
 			$result = unActivateModule(strtolower($module));
-			dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 			if ($result) {
 				setEventMessages($result, null, 'errors');
 			}
@@ -2486,8 +2486,8 @@ if ($dirins && GETPOST('action') == 'update_right' && GETPOST('modifyright') && 
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2569,7 +2569,7 @@ if ($dirins && GETPOST('action') == 'update_right' && GETPOST('modifyright') && 
 	if (!$error) {
 		if (isModEnabled(strtolower($module))) {
 			$result = unActivateModule(strtolower($module));
-			dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 			if ($result) {
 				setEventMessages($result, null, 'errors');
 			}
@@ -2605,8 +2605,8 @@ if ($dirins && $action == 'confirm_deleteright' && !empty($module) && GETPOSTINT
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2620,7 +2620,7 @@ if ($dirins && $action == 'confirm_deleteright' && !empty($module) && GETPOSTINT
 		// check if module is enabled
 		if (isModEnabled(strtolower($module))) {
 			$result = unActivateModule(strtolower($module));
-			dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 			if ($result) {
 				setEventMessages($result, null, 'errors');
 			}
@@ -2757,7 +2757,7 @@ if ($dirins && $action == 'confirm_deletemenu' && GETPOSTINT('menukey') && $user
 	// check if module is enabled
 	if (isModEnabled(strtolower($module))) {
 		$result = unActivateModule(strtolower($module));
-		dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 		if ($result) {
 			setEventMessages($result, null, 'errors');
 		}
@@ -2773,8 +2773,8 @@ if ($dirins && $action == 'confirm_deletemenu' && GETPOSTINT('menukey') && $user
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2820,7 +2820,7 @@ if ($dirins && $action == 'addmenu' && empty($cancel) && $user->hasRight("module
 	// check if module is enabled
 	if (isModEnabled(strtolower($module))) {
 		$result = unActivateModule(strtolower($module));
-		dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 		if ($result) {
 			setEventMessages($result, null, 'errors');
 		}
@@ -2838,8 +2838,8 @@ if ($dirins && $action == 'addmenu' && empty($cancel) && $user->hasRight("module
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -2980,7 +2980,7 @@ if ($dirins && $action == "update_menu" && GETPOSTINT('menukey') && GETPOST('tab
 	if (empty($cancel)) {
 		if (isModEnabled(strtolower($module))) {
 			$result = unActivateModule(strtolower($module));
-			dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 			if ($result) {
 				setEventMessages($result, null, 'errors');
 			}
@@ -2997,8 +2997,8 @@ if ($dirins && $action == "update_menu" && GETPOSTINT('menukey') && GETPOST('tab
 		if (class_exists($class)) {
 			try {
 				$moduleobj = new $class($db);
-				'@phan-var-force DolibarrModules $moduleobj';
-				/** @var DolibarrModules $moduleobj */
+				'@phan-var-force OnLiModules $moduleobj';
+				/** @var OnLiModules $moduleobj */
 			} catch (Exception $e) {
 				$error++;
 				dol_print_error($db, $e->getMessage());
@@ -3083,7 +3083,7 @@ if ($dirins && $action == "update_menu" && GETPOSTINT('menukey') && GETPOST('tab
 if ($dirins && $action == "update_props_module" && !empty(GETPOST('keydescription', 'alpha')) && empty($cancel) && $user->hasRight("modulebuilder", "run")) {
 	if (isModEnabled(strtolower($module))) {
 		$result = unActivateModule(strtolower($module));
-		dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 		if ($result) {
 			setEventMessages($result, null, 'errors');
 		}
@@ -3102,8 +3102,8 @@ if ($dirins && $action == "update_props_module" && !empty(GETPOST('keydescriptio
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			dol_print_error($db, $e->getMessage());
@@ -3185,7 +3185,7 @@ $text = $langs->trans("ModuleBuilder");
 
 print load_fiche_titre($text, '', 'title_setup');
 
-print '<span class="opacitymedium hideonsmartphone">'.$langs->trans("ModuleBuilderDesc", 'https://wiki.dolibarr.org/index.php/Module_development').'</span>';
+print '<span class="opacitymedium hideonsmartphone">'.$langs->trans("ModuleBuilderDesc", 'https://wiki.onli.org/index.php/Module_development').'</span>';
 print '<br class="hideonsmartphone">';
 
 //print $textforlistofdirs;
@@ -3218,9 +3218,9 @@ $infomodulesfound = '<div style="padding: 12px 9px 12px">'.$form->textwithpicto(
 
 
 
-$dolibarrdataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
+$onlidataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
 $allowonlineinstall = true;
-if (dol_is_file($dolibarrdataroot.'/installmodules.lock')) {
+if (dol_is_file($onlidataroot.'/installmodules.lock')) {
 	$allowonlineinstall = false;
 }
 if (empty($allowonlineinstall)) {
@@ -3229,7 +3229,7 @@ if (empty($allowonlineinstall)) {
 		$message = info_admin($langs->trans('InstallModuleFromWebHasBeenDisabledContactUs'));
 	} else {
 		// Show technical message
-		$message = info_admin($langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $dolibarrdataroot.'/installmodules.lock'), 0, 0, '1', 'warning');
+		$message = info_admin($langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $onlidataroot.'/installmodules.lock'), 0, 0, '1', 'warning');
 	}
 
 	print $message;
@@ -3266,8 +3266,8 @@ if (!empty($module) && $module != 'initmodule' && $module != 'deletemodule') {
 	if (class_exists($class)) {
 		try {
 			$moduleobj = new $class($db);
-			'@phan-var-force DolibarrModules $moduleobj';
-			/** @var DolibarrModules $moduleobj */
+			'@phan-var-force OnLiModules $moduleobj';
+			/** @var OnLiModules $moduleobj */
 		} catch (Exception $e) {
 			$error++;
 			print $e->getMessage();
@@ -3339,7 +3339,7 @@ if (/* is_array($listofmodules) && */ count($listofmodules) > 0) {
 						$linktoenabledisable .= ' <a href="'.$urltouse.(preg_match('/\?/', $urltouse) ? '&' : '?').'save_lastsearch_values=1&backtopage='.urlencode($backtourl).'" title="'.$langs->trans("Setup").'">'.img_picto($langs->trans("Setup"), "setup", 'style="padding-right: 8px"').'</a>';
 					} else {
 						// Case standard admin page (not a page provided by the
-						// module but a page provided by dolibarr)
+						// module but a page provided by onli)
 						$urltouse = DOL_URL_ROOT.'/admin/'.$urlpage;
 						$linktoenabledisable .= ' <a href="'.$urltouse.(preg_match('/\?/', $urltouse) ? '&' : '?').'save_lastsearch_values=1&backtopage='.urlencode($backtourl).'" title="'.$langs->trans("Setup").'">'.img_picto($langs->trans("Setup"), "setup", 'style="padding-right: 8px"').'</a>';
 					}
@@ -3399,7 +3399,7 @@ if ($module == 'initmodule') {
 	print ' &nbsp; &nbsp; ';
 	print dolButtonToOpenUrlInDialogPopup('popup_modules_id', $langs->transnoentitiesnoconv("SeeIDsInUse"), $langs->transnoentitiesnoconv("SeeIDsInUse"), '/admin/system/modules.php?mainmenu=home&leftmenu=admintools_info&hidetitle=1', '', '');
 	print ' - ';
-	print '<a href="https://wiki.dolibarr.org/index.php/List_of_modules_id" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeReservedIDsRangeHere").'</a>';
+	print '<a href="https://wiki.onli.org/index.php/List_of_modules_id" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeReservedIDsRangeHere").'</a>';
 	print '</span>';
 	print '</div></div>';
 
@@ -3683,7 +3683,7 @@ if ($module == 'initmodule') {
 					print '<span class="opacitymedium">';
 					print ' &nbsp; (';
 					print dolButtonToOpenUrlInDialogPopup('popup_modules_id', $langs->transnoentitiesnoconv("SeeIDsInUse"), $langs->transnoentitiesnoconv("SeeIDsInUse"), '/admin/system/modules.php?mainmenu=home&leftmenu=admintools_info', '', '');
-					print ' - <a href="https://wiki.dolibarr.org/index.php/List_of_modules_id" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeReservedIDsRangeHere").'</a>)';
+					print ' - <a href="https://wiki.onli.org/index.php/List_of_modules_id" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeReservedIDsRangeHere").'</a>)';
 					print '</span>';
 					print '</td></tr>';
 
@@ -4528,7 +4528,7 @@ if ($module == 'initmodule') {
 							print '<table class="noborder small">';
 							print '<tr class="liste_titre">';
 							print '<th class="tdsticky tdstickygray">';
-							$htmltext = $langs->trans("PropertyDesc").'<br><br><a class="" href="https://wiki.dolibarr.org/index.php/Language_and_development_rules#Table_and_fields_structures" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeExamples").'</a>';
+							$htmltext = $langs->trans("PropertyDesc").'<br><br><a class="" href="https://wiki.onli.org/index.php/Language_and_development_rules#Table_and_fields_structures" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeExamples").'</a>';
 							print $form->textwithpicto($langs->trans("Code"), $htmltext, 1, 'help', 'extracss', 0, 3, 'propertyhelp');
 							print '</th>';
 							print '<th>';
@@ -6636,8 +6636,8 @@ if ($module == 'initmodule') {
 			if (class_exists($class)) {
 				try {
 					$moduleobj = new $class($db);
-					'@phan-var-force DolibarrModules $moduleobj';
-					/** @var DolibarrModules $moduleobj */
+					'@phan-var-force OnLiModules $moduleobj';
+					/** @var OnLiModules $moduleobj */
 				} catch (Exception $e) {
 					$error++;
 					dol_print_error($db, $e->getMessage());
@@ -6733,7 +6733,7 @@ if ($module == 'initmodule') {
 						$path = isset($parts[5]) ? $parts[5] : '';
 
 						// If we want to remove the tab, then the format is 'objecttype:tabname:optionalcondition'
-						// See: https://wiki.dolibarr.org/index.php?title=Tabs_system#To_remove_an_existing_tab
+						// See: https://wiki.onli.org/index.php?title=Tabs_system#To_remove_an_existing_tab
 						if ($tabName[0] === '-') {
 							$tabTitle = '';
 							$condition = isset($parts[2]) ? $parts[2] : '';

@@ -2,7 +2,7 @@
 /* Copyright (C) 2004      Rodolphe Quiedeville <rodolphe@quiedeville.org>
  * Copyright (C) 2005-2015 Laurent Destailleur  <eldy@users.sourceforge.org>
  * Copyright (C) 2013      Juanjo Menent		<jmenent@2byte.es>
- * Copyright (C) 2015      Bahfir Abbes         <contact@dolibarrpar.org>
+ * Copyright (C) 2015      Bahfir Abbes         <contact@onlipar.org>
  * Copyright (C) 2020      Thibault FOUCART     <support@ptibogxiv.net>
  * Copyright (C) 2022      Anthony Berton     	<anthony.berton@bb2a.fr>
  * Copyright (C) 2024       Frédéric France         <frederic.france@free.fr>
@@ -27,7 +27,7 @@
  *		\brief      Page to setup notification module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/notify.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
@@ -77,13 +77,13 @@ if ($action == 'settemplates' && $user->admin) {
 				$consttype = 'emailtemplate:'.$tmparray[1];
 				//var_dump($constvalue);
 				//var_dump($consttype);
-				$res = dolibarr_set_const($db, $triggername.'_TEMPLATE', $constvalue, $consttype, 0, '', $conf->entity);
+				$res = onli_set_const($db, $triggername.'_TEMPLATE', $constvalue, $consttype, 0, '', $conf->entity);
 				if ($res < 0) {
 					$error++;
 					break;
 				}
 			} else {
-				$res = dolibarr_del_const($db, $triggername.'_TEMPLATE', $conf->entity);
+				$res = onli_del_const($db, $triggername.'_TEMPLATE', $conf->entity);
 			}
 		}
 	}
@@ -103,12 +103,12 @@ if ($action == 'settemplates' && $user->admin) {
 if ($action == 'setvalue' && $user->admin) {
 	$db->begin();
 
-	$result = dolibarr_set_const($db, "NOTIFICATION_EMAIL_FROM", GETPOST("email_from", "alphawithlgt"), 'chaine', 0, '', $conf->entity);
+	$result = onli_set_const($db, "NOTIFICATION_EMAIL_FROM", GETPOST("email_from", "alphawithlgt"), 'chaine', 0, '', $conf->entity);
 	if ($result < 0) {
 		$error++;
 	}
 
-	$result = dolibarr_set_const($db, "NOTIFICATION_EMAIL_DISABLE_CONFIRM_MESSAGE", GETPOST("notif_disable", "alphawithlgt"), 'chaine', 0, '', $conf->entity);
+	$result = onli_set_const($db, "NOTIFICATION_EMAIL_DISABLE_CONFIRM_MESSAGE", GETPOST("notif_disable", "alphawithlgt"), 'chaine', 0, '', $conf->entity);
 	if ($result < 0) {
 		$error++;
 	}
@@ -142,7 +142,7 @@ if ($action == 'setfixednotif' && $user->admin) {
 			//print $shortkey.'<br>';
 
 			if (preg_match('/^NOTIF_(.*)_old_(.*)_key/', $key, $reg)) {
-				dolibarr_del_const($db, 'NOTIFICATION_FIXEDEMAIL_'.$reg[1].'_THRESHOLD_HIGHER_'.$reg[2], $conf->entity);
+				onli_del_const($db, 'NOTIFICATION_FIXEDEMAIL_'.$reg[1].'_THRESHOLD_HIGHER_'.$reg[2], $conf->entity);
 
 				$newkey = 'NOTIFICATION_FIXEDEMAIL_'.$reg[1].'_THRESHOLD_HIGHER_'.((int) GETPOST($shortkey.'_amount'));
 				$newval = GETPOST($shortkey.'_key');
@@ -154,7 +154,7 @@ if ($action == 'setfixednotif' && $user->admin) {
 			}
 
 			if ($newkey && $newval) {
-				$result = dolibarr_set_const($db, $newkey, $newval, 'chaine', 0, '', $conf->entity);
+				$result = onli_set_const($db, $newkey, $newval, 'chaine', 0, '', $conf->entity);
 			}
 		}
 	}

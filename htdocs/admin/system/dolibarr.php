@@ -20,11 +20,11 @@
  */
 
 /**
- *  \file       htdocs/admin/system/dolibarr.php
- *  \brief      Page to show Dolibarr information
+ *  \file       htdocs/admin/system/onli.php
+ *  \brief      Page to show OnLi information
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/memory.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
@@ -33,7 +33,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 
 '
-@phan-var-force string $dolibarr_main_document_root_alt
+@phan-var-force string $onli_main_document_root_alt
 ';
 /**
  * @var Conf $conf
@@ -42,7 +42,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_document_root_alt
+ * @var string $onli_main_document_root_alt
  * @var string $conffile
  */
 
@@ -64,7 +64,7 @@ $version = '0.0';
  */
 
 if ($action == 'getlastversion') {
-	$result = getURLContent('https://sourceforge.net/projects/dolibarr/rss');
+	$result = getURLContent('https://sourceforge.net/projects/onli/rss');
 	//var_dump($result['content']);
 	if (function_exists('simplexml_load_string')) {
 		if (LIBXML_VERSION < 20900) {
@@ -88,9 +88,9 @@ if ($action == 'getlastversion') {
 $form = new Form($db);
 
 $help_url = '';
-$title = $langs->trans("InfoDolibarr");
+$title = $langs->trans("InfoOnLi");
 
-llxHeader('', $title, $help_url, '', 0, 0, '', '', '', 'mod-admin page-system_dolibarr');
+llxHeader('', $title, $help_url, '', 0, 0, '', '', '', 'mod-admin page-system_onli');
 
 print load_fiche_titre($title, '', 'title_setup');
 
@@ -116,7 +116,7 @@ $version = DOL_VERSION;
 if (preg_match('/[a-z]+/i', $version)) {
 	$version = 'develop'; // If version contains text, it is not an official tagged version, so we use the full change log.
 }
-print ' &nbsp; <a href="https://raw.githubusercontent.com/Dolibarr/dolibarr/'.$version.'/ChangeLog" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeChangeLog").'</a>';
+print ' &nbsp; <a href="https://raw.githubusercontent.com/OnLi/onli/'.$version.'/ChangeLog" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeChangeLog").'</a>';
 
 $newversion = '';
 if (function_exists('curl_init')) {
@@ -143,7 +143,7 @@ if (function_exists('curl_init')) {
 			// Show version
 			print $langs->trans("LastStableVersion").' : <b>'.(($version != '0.0') ? $version : $langs->trans("Unknown")).'</b>';
 			if ($version != '0.0') {
-				print ' &nbsp; <a href="https://raw.githubusercontent.com/Dolibarr/dolibarr/'.$version.'/ChangeLog" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeChangeLog").'</a>';
+				print ' &nbsp; <a href="https://raw.githubusercontent.com/OnLi/onli/'.$version.'/ChangeLog" target="_blank" rel="noopener noreferrer external">'.$langs->trans("SeeChangeLog").'</a>';
 			}
 		} else {
 			print $langs->trans("LastStableVersion").' : <b>'.$langs->trans("UpdateServerOffline").'</b>';
@@ -239,7 +239,7 @@ if (getDolGlobalInt('MAIN_OPTIMIZE_SPEED') & 0x02) {
 // Localisation
 print '<div class="div-table-responsive-no-min">';
 print '<table class="noborder centpercent">';
-print '<tr class="liste_titre"><td class="titlefieldcreate">'.$langs->trans("LocalisationDolibarrParameters").'</td><td></td></tr>'."\n";
+print '<tr class="liste_titre"><td class="titlefieldcreate">'.$langs->trans("LocalisationOnLiParameters").'</td><td></td></tr>'."\n";
 print '<tr class="oddeven"><td>'.$langs->trans("LanguageBrowserParameter", "HTTP_ACCEPT_LANGUAGE").'</td><td>'.$_SERVER["HTTP_ACCEPT_LANGUAGE"].'</td></tr>'."\n";
 print '<tr class="oddeven"><td>'.$langs->trans("CurrentUserLanguage").'</td><td>'.$langs->getDefaultLang().'</td></tr>'."\n";
 // Thousands
@@ -278,7 +278,7 @@ if ($conf->db->type == 'mysql' || $conf->db->type == 'mysqli') {
 }
 $txt = $langs->trans("OSTZ").' (variable system TZ): '.(!empty($_ENV["TZ"]) ? $_ENV["TZ"] : $langs->trans("NotDefined")).'<br>'."\n";
 $txt .= $langs->trans("PHPTZ").' (date_default_timezone_get() / php.ini date.timezone): '.(getServerTimeZoneString()." / ".(ini_get("date.timezone") ? ini_get("date.timezone") : $langs->trans("NotDefined")))."<br>\n"; // date.timezone must be in valued defined in http://fr3.php.net/manual/en/timezones.europe.php
-$txt .= $langs->trans("Dolibarr constant MAIN_SERVER_TZ").': '.getDolGlobalString('MAIN_SERVER_TZ', $langs->trans("NotDefined"));
+$txt .= $langs->trans("OnLi constant MAIN_SERVER_TZ").': '.getDolGlobalString('MAIN_SERVER_TZ', $langs->trans("NotDefined"));
 print '<tr class="oddeven"><td>'.$langs->trans("CurrentTimeZone").'</td><td>'; // Timezone server PHP
 $a = getServerTimeZoneInt('now');
 $b = getServerTimeZoneInt('winter');
@@ -335,59 +335,59 @@ print '<br>';
 
 // Parameters in conf.php file (when a parameter start with ?, it is shown only if defined)
 $configfileparameters = array(
-	'dolibarr_main_prod' => 'Production mode (Hide all error messages)',
-	'dolibarr_main_instance_unique_id' => $langs->trans("InstanceUniqueID"),
+	'onli_main_prod' => 'Production mode (Hide all error messages)',
+	'onli_main_instance_unique_id' => $langs->trans("InstanceUniqueID"),
 	'separator0' => '',
-	'dolibarr_main_url_root' => $langs->trans("URLRoot"),
-	'?dolibarr_main_url_root_alt' => $langs->trans("URLRoot").' (alt)',
-	'dolibarr_main_document_root' => $langs->trans("DocumentRootServer"),
-	'?dolibarr_main_document_root_alt' => $langs->trans("DocumentRootServer").' (alt)',
-	'dolibarr_main_data_root' => $langs->trans("DataRootServer"),
+	'onli_main_url_root' => $langs->trans("URLRoot"),
+	'?onli_main_url_root_alt' => $langs->trans("URLRoot").' (alt)',
+	'onli_main_document_root' => $langs->trans("DocumentRootServer"),
+	'?onli_main_document_root_alt' => $langs->trans("DocumentRootServer").' (alt)',
+	'onli_main_data_root' => $langs->trans("DataRootServer"),
 	'separator1' => '',
-	'dolibarr_main_db_host' => $langs->trans("DatabaseServer"),
-	'dolibarr_main_db_port' => $langs->trans("DatabasePort"),
-	'dolibarr_main_db_name' => $langs->trans("DatabaseName"),
-	'dolibarr_main_db_type' => $langs->trans("DriverType"),
-	'dolibarr_main_db_user' => $langs->trans("DatabaseUser"),
-	'dolibarr_main_db_pass' => $langs->trans("DatabasePassword"),
-	'dolibarr_main_db_character_set' => $langs->trans("DBStoringCharset"),
-	'dolibarr_main_db_collation' => $langs->trans("DBSortingCollation"),
-	'?dolibarr_main_db_prefix' => $langs->trans("DatabasePrefix"),
-	'dolibarr_main_db_readonly' => $langs->trans("ReadOnlyMode"),
+	'onli_main_db_host' => $langs->trans("DatabaseServer"),
+	'onli_main_db_port' => $langs->trans("DatabasePort"),
+	'onli_main_db_name' => $langs->trans("DatabaseName"),
+	'onli_main_db_type' => $langs->trans("DriverType"),
+	'onli_main_db_user' => $langs->trans("DatabaseUser"),
+	'onli_main_db_pass' => $langs->trans("DatabasePassword"),
+	'onli_main_db_character_set' => $langs->trans("DBStoringCharset"),
+	'onli_main_db_collation' => $langs->trans("DBSortingCollation"),
+	'?onli_main_db_prefix' => $langs->trans("DatabasePrefix"),
+	'onli_main_db_readonly' => $langs->trans("ReadOnlyMode"),
 	'separator2' => '',
-	'dolibarr_main_authentication' => $langs->trans("AuthenticationMode"),
+	'onli_main_authentication' => $langs->trans("AuthenticationMode"),
 	'?multicompany_transverse_mode' =>  $langs->trans("MultiCompanyMode"),
 	'separator' => '',
-	'?dolibarr_main_auth_ldap_login_attribute' => 'dolibarr_main_auth_ldap_login_attribute',
-	'?dolibarr_main_auth_ldap_host' => 'dolibarr_main_auth_ldap_host',
-	'?dolibarr_main_auth_ldap_port' => 'dolibarr_main_auth_ldap_port',
-	'?dolibarr_main_auth_ldap_version' => 'dolibarr_main_auth_ldap_version',
-	'?dolibarr_main_auth_ldap_dn' => 'dolibarr_main_auth_ldap_dn',
-	'?dolibarr_main_auth_ldap_admin_login' => 'dolibarr_main_auth_ldap_admin_login',
-	'?dolibarr_main_auth_ldap_admin_pass' => 'dolibarr_main_auth_ldap_admin_pass',
-	'?dolibarr_main_auth_ldap_debug' => 'dolibarr_main_auth_ldap_debug',
+	'?onli_main_auth_ldap_login_attribute' => 'onli_main_auth_ldap_login_attribute',
+	'?onli_main_auth_ldap_host' => 'onli_main_auth_ldap_host',
+	'?onli_main_auth_ldap_port' => 'onli_main_auth_ldap_port',
+	'?onli_main_auth_ldap_version' => 'onli_main_auth_ldap_version',
+	'?onli_main_auth_ldap_dn' => 'onli_main_auth_ldap_dn',
+	'?onli_main_auth_ldap_admin_login' => 'onli_main_auth_ldap_admin_login',
+	'?onli_main_auth_ldap_admin_pass' => 'onli_main_auth_ldap_admin_pass',
+	'?onli_main_auth_ldap_debug' => 'onli_main_auth_ldap_debug',
 	'separator3' => '',
-	'?dolibarr_lib_FPDF_PATH' => 'dolibarr_lib_FPDF_PATH',
-	'?dolibarr_lib_TCPDF_PATH' => 'dolibarr_lib_TCPDF_PATH',
-	'?dolibarr_lib_FPDI_PATH' => 'dolibarr_lib_FPDI_PATH',
-	'?dolibarr_lib_TCPDI_PATH' => 'dolibarr_lib_TCPDI_PATH',
-	'?dolibarr_lib_NUSOAP_PATH' => 'dolibarr_lib_NUSOAP_PATH',
-	'?dolibarr_lib_GEOIP_PATH' => 'dolibarr_lib_GEOIP_PATH',
-	'?dolibarr_lib_ODTPHP_PATH' => 'dolibarr_lib_ODTPHP_PATH',
-	'?dolibarr_lib_ODTPHP_PATHTOPCLZIP' => 'dolibarr_lib_ODTPHP_PATHTOPCLZIP',
-	'?dolibarr_js_CKEDITOR' => 'dolibarr_js_CKEDITOR',
-	'?dolibarr_js_JQUERY' => 'dolibarr_js_JQUERY',
-	'?dolibarr_js_JQUERY_UI' => 'dolibarr_js_JQUERY_UI',
-	'?dolibarr_font_DOL_DEFAULT_TTF' => 'dolibarr_font_DOL_DEFAULT_TTF',
-	'?dolibarr_font_DOL_DEFAULT_TTF_BOLD' => 'dolibarr_font_DOL_DEFAULT_TTF_BOLD',
+	'?onli_lib_FPDF_PATH' => 'onli_lib_FPDF_PATH',
+	'?onli_lib_TCPDF_PATH' => 'onli_lib_TCPDF_PATH',
+	'?onli_lib_FPDI_PATH' => 'onli_lib_FPDI_PATH',
+	'?onli_lib_TCPDI_PATH' => 'onli_lib_TCPDI_PATH',
+	'?onli_lib_NUSOAP_PATH' => 'onli_lib_NUSOAP_PATH',
+	'?onli_lib_GEOIP_PATH' => 'onli_lib_GEOIP_PATH',
+	'?onli_lib_ODTPHP_PATH' => 'onli_lib_ODTPHP_PATH',
+	'?onli_lib_ODTPHP_PATHTOPCLZIP' => 'onli_lib_ODTPHP_PATHTOPCLZIP',
+	'?onli_js_CKEDITOR' => 'onli_js_CKEDITOR',
+	'?onli_js_JQUERY' => 'onli_js_JQUERY',
+	'?onli_js_JQUERY_UI' => 'onli_js_JQUERY_UI',
+	'?onli_font_DOL_DEFAULT_TTF' => 'onli_font_DOL_DEFAULT_TTF',
+	'?onli_font_DOL_DEFAULT_TTF_BOLD' => 'onli_font_DOL_DEFAULT_TTF_BOLD',
 	'separator4' => '',
-	'dolibarr_main_restrict_os_commands' => 'Restrict CLI commands for backups',
-	'dolibarr_main_restrict_ip' => 'Restrict access to some IPs only',
-	'?dolibarr_mailing_limit_sendbyweb' => 'Limit nb of email sent by page',
-	'?dolibarr_mailing_limit_sendbycli' => 'Limit nb of email sent by cli',
-	'?dolibarr_mailing_limit_sendbyday' => 'Limit nb of email sent per day',
-	'?dolibarr_strict_mode' => 'Strict mode is on/off',
-	'?dolibarr_nocsrfcheck' => 'Disable CSRF security checks'
+	'onli_main_restrict_os_commands' => 'Restrict CLI commands for backups',
+	'onli_main_restrict_ip' => 'Restrict access to some IPs only',
+	'?onli_mailing_limit_sendbyweb' => 'Limit nb of email sent by page',
+	'?onli_mailing_limit_sendbycli' => 'Limit nb of email sent by cli',
+	'?onli_mailing_limit_sendbyday' => 'Limit nb of email sent per day',
+	'?onli_strict_mode' => 'Strict mode is on/off',
+	'?onli_nocsrfcheck' => 'Disable CSRF security checks'
 );
 
 print '<div class="div-table-responsive-no-min">';
@@ -428,17 +428,17 @@ foreach ($configfileparameters as $key => $value) {
 			print '<td>'.$newkey.'</td>';
 			// Value
 			print "<td>";
-			if (in_array($newkey, array('dolibarr_main_db_pass', 'dolibarr_main_auth_ldap_admin_pass'))) {
-				if (empty($dolibarr_main_prod)) {
+			if (in_array($newkey, array('onli_main_db_pass', 'onli_main_auth_ldap_admin_pass'))) {
+				if (empty($onli_main_prod)) {
 					print '<!-- '.${$newkey}.' -->';
 					print showValueWithClipboardCPButton(${$newkey}, 0, '********');
 				} else {
 					print '**********';
 				}
-			} elseif ($newkey == 'dolibarr_main_url_root' && preg_match('/__auto__/', ${$newkey})) {
+			} elseif ($newkey == 'onli_main_url_root' && preg_match('/__auto__/', ${$newkey})) {
 				print ${$newkey}.' => '.constant('DOL_MAIN_URL_ROOT');
-			} elseif ($newkey == 'dolibarr_main_document_root_alt') {
-				$tmparray = explode(',', $dolibarr_main_document_root_alt);
+			} elseif ($newkey == 'onli_main_document_root_alt') {
+				$tmparray = explode(',', $onli_main_document_root_alt);
 				$i = 0;
 				foreach ($tmparray as $value2) {
 					if ($i > 0) {
@@ -451,12 +451,12 @@ foreach ($configfileparameters as $key => $value) {
 					}
 					++$i;
 				}
-			} elseif ($newkey == 'dolibarr_main_instance_unique_id') {
+			} elseif ($newkey == 'onli_main_instance_unique_id') {
 				//print $conf->file->instance_unique_id;
-				global $dolibarr_main_cookie_cryptkey, $dolibarr_main_instance_unique_id;
-				$valuetoshow = $dolibarr_main_instance_unique_id ? $dolibarr_main_instance_unique_id : $dolibarr_main_cookie_cryptkey; // Use $dolibarr_main_instance_unique_id first then $dolibarr_main_cookie_cryptkey
-				if (empty($dolibarr_main_prod)) {
-					print '<!-- '.$dolibarr_main_instance_unique_id.' (this will not be visible if $dolibarr_main_prod = 1 -->';
+				global $onli_main_cookie_cryptkey, $onli_main_instance_unique_id;
+				$valuetoshow = $onli_main_instance_unique_id ? $onli_main_instance_unique_id : $onli_main_cookie_cryptkey; // Use $onli_main_instance_unique_id first then $onli_main_cookie_cryptkey
+				if (empty($onli_main_prod)) {
+					print '<!-- '.$onli_main_instance_unique_id.' (this will not be visible if $onli_main_prod = 1 -->';
 					print showValueWithClipboardCPButton($valuetoshow, 0, '********');
 					print ' &nbsp; &nbsp; <span class="opacitymedium">'.$langs->trans("ThisValueCanBeReadBecauseInstanceIsNotInProductionMode").'</span>';
 				} else {
@@ -464,25 +464,25 @@ foreach ($configfileparameters as $key => $value) {
 					print ' &nbsp; &nbsp; <span class="opacitymedium">'.$langs->trans("SeeConfFile").'</span>';
 				}
 				if (empty($valuetoshow)) {
-					print img_warning("EditConfigFileToAddEntry", 'dolibarr_main_instance_unique_id');
+					print img_warning("EditConfigFileToAddEntry", 'onli_main_instance_unique_id');
 				}
 				print '</td></tr>';
-				print '<tr class="oddeven"><td></td><td>&nbsp; => '.$langs->trans("HashForPing").'</td><td>'.md5('dolibarr'.$valuetoshow).'</td></tr>'."\n";
-			} elseif ($newkey == 'dolibarr_main_prod') {
+				print '<tr class="oddeven"><td></td><td>&nbsp; => '.$langs->trans("HashForPing").'</td><td>'.md5('onli'.$valuetoshow).'</td></tr>'."\n";
+			} elseif ($newkey == 'onli_main_prod') {
 				print ${$newkey};
 
 				$valuetoshow = ${$newkey};
 				if (empty($valuetoshow)) {
 					print img_warning($langs->trans('SwitchThisForABetterSecurity', 1));
 				}
-			} elseif ($newkey == 'dolibarr_nocsrfcheck') {
+			} elseif ($newkey == 'onli_nocsrfcheck') {
 				print ${$newkey};
 
 				$valuetoshow = ${$newkey};
 				if (!empty($valuetoshow)) {
 					print img_warning($langs->trans('SwitchThisForABetterSecurity', 0));
 				}
-			} elseif ($newkey == 'dolibarr_main_db_readonly') {
+			} elseif ($newkey == 'onli_main_db_readonly') {
 				print ${$newkey};
 
 				$valuetoshow = ${$newkey};
@@ -492,7 +492,7 @@ foreach ($configfileparameters as $key => $value) {
 			} else {
 				print(empty(${$newkey}) ? '' : ${$newkey});
 			}
-			if ($newkey == 'dolibarr_main_url_root' && ${$newkey} != DOL_MAIN_URL_ROOT) {
+			if ($newkey == 'onli_main_url_root' && ${$newkey} != DOL_MAIN_URL_ROOT) {
 				print ' (currently overwritten by autodetected value: '.DOL_MAIN_URL_ROOT.')';
 			}
 			print "</td>";
@@ -548,7 +548,7 @@ if ($resql) {
 		print '<td class="tdoverflowmax600" title="'.dol_escape_htmltag($obj->name).'">'.dol_escape_htmltag($obj->name).'</td>'."\n";
 		print '<td class="tdoverflowmax300">';
 		if (isASecretKey($obj->name)) {
-			if (empty($dolibarr_main_prod)) {
+			if (empty($onli_main_prod)) {
 				print '<!-- '.$obj->value.' -->';
 			}
 			print '**********';

@@ -20,7 +20,7 @@
 
 /**
  *       \file       htdocs/webservices/server_project.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -58,14 +58,14 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -93,8 +93,8 @@ $listofreferent = array(
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrOther', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiOther', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 // Define WSDL Authentication object
@@ -105,7 +105,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -257,7 +257,7 @@ $server->register(
 /**
  * Create project
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,label:string,thirdparty_id:int,public:int,status:int,date_start:string,date_end:string,budget:int,description:string,elements:array<array{id:int,user:int}>}		$project			Project info
  * @return array{id?:int,ref?:string,result:array{result_code:string,result_label:string}} Array result
  */
@@ -352,7 +352,7 @@ function createProject($authentication, $project)
 /**
  * Get a project
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	string		$id		    		internal id
  * @param	string		$ref		    	internal reference
  * @return array{result:array{result_code:string,result_label:string}} Array result

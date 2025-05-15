@@ -26,7 +26,7 @@
  *      \brief      Liste des contacts
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 /**

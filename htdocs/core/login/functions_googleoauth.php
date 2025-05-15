@@ -72,8 +72,8 @@ function check_user_password_googleoauth($usertotest, $passwordtotest, $entityto
 			// Make the redirect to the google_authcallback.php page to start the redirect to Google OAUTH.
 
 			// Define $urlwithroot
-			//global $dolibarr_main_url_root;
-			//$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+			//global $onli_main_url_root;
+			//$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 			//$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 			$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

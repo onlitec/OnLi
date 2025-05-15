@@ -25,7 +25,7 @@
  * \brief   StockTransfer setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 // Libraries
@@ -78,7 +78,7 @@ if ($action == 'updateMask') {
 	$maskstocktransfer = GETPOST('maskStockTransfer', 'alpha');
 
 	if ($maskconststocktransfer && preg_match('/_MASK$/', $maskconststocktransfer)) {
-		$res = dolibarr_set_const($db, $maskconststocktransfer, $maskstocktransfer, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconststocktransfer, $maskstocktransfer, 'chaine', 0, '', $conf->entity);
 		if ($res <= 0) {
 			$error++;
 		}
@@ -134,13 +134,13 @@ if ($action == 'updateMask') {
 	if ($ret > 0) {
 		$constforval = strtoupper($tmpobjectkey).'_ADDON_PDF';
 		if (getDolGlobalString($constforval) == "$value") {
-			dolibarr_del_const($db, $constforval, $conf->entity);
+			onli_del_const($db, $constforval, $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') { // Set default model
 	$tmpobjectkey = 'StockTransfer';
 	$constforval = strtoupper($tmpobjectkey).'_ADDON_PDF';
-	if (dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
 		// The constant that was read before the new set
 		// We therefore requires a variable to have a coherent view
 		$conf->global->$constforval = $value;
@@ -156,7 +156,7 @@ if ($action == 'updateMask') {
 	// by calling method canBeActivated
 	$tmpobjectkey = 'StockTransfer';
 	$constforval = 'STOCKTRANSFER_'.strtoupper($tmpobjectkey)."_ADDON";
-	dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
 }
 
 

@@ -30,7 +30,7 @@
  *		\brief      Setup page for commercial proposal module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/pdf.lib.php';
@@ -73,10 +73,10 @@ include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 $error = 0;
 if ($action == "update") {
 	if (GETPOSTISSET('MAIN_PDF_ADD_TERMSOFSALE_PROPAL')) {
-		dolibarr_set_const($db, "MAIN_PDF_ADD_TERMSOFSALE_PROPAL", GETPOST("MAIN_PDF_ADD_TERMSOFSALE_PROPAL", 'int'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_PDF_ADD_TERMSOFSALE_PROPAL", GETPOST("MAIN_PDF_ADD_TERMSOFSALE_PROPAL", 'int'), 'chaine', 0, '', $conf->entity);
 	}
 	if (GETPOSTISSET('MAIN_GENERATE_PROPOSALS_WITH_PICTURE')) {
-		dolibarr_set_const($db, "MAIN_GENERATE_PROPOSALS_WITH_PICTURE", GETPOST("MAIN_GENERATE_PROPOSALS_WITH_PICTURE"), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_GENERATE_PROPOSALS_WITH_PICTURE", GETPOST("MAIN_GENERATE_PROPOSALS_WITH_PICTURE"), 'chaine', 0, '', $conf->entity);
 	}
 
 	// Terms of sale
@@ -89,7 +89,7 @@ if ($action == "update") {
 			$original_file = $_FILES['termsofsale']["name"];
 			$result = dol_move_uploaded_file($_FILES['termsofsale']["tmp_name"], $dirforterms.$original_file, 1, 0, $_FILES['termsofsale']['error']);
 			if ($result) {
-				dolibarr_set_const($db, 'MAIN_INFO_PROPAL_TERMSOFSALE', $original_file, 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, 'MAIN_INFO_PROPAL_TERMSOFSALE', $original_file, 'chaine', 0, '', $conf->entity);
 			}
 		}
 	}
@@ -108,7 +108,7 @@ if ($action == 'removetermsofsale') {
 	if ($filename != '') {
 		dol_delete_file($file);
 	}
-	dolibarr_del_const($db, 'MAIN_INFO_PROPAL_TERMSOFSALE', $conf->entity);
+	onli_del_const($db, 'MAIN_INFO_PROPAL_TERMSOFSALE', $conf->entity);
 }
 
 /*

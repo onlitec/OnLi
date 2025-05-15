@@ -21,7 +21,7 @@
 
 /**
  *       \file       htdocs/webservices/server_order.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -57,14 +57,14 @@ require_once DOL_DOCUMENT_ROOT."/commande/class/commande.class.php";
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -74,8 +74,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrOrder', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiOrder', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -87,7 +87,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-				'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+				'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 				'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 				'login' => array('name' => 'login', 'type' => 'xsd:string'),
 				'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -373,7 +373,7 @@ $server->register(
 /**
  * Get order from id, ref or ref_ext.
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Id
  * @param	string		$ref				Ref
  * @param	string		$ref_ext			Ref_ext
@@ -518,7 +518,7 @@ function getOrder($authentication, $id = 0, $ref = '', $ref_ext = '')
 /**
  * Get list of orders for third party
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$idthirdparty		Id of thirdparty
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -673,7 +673,7 @@ function getOrdersForThirdParty($authentication, $idthirdparty)
 /**
  * Create order
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param array{id:string,ref:string,ref_client:string,ref_ext:string,thirdparty_id:int,status:int,billed:string,total_net:float,total_vat:float,total_localtax1:float,total_localtax2:float,total:float,date:string,date_creation:string,date_validation:string,date_modification:string,source:string,note_private:string,note_public:string,project_id:string,mode_reglement_id:string,mode_reglement_code:string,mode_reglement:string,cond_reglement_id:string,cond_reglement_code:string,cond_reglement:string,cond_reglement_doc:string,date_livraison:int,demand_reason_id:string,lines:array{lines:array<array{id:string,type:int,fk_commande:int,fk_parent_line:int,desc:string,qty:float,price:float,unitprice:float,vat_rate:float,remise:float,remise_percent:float,total_net:float,total_vat:float,total:float,date_start:int,date_end:int,product_id:int,product_ref:string,product_label:string,product_desc:string}>}}		$order		Order info
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -821,7 +821,7 @@ function createOrder($authentication, $order)
 /**
  * Valid an order
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Id of order to validate
  * @param	int			$id_warehouse		Id of warehouse to use for stock decrease
  * @return array{result:array{result_code:string,result_label:string}} Array result
@@ -891,7 +891,7 @@ function validOrder($authentication, $id = 0, $id_warehouse = 0)
 /**
  * Update an order
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,refext:string}	$order	Order info
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */

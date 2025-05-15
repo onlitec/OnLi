@@ -55,9 +55,9 @@ class doc_generic_recruitmentjobposition_odt extends ModelePDFRecruitmentJobPosi
 	public $phpmin = array(7, 0);
 
 	/**
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental' Dolibarr version of the loaded document
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental' OnLi version of the loaded document
 	 */
-	public $version = 'dolibarr';
+	public $version = 'onli';
 
 
 	/**

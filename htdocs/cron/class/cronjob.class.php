@@ -1401,13 +1401,13 @@ class Cronjob extends CommonObject
 
 		// Run a command line
 		if ($this->jobtype == 'command') {
-			global $dolibarr_cron_allow_cli;
+			global $onli_cron_allow_cli;
 
-			if (empty($dolibarr_cron_allow_cli)) {
+			if (empty($onli_cron_allow_cli)) {
 				$langs->load("errors");
 				$this->error      = $langs->trans("FailedToExecutCommandJob");
 				$this->lastoutput = '';
-				$this->lastresult = $langs->trans("ErrorParameterMustBeEnabledToAllwoThisFeature", 'dolibarr_cron_allow_cli');
+				$this->lastresult = $langs->trans("ErrorParameterMustBeEnabledToAllwoThisFeature", 'onli_cron_allow_cli');
 			} else {
 				$outputdir = $conf->cron->dir_temp;
 				if (empty($outputdir)) {

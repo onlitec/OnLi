@@ -19,7 +19,7 @@
 
 /**
  *       \file       htdocs/webservices/server_user.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -64,7 +64,7 @@ $langs->load("main");
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -74,8 +74,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrUser', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiUser', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -87,7 +87,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -328,7 +328,7 @@ $server->register(
 /**
  * Get produt or service
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @param	int			$id					Id of object
  * @param	string		$ref				Ref of object
  * @param	string		$ref_ext			Ref external of object
@@ -421,7 +421,7 @@ function getUser($authentication, $id, $ref = '', $ref_ext = '')
 /**
  * getListOfGroups
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
 function getListOfGroups($authentication)
@@ -489,7 +489,7 @@ function getListOfGroups($authentication)
 /**
  * Create an external user with thirdparty and contact
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @param array{name:string,firstname:string,name_thirdparty:string,ref_ext:string,client:string,fournisseur:string,address:string,zip:string,town:string,country_id:string,country_code:string,phone:string,phone_mobile:string,fax:string,email:string,url:string,profid1:string,profid2:string,profid3:string,profid4:string,profid5:string,profid6:string,capital:string,tva_assuj:string,tva_intra:string,login:string,password:string,group_id:string}		$thirdpartywithuser Datas
  * @return array{id?:int,result:array{result_code:string,result_label:string}} Array result
  */
@@ -688,7 +688,7 @@ function createUserFromThirdparty($authentication, $thirdpartywithuser)
 /**
  * Set password of an user
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @param	array{login:string,password:string}		$shortuser			Array of login/password info
  * @return	mixed
  */

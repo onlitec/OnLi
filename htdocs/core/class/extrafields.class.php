@@ -1289,7 +1289,7 @@ class ExtraFields
 		} elseif ($type == 'text') {
 			if (!preg_match('/search_/', $keyprefix)) {		// If keyprefix is search_ or search_options_, we must just use a simple text field
 				require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'dolibarr_notes', 'In', false, false, false, ROWS_5, '90%');
+				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'onli_notes', 'In', false, false, false, ROWS_5, '90%');
 				$out = (string) $doleditor->Create(1);
 			} else {
 				$out = '<input type="text" class="flat '.$morecss.' maxwidthonsmartphone" name="'.$keyprefix.$key.$keysuffix.'" id="'.$keyprefix.$key.$keysuffix.'" value="'.dol_escape_htmltag($value).'" '.($moreparam ? $moreparam : '').'>';
@@ -1297,7 +1297,7 @@ class ExtraFields
 		} elseif ($type == 'html') {
 			if (!preg_match('/search_/', $keyprefix)) {		// If keyprefix is search_ or search_options_, we must just use a simple text field
 				require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'dolibarr_notes', 'In', false, false, isModEnabled('fckeditor') && getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), ROWS_5, '90%');
+				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'onli_notes', 'In', false, false, isModEnabled('fckeditor') && getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), ROWS_5, '90%');
 				$out = (string) $doleditor->Create(1);
 			} else {
 				$out = '<input type="text" class="flat '.$morecss.' maxwidthonsmartphone" name="'.$keyprefix.$key.$keysuffix.'" id="'.$keyprefix.$key.$keysuffix.'" value="'.dol_escape_htmltag($value).'" '.($moreparam ? $moreparam : '').'>';
@@ -2240,11 +2240,11 @@ class ExtraFields
 						if ($result > 0) {
 							$ways = $c->print_all_ways(); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 							foreach ($ways as $way) {
-								$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #bbb"') . '>' . img_object('', 'category') . ' ' . $way . '</li>';
+								$toprint[] = '<li class="select2-search-choice-onli noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #bbb"') . '>' . img_object('', 'category') . ' ' . $way . '</li>';
 							}
 						}
 					}
-					$value = '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">'.implode(' ', $toprint).'</ul></div>';
+					$value = '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">'.implode(' ', $toprint).'</ul></div>';
 				}
 			} else {
 				dol_syslog(get_class($this).'::showOutputField error '.$this->db->lasterror(), LOG_WARNING);
@@ -2263,11 +2263,11 @@ class ExtraFields
 			if (is_array($value_arr)) {
 				foreach ($value_arr as $keyval => $valueval) {
 					if (!empty($valueval)) {
-						$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">'.$param['options'][$valueval].'</li>';
+						$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">'.$param['options'][$valueval].'</li>';
 					}
 				}
 			}
-			$value = '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">'.implode(' ', $toprint).'</ul></div>';
+			$value = '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">'.implode(' ', $toprint).'</ul></div>';
 		} elseif ($type == 'chkbxlst') {
 			$value_arr = explode(',', $value);
 
@@ -2314,7 +2314,7 @@ class ExtraFields
 						$fields_label = explode('|', $InfoFieldList[1]);
 						if (is_array($value_arr) && in_array($obj->rowid, $value_arr)) {
 							if (is_array($fields_label) && count($fields_label) > 1) {
-								$label = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">';
+								$label = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">';
 								foreach ($fields_label as $field_toshow) {
 									$translabel = '';
 									if (!empty($obj->$field_toshow)) {
@@ -2334,9 +2334,9 @@ class ExtraFields
 									$translabel = $outputlangs->trans($obj->{$InfoFieldList[1]});
 								}
 								if ($translabel != $obj->{$InfoFieldList[1]}) {
-									$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">'.dol_trunc($translabel, 18).'</li>';
+									$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">'.dol_trunc($translabel, 18).'</li>';
 								} else {
-									$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">'.$obj->{$InfoFieldList[1]}.'</li>';
+									$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">'.$obj->{$InfoFieldList[1]}.'</li>';
 								}
 							}
 						}
@@ -2351,13 +2351,13 @@ class ExtraFields
 							$c->fetch($obj->rowid);
 							$ways = $c->print_all_ways(); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 							foreach ($ways as $way) {
-								$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories"'.($c->color ? ' style="background: #'.$c->color.';"' : ' style="background: #bbb"').'>'.img_object('', 'category').' '.$way.'</li>';
+								$toprint[] = '<li class="select2-search-choice-onli noborderoncategories"'.($c->color ? ' style="background: #'.$c->color.';"' : ' style="background: #bbb"').'>'.img_object('', 'category').' '.$way.'</li>';
 							}
 						}
 					}
 				}
 				if (!empty($toprint)) {
-					$value = '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">'.implode(' ', $toprint).'</ul></div>';
+					$value = '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">'.implode(' ', $toprint).'</ul></div>';
 				}
 			} else {
 				dol_syslog(get_class($this).'::showOutputField error '.$this->db->lasterror(), LOG_WARNING);

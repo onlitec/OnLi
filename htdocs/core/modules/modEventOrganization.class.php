@@ -25,15 +25,15 @@
  *  \ingroup    eventorganization
  *  \brief      Description and activation file for the EventOrganization
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 require_once DOL_DOCUMENT_ROOT.'/categories/class/categorie.class.php';
 
 /**
  *  Description and activation class for module EventOrganization
  *  This module is base on this specification :
- *  https://wiki.dolibarr.org/index.php/Draft:Module_Event_Organization
+ *  https://wiki.onli.org/index.php/Draft:Module_Event_Organization
  */
-class modEventOrganization extends DolibarrModules
+class modEventOrganization extends OnLiModules
 {
 	/**
 	 * Constructor. Define names, constants, directories, boxes, permissions
@@ -59,7 +59,7 @@ class modEventOrganization extends DolibarrModules
 		$this->description = "EventOrganizationDescription";
 		$this->descriptionlong = "EventOrganizationDescriptionLong";
 
-		$this->version = 'dolibarr';
+		$this->version = 'onli';
 
 
 		// Key used in llx_const table to save module status enabled/disabled (where EVENTORGANIZATION is value of property name of module in uppercase)
@@ -127,7 +127,7 @@ class modEventOrganization extends DolibarrModules
 
 		// Prerequisites
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(13, -3); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(13, -3); // Minimum version of OnLi required by module
 
 		// Messages at activation
 		$this->warnings_activation = array(); // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
@@ -418,7 +418,7 @@ class modEventOrganization extends DolibarrModules
 
 	/**
 	 *  Function called when module is enabled.
-	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *  It also creates data directories
 	 *
 	 *  @param      string  $options    Options when enabling module ('', 'noboxes')
@@ -485,19 +485,19 @@ class modEventOrganization extends DolibarrModules
 
 		$template = $formmail->getEMailTemplate($this->db, 'conferenceorbooth', $user, $langs, 0, 1, '(EventOrganizationEmailAskConf)');
 		if ($template->id > 0) {
-			dolibarr_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_ASK_CONF', $template->id, 'chaine', 0, '', $conf->entity);
+			onli_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_ASK_CONF', $template->id, 'chaine', 0, '', $conf->entity);
 		}
 		$template = $formmail->getEMailTemplate($this->db, 'conferenceorbooth', $user, $langs, 0, 1, '(EventOrganizationEmailAskBooth)');
 		if ($template->id > 0) {
-			dolibarr_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_ASK_BOOTH', $template->id, 'chaine', 0, '', $conf->entity);
+			onli_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_ASK_BOOTH', $template->id, 'chaine', 0, '', $conf->entity);
 		}
 		$template = $formmail->getEMailTemplate($this->db, 'conferenceorbooth', $user, $langs, 0, 1, '(EventOrganizationEmailBoothPayment)');
 		if ($template->id > 0) {
-			dolibarr_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_AFT_SUBS_BOOTH', $template->id, 'chaine', 0, '', $conf->entity);
+			onli_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_AFT_SUBS_BOOTH', $template->id, 'chaine', 0, '', $conf->entity);
 		}
 		$template = $formmail->getEMailTemplate($this->db, 'conferenceorbooth', $user, $langs, 0, 1, '(EventOrganizationEmailRegistrationPayment)');
 		if ($template->id > 0) {
-			dolibarr_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_AFT_SUBS_EVENT', $template->id, 'chaine', 0, '', $conf->entity);
+			onli_set_const($this->db, 'EVENTORGANIZATION_TEMPLATE_EMAIL_AFT_SUBS_EVENT', $template->id, 'chaine', 0, '', $conf->entity);
 		}
 
 		return $init;
@@ -505,7 +505,7 @@ class modEventOrganization extends DolibarrModules
 
 	/**
 	 *  Function called when module is disabled.
-	 *  Remove from database constants, boxes and permissions from Dolibarr database.
+	 *  Remove from database constants, boxes and permissions from OnLi database.
 	 *  Data directories are not deleted
 	 *
 	 *  @param      string	$options    Options when enabling module ('', 'noboxes')

@@ -40,7 +40,7 @@
  */
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/images.lib.php';
@@ -155,7 +155,7 @@ if ($socid > 0) {
 	$object->fetch($socid);
 }
 
-// Get object canvas (By default, this is not defined, so standard usage of dolibarr)
+// Get object canvas (By default, this is not defined, so standard usage of onli)
 $canvas = $object->canvas ? $object->canvas : GETPOST("canvas");
 $objcanvas = null;
 if (!empty($canvas)) {
@@ -3405,7 +3405,7 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($canvasdisplayactio
 			// Module Adherent
 			if (isModEnabled('member')) {
 				$langs->load("members");
-				print '<tr><td>'.$langs->trans("LinkedToDolibarrMember").'</td>';
+				print '<tr><td>'.$langs->trans("LinkedToOnLiMember").'</td>';
 				print '<td>';
 				$adh = new Adherent($db);
 				$result = $adh->fetch(0, '', $object->id);
@@ -3420,15 +3420,15 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($canvasdisplayactio
 
 			// Link user (you must create a contact to get a user)
 			/*
-			print '<tr><td>'.$langs->trans("DolibarrLogin").'</td><td colspan="3">';
+			print '<tr><td>'.$langs->trans("OnLiLogin").'</td><td colspan="3">';
 			if ($object->user_id) {
-				$dolibarr_user = new User($db);
-				$result = $dolibarr_user->fetch($object->user_id);
-				print $dolibarr_user->getLoginUrl(-1);
+				$onli_user = new User($db);
+				$result = $onli_user->fetch($object->user_id);
+				print $onli_user->getLoginUrl(-1);
 			} else {
-				//print '<span class="opacitymedium">'.$langs->trans("NoDolibarrAccess").'</span>';
+				//print '<span class="opacitymedium">'.$langs->trans("NoOnLiAccess").'</span>';
 				if (!$object->user_id && $user->hasRight('user', 'user', 'creer')) {
-					print '<a class="aaa" href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'&action=create_user&token='.newToken().'">'.img_picto($langs->trans("CreateDolibarrLogin"), 'add').' '.$langs->trans("CreateDolibarrLogin").'</a>';
+					print '<a class="aaa" href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'&action=create_user&token='.newToken().'">'.img_picto($langs->trans("CreateOnLiLogin"), 'add').' '.$langs->trans("CreateOnLiLogin").'</a>';
 				}
 			}
 			print '</td></tr>';

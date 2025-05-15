@@ -69,7 +69,7 @@ $left = ($langs->trans("DIRECTION") == 'rtl' ? 'right' : 'left');*/
  */
 
 if ($action == 'redirect') {	// Test on permission not required here. Test will be done on the targeted page.
-	global $dolibarr_main_url_root;
+	global $onli_main_url_root;
 
 	$url = GETPOST('url');
 	$url = dol_sanitizeUrl($url);
@@ -78,10 +78,10 @@ if ($action == 'redirect') {	// Test on permission not required here. Test will 
 	//var_dump($url);
 
 	$tmpurlrootwithouthttp = preg_replace('/^http(s?):\/\//i', '', DOL_MAIN_URL_ROOT);
-	//var_dump($dolibarr_main_url_root);
+	//var_dump($onli_main_url_root);
 	//var_dump(DOL_MAIN_URL_ROOT);
 	//var_dump($tmpurlrootwithouthttp);
-	$url = preg_replace('/'.preg_quote($dolibarr_main_url_root, '/').'/', '', $url);
+	$url = preg_replace('/'.preg_quote($onli_main_url_root, '/').'/', '', $url);
 	$url = preg_replace('/'.preg_quote(DOL_MAIN_URL_ROOT, '/').'/', '', $url);
 	$url = preg_replace('/'.preg_quote($tmpurlrootwithouthttp, '/').'/', '', $url);
 	$urlrelativeforredirect = (DOL_URL_ROOT.(preg_match('/\//', $url) ? '' : '/').$url);
@@ -98,8 +98,8 @@ if ($action == 'redirect') {	// Test on permission not required here. Test will 
  * View
  */
 
-// Important: Following code is to avoid page request by browser and PHP CPU at each Dolibarr page access.
-if (empty($dolibarr_nocache) && GETPOSTINT('cache')) {
+// Important: Following code is to avoid page request by browser and PHP CPU at each OnLi page access.
+if (empty($onli_nocache) && GETPOSTINT('cache')) {
 	header('Cache-Control: max-age='.GETPOSTINT('cache').', public');
 	// For a .php, we must set an Expires to avoid to have it forced to an expired value by the web server
 	header('Expires: '.gmdate('D, d M Y H:i:s', dol_now('gmt') + GETPOSTINT('cache')).' GMT');
@@ -112,7 +112,7 @@ if (empty($dolibarr_nocache) && GETPOSTINT('cache')) {
 
 $title = $langs->trans("Search");
 
-// URL http://mydolibarr/core/search_page?dol_use_jmobile=1 can be used for tests
+// URL http://myonli/core/search_page?dol_use_jmobile=1 can be used for tests
 $head = '<!-- Quick access -->'."\n";	// This is used by DoliDroid to know page is a search page
 $arrayofjs = array();
 $arrayofcss = array();

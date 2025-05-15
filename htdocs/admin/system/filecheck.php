@@ -22,10 +22,10 @@
 
 /**
  *  \file       htdocs/admin/system/filecheck.php
- *  \brief      Page to check Dolibarr files integrity
+ *  \brief      Page to check OnLi files integrity
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/geturl.lib.php';
@@ -56,7 +56,7 @@ $error = 0;
 
 llxHeader('', '', '', '', 0, 0, '', '', '', 'mod-admin page-system_filecheck');
 
-print load_fiche_titre($langs->trans("FileCheckDolibarr"), '', 'title_setup');
+print load_fiche_titre($langs->trans("FileCheckOnLi"), '', 'title_setup');
 
 print '<div class="opacitymedium justify">'.$langs->trans("FileCheckDesc").'</div><br><br>';
 
@@ -106,7 +106,7 @@ if (empty($xmlremote) && getDolGlobalString($param)) {
 	$xmlremote = getDolGlobalString($param);
 }
 if (empty($xmlremote)) {
-	$xmlremote = 'https://www.dolibarr.org/files/stable/signatures/filelist-'.DOL_VERSION.'.xml';
+	$xmlremote = 'https://www.onli.org/files/stable/signatures/filelist-'.DOL_VERSION.'.xml';
 }
 if ($xmlremote && !preg_match('/^https?:\/\//', $xmlremote)) {
 	$langs->load("errors");
@@ -215,7 +215,7 @@ if (empty($error) && !empty($xml)) {
 	$out = '';
 
 	// Forced constants
-	if (is_object($xml->dolibarr_constants[0])) {
+	if (is_object($xml->onli_constants[0])) {
 		$out .= load_fiche_titre($langs->trans("ForcedConstants"));
 
 		$out .= '<div class="div-table-responsive-no-min">';
@@ -228,7 +228,7 @@ if (empty($error) && !empty($xml)) {
 		$out .= '</tr>'."\n";
 
 		$i = 0;
-		foreach ($xml->dolibarr_constants[0]->constant as $constant) {    // $constant is a simpleXMLElement
+		foreach ($xml->onli_constants[0]->constant as $constant) {    // $constant is a simpleXMLElement
 			$constname = $constant['name'];
 			$constvalue = (string) $constant;
 			$constvalue = (empty($constvalue) ? '0' : $constvalue);
@@ -260,9 +260,9 @@ if (empty($error) && !empty($xml)) {
 	}
 
 	// Scan htdocs
-	if (is_object($xml->dolibarr_htdocs_dir[0])) {
-		//var_dump($xml->dolibarr_htdocs_dir[0]['includecustom']);exit;
-		$includecustom = (empty($xml->dolibarr_htdocs_dir[0]['includecustom']) ? 0 : $xml->dolibarr_htdocs_dir[0]['includecustom']);
+	if (is_object($xml->onli_htdocs_dir[0])) {
+		//var_dump($xml->onli_htdocs_dir[0]['includecustom']);exit;
+		$includecustom = (empty($xml->onli_htdocs_dir[0]['includecustom']) ? 0 : $xml->onli_htdocs_dir[0]['includecustom']);
 
 		// Define qualified files (must be same than into generate_filelist_xml.php and in api_setup.class.php)
 		$regextoinclude = '\.(php|php3|php4|php5|phtml|phps|phar|inc|css|scss|html|xml|js|json|tpl|jpg|jpeg|png|gif|ico|sql|lang|txt|yml|bak|md|mp3|mp4|wav|mkv|z|gz|zip|rar|tar|less|svg|eot|woff|woff2|ttf|manifest)$';
@@ -270,7 +270,7 @@ if (empty($error) && !empty($xml)) {
 		$scanfiles = dol_dir_list(DOL_DOCUMENT_ROOT, 'files', 1, $regextoinclude, $regextoexclude);
 
 		// Fill file_list with files in signature, new files, modified files
-		$ret = getFilesUpdated($file_list, $xml->dolibarr_htdocs_dir[0], '', DOL_DOCUMENT_ROOT, $checksumconcat); // Fill array $file_list
+		$ret = getFilesUpdated($file_list, $xml->onli_htdocs_dir[0], '', DOL_DOCUMENT_ROOT, $checksumconcat); // Fill array $file_list
 		'@phan-var-force array{insignature:string[],missing?:array<array{filename:string,expectedmd5:string,expectedsize:string}>,updated:array<array{filename:string,expectedmd5:string,expectedsize:string,md5:string}>} $file_list';
 		// Complete with list of new files
 		foreach ($scanfiles as $keyfile => $valfile) {
@@ -419,7 +419,7 @@ if (empty($error) && !empty($xml)) {
 		$out .= '</div>';
 	} else {
 		print '<div class="error">';
-		print 'Error: Failed to found <b>dolibarr_htdocs_dir</b> into content of XML file:<br>'.dol_escape_htmltag(dol_trunc($xmlfile, 500));
+		print 'Error: Failed to found <b>onli_htdocs_dir</b> into content of XML file:<br>'.dol_escape_htmltag(dol_trunc($xmlfile, 500));
 		print '</div><br>';
 		$error++;
 	}
@@ -427,10 +427,10 @@ if (empty($error) && !empty($xml)) {
 
 	// Scan scripts
 	/*
-	if (is_object($xml->dolibarr_script_dir[0]))
+	if (is_object($xml->onli_script_dir[0]))
 	{
 		$file_list = array();
-		$ret = getFilesUpdated($file_list, $xml->dolibarr_htdocs_dir[0], '', ???, $checksumconcat);		// Fill array $file_list
+		$ret = getFilesUpdated($file_list, $xml->onli_htdocs_dir[0], '', ???, $checksumconcat);		// Fill array $file_list
 		'@phan-var-force array{insignature:string[],missing?:array<array{filename:string,expectedmd5:string,expectedsize:string}>,updated:array<array{filename:string,expectedmd5:string,expectedsize:string,md5:string}>} $file_list';
 	}*/
 
@@ -438,7 +438,7 @@ if (empty($error) && !empty($xml)) {
 	asort($checksumconcat); // Sort list of checksum
 	//var_dump($checksumconcat);
 	$checksumget = md5(implode(',', $checksumconcat));
-	$checksumtoget = trim((string) $xml->dolibarr_htdocs_dir_checksum);
+	$checksumtoget = trim((string) $xml->onli_htdocs_dir_checksum);
 
 	//var_dump(count($file_list['added']));
 	//var_dump($checksumget);

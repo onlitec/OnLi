@@ -25,7 +25,7 @@
  *   \brief      Page to setup boxes
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 include_once DOL_DOCUMENT_ROOT.'/core/boxes/modules_boxes.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/infobox.class.php';
@@ -60,7 +60,7 @@ $boxes = array();
  */
 
 if ($action == 'addconst') {
-	dolibarr_set_const($db, "MAIN_ACTIVATE_FILECACHE", GETPOST("MAIN_ACTIVATE_FILECACHE", 'alpha'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_ACTIVATE_FILECACHE", GETPOST("MAIN_ACTIVATE_FILECACHE", 'alpha'), 'chaine', 0, '', $conf->entity);
 }
 
 if ($action == 'add') {

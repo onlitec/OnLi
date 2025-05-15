@@ -24,10 +24,10 @@ use Luracast\Restler\RestException;
  * API class for accountancy
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  *
  */
-class Accountancy extends DolibarrApi
+class Accountancy extends OnLiApi
 {
 	/**
 	 *
@@ -93,7 +93,7 @@ class Accountancy extends DolibarrApi
 		global $conf, $langs;
 
 		// check rights
-		if (!DolibarrApiAccess::$user->hasRight('accounting', 'mouvements', 'export')) {
+		if (!OnLiApiAccess::$user->hasRight('accounting', 'mouvements', 'export')) {
 			throw new RestException(403, 'No permission to export accounting');
 		}
 

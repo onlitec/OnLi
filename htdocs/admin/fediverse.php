@@ -30,7 +30,7 @@
  *      \brief      Page to setup fedivers in module Socialnetworks
  */
 
-//load Dolibarr environment
+//load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/socialnetwork.lib.php';
@@ -93,7 +93,7 @@ if ($action == 'add') {
 	$socialNetworkName = GETPOST('socialnetwork_name', 'alpha');
 	$socialNetworkUrl = GETPOST('socialnetwork_url', 'alpha');
 	if (GETPOSTISSET("OAUTH_SERVICE_SOCIAL_NETWORK")) {
-		dolibarr_set_const($db, "OAUTH_SERVICE_SOCIAL_NETWORK", GETPOST("OAUTH_SERVICE_SOCIAL_NETWORK", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "OAUTH_SERVICE_SOCIAL_NETWORK", GETPOST("OAUTH_SERVICE_SOCIAL_NETWORK", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 	}
 
 	// other params if exist
@@ -128,7 +128,7 @@ if ($action == 'add') {
 			$error++;
 		} else {
 			$jsonData = json_encode($socialNetworkData);
-			$result = dolibarr_set_const($db, "SOCIAL_NETWORKS_DATA_".$socialNetworkName, $jsonData, 'chaine', 0, '', $conf->entity);
+			$result = onli_set_const($db, "SOCIAL_NETWORKS_DATA_".$socialNetworkName, $jsonData, 'chaine', 0, '', $conf->entity);
 		}
 	}
 	if ($result) {
@@ -169,7 +169,7 @@ if ($action == 'confirm_delete' && GETPOST('confirm') == 'yes') {
 		dol_print_error($db, "sql=".$sql);
 		exit;
 	} else {
-		$result = dolibarr_del_const($db, "SOCIAL_NETWORKS_DATA_".$name, $conf->entity);
+		$result = onli_del_const($db, "SOCIAL_NETWORKS_DATA_".$name, $conf->entity);
 		if ($result) {
 			$db->commit();
 			header("Location: ".$_SERVER["PHP_SELF"]);
@@ -189,7 +189,7 @@ if ($action == 'updatesocialnetwork') {
 	$paramsKey = GETPOST('paramsKey', 'array');
 	$paramsVal = GETPOST('paramsVal', 'array');
 
-	$result = dolibarr_get_const($db, "SOCIAL_NETWORKS_DATA_".$name, $conf->entity);
+	$result = onli_get_const($db, "SOCIAL_NETWORKS_DATA_".$name, $conf->entity);
 	$socialNetworkData = json_decode($result, true);
 
 	foreach ($paramsKey as $index => $key) {
@@ -220,7 +220,7 @@ if ($action == 'updatesocialnetwork') {
 	}
 	if (!$error) {
 		$newData = json_encode($socialNetworkData);
-		$result = dolibarr_set_const($db, "SOCIAL_NETWORKS_DATA_".$name, $newData, 'chaine', 0, '', $conf->entity);
+		$result = onli_set_const($db, "SOCIAL_NETWORKS_DATA_".$name, $newData, 'chaine', 0, '', $conf->entity);
 		if ($result) {
 			$db->commit();
 			header("Location: ".$_SERVER["PHP_SELF"]);
@@ -240,13 +240,13 @@ if ($action == 'editsocialnetwork' && GETPOST('confirm') == 'yes') {
 	$paramKey = GETPOST('paramkey', 'alpha');
 	$key = GETPOST('key', 'alpha');
 	$name = GETPOST('name');
-	$result = dolibarr_get_const($db, "SOCIAL_NETWORKS_DATA_".$name, $conf->entity);
+	$result = onli_get_const($db, "SOCIAL_NETWORKS_DATA_".$name, $conf->entity);
 	$socialNetworkData = json_decode($result, true);
 
 	unset($socialNetworkData[$paramKey]);
 	$newData = json_encode($socialNetworkData);
 
-	$result = dolibarr_set_const($db, "SOCIAL_NETWORKS_DATA_".$name, $newData, 'chaine', 0, '', $conf->entity);
+	$result = onli_set_const($db, "SOCIAL_NETWORKS_DATA_".$name, $newData, 'chaine', 0, '', $conf->entity);
 	if ($result) {
 		$db->commit();
 		header("Location: ".$_SERVER["PHP_SELF"].'?action=editsocialnetwork&token='.newToken().'&key='.urlencode($key));

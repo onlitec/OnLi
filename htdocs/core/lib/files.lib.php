@@ -1077,9 +1077,9 @@ function dol_move($srcfile, $destfile, $newmask = '0', $overwriteifexists = 1, $
 			}
 		}
 
-		global $dolibarr_main_restrict_os_commands;
-		if (!empty($dolibarr_main_restrict_os_commands)) {
-			$arrayofallowedcommand = explode(',', $dolibarr_main_restrict_os_commands);
+		global $onli_main_restrict_os_commands;
+		if (!empty($onli_main_restrict_os_commands)) {
+			$arrayofallowedcommand = explode(',', $onli_main_restrict_os_commands);
 			$arrayofallowedcommand = array_map('trim', $arrayofallowedcommand);
 			if (in_array(basename($destfile), $arrayofallowedcommand)) {
 				//$langs->load("errors"); // key must be loaded because we can't rely on loading during output, we need var substitution to be done now.
@@ -2021,9 +2021,9 @@ function dol_add_file_process($upload_dir, $allowoverwrite = 0, $updatesessionor
 				$destfull = dol_string_nohtmltag($destfull);
 
 				// Check that filename is not the one of a reserved allowed CLI command
-				global $dolibarr_main_restrict_os_commands;
-				if (!empty($dolibarr_main_restrict_os_commands)) {
-					$arrayofallowedcommand = explode(',', $dolibarr_main_restrict_os_commands);
+				global $onli_main_restrict_os_commands;
+				if (!empty($onli_main_restrict_os_commands)) {
+					$arrayofallowedcommand = explode(',', $onli_main_restrict_os_commands);
 					$arrayofallowedcommand = array_map('trim', $arrayofallowedcommand);
 					if (in_array($destfile, $arrayofallowedcommand)) {
 						$langs->load("errors"); // key must be loaded because we can't rely on loading during output, we need var substitution to be done now.
@@ -2891,7 +2891,7 @@ function dol_most_recent_file($dir, $regexfilter = '', $excludefilter = array('(
 function dol_check_secure_access_document($modulepart, $original_file, $entity, $fuser = null, $refname = '', $mode = 'read')
 {
 	global $conf, $db, $user, $hookmanager;
-	global $dolibarr_main_data_root, $dolibarr_main_document_root_alt;
+	global $onli_main_data_root, $onli_main_document_root_alt;
 	global $object;
 
 	if (!is_object($fuser)) {
@@ -2952,7 +2952,7 @@ function dol_check_secure_access_document($modulepart, $original_file, $entity, 
 		// Wrapping for some images
 		$accessallowed = 1;
 		$original_file = DOL_DOCUMENT_ROOT.'/public/theme/common/'.$original_file;
-	} elseif ($modulepart == 'medias' && !empty($dolibarr_main_data_root)) {
+	} elseif ($modulepart == 'medias' && !empty($onli_main_data_root)) {
 		/* the medias directory is by default a public directory accessible online for everybody, so test on permission per entity has no sense
 		if (isModEnabled('multicompany') && (empty($entity) || empty($conf->medias->multidir_output[$entity]))) {
 			return array('accessallowed' => 0, 'error' => 'Value entity must be provided');
@@ -2962,22 +2962,22 @@ function dol_check_secure_access_document($modulepart, $original_file, $entity, 
 		}
 		$accessallowed = 1;
 		$original_file = (empty($conf->medias->multidir_output[$entity]) ? (empty($conf->medias->dir_output) ? DOL_DATA_ROOT.'/medias' : $conf->medias->dir_output) : $conf->medias->multidir_output[$entity]).'/'.$original_file;
-	} elseif ($modulepart == 'logs' && !empty($dolibarr_main_data_root)) {
-		// Wrapping for *.log files, like when used with url http://.../document.php?modulepart=logs&file=dolibarr.log
-		$accessallowed = ($user->admin && basename($original_file) == $original_file && preg_match('/^dolibarr.*\.(log|json)$/', basename($original_file)));
-		$original_file = $dolibarr_main_data_root.'/'.$original_file;
-	} elseif ($modulepart == 'doctemplates' && !empty($dolibarr_main_data_root)) {
+	} elseif ($modulepart == 'logs' && !empty($onli_main_data_root)) {
+		// Wrapping for *.log files, like when used with url http://.../document.php?modulepart=logs&file=onli.log
+		$accessallowed = ($user->admin && basename($original_file) == $original_file && preg_match('/^onli.*\.(log|json)$/', basename($original_file)));
+		$original_file = $onli_main_data_root.'/'.$original_file;
+	} elseif ($modulepart == 'doctemplates' && !empty($onli_main_data_root)) {
 		// Wrapping for doctemplates
 		$accessallowed = $user->admin;
-		$original_file = $dolibarr_main_data_root.'/doctemplates/'.$original_file;
-	} elseif ($modulepart == 'doctemplateswebsite' && !empty($dolibarr_main_data_root)) {
+		$original_file = $onli_main_data_root.'/doctemplates/'.$original_file;
+	} elseif ($modulepart == 'doctemplateswebsite' && !empty($onli_main_data_root)) {
 		// Wrapping for doctemplates of websites
 		$accessallowed = ($fuser->hasRight('website', 'write') && preg_match('/\.jpg$/i', basename($original_file)));
-		$original_file = $dolibarr_main_data_root.'/doctemplates/websites/'.$original_file;
-	} elseif ($modulepart == 'packages' && !empty($dolibarr_main_data_root)) {	// To download zip of modules
+		$original_file = $onli_main_data_root.'/doctemplates/websites/'.$original_file;
+	} elseif ($modulepart == 'packages' && !empty($onli_main_data_root)) {	// To download zip of modules
 		// Wrapping for *.zip package files, like when used with url http://.../document.php?modulepart=packages&file=module_myfile.zip
 		// Dir for custom dirs
-		$tmp = explode(',', $dolibarr_main_document_root_alt);
+		$tmp = explode(',', $onli_main_document_root_alt);
 		$dirins = $tmp[0];
 
 		$accessallowed = ($user->admin && preg_match('/^module_.*\.zip$/', basename($original_file)));
@@ -3005,8 +3005,8 @@ function dol_check_secure_access_document($modulepart, $original_file, $entity, 
 				if (getDolUserInt('USER_ENABLE_PUBLIC', 0, $tmpobject)) {
 					$securekey = GETPOST('securekey', 'alpha', 1);
 					// Security check
-					global $dolibarr_main_cookie_cryptkey, $dolibarr_main_instance_unique_id;
-					$valuetouse = $dolibarr_main_instance_unique_id ? $dolibarr_main_instance_unique_id : $dolibarr_main_cookie_cryptkey; // Use $dolibarr_main_instance_unique_id first then $dolibarr_main_cookie_cryptkey
+					global $onli_main_cookie_cryptkey, $onli_main_instance_unique_id;
+					$valuetouse = $onli_main_instance_unique_id ? $onli_main_instance_unique_id : $onli_main_cookie_cryptkey; // Use $onli_main_instance_unique_id first then $onli_main_cookie_cryptkey
 					$encodedsecurekey = dol_hash($valuetouse.'uservirtualcard'.$tmpobject->id.'-'.$tmpobject->login, 'md5');
 					if ($encodedsecurekey == $securekey) {
 						$accessok = true;
@@ -3772,7 +3772,7 @@ function getFilesUpdated(&$file_list, SimpleXMLElement $dir, $path = '', $pathre
 		} else {
 			$md5_local = md5_file($pathref.'/'.$filename);
 
-			if ($conffile == '/etc/dolibarr/conf.php' && $filename == '/filefunc.inc.php') {	// For install with deb or rpm, we ignore test on filefunc.inc.php that was modified by package
+			if ($conffile == '/etc/onli/conf.php' && $filename == '/filefunc.inc.php') {	// For install with deb or rpm, we ignore test on filefunc.inc.php that was modified by package
 				$checksumconcat[] = $expectedmd5;
 			} else {
 				if ($md5_local != $expectedmd5) {

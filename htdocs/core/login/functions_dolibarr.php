@@ -20,23 +20,23 @@
  */
 
 /**
- *      \file       htdocs/core/login/functions_dolibarr.php
+ *      \file       htdocs/core/login/functions_onli.php
  *      \ingroup    core
- *      \brief      Authentication functions for Dolibarr mode (check user on login or email and check pass)
+ *      \brief      Authentication functions for OnLi mode (check user on login or email and check pass)
  */
 
 
 /**
  * Check validity of user/password/entity
  * If test is ko, reason must be filled into $_SESSION["dol_loginmesg"]
- * Note: On critical error (hack attempt), we put a log "functions_dolibarr::check_user_password_dolibarr authentication KO"
+ * Note: On critical error (hack attempt), we put a log "functions_onli::check_user_password_onli authentication KO"
  *
  * @param	string	$usertotest		Login
  * @param	string	$passwordtotest	Password
  * @param   int		$entitytotest   Number of instance (always 1 if module multicompany not enabled)
  * @return	string					Login if OK, '' if KO
  */
-function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotest = 1)
+function check_user_password_onli($usertotest, $passwordtotest, $entitytotest = 1)
 {
 	global $db, $conf, $langs;
 
@@ -50,7 +50,7 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 
 	if (!empty($usertotest)) {
 		require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
-		dol_syslog("functions_dolibarr::check_user_password_dolibarr usertotest=".$usertotest." passwordtotest=".preg_replace('/./', '*', $passwordtotest)." entitytotest=".$entitytotest);
+		dol_syslog("functions_onli::check_user_password_onli usertotest=".$usertotest." passwordtotest=".preg_replace('/./', '*', $passwordtotest)." entitytotest=".$entitytotest);
 
 		// Verification number of USER_LOGIN_FAILED
 		$dateverificationauth = dol_time_plus_duree(dol_now(), -1, 'd');
@@ -115,7 +115,7 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 					if ($cryptType == 'auto') {
 						if ($passcrypted && dol_verifyHash($passtyped, $passcrypted, '0')) {
 							$passok = true;
-							dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication ok - hash ".$cryptType." of pass is ok");
+							dol_syslog("functions_onli::check_user_password_onli Authentication ok - hash ".$cryptType." of pass is ok");
 						}
 					}
 
@@ -124,7 +124,7 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 						if ((!$passcrypted || $passtyped)
 							&& ($passclear && ($passtyped == $passclear))) {
 							$passok = true;
-							dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication ok - found old pass in database", LOG_WARNING);
+							dol_syslog("functions_onli::check_user_password_onli Authentication ok - found old pass in database", LOG_WARNING);
 						}
 					}
 
@@ -132,7 +132,7 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 					if ($passok) {
 						$login = $obj->login;
 					} else {
-						dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication KO bad password for '".$usertotest."', cryptType=".$cryptType, LOG_NOTICE);
+						dol_syslog("functions_onli::check_user_password_onli Authentication KO bad password for '".$usertotest."', cryptType=".$cryptType, LOG_NOTICE);
 						sleep(1); // Anti brut force protection. Must be same delay when login is not valid
 
 						// Load translation files required by the page
@@ -150,7 +150,7 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 						} else {
 							$ret = $mc->checkRight($obj->rowid, (string) $entitytotest);
 							if ($ret < 0) {
-								dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication KO entity '".$entitytotest."' not allowed for user '".$obj->rowid."'", LOG_NOTICE);
+								dol_syslog("functions_onli::check_user_password_onli Authentication KO entity '".$entitytotest."' not allowed for user '".$obj->rowid."'", LOG_NOTICE);
 
 								$login = ''; // force authentication failure
 								if ($mc->db->lasterror()) {
@@ -160,7 +160,7 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 						}
 					}
 				} else {
-					dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication KO user not found for '".$usertotest."'", LOG_NOTICE);
+					dol_syslog("functions_onli::check_user_password_onli Authentication KO user not found for '".$usertotest."'", LOG_NOTICE);
 					sleep(1);	// Anti brut force protection. Must be same delay when password is not valid
 
 					// Load translation files required by the page
@@ -169,12 +169,12 @@ function check_user_password_dolibarr($usertotest, $passwordtotest, $entitytotes
 					$_SESSION["dol_loginmesg"] = $langs->transnoentitiesnoconv("ErrorBadLoginPassword");
 				}
 			} else {
-				dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication KO db error for '".$usertotest."' error=".$db->lasterror(), LOG_ERR);
+				dol_syslog("functions_onli::check_user_password_onli Authentication KO db error for '".$usertotest."' error=".$db->lasterror(), LOG_ERR);
 				sleep(1);
 				$_SESSION["dol_loginmesg"] = $db->lasterror();
 			}
 		} else {
-			dol_syslog("functions_dolibarr::check_user_password_dolibarr Authentication KO Too many attempts", LOG_NOTICE);
+			dol_syslog("functions_onli::check_user_password_onli Authentication KO Too many attempts", LOG_NOTICE);
 			sleep(1);	// Anti brut force protection. Must be same delay when password is not valid
 			// Load translation files required by the page
 			$langs->loadLangs(array('main', 'errors'));

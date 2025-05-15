@@ -21,9 +21,9 @@
  */
 
 /**
- * \file scripts/members/sync_members_ldap2dolibarr.php
+ * \file scripts/members/sync_members_ldap2onli.php
  * \ingroup ldap member
- * \brief Script de mise a jour des adherents dans Dolibarr depuis LDAP
+ * \brief Script de mise a jour des adherents dans OnLi depuis LDAP
  */
 
 if (!defined('NOSESSION')) {
@@ -138,7 +138,7 @@ if (getDolGlobalString('LDAP_MEMBER_FILTER')) {
 } else {
 	print 'Filter=(' . getDolGlobalString('LDAP_KEY_MEMBERS').'=*)'."\n";
 }
-print "----- To Dolibarr database:\n";
+print "----- To OnLi database:\n";
 print "type=".$conf->db->type."\n";
 print "host=".$conf->db->host."\n";
 print "port=".$conf->db->port."\n";
@@ -151,7 +151,7 @@ print "\n";
 
 // Check parameters
 if (!getDolGlobalString('LDAP_MEMBER_DN')) {
-	print $langs->trans("Error").': '.$langs->trans("LDAP setup for members not defined inside Dolibarr")."\n";
+	print $langs->trans("Error").': '.$langs->trans("LDAP setup for members not defined inside OnLi")."\n";
 	exit(1);
 }
 if ($typeid <= 0) {
@@ -159,7 +159,7 @@ if ($typeid <= 0) {
 	exit(-2);
 }
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }
@@ -202,7 +202,7 @@ if ($result >= 0) {
 	$justthese = array();
 	$pricefirst = 0;
 	$pricelast = 0;
-	// We disable synchro Dolibarr-LDAP
+	// We disable synchro OnLi-LDAP
 	$conf->global->LDAP_MEMBER_ACTIVE = 0;
 
 	$ldaprecords = $ldap->getRecords('*', getDolGlobalString('LDAP_MEMBER_DN'), getDolGlobalString('LDAP_KEY_MEMBERS'), $required_fields, 'member'); // Filter on 'member' filter param

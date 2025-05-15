@@ -1,5 +1,5 @@
 <?php
-/* Copyright (C) 2022	SuperAdmin		<test@dolibarr.com>
+/* Copyright (C) 2022	SuperAdmin		<test@onli.com>
  * Copyright (C) 2023	William Mead	<william.mead@manchenumerique.fr>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,13 +31,13 @@
  * - The class name must be InterfaceMytrigger
  */
 
-require_once DOL_DOCUMENT_ROOT.'/core/triggers/dolibarrtriggers.class.php';
+require_once DOL_DOCUMENT_ROOT.'/core/triggers/onlitriggers.class.php';
 require_once DOL_DOCUMENT_ROOT.'/webhook/class/target.class.php';
 
 /**
  *  Class of triggers for Webhook module
  */
-class InterfaceWebhookTriggers extends DolibarrTriggers
+class InterfaceWebhookTriggers extends OnLiTriggers
 {
 	/**
 	 * Constructor
@@ -56,7 +56,7 @@ class InterfaceWebhookTriggers extends DolibarrTriggers
 	}
 
 	/**
-	 * Function called when a Dolibarr business event is done.
+	 * Function called when a OnLi business event is done.
 	 * All functions "runTrigger" are triggered if file of function is inside directory core/triggers.
 	 *
 	 * @param string 		$action 	Event action code

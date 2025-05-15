@@ -46,7 +46,7 @@
  * @var ?string $uploaddir
  * @var string[] $toselect
  * @var array<string,mixed> $parameters
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 // Protection
 if (empty($objectclass) || empty($uploaddir)) {
@@ -211,7 +211,7 @@ if (!$error && $massaction == 'confirm_presend_attendees') {
 			$html_link = null;
 
 			if (getDolGlobalString('MAIN_AGENDA_XCAL_EXPORTKEY')) {
-				$urlwithouturlroot = preg_replace('/' . preg_quote(DOL_URL_ROOT, '/') . '$/i', '', trim($dolibarr_main_url_root));
+				$urlwithouturlroot = preg_replace('/' . preg_quote(DOL_URL_ROOT, '/') . '$/i', '', trim($onli_main_url_root));
 				$urlwithroot = $urlwithouturlroot . DOL_URL_ROOT;
 				$url_link = $urlwithroot . '/public/agenda/agendaexport.php?format=ical' . ($conf->entity > 1 ? "&entity=" . $conf->entity : "");
 				$url_link .= '&exportkey=' . urlencode(getDolGlobalString('MAIN_AGENDA_XCAL_EXPORTKEY', '...'));

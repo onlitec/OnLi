@@ -29,7 +29,7 @@
  *		\brief      Page to setup invoice module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 // Libraries

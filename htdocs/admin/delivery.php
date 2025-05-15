@@ -72,18 +72,18 @@ include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 // Shipment note
 if (isModEnabled('shipping') && !getDolGlobalString('MAIN_SUBMODULE_EXPEDITION')) {
 	// This option should always be set to on when module is on.
-	dolibarr_set_const($db, "MAIN_SUBMODULE_EXPEDITION", "1", 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_SUBMODULE_EXPEDITION", "1", 'chaine', 0, '', $conf->entity);
 }
 /*
  if ($action == 'activate_sending')
  {
- dolibarr_set_const($db, "MAIN_SUBMODULE_EXPEDITION", "1",'chaine',0,'',$conf->entity);
+ onli_set_const($db, "MAIN_SUBMODULE_EXPEDITION", "1",'chaine',0,'',$conf->entity);
  header("Location: confexped.php");
  exit;
  }
  if ($action == 'disable_sending')
  {
- dolibarr_del_const($db, "MAIN_SUBMODULE_EXPEDITION",$conf->entity);
+ onli_del_const($db, "MAIN_SUBMODULE_EXPEDITION",$conf->entity);
  header("Location: confexped.php");
  exit;
  }
@@ -91,12 +91,12 @@ if (isModEnabled('shipping') && !getDolGlobalString('MAIN_SUBMODULE_EXPEDITION')
 
 // Delivery note
 if ($action == 'activate_delivery') {
-	dolibarr_set_const($db, "MAIN_SUBMODULE_EXPEDITION", "1", 'chaine', 0, '', $conf->entity); // We must also enable this
-	dolibarr_set_const($db, "MAIN_SUBMODULE_DELIVERY", "1", 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_SUBMODULE_EXPEDITION", "1", 'chaine', 0, '', $conf->entity); // We must also enable this
+	onli_set_const($db, "MAIN_SUBMODULE_DELIVERY", "1", 'chaine', 0, '', $conf->entity);
 	header("Location: delivery.php");
 	exit;
 } elseif ($action == 'disable_delivery') {
-	dolibarr_del_const($db, "MAIN_SUBMODULE_DELIVERY", $conf->entity);
+	onli_del_const($db, "MAIN_SUBMODULE_DELIVERY", $conf->entity);
 	header("Location: delivery.php");
 	exit;
 }
@@ -108,7 +108,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstdelivery && preg_match('/_MASK$/', $maskconstdelivery)) {
-		$res = dolibarr_set_const($db, $maskconstdelivery, $maskdelivery, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstdelivery, $maskdelivery, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -124,7 +124,7 @@ if ($action == 'updateMask') {
 
 if ($action == 'set_DELIVERY_FREE_TEXT') {
 	$free = GETPOST('DELIVERY_FREE_TEXT', 'restricthtml'); // No alpha here, we want exact string
-	$res = dolibarr_set_const($db, "DELIVERY_FREE_TEXT", $free, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "DELIVERY_FREE_TEXT", $free, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -182,13 +182,13 @@ if ($action == 'del') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (getDolGlobalString('DELIVERY_ADDON_PDF') == $value) {
-			dolibarr_del_const($db, 'DELIVERY_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'DELIVERY_ADDON_PDF', $conf->entity);
 		}
 	}
 }
 
 if ($action == 'setdoc') {
-	if (dolibarr_set_const($db, "DELIVERY_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "DELIVERY_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// La constante qui a ete lue en avant du nouveau set
 		// on passe donc par une variable pour avoir un affichage coherent
 		$conf->global->DELIVERY_ADDON_PDF = $value;
@@ -205,7 +205,7 @@ if ($action == 'setmod') {
 	// TODO Verify if the chosen numbering module can be activated
 	// by calling method canBeActivated
 
-	dolibarr_set_const($db, "DELIVERY_ADDON_NUMBER", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "DELIVERY_ADDON_NUMBER", $value, 'chaine', 0, '', $conf->entity);
 }
 
 
@@ -509,7 +509,7 @@ if (getDolGlobalString('MAIN_SUBMODULE_DELIVERY')) {
 		print '<textarea name="'.$variablename.'" class="flat" cols="120">'.getDolGlobalString($variablename).'</textarea>';
 	} else {
 		include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-		$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'dolibarr_notes');
+		$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'onli_notes');
 		print $doleditor->Create();
 	}
 	print '</td><td class="right">';

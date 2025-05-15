@@ -33,7 +33,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
  * @access protected
  * @class Documents {@requires user,external}
  */
-class Documents extends DolibarrApi
+class Documents extends OnLiApi
 {
 	/**
 	 * Constructor
@@ -88,7 +88,7 @@ class Documents extends DolibarrApi
 		$relativefile = $tmpreldir.dol_sanitizeFileName($object->ref); */
 		$relativefile = $original_file;
 
-		$check_access = dol_check_secure_access_document($modulepart, $relativefile, $entity, DolibarrApiAccess::$user, '', 'read');
+		$check_access = dol_check_secure_access_document($modulepart, $relativefile, $entity, OnLiApiAccess::$user, '', 'read');
 		$accessallowed = $check_access['accessallowed'];
 		$sqlprotectagainstexternals = $check_access['sqlprotectagainstexternals'];
 		$original_file = $check_access['original_file'];
@@ -167,7 +167,7 @@ class Documents extends DolibarrApi
 		$relativefile = $tmpreldir.dol_sanitizeFileName($object->ref); */
 		$relativefile = $original_file;
 
-		$check_access = dol_check_secure_access_document($modulepart, $relativefile, $entity, DolibarrApiAccess::$user, '', 'write');
+		$check_access = dol_check_secure_access_document($modulepart, $relativefile, $entity, OnLiApiAccess::$user, '', 'write');
 		$accessallowed              = $check_access['accessallowed'];
 		$sqlprotectagainstexternals = $check_access['sqlprotectagainstexternals'];
 		$original_file              = $check_access['original_file'];
@@ -341,7 +341,7 @@ class Documents extends DolibarrApi
 		if ($modulepart == 'societe' || $modulepart == 'thirdparty') {
 			require_once DOL_DOCUMENT_ROOT.'/societe/class/societe.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('societe', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('societe', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -356,7 +356,7 @@ class Documents extends DolibarrApi
 			require_once DOL_DOCUMENT_ROOT.'/user/class/user.class.php';
 
 			// Can get doc if has permission to read all user or if it is user itself
-			if (!DolibarrApiAccess::$user->hasRight('user', 'user', 'lire') && DolibarrApiAccess::$user->id != $id) {
+			if (!OnLiApiAccess::$user->hasRight('user', 'user', 'lire') && OnLiApiAccess::$user->id != $id) {
 				throw new RestException(403);
 			}
 
@@ -370,7 +370,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'adherent' || $modulepart == 'member') {
 			require_once DOL_DOCUMENT_ROOT.'/adherents/class/adherent.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -384,7 +384,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'propal' || $modulepart == 'proposal') {
 			require_once DOL_DOCUMENT_ROOT.'/comm/propal/class/propal.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('propal', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('propal', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -398,7 +398,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'supplier_proposal') {
 			require_once DOL_DOCUMENT_ROOT.'/supplier_proposal/class/supplier_proposal.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('supplier_proposal', 'read')) {
+			if (!OnLiApiAccess::$user->hasRight('supplier_proposal', 'read')) {
 				throw new RestException(403);
 			}
 
@@ -412,7 +412,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'commande' || $modulepart == 'order') {
 			require_once DOL_DOCUMENT_ROOT.'/commande/class/commande.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('commande', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('commande', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -428,7 +428,7 @@ class Documents extends DolibarrApi
 
 			require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.commande.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('fournisseur', 'commande', 'lire') && !DolibarrApiAccess::$user->hasRight('supplier_order', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('fournisseur', 'commande', 'lire') && !OnLiApiAccess::$user->hasRight('supplier_order', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -442,7 +442,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'shipment' || $modulepart == 'expedition') {
 			require_once DOL_DOCUMENT_ROOT.'/expedition/class/expedition.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('expedition', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('expedition', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -456,7 +456,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'facture' || $modulepart == 'invoice') {
 			require_once DOL_DOCUMENT_ROOT.'/compta/facture/class/facture.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('facture', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('facture', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -472,7 +472,7 @@ class Documents extends DolibarrApi
 
 			require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.facture.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('fournisseur', 'facture', 'lire') && !DolibarrApiAccess::$user->hasRight('supplier_invoice', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('fournisseur', 'facture', 'lire') && !OnLiApiAccess::$user->hasRight('supplier_invoice', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -486,7 +486,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'produit' || $modulepart == 'product') {
 			require_once DOL_DOCUMENT_ROOT.'/product/class/product.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('produit', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('produit', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -502,7 +502,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'agenda' || $modulepart == 'action' || $modulepart == 'event') {
 			require_once DOL_DOCUMENT_ROOT.'/comm/action/class/actioncomm.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('agenda', 'myactions', 'read') && !DolibarrApiAccess::$user->hasRight('agenda', 'allactions', 'read')) {
+			if (!OnLiApiAccess::$user->hasRight('agenda', 'myactions', 'read') && !OnLiApiAccess::$user->hasRight('agenda', 'allactions', 'read')) {
 				throw new RestException(403);
 			}
 
@@ -516,7 +516,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'expensereport') {
 			require_once DOL_DOCUMENT_ROOT.'/expensereport/class/expensereport.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('expensereport', 'read') && !DolibarrApiAccess::$user->hasRight('expensereport', 'read')) {
+			if (!OnLiApiAccess::$user->hasRight('expensereport', 'read') && !OnLiApiAccess::$user->hasRight('expensereport', 'read')) {
 				throw new RestException(403);
 			}
 
@@ -530,7 +530,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'knowledgemanagement') {
 			require_once DOL_DOCUMENT_ROOT.'/knowledgemanagement/class/knowledgerecord.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read') && !DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read')) {
+			if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read') && !OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read')) {
 				throw new RestException(403);
 			}
 
@@ -544,7 +544,7 @@ class Documents extends DolibarrApi
 		} elseif ($modulepart == 'categorie' || $modulepart == 'category') {
 			require_once DOL_DOCUMENT_ROOT.'/categories/class/categorie.class.php';
 
-			if (!DolibarrApiAccess::$user->hasRight('categorie', 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight('categorie', 'lire')) {
 				throw new RestException(403);
 			}
 
@@ -559,7 +559,7 @@ class Documents extends DolibarrApi
 			throw new RestException(500, 'Modulepart Ecm not implemented yet.');
 			// require_once DOL_DOCUMENT_ROOT.'/ecm/class/ecmdirectory.class.php';
 
-			// if (!DolibarrApiAccess::$user->hasRight('ecm', 'read')) {
+			// if (!OnLiApiAccess::$user->hasRight('ecm', 'read')) {
 			// 	throw new RestException(403);
 			// }
 
@@ -711,7 +711,7 @@ class Documents extends DolibarrApi
 
 		// Define $uploadir
 		$object = null;
-		$entity = DolibarrApiAccess::$user->entity;
+		$entity = OnLiApiAccess::$user->entity;
 		if (empty($entity)) {
 			$entity = 1;
 		}
@@ -828,10 +828,10 @@ class Documents extends DolibarrApi
 			// Test on permissions
 			if ($modulepart != 'ecm') {
 				$relativefile = $tmpreldir.dol_sanitizeFileName($object->ref);
-				$tmp = dol_check_secure_access_document($modulepart, $relativefile, $entity, DolibarrApiAccess::$user, $ref, 'write');
+				$tmp = dol_check_secure_access_document($modulepart, $relativefile, $entity, OnLiApiAccess::$user, $ref, 'write');
 				$upload_dir = $tmp['original_file']; // No dirname here, tmp['original_file'] is already the dir because dol_check_secure_access_document was called with param original_file that is only the dir
 			} else {
-				if (!DolibarrApiAccess::$user->hasRight('ecm', 'upload')) {
+				if (!OnLiApiAccess::$user->hasRight('ecm', 'upload')) {
 					throw new RestException(403, 'Missing permission to upload files in ECM module');
 				}
 				$upload_dir = $conf->medias->multidir_output[$conf->entity];
@@ -851,10 +851,10 @@ class Documents extends DolibarrApi
 			// Test on permissions
 			if ($modulepart != 'ecm') {
 				$relativefile = $subdir;
-				$tmp = dol_check_secure_access_document($modulepart, $relativefile, $entity, DolibarrApiAccess::$user, '', 'write');
+				$tmp = dol_check_secure_access_document($modulepart, $relativefile, $entity, OnLiApiAccess::$user, '', 'write');
 				$upload_dir = $tmp['original_file']; // No dirname here, tmp['original_file'] is already the dir because dol_check_secure_access_document was called with param original_file that is only the dir
 			} else {
-				if (!DolibarrApiAccess::$user->hasRight('ecm', 'upload')) {
+				if (!OnLiApiAccess::$user->hasRight('ecm', 'upload')) {
 					throw new RestException(403, 'Missing permission to upload files in ECM module');
 				}
 				$upload_dir = $conf->medias->multidir_output[$conf->entity];
@@ -1021,7 +1021,7 @@ class Documents extends DolibarrApi
 		$relativefile = $tmpreldir.dol_sanitizeFileName($object->ref); */
 		$relativefile = $original_file;
 
-		$check_access = dol_check_secure_access_document($modulepart, $relativefile, $entity, DolibarrApiAccess::$user, '', 'read');
+		$check_access = dol_check_secure_access_document($modulepart, $relativefile, $entity, OnLiApiAccess::$user, '', 'read');
 		$accessallowed = $check_access['accessallowed'];
 		$sqlprotectagainstexternals = $check_access['sqlprotectagainstexternals'];
 		$original_file = $check_access['original_file'];

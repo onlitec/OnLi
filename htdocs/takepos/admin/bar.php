@@ -25,7 +25,7 @@
  *	\brief      Setup page for TakePos module - Bar Restaurant features
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php'; // Load $user and permissions
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
@@ -66,7 +66,7 @@ if (GETPOST('action', 'alpha') == 'set') {
 		$suplement_category = 0;
 	}
 
-	$res = dolibarr_set_const($db, "TAKEPOS_SUPPLEMENTS_CATEGORY", $suplement_category, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "TAKEPOS_SUPPLEMENTS_CATEGORY", $suplement_category, 'chaine', 0, '', $conf->entity);
 	if ($res <= 0) {
 		$error++;
 	}
@@ -223,7 +223,7 @@ if (getDolGlobalInt('TAKEPOS_BAR_RESTAURANT')) {
 
 if (getDolGlobalInt('TAKEPOS_BAR_RESTAURANT')) {
 	if (getDolGlobalInt('TAKEPOS_QR_MENU')) {
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		print '<br>';
 		print '<div class="div-table-responsive-no-min">';
@@ -249,8 +249,8 @@ if (getDolGlobalInt('TAKEPOS_BAR_RESTAURANT')) {
 		print '<td>'.$langs->trans("Table").'</td><td>'.$langs->trans("URL").' - '.$langs->trans("AutoOrder").'</td><td class="right">'.$langs->trans("QR").'</td>';
 		print "</tr>\n";
 
-		//global $dolibarr_main_url_root;
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		//global $onli_main_url_root;
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		$sql = "SELECT rowid, entity, label, leftpos, toppos, floor FROM ".MAIN_DB_PREFIX."takepos_floor_tables WHERE entity IN (".getEntity('takepos').")";
 		$resql = $db->query($sql);

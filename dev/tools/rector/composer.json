@@ -1,5 +1,5 @@
 {
-  "name": "dolibarr/rector",
+  "name": "onli/rector",
   "type": "project",
   "license": "GplV3",
   "authors": [
@@ -13,7 +13,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Dolibarr\\Rector\\": "./src"
+      "OnLi\\Rector\\": "./src"
     }
   }
 }

@@ -26,7 +26,7 @@ require_once DOL_DOCUMENT_ROOT.'/user/class/user.class.php';
 /**
  * Class for API REST v1
  */
-class DolibarrApi
+class OnLiApi
 {
 	/**
 	 * @var DoliDB        Database object
@@ -47,7 +47,7 @@ class DolibarrApi
 	 */
 	public function __construct($db, $cachedir = '', $refreshCache = false)
 	{
-		global $conf, $dolibarr_main_url_root;
+		global $conf, $onli_main_url_root;
 
 		if (empty($cachedir)) {
 			$cachedir = $conf->api->dir_temp;
@@ -58,11 +58,11 @@ class DolibarrApi
 		$production_mode = getDolGlobalBool('API_PRODUCTION_MODE');
 		$this->r = new Restler($production_mode, $refreshCache);
 
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 
 		$urlwithouturlrootautodetect = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim(DOL_MAIN_URL_ROOT));
-		$urlwithrootautodetect = $urlwithouturlroot.DOL_URL_ROOT; // This is to use local domain autodetected by dolibarr from url
+		$urlwithrootautodetect = $urlwithouturlroot.DOL_URL_ROOT; // This is to use local domain autodetected by onli from url
 
 		$this->r->setBaseUrls($urlwithouturlroot, $urlwithouturlrootautodetect);
 		$this->r->setAPIVersion(1);
@@ -389,7 +389,7 @@ class DolibarrApi
 			$feature2 = explode("|", $feature2);
 		}
 
-		return checkUserAccessToObject(DolibarrApiAccess::$user, $featuresarray, $resource_id, $dbtablename, $feature2, $dbt_keyfield, $dbt_select);
+		return checkUserAccessToObject(OnLiApiAccess::$user, $featuresarray, $resource_id, $dbtablename, $feature2, $dbt_keyfield, $dbt_select);
 	}
 
 	// phpcs:disable PEAR.NamingConventions.ValidFunctionName.PublicUnderscore

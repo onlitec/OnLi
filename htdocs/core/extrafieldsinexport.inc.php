@@ -17,14 +17,14 @@
  */
 /**
  * @var Conf $conf
- * @var DolibarrModules $this
+ * @var OnLiModules $this
  * @var string $keyforselect
  * @var string $keyforelement
  * @var string $keyforaliasextra
  * @var int $r
  */
 '
-@phan-var-force DolibarrModules $this
+@phan-var-force OnLiModules $this
 @phan-var-force int $r
 ';
 

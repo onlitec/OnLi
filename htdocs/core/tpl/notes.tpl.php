@@ -119,12 +119,12 @@ if ($module == 'propal') {
 //else dol_print_error(null,'Bad value '.$module.' for param module');
 
 if (isModEnabled('fckeditor') && getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC')) {
-	$typeofdatapub = 'ckeditor:dolibarr_notes:100%:200::1:12:95%:0'; // Rem: This var is for all notes, not only thirdparties note.
+	$typeofdatapub = 'ckeditor:onli_notes:100%:200::1:12:95%:0'; // Rem: This var is for all notes, not only thirdparties note.
 } else {
 	$typeofdatapub = 'textarea:12:95%';
 }
 if (isModEnabled('fckeditor') && getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE')) {
-	$typeofdatapriv = 'ckeditor:dolibarr_notes:100%:200::1:12:95%:0'; // Rem: This var is for all notes, not only thirdparties note.
+	$typeofdatapriv = 'ckeditor:onli_notes:100%:200::1:12:95%:0'; // Rem: This var is for all notes, not only thirdparties note.
 } else {
 	$typeofdatapriv = 'textarea:12:95%';
 }

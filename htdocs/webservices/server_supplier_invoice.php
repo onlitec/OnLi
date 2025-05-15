@@ -19,7 +19,7 @@
 
 /**
  *       \file       htdocs/webservices/server_supplier_invoice.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -55,14 +55,14 @@ require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.facture.class.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -72,8 +72,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrSupplierInvoice', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiSupplierInvoice', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -85,7 +85,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -242,7 +242,7 @@ $server->register(
 /**
  * Get invoice from id, ref or ref_ext
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Id
  * @param	string		$ref				Ref
  * @param	string		$ref_ext			Ref_ext
@@ -349,7 +349,7 @@ function getSupplierInvoice($authentication, $id = 0, $ref = '', $ref_ext = '')
 /**
  * Get list of invoices for third party
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$idthirdparty		Id thirdparty
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */

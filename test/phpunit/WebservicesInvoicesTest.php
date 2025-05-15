@@ -56,7 +56,7 @@ class WebservicesInvoicesTest extends CommonClassTest
 
 	private static $socid;
 
-	protected $ns = 'http://www.dolibarr.org/ns/';
+	protected $ns = 'http://www.onli.org/ns/';
 
 	protected $pass = 'admin';
 
@@ -205,7 +205,7 @@ class WebservicesInvoicesTest extends CommonClassTest
 
 		// Call the WebService method and store its result in $result.
 		$authentication = array(
-		'dolibarrkey' => getDolGlobalString('WEBSERVICES_KEY'),
+		'onlikey' => getDolGlobalString('WEBSERVICES_KEY'),
 		'sourceapplication' => 'DEMO',
 		'login' => 'admin',
 		'password' => $this->pass,
@@ -263,7 +263,7 @@ class WebservicesInvoicesTest extends CommonClassTest
 
 		// Call the WebService method and store its result in $result.
 		$authentication = array(
-		'dolibarrkey' => getDolGlobalString('WEBSERVICES_KEY'),
+		'onlikey' => getDolGlobalString('WEBSERVICES_KEY'),
 		'sourceapplication' => 'DEMO',
 		'login' => 'admin',
 		'password' => $this->pass,
@@ -360,7 +360,7 @@ class WebservicesInvoicesTest extends CommonClassTest
 
 		// Call the WebService method and store its result in $result.
 		$authentication = array(
-		'dolibarrkey' => getDolGlobalString('WEBSERVICES_KEY'),
+		'onlikey' => getDolGlobalString('WEBSERVICES_KEY'),
 		'sourceapplication' => 'DEMO',
 		'login' => 'admin',
 		'password' => $this->pass,

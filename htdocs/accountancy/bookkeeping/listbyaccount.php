@@ -26,7 +26,7 @@
  * \brief 		List operation of ledger ordered by account number
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 require_once DOL_DOCUMENT_ROOT.'/core/lib/accounting.lib.php';

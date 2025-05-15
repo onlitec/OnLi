@@ -268,16 +268,16 @@ function getHtmlOnlinePaymentLink($type, $ref, $label = '', $amount = 0)
  */
 function getOnlinePaymentUrl($mode, $type, $ref = '', $amount = 0, $freetag = 'your_tag', $localorexternal = 1)
 {
-	global $conf, $dolibarr_main_url_root;
+	global $conf, $onli_main_url_root;
 
 	$out = '';
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
-	$urltouse = DOL_MAIN_URL_ROOT;						// Should be "https://www.mydomain.com/mydolibarr" for example
+	$urltouse = DOL_MAIN_URL_ROOT;						// Should be "https://www.mydomain.com/myonli" for example
 	//dol_syslog("getOnlinePaymentUrl DOL_MAIN_URL_ROOT=".DOL_MAIN_URL_ROOT);
 
 	if ((string) $localorexternal == '1') {

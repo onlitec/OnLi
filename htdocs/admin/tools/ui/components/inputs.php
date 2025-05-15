@@ -17,7 +17,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/agpl-3.0.html>.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../../../main.inc.php';
 
 /**
@@ -275,7 +275,7 @@ $documentation->showSidebar(); ?>
 			<p class="documentation-text"><?php echo $langs->trans('DocEditorInputsDescription'); ?></p>
 			<div class="documentation-example">
 				<?php
-				$doleditor = new DolEditor('desc', GETPOST('desc', 'restricthtml'), '', 160, 'dolibarr_details', '', false, true, getDolGlobalString('FCKEDITOR_ENABLE_DETAILS'), ROWS_4, '90%');
+				$doleditor = new DolEditor('desc', GETPOST('desc', 'restricthtml'), '', 160, 'onli_details', '', false, true, getDolGlobalString('FCKEDITOR_ENABLE_DETAILS'), ROWS_4, '90%');
 				$doleditor->Create();
 				?>
 			</div>
@@ -289,7 +289,7 @@ $documentation->showSidebar(); ?>
 				' *  @param 	string				$content		        		Content of WYSIWYG field',
 				' *  @param	int|string			$width							Width in pixel of edit area (auto by default)',
 				' *  @param 	int					$height			       		 	Height in pixel of edit area (200px by default)',
-				' *  @param 	string				$toolbarname	       		 	Name of bar set to use (\'Full\', \'dolibarr_notes[_encoded]\', \'dolibarr_details[_encoded]\'=the less featured, \'dolibarr_mailings[_encoded]\', \'dolibarr_readonly\')',
+				' *  @param 	string				$toolbarname	       		 	Name of bar set to use (\'Full\', \'onli_notes[_encoded]\', \'onli_details[_encoded]\'=the less featured, \'onli_mailings[_encoded]\', \'onli_readonly\')',
 				' *  @param  string				$toolbarlocation       			Deprecated. Not used',
 				' *  @param  bool				$toolbarstartexpanded  			Bar is visible or not at start',
 				' *  @param	bool|int			$uselocalbrowser				Enabled to add links to local object with local browser. If false, only external images can be added in content.',
@@ -302,7 +302,7 @@ $documentation->showSidebar(); ?>
 				' *                      	                       				array(\'find\'=> \'word\')  can be used to go to line were the word has been found',
 				' */',
 				'',
-				'$doleditor = new DolEditor(\'desc\', GETPOST(\'desc\', \'restricthtml\'), \'\', 160, \'dolibarr_details\', \'\', false, true, getDolGlobalString(\'FCKEDITOR_ENABLE_DETAILS\'), ROWS_4, \'90%\');',
+				'$doleditor = new DolEditor(\'desc\', GETPOST(\'desc\', \'restricthtml\'), \'\', 160, \'onli_details\', \'\', false, true, getDolGlobalString(\'FCKEDITOR_ENABLE_DETAILS\'), ROWS_4, \'90%\');',
 				'print $form->multiselectarray(\'categories\', $values, GETPOST(\'categories\', \'array\'), 0, 0, \'minwidth200\', 0, 0);'
 			);
 			echo $documentation->showCode($lines, 'php'); ?>

@@ -264,10 +264,10 @@ function societe_prepare_head(Societe $object)
 	if ((isModEnabled('website') || isModEnabled('webportal')) && $user->hasRight('societe', 'lire')) {
 		$site_filter_list = array();
 		if (isModEnabled('website')) {
-			$site_filter_list[] = 'dolibarr_website';
+			$site_filter_list[] = 'onli_website';
 		}
 		if (isModEnabled('webportal')) {
-			$site_filter_list[] = 'dolibarr_portal';
+			$site_filter_list[] = 'onli_portal';
 		}
 
 		$head[$h][0] = DOL_URL_ROOT.'/societe/website.php?id='.urlencode((string) ($object->id));
@@ -1300,7 +1300,7 @@ function show_contacts($conf, $langs, $db, $object, $backtopage = '', $showuserl
 		'sc.role' => array('label' => "ContactByDefaultFor", 'checked' => '1', 'position' => 40),
 		't.birthday' => array('label' => "Birthday", 'checked' => '0', 'position' => 45),
 		't.statut' => array('label' => "Status", 'checked' => '1', 'position' => 50, 'class' => 'center'),
-		'u.user' => array('label' => "DolibarrLogin", 'checked' => '1', 'position' => 50, 'class' => 'center'),
+		'u.user' => array('label' => "OnLiLogin", 'checked' => '1', 'position' => 50, 'class' => 'center'),
 	);
 	// Extra fields
 	$extrafieldsobjectkey = $contactstatic->table_element;
@@ -1557,7 +1557,7 @@ function show_contacts($conf, $langs, $db, $object, $backtopage = '', $showuserl
 		}
 	}
 	if ($showuserlogin) {
-		print '<th class="wrapcolumntitle liste_titre">'.$langs->trans("DolibarrLogin").'</th>';
+		print '<th class="wrapcolumntitle liste_titre">'.$langs->trans("OnLiLogin").'</th>';
 	}
 	// Extra fields
 	$extrafieldsobjectkey = $contactstatic->table_element;
@@ -2750,7 +2750,7 @@ function addMailingEventTypeSQL($actioncode, $objcon, $filterobj)
  */
 function htmlPrintOnlineHeader($mysoc, $langs, $showlogo = 1, $alttext = '', $subimageconst = '', $altlogo1 = '', $altlogo2 = '')
 {
-	global $conf, $dolibarr_main_url_root;
+	global $conf, $onli_main_url_root;
 
 	// Set logo of company by default
 	$logosmall = $mysoc->logo_small;
@@ -2768,13 +2768,13 @@ function htmlPrintOnlineHeader($mysoc, $langs, $showlogo = 1, $alttext = '', $su
 	if ($showlogo) {
 		if (!empty($mysoc->logo_small) && is_readable($conf->mycompany->dir_output.'/logos/thumbs/'.$logosmall)) {
 			//$urllogo = DOL_URL_ROOT.'/viewimage.php?cache=1&amp;modulepart=mycompany&amp;file='.urlencode('logos/thumbs/'.$logosmall);
-			$urllogopublic = $dolibarr_main_url_root.'/viewimage.php?modulepart=mycompany&entity='.$conf->entity.'&file='.urlencode('logos/thumbs/'.$logosmall);
+			$urllogopublic = $onli_main_url_root.'/viewimage.php?modulepart=mycompany&entity='.$conf->entity.'&file='.urlencode('logos/thumbs/'.$logosmall);
 		} elseif (!empty($mysoc->logo) && is_readable($conf->mycompany->dir_output.'/logos/'.$logo)) {
 			//$urllogo = DOL_URL_ROOT.'/viewimage.php?cache=1&amp;modulepart=mycompany&amp;file='.urlencode('logos/'.$logo);
-			$urllogopublic = $dolibarr_main_url_root.'/viewimage.php?modulepart=mycompany&entity='.$conf->entity.'&file='.urlencode('logos/'.$logo);
-		} elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/dolibarr_logo.svg')) {
-			//$urllogo = DOL_URL_ROOT.'/theme/dolibarr_logo.svg';
-			$urllogopublic = $dolibarr_main_url_root.'/theme/dolibarr_logo.svg';
+			$urllogopublic = $onli_main_url_root.'/viewimage.php?modulepart=mycompany&entity='.$conf->entity.'&file='.urlencode('logos/'.$logo);
+		} elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/onli_logo.svg')) {
+			//$urllogo = DOL_URL_ROOT.'/theme/onli_logo.svg';
+			$urllogopublic = $onli_main_url_root.'/theme/onli_logo.svg';
 		}
 	}
 
@@ -2798,7 +2798,7 @@ function htmlPrintOnlineHeader($mysoc, $langs, $showlogo = 1, $alttext = '', $su
 		}
 		print '</div>';
 		if (!getDolGlobalString('MAIN_HIDE_POWERED_BY')) {
-			print '<div class="poweredbypublicpayment opacitymedium right hideonsmartphone"><a class="poweredbyhref" href="https://www.dolibarr.org?utm_medium=website&utm_source=poweredby" target="dolibarr" rel="noopener">'.$langs->trans("PoweredBy").'<br><img class="poweredbyimg" src="'.DOL_URL_ROOT.'/theme/dolibarr_logo.svg" width="80px"></a></div>';
+			print '<div class="poweredbypublicpayment opacitymedium right hideonsmartphone"><a class="poweredbyhref" href="https://www.onli.org?utm_medium=website&utm_source=poweredby" target="onli" rel="noopener">'.$langs->trans("PoweredBy").'<br><img class="poweredbyimg" src="'.DOL_URL_ROOT.'/theme/onli_logo.svg" width="80px"></a></div>';
 		}
 		print '</div>';
 	}

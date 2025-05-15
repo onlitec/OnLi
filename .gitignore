@@ -17,10 +17,10 @@ default.properties
 *.iml
 *.orig
 Thumbs.db
-/dolibarr_genesis.mp4
+/onli_genesis.mp4
 .phpunit.result.cache
 # Log files
-dolibarr_install.log
+onli_install.log
 upgrade.log
 doxygen_warnings.log
 # Vagrant generated files
@@ -76,6 +76,7 @@ doc/install.lock
 
 # Logs
 /*.log
+!/build/*.log
 
 # Vim swap files
 *.sw?

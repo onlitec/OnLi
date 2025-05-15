@@ -142,17 +142,17 @@ class FilesLibTest extends CommonClassTest
 		$langs = $this->savlangs;
 		$db = $this->savdb;
 
-		$url = 'http://www.dolibarr.org';
+		$url = 'http://www.onli.org';
 		$result = dol_is_url($url);
 		print __METHOD__." result=".$result."\n";
 		$this->assertTrue($result);
 
-		$url = 'https://www.dolibarr.org';
+		$url = 'https://www.onli.org';
 		$result = dol_is_url($url);
 		print __METHOD__." result=".$result."\n";
 		$this->assertTrue($result);
 
-		$url = 'file://www.dolibarr.org/download/file.zip';
+		$url = 'file://www.onli.org/download/file.zip';
 		$result = dol_is_url($url);
 		print __METHOD__." result=".$result."\n";
 		$this->assertTrue($result);

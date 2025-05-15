@@ -70,10 +70,10 @@ class pdf_muscadet extends ModelePDFSuppliersOrders
 	public $type;
 
 	/**
-	 * Dolibarr version of the loaded document
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental'
+	 * OnLi version of the loaded document
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental'
 	 */
-	public $version = 'dolibarr';
+	public $version = 'onli';
 
 
 	/**
@@ -307,7 +307,7 @@ class pdf_muscadet extends ModelePDFSuppliersOrders
 
 				$pdf->SetTitle($outputlangs->convToOutputCharset($object->ref));
 				$pdf->SetSubject($outputlangs->transnoentities("PurchaseOrder"));
-				$pdf->SetCreator("Dolibarr ".DOL_VERSION);
+				$pdf->SetCreator("OnLi ".DOL_VERSION);
 				$pdf->SetAuthor($outputlangs->convToOutputCharset($user->getFullName($outputlangs)));
 
 				$pdf->SetKeyWords($outputlangs->convToOutputCharset($object->ref)." ".$outputlangs->transnoentities("PurchaseOrder")." ".$outputlangs->convToOutputCharset($object->thirdparty->name));

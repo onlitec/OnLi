@@ -32,13 +32,13 @@ class mod_syslog_file extends LogHandler
 	}
 
 	/**
-	 * Version of the module ('x.y.z' or 'dolibarr' or 'experimental' or 'development')
+	 * Version of the module ('x.y.z' or 'onli' or 'experimental' or 'development')
 	 *
 	 * @return string
 	 */
 	public function getVersion()
 	{
-		return 'dolibarr';
+		return 'onli';
 	}
 
 	/**
@@ -76,7 +76,7 @@ class mod_syslog_file extends LogHandler
 			array(
 				'name' => $langs->trans('SyslogFilename'),
 				'constant' => 'SYSLOG_FILE',
-				'default' => 'DOL_DATA_ROOT/dolibarr.log',
+				'default' => 'DOL_DATA_ROOT/onli.log',
 				'css' => 'minwidth300 maxwidth500'
 			)
 		);
@@ -113,7 +113,7 @@ class mod_syslog_file extends LogHandler
 		global $conf;
 
 		if (!getDolGlobalString('SYSLOG_FILE')) {
-			$tmp = DOL_DATA_ROOT.'/dolibarr.log';
+			$tmp = DOL_DATA_ROOT.'/onli.log';
 		} else {
 			$tmp = str_replace('DOL_DATA_ROOT', DOL_DATA_ROOT, $conf->global->SYSLOG_FILE);
 		}
@@ -203,10 +203,10 @@ class mod_syslog_file extends LogHandler
 			dolChmod($logfile);
 		}
 		if ($result === false && (!defined('SYSLOG_FILE_NO_ERROR') || !constant('SYSLOG_FILE_NO_ERROR'))) {
-			global $dolibarr_main_prod;
-			// Do not break dolibarr usage if log fails
+			global $onli_main_prod;
+			// Do not break onli usage if log fails
 			//throw new Exception('Failed to open log file '.basename($logfile));
-			print 'Failed to write to log file '.($dolibarr_main_prod ? basename($logfile) : $logfile);
+			print 'Failed to write to log file '.($onli_main_prod ? basename($logfile) : $logfile);
 		}
 	}
 }

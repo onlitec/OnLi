@@ -124,11 +124,11 @@ class CurlClient extends AbstractClient
 
         // @CHANGE DOL_LDR Add log
         if (function_exists('getDolGlobalString') && getDolGlobalString('OAUTH_DEBUG')) {
-        	file_put_contents(DOL_DATA_ROOT . "/dolibarr_oauth.log", $endpoint->getAbsoluteUri()."\n", FILE_APPEND);
-        	file_put_contents(DOL_DATA_ROOT . "/dolibarr_oauth.log", $requestBody."\n", FILE_APPEND);
-        	file_put_contents(DOL_DATA_ROOT . "/dolibarr_oauth.log", $method."\n", FILE_APPEND);
-        	file_put_contents(DOL_DATA_ROOT . "/dolibarr_oauth.log", var_export($extraHeaders, true)."\n", FILE_APPEND);
-        	@chmod(DOL_DATA_ROOT . "/dolibarr_oauth.log", octdec(empty($conf->global->MAIN_UMASK)?'0664':$conf->global->MAIN_UMASK));
+        	file_put_contents(DOL_DATA_ROOT . "/onli_oauth.log", $endpoint->getAbsoluteUri()."\n", FILE_APPEND);
+        	file_put_contents(DOL_DATA_ROOT . "/onli_oauth.log", $requestBody."\n", FILE_APPEND);
+        	file_put_contents(DOL_DATA_ROOT . "/onli_oauth.log", $method."\n", FILE_APPEND);
+        	file_put_contents(DOL_DATA_ROOT . "/onli_oauth.log", var_export($extraHeaders, true)."\n", FILE_APPEND);
+        	@chmod(DOL_DATA_ROOT . "/onli_oauth.log", octdec(empty($conf->global->MAIN_UMASK)?'0664':$conf->global->MAIN_UMASK));
         }
 
         $response     = curl_exec($ch);

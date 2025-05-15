@@ -4,7 +4,7 @@
 
 namespace {
 	/**
-	 *		Use an OVH account to send SMS with Dolibarr
+	 *		Use an OVH account to send SMS with OnLi
 	 */
 	class OvhSms extends \CommonObject
 	{

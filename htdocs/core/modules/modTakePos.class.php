@@ -25,14 +25,14 @@
  *  \ingroup    takepos
  *  \brief      Description and activation file for the module TakePos
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 include_once DOL_DOCUMENT_ROOT.'/categories/class/categorie.class.php';
 
 
 /**
  *  Class to describe and enable module TakePos
  */
-class modTakePos extends DolibarrModules
+class modTakePos extends OnLiModules
 {
 	/**
 	 * Constructor. Define names, constants, directories, boxes, permissions
@@ -46,7 +46,7 @@ class modTakePos extends DolibarrModules
 		$this->db = $db;
 
 		// Id for module (must be unique).
-		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
+		// Use here a free id (See in Home -> System information -> OnLi for list of used modules id).
 		$this->numero = 50150;
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'takepos';
@@ -66,8 +66,8 @@ class modTakePos extends DolibarrModules
 		// Used only if file README.md and README-LL.md not found.
 		$this->descriptionlong = "Point Of Sales (compliant with touch screen)";
 
-		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'
+		$this->version = 'onli';
 		// Key used in llx_const table to save module status enabled/disabled (where TAKEPOS is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
@@ -106,7 +106,7 @@ class modTakePos extends DolibarrModules
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with
 		$this->langfiles = array("cashdesk");
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(4, 0); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(4, 0); // Minimum version of OnLi required by module
 		$this->warnings_activation = array('FR'=>'WarningNoteModulePOSForFrenchLaw'); // Warning to show when we activate module. array('always'='text') or array('FR'='text')
 		$this->warnings_activation_ext = array(); // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		//$this->automatic_activation = array('FR'=>'TakePosWasAutomaticallyActivatedBecauseOfYourCountryChoice');
@@ -260,7 +260,7 @@ class modTakePos extends DolibarrModules
 
 	/**
 	 *	Function called when module is enabled.
-	 *	The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *	The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *	It also creates data directories
 	 *
 	 *	@param      string	$options    Options when enabling module ('', 'noboxes')
@@ -272,7 +272,7 @@ class modTakePos extends DolibarrModules
 
 		$langs->load("cashdesk");
 
-		dolibarr_set_const($this->db, "TAKEPOS_PRINT_METHOD", "browser", 'chaine', 0, '', $conf->entity);
+		onli_set_const($this->db, "TAKEPOS_PRINT_METHOD", "browser", 'chaine', 0, '', $conf->entity);
 
 		// Default customer for Point of sale
 		if (!getDolGlobalInt('CASHDESK_ID_THIRDPARTY1')) {	// If a customer has already ben set into the TakePos setup page
@@ -292,7 +292,7 @@ class modTakePos extends DolibarrModules
 			}
 			if ($searchcompanyid > 0) {
 				// We already have or we have create a thirdparty with id = $searchcompanyid, so we link use it into setup
-				dolibarr_set_const($this->db, "CASHDESK_ID_THIRDPARTY1", $searchcompanyid, 'chaine', 0, '', $conf->entity);
+				onli_set_const($this->db, "CASHDESK_ID_THIRDPARTY1", $searchcompanyid, 'chaine', 0, '', $conf->entity);
 			} else {
 				setEventMessages($societe->error, $societe->errors, 'errors');
 			}
@@ -311,7 +311,7 @@ class modTakePos extends DolibarrModules
 				$result = $category->create($user);
 
 				if ($result > 0) {
-					dolibarr_set_const($this->db, 'TAKEPOS_ROOT_CATEGORY_ID', $result, 'chaine', 0, 'Id of category for products visible in TakePOS', $conf->entity);
+					onli_set_const($this->db, 'TAKEPOS_ROOT_CATEGORY_ID', $result, 'chaine', 0, 'Id of category for products visible in TakePOS', $conf->entity);
 
 					/* TODO Create a generic product only if there is no product yet. If 0 product,  we create 1. If there is already product, it is better to show a message to ask to add product in the category */
 					/*
@@ -345,7 +345,7 @@ class modTakePos extends DolibarrModules
 				$searchaccountid = $cashaccount->create($user);
 			}
 			if ($searchaccountid > 0) {
-				dolibarr_set_const($this->db, "CASHDESK_ID_BANKACCOUNT_CASH1", $searchaccountid, 'chaine', 0, '', $conf->entity);
+				onli_set_const($this->db, "CASHDESK_ID_BANKACCOUNT_CASH1", $searchaccountid, 'chaine', 0, '', $conf->entity);
 			} else {
 				setEventMessages($cashaccount->error, $cashaccount->errors, 'errors');
 			}
@@ -366,7 +366,7 @@ class modTakePos extends DolibarrModules
 
 	/**
 	 *	Function called when module is disabled.
-	 *	Remove from database constants, boxes and permissions from Dolibarr database.
+	 *	Remove from database constants, boxes and permissions from OnLi database.
 	 *	Data directories are not deleted
 	 *
 	 *	@param      string	$options    Options when enabling module ('', 'noboxes')

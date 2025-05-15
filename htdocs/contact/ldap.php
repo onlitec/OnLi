@@ -24,7 +24,7 @@
  *       \brief      Page fiche LDAP contact
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/contact/class/contact.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/contact.lib.php';
@@ -62,7 +62,7 @@ if ($id > 0) {
  * Actions
  */
 
-if ($action == 'dolibarr2ldap') {
+if ($action == 'onli2ldap') {
 	$db->begin();
 
 	$ldap = new Ldap();
@@ -149,7 +149,7 @@ print dol_get_fiche_end();
 print '<div class="tabsAction">';
 
 if (getDolGlobalString('LDAP_CONTACT_ACTIVE') && getDolGlobalInt('LDAP_CONTACT_ACTIVE') != Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {
-	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=dolibarr2ldap">'.$langs->trans("ForceSynchronize").'</a>';
+	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=onli2ldap">'.$langs->trans("ForceSynchronize").'</a>';
 }
 
 print "</div>\n";

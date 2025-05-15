@@ -23,13 +23,13 @@
  *      \ingroup    loan
  *      \brief      Description and activation file for the module loan
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to manage loan module
  */
-class modLoan extends DolibarrModules
+class modLoan extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -49,8 +49,8 @@ class modLoan extends DolibarrModules
 		// Module description used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Loans management";
 
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
+		$this->version = 'onli';
 
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'money-bill-alt';
@@ -149,7 +149,7 @@ class modLoan extends DolibarrModules
 
 	/**
 	 *  Function called when module is enabled.
-	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *  It also creates data directories
 	 *
 	 *  @param      string	$options    Options when enabling module ('', 'noboxes')

@@ -86,7 +86,7 @@ if ($format == "html") {
 }
 
 
-// Note: The option AI_DEBUG will generate a log file dolibarr_ai.log when calling generateContent()
+// Note: The option AI_DEBUG will generate a log file onli_ai.log when calling generateContent()
 dol_syslog("generate_content: function=".$function." format=".$format." instruction=".dol_substr($instructions, 0, 200));
 
 

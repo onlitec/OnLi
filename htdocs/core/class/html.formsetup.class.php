@@ -188,7 +188,7 @@ class FormSetup
 			} elseif ($editMode) {
 				$out .= '<div class="form-setup-button-container center">'; // Todo : remove .center by adding style to form-setup-button-container css class in all themes
 				$out .= $this->htmlOutputMoreButton;
-				$out .= '<input class="button button-save reposition" type="submit" value="' . $this->langs->trans("Save") . '">'; // Todo fix dolibarr style for <button and use <button instead of input
+				$out .= '<input class="button button-save reposition" type="submit" value="' . $this->langs->trans("Save") . '">'; // Todo fix onli style for <button and use <button instead of input
 				/*$out .= ' &nbsp;&nbsp; ';
 				$out .= '<a class="button button-cancel" type="submit" href="' . $this->formAttributes['action'] . '">'.$this->langs->trans('Cancel').'</a>';
 				*/
@@ -754,7 +754,7 @@ class FormSetupItem
 
 		// Modify constant only if key was posted (avoid resetting key to the null value)
 		if ($this->type != 'title') {
-			$result = dolibarr_set_const($this->db, $this->confKey, $this->fieldValue, 'chaine', 0, '', $this->entity);
+			$result = onli_set_const($this->db, $this->confKey, $this->fieldValue, 'chaine', 0, '', $this->entity);
 			if ($result < 0) {
 				return -1;
 			} else {
@@ -939,7 +939,7 @@ class FormSetupItem
 				$out .= img_picto('', 'bank', 'class="pictofixedwidth"').$this->form->select_comptes($selected, $this->confKey, 0, '', 0, '', 0, '', 1);
 			}
 		} elseif ($this->type == 'password') {
-			$out .= $this->generateInputFieldPassword('dolibarr');
+			$out .= $this->generateInputFieldPassword('onli');
 		} elseif ($this->type == 'genericpassword') {
 			$out .= $this->generateInputFieldPassword('generic');
 		} else {
@@ -983,7 +983,7 @@ class FormSetupItem
 	public function generateInputFieldHtml()
 	{
 		require_once DOL_DOCUMENT_ROOT . '/core/class/doleditor.class.php';
-		$doleditor = new DolEditor($this->confKey, $this->fieldValue, '', 160, 'dolibarr_notes', '', false, false, isModEnabled('fckeditor'), ROWS_5, '90%');
+		$doleditor = new DolEditor($this->confKey, $this->fieldValue, '', 160, 'onli_notes', '', false, false, isModEnabled('fckeditor'), ROWS_5, '90%');
 		return $doleditor->Create(1);
 	}
 
@@ -1068,7 +1068,7 @@ class FormSetupItem
 	/**
 	 * generate input field for a password
 	 *
-	 * @param   string  $type  'dolibarr' (dolibarr password rules apply) or 'generic'
+	 * @param   string  $type  'onli' (onli password rules apply) or 'generic'
 	 *
 	 * @return  string
 	 */
@@ -1078,7 +1078,7 @@ class FormSetupItem
 
 		$min = 6;
 		$max = 50;
-		if ($type == 'dolibarr') {
+		if ($type == 'onli') {
 			$gen = getDolGlobalString('USER_PASSWORD_GENERATED', 'standard');
 			if ($gen == 'none') {
 				$gen = 'standard';
@@ -1261,9 +1261,9 @@ class FormSetupItem
 			$ways = $c->print_all_ways(' &gt;&gt; ', 'none', 0, 1); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 			$toprint = array();
 			foreach ($ways as $way) {
-				$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #bbb"') . '>' . $way . '</li>';
+				$toprint[] = '<li class="select2-search-choice-onli noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #bbb"') . '>' . $way . '</li>';
 			}
-			$out .= '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">' . implode(' ', $toprint) . '</ul></div>';
+			$out .= '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">' . implode(' ', $toprint) . '</ul></div>';
 		} elseif (preg_match('/thirdparty_type/', $this->type)) {
 			if ($this->fieldValue == 2) {
 				$out .= $this->langs->trans("Prospect");
@@ -1618,7 +1618,7 @@ class FormSetupItem
 	}
 
 	/**
-	 * Set type of input as a password with dolibarr password rules apply.
+	 * Set type of input as a password with onli password rules apply.
 	 * Hide entry on display.
 	 *
 	 * @return self
@@ -1630,7 +1630,7 @@ class FormSetupItem
 	}
 
 	/**
-	 * Set type of input as a generic password without dolibarr password rules (for external passwords for example).
+	 * Set type of input as a generic password without onli password rules (for external passwords for example).
 	 * Hide entry on display.
 	 *
 	 * @return self

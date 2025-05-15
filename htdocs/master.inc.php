@@ -29,7 +29,7 @@
 /**
  *	\file       htdocs/master.inc.php
  * 	\ingroup	core
- *  \brief      File that defines environment for all Dolibarr process (pages or scripts)
+ *  \brief      File that defines environment for all OnLi process (pages or scripts)
  * 				This script reads the conf file, init $lang, $db and and empty $user
  */
 
@@ -41,16 +41,16 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/hookmanager.class.php';
 /**
  * @var Translate $langs
  *
- * @var string $dolibarr_main_url_root
- * @var string $dolibarr_main_url_root_alt
+ * @var string $onli_main_url_root
+ * @var string $onli_main_url_root_alt
  */
 
 '
-@phan-var-force ?string $dolibarr_main_db_prefix
-@phan-var-force ?string $dolibarr_main_db_encryption
-@phan-var-force ?string $dolibarr_main_db_cryptkey
-@phan-var-force ?string $dolibarr_main_limit_users
-@phan-var-force ?string $dolibarr_main_url_root_alt
+@phan-var-force ?string $onli_main_db_prefix
+@phan-var-force ?string $onli_main_db_encryption
+@phan-var-force ?string $onli_main_db_cryptkey
+@phan-var-force ?string $onli_main_limit_users
+@phan-var-force ?string $onli_main_url_root_alt
 ';
 
 if (!function_exists('is_countable')) {
@@ -73,49 +73,49 @@ if (!function_exists('is_countable')) {
 $conf = new Conf();
 
 // Set properties specific to database
-$conf->db->host = empty($dolibarr_main_db_host) ? '' : $dolibarr_main_db_host;
-$conf->db->port = empty($dolibarr_main_db_port) ? '' : $dolibarr_main_db_port;
-$conf->db->name = empty($dolibarr_main_db_name) ? '' : $dolibarr_main_db_name;
-$conf->db->user = empty($dolibarr_main_db_user) ? '' : $dolibarr_main_db_user;
-$conf->db->pass = empty($dolibarr_main_db_pass) ? '' : $dolibarr_main_db_pass;
-$conf->db->type = $dolibarr_main_db_type;
-$conf->db->prefix = $dolibarr_main_db_prefix;
-$conf->db->character_set = $dolibarr_main_db_character_set;
-$conf->db->dolibarr_main_db_collation = $dolibarr_main_db_collation;
-$conf->db->dolibarr_main_db_encryption = $dolibarr_main_db_encryption;
-$conf->db->dolibarr_main_db_cryptkey = $dolibarr_main_db_cryptkey;
+$conf->db->host = empty($onli_main_db_host) ? '' : $onli_main_db_host;
+$conf->db->port = empty($onli_main_db_port) ? '' : $onli_main_db_port;
+$conf->db->name = empty($onli_main_db_name) ? '' : $onli_main_db_name;
+$conf->db->user = empty($onli_main_db_user) ? '' : $onli_main_db_user;
+$conf->db->pass = empty($onli_main_db_pass) ? '' : $onli_main_db_pass;
+$conf->db->type = $onli_main_db_type;
+$conf->db->prefix = $onli_main_db_prefix;
+$conf->db->character_set = $onli_main_db_character_set;
+$conf->db->onli_main_db_collation = $onli_main_db_collation;
+$conf->db->onli_main_db_encryption = $onli_main_db_encryption;
+$conf->db->onli_main_db_cryptkey = $onli_main_db_cryptkey;
 if (defined('TEST_DB_FORCE_TYPE')) {
 	$conf->db->type = constant('TEST_DB_FORCE_TYPE'); // Force db type (for test purpose, by PHP unit for example)
 }
 
 // Set properties specific to conf file
-$conf->file->main_limit_users = $dolibarr_main_limit_users;
-$conf->file->mailing_limit_sendbyweb = empty($dolibarr_mailing_limit_sendbyweb) ? 0 : $dolibarr_mailing_limit_sendbyweb;
-$conf->file->mailing_limit_sendbycli = empty($dolibarr_mailing_limit_sendbycli) ? 0 : $dolibarr_mailing_limit_sendbycli;
-$conf->file->mailing_limit_sendbyday = empty($dolibarr_mailing_limit_sendbyday) ? 0 : $dolibarr_mailing_limit_sendbyday;
-$conf->file->main_authentication = empty($dolibarr_main_authentication) ? 'dolibarr' : $dolibarr_main_authentication; // Identification mode
-$conf->file->main_force_https = empty($dolibarr_main_force_https) ? '' : $dolibarr_main_force_https; // Force https
-$conf->file->strict_mode = empty($dolibarr_strict_mode) ? '' : $dolibarr_strict_mode; // Force php strict mode (for debug)
-$conf->file->instance_unique_id = empty($dolibarr_main_instance_unique_id) ? (empty($dolibarr_main_cookie_cryptkey) ? '' : $dolibarr_main_cookie_cryptkey) : $dolibarr_main_instance_unique_id; // Unique id of instance
-$conf->file->dol_main_url_root = $dolibarr_main_url_root;	// Define url inside the config file
+$conf->file->main_limit_users = $onli_main_limit_users;
+$conf->file->mailing_limit_sendbyweb = empty($onli_mailing_limit_sendbyweb) ? 0 : $onli_mailing_limit_sendbyweb;
+$conf->file->mailing_limit_sendbycli = empty($onli_mailing_limit_sendbycli) ? 0 : $onli_mailing_limit_sendbycli;
+$conf->file->mailing_limit_sendbyday = empty($onli_mailing_limit_sendbyday) ? 0 : $onli_mailing_limit_sendbyday;
+$conf->file->main_authentication = empty($onli_main_authentication) ? 'onli' : $onli_main_authentication; // Identification mode
+$conf->file->main_force_https = empty($onli_main_force_https) ? '' : $onli_main_force_https; // Force https
+$conf->file->strict_mode = empty($onli_strict_mode) ? '' : $onli_strict_mode; // Force php strict mode (for debug)
+$conf->file->instance_unique_id = empty($onli_main_instance_unique_id) ? (empty($onli_main_cookie_cryptkey) ? '' : $onli_main_cookie_cryptkey) : $onli_main_instance_unique_id; // Unique id of instance
+$conf->file->dol_main_url_root = $onli_main_url_root;	// Define url inside the config file
 $conf->file->dol_document_root = array('main' => (string) DOL_DOCUMENT_ROOT); // Define an array of document root directories ('/home/htdocs')
-$conf->file->dol_url_root = array('main' => (string) DOL_URL_ROOT); // Define an array of url root path ('' or '/dolibarr')
-if (!empty($dolibarr_main_document_root_alt)) {
-	// dolibarr_main_document_root_alt can contains several directories
-	$values = preg_split('/[;,]/', $dolibarr_main_document_root_alt);
+$conf->file->dol_url_root = array('main' => (string) DOL_URL_ROOT); // Define an array of url root path ('' or '/onli')
+if (!empty($onli_main_document_root_alt)) {
+	// onli_main_document_root_alt can contains several directories
+	$values = preg_split('/[;,]/', $onli_main_document_root_alt);
 	$i = 0;
 	foreach ($values as $value) {
 		$conf->file->dol_document_root['alt'.($i++)] = (string) $value;
 	}
-	$values = preg_split('/[;,]/', (string) $dolibarr_main_url_root_alt);
+	$values = preg_split('/[;,]/', (string) $onli_main_url_root_alt);
 	$i = 0;
 	foreach ($values as $value) {
 		if (preg_match('/^http(s)?:/', $value)) {
 			// Show error message
-			$correct_value = str_replace($dolibarr_main_url_root, '', $value);
+			$correct_value = str_replace($onli_main_url_root, '', $value);
 			print '<b>Error:</b><br>'."\n";
-			print 'Wrong <b>$dolibarr_main_url_root_alt</b> value in <b>conf.php</b> file.<br>'."\n";
-			print 'We now use a relative path to $dolibarr_main_url_root to build alternate URLs.<br>'."\n";
+			print 'Wrong <b>$onli_main_url_root_alt</b> value in <b>conf.php</b> file.<br>'."\n";
+			print 'We now use a relative path to $onli_main_url_root to build alternate URLs.<br>'."\n";
 			print 'Value found: '.$value.'<br>'."\n";
 			print 'Should be replaced by: '.$correct_value.'<br>'."\n";
 			print "Or something like following examples:<br>\n";
@@ -179,7 +179,7 @@ if (!defined('NOREQUIREDB')) {
 }
 
 // Now database connection is known, so we can forget password
-//unset($dolibarr_main_db_pass); 	// We comment this because this constant is used in some other pages
+//unset($onli_main_db_pass); 	// We comment this because this constant is used in some other pages
 unset($conf->db->pass); // This is to avoid password to be shown in memory/swap dump
 
 
@@ -233,7 +233,7 @@ if (!defined('NOREQUIRETRAN')) {
 	$langs->setDefaultLang($langcode);
 }
 
-// Create object $mysoc (A thirdparty object that contains properties of companies managed by Dolibarr.
+// Create object $mysoc (A thirdparty object that contains properties of companies managed by OnLi.
 if (!defined('NOREQUIREDB') && !defined('NOREQUIRESOC') && $db != null) {
 	require_once DOL_DOCUMENT_ROOT.'/societe/class/societe.class.php';
 

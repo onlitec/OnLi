@@ -21,9 +21,9 @@
  */
 
 /**
- * \file scripts/members/sync_members_dolibarr2ldap.php
+ * \file scripts/members/sync_members_onli2ldap.php
  * \ingroup ldap member
- * \brief Script de mise a jour des adherents dans LDAP depuis base Dolibarr
+ * \brief Script de mise a jour des adherents dans LDAP depuis base OnLi
  */
 
 if (!defined('NOSESSION')) {
@@ -81,7 +81,7 @@ foreach ($argv as $key => $val) {
 	}
 }
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }
@@ -91,7 +91,7 @@ $now = $argv[1];
 print "Mails sending disabled (useless in batch mode)\n";
 $conf->global->MAIN_DISABLE_ALL_MAILS = 1; // On bloque les mails
 print "\n";
-print "----- Synchronize all records from Dolibarr database:\n";
+print "----- Synchronize all records from OnLi database:\n";
 print "type=".$conf->db->type."\n";
 print "host=".$conf->db->host."\n";
 print "port=".$conf->db->port."\n";
@@ -118,7 +118,7 @@ if (!$confirmed) {
 
 /*
  * if (getDolGlobalString('LDAP_MEMBER_ACTIVE') {
- * print $langs->trans("LDAPSynchronizationNotSetupInDolibarr");
+ * print $langs->trans("LDAPSynchronizationNotSetupInOnLi");
  * exit(1);
  * }
  */

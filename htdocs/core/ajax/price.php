@@ -35,7 +35,7 @@ if (!defined('NOREQUIRESOC')) {
 	define('NOREQUIRESOC', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

@@ -65,7 +65,7 @@ $left = ($langs->trans("DIRECTION") == 'rtl' ? 'right' : 'left');
 
 $title = $langs->trans("Info");
 
-// URL http://mydolibarr/core/get_info.php?dol_use_jmobile=1 can be used for tests
+// URL http://myonli/core/get_info.php?dol_use_jmobile=1 can be used for tests
 $head = '<!-- Info user page -->'."\n";
 $arrayofjs = array();
 $arrayofcss = array();

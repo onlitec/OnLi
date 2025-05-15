@@ -25,7 +25,7 @@
  *      \brief      List of security events
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/events.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
@@ -357,13 +357,13 @@ if ($result) {
 	// Check some parameters
 	// TODO Add a tab with this and other information
 	/*
-	global $dolibarr_main_prod, $dolibarr_nocsrfcheck;
-	if (empty($dolibarr_main_prod)) {
-		print $langs->trans("Warning").' dolibarr_main_prod = '.$dolibarr_main_prod;
+	global $onli_main_prod, $onli_nocsrfcheck;
+	if (empty($onli_main_prod)) {
+		print $langs->trans("Warning").' onli_main_prod = '.$onli_main_prod;
 		print ' '.img_warning($langs->trans('SwitchThisForABetterSecurity', 1)).'<br>';
 	}
-	if (!empty($dolibarr_nocsrfcheck)) {
-		print $langs->trans("Warning").' dolibarr_nocsrfcheck = '.$dolibarr_nocsrfcheck;
+	if (!empty($onli_nocsrfcheck)) {
+		print $langs->trans("Warning").' onli_nocsrfcheck = '.$onli_nocsrfcheck;
 		print ' '.img_warning($langs->trans('SwitchThisForABetterSecurity', 0)).'<br>';
 	}
 	*/

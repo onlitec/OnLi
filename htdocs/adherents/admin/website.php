@@ -27,7 +27,7 @@
  *		\brief      File of main public page for member module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
@@ -42,7 +42,7 @@ require_once DOL_DOCUMENT_ROOT.'/adherents/class/adherent_type.class.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Load translation files required by the page
@@ -67,9 +67,9 @@ $error = 0;
 
 if ($action == 'setMEMBER_ENABLE_PUBLIC') {
 	if (GETPOST('value')) {
-		dolibarr_set_const($db, 'MEMBER_ENABLE_PUBLIC', 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MEMBER_ENABLE_PUBLIC', 1, 'chaine', 0, '', $conf->entity);
 	} else {
-		dolibarr_set_const($db, 'MEMBER_ENABLE_PUBLIC', 0, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MEMBER_ENABLE_PUBLIC', 0, 'chaine', 0, '', $conf->entity);
 	}
 }
 
@@ -88,22 +88,22 @@ if ($action == 'update') {
 	$forcetype = GETPOSTINT('MEMBER_NEWFORM_FORCETYPE');
 	$forcemorphy = GETPOST('MEMBER_NEWFORM_FORCEMORPHY', 'aZ09');
 
-	$res = dolibarr_set_const($db, "MEMBER_ENABLE_PUBLIC", $public, 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "MEMBER_NEWFORM_AMOUNT", $amount, 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "MEMBER_MIN_AMOUNT", $minamount, 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "MEMBER_COUNTERS_ARE_PUBLIC", $publiccounters, 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "MEMBER_SKIP_TABLE", $showtable ? 0 : 1, 'chaine', 0, '', $conf->entity); // Logic is reversed for retrocompatibility: "skip -> show"
-	$res = dolibarr_set_const($db, "MEMBER_HIDE_VOTE_ALLOWED", $showvoteallowed ? 0 : 1, 'chaine', 0, '', $conf->entity); // Logic is reversed for retrocompatibility: "hide -> show"
-	$res = dolibarr_set_const($db, "MEMBER_NEWFORM_PAYONLINE", $payonline, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MEMBER_ENABLE_PUBLIC", $public, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MEMBER_NEWFORM_AMOUNT", $amount, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MEMBER_MIN_AMOUNT", $minamount, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MEMBER_COUNTERS_ARE_PUBLIC", $publiccounters, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MEMBER_SKIP_TABLE", $showtable ? 0 : 1, 'chaine', 0, '', $conf->entity); // Logic is reversed for retrocompatibility: "skip -> show"
+	$res = onli_set_const($db, "MEMBER_HIDE_VOTE_ALLOWED", $showvoteallowed ? 0 : 1, 'chaine', 0, '', $conf->entity); // Logic is reversed for retrocompatibility: "hide -> show"
+	$res = onli_set_const($db, "MEMBER_NEWFORM_PAYONLINE", $payonline, 'chaine', 0, '', $conf->entity);
 	if ($forcetype < 0) {
-		$res = dolibarr_del_const($db, "MEMBER_NEWFORM_FORCETYPE", $conf->entity);
+		$res = onli_del_const($db, "MEMBER_NEWFORM_FORCETYPE", $conf->entity);
 	} else {
-		$res = dolibarr_set_const($db, "MEMBER_NEWFORM_FORCETYPE", $forcetype, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "MEMBER_NEWFORM_FORCETYPE", $forcetype, 'chaine', 0, '', $conf->entity);
 	}
 	if ($forcemorphy == '-1') {
-		$res = dolibarr_del_const($db, "MEMBER_NEWFORM_FORCEMORPHY", $conf->entity);
+		$res = onli_del_const($db, "MEMBER_NEWFORM_FORCEMORPHY", $conf->entity);
 	} else {
-		$res = dolibarr_set_const($db, "MEMBER_NEWFORM_FORCEMORPHY", $forcemorphy, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "MEMBER_NEWFORM_FORCEMORPHY", $forcemorphy, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -205,7 +205,7 @@ if (getDolGlobalString('MEMBER_ENABLE_PUBLIC')) {
 	}
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -268,7 +268,7 @@ if (getDolGlobalString('MEMBER_ENABLE_PUBLIC')) {
 	print $form->selectyesno("MEMBER_COUNTERS_ARE_PUBLIC", getDolGlobalInt('MEMBER_COUNTERS_ARE_PUBLIC'), 1, false, 0, 1);
 	print "</td></tr>\n";
 
-	// Show the table of all available membership types. If not, show a form (as the default was for Dolibarr <=16.0)
+	// Show the table of all available membership types. If not, show a form (as the default was for OnLi <=16.0)
 	$skiptable = getDolGlobalInt('MEMBER_SKIP_TABLE');
 	print '<tr class="oddeven" id="tredit"><td>';
 	print $langs->trans("MembersShowMembershipTypesTable");

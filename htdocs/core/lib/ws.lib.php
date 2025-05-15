@@ -28,7 +28,7 @@
 /**
  *  Check authentication array and set error, errorcode, errorlabel
  *
- *  @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication     Array with authentication information ('login'=>,'password'=>,'entity'=>,'dolibarrkey'=>)
+ *  @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication     Array with authentication information ('login'=>,'password'=>,'entity'=>,'onlikey'=>)
  *  @param 	int		$error				Number of errors
  *  @param  string	$errorcode			Error string code
  *  @param  string	$errorlabel			Error string label
@@ -37,14 +37,14 @@
 function check_authentication($authentication, &$error, &$errorcode, &$errorlabel)
 {
 	global $db, $conf, $langs;
-	global $dolibarr_main_authentication, $dolibarr_auto_user;
+	global $onli_main_authentication, $onli_auto_user;
 
 	$fuser = new User($db);
 
-	if (!$error && ($authentication['dolibarrkey'] != $conf->global->WEBSERVICES_KEY)) {
+	if (!$error && ($authentication['onlikey'] != $conf->global->WEBSERVICES_KEY)) {
 		$error++;
 		$errorcode = 'BAD_VALUE_FOR_SECURITY_KEY';
-		$errorlabel = 'Value provided into dolibarrkey entry field does not match security key defined in Webservice module setup';
+		$errorlabel = 'Value provided into onlikey entry field does not match security key defined in Webservice module setup';
 	}
 
 	if (!$error && !empty($authentication['entity']) && !is_numeric($authentication['entity'])) {
@@ -76,15 +76,15 @@ function check_authentication($authentication, &$error, &$errorcode, &$errorlabe
 			$fuser->loadRights(); // Load permission of user
 
 			// Authentication mode
-			if (empty($dolibarr_main_authentication) || $dolibarr_main_authentication == 'openid_connect') {
-				$dolibarr_main_authentication = 'http,dolibarr';
+			if (empty($onli_main_authentication) || $onli_main_authentication == 'openid_connect') {
+				$onli_main_authentication = 'http,onli';
 			}
 			// Authentication mode: forceuser
-			if ($dolibarr_main_authentication == 'forceuser' && empty($dolibarr_auto_user)) {
-				$dolibarr_auto_user = 'auto';
+			if ($onli_main_authentication == 'forceuser' && empty($onli_auto_user)) {
+				$onli_auto_user = 'auto';
 			}
 			// Set authmode
-			$authmode = explode(',', $dolibarr_main_authentication);
+			$authmode = explode(',', $onli_main_authentication);
 
 			include_once DOL_DOCUMENT_ROOT.'/core/lib/security2.lib.php';
 			$login = checkLoginPassEntity($authentication['login'], $authentication['password'], (string) $authentication['entity'], $authmode, 'ws');

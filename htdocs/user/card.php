@@ -36,7 +36,7 @@
  *       \brief      Tab of user card
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/user/class/user.class.php';
 require_once DOL_DOCUMENT_ROOT.'/user/class/usergroup.class.php';
@@ -71,7 +71,7 @@ if (isModEnabled('stock')) {
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_authentication
+ * @var string $onli_main_authentication
  */
 
 // Load translation files required by page
@@ -921,7 +921,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 	if (isModEnabled('ldap') && (getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') === Ldap::SYNCHRO_LDAP_TO_DOLIBARR)) {
 		$liste = array();
 
-		// Show form to add an account from LDAP if sync LDAP -> Dolibarr is set
+		// Show form to add an account from LDAP if sync LDAP -> OnLi is set
 		$ldap = new Ldap();
 		$result = $ldap->connectBind();
 		if ($result >= 0) {
@@ -1203,19 +1203,19 @@ if ($action == 'create' || $action == 'adduserldap') {
 	print '<tr><td class="fieldrequired">'.$langs->trans("Password").'</td>';
 	print '<td>';
 	$valuetoshow = '';
-	if (preg_match('/ldap/', $dolibarr_main_authentication)) {
+	if (preg_match('/ldap/', $onli_main_authentication)) {
 		$valuetoshow .= ($valuetoshow ? ' + ' : '').$langs->trans("PasswordOfUserInLDAP").' (hidden)';
 	}
-	if (preg_match('/http/', $dolibarr_main_authentication)) {
+	if (preg_match('/http/', $onli_main_authentication)) {
 		$valuetoshow .= ($valuetoshow ? ' + ' : '').$langs->trans("HTTPBasicPassword");
 	}
-	if (preg_match('/dolibarr/', $dolibarr_main_authentication) || preg_match('/forceuser/', $dolibarr_main_authentication)) {
+	if (preg_match('/onli/', $onli_main_authentication) || preg_match('/forceuser/', $onli_main_authentication)) {
 		if (!empty($ldap_pass)) {	// For very old system comaptibilty. Now clear password can't be viewed from LDAP read
-			$valuetoshow .= ($valuetoshow ? ' + ' : '').'<input type="hidden" name="password" value="'.dol_escape_htmltag($ldap_pass).'">'; // Dolibarr password is preffiled with LDAP known password
+			$valuetoshow .= ($valuetoshow ? ' + ' : '').'<input type="hidden" name="password" value="'.dol_escape_htmltag($ldap_pass).'">'; // OnLi password is preffiled with LDAP known password
 			$valuetoshow .= preg_replace('/./i', '*', $ldap_pass);
 		} else {
 			// We do not use a field password but a field text to show new password to use.
-			$valuetoshow .= ($valuetoshow ? ' + '.$langs->trans("DolibarrPassword") : '').'<input class="minwidth300 maxwidth400 widthcentpercentminusx" maxlength="128" type="text" id="password" name="password" value="'.dol_escape_htmltag($password).'" autocomplete="new-password">';
+			$valuetoshow .= ($valuetoshow ? ' + '.$langs->trans("OnLiPassword") : '').'<input class="minwidth300 maxwidth400 widthcentpercentminusx" maxlength="128" type="text" id="password" name="password" value="'.dol_escape_htmltag($password).'" autocomplete="new-password">';
 			if (!empty($conf->use_javascript_ajax)) {
 				$valuetoshow .= img_picto($langs->transnoentities('Generate'), 'refresh', 'id="generate_password" class="linkobject paddingleft"');
 			}
@@ -1418,7 +1418,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 	print '<td class="wordbreak">';
 	require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
 
-	$doleditor = new DolEditor('signature', GETPOST('signature', 'restricthtml'), '', 138, 'dolibarr_notes', 'In', true, $acceptlocallinktomedia, !getDolGlobalString('FCKEDITOR_ENABLE_USERSIGN') ? 0 : 1, ROWS_4, '90%');
+	$doleditor = new DolEditor('signature', GETPOST('signature', 'restricthtml'), '', 138, 'onli_notes', 'In', true, $acceptlocallinktomedia, !getDolGlobalString('FCKEDITOR_ENABLE_USERSIGN') ? 0 : 1, ROWS_4, '90%');
 	print $doleditor->Create(1);
 	print '</td></tr>';
 
@@ -1427,7 +1427,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 	print $langs->trans("NotePublic");
 	print '</td><td>';
 	require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor = new DolEditor('note_public', GETPOSTISSET('note_public') ? GETPOST('note_public', 'restricthtml') : '', '', 100, 'dolibarr_notes', '', false, true, getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC'), ROWS_3, '90%');
+	$doleditor = new DolEditor('note_public', GETPOSTISSET('note_public') ? GETPOST('note_public', 'restricthtml') : '', '', 100, 'onli_notes', '', false, true, getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC'), ROWS_3, '90%');
 	$doleditor->Create();
 	print "</td></tr>\n";
 
@@ -1436,7 +1436,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 	print $langs->trans("NotePrivate");
 	print '</td><td>';
 	require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor = new DolEditor('note_private', GETPOSTISSET('note_private') ? GETPOST('note_private', 'restricthtml') : '', '', 100, 'dolibarr_notes', '', false, true, getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE'), ROWS_3, '90%');
+	$doleditor = new DolEditor('note_private', GETPOSTISSET('note_private') ? GETPOST('note_private', 'restricthtml') : '', '', 100, 'onli_notes', '', false, true, getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE'), ROWS_3, '90%');
 	$doleditor->Create();
 	print "</td></tr>\n";
 
@@ -1659,7 +1659,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 			print '<tr><td class="titlefieldmiddle">'.$langs->trans("Login").'</td>';
 			if (!empty($object->ldap_sid) && $object->statut == 0) {
 				print '<td class="error">';
-				print $langs->trans("LoginAccountDisableInDolibarr");
+				print $langs->trans("LoginAccountDisableInOnLi");
 				print '</td>';
 			} else {
 				print '<td>';
@@ -1941,7 +1941,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 			// Module Adherent
 			if (isModEnabled('member')) {
 				$langs->load("members");
-				print '<tr><td>'.$langs->trans("LinkedToDolibarrMember").'</td>';
+				print '<tr><td>'.$langs->trans("LinkedToOnLiMember").'</td>';
 				print '<td>';
 				if ($object->fk_member) {
 					$adh = new Adherent($db);
@@ -1990,7 +1990,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 			print "</tr>\n";
 
 			// Alternative email for OAUth2 login
-			if (!empty($object->email_oauth2) && preg_match('/googleoauth/', $dolibarr_main_authentication)) {
+			if (!empty($object->email_oauth2) && preg_match('/googleoauth/', $onli_main_authentication)) {
 				print '<tr class="nooddeven"><td class="titlefieldmiddle">'.$langs->trans("AlternativeEmailForOAuth2").'</td>';
 				print '<td>';
 				print dol_print_email($object->email_oauth2);
@@ -2000,7 +2000,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 
 			// Password
 			$valuetoshow = '';
-			if (preg_match('/ldap/', $dolibarr_main_authentication)) {
+			if (preg_match('/ldap/', $onli_main_authentication)) {
 				if (!empty($object->ldap_sid)) {
 					if ($passDoNotExpire) {
 						$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').$langs->trans("LdapUacf_".$statutUACF);
@@ -2015,11 +2015,11 @@ if ($action == 'create' || $action == 'adduserldap') {
 					$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').$langs->trans("PasswordOfUserInLDAP");
 				}
 			}
-			if (preg_match('/http/', $dolibarr_main_authentication)) {
+			if (preg_match('/http/', $onli_main_authentication)) {
 				$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').$langs->trans("HTTPBasicPassword");
 			}
 			/*
-			if (preg_match('/dolibarr/', $dolibarr_main_authentication)) {
+			if (preg_match('/onli/', $onli_main_authentication)) {
 				if ($object->pass) {
 					$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '');
 					$valuetoshow .= '<span class="opacitymedium">'.$langs->trans("Hidden").'</span>';
@@ -2621,13 +2621,13 @@ if ($action == 'create' || $action == 'adduserldap') {
 			print '<tr><td class="titlefieldcreate">'.$langs->trans("Password").'</td>';
 			print '<td>';
 			$valuetoshow = '';
-			if (preg_match('/ldap/', $dolibarr_main_authentication)) {
+			if (preg_match('/ldap/', $onli_main_authentication)) {
 				$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').$langs->trans("PasswordOfUserInLDAP");
 			}
-			if (preg_match('/http/', $dolibarr_main_authentication)) {
-				$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').$form->textwithpicto((string) $text, $langs->trans("DolibarrInHttpAuthenticationSoPasswordUseless", (string) $dolibarr_main_authentication), 1, 'warning');
+			if (preg_match('/http/', $onli_main_authentication)) {
+				$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').$form->textwithpicto((string) $text, $langs->trans("OnLiInHttpAuthenticationSoPasswordUseless", (string) $onli_main_authentication), 1, 'warning');
 			}
-			if (preg_match('/dolibarr/', $dolibarr_main_authentication) || preg_match('/forceuser/', $dolibarr_main_authentication)) {
+			if (preg_match('/onli/', $onli_main_authentication) || preg_match('/forceuser/', $onli_main_authentication)) {
 				if ($permissiontoeditpasswordandsee) {
 					$valuetoshow .= ($valuetoshow ? (' '.$langs->trans("or").' ') : '').'<input maxlength="128" type="password" class="flat" id="password" name="password" value="'.dol_escape_htmltag($object->pass).'" autocomplete="new-password">';
 					if (!empty($conf->use_javascript_ajax)) {
@@ -2909,7 +2909,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 			// Module Adherent
 			if (isModEnabled('member')) {
 				$langs->load("members");
-				print '<tr><td>'.$langs->trans("LinkedToDolibarrMember").'</td>';
+				print '<tr><td>'.$langs->trans("LinkedToOnLiMember").'</td>';
 				print '<td>';
 				if ($object->fk_member) {
 					$adh = new Adherent($db);
@@ -2957,7 +2957,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 			if ($permissiontoedit) {
 				require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
 
-				$doleditor = new DolEditor('signature', $object->signature, '', 138, 'dolibarr_notes', 'In', false, $acceptlocallinktomedia, !getDolGlobalString('FCKEDITOR_ENABLE_USERSIGN') ? 0 : 1, ROWS_4, '90%');
+				$doleditor = new DolEditor('signature', $object->signature, '', 138, 'onli_notes', 'In', false, $acceptlocallinktomedia, !getDolGlobalString('FCKEDITOR_ENABLE_USERSIGN') ? 0 : 1, ROWS_4, '90%');
 				print $doleditor->Create(1);
 			} else {
 				print dol_htmlentitiesbr($object->signature);

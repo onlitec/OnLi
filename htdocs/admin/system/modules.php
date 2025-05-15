@@ -21,10 +21,10 @@
 
 /**
  *  \file       htdocs/admin/system/modules.php
- *  \brief      File to list all Dolibarr modules
+ *  \brief      File to list all OnLi modules
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 
@@ -124,7 +124,7 @@ foreach ($modulesdir as $dir) {
 						if (class_exists($modName)) {
 							try {
 								$objMod = new $modName($db);
-								'@phan-var-force DolibarrModules $objMod';
+								'@phan-var-force OnLiModules $objMod';
 
 								$modules[$objMod->numero] = $objMod;
 								$modules_files[$objMod->numero] = $file;
@@ -142,7 +142,7 @@ foreach ($modulesdir as $dir) {
 		closedir($handle);
 	}
 }
-'@phan-var-force array<string,DolibarrModules> $modules';
+'@phan-var-force array<string,OnLiModules> $modules';
 
 // create pre-filtered list for modules
 foreach ($modules as $key => $module) {

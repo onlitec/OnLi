@@ -208,7 +208,7 @@ if (empty($reshook)) {
 if (GETPOST('sortfield') == 'f.datef, f.ref, l.rowid') {
 	$value = (GETPOST('sortorder') == 'asc,asc,asc' ? 0 : 1);
 	require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
-	$res = dolibarr_set_const($db, "ACCOUNTING_LIST_SORT_VENTILATION_DONE", $value, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_LIST_SORT_VENTILATION_DONE", $value, 'yesno', 0, '', $conf->entity);
 }
 
 

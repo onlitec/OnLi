@@ -27,13 +27,13 @@
  *      \ingroup    tax
  *      \brief      Description and activation file for the module taxes
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to describe and enable module Tax
  */
-class modTax extends DolibarrModules
+class modTax extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -53,8 +53,8 @@ class modTax extends DolibarrModules
 		// Module description used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Gestion des taxes, charges sociales et dividendes";
 
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
+		$this->version = 'onli';
 
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'bill';
@@ -178,7 +178,7 @@ class modTax extends DolibarrModules
 
 	/**
 	 *		Function called when module is enabled.
-	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *		It also creates data directories
 	 *
 	 *      @param      string	$options    Options when enabling module ('', 'noboxes')

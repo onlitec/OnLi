@@ -30,7 +30,7 @@
  * \brief		Setup page to configure accounting expert module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/accounting.lib.php';
@@ -143,7 +143,7 @@ include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 if (in_array($action, array('setACCOUNTANCY_ER_DATE_RECORD', 'setACCOUNTING_BANK_CONCILIATED'))) {
 	$constname = preg_replace('/^set/', '', $action);
 	$constvalue = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, $constname, $constvalue, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, $constname, $constvalue, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -166,7 +166,7 @@ if ($action == 'updatemode') {
 	$accounting_mode = GETPOST('accounting_mode', 'alpha');
 
 	if (in_array($accounting_mode, $accounting_modes)) {
-		if (dolibarr_set_const($db, 'ACCOUNTING_MODE', $accounting_mode, 'chaine', 0, '', $conf->entity)) {
+		if (onli_set_const($db, 'ACCOUNTING_MODE', $accounting_mode, 'chaine', 0, '', $conf->entity)) {
 			setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');
 		} else {
 			$error++;
@@ -182,7 +182,7 @@ if ($action == 'update2') {
 	if (!$error) {
 		foreach ($list as $constname) {
 			$constvalue = GETPOST($constname, 'alpha');
-			if (!dolibarr_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
+			if (!onli_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
 				$error++;
 			}
 		}
@@ -198,14 +198,14 @@ if ($action == 'update2') {
 				$constvalue = dol_mktime(0, 0, 0, GETPOSTINT($constname.'month'), GETPOSTINT($constname.'day'), GETPOSTINT($constname.'year'));
 			}
 
-			if (!dolibarr_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
+			if (!onli_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
 				$error++;
 			}
 		}
 
 		// options in section other
 		if (GETPOSTISSET('ACCOUNTING_LETTERING_NBLETTERS')) {
-			if (!dolibarr_set_const($db, 'ACCOUNTING_LETTERING_NBLETTERS', GETPOST('ACCOUNTING_LETTERING_NBLETTERS'), 'chaine', 0, '', $conf->entity)) {
+			if (!onli_set_const($db, 'ACCOUNTING_LETTERING_NBLETTERS', GETPOST('ACCOUNTING_LETTERING_NBLETTERS'), 'chaine', 0, '', $conf->entity)) {
 				$error++;
 			}
 		}
@@ -214,11 +214,11 @@ if ($action == 'update2') {
 		$modelcsv = GETPOSTINT('ACCOUNTING_EXPORT_MODELCSV');
 
 		if (!empty($modelcsv)) {
-			if (!dolibarr_set_const($db, 'ACCOUNTING_EXPORT_MODELCSV', $modelcsv, 'chaine', 0, '', $conf->entity)) {
+			if (!onli_set_const($db, 'ACCOUNTING_EXPORT_MODELCSV', $modelcsv, 'chaine', 0, '', $conf->entity)) {
 				$error++;
 			}
 			//if ($modelcsv==AccountancyExport::$EXPORT_TYPE_QUADRATUS || $modelcsv==AccountancyExport::$EXPORT_TYPE_CIEL) {
-			//	dolibarr_set_const($db, 'ACCOUNTING_EXPORT_FORMAT', 'txt', 'chaine', 0, '', $conf->entity);
+			//	onli_set_const($db, 'ACCOUNTING_EXPORT_FORMAT', 'txt', 'chaine', 0, '', $conf->entity);
 			//}
 		} else {
 			$error++;
@@ -227,7 +227,7 @@ if ($action == 'update2') {
 		foreach ($main_option as $constname) {
 			$constvalue = GETPOST($constname, 'alpha');
 
-			if (!dolibarr_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
+			if (!onli_set_const($db, $constname, $constvalue, 'chaine', 0, '', $conf->entity)) {
 				$error++;
 			}
 		}
@@ -237,7 +237,7 @@ if ($action == 'update2') {
 
 			if (strpos($constante, 'ACCOUNTING') !== false) {
 				$constvalue = GETPOST($key, 'alpha');
-				if (!dolibarr_set_const($db, $constante, $constvalue, 'chaine', 0, '', $conf->entity)) {
+				if (!onli_set_const($db, $constante, $constvalue, 'chaine', 0, '', $conf->entity)) {
 					$error++;
 				}
 			}
@@ -259,7 +259,7 @@ if ($action == 'update2') {
 
 if ($action == 'setenabledraftexport') {
 	$setenabledraftexport = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_ENABLE_EXPORT_DRAFT_JOURNAL", $setenabledraftexport, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_ENABLE_EXPORT_DRAFT_JOURNAL", $setenabledraftexport, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -273,7 +273,7 @@ if ($action == 'setenabledraftexport') {
 
 if ($action == 'setdisablebindingonsales') {
 	$setdisablebindingonsales = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_DISABLE_BINDING_ON_SALES", $setdisablebindingonsales, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_DISABLE_BINDING_ON_SALES", $setdisablebindingonsales, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -287,7 +287,7 @@ if ($action == 'setdisablebindingonsales') {
 
 if ($action == 'setdisablebindingonpurchases') {
 	$setdisablebindingonpurchases = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_DISABLE_BINDING_ON_PURCHASES", $setdisablebindingonpurchases, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_DISABLE_BINDING_ON_PURCHASES", $setdisablebindingonpurchases, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -301,7 +301,7 @@ if ($action == 'setdisablebindingonpurchases') {
 
 if ($action == 'setdisablebindingonexpensereports') {
 	$setdisablebindingonexpensereports = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_DISABLE_BINDING_ON_EXPENSEREPORTS", $setdisablebindingonexpensereports, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_DISABLE_BINDING_ON_EXPENSEREPORTS", $setdisablebindingonexpensereports, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -315,7 +315,7 @@ if ($action == 'setdisablebindingonexpensereports') {
 
 if ($action == 'setenablelettering') {
 	$setenablelettering = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_ENABLE_LETTERING", $setenablelettering, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_ENABLE_LETTERING", $setenablelettering, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -329,7 +329,7 @@ if ($action == 'setenablelettering') {
 
 if ($action == 'setenableautolettering') {
 	$setenableautolettering = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_ENABLE_AUTOLETTERING", $setenableautolettering, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_ENABLE_AUTOLETTERING", $setenableautolettering, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -343,7 +343,7 @@ if ($action == 'setenableautolettering') {
 
 if ($action == 'setenablevatreversecharge') {
 	$setenablevatreversecharge = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_FORCE_ENABLE_VAT_REVERSE_CHARGE", $setenablevatreversecharge, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_FORCE_ENABLE_VAT_REVERSE_CHARGE", $setenablevatreversecharge, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -357,7 +357,7 @@ if ($action == 'setenablevatreversecharge') {
 
 if ($action == 'setenabletabonthirdparty') {
 	$setenabletabonthirdparty = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "ACCOUNTING_ENABLE_TABONTHIRDPARTY", $setenabletabonthirdparty, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "ACCOUNTING_ENABLE_TABONTHIRDPARTY", $setenabletabonthirdparty, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -376,7 +376,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstbookkeeping && preg_match('/_MASK$/', $maskconstbookkeeping)) {
-		$res = dolibarr_set_const($db, $maskconstbookkeeping, $maskbookkeeping, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstbookkeeping, $maskbookkeeping, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -392,7 +392,7 @@ if ($action == 'updateMask') {
 
 if ($action == 'setmod') {
 	$value = GETPOST('value', 'alpha');
-	dolibarr_set_const($db, "BOOKKEEPING_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "BOOKKEEPING_ADDON", $value, 'chaine', 0, '', $conf->entity);
 }
 
 /*

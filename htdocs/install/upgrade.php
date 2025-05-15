@@ -41,10 +41,10 @@
 define('ALLOWED_IF_UPGRADE_UNLOCK_FOUND', 1);
 include_once 'inc.php';
 if (!file_exists($conffile)) {
-	print 'Error: Dolibarr config file was not found. This may means that Dolibarr is not installed yet. Please call the page "/install/index.php" instead of "/install/upgrade.php").';
+	print 'Error: OnLi config file was not found. This may means that OnLi is not installed yet. Please call the page "/install/index.php" instead of "/install/upgrade.php").';
 }
 require_once $conffile;
-require_once $dolibarr_main_document_root.'/core/lib/admin.lib.php';
+require_once $onli_main_document_root.'/core/lib/admin.lib.php';
 
 global $langs;
 
@@ -70,20 +70,20 @@ $ignoredbversion = (GETPOST('ignoredbversion', 'alpha', 3) == 'ignoredbversion')
 
 $langs->loadLangs(array("admin", "install", "other", "errors"));
 
-if ($dolibarr_main_db_type == "mysqli") {
+if ($onli_main_db_type == "mysqli") {
 	$choix = 1;
 }
-if ($dolibarr_main_db_type == "pgsql") {
+if ($onli_main_db_type == "pgsql") {
 	$choix = 2;
 }
-if ($dolibarr_main_db_type == "mssql") {
+if ($onli_main_db_type == "mssql") {
 	$choix = 3;
 }
 
 
-dolibarr_install_syslog("--- upgrade: entering upgrade.php page ".$versionfrom." ".$versionto);
+onli_install_syslog("--- upgrade: entering upgrade.php page ".$versionfrom." ".$versionto);
 if (!is_object($conf)) {
-	dolibarr_install_syslog("upgrade: conf file not initialized", LOG_ERR);
+	onli_install_syslog("upgrade: conf file not initialized", LOG_ERR);
 }
 
 
@@ -120,34 +120,34 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 	$error = 0;
 
 	// If password is encoded, we decode it
-	if ((!empty($dolibarr_main_db_pass) && preg_match('/crypted:/i', $dolibarr_main_db_pass)) || !empty($dolibarr_main_db_encrypted_pass)) {
-		require_once $dolibarr_main_document_root.'/core/lib/security.lib.php';
-		if (!empty($dolibarr_main_db_pass) && preg_match('/crypted:/i', $dolibarr_main_db_pass)) {
-			$dolibarr_main_db_pass = preg_replace('/crypted:/i', '', $dolibarr_main_db_pass);
-			$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_pass);
-			$dolibarr_main_db_encrypted_pass = $dolibarr_main_db_pass; // We need to set this as it is used to know the password was initially encrypted
+	if ((!empty($onli_main_db_pass) && preg_match('/crypted:/i', $onli_main_db_pass)) || !empty($onli_main_db_encrypted_pass)) {
+		require_once $onli_main_document_root.'/core/lib/security.lib.php';
+		if (!empty($onli_main_db_pass) && preg_match('/crypted:/i', $onli_main_db_pass)) {
+			$onli_main_db_pass = preg_replace('/crypted:/i', '', $onli_main_db_pass);
+			$onli_main_db_pass = dol_decode($onli_main_db_pass);
+			$onli_main_db_encrypted_pass = $onli_main_db_pass; // We need to set this as it is used to know the password was initially encrypted
 		} else {
-			$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_encrypted_pass);
+			$onli_main_db_pass = dol_decode($onli_main_db_encrypted_pass);
 		}
 	}
 
 	// $conf is already instantiated inside inc.php
-	$conf->db->type = $dolibarr_main_db_type;
-	$conf->db->host = $dolibarr_main_db_host;
-	$conf->db->port = $dolibarr_main_db_port;
-	$conf->db->name = $dolibarr_main_db_name;
-	$conf->db->user = $dolibarr_main_db_user;
-	$conf->db->pass = $dolibarr_main_db_pass;
+	$conf->db->type = $onli_main_db_type;
+	$conf->db->host = $onli_main_db_host;
+	$conf->db->port = $onli_main_db_port;
+	$conf->db->name = $onli_main_db_name;
+	$conf->db->user = $onli_main_db_user;
+	$conf->db->pass = $onli_main_db_pass;
 
 	// Load type and crypt key
-	if (empty($dolibarr_main_db_encryption)) {
-		$dolibarr_main_db_encryption = 0;
+	if (empty($onli_main_db_encryption)) {
+		$onli_main_db_encryption = 0;
 	}
-	$conf->db->dolibarr_main_db_encryption = $dolibarr_main_db_encryption;
-	if (empty($dolibarr_main_db_cryptkey)) {
-		$dolibarr_main_db_cryptkey = '';
+	$conf->db->onli_main_db_encryption = $onli_main_db_encryption;
+	if (empty($onli_main_db_cryptkey)) {
+		$onli_main_db_cryptkey = '';
 	}
-	$conf->db->dolibarr_main_db_cryptkey = $dolibarr_main_db_cryptkey;
+	$conf->db->onli_main_db_cryptkey = $onli_main_db_cryptkey;
 
 	$db = getDoliDBInstance($conf->db->type, $conf->db->host, $conf->db->user, $conf->db->pass, $conf->db->name, (int) $conf->db->port);
 
@@ -157,24 +157,24 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 
 	if ($db->connected) {
 		print '<tr><td class="nowrap">';
-		print $langs->trans("ServerConnection")." : ".$dolibarr_main_db_host.'</td><td class="right"><span class="neutral">'.$langs->trans("OK").'</span></td></tr>'."\n";
-		dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ServerConnection").": $dolibarr_main_db_host ".$langs->transnoentities("OK"));
+		print $langs->trans("ServerConnection")." : ".$onli_main_db_host.'</td><td class="right"><span class="neutral">'.$langs->trans("OK").'</span></td></tr>'."\n";
+		onli_install_syslog("upgrade: ".$langs->transnoentities("ServerConnection").": $onli_main_db_host ".$langs->transnoentities("OK"));
 		$ok = 1;
 	} else {
-		print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name).'</td><td class="right"><span class="error">'.$langs->transnoentities("Error")."</span></td></tr>\n";
-		dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name));
+		print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $onli_main_db_name).'</td><td class="right"><span class="error">'.$langs->transnoentities("Error")."</span></td></tr>\n";
+		onli_install_syslog("upgrade: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $onli_main_db_name));
 		$ok = 0;
 	}
 
 	if ($ok) {
 		if ($db->database_selected) {
 			print '<tr><td class="nowrap">';
-			print $langs->trans("DatabaseConnection")." : ".$dolibarr_main_db_name.'</td><td class="right"><span class="neutral">'.$langs->trans("OK")."</span></td></tr>\n";
-			dolibarr_install_syslog("upgrade: Database connection successful: ".$dolibarr_main_db_name);
+			print $langs->trans("DatabaseConnection")." : ".$onli_main_db_name.'</td><td class="right"><span class="neutral">'.$langs->trans("OK")."</span></td></tr>\n";
+			onli_install_syslog("upgrade: Database connection successful: ".$onli_main_db_name);
 			$ok = 1;
 		} else {
-			print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name).'</td><td class="right"><span class="ok">'.$langs->trans("Error")."</span></td></tr>\n";
-			dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name));
+			print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $onli_main_db_name).'</td><td class="right"><span class="ok">'.$langs->trans("Error")."</span></td></tr>\n";
+			onli_install_syslog("upgrade: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $onli_main_db_name));
 			$ok = 0;
 		}
 	}
@@ -186,15 +186,15 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 		$versionarray = $db->getVersionArray();
 		print '<tr><td>'.$langs->trans("ServerVersion").'</td>';
 		print '<td class="right">'.$version.'</td></tr>';
-		dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ServerVersion").": ".$version);
+		onli_install_syslog("upgrade: ".$langs->transnoentities("ServerVersion").": ".$version);
 		if ($db->type == 'mysqli' && function_exists('mysqli_get_charset')) {
 			$tmparray = $db->db->get_charset();
 			print '<tr><td>'.$langs->trans("ClientCharset").'</td>';
 			print '<td class="right">'.$tmparray->charset.'</td></tr>';
-			dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ClientCharset").": ".$tmparray->charset);
+			onli_install_syslog("upgrade: ".$langs->transnoentities("ClientCharset").": ".$tmparray->charset);
 			print '<tr><td>'.$langs->trans("ClientSortingCharset").'</td>';
 			print '<td class="right">'.$tmparray->collation.'</td></tr>';
-			dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ClientCollation").": ".$tmparray->collation);
+			onli_install_syslog("upgrade: ".$langs->transnoentities("ClientCollation").": ".$tmparray->collation);
 		}
 
 		// Test database version requirement
@@ -204,7 +204,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 			&& versioncompare($versionarray, $versionmindb) < 0) {
 			// Warning: database version too low.
 			print "<tr><td>".$langs->trans("ErrorDatabaseVersionTooLow", implode('.', $versionarray), implode('.', $versionmindb)).'</td><td class="right"><span class="error">'.$langs->trans("Error")."</span></td></tr>\n";
-			dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ErrorDatabaseVersionTooLow", implode('.', $versionarray), implode('.', $versionmindb)));
+			onli_install_syslog("upgrade: ".$langs->transnoentities("ErrorDatabaseVersionTooLow", implode('.', $versionarray), implode('.', $versionmindb)));
 			$ok = 0;
 		}
 
@@ -229,7 +229,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 				) {
 					// Warning: database version too low.
 					print '<tr><td><div class="warning">'.$langs->trans("ErrorDatabaseVersionForbiddenForMigration", implode('.', $versionarray), $listofforbiddenversion)."</div></td><td class=\"right\">".$langs->trans("Error")."</td></tr>\n";
-					dolibarr_install_syslog("upgrade: ".$langs->transnoentities("ErrorDatabaseVersionForbiddenForMigration", implode('.', $versionarray), $listofforbiddenversion));
+					onli_install_syslog("upgrade: ".$langs->transnoentities("ErrorDatabaseVersionForbiddenForMigration", implode('.', $versionarray), $listofforbiddenversion));
 					$ok = 0;
 					break;
 				}
@@ -255,7 +255,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 		$versioncommande = array(4, 0, 0);
 		if (count($versioncommande) && count($versionarray)
 		&& versioncompare($versioncommande, $versionarray) <= 0) {	// Si mysql >= 4.0
-			dolibarr_install_syslog("Clean database from bad named constraints");
+			onli_install_syslog("Clean database from bad named constraints");
 
 			// Suppression vieilles contraintes sans noms et en doubles
 			// Les contraintes indesirables ont un nom qui commence par 0_ ou se determine par ibfk_999
@@ -310,7 +310,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 		if (!empty($dirmodule)) {
 			$dir = dol_buildpath('/'.$dirmodule.'/sql/', 0);
 		}
-		dolibarr_install_syslog("Scan sql files for migration files in ".$dir);
+		onli_install_syslog("Scan sql files for migration files in ".$dir);
 
 		// Clean last part to exclude minor version x.y.z -> x.y
 		$newversionfrom = preg_replace('/(\.[0-9]+)$/i', '.0', $versionfrom);
@@ -364,8 +364,8 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 				$listoffileprocessed[$dir.$file] = $dir.$file;
 
 
-				// Scan if there is migration scripts that depends of Dolibarr version
-				// for modules htdocs/module/sql or htdocs/custom/module/sql (files called "dolibarr_x.y.z-a.b.c.sql" or "dolibarr_always.sql")
+				// Scan if there is migration scripts that depends of OnLi version
+				// for modules htdocs/module/sql or htdocs/custom/module/sql (files called "onli_x.y.z-a.b.c.sql" or "onli_always.sql")
 				$modulesfile = array();
 				foreach ($conf->file->dol_document_root as $type => $dirroot) {
 					$handlemodule = @opendir($dirroot); // $dirroot may be '..'
@@ -373,11 +373,11 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 						while (($filemodule = readdir($handlemodule)) !== false) {
 							if (!preg_match('/\./', $filemodule) && is_dir($dirroot.'/'.$filemodule.'/sql')) {	// We exclude filemodule that contains . (are not directories) and are not directories.
 								//print "Scan for ".$dirroot . '/' . $filemodule . '/sql/'.$file;
-								if (is_file($dirroot.'/'.$filemodule.'/sql/dolibarr_'.$file)) {
-									$modulesfile[$dirroot.'/'.$filemodule.'/sql/dolibarr_'.$file] = '/'.$filemodule.'/sql/dolibarr_'.$file;
+								if (is_file($dirroot.'/'.$filemodule.'/sql/onli_'.$file)) {
+									$modulesfile[$dirroot.'/'.$filemodule.'/sql/onli_'.$file] = '/'.$filemodule.'/sql/onli_'.$file;
 								}
-								if (is_file($dirroot.'/'.$filemodule.'/sql/dolibarr_allversions.sql')) {
-									$modulesfile[$dirroot.'/'.$filemodule.'/sql/dolibarr_allversions.sql'] = '/'.$filemodule.'/sql/dolibarr_allversions.sql';
+								if (is_file($dirroot.'/'.$filemodule.'/sql/onli_allversions.sql')) {
+									$modulesfile[$dirroot.'/'.$filemodule.'/sql/onli_allversions.sql'] = '/'.$filemodule.'/sql/onli_allversions.sql';
 								}
 							}
 						}
@@ -396,7 +396,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 						print '<tr><td class="nowrap">'.$langs->trans("ChoosedMigrateScript").' (external modules)</td><td class="right">'.$modulefileshort.'</td></tr>'."\n";
 
 						// Run sql script
-						$okmodule = run_sql($modulefilelong, 0, 0, 1); // Note: Result of migration of external module should not decide if we continue migration of Dolibarr or not.
+						$okmodule = run_sql($modulefilelong, 0, 0, 1); // Note: Result of migration of external module should not decide if we continue migration of OnLi or not.
 						$listoffileprocessed[$modulefilelong] = $modulefilelong;
 					}
 				}
@@ -420,9 +420,9 @@ $ret = 0;
 if (!$ok && isset($argv[1])) {
 	$ret = 1;
 }
-dolibarr_install_syslog("Exit ".$ret);
+onli_install_syslog("Exit ".$ret);
 
-dolibarr_install_syslog("--- upgrade: end ".((int) (!$ok && !GETPOST("ignoreerrors")))." dirmodule=".$dirmodule);
+onli_install_syslog("--- upgrade: end ".((int) (!$ok && !GETPOST("ignoreerrors")))." dirmodule=".$dirmodule);
 
 $nonext = (!$ok && !GETPOST("ignoreerrors")) ? 2 : 0;
 if ($dirmodule) {

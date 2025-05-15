@@ -23,7 +23,7 @@
 
 /**
  *       \file       htdocs/webservices/server_payment.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -62,7 +62,7 @@ require_once DOL_DOCUMENT_ROOT.'/compta/paiement/class/paiement.class.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
@@ -70,7 +70,7 @@ $langs->load("main");
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
 
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -80,8 +80,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server                              = new nusoap_server();
 $server->soap_defencoding            = 'UTF-8';
 $server->decode_utf8                 = false;
-$ns                                  = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrPayment', $ns);
+$ns                                  = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiPayment', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -93,7 +93,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey'       => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey'       => array('name' => 'onlikey', 'type' => 'xsd:string'),
 	   'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 	   'login'             => array('name' => 'login', 'type' => 'xsd:string'),
 		'password'          => array('name' => 'password', 'type' => 'xsd:string'),
@@ -158,7 +158,7 @@ $server->register(
 /**
  * Create a payment
  *
- * @param      array{login:string,password:string,entity:?int,dolibarrkey:string}           $authentication         Array of authentication information
+ * @param      array{login:string,password:string,entity:?int,onlikey:string}           $authentication         Array of authentication information
  * @param      array{id:int,thirdparty_id:int|string,amount:float|string,num_payment:string,bank_account:int|string,payment_mode_id?:int|string,invoice_id?:int|string,int_label?:string,emitter:string,bank_source:string} $payment	Payment
  * @return     array{result:array{result_code:string,result_label:string},id?:int}	Array result
  */

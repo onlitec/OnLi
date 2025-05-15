@@ -21,7 +21,7 @@
 /**
  *      \file       htdocs/core/modules/security/captcha/modCaptchaStandard.class.php
  *      \ingroup    core
- *		\brief      File to manage captcha generation according to dolibarr native code
+ *		\brief      File to manage captcha generation according to onli native code
  */
 
 require_once DOL_DOCUMENT_ROOT.'/core/modules/security/captcha/modules_captcha.php';
@@ -29,7 +29,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/modules/security/generate/modGeneratePassS
 
 
 /**
- *	Class to generate a password according to a dolibarr standard rule (12 random chars)
+ *	Class to generate a password according to a onli standard rule (12 random chars)
  */
 class modCaptchaStandard extends ModeleCaptcha
 {
@@ -69,7 +69,7 @@ class modCaptchaStandard extends ModeleCaptcha
 	public function getDescription()
 	{
 		global $langs;
-		return $langs->trans("DolibarrStandardCaptcha");
+		return $langs->trans("OnLiStandardCaptcha");
 	}
 
 	/**

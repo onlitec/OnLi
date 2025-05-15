@@ -4,7 +4,7 @@
  * Copyright (C) 2024       Frédéric France         <frederic.france@free.fr>
  *
 * This file is an example to follow to add your own email selector inside
-* the Dolibarr email tool.
+* the OnLi email tool.
 * Follow instructions given in README file to know what to change to build
 * your own emailing list selector.
 * Code that need to be changed in this file are marked by "CHANGE THIS" tag.
@@ -27,7 +27,7 @@ class mailing_thirdparties_services_expired extends MailingTargets
 	/**
 	 * @var string name of mailing module
 	 */
-	public $name = 'DolibarrContractsLinesExpired';
+	public $name = 'OnLiContractsLinesExpired';
 
 	/**
 	 * @var string This label is used if no translation is found for key XXX neither MailingModuleDescXXX where XXX=name is found
@@ -83,7 +83,7 @@ class mailing_thirdparties_services_expired extends MailingTargets
 		$result = $this->db->query($sql);
 		if ($result) {
 			$num = $this->db->num_rows($result);
-			dol_syslog("dolibarr_services_expired.modules.php:mailing_dolibarr_services_expired ".$num." services found");
+			dol_syslog("onli_services_expired.modules.php:mailing_onli_services_expired ".$num." services found");
 
 			$i = 0;
 			while ($i < $num) {
@@ -214,7 +214,7 @@ class mailing_thirdparties_services_expired extends MailingTargets
 
 		$now = dol_now();
 
-		// Example: return parent::getNbOfRecipients("SELECT count(*) as nb from dolibarr_table");
+		// Example: return parent::getNbOfRecipients("SELECT count(*) as nb from onli_table");
 		// Example: return 500;
 		$sql = "SELECT count(*) as nb";
 		$sql .= " FROM ".MAIN_DB_PREFIX."societe as s, ".MAIN_DB_PREFIX."contrat as c";

@@ -1132,7 +1132,7 @@ class EmailCollector extends CommonObject
 		global $db, $conf, $langs, $user;
 		global $hookmanager;
 
-		//$conf->global->SYSLOG_FILE = 'DOL_DATA_ROOT/dolibarr_mydedicatedlofile.log';
+		//$conf->global->SYSLOG_FILE = 'DOL_DATA_ROOT/onli_mydedicatedlofile.log';
 
 		require_once DOL_DOCUMENT_ROOT.'/comm/action/class/actioncomm.class.php';
 		if (getDolGlobalString('MAIN_IMAP_USE_PHPIMAP')) {
@@ -2139,9 +2139,9 @@ class EmailCollector extends CommonObject
 
 				// Analyze TrackId in field References (already analyzed previously into the "To:" and "Message-Id").
 				// For example:
-				// References: <1542377954.SMTPs-dolibarr-thi649@8f6014fde11ec6cdec9a822234fc557e>
-				// References: <1542377954.SMTPs-dolibarr-tic649@8f6014fde11ec6cdec9a822234fc557e>
-				// References: <1542377954.SMTPs-dolibarr-abc649@8f6014fde11ec6cdec9a822234fc557e>
+				// References: <1542377954.SMTPs-onli-thi649@8f6014fde11ec6cdec9a822234fc557e>
+				// References: <1542377954.SMTPs-onli-tic649@8f6014fde11ec6cdec9a822234fc557e>
+				// References: <1542377954.SMTPs-onli-abc649@8f6014fde11ec6cdec9a822234fc557e>
 				$trackid = '';
 				$objectid = 0;
 				$objectemail = null;
@@ -2168,14 +2168,14 @@ class EmailCollector extends CommonObject
 						$reg[1] = $trackidfoundintomsgidtype;
 						$reg[2] = $trackidfoundintomsgidid;
 					} else {
-						$resultsearchtrackid = preg_match('/dolibarr-([a-z]+)([0-9]+)@'.preg_quote($host, '/').'/', $reference, $reg);	// trackid found or not
+						$resultsearchtrackid = preg_match('/onli-([a-z]+)([0-9]+)@'.preg_quote($host, '/').'/', $reference, $reg);	// trackid found or not
 						if (empty($resultsearchtrackid) && getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE')) {
-							$resultsearchtrackid = preg_match('/dolibarr-([a-z]+)([0-9]+)@'.preg_quote(getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE'), '/').'/', $reference, $reg);	// trackid found
+							$resultsearchtrackid = preg_match('/onli-([a-z]+)([0-9]+)@'.preg_quote(getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE'), '/').'/', $reference, $reg);	// trackid found
 						}
 					}
 
 					if (!empty($resultsearchtrackid)) {
-						// We found a tracker (in recipient email or msgid or into a Reference matching the Dolibarr server)
+						// We found a tracker (in recipient email or msgid or into a Reference matching the OnLi server)
 						$trackid = $reg[1].$reg[2];
 
 						$objectid = $reg[2];
@@ -2212,7 +2212,7 @@ class EmailCollector extends CommonObject
 						}
 						if ($reg[1] == 'proj') {   // Project
 							$objectemail = new Project($this->db);
-							$projectfoundby = 'TrackID dolibarr-'.$trackid.'@...';
+							$projectfoundby = 'TrackID onli-'.$trackid.'@...';
 						}
 						if ($reg[1] == 'tas') {   // Task
 							$objectemail = new Task($this->db);
@@ -2225,11 +2225,11 @@ class EmailCollector extends CommonObject
 						}
 						if ($reg[1] == 'tic') {   // Ticket
 							$objectemail = new Ticket($this->db);
-							$ticketfoundby = 'TrackID dolibarr-'.$trackid.'@...';
+							$ticketfoundby = 'TrackID onli-'.$trackid.'@...';
 						}
 						if ($reg[1] == 'recruitmentcandidature') {   // Recruiting Candidate
 							$objectemail = new RecruitmentCandidature($this->db);
-							$candidaturefoundby = 'TrackID dolibarr-'.$trackid.'@...';
+							$candidaturefoundby = 'TrackID onli-'.$trackid.'@...';
 						}
 						if ($reg[1] == 'mem') {   // Member
 							$objectemail = new Adherent($this->db);
@@ -2466,7 +2466,7 @@ class EmailCollector extends CommonObject
 
 						// Make Operation
 						dol_syslog("Execute action ".$operation['type']." actionparam=".$operation['actionparam'].' thirdpartystatic->id='.$thirdpartystatic->id.' contactstatic->id='.$contactstatic->id.' projectstatic->id='.$projectstatic->id);
-						dol_syslog("Execute action fk_element_id=".$fk_element_id." fk_element_type=".$fk_element_type);	// If a Dolibarr tracker id is found, we should now the id of object
+						dol_syslog("Execute action fk_element_id=".$fk_element_id." fk_element_type=".$fk_element_type);	// If a OnLi tracker id is found, we should now the id of object
 
 						// Try to guess if this is an email in or out.
 						$actioncode = 'EMAIL_IN';
@@ -3413,8 +3413,8 @@ class EmailCollector extends CommonObject
 										$this->error = 'Failed to create ticket: Can\'t get a valid value for the field ref with numbering template = '.$modele.', thirdparty id = '.$thirdpartystatic->id;
 									} else {
 										// Create ticket
-										$tickettocreate->context['actionmsg2'] = $langs->trans("ActionAC_EMAIL_IN").' - '.$langs->trans("TICKET_CREATEInDolibarr");
-										$tickettocreate->context['actionmsg'] = $langs->trans("ActionAC_EMAIL_IN").' - '.$langs->trans("TICKET_CREATEInDolibarr");
+										$tickettocreate->context['actionmsg2'] = $langs->trans("ActionAC_EMAIL_IN").' - '.$langs->trans("TICKET_CREATEInOnLi");
+										$tickettocreate->context['actionmsg'] = $langs->trans("ActionAC_EMAIL_IN").' - '.$langs->trans("TICKET_CREATEInOnLi");
 										//$tickettocreate->email_fields_no_propagate_in_actioncomm = 0;
 
 										// Add sender to context array to make sure that confirmation e-mail can be sent by trigger script

@@ -95,8 +95,8 @@ if ($modulepart == 'ecm') {
 	$fullpathselecteddir = $conf->ecm->dir_output.'/'.($selecteddir != '/' ? $selecteddir : '');
 	$fullpathpreopened = $conf->ecm->dir_output.'/'.($preopened != '/' ? $preopened : '');
 } elseif ($modulepart == 'medias' || $modulepart == 'website') {
-	$fullpathselecteddir = $dolibarr_main_data_root.'/medias/'.($selecteddir != '/' ? $selecteddir : '');
-	$fullpathpreopened = $dolibarr_main_data_root.'/medias/'.($preopened != '/' ? $preopened : '');
+	$fullpathselecteddir = $onli_main_data_root.'/medias/'.($selecteddir != '/' ? $selecteddir : '');
+	$fullpathpreopened = $onli_main_data_root.'/medias/'.($preopened != '/' ? $preopened : '');
 }
 
 
@@ -382,7 +382,7 @@ if ((!isset($mode) || $mode != 'noajax') && is_object($db)) {
 function treeOutputForAbsoluteDir($sqltree, $selecteddir, $fullpathselecteddir, $modulepart, $websitekey, $pageid, $preopened, $fullpathpreopened, $depth = 0)
 {
 	global $conf, $db, $langs, $form, $user;
-	global $dolibarr_main_data_root;
+	global $onli_main_data_root;
 
 	$ecmdirstatic = new EcmDirectory($db);
 	$userstatic = new User($db);
@@ -531,7 +531,7 @@ function treeOutputForAbsoluteDir($sqltree, $selecteddir, $fullpathselecteddir, 
 							if ($modulepart == 'ecm') {
 								$newfullpathselecteddir = $conf->ecm->dir_output.'/'.($val['fullrelativename'] != '/' ? $val['fullrelativename'] : '');
 							} elseif ($modulepart == 'medias') {
-								$newfullpathselecteddir = $dolibarr_main_data_root.'/medias/'.($val['fullrelativename'] != '/' ? $val['fullrelativename'] : '');
+								$newfullpathselecteddir = $onli_main_data_root.'/medias/'.($val['fullrelativename'] != '/' ? $val['fullrelativename'] : '');
 							}
 
 							if ($newfullpathselecteddir) {

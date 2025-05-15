@@ -35,7 +35,7 @@
  *	\brief      Page for supplier invoice card (view, edit, validate)
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/categories/class/categorie.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
@@ -2318,7 +2318,7 @@ if ($action == 'create') {
 		$mode_reglement_id = GETPOST("mode_reglement_id");
 	}
 
-	// If form was posted (but error returned), we must reuse the value posted in priority (standard Dolibarr behaviour)
+	// If form was posted (but error returned), we must reuse the value posted in priority (standard OnLi behaviour)
 	if (!GETPOST('changecompany')) {
 		if (GETPOSTISSET('cond_reglement_id')) {
 			$cond_reglement_id = GETPOSTINT('cond_reglement_id');
@@ -2876,7 +2876,7 @@ if ($action == 'create') {
 		// Public note
 		print '<tr><td>'.$langs->trans('NotePublic').'</td>';
 		print '<td>';
-		$doleditor = new DolEditor('note_public', (GETPOSTISSET('note_public') ? GETPOST('note_public', 'restricthtml') : $note_public), '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
+		$doleditor = new DolEditor('note_public', (GETPOSTISSET('note_public') ? GETPOST('note_public', 'restricthtml') : $note_public), '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
 		print $doleditor->Create(1);
 		print '</td>';
 		// print '<td><textarea name="note" wrap="soft" cols="60" rows="'.ROWS_5.'"></textarea></td>';
@@ -2885,7 +2885,7 @@ if ($action == 'create') {
 		// Private note
 		print '<tr><td>'.$langs->trans('NotePrivate').'</td>';
 		print '<td>';
-		$doleditor = new DolEditor('note_private', (GETPOSTISSET('note_private') ? GETPOST('note_private', 'restricthtml') : $note_private), '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
+		$doleditor = new DolEditor('note_private', (GETPOSTISSET('note_private') ? GETPOST('note_private', 'restricthtml') : $note_private), '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
 		print $doleditor->Create(1);
 		print '</td>';
 		// print '<td><textarea name="note" wrap="soft" cols="60" rows="'.ROWS_5.'"></textarea></td>';

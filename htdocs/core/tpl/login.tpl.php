@@ -20,9 +20,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-// Need global variable $urllogo, $title and $titletruedolibarrversion to be defined by caller (like dol_loginfunction in security2.lib.php)
+// Need global variable $urllogo, $title and $titletrueonliversion to be defined by caller (like dol_loginfunction in security2.lib.php)
 // Caller can also set 	$morelogincontent = array(['options']=>array('js'=>..., 'table'=>...);
-// $titletruedolibarrversion must be defined
+// $titletrueonliversion must be defined
 
 if (!defined('NOBROWSERNOTIF')) {
 	define('NOBROWSERNOTIF', 1);
@@ -33,7 +33,7 @@ if (!defined('NOBROWSERNOTIF')) {
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_force_https
+ * @var string $onli_main_force_https
  *
  * @var string $captcha
  *
@@ -49,7 +49,7 @@ if (!defined('NOBROWSERNOTIF')) {
  * @var string $password
  * @var string $session_name
  * @var string $title
- * @var string $titletruedolibarrversion
+ * @var string $titletrueonliversion
  * @var string $urllogo
  * @var int<0,1> $forgetpasslink
  */
@@ -83,7 +83,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 @phan-var-force string $main_home
 @phan-var-force string $password
 @phan-var-force string $session_name
-@phan-var-force string $titletruedolibarrversion
+@phan-var-force string $titletrueonliversion
 @phan-var-force string $urllogo
 @phan-var-force int<0,1> $forgetpasslink
 ';
@@ -154,7 +154,7 @@ if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 } else {
 	$titleofloginpage = $langs->trans('Login');
 }
-$titleofloginpage .= ' @ '.$titletruedolibarrversion; // $titletruedolibarrversion is defined by dol_loginfunction in security2.lib.php. We must keep the @, some tools use it to know it is login page and find true dolibarr version.
+$titleofloginpage .= ' @ '.$titletrueonliversion; // $titletrueonliversion is defined by dol_loginfunction in security2.lib.php. We must keep the @, some tools use it to know it is login page and find true onli version.
 
 $disablenofollow = 1;
 if (!preg_match('/'.constant('DOL_APPLICATION_TITLE').'/', $title)) {
@@ -169,7 +169,7 @@ if (getDolGlobalInt('MAIN_MODULE_OPENIDCONNECT', 0) > 0 && isset($conf->file->ma
 	// Set a cookie to transfer rollback page information
 	$prefix = dol_getprefix('');
 	if (empty($_COOKIE["DOL_rollback_url_$prefix"])) {
-		dolSetCookie('DOL_rollback_url_'.$prefix, $_SERVER['REQUEST_URI'], time() + 3600);	// $_SERVER["REQUEST_URI"] is for example /mydolibarr/mypage.php
+		dolSetCookie('DOL_rollback_url_'.$prefix, $_SERVER['REQUEST_URI'], time() + 3600);	// $_SERVER["REQUEST_URI"] is for example /myonli/mypage.php
 	}
 
 	// Auto redirect if OpenID Connect is the only authentication
@@ -259,7 +259,7 @@ if (!getDolGlobalString('ADD_UNSPLASH_LOGIN_BACKGROUND')) {
 <div class="login_table_title center" tabindex="-1" title="<?php echo dol_escape_htmltag($title); ?>">
 <?php
 if ($disablenofollow) {
-	echo '<a class="login_table_title" tabindex="-1" href="https://www.dolibarr.org" target="_blank" rel="noopener noreferrer external">';
+	echo '<a class="login_table_title" tabindex="-1" href="https://www.onli.org" target="_blank" rel="noopener noreferrer external">';
 }
 echo dol_escape_htmltag($title);
 if ($disablenofollow) {
@@ -465,10 +465,10 @@ if (isset($conf->file->main_authentication) && preg_match('/google/', $conf->fil
 
 	echo '<div class="center" style="margin-top: 20px; margin-bottom: 10px">';
 
-	/*global $dolibarr_main_url_root;
+	/*global $onli_main_url_root;
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

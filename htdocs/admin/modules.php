@@ -34,17 +34,17 @@ if (!defined('CSRFCHECK_WITH_TOKEN') && (empty($_GET['action']) || $_GET['action
 	define('CSRFCHECK_WITH_TOKEN', '1'); // Force use of CSRF protection with tokens even for GET
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/geturl.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
-require_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+require_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 require_once DOL_DOCUMENT_ROOT.'/admin/remotestore/class/externalModules.class.php';
 
 '
-@phan-var-force string $dolibarr_main_url_root_alt
+@phan-var-force string $onli_main_url_root_alt
 ';
 
 /**
@@ -55,7 +55,7 @@ require_once DOL_DOCUMENT_ROOT.'/admin/remotestore/class/externalModules.class.p
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root_alt
+ * @var string $onli_main_url_root_alt
  */
 
 // Load translation files required by the page
@@ -65,7 +65,7 @@ $langs->loadLangs(array("errors", "admin", "modulebuilder"));
 if (GETPOSTISSET('mode')) {
 	$mode = GETPOST('mode', 'alpha');
 	if ($mode == 'common' || $mode == 'commonkanban') {
-		dolibarr_set_const($db, "MAIN_MODULE_SETUP_ON_LIST_BY_DEFAULT", $mode, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_MODULE_SETUP_ON_LIST_BY_DEFAULT", $mode, 'chaine', 0, '', $conf->entity);
 	}
 } else {
 	$mode = getDolGlobalString('MAIN_MODULE_SETUP_ON_LIST_BY_DEFAULT', 'commonkanban');
@@ -131,7 +131,7 @@ if (!GETPOST('buttonreset', 'alpha')) {
 }
 
 $dirins = DOL_DOCUMENT_ROOT.'/custom';
-$urldolibarrmodules = 'https://www.dolistore.com/';
+$urlonlimodules = 'https://www.dolistore.com/';
 
 // Initialize a technical object to manage hooks of page. Note that conf->hooks_modules contains an array of hook context
 $hookmanager->initHooks(array('adminmodules', 'globaladmin'));
@@ -153,10 +153,10 @@ if ($max_time && $max_time < $max_execution_time_for_deploy) {
 }
 
 
-$dolibarrdataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
+$onlidataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
 $allowonlineinstall = true;
 $allowfromweb = 1;
-if (dol_is_file($dolibarrdataroot.'/installmodules.lock')) {
+if (dol_is_file($onlidataroot.'/installmodules.lock')) {
 	$allowonlineinstall = false;
 }
 
@@ -195,12 +195,12 @@ if ($action == 'install' && $allowonlineinstall) {
 	} else {
 		if (!$error && !preg_match('/\.zip$/i', $original_file)) {
 			$langs->load("errors");
-			setEventMessages($langs->trans("ErrorFileMustBeADolibarrPackage", $original_file), null, 'errors');
+			setEventMessages($langs->trans("ErrorFileMustBeAOnLiPackage", $original_file), null, 'errors');
 			$error++;
 		}
 		if (!$error && !preg_match('/^(module[a-zA-Z0-9]*_|theme_|).*\-([0-9][0-9\.]*)(\s\(\d+\)\s)?\.zip$/i', $original_file)) {
 			$langs->load("errors");
-			setEventMessages($langs->trans("ErrorFilenameDosNotMatchDolibarrPackageRules", $original_file, 'modulename-x[.y.z].zip'), null, 'errors');
+			setEventMessages($langs->trans("ErrorFilenameDosNotMatchOnLiPackageRules", $original_file, 'modulename-x[.y.z].zip'), null, 'errors');
 			$error++;
 		}
 		if (empty($_FILES['fileinstall']['tmp_name'])) {
@@ -268,7 +268,7 @@ if ($action == 'install' && $allowonlineinstall) {
 										if ($modName) {
 											if (class_exists($modName)) {
 												$objMod = new $modName($db);
-												'@phan-var-force DolibarrModules $objMod';
+												'@phan-var-force OnLiModules $objMod';
 
 												//var_dump($objMod);
 											}
@@ -287,9 +287,9 @@ if ($action == 'install' && $allowonlineinstall) {
 				if (!$error) {
 					if (GETPOST('checkforcompliance') == 'on') {
 						try {
-							$res = include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
-							$dolibarrmodule = new DolibarrModules($db);
-							$checkRes = $dolibarrmodule->checkForcompliance($modulename);
+							$res = include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
+							$onlimodule = new OnLiModules($db);
+							$checkRes = $onlimodule->checkForcompliance($modulename);
 
 							if (!is_numeric($checkRes) && $checkRes != '') {
 								$langs->load("errors");
@@ -366,7 +366,7 @@ if ($action == 'install' && $allowonlineinstall) {
 				if ($modName) {
 					if (class_exists($modName)) {
 						$objMod = new $modName($db);
-						'@phan-var-force DolibarrModules $objMod';
+						'@phan-var-force OnLiModules $objMod';
 
 						//var_dump($objMod);
 					}
@@ -408,7 +408,7 @@ if ($action == 'set' && $user->admin) {
 		setEventMessage($langs->trans('WarningModuleHasChangedSecurityCsrfParameter', $value), 'warnings');
 	}
 
-	dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 	if (!empty($resarray['errors'])) {
 		setEventMessages('', $resarray['errors'], 'errors');
 	} else {
@@ -432,7 +432,7 @@ if ($action == 'set' && $user->admin) {
 	exit;
 } elseif ($action == 'reset' && $user->admin && GETPOST('confirm') == 'yes') {
 	$result = unActivateModule($value);
-	dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 	if ($result) {
 		setEventMessages($result, null, 'errors');
 	}
@@ -440,13 +440,13 @@ if ($action == 'set' && $user->admin) {
 	exit;
 } elseif (getDolGlobalInt("MAIN_FEATURES_LEVEL") > 1 && $action == 'reload' && $user->admin && GETPOST('confirm') == 'yes') {
 	$result = unActivateModule($value, 0);
-	dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_IHM_PARAMS_REV", getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1, 'chaine', 0, '', $conf->entity);
 	if ($result) {
 		setEventMessages($result, null, 'errors');
 		header("Location: ".$_SERVER["PHP_SELF"]."?mode=".$mode.$param.($page_y ? '&page_y='.$page_y : ''));
 	}
 	$resarray = activateModule($value, 0, 1);
-	dolibarr_set_const($db, "MAIN_IHM_PARAMS_REV", (getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_IHM_PARAMS_REV", (getDolGlobalInt('MAIN_IHM_PARAMS_REV') + 1), 'chaine', 0, '', $conf->entity);
 	if (!empty($resarray['errors'])) {
 		setEventMessages('', $resarray['errors'], 'errors');
 	} else {
@@ -531,7 +531,7 @@ foreach ($modulesdir as $dir) {
 						$res = include_once $dir.$file; // A class already exists in a different file will send a non catchable fatal error.
 						if (class_exists($modName)) {
 							$objMod = new $modName($db);
-							'@phan-var-force DolibarrModules $objMod';
+							'@phan-var-force OnLiModules $objMod';
 							$modNameLoaded[$modName] = $dir;
 							if (!$objMod->numero > 0 && $modName != 'modUser') {
 								dol_syslog('The module descriptor '.$modName.' must have a numero property', LOG_ERR);
@@ -644,7 +644,7 @@ foreach ($modulesdir as $dir) {
 	}
 }
 
-'@phan-var-force array<string,DolibarrModules> $modules';
+'@phan-var-force array<string,OnLiModules> $modules';
 
 if ($action == 'reset_confirm' && $user->admin) {
 	if (!empty($modules[$value])) {
@@ -748,7 +748,7 @@ if ($mode == 'common' || $mode == 'commonkanban') {
 	$moreforfilter = '<div class="valignmiddle">';
 
 	$moreforfilter .= '<div class="floatright right pagination paddingtop --module-list"><ul><li>';
-	$moreforfilter .= dolGetButtonTitle($langs->trans('CheckForModuleUpdate'), $langs->trans('CheckForModuleUpdate').'<br><br>'.img_warning('', '', 'paddingright').$langs->trans('CheckForModuleUpdateHelp').' '.$langs->trans('CheckForModuleUpdateHelp2', DolibarrModules::URL_FOR_BLACKLISTED_MODULES).'<br>'.$langs->trans("YourIPWillBeRevealedToThisExternalProviders"), 'fa fa-sync', $_SERVER["PHP_SELF"].'?action=checklastversion&token='.newToken().'&mode='.$mode.$param, '', 1, array('morecss' => 'reposition'));
+	$moreforfilter .= dolGetButtonTitle($langs->trans('CheckForModuleUpdate'), $langs->trans('CheckForModuleUpdate').'<br><br>'.img_warning('', '', 'paddingright').$langs->trans('CheckForModuleUpdateHelp').' '.$langs->trans('CheckForModuleUpdateHelp2', OnLiModules::URL_FOR_BLACKLISTED_MODULES).'<br>'.$langs->trans("YourIPWillBeRevealedToThisExternalProviders"), 'fa fa-sync', $_SERVER["PHP_SELF"].'?action=checklastversion&token='.newToken().'&mode='.$mode.$param, '', 1, array('morecss' => 'reposition'));
 	$moreforfilter .= dolGetButtonTitleSeparator();
 	$moreforfilter .= dolGetButtonTitle($langs->trans('ViewList'), '', 'fa fa-bars imgforviewmode', $_SERVER["PHP_SELF"].'?mode=common'.$param, '', ($mode == 'common' ? 2 : 1), array('morecss' => 'reposition'));
 	$moreforfilter .= dolGetButtonTitle($langs->trans('ViewKanban'), '', 'fa fa-th-list imgforviewmode', $_SERVER["PHP_SELF"].'?mode=commonkanban'.$param, '', ($mode == 'commonkanban' ? 2 : 1), array('morecss' => 'reposition'));
@@ -829,7 +829,7 @@ if ($mode == 'common' || $mode == 'commonkanban') {
 
 		$modName = $filename[$key];
 
-		/** @var DolibarrModules $objMod */
+		/** @var OnLiModules $objMod */
 		$objMod = $modules[$modName];
 
 		if (!is_object($objMod)) {
@@ -970,7 +970,7 @@ if ($mode == 'common' || $mode == 'commonkanban') {
 		if ($objMod->isCoreOrExternalModule() == 'external' && ($action == 'checklastversion' || getDolGlobalString('CHECKLASTVERSION_EXTERNALMODULE'))) {
 			// Setting CHECKLASTVERSION_EXTERNALMODULE to on is a bad practice to activate a check on an external access during the building of the admin page.
 			// 1 external module can hang the application.
-			// Adding a cron job could be a good idea: see DolibarrModules::checkForUpdate()
+			// Adding a cron job could be a good idea: see OnLiModules::checkForUpdate()
 			$checkRes = $objMod->checkForUpdate();
 			if ($checkRes > 0) {
 				setEventMessages($objMod->getName().' : '.preg_replace('/[^a-z0-9_\.\-\s]/i', '', $versiontrans).' -> '.preg_replace('/[^a-z0-9_\.\-\s]/i', '', $objMod->lastVersion), null, 'warnings');
@@ -980,7 +980,7 @@ if ($mode == 'common' || $mode == 'commonkanban') {
 		}
 
 		if ($objMod->isCoreOrExternalModule() == 'external' && $action == 'checklastversion' && !getDolGlobalString('DISABLE_CHECK_ON_MALWARE_MODULES')) {
-			$checkRes = $objMod->checkForCompliance();	// Check if module is reported as non compliant with Dolibarr rules and law
+			$checkRes = $objMod->checkForCompliance();	// Check if module is reported as non compliant with OnLi rules and law
 			if (!is_numeric($checkRes) && $checkRes != '') {
 				$langs->load("errors");
 				setEventMessages($objMod->getName().' : '.$langs->trans($checkRes), null, 'errors');
@@ -1159,7 +1159,7 @@ if ($mode == 'common' || $mode == 'commonkanban') {
 			// Picto + Name of module
 			print '  <td class="tdoverflowmax200 minwidth200imp" title="'.dol_escape_htmltag($objMod->getName()).'">';
 			$alttext = '';
-			//if (is_array($objMod->need_dolibarr_version)) $alttext.=($alttext?' - ':'').'Dolibarr >= '.join('.',$objMod->need_dolibarr_version);
+			//if (is_array($objMod->need_onli_version)) $alttext.=($alttext?' - ':'').'OnLi >= '.join('.',$objMod->need_onli_version);
 			//if (is_array($objMod->phpmin)) $alttext.=($alttext?' - ':'').'PHP >= '.join('.',$objMod->phpmin);
 			if (!empty($objMod->picto)) {
 				if (preg_match('/^\//i', $objMod->picto)) {
@@ -1296,8 +1296,8 @@ if ($mode == 'marketplace') {
 
 	// Community
 	print '<tr class="oddeven">'."\n";
-	$url = 'https://github.com/Dolibarr/dolibarr-community-modules';
-	print '<td class="hideonsmartphone center width150 nopaddingleftimp nopaddingrightimp"><a href="'.$url.'" target="_blank" rel="noopener noreferrer external"><img border="0" class="imgautosize imgmaxwidth100" src="'.DOL_URL_ROOT.'/theme/dolibarr_logo.svg"></a></td>';
+	$url = 'https://github.com/OnLi/onli-community-modules';
+	print '<td class="hideonsmartphone center width150 nopaddingleftimp nopaddingrightimp"><a href="'.$url.'" target="_blank" rel="noopener noreferrer external"><img border="0" class="imgautosize imgmaxwidth100" src="'.DOL_URL_ROOT.'/theme/onli_logo.svg"></a></td>';
 	print '<td><span class="opacitymedium">'.$langs->trans("CommunityModulesDesc").'</span><br>';
 	print img_picto('', 'url', 'class="pictofixedwidth"').'<a href="'.$url.'" target="_blank" rel="noopener noreferrer external">'.$url.'</a></td>';
 	print '<td>';
@@ -1393,10 +1393,10 @@ if ($mode == 'marketplace') {
 if ($mode == 'deploy') {
 	print dol_get_fiche_head($head, $mode, '', -1);
 
-	$fullurl = '<a href="'.$urldolibarrmodules.'" target="_blank" rel="noopener noreferrer">'.$urldolibarrmodules.'</a>';
+	$fullurl = '<a href="'.$urlonlimodules.'" target="_blank" rel="noopener noreferrer">'.$urlonlimodules.'</a>';
 	$message = '';
 	if ($allowonlineinstall) {
-		if (!in_array('/custom', explode(',', $dolibarr_main_url_root_alt))) {
+		if (!in_array('/custom', explode(',', $onli_main_url_root_alt))) {
 			$message = info_admin($langs->trans("ConfFileMustContainCustom", DOL_DOCUMENT_ROOT.'/custom', DOL_DOCUMENT_ROOT));
 			$allowfromweb = -1;
 		} else {
@@ -1421,7 +1421,7 @@ if ($mode == 'deploy') {
 			}
 		} else {
 			// Show technical message
-			$message = info_admin($langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $dolibarrdataroot.'/installmodules.lock'), 0, 0, 'warning');
+			$message = info_admin($langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $onlidataroot.'/installmodules.lock'), 0, 0, 'warning');
 		}
 		$allowfromweb = 0;
 	}
@@ -1596,9 +1596,9 @@ if ($mode == 'develop') {
 	print '</tr>';
 
 	print '<tr class="oddeven" height="80">'."\n";
-	$url = 'https://partners.dolibarr.org';
+	$url = 'https://partners.onli.org';
 	print '<td class="center">';
-	print'<a href="'.$url.'" target="_blank" rel="noopener noreferrer external"><img border="0" class="imgautosize imgmaxwidth180" src="'.DOL_URL_ROOT.'/theme/dolibarr_preferred_partner.png"></a>';
+	print'<a href="'.$url.'" target="_blank" rel="noopener noreferrer external"><img border="0" class="imgautosize imgmaxwidth180" src="'.DOL_URL_ROOT.'/theme/onli_preferred_partner.png"></a>';
 	print '</td>';
 	print '<td>'.$langs->trans("DoliPartnersDesc").'</td>';
 	print '<td><a href="'.$url.'" target="_blank" rel="noopener noreferrer external">';

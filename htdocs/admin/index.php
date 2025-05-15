@@ -23,7 +23,7 @@
  *		\brief      Home page of setup area
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 /**

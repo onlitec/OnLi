@@ -28,7 +28,7 @@
  *	\brief      Setup page to configure company social networks
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -69,17 +69,17 @@ if (($action == 'update' && !GETPOST("cancel", 'alpha'))) {
 			$networkconstname = 'MAIN_INFO_SOCIETE_'.strtoupper($key).'_URL';
 			$networkconstid = 'MAIN_INFO_SOCIETE_'.strtoupper($key);
 			if (GETPOSTISSET($key.'url') && GETPOST($key.'url', 'alpha') != '') {
-				dolibarr_set_const($db, $networkconstname, GETPOST($key.'url', 'alpha'), 'chaine', 0, '', $conf->entity);
-				dolibarr_set_const($db, $networkconstid, GETPOST($key, 'alpha'), 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, $networkconstname, GETPOST($key.'url', 'alpha'), 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, $networkconstid, GETPOST($key, 'alpha'), 'chaine', 0, '', $conf->entity);
 			} elseif (GETPOSTISSET($key) && GETPOST($key, 'alpha') != '') {
 				if (!empty($listofnetworks[$key]['url'])) {
 					$url = str_replace('{socialid}', GETPOST($key, 'alpha'), $listofnetworks[$key]['url']);
-					dolibarr_set_const($db, $networkconstname, $url, 'chaine', 0, '', $conf->entity);
+					onli_set_const($db, $networkconstname, $url, 'chaine', 0, '', $conf->entity);
 				}
-				dolibarr_set_const($db, $networkconstid, GETPOST($key, 'alpha'), 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, $networkconstid, GETPOST($key, 'alpha'), 'chaine', 0, '', $conf->entity);
 			} else {
-				dolibarr_del_const($db, $networkconstname, $conf->entity);
-				dolibarr_del_const($db, $networkconstid, $conf->entity);
+				onli_del_const($db, $networkconstname, $conf->entity);
+				onli_del_const($db, $networkconstid, $conf->entity);
 			}
 		}
 	}

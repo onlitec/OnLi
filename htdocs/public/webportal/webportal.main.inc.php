@@ -49,7 +49,7 @@ if (!defined('NOIPCHECK')) {
 
 if (!function_exists('dol_getprefix')) {
 	/**
-	 *  Return a prefix to use for this Dolibarr instance, for session/cookie names or email id.
+	 *  Return a prefix to use for this OnLi instance, for session/cookie names or email id.
 	 *  The prefix is unique for instance and avoid conflict between multi-instances, even when having two instances with same root dir
 	 *  or two instances in same virtual servers.
 	 *  This function must not use dol_hash (that is used for password hash) and need to have all context $conf loaded.
@@ -59,12 +59,12 @@ if (!function_exists('dol_getprefix')) {
 	 */
 	function dol_getprefix($mode = '')  // @phan-suppress-current-line PhanRedefineFunction
 	{
-		global $dolibarr_main_instance_unique_id,
-		$dolibarr_main_cookie_cryptkey; // This is loaded by filefunc.inc.php
+		global $onli_main_instance_unique_id,
+		$onli_main_cookie_cryptkey; // This is loaded by filefunc.inc.php
 
-		$tmp_instance_unique_id = empty($dolibarr_main_instance_unique_id) ?
-			(empty($dolibarr_main_cookie_cryptkey) ? '' :
-				$dolibarr_main_cookie_cryptkey) : $dolibarr_main_instance_unique_id;
+		$tmp_instance_unique_id = empty($onli_main_instance_unique_id) ?
+			(empty($onli_main_cookie_cryptkey) ? '' :
+				$onli_main_cookie_cryptkey) : $onli_main_instance_unique_id;
 		// Unique id of instance
 
 		// The recommended value (may be not defined for old versions)
@@ -90,7 +90,7 @@ require_once DOL_DOCUMENT_ROOT . '/webportal/class/webportalmember.class.php';
 require_once DOL_DOCUMENT_ROOT . '/webportal/class/webportalpartnership.class.php';
 
 // Init session. Name of session is specific to WEBPORTAL instance.
-// Must be done after the include of filefunc.inc.php so global variables of conf file are defined (like $dolibarr_main_instance_unique_id or $dolibarr_main_force_https).
+// Must be done after the include of filefunc.inc.php so global variables of conf file are defined (like $onli_main_instance_unique_id or $onli_main_force_https).
 // Note: the function dol_getprefix is defined into functions.lib.php but may have been defined to return a different key to manage another area to protect.
 $prefix = dol_getprefix('');
 $sessionname = 'WEBPORTAL_SESSID_' . $prefix;
@@ -204,7 +204,7 @@ if (!defined('WEBPORTAL_NOLOGIN') && !empty($context->controllerInstance->access
 			// Account has been removed after login
 			dol_syslog("Can't load third-party account (ID: $webportal_logged_thirdparty_account_id) even if session logged.", LOG_WARNING);
 			session_destroy();
-			session_set_cookie_params(0, '/', null, !empty($dolibarr_main_force_https), true); // Add tag secure and httponly on session cookie
+			session_set_cookie_params(0, '/', null, !empty($onli_main_force_https), true); // Add tag secure and httponly on session cookie
 			session_name($sessionname);
 			session_start();
 

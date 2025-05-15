@@ -25,7 +25,7 @@
  *       \brief      Page to setup mails for password reset
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -88,25 +88,25 @@ if (!$user->admin) {
 
 if ($action == 'update' && !$cancel) {
 	// Send mode parameters
-	dolibarr_set_const($db, "MAIN_MAIL_SENDMODE_PASSWORDRESET", GETPOST("MAIN_MAIL_SENDMODE_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_MAIL_SMTP_PORT_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTP_PORT_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_MAIL_SMTP_SERVER_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTP_SERVER_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_MAIL_SMTPS_ID_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_ID_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_SENDMODE_PASSWORDRESET", GETPOST("MAIN_MAIL_SENDMODE_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_SMTP_PORT_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTP_PORT_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_SMTP_SERVER_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTP_SERVER_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_SMTPS_ID_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_ID_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
 	if (GETPOSTISSET("MAIN_MAIL_SMTPS_PW_PASSWORDRESET")) {
-		dolibarr_set_const($db, "MAIN_MAIL_SMTPS_PW_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_PW_PASSWORDRESET", 'password'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_MAIL_SMTPS_PW_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_PW_PASSWORDRESET", 'password'), 'chaine', 0, '', $conf->entity);
 	}
 	if (GETPOSTISSET("MAIN_MAIL_SMTPS_AUTH_TYPE_PASSWORDRESET")) {
-		dolibarr_set_const($db, "MAIN_MAIL_SMTPS_AUTH_TYPE_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_AUTH_TYPE_PASSWORDRESET", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_MAIL_SMTPS_AUTH_TYPE_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_AUTH_TYPE_PASSWORDRESET", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 	}
 	if (GETPOSTISSET("MAIN_MAIL_SMTPS_OAUTH_SERVICE_PASSWORDRESET")) {
-		dolibarr_set_const($db, "MAIN_MAIL_SMTPS_OAUTH_SERVICE_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_OAUTH_SERVICE_PASSWORDRESET", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_MAIL_SMTPS_OAUTH_SERVICE_PASSWORDRESET", GETPOST("MAIN_MAIL_SMTPS_OAUTH_SERVICE_PASSWORDRESET", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 	}
-	dolibarr_set_const($db, "MAIN_MAIL_EMAIL_TLS_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_TLS_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_MAIL_EMAIL_STARTTLS_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_STARTTLS_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "MAIN_MAIL_EMAIL_SMTP_ALLOW_SELF_SIGNED_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_SMTP_ALLOW_SELF_SIGNED_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_EMAIL_TLS_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_TLS_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_EMAIL_STARTTLS_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_STARTTLS_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_MAIL_EMAIL_SMTP_ALLOW_SELF_SIGNED_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_SMTP_ALLOW_SELF_SIGNED_PASSWORDRESET"), 'chaine', 0, '', $conf->entity);
 
 	if (GETPOSTISSET("MAIN_MAIL_EMAIL_FROM_PASSWORDRESET")) {
-		dolibarr_set_const($db, "MAIN_MAIL_EMAIL_FROM_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_FROM_PASSWORDRESET", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_MAIL_EMAIL_FROM_PASSWORDRESET", GETPOST("MAIN_MAIL_EMAIL_FROM_PASSWORDRESET", 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 	}
 
 	header("Location: ".$_SERVER["PHP_SELF"]."?mainmenu=home&leftmenu=setup");
@@ -844,7 +844,7 @@ if ($action == 'edit') {
 		$formmail->withcancel = 1;
 		$formmail->withdeliveryreceipt = 1;
 		$formmail->withfckeditor = ($action == 'testhtml' ? 1 : 0);
-		$formmail->ckeditortoolbar = 'dolibarr_mailings';
+		$formmail->ckeditortoolbar = 'onli_mailings';
 		// Tableau des substitutions
 		$formmail->substit = $substitutionarrayfortest;
 		// Tableau des parameters complementaires du post

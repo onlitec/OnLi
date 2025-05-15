@@ -110,7 +110,7 @@ class FormLdap
 	 *	@param	int			$selected		Preselected type
 	 *	@param  string		$htmlname		Name of field in form
 	 *	@param	string[]	$exclude		Exclude values from the list
-	 *	@param	int<0,3>	$scriptonly		Add warning if synchro only work with a script (0 = disable, 1 = Dolibarr2ldap, 2 = ldap2dolibarr, 3 = all)
+	 *	@param	int<0,3>	$scriptonly		Add warning if synchro only work with a script (0 = disable, 1 = OnLi2ldap, 2 = ldap2onli, 3 = all)
 	 * 	@param	int			$showempty		Add an empty field
 	 *  @return	string						HTML select string
 	 */
@@ -125,13 +125,13 @@ class FormLdap
 			$htmlname = 'activesynchro';
 		}
 
-		$dolibarr2ldaplabel = $langs->trans("DolibarrToLDAP") . (($scriptonly == 1 || $scriptonly == 3) ? " (".$langs->trans("SupportedForLDAPExportScriptOnly").")" : "");
-		$ldap2dolibarrlabel = $langs->trans("LDAPToDolibarr") . (($scriptonly == 2 || $scriptonly == 3) ? " (".$langs->trans("SupportedForLDAPImportScriptOnly").")" : "");
+		$onli2ldaplabel = $langs->trans("OnLiToLDAP") . (($scriptonly == 1 || $scriptonly == 3) ? " (".$langs->trans("SupportedForLDAPExportScriptOnly").")" : "");
+		$ldap2onlilabel = $langs->trans("LDAPToOnLi") . (($scriptonly == 2 || $scriptonly == 3) ? " (".$langs->trans("SupportedForLDAPImportScriptOnly").")" : "");
 
 		$arraylist = array(
 			Ldap::SYNCHRO_NONE				=> $langs->trans("No"),
-			Ldap::SYNCHRO_DOLIBARR_TO_LDAP	=> $dolibarr2ldaplabel,
-			Ldap::SYNCHRO_LDAP_TO_DOLIBARR	=> $ldap2dolibarrlabel
+			Ldap::SYNCHRO_DOLIBARR_TO_LDAP	=> $onli2ldaplabel,
+			Ldap::SYNCHRO_LDAP_TO_DOLIBARR	=> $ldap2onlilabel
 		);
 
 		if (is_array($exclude) && !empty($exclude)) {

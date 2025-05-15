@@ -18,7 +18,7 @@
  */
 
 /**
- *		\file 		htdocs/admin/tools/dolibarr_import.php
+ *		\file 		htdocs/admin/tools/onli_import.php
  *		\ingroup	core
  * 		\brief      Page to import database
  */
@@ -27,7 +27,7 @@ if (! defined('CSRFCHECK_WITH_TOKEN')) {
 	define('CSRFCHECK_WITH_TOKEN', '1');		// Force use of CSRF protection with tokens even for GET
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**
@@ -58,7 +58,7 @@ $type = $db->type;
 
 
 $help_url = 'EN:Restores|FR:Restaurations|ES:Restauraciones';
-llxHeader('', '', $help_url, '', 0, 0, '', '', '', 'mod-admin page-tools_dolibarr_import');
+llxHeader('', '', $help_url, '', 0, 0, '', '', '', 'mod-admin page-tools_onli_import');
 
 ?>
 <script type="text/javascript">
@@ -107,11 +107,11 @@ print '</span>';
 <legend style="font-size: 3em">2</legend>
 <?php
 print '<span class="opacitymedium">';
-print $langs->trans("RestoreDesc3", $dolibarr_main_db_name).'<br><br>';
+print $langs->trans("RestoreDesc3", $onli_main_db_name).'<br><br>';
 print '</span>';
 ?>
 
-<?php print $langs->trans("DatabaseName").' : <b>'.$dolibarr_main_db_name.'</b>'; ?><br><br>
+<?php print $langs->trans("DatabaseName").' : <b>'.$onli_main_db_name.'</b>'; ?><br><br>
 
 <table class="centpercent"><tr><td class="tdtop">
 
@@ -158,17 +158,17 @@ if (in_array($type, array('mysql', 'mysqli'))) {
 		$command = $command = escapeshellarg($command); // Use quotes on command
 	}
 
-		$param = $dolibarr_main_db_name;
-		$param .= " -h ".$dolibarr_main_db_host;
-	if (!empty($dolibarr_main_db_port)) {
-		$param .= " -P ".$dolibarr_main_db_port;
+		$param = $onli_main_db_name;
+		$param .= " -h ".$onli_main_db_host;
+	if (!empty($onli_main_db_port)) {
+		$param .= " -P ".$onli_main_db_port;
 	}
-		$param .= " -u ".$dolibarr_main_db_user;
+		$param .= " -u ".$onli_main_db_user;
 		$paramcrypted = $param;
 		$paramclear = $param;
-	if (!empty($dolibarr_main_db_pass)) {
-		$paramcrypted .= " -p".preg_replace('/./i', '*', $dolibarr_main_db_pass);
-		$paramclear .= " -p".$dolibarr_main_db_pass;
+	if (!empty($onli_main_db_pass)) {
+		$paramcrypted .= " -p".preg_replace('/./i', '*', $onli_main_db_pass);
+		$paramclear .= " -p".$onli_main_db_pass;
 	}
 
 	print $langs->trans("ImportMySqlDesc");
@@ -176,7 +176,7 @@ if (in_array($type, array('mysql', 'mysqli'))) {
 	print '<textarea rows="1" id="restorecommand" class="centpercent">'.$langs->trans("ImportMySqlCommand", $command, ($action == 'showpass' ? $paramclear : $paramcrypted)).'</textarea><br>';
 	print ajax_autoselect('restorecommand');
 
-	if (GETPOST("action") != 'showpass' && $dolibarr_main_db_pass) {
+	if (GETPOST("action") != 'showpass' && $onli_main_db_pass) {
 		print '<br><a href="'.$_SERVER["PHP_SELF"].'?action=showpass&token='.newToken().'&radio_dump=mysql_options">'.$langs->trans("UnHidePassword").'</a>';
 	}
 	//else print '<br><a href="'.$_SERVER["PHP_SELF"].'?radio_dump=mysql_options">'.$langs->trans("HidePassword").'</a>';
@@ -192,18 +192,18 @@ if (in_array($type, array('mysql', 'mysqli'))) {
 		$command = $command = escapeshellarg($command); // Use quotes on command
 	}
 
-	$param = " -d ".$dolibarr_main_db_name;
-	$param .= " -h ".$dolibarr_main_db_host;
-	if (!empty($dolibarr_main_db_port)) {
-		$param .= " -p ".$dolibarr_main_db_port;
+	$param = " -d ".$onli_main_db_name;
+	$param .= " -h ".$onli_main_db_host;
+	if (!empty($onli_main_db_port)) {
+		$param .= " -p ".$onli_main_db_port;
 	}
-	$param .= " -U ".$dolibarr_main_db_user;
+	$param .= " -U ".$onli_main_db_user;
 	$paramcrypted = $param;
 	$paramclear = $param;
-	/*if (!empty($dolibarr_main_db_pass))
+	/*if (!empty($onli_main_db_pass))
 	{
-		$paramcrypted.=" -p".preg_replace('/./i','*',$dolibarr_main_db_pass);
-		$paramclear.=" -p".$dolibarr_main_db_pass;
+		$paramcrypted.=" -p".preg_replace('/./i','*',$onli_main_db_pass);
+		$paramclear.=" -p".$onli_main_db_pass;
 	}*/
 	$paramcrypted .= " -W";
 	$paramclear .= " -W";

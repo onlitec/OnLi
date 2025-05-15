@@ -24,17 +24,17 @@
  *  \ingroup    datapolicy
  *  \brief      Description and activation file for the module datapolicy
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 
-// The class name should start with a lower case mod for Dolibarr to pick it up
+// The class name should start with a lower case mod for OnLi to pick it up
 // so we ignore the Squiz.Class.ValidClassName.NotCamelCaps rule.
 // @codingStandardsIgnoreStart
 /**
  *  Description and activation class for module datapolicy
  */
-class modDataPolicy extends DolibarrModules
+class modDataPolicy extends OnLiModules
 {
 	// @codingStandardsIgnoreEnd
 	/**
@@ -49,7 +49,7 @@ class modDataPolicy extends DolibarrModules
 		$this->db = $db;
 
 		// Id for module (must be unique).
-		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
+		// Use here a free id (See in Home -> System information -> OnLi for list of used modules id).
 		$this->numero = 4100;
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'datapolicy';
@@ -68,7 +68,7 @@ class modDataPolicy extends DolibarrModules
 		// Used only if file README.md and README-LL.md not found.
 		$this->descriptionlong = "";
 
-		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
+		// Possible values for version are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'
 		$this->version = 'experimental';
 		// Key used in llx_const table to save module status enabled/disabled (where datapolicy is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
@@ -97,7 +97,7 @@ class modDataPolicy extends DolibarrModules
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with
 		$this->langfiles = array("datapolicy");
 		$this->phpmin = array(5, 3); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(7, 0); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(7, 0); // Minimum version of OnLi required by module
 		$this->warnings_activation = array(); // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		$this->warnings_activation_ext = array(); // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		//$this->automatic_activation = array('FR'=>'datapolicyWasAutomaticallyActivatedBecauseOfYourCountryChoice');
@@ -190,7 +190,7 @@ class modDataPolicy extends DolibarrModules
 
 	/**
 	 * 	Function called when module is enabled.
-	 * 	The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 * 	The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 * 	It also creates data directories
 	 *
 	 * 	@param      string	$options    Options when enabling module ('', 'noboxes')
@@ -234,7 +234,7 @@ class modDataPolicy extends DolibarrModules
 
 	/**
 	 * 	Function called when module is disabled.
-	 * 	Remove from database constants, boxes and permissions from Dolibarr database.
+	 * 	Remove from database constants, boxes and permissions from OnLi database.
 	 * 	Data directories are not deleted
 	 *
 	 * 	@param      string	$options    Options when enabling module ('', 'noboxes')

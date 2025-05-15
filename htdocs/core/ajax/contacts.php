@@ -33,7 +33,7 @@ if (!defined('NOREQUIREAJAX')) {
 	define('NOREQUIREAJAX', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

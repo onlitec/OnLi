@@ -24,7 +24,7 @@
 /**
  * \file scripts/invoices/email_unpaid_invoices_to_representatives.php
  * \ingroup facture
- * \brief Script to send a mail to dolibarr users linked to companies with unpaid invoices
+ * \brief Script to send a mail to onli users linked to companies with unpaid invoices
  */
 
 if (!defined('NOSESSION')) {
@@ -87,7 +87,7 @@ if ($mode != 'confirm') {
 	$conf->global->MAIN_DISABLE_ALL_MAILS = 1;
 }
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }
@@ -186,7 +186,7 @@ if ($resql) {
 			}
 		}
 	} else {
-		print "No unpaid invoices (for companies linked to a particular commercial dolibarr user) found\n";
+		print "No unpaid invoices (for companies linked to a particular commercial onli user) found\n";
 	}
 
 	exit(0);

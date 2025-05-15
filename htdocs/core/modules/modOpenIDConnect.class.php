@@ -26,14 +26,14 @@
  *  \ingroup    openid_connect
  *  \brief      Description and activation file for the module OpenID Connect
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 
 /**
  *  Class to describe and activate module OpenID Connect
  */
-class modOpenIDConnect extends DolibarrModules
+class modOpenIDConnect extends OnLiModules
 {
 	/**
 	 *  Constructor
@@ -52,8 +52,8 @@ class modOpenIDConnect extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Enable OpenID Connect authentication";
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or 'dolibarr_deprecated' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or 'onli_deprecated' or version
+		$this->version = 'onli';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
@@ -72,7 +72,7 @@ class modOpenIDConnect extends DolibarrModules
 		$this->requiredby = array(); // List of module ids to disable if this one is disabled
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module                    // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(3, 7, -2); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(3, 7, -2); // Minimum version of OnLi required by module
 		$this->conflictwith = array();
 		$this->langfiles = array("openid_connect");
 
@@ -93,7 +93,7 @@ class modOpenIDConnect extends DolibarrModules
 
 	/**
 	 *      Function called when module is enabled.
-	 *      The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *      The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *      It also creates data directories
 	 *
 	 *      @param      string  $options    Options when enabling module ('', 'noboxes')

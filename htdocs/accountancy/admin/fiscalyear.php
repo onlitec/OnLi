@@ -22,7 +22,7 @@
  *  \brief      Setup page to configure fiscal year
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
@@ -93,7 +93,7 @@ if ($action == 'setdefault') {
 	$defaultFiscalYearLabel = GETPOST('label', 'alpha');
 
 	if (!empty($defaultFiscalYear)) {
-		dolibarr_set_const($db, 'ACCOUNTANCY_FISCALYEAR_DEFAULT', $defaultFiscalYear, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'ACCOUNTANCY_FISCALYEAR_DEFAULT', $defaultFiscalYear, 'chaine', 0, '', $conf->entity);
 	} else {
 		$error++;
 	}

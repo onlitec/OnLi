@@ -22,7 +22,7 @@
  *     \brief      Page administration XDebug
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

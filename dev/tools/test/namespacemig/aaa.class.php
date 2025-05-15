@@ -1,6 +1,6 @@
 <?php
 
-namespace Dolibarr;
+namespace OnLi;
 
 global $globalaaa;
 $globalaaa = 'globalaaa';

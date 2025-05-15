@@ -32,9 +32,9 @@ require_once DOL_DOCUMENT_ROOT.'/adherents/class/adherent_type.class.php';
  * API class for members
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Members extends DolibarrApi
+class Members extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when create and update object
@@ -66,7 +66,7 @@ class Members extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -80,8 +80,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('adherent', $member->id) && $id > 0) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('adherent', $member->id) && $id > 0) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($member);
@@ -103,7 +103,7 @@ class Members extends DolibarrApi
 	 */
 	public function getByThirdparty($thirdparty)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -113,8 +113,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('adherent', $member->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('adherent', $member->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($member);
@@ -134,7 +134,7 @@ class Members extends DolibarrApi
 	 */
 	public function getByThirdpartyAccounts($site, $key_account)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('societe', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('societe', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -162,8 +162,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'This account have many thirdparties attached or does not exist.');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('adherent', $member->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('adherent', $member->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($member);
@@ -185,7 +185,7 @@ class Members extends DolibarrApi
 	 */
 	public function getByThirdpartyEmail($email)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -201,8 +201,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('adherent', $member->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('adherent', $member->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($member);
@@ -224,7 +224,7 @@ class Members extends DolibarrApi
 	 */
 	public function getByThirdpartyBarcode($barcode)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -240,8 +240,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('adherent', $member->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('adherent', $member->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($member);
@@ -275,7 +275,7 @@ class Members extends DolibarrApi
 	{
 		$obj_ret = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -365,7 +365,7 @@ class Members extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'creer')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -381,7 +381,7 @@ class Members extends DolibarrApi
 
 			$member->$field = $this->_checkValForAPI($field, $value, $member);
 		}
-		if ($member->create(DolibarrApiAccess::$user) < 0) {
+		if ($member->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating member', array_merge(array($member->error), $member->errors));
 		}
 		return $member->id;
@@ -402,7 +402,7 @@ class Members extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -412,8 +412,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('member', $member->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('member', $member->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -435,17 +435,17 @@ class Members extends DolibarrApi
 			// the validate(), resiliate() and exclude() methods of the class Adherent.
 			if ($field == 'statut') {
 				if ($value == '0') {
-					$result = $member->resiliate(DolibarrApiAccess::$user);
+					$result = $member->resiliate(OnLiApiAccess::$user);
 					if ($result < 0) {
 						throw new RestException(500, 'Error when resiliating member: '.$member->error);
 					}
 				} elseif ($value == '1') {
-					$result = $member->validate(DolibarrApiAccess::$user);
+					$result = $member->validate(OnLiApiAccess::$user);
 					if ($result < 0) {
 						throw new RestException(500, 'Error when validating member: '.$member->error);
 					}
 				} elseif ($value == '-2') {
-					$result = $member->exclude(DolibarrApiAccess::$user);
+					$result = $member->exclude(OnLiApiAccess::$user);
 					if ($result < 0) {
 						throw new RestException(500, 'Error when excluding member: '.$member->error);
 					}
@@ -457,7 +457,7 @@ class Members extends DolibarrApi
 
 		// If there is no error, update() returns the number of affected rows
 		// so if the update is a no op, the return value is zero.
-		if ($member->update(DolibarrApiAccess::$user) >= 0) {
+		if ($member->update(OnLiApiAccess::$user) >= 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, 'Error when updating member: '.$member->error);
@@ -478,7 +478,7 @@ class Members extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'supprimer')) {
 			throw new RestException(403);
 		}
 		$member = new Adherent($this->db);
@@ -487,12 +487,12 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('member', $member->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('member', $member->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 
-		$res = $member->delete(DolibarrApiAccess::$user);
+		$res = $member->delete(OnLiApiAccess::$user);
 		if ($res < 0) {
 			throw new RestException(500, "Can't delete, error occurs");
 		}
@@ -624,7 +624,7 @@ class Members extends DolibarrApi
 	 */
 	public function getSubscriptions($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'cotisation', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'cotisation', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -658,7 +658,7 @@ class Members extends DolibarrApi
 	 */
 	public function createSubscription($id, $start_date, $end_date, $amount, $label = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'cotisation', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'cotisation', 'creer')) {
 			throw new RestException(403);
 		}
 		if (is_numeric($start_date) || !is_numeric($end_date) || !is_numeric($amount)) {
@@ -693,7 +693,7 @@ class Members extends DolibarrApi
 	 */
 	public function getCategories($id, $sortfield = "s.rowid", $sortorder = 'ASC', $limit = 0, $page = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('categorie', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('categorie', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -732,7 +732,7 @@ class Members extends DolibarrApi
 	 */
 	public function getType($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -742,8 +742,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member type not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('member', $membertype->id, 'adherent_type')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('member', $membertype->id, 'adherent_type')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($membertype);
@@ -775,7 +775,7 @@ class Members extends DolibarrApi
 	{
 		$obj_ret = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -857,7 +857,7 @@ class Members extends DolibarrApi
 	 */
 	public function postType($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'configurer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'configurer')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -873,7 +873,7 @@ class Members extends DolibarrApi
 
 			$membertype->$field = $this->_checkValForAPI($field, $value, $membertype);
 		}
-		if ($membertype->create(DolibarrApiAccess::$user) < 0) {
+		if ($membertype->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating member type', array_merge(array($membertype->error), $membertype->errors));
 		}
 		return $membertype->id;
@@ -896,7 +896,7 @@ class Members extends DolibarrApi
 	 */
 	public function putType($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'configurer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'configurer')) {
 			throw new RestException(403);
 		}
 
@@ -906,8 +906,8 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member type not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('member', $membertype->id, 'adherent_type')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('member', $membertype->id, 'adherent_type')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -932,7 +932,7 @@ class Members extends DolibarrApi
 
 		// If there is no error, update() returns the number of affected rows
 		// so if the update is a no op, the return value is zero.
-		if ($membertype->update(DolibarrApiAccess::$user) >= 0) {
+		if ($membertype->update(OnLiApiAccess::$user) >= 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, 'Error when updating member type: '.$membertype->error);
@@ -955,7 +955,7 @@ class Members extends DolibarrApi
 	 */
 	public function deleteType($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'configurer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'configurer')) {
 			throw new RestException(403);
 		}
 		$membertype = new AdherentType($this->db);
@@ -964,11 +964,11 @@ class Members extends DolibarrApi
 			throw new RestException(404, 'member type not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('member', $membertype->id, 'adherent_type')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('member', $membertype->id, 'adherent_type')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		$res = $membertype->delete(DolibarrApiAccess::$user);
+		$res = $membertype->delete(OnLiApiAccess::$user);
 		if ($res < 0) {
 			throw new RestException(500, "Can't delete, error occurs");
 		}

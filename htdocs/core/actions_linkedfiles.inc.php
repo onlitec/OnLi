@@ -248,9 +248,9 @@ if ($action == 'confirm_deletefile' && $confirm == 'yes' && !empty($permissionto
 
 		// Check that filename is not the one of a reserved allowed CLI command
 		if (empty($error)) {
-			global $dolibarr_main_restrict_os_commands;
-			if (!empty($dolibarr_main_restrict_os_commands)) {
-				$arrayofallowedcommand = explode(',', $dolibarr_main_restrict_os_commands);
+			global $onli_main_restrict_os_commands;
+			if (!empty($onli_main_restrict_os_commands)) {
+				$arrayofallowedcommand = explode(',', $onli_main_restrict_os_commands);
 				$arrayofallowedcommand = array_map('trim', $arrayofallowedcommand);
 				if (in_array(basename($filenameto), $arrayofallowedcommand)) {
 					$error++;

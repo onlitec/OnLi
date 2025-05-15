@@ -1,5 +1,5 @@
 # This script is used by Travis CI to run automatically Continuous test integration
-# from Dolibarr GitHub repository.
+# from OnLi GitHub repository.
 # For syntax, see https://docs.travis-ci.com/user/languages/php/
 
 # We use dist: focal = 20.04
@@ -64,7 +64,7 @@ notifications:
     on_failure: never # [always|never|change] default: always
   irc:
     channels:
-    - "chat.freenode.net#dolibarr"
+    - "chat.freenode.net#onli"
     on_success: change
     on_failure: always
     use_notice: true
@@ -180,7 +180,7 @@ install:
   fi
 
   # Remove non expected files
-  rm -fr /home/travis/build/Dolibarr/dolibarr/htdocs/includes/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js
+  rm -fr /home/travis/build/OnLi/onli/htdocs/includes/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js
   echo
 
 - |
@@ -259,7 +259,7 @@ before_script:
       sudo mysql -u root -h 127.0.0.1 -ppassword -e 'FLUSH PRIVILEGES;'
 
       echo "MySQL load sql"
-      sudo mysql -u root -h 127.0.0.1 -ppassword -D travis < dev/initdemo/mysqldump_dolibarr_3.5.0.sql
+      sudo mysql -u root -h 127.0.0.1 -ppassword -D travis < dev/initdemo/mysqldump_onli_3.5.0.sql
     fi
     if [ "$DB" = 'postgresql' ]; then
       echo "PGSQL"
@@ -280,28 +280,28 @@ before_script:
 
   - |
     export CONF_FILE=htdocs/conf/conf.php
-    echo "Setting up Dolibarr '$CONF_FILE'"
+    echo "Setting up OnLi '$CONF_FILE'"
     echo '<?php' > $CONF_FILE
     echo 'error_reporting(E_ALL);' >> $CONF_FILE
-    echo '$'dolibarr_main_url_root=\'http://127.0.0.1\'';' >> $CONF_FILE
-    echo '$'dolibarr_main_document_root=\'$TRAVIS_BUILD_DIR/htdocs\'';' >> $CONF_FILE
-    echo '$'dolibarr_main_data_root=\'$TRAVIS_BUILD_DIR/documents\'';' >> $CONF_FILE
-    echo '$'dolibarr_main_db_host=\'127.0.0.1\'';' >> $CONF_FILE
-    echo '$'dolibarr_main_db_name=\'travis\'';' >> $CONF_FILE
-    echo '$'dolibarr_main_instance_unique_id=\'travis1234567890\'';' >> $CONF_FILE
+    echo '$'onli_main_url_root=\'http://127.0.0.1\'';' >> $CONF_FILE
+    echo '$'onli_main_document_root=\'$TRAVIS_BUILD_DIR/htdocs\'';' >> $CONF_FILE
+    echo '$'onli_main_data_root=\'$TRAVIS_BUILD_DIR/documents\'';' >> $CONF_FILE
+    echo '$'onli_main_db_host=\'127.0.0.1\'';' >> $CONF_FILE
+    echo '$'onli_main_db_name=\'travis\'';' >> $CONF_FILE
+    echo '$'onli_main_instance_unique_id=\'travis1234567890\'';' >> $CONF_FILE
     if [ "$DB" = 'mysql' ] || [ "$DB" = 'mariadb' ]; then
-      echo '$'dolibarr_main_db_type=\'mysqli\'';' >> $CONF_FILE
-      echo '$'dolibarr_main_db_port=3306';' >> $CONF_FILE
-      echo '$'dolibarr_main_db_user=\'root\'';' >> $CONF_FILE
-      echo '$'dolibarr_main_db_pass=\'password\'';' >> $CONF_FILE
+      echo '$'onli_main_db_type=\'mysqli\'';' >> $CONF_FILE
+      echo '$'onli_main_db_port=3306';' >> $CONF_FILE
+      echo '$'onli_main_db_user=\'root\'';' >> $CONF_FILE
+      echo '$'onli_main_db_pass=\'password\'';' >> $CONF_FILE
     fi
     if [ "$DB" = 'postgresql' ]; then
-      echo '$'dolibarr_main_db_type=\'pgsql\'';' >> $CONF_FILE
-      echo '$'dolibarr_main_db_port=5432';' >> $CONF_FILE
-      echo '$'dolibarr_main_db_user=\'postgres\'';' >> $CONF_FILE
-      echo '$'dolibarr_main_db_pass=\'postgres\'';' >> $CONF_FILE
+      echo '$'onli_main_db_type=\'pgsql\'';' >> $CONF_FILE
+      echo '$'onli_main_db_port=5432';' >> $CONF_FILE
+      echo '$'onli_main_db_user=\'postgres\'';' >> $CONF_FILE
+      echo '$'onli_main_db_pass=\'postgres\'';' >> $CONF_FILE
     fi
-    echo '$'dolibarr_main_authentication=\'dolibarr\'';' >> $CONF_FILE
+    echo '$'onli_main_authentication=\'onli\'';' >> $CONF_FILE
     cat $CONF_FILE
     echo
 
@@ -310,7 +310,7 @@ before_script:
     # Add admin/temp subdirectory needed for unit tests
     mkdir -p $TRAVIS_BUILD_DIR/documents/admin/temp
     sudo chmod -R a+rwx $TRAVIS_BUILD_DIR/documents
-    echo "***** First line of dolibarr.log" > $TRAVIS_BUILD_DIR/documents/dolibarr.log
+    echo "***** First line of onli.log" > $TRAVIS_BUILD_DIR/documents/onli.log
     echo
 
 
@@ -328,7 +328,7 @@ script:
     echo "Checking webserver availability by a wget -O - --debug http://127.0.0.1"
     # Ensure we stop on error with set -e
     set +e
-    # The wget should return a page with line '<meta name="generator" content="Dolibarr installer">
+    # The wget should return a page with line '<meta name="generator" content="OnLi installer">
     wget -O - --debug http://127.0.0.1 > test.html
     head -n 200 test.html
     sudo cat /var/log/apache2/travis_error_log
@@ -375,7 +375,7 @@ script:
     echo "Checking coding style (only for 1 version to not overload travis and avoid duplicate tests)"
     # Ensure we catch errors
     set -e
-    CACHE_OPT="--cache=${HOME}/.cache/dolibarr-phpcs-${TRAVIS_PHP_VERSION}.cache"
+    CACHE_OPT="--cache=${HOME}/.cache/onli-phpcs-${TRAVIS_PHP_VERSION}.cache"
     # Exclusions are defined in the ruleset.xml file
     #if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_PHP_VERSION" = "8.1" ]; then
     if [ "$TRAVIS_PHP_VERSION" = "8.1" ]; then
@@ -416,7 +416,7 @@ script:
 
   - |
     export INSTALL_FORCED_FILE=htdocs/install/install.forced.php
-    echo "Setting up Dolibarr $INSTALL_FORCED_FILE to test installation"
+    echo "Setting up OnLi $INSTALL_FORCED_FILE to test installation"
     # Ensure we catch errors
     set +e
     echo '<?php ' > $INSTALL_FORCED_FILE
@@ -443,7 +443,7 @@ script:
     echo
 
   - |
-    echo "Upgrading Dolibarr"
+    echo "Upgrading OnLi"
     # Ensure we catch errors with -e. Set this to +e if you want to go to the end to see log files.
     # Note: We keep +e because with pgsql, one of upgrade process fails even if migration seems ok, so
     # I disable stop on error to be able to continue.
@@ -548,7 +548,7 @@ script:
     cd -
     set +e
     echo
-    #cat /tmp/dolibarr_install.log
+    #cat /tmp/onli_install.log
     cat $TRAVIS_BUILD_DIR/enablemodule.log
     echo
 
@@ -557,16 +557,16 @@ script:
     # Execute phpunit, check its exit status and that the phpunit output shows a test summary
     phpunit -d memory_limit=-1 -c test/phpunit/phpunittest.xml test/phpunit/AllTests.php | tee /dev/tty | grep -qE "(OK .*[0-9]+ tests.*[0-9]+ assertions|Tests: [0-9]+)" ; phpunitresult=$((PIPESTATUS[0]?PIPESTATUS[0]:PIPESTATUS[2]))
     echo "Phpunit return code = $phpunitresult"
-    # Comment next line if you want to go to the end to see the dolibarr.log file.
+    # Comment next line if you want to go to the end to see the onli.log file.
     [ $phpunitresult == 0 ] || exit $phpunitresult
     echo
 
 after_script:
   - |
-    echo "After script - Output last lines of dolibarr.log"
+    echo "After script - Output last lines of onli.log"
     ls $TRAVIS_BUILD_DIR/documents
-    #cat $TRAVIS_BUILD_DIR/documents/dolibarr.log
-    sudo tail -n 50 $TRAVIS_BUILD_DIR/documents/dolibarr.log
+    #cat $TRAVIS_BUILD_DIR/documents/onli.log
+    sudo tail -n 50 $TRAVIS_BUILD_DIR/documents/onli.log
     echo "After script - Output last lines of apache error.log"
     sudo ls /var/log/apache2
     sudo tail -n 200 /var/log/apache2/travis_error_log
@@ -589,9 +589,9 @@ after_failure:
     echo "Debugging information for file apache error.log"
     sudo tail -n 200 /var/log/apache2/travis_error_log
     if [ "$DEBUG" = true ]; then
-      # Dolibarr log file
-      echo "Debugging information for file dolibarr.log (latest 50 lines)"
-      tail -n 200 $TRAVIS_BUILD_DIR/documents/dolibarr.log
+      # OnLi log file
+      echo "Debugging information for file onli.log (latest 50 lines)"
+      tail -n 200 $TRAVIS_BUILD_DIR/documents/onli.log
       # Database log file
       echo "Debugging information for file mysql error.log"
       sudo tail -n 200 /var/log/mysql/error.log

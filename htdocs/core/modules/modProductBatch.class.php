@@ -27,13 +27,13 @@
  *  \ingroup    productbatch
  *  \brief      Description and activation file for the module productbatch
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *  Description and activation class for module productdluo
  */
-class modProductBatch extends DolibarrModules
+class modProductBatch extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -54,8 +54,8 @@ class modProductBatch extends DolibarrModules
 		$this->description = "Batch number, eat-by and sell-by date management module";
 
 		$this->rights_class = 'productbatch';
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
+		$this->version = 'onli';
 		// Key used in llx_const table to save module status enabled/disabled (where dluo is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 
@@ -123,7 +123,7 @@ class modProductBatch extends DolibarrModules
 
 	/**
 	 *		Function called when module is enabled.
-	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *		It also creates data directories
 	 *
 	 *      @param      string	$options    Options when enabling module ('', 'noboxes')
@@ -138,7 +138,7 @@ class modProductBatch extends DolibarrModules
 		if (isModEnabled('cashdesk')) {
 			if (!getDolGlobalString('CASHDESK_NO_DECREASE_STOCK')) {
 				include_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
-				$res = dolibarr_set_const($db, "CASHDESK_NO_DECREASE_STOCK", 1, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, "CASHDESK_NO_DECREASE_STOCK", 1, 'chaine', 0, '', $conf->entity);
 			}
 		}
 

@@ -20,7 +20,7 @@
 
 /**
  *       \file       htdocs/webservices/server_category.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -54,12 +54,12 @@ require_once DOL_DOCUMENT_ROOT."/categories/class/categorie.class.php";
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -69,8 +69,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrCategorie', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiCategorie', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -82,7 +82,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -206,7 +206,7 @@ $server->register(
 /**
  * Get category infos and children
  *
- * @param	array{login:string,password:string,entity?:int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity?:int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Id of object
  * @return	mixed
  */

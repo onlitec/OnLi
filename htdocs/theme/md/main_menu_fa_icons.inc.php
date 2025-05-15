@@ -72,16 +72,16 @@ div.mainmenu.generic4::before {
 	font-size: 0.9em;
 }
 
-/* Define square Dolibarr logo in pure CSS */
+/* Define square OnLi logo in pure CSS */
 
-.fa-dolibarr-css{
+.fa-onli-css{
 	color: #235481;
 	background: currentColor;
 	height: 150px;
 	width: 150px;
 	position: relative;
 }
-.fa-dolibarr-css:before{
+.fa-onli-css:before{
 	content: '';
 	position: absolute;
 	left: 19%;
@@ -91,7 +91,7 @@ div.mainmenu.generic4::before {
 	border: solid 30px white;
 	border-radius: 0% 200% 200% 0% / 0% 180% 180% 0%;
 }
-.fa-dolibarr-css:after{
+.fa-onli-css:after{
 	content: '';
 	position: absolute;
 	left: 19%;

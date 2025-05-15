@@ -29,7 +29,7 @@
  *		\brief      Page to setup the module MailmanSpip (SPIP)
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/mailmanspip.lib.php';
@@ -72,7 +72,7 @@ if ($action == 'update' || $action == 'add') {
 			$constvalue = dol_escape_htmltag($constvaluearray[$key]);
 			$constnote = dol_escape_htmltag($constnotearray[$key]);
 
-			$res = dolibarr_set_const($db, $constname, $constvalue, 'chaine', 0, $constnote, $conf->entity);
+			$res = onli_set_const($db, $constname, $constvalue, 'chaine', 0, $constnote, $conf->entity);
 
 			if (!($res > 0)) {
 				$error++;
@@ -89,7 +89,7 @@ if ($action == 'update' || $action == 'add') {
 
 // Action activation d'un sous module du module adherent
 if ($action == 'set') {
-	$result = dolibarr_set_const($db, GETPOST("name", 'aZ09'), GETPOST("value"), '', 0, '', $conf->entity);
+	$result = onli_set_const($db, GETPOST("name", 'aZ09'), GETPOST("value"), '', 0, '', $conf->entity);
 	if ($result < 0) {
 		dol_print_error($db);
 	}
@@ -97,7 +97,7 @@ if ($action == 'set') {
 
 // Action deactivation d'un sous module du module adherent
 if ($action == 'unset') {
-	$result = dolibarr_del_const($db, GETPOST("name", 'aZ09'), $conf->entity);
+	$result = onli_del_const($db, GETPOST("name", 'aZ09'), $conf->entity);
 	if ($result < 0) {
 		dol_print_error($db);
 	}

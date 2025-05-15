@@ -29,13 +29,13 @@
  *	\ingroup    supplier_proposal
  *	\brief      Description and activation file for the module supplier proposal
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to describe and enable module SupplierProposal
  */
-class modSupplierProposal extends DolibarrModules
+class modSupplierProposal extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -54,7 +54,7 @@ class modSupplierProposal extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		$this->description = "supplier_proposalDESC";
 
-		$this->version = 'dolibarr';
+		$this->version = 'onli';
 
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'supplier_proposal';
@@ -149,7 +149,7 @@ class modSupplierProposal extends DolibarrModules
 
 	/**
 	 *		Function called when module is enabled.
-	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *		It also creates data directories
 	 *
 	 *      @param      string	$options    Options when enabling module ('', 'noboxes')
@@ -190,7 +190,7 @@ class modSupplierProposal extends DolibarrModules
 
 	/**
 	 * Function called when module is disabled.
-	 * Remove from database constants, boxes and permissions from Dolibarr database.
+	 * Remove from database constants, boxes and permissions from OnLi database.
 	 * Data directories are not deleted
 	 *
 	 * @param      string	$options    Options when enabling module ('', 'noboxes')

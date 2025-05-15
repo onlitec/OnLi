@@ -24,7 +24,7 @@
 
 /**
  *	\file       htdocs/index.php
- *	\brief      Dolibarr home page
+ *	\brief      OnLi home page
  */
 
 
@@ -93,7 +93,7 @@ if (!isset($form) || !is_object($form)) {
 }
 
 // Title
-$title = $langs->trans("HomeArea").' - Dolibarr '.DOL_VERSION;
+$title = $langs->trans("HomeArea").' - OnLi '.DOL_VERSION;
 if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 	$title = $langs->trans("HomeArea").' - ' . getDolGlobalString('MAIN_APPLICATION_TITLE');
 }
@@ -126,7 +126,7 @@ if (getDolGlobalString('MAIN_MOTD')) {
 // Specific warning to propose to upgrade invoice situation to progressive mode
 if (getDolGlobalInt('INVOICE_USE_SITUATION') == 1) {
 	$langs->loadLangs(array("admin"));
-	print info_admin($langs->trans("WarningExperimentalFeatureInvoiceSituationNeedToUpgradeToProgressiveMode", 'https://partners.dolibarr.org'));
+	print info_admin($langs->trans("WarningExperimentalFeatureInvoiceSituationNeedToUpgradeToProgressiveMode", 'https://partners.onli.org'));
 	//print "<br>";
 }
 
@@ -169,7 +169,7 @@ if (!getDolGlobalString('MAIN_REMOVE_INSTALL_WARNING')) {
 }
 
 /*
- * Dashboard Dolibarr statistics
+ * Dashboard OnLi statistics
  * Hidden for external users
  */
 
@@ -178,7 +178,7 @@ print load_fiche_titre('&nbsp;', $resultboxes['selectboxlist'], '', 0, '', 'titl
 // Load translation files required by page
 $langs->loadLangs(array('commercial', 'bills', 'orders', 'contracts'));
 
-// Dolibarr Working Board with weather
+// OnLi Working Board with weather
 if (!getDolGlobalString('MAIN_DISABLE_GLOBAL_WORKBOARD') && getDolGlobalInt('MAIN_OPTIMIZEFORTEXTBROWSER') < 2) {
 	$showweather = (!getDolGlobalString('MAIN_DISABLE_METEO') || getDolGlobalInt('MAIN_DISABLE_METEO') == 2) ? 1 : 0;
 
@@ -513,7 +513,7 @@ if (!getDolGlobalString('MAIN_DISABLE_GLOBAL_WORKBOARD') && getDolGlobalInt('MAI
 	$boxwork .= '<div class="box">';
 	$boxwork .= '<table summary="'.dol_escape_htmltag($langs->trans("WorkingBoard")).'" class="noborder boxtable boxtablenobottom boxworkingboard centpercent">'."\n";
 	$boxwork .= '<tr class="liste_titre">';
-	$boxwork .= '<th class="liste_titre"><div class="inline-block valignmiddle">'.$langs->trans("DolibarrWorkBoard").'</div>';
+	$boxwork .= '<th class="liste_titre"><div class="inline-block valignmiddle">'.$langs->trans("OnLiWorkBoard").'</div>';
 	if ($showweather) {
 		if ($totallate > 0) {
 			$text = $langs->transnoentitiesnoconv("WarningYouHaveAtLeastOneTaskLate").' ('.$langs->transnoentitiesnoconv(

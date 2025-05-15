@@ -28,7 +28,7 @@ if (! defined('CSRFCHECK_WITH_TOKEN')) {
 	define('CSRFCHECK_WITH_TOKEN', '1');		// Force use of CSRF protection with tokens even for GET
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -157,9 +157,9 @@ if ($compression == 'zip') {
 	if ($export_type == 'externalmodule' && !empty($what)) {
 		$rootdirinzip = $what;
 
-		global $dolibarr_allow_download_external_modules;
-		if (empty($dolibarr_allow_download_external_modules)) {
-			print 'Download of external modules is not allowed by $dolibarr_allow_download_external_modules in conf.php file';
+		global $onli_allow_download_external_modules;
+		if (empty($onli_allow_download_external_modules)) {
+			print 'Download of external modules is not allowed by $onli_allow_download_external_modules in conf.php file';
 			$db->close();
 			exit();
 		}
@@ -232,7 +232,7 @@ if ($export_type != 'externalmodule' || empty($what)) {
 	$db->close();
 
 	// Redirect to calling page
-	$returnto = 'dolibarr_export.php';
+	$returnto = 'onli_export.php';
 
 	header("Location: ".$returnto);
 

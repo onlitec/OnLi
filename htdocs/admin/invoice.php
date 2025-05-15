@@ -31,7 +31,7 @@
  *		\brief      Page to setup invoice module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/pdf.lib.php';
@@ -83,16 +83,16 @@ if ($action == 'updateMask') {
 	$maskdeposit = GETPOST('maskdeposit', 'alpha');
 	$res = 0;
 	if ($maskconstinvoice && preg_match('/_MASK_/', $maskconstinvoice)) {
-		$res = dolibarr_set_const($db, $maskconstinvoice, $maskinvoice, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstinvoice, $maskinvoice, 'chaine', 0, '', $conf->entity);
 	}
 	if ($maskconstreplacement && preg_match('/_MASK_/', $maskconstreplacement)) {
-		$res = dolibarr_set_const($db, $maskconstreplacement, $maskreplacement, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstreplacement, $maskreplacement, 'chaine', 0, '', $conf->entity);
 	}
 	if ($maskconstcredit && preg_match('/_MASK_/', $maskconstcredit)) {
-		$res = dolibarr_set_const($db, $maskconstcredit, $maskcredit, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstcredit, $maskcredit, 'chaine', 0, '', $conf->entity);
 	}
 	if ($maskconstdeposit && preg_match('/_MASK_/', $maskconstdeposit)) {
-		$res = dolibarr_set_const($db, $maskconstdeposit, $maskdeposit, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstdeposit, $maskdeposit, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -147,12 +147,12 @@ if ($action == 'updateMask') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (getDolGlobalString('FACTURE_ADDON_PDF') == (string) $value) {
-			dolibarr_del_const($db, 'FACTURE_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'FACTURE_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') {
 	// Set default model
-	if (dolibarr_set_const($db, "FACTURE_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "FACTURE_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// La constante qui a ete lue en avant du nouveau set
 		// on passe donc par une variable pour avoir un affichage coherent
 		$conf->global->FACTURE_ADDON_PDF = $value;
@@ -166,13 +166,13 @@ if ($action == 'updateMask') {
 } elseif ($action == 'setmod') {
 	// TODO Check if numbering module chosen can ba activated by calling method canBeActivated()
 
-	dolibarr_set_const($db, "FACTURE_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "FACTURE_ADDON", $value, 'chaine', 0, '', $conf->entity);
 } elseif ($action == 'setribchq') {
 	$rib = GETPOST('rib', 'alpha');
 	$chq = GETPOST('chq', 'alpha');
 
-	$res = dolibarr_set_const($db, "FACTURE_RIB_NUMBER", $rib, 'chaine', 0, '', $conf->entity);
-	$res = dolibarr_set_const($db, "FACTURE_CHQ_NUMBER", $chq, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FACTURE_RIB_NUMBER", $rib, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FACTURE_CHQ_NUMBER", $chq, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -186,7 +186,7 @@ if ($action == 'updateMask') {
 } elseif ($action == 'set_FACTURE_DRAFT_WATERMARK') {
 	$draft = GETPOST('FACTURE_DRAFT_WATERMARK', 'alpha');
 
-	$res = dolibarr_set_const($db, "FACTURE_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FACTURE_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -200,7 +200,7 @@ if ($action == 'updateMask') {
 } elseif ($action == 'set_INVOICE_FREE_TEXT') {
 	$freetext = GETPOST('INVOICE_FREE_TEXT', 'restricthtml'); // No alpha here, we want exact string
 
-	$res = dolibarr_set_const($db, "INVOICE_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "INVOICE_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -214,7 +214,7 @@ if ($action == 'updateMask') {
 } elseif ($action == 'setforcedate') {
 	$forcedate = GETPOST('forcedate', 'alpha');
 
-	$res = dolibarr_set_const($db, "FAC_FORCE_DATE_VALIDATION", $forcedate, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FAC_FORCE_DATE_VALIDATION", $forcedate, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -232,7 +232,7 @@ if ($action == 'updateMask') {
 		$error = 0;
 
 		foreach ($invoicetypemodels as $type => $value) {
-			$res = dolibarr_set_const($db, 'FACTURE_ADDON_PDF_'.intval($type), $value, 'chaine', 0, '', $conf->entity);
+			$res = onli_set_const($db, 'FACTURE_ADDON_PDF_'.intval($type), $value, 'chaine', 0, '', $conf->entity);
 			if (!($res > 0)) {
 				$error++;
 			}
@@ -246,7 +246,7 @@ if ($action == 'updateMask') {
 	}
 } elseif ($action == 'set_INVOICE_CHECK_POSTERIOR_DATE') {
 	$check_posterior_date = GETPOSTINT('INVOICE_CHECK_POSTERIOR_DATE');
-	$res = dolibarr_set_const($db, 'INVOICE_CHECK_POSTERIOR_DATE', $check_posterior_date, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, 'INVOICE_CHECK_POSTERIOR_DATE', $check_posterior_date, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -254,7 +254,7 @@ if ($action == 'updateMask') {
 	$code = $reg[1];
 	$value = (GETPOST($code) ? GETPOST($code) : 1);
 
-	$res = dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -268,7 +268,7 @@ if ($action == 'updateMask') {
 	}
 } elseif (preg_match('/del_(.*)/', $action, $reg)) {
 	$code = $reg[1];
-	$res = dolibarr_del_const($db, $code, $conf->entity);
+	$res = onli_del_const($db, $code, $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -372,7 +372,7 @@ foreach ($arrayofmodules as $module) {
 	if ($module->version == 'experimental' && getDolGlobalInt('MAIN_FEATURES_LEVEL') < 1) {
 		continue;
 	}
-	if ($module->version == 'dolibarr_deprecated' && getDolGlobalInt('MAIN_FEATURES_LEVEL') >= 0 && getDolGlobalString('FACTURE_ADDON') != $file) {
+	if ($module->version == 'onli_deprecated' && getDolGlobalInt('MAIN_FEATURES_LEVEL') >= 0 && getDolGlobalString('FACTURE_ADDON') != $file) {
 		continue;
 	}
 
@@ -842,7 +842,7 @@ if (!getDolGlobalString('PDF_ALLOW_HTML_FOR_FREE_TEXT')) {
 	print '<textarea name="'.$variablename.'" class="flat" cols="120">'.getDolGlobalString($variablename).'</textarea>';
 } else {
 	include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'dolibarr_notes');
+	$doleditor = new DolEditor($variablename, getDolGlobalString($variablename), '', 80, 'onli_notes');
 	print $doleditor->Create();
 }
 print '</td><td class="right">';

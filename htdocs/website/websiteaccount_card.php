@@ -23,7 +23,7 @@
  *		\brief      Page to create/edit/view thirdparty website account
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formcompany.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
@@ -89,10 +89,10 @@ $permissiontocreate = 0;
 $permissiontodelete = 0;
 // permissions from object type of site
 if ($object->id > 0) {
-	if ($object->site == 'dolibarr_website') {
+	if ($object->site == 'onli_website') {
 		$permissiontocreate = isModEnabled('website') && $user->hasRight('website', 'write');
 		$permissiontodelete = isModEnabled('website') && $user->hasRight('website', 'delete');
-	} elseif ($object->site == 'dolibarr_portal') {
+	} elseif ($object->site == 'onli_portal') {
 		$permissiontocreate = $permissiontodelete = isModEnabled('webportal') && $user->hasRight('webportal', 'write');
 	}
 } else {
@@ -106,21 +106,21 @@ $permissiontoadd   = $permissiontocreate;   //  Used by the include of actions_a
 $site_type_js = '';
 if (!empty($action) && $action != 'view') {
 	if (!empty($object->fields['site']['arrayofkeyval'])) {
-		if (isset($object->fields['site']['arrayofkeyval']['dolibarr_website'])) {
+		if (isset($object->fields['site']['arrayofkeyval']['onli_website'])) {
 			if ($action == 'delete' || $action == 'confirm_delete') {
 				if (!$user->hasRight('website', 'delete')) {
-					unset($object->fields['site']['arrayofkeyval']['dolibarr_website']);
+					unset($object->fields['site']['arrayofkeyval']['onli_website']);
 				}
 			} else {
 				if (!$user->hasRight('website', 'write')) {
-					unset($object->fields['site']['arrayofkeyval']['dolibarr_website']);
+					unset($object->fields['site']['arrayofkeyval']['onli_website']);
 				}
 			}
 		}
 
-		if (isset($object->fields['site']['arrayofkeyval']['dolibarr_portal'])) {
+		if (isset($object->fields['site']['arrayofkeyval']['onli_portal'])) {
 			if (!$user->hasRight('webportal', 'write')) {
-				unset($object->fields['site']['arrayofkeyval']['dolibarr_portal']);
+				unset($object->fields['site']['arrayofkeyval']['onli_portal']);
 			}
 		}
 	}
@@ -188,7 +188,7 @@ $out_js = '';
 if ($action == 'create' || $action == 'edit') {
 	if (!empty($object->fields['site']['visible']) && !empty($object->fields['fk_website']['visible'])) {
 		$site_type_js = 'function siteTypeChange(site_type) {';
-		$site_type_js .= '		if (site_type == "dolibarr_website") {';
+		$site_type_js .= '		if (site_type == "onli_website") {';
 		$site_type_js .= '			jQuery("tr.field_fk_website").show();';
 		$site_type_js .= '		} else {';
 		$site_type_js .= '			jQuery("select#fk_website").val("-1").change();';

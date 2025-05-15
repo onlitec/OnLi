@@ -21,9 +21,9 @@
  * 	\file       htdocs/public/agenda/agendaexport.php
  * 	\ingroup    agenda
  * 	\brief      Page to export agenda into a vcal, ical or rss
- * 				http://127.0.0.1/dolibarr/public/agenda/agendaexport.php?format=vcal&exportkey=cle
- * 				http://127.0.0.1/dolibarr/public/agenda/agendaexport.php?format=ical&type=event&exportkey=cle
- * 				http://127.0.0.1/dolibarr/public/agenda/agendaexport.php?format=rss&exportkey=cle
+ * 				http://127.0.0.1/onli/public/agenda/agendaexport.php?format=vcal&exportkey=cle
+ * 				http://127.0.0.1/onli/public/agenda/agendaexport.php?format=ical&type=event&exportkey=cle
+ * 				http://127.0.0.1/onli/public/agenda/agendaexport.php?format=rss&exportkey=cle
  *              Other parameters into url are:
  *              &notolderthan=99
  *              &year=2015
@@ -50,7 +50,7 @@ if (!defined('NOCSRFCHECK')) {
 	define("NOCSRFCHECK", 1); // We accept to go on this page from external web site.
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 
 
@@ -93,7 +93,7 @@ if (is_numeric($entity)) {
 	define("DOLENTITY", $entity);
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/comm/action/class/actioncomm.class.php';
 /**
@@ -281,7 +281,7 @@ if ($format == 'rss') {
 	$shortfilename .= '.rss';
 	$filename .= '.rss';
 }
-if ($shortfilename == 'dolibarrcalendar') {
+if ($shortfilename == 'onlicalendar') {
 	$langs->load("errors");
 
 	top_httphead();

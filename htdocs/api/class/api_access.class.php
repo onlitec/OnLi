@@ -43,11 +43,11 @@ use Luracast\Restler\Defaults;
 use Luracast\Restler\RestException;
 
 /**
- * Dolibarr API access class
+ * OnLi API access class
  */
-class DolibarrApiAccess implements iAuthenticate
+class OnLiApiAccess implements iAuthenticate
 {
-	const REALM = 'Restricted Dolibarr API';
+	const REALM = 'Restricted OnLi API';
 
 	/**
 	 * @var DoliDB	Database handler
@@ -136,7 +136,7 @@ class DolibarrApiAccess implements iAuthenticate
 			$sql = "SELECT u.login, u.datec, u.api_key,";
 			$sql .= " u.tms as date_modification, u.entity";
 			$sql .= " FROM ".MAIN_DB_PREFIX."user as u";
-			$sql .= " WHERE u.api_key = '".$this->db->escape($api_key)."' OR u.api_key = '".$this->db->escape(dolEncrypt($api_key, '', '', 'dolibarr'))."'";
+			$sql .= " WHERE u.api_key = '".$this->db->escape($api_key)."' OR u.api_key = '".$this->db->escape(dolEncrypt($api_key, '', '', 'onli'))."'";
 
 			$result = $this->db->query($sql);
 			if ($result) {
@@ -226,7 +226,7 @@ class DolibarrApiAccess implements iAuthenticate
 		}
 
 		$userClass::setCacheIdentifier(static::$role);
-		Resources::$accessControlFunction = 'DolibarrApiAccess::verifyAccess';
+		Resources::$accessControlFunction = 'OnLiApiAccess::verifyAccess';
 		$requirefortest = static::$requires;
 		if (!is_array($requirefortest)) {
 			$requirefortest = explode(',', $requirefortest);
@@ -247,15 +247,15 @@ class DolibarrApiAccess implements iAuthenticate
 	/**
 	 * Verify access
 	 *
-	 * @param   array{class:array{DolibarrApiAccess:array{properties:array{requires?:bool}}}} $m Properties of method
+	 * @param   array{class:array{OnLiApiAccess:array{properties:array{requires?:bool}}}} $m Properties of method
 	 *
 	 * @access private
 	 * @return bool
 	 */
 	public static function verifyAccess(array $m)
 	{
-		$requires = isset($m['class']['DolibarrApiAccess']['properties']['requires'])
-				? $m['class']['DolibarrApiAccess']['properties']['requires']
+		$requires = isset($m['class']['OnLiApiAccess']['properties']['requires'])
+				? $m['class']['OnLiApiAccess']['properties']['requires']
 				: false;
 
 

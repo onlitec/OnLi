@@ -36,7 +36,7 @@ if (!defined('NOREQUIRESOC')) {
 	define('NOREQUIRESOC', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/website/class/website.class.php';
 require_once DOL_DOCUMENT_ROOT.'/website/class/websitepage.class.php';
@@ -94,8 +94,8 @@ if (!empty($action) && $action === 'updatedElementContent' && $usercanmodify && 
 	$objectpage->content = preg_replace('/<' . $element_type . '[^>]*id="' . $element_id . '"[^>]*>\K(.*?)(?=<\/' . $element_type . '>)/s', $content, $objectpage->content, 1);
 	$res = $objectpage->update($user);
 	if ($res) {
-		global $dolibarr_main_data_root;
-		$pathofwebsite = $dolibarr_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$website_ref;
+		global $onli_main_data_root;
+		$pathofwebsite = $onli_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$website_ref;
 		$filetpl = $pathofwebsite.'/page'.$objectpage->id.'.tpl.php';
 
 		$result = dolSavePageContent($filetpl, $objectwebsite, $objectpage, 1);

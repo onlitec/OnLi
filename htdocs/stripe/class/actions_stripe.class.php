@@ -87,7 +87,7 @@ class ActionsStripeconnect extends CommonHookActions
 			$this->resprints .= '<table width="100%" class="nobordernopadding"><tr><td>';
 			$this->resprints .= $langs->trans('StripeCustomer');
 			$this->resprints .= '<td><td class="right">';
-			//				$this->resprints.= '<a class="editfielda" href="'.$dolibarr_main_url_root.dol_buildpath('/dolipress/card.php?socid='.$object->id, 1).'">'.img_edit().'</a>';
+			//				$this->resprints.= '<a class="editfielda" href="'.$onli_main_url_root.dol_buildpath('/dolipress/card.php?socid='.$object->id, 1).'">'.img_edit().'</a>';
 			$this->resprints .= '</td></tr></table>';
 			$this->resprints .= '</td>';
 			$this->resprints .= '<td colspan="3">';
@@ -140,7 +140,7 @@ class ActionsStripeconnect extends CommonHookActions
 			$this->resprints .= '<table width="100%" class="nobordernopadding"><tr><td>';
 			$this->resprints .= $langs->trans('PlanStripe');
 			$this->resprints .= '<td><td class="right">';
-			//				$this->resprints.= '<a class="editfielda" href="'.$dolibarr_main_url_root.dol_buildpath('/dolipress/card.php?socid='.$object->id, 1).'">'.img_edit().'</a>';
+			//				$this->resprints.= '<a class="editfielda" href="'.$onli_main_url_root.dol_buildpath('/dolipress/card.php?socid='.$object->id, 1).'">'.img_edit().'</a>';
 			$this->resprints .= '</td></tr></table>';
 			$this->resprints .= '</td>';
 			$this->resprints .= '<td colspan="3">';

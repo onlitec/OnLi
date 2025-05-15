@@ -689,11 +689,11 @@ class Context
 		$sql .= " FROM " . $this->db->prefix() . "societe_account as sa";
 		$sql .= " WHERE sa.login = '" . $this->db->escape($login) . "'";
 		//$sql .= " AND BINARY sa.pass_crypted = '" . $this->db->escape($pass) . "'"; // case sensitive
-		$sql .= " AND sa.site = 'dolibarr_portal'";
+		$sql .= " AND sa.site = 'onli_portal'";
 		$sql .= " AND sa.status = 1";
 		$sql .= " AND sa.entity IN (" . getEntity('societe') . ")";
 
-		dol_syslog(__METHOD__ . ' Try to find the third-party account id for login"' . $login . '" and site="dolibarr_portal"', LOG_DEBUG);
+		dol_syslog(__METHOD__ . ' Try to find the third-party account id for login"' . $login . '" and site="onli_portal"', LOG_DEBUG);
 		$result = $this->db->query($sql);
 		if ($result) {
 			if ($this->db->num_rows($result) == 1) {
@@ -730,7 +730,7 @@ class Context
 					}
 				}
 			} else {
-				dol_syslog(__METHOD__ . ' Many third-party account found for login"' . $login . '" and site="dolibarr_portal"', LOG_ERR);
+				dol_syslog(__METHOD__ . ' Many third-party account found for login"' . $login . '" and site="onli_portal"', LOG_ERR);
 				return -2;
 			}
 		} else {

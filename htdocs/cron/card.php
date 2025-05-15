@@ -26,7 +26,7 @@
  *  \brief      Cron Jobs Card
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
@@ -419,7 +419,7 @@ if (($action == "create") || ($action == "edit")) {
 
 	print '<tr><td>';
 	print $langs->trans('CronNote')."</td><td>";
-	$doleditor = new DolEditor('note', $object->note_private, '', 160, 'dolibarr_notes', 'In', true, false, 0, ROWS_4, '90%');
+	$doleditor = new DolEditor('note', $object->note_private, '', 160, 'onli_notes', 'In', true, false, 0, ROWS_4, '90%');
 	$doleditor->Create();
 	print "</td>";
 	print "<td>";

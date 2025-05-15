@@ -24,7 +24,7 @@
  *      \brief      Page fiche LDAP utilisateur
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/usergroups.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/ldap.class.php';
@@ -74,7 +74,7 @@ if ($reshook < 0) {
 }
 
 if (empty($reshook)) {
-	if ($action == 'dolibarr2ldap') {
+	if ($action == 'onli2ldap') {
 		$ldap = new Ldap();
 		$result = $ldap->connectBind();
 
@@ -126,7 +126,7 @@ print '<table class="border centpercent tableforfield">';
 // Login
 print '<tr><td class="titlefield">'.$langs->trans("Login").'</td>';
 if ($object->ldap_sid) {
-	print '<td class="warning">'.$langs->trans("LoginAccountDisableInDolibarr").'</td>';
+	print '<td class="warning">'.$langs->trans("LoginAccountDisableInOnLi").'</td>';
 } else {
 	print '<td>'.$object->login.'</td>';
 }
@@ -169,7 +169,7 @@ print dol_get_fiche_end();
 print '<div class="tabsAction">';
 
 if (getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') === Ldap::SYNCHRO_DOLIBARR_TO_LDAP) {
-	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=dolibarr2ldap">'.$langs->trans("ForceSynchronize").'</a>';
+	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=onli2ldap">'.$langs->trans("ForceSynchronize").'</a>';
 }
 
 print "</div>\n";

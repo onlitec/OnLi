@@ -39,7 +39,7 @@ if (substr($sapi_type, 0, 3) == 'cgi') {
 }
 
 @set_time_limit(0); // No timeout for this script
-define('EVEN_IF_ONLY_LOGIN_ALLOWED', 1); // Set this define to 0 if you want to lock your script when dolibarr setup is "locked to admin user only".
+define('EVEN_IF_ONLY_LOGIN_ALLOWED', 1); // Set this define to 0 if you want to lock your script when onli setup is "locked to admin user only".
 
 $error = 0;
 
@@ -75,7 +75,7 @@ $hookmanager->initHooks(array('cli'));
 
 $langs->load('main');
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }
@@ -91,8 +91,8 @@ $websitepagestatic = new WebsitePage($db);
 
 $listofpages = $websitepagestatic->fetchAll($website->id, '', '', $max);
 
-global $dolibarr_main_data_root;
-$pathofwebsite = $dolibarr_main_data_root.'/website/'.$websiteref;
+global $onli_main_data_root;
+$pathofwebsite = $onli_main_data_root.'/website/'.$websiteref;
 
 $nbgenerated = 0;
 foreach ($listofpages as $websitepage) {

@@ -31,7 +31,7 @@
  */
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/contact/class/contact.class.php';
 require_once DOL_DOCUMENT_ROOT.'/societe/class/societe.class.php';
@@ -215,10 +215,10 @@ $help_url = '';
 // --------------------------------------------------------------------
 $site_filter_list = array();
 if (isModEnabled('website')) {
-	$site_filter_list[] = 'dolibarr_website';
+	$site_filter_list[] = 'onli_website';
 }
 if (isModEnabled('webportal')) {
-	$site_filter_list[] = 'dolibarr_portal';
+	$site_filter_list[] = 'onli_portal';
 }
 $sql = 'SELECT ';
 $sql .= $objectwebsiteaccount->getFieldList('t');

@@ -33,7 +33,7 @@
  *       \brief      Page to show customer card of a third party
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
@@ -696,7 +696,7 @@ if ($object->id > 0) {
 		$langs->load("members");
 		$langs->load("users");
 
-		print '<tr><td class="titlefield">'.$langs->trans("LinkedToDolibarrMember").'</td>';
+		print '<tr><td class="titlefield">'.$langs->trans("LinkedToOnLiMember").'</td>';
 		print '<td>';
 		$adh = new Adherent($db);
 		$result = $adh->fetch(0, '', $object->id);
@@ -766,7 +766,7 @@ if ($object->id > 0) {
 
 	// Link summary/status board
 	$boxstat .= '<div class="box divboxtable box-halfright">';
-	$boxstat .= '<table summary="'.dol_escape_htmltag($langs->trans("DolibarrStateBoard")).'" class="border boxtable boxtablenobottom boxtablenotop boxtablenomarginbottom centpercent">';
+	$boxstat .= '<table summary="'.dol_escape_htmltag($langs->trans("OnLiStateBoard")).'" class="border boxtable boxtablenobottom boxtablenotop boxtablenomarginbottom centpercent">';
 	$boxstat .= '<tr class="impair nohover"><td colspan="2" class="tdboxstats nohover">';
 
 	if (isModEnabled("propal") && $user->hasRight('propal', 'lire')) {

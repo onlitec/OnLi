@@ -29,13 +29,13 @@ if (!defined('NOCSRFCHECK')) {
 	define("NOCSRFCHECK", 1); // We accept to go on this page from external web site.
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 if (!defined('NOBROWSERNOTIF')) {
 	define('NOBROWSERNOTIF', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/security.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
@@ -66,7 +66,7 @@ $object = new User($db);
 $object->fetch($id, '', '', 1);
 
 // Define $urlwithroot
-//$urlwithouturlroot=preg_replace('/'.preg_quote(DOL_URL_ROOT,'/').'$/i','',trim($dolibarr_main_url_root));
+//$urlwithouturlroot=preg_replace('/'.preg_quote(DOL_URL_ROOT,'/').'$/i','',trim($onli_main_url_root));
 //$urlwithroot=$urlwithouturlroot.DOL_URL_ROOT;		// This is to use external domain name found into config file
 $urlwithroot = DOL_MAIN_URL_ROOT; // This is to use same domain name than current. For Paypal payment, we can use internal URL like localhost.
 
@@ -123,10 +123,10 @@ $urllogo = '';
 $urllogofull = '';
 if (!empty($logosmall) && is_readable($dir.'/'.$logosmall)) {
 	$urllogo = DOL_URL_ROOT.'/viewimage.php?modulepart='.urlencode($modulepart).($conf->entity > 1 ? '&amp;entity='.$conf->entity : '').'&amp;securekey='.urlencode($securekey).'&amp;file='.urlencode($logosmall);
-	$urllogofull = $dolibarr_main_url_root.'/viewimage.php?modulepart='.$modulepart.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&securekey='.urlencode($securekey).'&file='.urlencode($logosmall);
+	$urllogofull = $onli_main_url_root.'/viewimage.php?modulepart='.$modulepart.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&securekey='.urlencode($securekey).'&file='.urlencode($logosmall);
 } elseif (!empty($logo) && is_readable($dir.'/'.$logo)) {
 	$urllogo = DOL_URL_ROOT.'/viewimage.php?modulepart='.urlencode($modulepart).($conf->entity > 1 ? '&amp;entity='.$conf->entity : '').'&amp;securekey='.urlencode($securekey).'&amp;file='.urlencode($logo);
-	$urllogofull = $dolibarr_main_url_root.'/viewimage.php?modulepart='.$modulepart.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&securekey='.urlencode($securekey).'&file='.urlencode($logo);
+	$urllogofull = $onli_main_url_root.'/viewimage.php?modulepart='.$modulepart.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&securekey='.urlencode($securekey).'&file='.urlencode($logo);
 }
 
 // Clean data we don't want on public page
@@ -317,7 +317,7 @@ if ($showbarcode) {
 	print '<br>';
 	print '<div class="floatleft inline-block valignmiddle paddingleft paddingright">';
 	//print '<!-- filename = '.dol_escape_htmltag($filename).' -->';
-	print '<img style="max-width: 100%" src="'.$dolibarr_main_url_root.'/viewimage.php?modulepart=barcode&entity='.((int) $conf->entity).'&generator=tcpdfbarcode&encoding=QRCODE&code='.urlencode(basename($filename)).'">';
+	print '<img style="max-width: 100%" src="'.$onli_main_url_root.'/viewimage.php?modulepart=barcode&entity='.((int) $conf->entity).'&generator=tcpdfbarcode&encoding=QRCODE&code='.urlencode(basename($filename)).'">';
 	print '</div>';
 	print '<br>';
 }
@@ -476,10 +476,10 @@ if (!getDolUserInt('USER_PUBLIC_HIDE_COMPANY', 0, $object)) {
 	$urllogofull = '';
 	if (!empty($logosmall) && is_readable($conf->mycompany->dir_output.'/logos/thumbs/'.$logosmall)) {
 		$urllogo = DOL_URL_ROOT.'/viewimage.php?modulepart=mycompany'.($conf->entity > 1 ? '&amp;entity='.$conf->entity : '').'&amp;file='.urlencode('logos/thumbs/'.$logosmall);
-		$urllogofull = $dolibarr_main_url_root.'/viewimage.php?modulepart=mycompany'.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&file='.urlencode('logos/thumbs/'.$logosmall);
+		$urllogofull = $onli_main_url_root.'/viewimage.php?modulepart=mycompany'.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&file='.urlencode('logos/thumbs/'.$logosmall);
 	} elseif (!empty($logo) && is_readable($conf->mycompany->dir_output.'/logos/'.$logo)) {
 		$urllogo = DOL_URL_ROOT.'/viewimage.php?modulepart=mycompany'.($conf->entity > 1 ? '&amp;entity='.$conf->entity : '').'&amp;file='.urlencode('logos/'.$logo);
-		$urllogofull = $dolibarr_main_url_root.'/viewimage.php?modulepart=mycompany'.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&file='.urlencode('logos/'.$logo);
+		$urllogofull = $onli_main_url_root.'/viewimage.php?modulepart=mycompany'.($conf->entity > 1 ? '&entity='.$conf->entity : '').'&file='.urlencode('logos/'.$logo);
 	}
 	// Output html code for logo
 	if ($urllogo) {

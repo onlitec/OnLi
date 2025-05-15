@@ -25,7 +25,7 @@
  *		\brief      Page to setup emailing module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT . '/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT . '/core/lib/security2.lib.php';
@@ -80,29 +80,29 @@ if ($action == 'setvalue') {
 		$mailingdelay = 0.001;
 	}
 
-	$res = dolibarr_set_const($db, "MAILING_EMAIL_FROM", $mailfrom, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MAILING_EMAIL_FROM", $mailfrom, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
-	$res = dolibarr_set_const($db, "MAILING_EMAIL_ERRORSTO", $mailerror, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MAILING_EMAIL_ERRORSTO", $mailerror, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
-	$res = dolibarr_set_const($db, "MAILING_DELAY", $mailingdelay, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MAILING_DELAY", $mailingdelay, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
-	$res = dolibarr_set_const($db, "MAILING_CONTACT_DEFAULT_BULK_STATUS", $contactbulkdefault, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MAILING_CONTACT_DEFAULT_BULK_STATUS", $contactbulkdefault, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
-	$res = dolibarr_set_const($db, "MAILING_LIMIT_SENDBYWEB", $batchlimit, 'chaine', 1, '', 0);
+	$res = onli_set_const($db, "MAILING_LIMIT_SENDBYWEB", $batchlimit, 'chaine', 1, '', 0);
 	if (!($res > 0)) {
 		$error++;
 	}
 
 	// Create temporary encryption key if needed
-	$res = dolibarr_set_const($db, "MAILING_EMAIL_UNSUBSCRIBE_KEY", $checkread_key, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MAILING_EMAIL_UNSUBSCRIBE_KEY", $checkread_key, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -118,7 +118,7 @@ if ($action == 'setvalue') {
 }
 if ($action == 'setonsearchandlistgooncustomerorsuppliercard') {
 	$setonsearchandlistgooncustomerorsuppliercard = GETPOSTINT('value');
-	$res = dolibarr_set_const($db, "SOCIETE_ON_SEARCH_AND_LIST_GO_ON_CUSTOMER_OR_SUPPLIER_CARD", $setonsearchandlistgooncustomerorsuppliercard, 'yesno', 0, '', $conf->entity);
+	$res = onli_set_const($db, "SOCIETE_ON_SEARCH_AND_LIST_GO_ON_CUSTOMER_OR_SUPPLIER_CARD", $setonsearchandlistgooncustomerorsuppliercard, 'yesno', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}

@@ -28,9 +28,9 @@ require_once DOL_DOCUMENT_ROOT.'/expensereport/class/paymentexpensereport.class.
  * API class for Expense Reports
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class ExpenseReports extends DolibarrApi
+class ExpenseReports extends OnLiApi
 {
 	/**
 	 * @var string[]	Mandatory fields, checked when create and update object
@@ -77,7 +77,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -86,8 +86,8 @@ class ExpenseReports extends DolibarrApi
 			throw new RestException(404, 'Expense report not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('expensereport', $this->expensereport->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('expensereport', $this->expensereport->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$this->expensereport->fetchObjectLinked();
@@ -113,14 +113,14 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function index($sortfield = "t.rowid", $sortorder = 'ASC', $limit = 100, $page = 0, $user_ids = '', $sqlfilters = '', $properties = '', $pagination_data = false)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'lire')) {
 			throw new RestException(403);
 		}
 
 		$obj_ret = array();
 
 		// case of external user, $societe param is ignored and replaced by user's socid
-		//$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : $societe;
+		//$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : $societe;
 
 		$sql = "SELECT t.rowid";
 		$sql .= " FROM ".MAIN_DB_PREFIX."expensereport AS t LEFT JOIN ".MAIN_DB_PREFIX."expensereport_extrafields AS ef ON (ef.fk_object = t.rowid)"; // Modification VMR Global Solutions to include extrafields as search parameters in the API GET call, so we will be able to filter on extrafields
@@ -199,7 +199,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 
@@ -222,7 +222,7 @@ class ExpenseReports extends DolibarrApi
 		  }
 		  $this->expensereport->lines = $lines;
 		}*/
-		if ($this->expensereport->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->expensereport->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating expensereport", array_merge(array($this->expensereport->error), $this->expensereport->errors));
 		}
 
@@ -241,7 +241,7 @@ class ExpenseReports extends DolibarrApi
 	/*
 	public function getLines($id)
 	{
-		if(! DolibarrApiAccess::$user->hasRight('expensereport', 'lire')) {
+		if(! OnLiApiAccess::$user->hasRight('expensereport', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -250,8 +250,8 @@ class ExpenseReports extends DolibarrApi
 			throw new RestException(404, 'expensereport not found');
 		}
 
-		if( ! DolibarrApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if( ! OnLiApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		$this->expensereport->getLinesArray();
 		$result = array();
@@ -277,7 +277,7 @@ class ExpenseReports extends DolibarrApi
 	/*
 	public function postLine($id, $request_data = null)
 	{
-	  if(! DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+	  if(! OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			  throw new RestException(403);
 		  }
 
@@ -286,8 +286,8 @@ class ExpenseReports extends DolibarrApi
 		 throw new RestException(404, 'expensereport not found');
 	  }
 
-		  if( ! DolibarrApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
-			  throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		  if( ! OnLiApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
+			  throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 	  }
 
 	  $request_data = (object) $request_data;
@@ -347,7 +347,7 @@ class ExpenseReports extends DolibarrApi
 	/*
 	public function putLine($id, $lineid, $request_data = null)
 	{
-		if(! DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+		if(! OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			  throw new RestException(403);
 		}
 
@@ -356,8 +356,8 @@ class ExpenseReports extends DolibarrApi
 			throw new RestException(404, 'expensereport not found');
 		}
 
-		if( ! DolibarrApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if( ! OnLiApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$request_data = (object) $request_data;
@@ -411,7 +411,7 @@ class ExpenseReports extends DolibarrApi
 	/*
 	public function deleteLine($id, $lineid)
 	{
-	  if(! DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+	  if(! OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			  throw new RestException(403);
 		  }
 
@@ -420,8 +420,8 @@ class ExpenseReports extends DolibarrApi
 		 throw new RestException(404, 'expensereport not found');
 	  }
 
-		  if( ! DolibarrApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
-			  throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		  if( ! OnLiApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
+			  throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 	  }
 
 	  // TODO Check the lineid $lineid is a line of object
@@ -449,7 +449,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -458,8 +458,8 @@ class ExpenseReports extends DolibarrApi
 			throw new RestException(404, 'expensereport not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('expensereport', $this->expensereport->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('expensereport', $this->expensereport->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		foreach ($request_data as $field => $value) {
 			if ($field == 'id') {
@@ -481,7 +481,7 @@ class ExpenseReports extends DolibarrApi
 			$this->expensereport->$field = $this->_checkValForAPI($field, $value, $this->expensereport);
 		}
 
-		if ($this->expensereport->update(DolibarrApiAccess::$user) > 0) {
+		if ($this->expensereport->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->expensereport->error);
@@ -499,7 +499,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'supprimer')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'supprimer')) {
 			throw new RestException(403);
 		}
 
@@ -508,11 +508,11 @@ class ExpenseReports extends DolibarrApi
 			throw new RestException(404, 'Expense Report not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('expensereport', $this->expensereport->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('expensereport', $this->expensereport->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->expensereport->delete(DolibarrApiAccess::$user)) {
+		if (!$this->expensereport->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when delete Expense Report : '.$this->expensereport->error);
 		}
 
@@ -542,7 +542,7 @@ class ExpenseReports extends DolibarrApi
 	/*
 	public function validate($id, $idwarehouse=0)
 	{
-		if(! DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+		if(! OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -551,11 +551,11 @@ class ExpenseReports extends DolibarrApi
 			throw new RestException(404, 'expensereport not found');
 		}
 
-		if( ! DolibarrApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if( ! OnLiApi::_checkAccessToResource('expensereport',$this->expensereport->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if( ! $this->expensereport->valid(DolibarrApiAccess::$user, $idwarehouse)) {
+		if( ! $this->expensereport->valid(OnLiApiAccess::$user, $idwarehouse)) {
 			throw new RestException(500, 'Error when validate expensereport');
 		}
 
@@ -588,7 +588,7 @@ class ExpenseReports extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -638,7 +638,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function getPayments($pid)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -664,7 +664,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function addPayment($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -676,12 +676,12 @@ class ExpenseReports extends DolibarrApi
 			$paymentExpenseReport->$field = $this->_checkValForAPI($field, $value, $paymentExpenseReport);
 		}
 
-		if ($paymentExpenseReport->create(DolibarrApiAccess::$user) < 0) {
+		if ($paymentExpenseReport->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating paymentExpenseReport', array_merge(array($paymentExpenseReport->error), $paymentExpenseReport->errors));
 		}
 		if (isModEnabled("bank")) {
 			$paymentExpenseReport->addPaymentToBank(
-				DolibarrApiAccess::$user,
+				OnLiApiAccess::$user,
 				'payment_expensereport',
 				'(ExpenseReportPayment)',
 				(int) $request_data['accountid'],
@@ -706,7 +706,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	public function updatePayment($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('expensereport', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('expensereport', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -723,7 +723,7 @@ class ExpenseReports extends DolibarrApi
 			$paymentExpenseReport->$field = $this->_checkValForAPI($field, $value, $paymentExpenseReport);
 		}
 
-		if ($paymentExpenseReport->update(DolibarrApiAccess::$user) > 0) {
+		if ($paymentExpenseReport->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $paymentExpenseReport->error);
@@ -740,7 +740,7 @@ class ExpenseReports extends DolibarrApi
 	 */
 	/*public function delete($id)
 	 {
-	 if (!DolibarrApiAccess::$user->hasRight('expensereport', 'creer') {
+	 if (!OnLiApiAccess::$user->hasRight('expensereport', 'creer') {
 	 throw new RestException(403);
 	 }
 	 $paymentExpenseReport = new PaymentExpenseReport($this->db);
@@ -749,7 +749,7 @@ class ExpenseReports extends DolibarrApi
 	 throw new RestException(404, 'paymentExpenseReport not found');
 	 }
 
-	 if ($paymentExpenseReport->delete(DolibarrApiAccess::$user) < 0) {
+	 if ($paymentExpenseReport->delete(OnLiApiAccess::$user) < 0) {
 	 throw new RestException(403, 'error when deleting paymentExpenseReport');
 	 }
 

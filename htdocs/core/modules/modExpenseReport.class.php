@@ -26,13 +26,13 @@
  *      \ingroup    expensereport
  *      \brief      Description and activation file for the module ExpenseReport
  */
-include_once DOL_DOCUMENT_ROOT."/core/modules/DolibarrModules.class.php";
+include_once DOL_DOCUMENT_ROOT."/core/modules/OnLiModules.class.php";
 
 
 /**
  *	Description and activation class for module ExpenseReport
  */
-class modExpenseReport extends DolibarrModules
+class modExpenseReport extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -52,7 +52,7 @@ class modExpenseReport extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Manage and claim expense reports (transportation, meal, ...)";
-		$this->version = 'dolibarr';
+		$this->version = 'onli';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'trip';
 
@@ -69,7 +69,7 @@ class modExpenseReport extends DolibarrModules
 		// $this->conflictwith = array("modDeplacement"); // Deactivate for access on old information
 		$this->requiredby = array(); // List of modules id to disable if this one is disabled
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(3, 7); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(3, 7); // Minimum version of OnLi required by module
 		$this->langfiles = array("companies", "trips");
 
 		// Constants
@@ -243,7 +243,7 @@ class modExpenseReport extends DolibarrModules
 
 	/**
 	 *  Function called when module is enabled.
-	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *  It also creates data directories.
 	 *
 	 *  @param      string  $options    Options

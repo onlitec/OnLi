@@ -571,7 +571,7 @@ if ($id > 0 || !empty($ref)) {
 		// WYSIWYG editor
 		include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
 		$nbrows = getDolGlobalInt('MAIN_INPUT_DESC_HEIGHT', 0);
-		$doleditor = new DolEditor('description', $object->description, '', 80, 'dolibarr_details', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), $nbrows, '90%');
+		$doleditor = new DolEditor('description', $object->description, '', 80, 'onli_details', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), $nbrows, '90%');
 		print $doleditor->Create();
 
 		print '</td></tr>';

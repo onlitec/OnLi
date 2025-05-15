@@ -1,6 +1,6 @@
-# Dolibarr Makepack How To
+# OnLi Makepack How To
 
-This documentation describe steps to build a BETA or RELEASE versions of Dolibarr.
+This documentation describe steps to build a BETA or RELEASE versions of OnLi.
 There is a chapter for BETA version and a chapter for a RELEASE version.
 
 
@@ -30,7 +30,7 @@ See file dev/build/exe/doliwamp.iss to know the doliwamp version currently setup
 
 - To manually build the .exe from Windows
 
-  Note: running from makepack-dolibarr.pl script is however recommended
+  Note: running from makepack-onli.pl script is however recommended
   open file dev/build/exe/doliwamp.iss and click on button "Compile".
   The .exe file will be build into directory build.
 
@@ -44,23 +44,23 @@ Prerequisites to build autoexe DoliWamp package from Windows:
 - Install Microsoft Visual C++ Redistributable 2017 (https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 - Install WampServer-3.2.6-64.exe (Apache 2.4.51, PHP 7.4.26, MariaDB 10.6.5 for example. Version must match the values found into doliwamp.iss)
 - Install GIT for Windows (https://git-scm.com/ => You must choose option "Add Git bash profile", "Git commit as-is")
-- Install Dolibarr current version:
-  `git clone https://github.com/dolibarr/dolibarr  or  git clone --branch X.Y https://github.com/dolibarr/dolibarr`
+- Install OnLi current version:
+  `git clone https://github.com/onli/onli  or  git clone --branch X.Y https://github.com/onli/onli`
 
 - Add the path of PHP (C:\wamp64\bin\php\php7.4.26) and InnoSetup (C:\Program Files (x86)\Inno Setup 5) into the %PATH% of Windows.
 
-- Create a config file `c:\dolibarr\dolibarr\htdocs\conf\conf.php` with content
+- Create a config file `c:\onli\onli\htdocs\conf\conf.php` with content
 
 ```
   <?php
-  $dolibarr_main_document_root="c:\dolibarr\dolibarr\htdocs";
-  $dolibarr_main_url_root='http://localhost';
+  $onli_main_document_root="c:\onli\onli\htdocs";
+  $onli_main_url_root='http://localhost';
 ```
 
 
 ## Actions to do a BETA
 
-This files describe steps made by Dolibarr packaging team to make a beta version of Dolibarr, step by step.
+This files describe steps made by OnLi packaging team to make a beta version of OnLi, step by step.
 
 - Check all files are committed.
 - Update version/info in ChangeLog, for this you can:
@@ -68,21 +68,21 @@ This files describe steps made by Dolibarr packaging team to make a beta version
 To generate a changelog of a **major new version** x.y.0 (from a repo on branch develop), you can do
 
 ```
-cd ~/git/dolibarr
+cd ~/git/onli
 git log `diff -u <(git rev-list --first-parent x.(y-1).0)  <(git rev-list --first-parent develop) | sed -ne 's/^ //p' | head -1`.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u | sed 's/FIXED:/FIX:/g' | sed 's/FIXED :/FIX:/g' | sed 's/FIX :/FIX:/g' | sed 's/FIX /FIX: /g' | sed 's/NEW :/NEW:/g' | sed 's/NEW /NEW: /g' > /tmp/changelogtocopy
 ```
 
 To generate a changelog of a **intermediate new version** x.y.0 (from a repo on branch x.y), you can do
 
 ```
-cd ~/git/dolibarr_x.y
+cd ~/git/onli_x.y
 git log `diff -u <(git rev-list --first-parent x.(y-1).0)  <(git rev-list --first-parent x.y.0) | sed -ne 's/^ //p' | head -1`.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u | sed 's/FIXED:/FIX:/g' | sed 's/FIXED :/FIX:/g' | sed 's/FIX :/FIX:/g' | sed 's/FIX /FIX: /g' | sed 's/NEW :/NEW:/g' | sed 's/NEW /NEW: /g' > /tmp/changelogtocopy
 ```
 
 To generate a changelog of a **maintenance version** x.y.z, you can do
 
 ```
-cd ~/git/dolibarr_x.y
+cd ~/git/onli_x.y
 git log x.y.z-1.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u | sed 's/FIXED:/FIX:/g' | sed 's/FIXED :/FIX:/g' | sed 's/FIX :/FIX:/g' | sed 's/FIX /FIX: /g' | sed 's/NEW :/NEW:/g' | sed 's/NEW /NEW: /g' > /tmp/changelogtocopy
 ```
 
@@ -91,21 +91,21 @@ Recopy the content of the output file into the file ChangeLog.
 - Update version number with x.y.z-w in file htdocs/filefunc.inc.php
 - Commit all changes.
 
-- Run `makepack-dolibarr.pl` to check the generation of all packages. No need to publish them.
+- Run `makepack-onli.pl` to check the generation of all packages. No need to publish them.
 
-- Post a news message on dolibarr.org about the freeze by cloning a past news + relay the news url on social networks
+- Post a news message on onli.org about the freeze by cloning a past news + relay the news url on social networks
 
 - Create a branch x.y (but only when version seems stable enough).
 
 
 ## Actions to do a RELEASE
 
-This files describe steps made by Dolibarr packaging team to make a complete release of Dolibarr, step by step.
+This files describe steps made by OnLi packaging team to make a complete release of OnLi, step by step.
 We suppose the branch x.y has already been created during the beta (see previous step) and we want to release a version x.y.z (with z >= 0)
 
-- Check there is no pending issue with flag "Priority High/Blocking". List can be found here: https://github.com/Dolibarr/dolibarr/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Priority%20-%20High%20%2F%20Blocking%22
+- Check there is no pending issue with flag "Priority High/Blocking". List can be found here: https://github.com/OnLi/onli/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Priority%20-%20High%20%2F%20Blocking%22
 
-- Check there is no pending open security issu: List can be found here: https://github.com/Dolibarr/dolibarr/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Priority%20-%20Critical%20or%20Security%22
+- Check there is no pending open security issu: List can be found here: https://github.com/OnLi/onli/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Priority%20-%20Critical%20or%20Security%22
 
 - Check all files are committed.
 
@@ -114,21 +114,21 @@ We suppose the branch x.y has already been created during the beta (see previous
 To generate a changelog of a **major new version** x.y.0 (from a repo on branch develop), you can do
 
 ```
-cd ~/git/dolibarr
+cd ~/git/onli
 git log `diff -u <(git rev-list --first-parent x.(y-1).0)  <(git rev-list --first-parent develop) | sed -ne 's/^ //p' | head -1`.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u | sed 's/FIXED:/FIX:/g' | sed 's/FIXED :/FIX:/g' | sed 's/FIX :/FIX:/g' | sed 's/FIX /FIX: /g' | sed 's/NEW :/NEW:/g' | sed 's/NEW /NEW: /g' > /tmp/changelogtocopy
 ```
 
 To generate a changelog of a **intermediate new version** x.y.0 (from a repo on branch x.y), you can do
 
 ```
-cd ~/git/dolibarr_x.y
+cd ~/git/onli_x.y
 git log `diff -u <(git rev-list --first-parent x.(y-1).0)  <(git rev-list --first-parent x.y.0) | sed -ne 's/^ //p' | head -1`.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u | sed 's/FIXED:/FIX:/g' | sed 's/FIXED :/FIX:/g' | sed 's/FIX :/FIX:/g' | sed 's/FIX /FIX: /g' | sed 's/NEW :/NEW:/g' | sed 's/NEW /NEW: /g' > /tmp/changelogtocopy
 ```
 
 To generate a changelog of a **maintenance version** x.y.z, you can do
 
 ```
-cd ~/git/dolibarr_x.y
+cd ~/git/onli_x.y
 git log x.y.(z-1)..   | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u | sed 's/FIXED:/FIX:/g' | sed 's/FIXED :/FIX:/g' | sed 's/FIX :/FIX:/g' | sed 's/FIX /FIX: /g' | sed 's/NEW :/NEW:/g' | sed 's/NEW /NEW: /g' > /tmp/changelogtocopy
 ```
 
@@ -139,11 +139,11 @@ git log x.y.(z-1)..   | sed -e "s/^[0-9a-z]* //" | grep -e '^FIX\|NEW' | sort -u
 - Update version number with x.y.z in file htdocs/filefunc.inc.php
 - Commit all changes.
 
-- Run makepack-dolibarr.pl to generate all packages.
+- Run makepack-onli.pl to generate all packages.
 
 - Check content of built packages.
 
-- Run makepack-dolibarr.pl again with option to publish files on dolibarr foundation server (Dir /home/dolibarr/wwwroot/files/stable on www.dolibarr.org).
-- Run makepack-dolibarr.pl again with option to publish files on sourceforge. This will also add the official tag x.y.z.
+- Run makepack-onli.pl again with option to publish files on onli foundation server (Dir /home/onli/wwwroot/files/stable on www.onli.org).
+- Run makepack-onli.pl again with option to publish files on sourceforge. This will also add the official tag x.y.z.
 
-- Post a news message in dolibarr.org web site by cloning a past news + relay the news url on social networks
+- Post a news message in onli.org web site by cloning a past news + relay the news url on social networks

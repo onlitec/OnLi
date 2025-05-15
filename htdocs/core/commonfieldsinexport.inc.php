@@ -2,7 +2,7 @@
 /* Copyright (C) 2024		MDW							<mdeweerd@users.noreply.github.com>
  */
 '
-@phan-var-force DolibarrModules $this
+@phan-var-force OnLiModules $this
 @phan-var-force int $r
 ';
 

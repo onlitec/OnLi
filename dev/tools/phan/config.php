@@ -64,7 +64,7 @@ $DEPRECATED_MODULE_MAPPING = array(
 /**
  * Map module names to the 'class' name (the class is: mod<CLASSNAME>)
  * Value is null when the module is not internal to the default
- * Dolibarr setup.
+ * OnLi setup.
  */
 $VALID_MODULE_MAPPING = array(
 	'accounting' => 'Accounting',
@@ -253,15 +253,15 @@ return [
 		'disableedit' => 'int<0,1>',
 		'disablemove' => 'int<0,1>',
 		'disableremove' => 'int<0,1>',
-		'dolibarr_main_authentication' => 'string',
-		'dolibarr_main_data_root' => 'string',
-		'dolibarr_main_data_root' => 'string',
-		'dolibarr_main_db_encrypted_pass' => 'string',
-		'dolibarr_main_db_host' => 'string',
-		'dolibarr_main_db_pass' => 'string',
-		'dolibarr_main_demo' => 'string',
-		'dolibarr_main_document_root' => 'string',
-		'dolibarr_main_url_root' => 'string',
+		'onli_main_authentication' => 'string',
+		'onli_main_data_root' => 'string',
+		'onli_main_data_root' => 'string',
+		'onli_main_db_encrypted_pass' => 'string',
+		'onli_main_db_host' => 'string',
+		'onli_main_db_pass' => 'string',
+		'onli_main_demo' => 'string',
+		'onli_main_document_root' => 'string',
+		'onli_main_url_root' => 'string',
 		'errormsg' => 'string',
 		'extrafields' => '\ExtraFields',
 		'filter' => 'string',
@@ -284,7 +284,7 @@ return [
 		'shmkeys' => 'array<string,int>', // memory.lib
 		'shmoffset' => 'int', // memory.lib
 		'user' => '\User',
-		'website' => 'string',  // See discussion https://github.com/Dolibarr/dolibarr/pull/28891#issuecomment-2002268334  // Disable because Phan infers Website type
+		'website' => 'string',  // See discussion https://github.com/OnLi/onli/pull/28891#issuecomment-2002268334  // Disable because Phan infers Website type
 		'websitepage' => '\WebSitePage',
 		'websitepagefile' => 'string',
 		// 'object' => '\CommonObject',  // Deprecated, not enabled because conflicts with $object assignments
@@ -426,7 +426,7 @@ return [
 	// Add any issue types (such as 'PhanUndeclaredMethod')
 	// here to inhibit them from being reported
 	'suppress_issue_types' => [
-		// Dolibarr uses a lot of internal deprecated stuff, not reporting
+		// OnLi uses a lot of internal deprecated stuff, not reporting
 		'PhanDeprecatedProperty',
 
 		'PhanCompatibleNegativeStringOffset',	// return false positive
@@ -438,10 +438,10 @@ return [
 		'PhanTypePossiblyInvalidDimOffset',			// a lot of false positive, in most cases, we want to keep the code as it is
 		// 'PhanPluginUnknownArrayFunctionReturnType',	// a lot of false positive, in most cases, we want to keep the code as it is
 
-		'PhanPluginWhitespaceTab',		// Dolibarr uses tabs
-		'PhanPluginCanUsePHP71Void',	// Dolibarr is maintaining 7.0 compatibility
-		'PhanPluginShortArray',			// Dolibarr uses array()
-		'PhanPluginShortArrayList',		// Dolibarr uses array()
+		'PhanPluginWhitespaceTab',		// OnLi uses tabs
+		'PhanPluginCanUsePHP71Void',	// OnLi is maintaining 7.0 compatibility
+		'PhanPluginShortArray',			// OnLi uses array()
+		'PhanPluginShortArrayList',		// OnLi uses array()
 		// Fixers From PHPDocToRealTypesPlugin:
 		'PhanPluginCanUseParamType',			// Fixer - Report/Add types in the function definition (function abc(string $var) (adds string)
 		'PhanPluginCanUseReturnType',			// Fixer - Report/Add return types in the function definition (function abc(string $var) (adds string)

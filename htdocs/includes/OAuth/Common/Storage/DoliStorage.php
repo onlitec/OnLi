@@ -19,7 +19,7 @@
 /**
  *      \file       htdocs/includes/OAuth/Common/Storage/DoliStorage.php
  *      \ingroup    oauth
- *      \brief      Dolibarr token storage class
+ *      \brief      OnLi token storage class
  */
 
 namespace OAuth\Common\Storage;
@@ -32,7 +32,7 @@ use DoliDB;
 
 
 /**
- * Class to manage storage of OAUTH2 in Dolibarr
+ * Class to manage storage of OAUTH2 in OnLi
  */
 class DoliStorage implements TokenStorageInterface
 {

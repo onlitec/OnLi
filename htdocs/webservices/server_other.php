@@ -19,7 +19,7 @@
 
 /**
  *       \file       htdocs/webservices/server_other.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -56,14 +56,14 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -73,8 +73,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrOther', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiOther', $ns);
 
 // $server->wsdl is expected to be a nusoap_xmlschema (default = \wsdl)
 // @phan-suppress-next-line PhanUndeclaredProperty
@@ -89,7 +89,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -141,7 +141,7 @@ $server->register(
 	// Entry values
 	array('authentication' => 'tns:authentication'),
 	// Exit values
-	array('result' => 'tns:result', 'dolibarr' => 'xsd:string', 'os' => 'xsd:string', 'php' => 'xsd:string', 'webserver' => 'xsd:string'),
+	array('result' => 'tns:result', 'onli' => 'xsd:string', 'os' => 'xsd:string', 'php' => 'xsd:string', 'webserver' => 'xsd:string'),
 	$ns,
 	$ns.'#getVersions',
 	$styledoc,
@@ -168,8 +168,8 @@ $server->register(
 /**
  * Full methods code
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array with authentication information
- * @return	array{result:array{result_code:string,result_label:string},dolibarr?:string,os?:string,php?:string,webserver?:string}	Array of data
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array with authentication information
+ * @return	array{result:array{result_code:string,result_label:string},onli?:string,os?:string,php?:string,webserver?:string}	Array of data
  */
 function getVersions($authentication)
 {
@@ -192,7 +192,7 @@ function getVersions($authentication)
 
 	if (!$error) {
 		$objectresp['result'] = array('result_code' => 'OK', 'result_label' => '');
-		$objectresp['dolibarr'] = version_dolibarr();
+		$objectresp['onli'] = version_onli();
 		$objectresp['os'] = version_os();
 		$objectresp['php'] = version_php();
 		$objectresp['webserver'] = version_webserver();
@@ -210,7 +210,7 @@ function getVersions($authentication)
 /**
  * Method to get a document by webservice
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array with authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array with authentication information
  * @param 	string	$modulepart		 	Properties of document
  * @param	string	$file				Relative path
  * @param	string	$refname			Ref of object to check permission for external users (autodetect if not provided)

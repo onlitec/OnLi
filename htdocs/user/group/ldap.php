@@ -23,7 +23,7 @@
  *       \brief      Page Record LDAP Group
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/user/class/usergroup.class.php';
 require_once DOL_DOCUMENT_ROOT.'/contact/class/contact.class.php';
@@ -69,7 +69,7 @@ if (getDolGlobalString('MAIN_USE_ADVANCED_PERMS')) {
  * Actions
  */
 
-if ($action == 'dolibarr2ldap') {
+if ($action == 'onli2ldap') {
 	$ldap = new Ldap();
 	$result = $ldap->connectBind();
 
@@ -159,7 +159,7 @@ print dol_get_fiche_end();
 print '<div class="tabsAction">';
 
 if (getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') === Ldap::SYNCHRO_DOLIBARR_TO_LDAP) {
-	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=dolibarr2ldap">'.$langs->trans("ForceSynchronize").'</a>';
+	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=onli2ldap">'.$langs->trans("ForceSynchronize").'</a>';
 }
 
 print "</div>\n";

@@ -20,7 +20,7 @@
 
 /**
  *       \file       htdocs/webservices/server_invoice.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -59,14 +59,14 @@ require_once DOL_DOCUMENT_ROOT.'/commande/class/commande.class.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -76,8 +76,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrInvoice', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiInvoice', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -89,7 +89,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -305,7 +305,7 @@ $server->register(
 /**
  * Get invoice from id, ref or ref_ext.
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$id					Id
  * @param	string		$ref				Ref
  * @param	string		$ref_ext			Ref_ext
@@ -416,7 +416,7 @@ function getInvoice($authentication, $id = 0, $ref = '', $ref_ext = '')
 /**
  * Get list of invoices for third party
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	int			$idthirdparty		Id thirdparty
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -552,7 +552,7 @@ function getInvoicesForThirdParty($authentication, $idthirdparty)
 /**
  * Create an invoice
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,thirdparty_id:int,fk_user_author:string,fk_user_valid:string,date:string,date_due:string,date_creation:string,date_validation:string,date_modification:string,payment_mode_id:string,type:int,total_net:float,total_vat:float,total:float,note_private:string,note_public:string,status:int,close_code:string,close_note:string,project_id:string,lines?:array{id:string,type:int,desc:string,vat_rate:float,qty:float,unitprice:float,total_net:float,total_vat:float,total:float,date_start:string,date_end:string,product_id:int,product_ref:string,product_label:string,product_desc:string}}		$invoice			Invoice
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -671,7 +671,7 @@ function createInvoice($authentication, $invoice)
 /**
  * Create an invoice from an order
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @param	int         $id_order			id of order to copy invoice from
  * @param	string      $ref_order			ref of order to copy invoice from
  * @param	string      $ref_ext_order		ref_ext of order to copy invoice from
@@ -754,7 +754,7 @@ function createInvoiceFromOrder($authentication, $id_order = 0, $ref_order = '',
 /**
  * Update an invoice, only change the state of an invoice
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,status?:string,close_code?:int,close_note?:int}	$invoice			Invoice
  * @return	array{result:array{result_code:string,result_label:string},id?:int,ref?:string,ref_ext?:string}	Array result
  */

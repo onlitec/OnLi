@@ -99,7 +99,7 @@ class Translate
 	 *	Constructor
 	 *
 	 *  @param	string	$dir            Force directory that contains /langs subdirectory (value is sometimes '..' like into install/* pages or support/* pages). Use '' by default.
-	 *  @param  Conf	$conf			Object with Dolibarr configuration
+	 *  @param  Conf	$conf			Object with OnLi configuration
 	 */
 	public function __construct($dir, $conf)
 	{
@@ -348,7 +348,7 @@ class Translate
 						if ($alt == 2) {
 							$fileread = 1;
 						}
-						$found = true; // Found in dolibarr PHP cache
+						$found = true; // Found in onli PHP cache
 					}
 				}
 
@@ -532,7 +532,7 @@ class Translate
 				$this->tab_translate += $tmparray; // Faster than array_merge($tmparray,$this->tab_translate). Note: If a value already exists into tab_translate, value into tmparaay is not added.
 				//print $newdomain."\n";
 				$fileread = 1;
-				$found = true; // Found in dolibarr PHP cache
+				$found = true; // Found in onli PHP cache
 			}
 		}
 

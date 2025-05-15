@@ -39,7 +39,7 @@ if (substr($sapi_type, 0, 3) == 'cgi') {
 	exit(1);
 }
 
-// Include Dolibarr environment
+// Include OnLi environment
 require_once $path."../../htdocs/master.inc.php";
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functionscli.lib.php';
 // After this $db is an opened handler to database. We close it at end of file.
@@ -77,7 +77,7 @@ if (!isset($argv[1])) {
 	exit(1);
 }
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-onyl mode\n";
 	exit(1);
 }

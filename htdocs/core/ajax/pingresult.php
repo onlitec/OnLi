@@ -18,7 +18,7 @@
 
 /**
  *       \file		htdocs/core/ajax/pingresult.php
- *       \brief		Page called after a ping was done in js to the official dolibarr ping service.
+ *       \brief		Page called after a ping was done in js to the official onli ping service.
  *					This ajax URL is called with parameter 'firstpingok' or 'firstpingko' depending on the result of the ping.
  *					You can use &forceping=1 in parameters to force the ping if the ping was already sent.
  */
@@ -42,7 +42,7 @@ if (!defined('NOREQUIRETRAN')) {
 	define('NOREQUIRETRAN', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 /**
@@ -83,14 +83,14 @@ print '<!-- Ajax page called with url '.dol_escape_htmltag($_SERVER["PHP_SELF"])
 if ($action == 'firstpingok') {
 	// Note: pings are per installed instances / entity.
 	// Once this constants are set, no more ping will be tried (except if we add parameter &forceping=1 on URL). So we can say this are 'first' ping.
-	dolibarr_set_const($db, 'MAIN_FIRST_PING_OK_DATE', dol_print_date($now, 'dayhourlog', 'gmt'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, 'MAIN_FIRST_PING_OK_ID', $hash_unique_id, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, 'MAIN_FIRST_PING_OK_DATE', dol_print_date($now, 'dayhourlog', 'gmt'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, 'MAIN_FIRST_PING_OK_ID', $hash_unique_id, 'chaine', 0, '', $conf->entity);
 
 	print 'First ping OK saved for entity '.$conf->entity;
 } elseif ($action == 'firstpingko') {
 	// If ko
 	// Note: pings are by installation, done on entity 1.
-	dolibarr_set_const($db, 'MAIN_LAST_PING_KO_DATE', dol_print_date($now, 'dayhourlog', 'gmt'), 'chaine', 0, '', $conf->entity); // erase last value
+	onli_set_const($db, 'MAIN_LAST_PING_KO_DATE', dol_print_date($now, 'dayhourlog', 'gmt'), 'chaine', 0, '', $conf->entity); // erase last value
 	print 'First ping KO saved for entity '.$conf->entity;
 } else {
 	print 'Error action='.$action.' not supported';

@@ -24,7 +24,7 @@
  *   \brief			Fichier de la class de gestion des triggers
  */
 
-require_once DOL_DOCUMENT_ROOT.'/core/triggers/dolibarrtriggers.class.php';
+require_once DOL_DOCUMENT_ROOT.'/core/triggers/onlitriggers.class.php';
 
 
 /**
@@ -64,7 +64,7 @@ class Interfaces
 
 	// phpcs:disable PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps
 	/**
-	 *   Function called when a Dolibarr business event occurs
+	 *   Function called when a OnLi business event occurs
 	 *   This function call all qualified triggers.
 	 *
 	 *   @param		string		$action     Trigger event code
@@ -187,7 +187,7 @@ class Interfaces
 			}
 
 			$objMod = new $modName($this->db);
-			'@phan-var-force DolibarrTriggers $objMod';
+			'@phan-var-force OnLiTriggers $objMod';
 			if ($objMod) {
 				$dblevelbefore = $this->db->transaction_opened;
 
@@ -339,9 +339,9 @@ class Interfaces
 
 			try {
 				$objMod = new $modName($db);
-				'@phan-var-force DolibarrTriggers $objMod';
+				'@phan-var-force OnLiTriggers $objMod';
 
-				if (is_subclass_of($objMod, 'DolibarrTriggers')) {
+				if (is_subclass_of($objMod, 'OnLiTriggers')) {
 					// Define disabledbyname and disabledbymodule
 					$disabledbyname = 0;
 					$disabledbymodule = 1;
@@ -398,10 +398,10 @@ class Interfaces
 					$triggers[$j]['file'] = $files[$key];
 					$triggers[$j]['fullpath'] = $fullpath[$key];
 					$triggers[$j]['relpath'] = $relpath[$key];
-					$triggers[$j]['status'] = img_picto('Error: Trigger '.$modName.' does not extends DolibarrTriggers', 'warning');
+					$triggers[$j]['status'] = img_picto('Error: Trigger '.$modName.' does not extends OnLiTriggers', 'warning');
 
-					//print 'Error: Trigger '.$modName.' does not extends DolibarrTriggers<br>';
-					$text = 'Error: Trigger '.$modName.' does not extend DolibarrTriggers';
+					//print 'Error: Trigger '.$modName.' does not extends OnLiTriggers<br>';
+					$text = 'Error: Trigger '.$modName.' does not extend OnLiTriggers';
 				}
 			} catch (Exception $e) {
 				print $e->getMessage();

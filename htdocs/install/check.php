@@ -36,12 +36,12 @@ include_once 'inc.php';
  * @var Conf $conf already created in inc.php
  * @var Translate $langs
  *
- * @var string $dolibarr_main_db_host
- * @var string $dolibarr_main_db_port
- * @var string $dolibarr_main_db_name
- * @var string $dolibarr_main_db_user
- * @var string $dolibarr_main_db_pass
- * @var string $dolibarr_main_db_encrypted_pass
+ * @var string $onli_main_db_host
+ * @var string $onli_main_db_port
+ * @var string $onli_main_db_name
+ * @var string $onli_main_db_user
+ * @var string $onli_main_db_pass
+ * @var string $onli_main_db_encrypted_pass
  * @var string $conffile
  * @var string $conffiletoshow
  */
@@ -59,15 +59,15 @@ $langs->load("install");
 // Now we load forced/pre-set values from install.forced.php file.
 $useforcedwizard = false;
 $forcedfile = "./install.forced.php";
-if ($conffile == "/etc/dolibarr/conf.php") {
-	$forcedfile = "/etc/dolibarr/install.forced.php";
+if ($conffile == "/etc/onli/conf.php") {
+	$forcedfile = "/etc/onli/install.forced.php";
 }
 if (@file_exists($forcedfile)) {
 	$useforcedwizard = true;
 	include_once $forcedfile;
 }
 
-dolibarr_install_syslog("- check: Dolibarr install/upgrade process started");
+onli_install_syslog("- check: OnLi install/upgrade process started");
 
 
 /*
@@ -262,7 +262,7 @@ if ($memmaxorig != '') {
 // If that config file is present and filled
 clearstatcache();
 if (is_readable($conffile) && filesize($conffile) > 8) {
-	dolibarr_install_syslog("check: conf file '".$conffile."' already defined");
+	onli_install_syslog("check: conf file '".$conffile."' already defined");
 	$confexists = 1;
 	include_once $conffile;
 
@@ -275,16 +275,16 @@ if (is_readable($conffile) && filesize($conffile) > 8) {
 	}
 } else {
 	// If not, we create it
-	dolibarr_install_syslog("check: we try to create conf file '".$conffile."'");
+	onli_install_syslog("check: we try to create conf file '".$conffile."'");
 	$confexists = 0;
 
 	// First we try by copying example
 	if (@copy($conffile.".example", $conffile)) {
 		// Success
-		dolibarr_install_syslog("check: successfully copied file ".$conffile.".example into ".$conffile);
+		onli_install_syslog("check: successfully copied file ".$conffile.".example into ".$conffile);
 	} else {
 		// If failed, we try to create an empty file
-		dolibarr_install_syslog("check: failed to copy file ".$conffile.".example into ".$conffile.". We try to create it.", LOG_WARNING);
+		onli_install_syslog("check: failed to copy file ".$conffile.".example into ".$conffile.". We try to create it.", LOG_WARNING);
 
 		$fp = @fopen($conffile, "w");
 		if ($fp) {
@@ -292,7 +292,7 @@ if (is_readable($conffile) && filesize($conffile) > 8) {
 			@fwrite($fp, "\n");
 			fclose($fp);
 		} else {
-			dolibarr_install_syslog("check: failed to create a new file ".$conffile." into current dir ".getcwd().". Please check permissions.", LOG_ERR);
+			onli_install_syslog("check: failed to create a new file ".$conffile." into current dir ".getcwd().". Please check permissions.", LOG_ERR);
 		}
 	}
 
@@ -350,31 +350,31 @@ if (!file_exists($conffile)) {
 		// Try to create db connection
 		if (file_exists($conffile)) {
 			include_once $conffile;
-			if (!empty($dolibarr_main_db_type) && !empty($dolibarr_main_document_root)) {
-				if (!file_exists($dolibarr_main_document_root."/core/lib/admin.lib.php")) {
-					print '<span class="error">A '.$conffiletoshow.' file exists with a dolibarr_main_document_root to '.$dolibarr_main_document_root.' that seems wrong. Try to fix or remove the '.$conffiletoshow.' file.</span><br>'."\n";
-					dol_syslog("A '".$conffiletoshow."' file exists with a dolibarr_main_document_root to ".$dolibarr_main_document_root." that seems wrong. Try to fix or remove the '".$conffiletoshow."' file.", LOG_WARNING);
+			if (!empty($onli_main_db_type) && !empty($onli_main_document_root)) {
+				if (!file_exists($onli_main_document_root."/core/lib/admin.lib.php")) {
+					print '<span class="error">A '.$conffiletoshow.' file exists with a onli_main_document_root to '.$onli_main_document_root.' that seems wrong. Try to fix or remove the '.$conffiletoshow.' file.</span><br>'."\n";
+					dol_syslog("A '".$conffiletoshow."' file exists with a onli_main_document_root to ".$onli_main_document_root." that seems wrong. Try to fix or remove the '".$conffiletoshow."' file.", LOG_WARNING);
 				} else {
-					require_once $dolibarr_main_document_root.'/core/lib/admin.lib.php';
+					require_once $onli_main_document_root.'/core/lib/admin.lib.php';
 
 					// If password is encoded, we decode it
-					if (preg_match('/crypted:/i', $dolibarr_main_db_pass) || !empty($dolibarr_main_db_encrypted_pass)) {
-						require_once $dolibarr_main_document_root.'/core/lib/security.lib.php';
-						if (preg_match('/crypted:/i', $dolibarr_main_db_pass)) {
-							$dolibarr_main_db_encrypted_pass = preg_replace('/crypted:/i', '', $dolibarr_main_db_pass); // We need to set this as it is used to know the password was initially encrypted
-							$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_encrypted_pass);
+					if (preg_match('/crypted:/i', $onli_main_db_pass) || !empty($onli_main_db_encrypted_pass)) {
+						require_once $onli_main_document_root.'/core/lib/security.lib.php';
+						if (preg_match('/crypted:/i', $onli_main_db_pass)) {
+							$onli_main_db_encrypted_pass = preg_replace('/crypted:/i', '', $onli_main_db_pass); // We need to set this as it is used to know the password was initially encrypted
+							$onli_main_db_pass = dol_decode($onli_main_db_encrypted_pass);
 						} else {
-							$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_encrypted_pass);
+							$onli_main_db_pass = dol_decode($onli_main_db_encrypted_pass);
 						}
 					}
 
 					// $conf already created in inc.php
-					$conf->db->type = $dolibarr_main_db_type;
-					$conf->db->host = $dolibarr_main_db_host;
-					$conf->db->port = $dolibarr_main_db_port;
-					$conf->db->name = $dolibarr_main_db_name;
-					$conf->db->user = $dolibarr_main_db_user;
-					$conf->db->pass = $dolibarr_main_db_pass;
+					$conf->db->type = $onli_main_db_type;
+					$conf->db->host = $onli_main_db_host;
+					$conf->db->port = $onli_main_db_port;
+					$conf->db->name = $onli_main_db_name;
+					$conf->db->user = $onli_main_db_user;
+					$conf->db->pass = $onli_main_db_pass;
 					$db = getDoliDBInstance($conf->db->type, $conf->db->host, (string) $conf->db->user, $conf->db->pass, $conf->db->name, (int) $conf->db->port);
 					if ($db->connected && $db->database_selected) {
 						$ok = true;
@@ -383,17 +383,17 @@ if (!file_exists($conffile)) {
 			}
 		}
 
-		$dolibarrlastupgradeversionarray = array();
+		$onlilastupgradeversionarray = array();
 		// If database access is available, we set more variables
 		if ($ok) {
-			if (empty($dolibarr_main_db_encryption)) {
-				$dolibarr_main_db_encryption = 0;
+			if (empty($onli_main_db_encryption)) {
+				$onli_main_db_encryption = 0;
 			}
-			$conf->db->dolibarr_main_db_encryption = $dolibarr_main_db_encryption;
-			if (empty($dolibarr_main_db_cryptkey)) {
-				$dolibarr_main_db_cryptkey = '';
+			$conf->db->onli_main_db_encryption = $onli_main_db_encryption;
+			if (empty($onli_main_db_cryptkey)) {
+				$onli_main_db_cryptkey = '';
 			}
-			$conf->db->dolibarr_main_db_cryptkey = $dolibarr_main_db_cryptkey;
+			$conf->db->onli_main_db_cryptkey = $onli_main_db_cryptkey;
 
 			$conf->setValues($db);
 			// Reset forced setup after the setValues
@@ -404,8 +404,8 @@ if (!file_exists($conffile)) {
 
 			// Current version is $conf->global->MAIN_VERSION_LAST_UPGRADE
 			// Version to install is DOL_VERSION
-			$dolibarrlastupgradeversionarray = preg_split('/[\.-]/', isset($conf->global->MAIN_VERSION_LAST_UPGRADE) ? $conf->global->MAIN_VERSION_LAST_UPGRADE : (isset($conf->global->MAIN_VERSION_LAST_INSTALL) ? $conf->global->MAIN_VERSION_LAST_INSTALL : ''));
-			$dolibarrversiontoinstallarray = versiondolibarrarray();
+			$onlilastupgradeversionarray = preg_split('/[\.-]/', isset($conf->global->MAIN_VERSION_LAST_UPGRADE) ? $conf->global->MAIN_VERSION_LAST_UPGRADE : (isset($conf->global->MAIN_VERSION_LAST_INSTALL) ? $conf->global->MAIN_VERSION_LAST_INSTALL : ''));
+			$onliversiontoinstallarray = versiononliarray();
 		}
 
 		// Show title
@@ -427,7 +427,7 @@ if (!file_exists($conffile)) {
 		$available_choices = array();
 		$notavailable_choices = array();
 
-		if (empty($dolibarr_main_db_host)) {	// This means install process was not run
+		if (empty($onli_main_db_host)) {	// This means install process was not run
 			$foundrecommandedchoice = 1; // To show only once
 		}
 
@@ -437,7 +437,7 @@ if (!file_exists($conffile)) {
 		$choice .= '</td>';
 		$choice .= '<td class="listofchoicesdesc">';
 		$choice .= $langs->trans("FreshInstallDesc");
-		if (empty($dolibarr_main_db_host)) {	// This means install process was not run
+		if (empty($onli_main_db_host)) {	// This means install process was not run
 			$choice .= '<br>';
 			//print $langs->trans("InstallChoiceRecommanded",DOL_VERSION,$conf->global->MAIN_VERSION_LAST_UPGRADE);
 			$choice .= '<div class="center"><div class="ok suggestedchoice">'.$langs->trans("InstallChoiceSuggested").'</div></div>';
@@ -463,7 +463,7 @@ if (!file_exists($conffile)) {
 
 		// Show upgrade lines
 		$allowupgrade = true;
-		if (empty($dolibarr_main_db_host)) {	// This means install process was not run
+		if (empty($onli_main_db_host)) {	// This means install process was not run
 			$allowupgrade = false;
 		}
 		if (getDolGlobalInt("MAIN_NOT_INSTALLED")) {
@@ -474,7 +474,7 @@ if (!file_exists($conffile)) {
 		}
 
 		$dir = DOL_DOCUMENT_ROOT."/install/mysql/migration/";	// We use mysql migration scripts whatever is database driver
-		dolibarr_install_syslog("Scan sql files for migration files in ".$dir);
+		onli_install_syslog("Scan sql files for migration files in ".$dir);
 
 		// Get files list of migration file x.y.z-a.b.c.sql into /install/mysql/migration
 		$migrationscript = array();
@@ -505,21 +505,21 @@ if (!file_exists($conffile)) {
 			$versionfrom = $migarray['from'];
 			$versionto = $migarray['to'];
 			$versionarray = preg_split('/[\.-]/', $version);
-			$dolibarrversionfromarray = preg_split('/[\.-]/', $versionfrom);
-			$dolibarrversiontoarray = preg_split('/[\.-]/', $versionto);
+			$onliversionfromarray = preg_split('/[\.-]/', $versionfrom);
+			$onliversiontoarray = preg_split('/[\.-]/', $versionto);
 			// Define string newversionxxx that are used for text to show
 			$newversionfrom = preg_replace('/(\.[0-9]+)$/i', '.*', $versionfrom);
 			$newversionto = preg_replace('/(\.[0-9]+)$/i', '.*', $versionto);
 			$newversionfrombis = '';
-			if (versioncompare($dolibarrversiontoarray, $versionarray) < -2) {	// From x.y.z -> x.y.z+1
+			if (versioncompare($onliversiontoarray, $versionarray) < -2) {	// From x.y.z -> x.y.z+1
 				$newversionfrombis = ' '.$langs->trans("or").' '.$versionto;
 			}
 
 			if ($ok) {
-				if (is_array($dolibarrlastupgradeversionarray) && count($dolibarrlastupgradeversionarray) >= 2) {	// If database access is available and last upgrade version is known
+				if (is_array($onlilastupgradeversionarray) && count($onlilastupgradeversionarray) >= 2) {	// If database access is available and last upgrade version is known
 					// Now we check if this is the first qualified choice
 					if ($allowupgrade && empty($foundrecommandedchoice) &&
-						(versioncompare($dolibarrversiontoarray, $dolibarrlastupgradeversionarray) > 0 || versioncompare($dolibarrversiontoarray, $versionarray) < -2)
+						(versioncompare($onliversiontoarray, $onlilastupgradeversionarray) > 0 || versioncompare($onliversiontoarray, $versionarray) < -2)
 					) {
 						$foundrecommandedchoice = 1; // To show only once
 						$recommended_choice = true;
@@ -631,5 +631,5 @@ $(".runupgrade").click(function() {
 
 </script>';
 
-dolibarr_install_syslog("- check: end");
+onli_install_syslog("- check: end");
 pFooter(1); // Never display next button

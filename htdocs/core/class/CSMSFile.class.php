@@ -262,10 +262,10 @@ class CSMSFile
 	public function dump_sms()
 	{
 		// phpcs:enable
-		global $conf, $dolibarr_main_data_root;
+		global $conf, $onli_main_data_root;
 
-		if (@is_writable($dolibarr_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
-			$outputfile = $dolibarr_main_data_root."/dolibarr_sms.log";
+		if (@is_writable($onli_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
+			$outputfile = $onli_main_data_root."/onli_sms.log";
 			$fp = fopen($outputfile, "w");
 
 			fwrite($fp, "From: ".$this->addr_from."\n");
@@ -293,10 +293,10 @@ class CSMSFile
 	public function dump_sms_result($result)
 	{
 		// phpcs:enable
-		global $dolibarr_main_data_root;
+		global $onli_main_data_root;
 
-		if (@is_writable($dolibarr_main_data_root)) {    // Avoid fatal error on fopen with open_basedir
-			$outputfile = $dolibarr_main_data_root."/dolibarr_sms.log";
+		if (@is_writable($onli_main_data_root)) {    // Avoid fatal error on fopen with open_basedir
+			$outputfile = $onli_main_data_root."/onli_sms.log";
 			$fp = fopen($outputfile, "a+");
 
 			fwrite($fp, "\nResult of SmsSend = ".$result);

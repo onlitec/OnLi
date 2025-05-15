@@ -20,14 +20,14 @@
 
 /**
  *		\file 		htdocs/admin/tools/update.php
- *		\brief      Page to make a Dolibarr online upgrade
+ *		\brief      Page to make a OnLi online upgrade
  */
 
 if (! defined('CSRFCHECK_WITH_TOKEN')) {
 	define('CSRFCHECK_WITH_TOKEN', '1');		// Force use of CSRF protection with tokens even for GET
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -55,10 +55,10 @@ if (GETPOST('msg', 'alpha')) {
 }
 
 
-$urldolibarr = 'https://www.dolibarr.org/downloads/';
-$dolibarrroot = preg_replace('/([\\/]+)$/i', '', DOL_DOCUMENT_ROOT);
-$dolibarrroot = preg_replace('/([^\\/]+)$/i', '', $dolibarrroot);
-$dolibarrdataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
+$urlonli = 'https://www.onli.org/downloads/';
+$onliroot = preg_replace('/([\\/]+)$/i', '', DOL_DOCUMENT_ROOT);
+$onliroot = preg_replace('/([^\\/]+)$/i', '', $onliroot);
+$onlidataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
 
 $sfurl = '';
 $version = '0.0';
@@ -69,7 +69,7 @@ $version = '0.0';
  */
 
 if ($action == 'getlastversion') {
-	$result = getURLContent('https://sourceforge.net/projects/dolibarr/rss');
+	$result = getURLContent('https://sourceforge.net/projects/onli/rss');
 	//var_dump($result['content']);
 	if (function_exists('simplexml_load_string')) {
 		if (LIBXML_VERSION < 20900) {
@@ -140,17 +140,17 @@ print $langs->trans("Upgrade").'<br>';
 print '<hr>';
 print $langs->trans("ThisIsProcessToFollow").'<br>';
 print '<b>'.$langs->trans("StepNb", 1).'</b>: ';
-$fullurl = '<a href="'.$urldolibarr.'" target="_blank" rel="noopener noreferrer">'.$urldolibarr.'</a>';
+$fullurl = '<a href="'.$urlonli.'" target="_blank" rel="noopener noreferrer">'.$urlonli.'</a>';
 print str_replace('{s}', $fullurl, $langs->trans("DownloadPackageFromWebSite", '{s}')).'<br>';
 print '<b>'.$langs->trans("StepNb", 2).'</b>: ';
-print str_replace('{s}', $dolibarrroot, $langs->trans("UnpackPackageInDolibarrRoot", '{s}')).'<br>';
+print str_replace('{s}', $onliroot, $langs->trans("UnpackPackageInOnLiRoot", '{s}')).'<br>';
 print '<b>'.$langs->trans("StepNb", 3).'</b>: ';
-print $langs->trans("RemoveLock", $dolibarrdataroot.'/install.lock').'<br>';
+print $langs->trans("RemoveLock", $onlidataroot.'/install.lock').'<br>';
 print '<b>'.$langs->trans("StepNb", 4).'</b>: ';
 $fullurl = '<a href="'.DOL_URL_ROOT.'/install/" target="_blank" rel="noopener noreferrer">'.DOL_URL_ROOT.'/install/</a>';
 print str_replace('{s}', $fullurl, $langs->trans("CallUpdatePage", '{s}')).'<br>';
 print '<b>'.$langs->trans("StepNb", 5).'</b>: ';
-print $langs->trans("RestoreLock", $dolibarrdataroot.'/install.lock').'<br>';
+print $langs->trans("RestoreLock", $onlidataroot.'/install.lock').'<br>';
 
 print '<br>';
 print '<br>';

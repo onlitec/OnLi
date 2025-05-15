@@ -25,7 +25,7 @@
  *       \brief      Page to show user setup for display
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
@@ -334,7 +334,7 @@ if ($action == 'edit') {
 	print '<tr><td class="titlefield">'.$langs->trans("Login").'</td>';
 	if (!empty($object->ldap_sid) && $object->status == 0) {
 		print '<td class="error">';
-		print $langs->trans("LoginAccountDisableInDolibarr");
+		print $langs->trans("LoginAccountDisableInOnLi");
 		print '</td>';
 	} else {
 		print '<td>';
@@ -416,10 +416,10 @@ if ($action == 'edit') {
 	print (getDolGlobalString('MAIN_LANG_DEFAULT') == 'auto' ? $form->textwithpicto($langs->trans("Automatic"), $langs->trans("AutoDetectLang")) : $langs->trans("Language_" . getDolGlobalString('MAIN_LANG_DEFAULT')));
 	print '</td>';
 	print '<td class="nowrap"><input class="oddeven" name="check_MAIN_LANG_DEFAULT" id="check_MAIN_LANG_DEFAULT" type="checkbox" '.(getDolGlobalString('MAIN_LANG_DEFAULT') ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> <label for="check_MAIN_LANG_DEFAULT">'.$langs->trans("UsePersonalValue").'</label></td>';
 	print '<td>';
-	print $formadmin->select_language((!empty($object->conf->MAIN_LANG_DEFAULT) ? $object->conf->MAIN_LANG_DEFAULT : ''), 'main_lang_default', 1, array(), 0, 0, (int) (!empty($dolibarr_main_demo)));
+	print $formadmin->select_language((!empty($object->conf->MAIN_LANG_DEFAULT) ? $object->conf->MAIN_LANG_DEFAULT : ''), 'main_lang_default', 1, array(), 0, 0, (int) (!empty($onli_main_demo)));
 	print '</td></tr>';
 
 	// Landing page
@@ -428,7 +428,7 @@ if ($action == 'edit') {
 	print getDolGlobalString('MAIN_LANDING_PAGE');
 	print '</td>';
 	print '<td class="nowrap"><input class="oddeven" name="check_MAIN_LANDING_PAGE" id="check_MAIN_LANDING_PAGE" type="checkbox" '.(!empty($object->conf->MAIN_LANDING_PAGE) ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> <label for="check_MAIN_LANDING_PAGE">'.$langs->trans("UsePersonalValue").'</label></td>';
 	print '<td>';
 	print $form->selectarray('MAIN_LANDING_PAGE', $tmparray, (!empty($object->conf->MAIN_LANDING_PAGE) ? $object->conf->MAIN_LANDING_PAGE : ''), 0, 0, 0, '', 0, 0, 0, '', 'maxwidth250');
@@ -440,7 +440,7 @@ if ($action == 'edit') {
 	print '<td>'.$langs->trans("AGENDA_DEFAULT_VIEW").'</td>'."\n";
 	print '<td class="center">&nbsp;</td>'."\n";
 	print '<td class="nowrap" width="20%"><input class="oddeven" name="check_AGENDA_DEFAULT_VIEW" id="check_AGENDA_DEFAULT_VIEW" type="checkbox" '.(!empty($object->conf->AGENDA_DEFAULT_VIEW) ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> <label for="check_AGENDA_DEFAULT_VIEW">'.$langs->trans("UsePersonalValue").'</label></td>';
 	print '<td>'."\n";
 	$tmplist = array('' => '&nbsp;', 'show_list' => $langs->trans("ViewList"), 'show_month' => $langs->trans("ViewCal"), 'show_week' => $langs->trans("ViewWeek"), 'show_day' => $langs->trans("ViewDay"), 'show_peruser' => $langs->trans("ViewPerUser"));
@@ -451,7 +451,7 @@ if ($action == 'edit') {
 	print '<tr class="oddeven"><td>'.$langs->trans("MAIN_CHECKBOX_LEFT_COLUMN").'</td>';
 	print '<td>'.(getDolGlobalString('MAIN_CHECKBOX_LEFT_COLUMN') ? $langs->trans("Yes") : $langs->trans("No")).'</td>';
 	print '<td class="nowrap" width="20%"><input class="oddeven" name="check_MAIN_CHECKBOX_LEFT_COLUMN" id="check_MAIN_CHECKBOX_LEFT_COLUMN" type="checkbox" '.(isset($object->conf->MAIN_CHECKBOX_LEFT_COLUMN) ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> <label for="check_MAIN_CHECKBOX_LEFT_COLUMN">'.$langs->trans("UsePersonalValue").'</label></td>';
 	print '<td>'.$form->selectyesno("MAIN_CHECKBOX_LEFT_COLUMN", isset($object->conf->MAIN_CHECKBOX_LEFT_COLUMN) ? $object->conf->MAIN_CHECKBOX_LEFT_COLUMN : getDolGlobalString('MAIN_CHECKBOX_LEFT_COLUMN'), 1).'</td></tr>';
 
@@ -460,7 +460,7 @@ if ($action == 'edit') {
 	$mainsizelistelimit = getDolGlobalInt('MAIN_SIZE_LISTE_LIMIT');
 	print '<td>'.($mainsizelistelimit > 0 ? getDolGlobalString('MAIN_SIZE_LISTE_LIMIT') : '<span class="">'.$langs->trans("Automatic").'</span>').'</td>';
 	print '<td class="nowrap" width="20%"><input class="oddeven" name="check_MAIN_SIZE_LISTE_LIMIT" id="check_MAIN_SIZE_LISTE_LIMIT" type="checkbox" '.(!empty($object->conf->MAIN_SIZE_LISTE_LIMIT) ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> <label for="check_MAIN_SIZE_LISTE_LIMIT">'.$langs->trans("UsePersonalValue").'</label></td>';
 	print '<td><input class="flat" name="MAIN_SIZE_LISTE_LIMIT" id="MAIN_SIZE_LISTE_LIMIT" size="4" value="'.(!empty($object->conf->MAIN_SIZE_LISTE_LIMIT) ? $object->conf->MAIN_SIZE_LISTE_LIMIT : '').'"></td></tr>';
 
@@ -468,14 +468,14 @@ if ($action == 'edit') {
 	print '<tr class="oddeven"><td>'.$langs->trans("MaxSizeShortList").'</td>';
 	print '<td>' . getDolGlobalString('MAIN_SIZE_SHORTLIST_LIMIT').'</td>';
 	print '<td class="nowrap" width="20%"><input class="oddeven" name="check_MAIN_SIZE_SHORTLIST_LIMIT" id="check_MAIN_SIZE_SHORTLIST_LIMIT" type="checkbox" '.(!empty($object->conf->MAIN_SIZE_SHORTLIST_LIMIT) ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> <label for="check_MAIN_SIZE_SHORTLIST_LIMIT">'.$langs->trans("UsePersonalValue").'</label></td>';
 	print '<td><input class="flat" name="MAIN_SIZE_SHORTLIST_LIMIT" id="MAIN_SIZE_SHORTLIST_LIMIT" size="4" value="'.(!empty($object->conf->MAIN_SIZE_SHORTLIST_LIMIT) ? $object->conf->MAIN_SIZE_SHORTLIST_LIMIT : '').'"></td></tr>';
 
 	print '</table><br>';
 
 	// Theme
-	showSkins($object, (($user->admin || empty($dolibarr_main_demo)) ? 1 : 0), true);
+	showSkins($object, (($user->admin || empty($onli_main_demo)) ? 1 : 0), true);
 
 
 	print $form->buttonsSaveCancel();
@@ -503,7 +503,7 @@ if ($action == 'edit') {
 	print '<tr><td class="titlefield">'.$langs->trans("Login").'</td>';
 	if (!empty($object->ldap_sid) && $object->status == 0) {
 		print '<td class="error">';
-		print $langs->trans("LoginAccountDisableInDolibarr");
+		print $langs->trans("LoginAccountDisableInOnLi");
 		print '</td>';
 	} else {
 		print '<td>';
@@ -552,7 +552,7 @@ if ($action == 'edit') {
 	print(!getDolGlobalString('MAIN_LANDING_PAGE') ? '' : $conf->global->MAIN_LANDING_PAGE);
 	print '</td>';
 	print '<td class="nowrap"><input class="oddeven" name="check_MAIN_LANDING_PAGE" disabled id="check_MAIN_LANDING_PAGE" type="checkbox" '.(!empty($object->conf->MAIN_LANDING_PAGE) ? " checked" : "");
-	print empty($dolibarr_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
+	print empty($onli_main_demo) ? '' : ' disabled="disabled"'; // Disabled for demo
 	print '> '.$langs->trans("UsePersonalValue").'</td>';
 	print '<td class="tdoverflowmax300">';
 	if (!empty($object->conf->MAIN_LANDING_PAGE)) {
@@ -622,7 +622,7 @@ if ($action == 'edit') {
 
 
 	print '<div class="tabsAction">';
-	if (empty($user->admin) && !empty($dolibarr_main_demo)) {
+	if (empty($user->admin) && !empty($onli_main_demo)) {
 		print '<a class="butActionRefused classfortooltip" title="'.$langs->trans("FeatureDisabledInDemo").'" href="#">'.$langs->trans("Modify").'</a>';
 	} else {
 		if ($caneditfield || !empty($user->admin)) {       // Si utilisateur edite = utilisateur courant (pas besoin de droits particulier car il s'agit d'une page de modif d'output et non de données) ou si admin

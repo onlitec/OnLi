@@ -1,11 +1,11 @@
 # Security Policy
 
-This file contains some policies about the security reports on Dolibarr ERP CRM project, a popular Open Source ERP and CRM used by millions of users.
+This file contains some policies about the security reports on OnLi ERP CRM project, a popular Open Source ERP and CRM used by millions of users.
 
 
 ## Supported Versions for security reports
 
-Security report are valid only on current stable version (see https://dolibarr.org web site to get current stable version) or on development version (branch "develop" on https://github.com/Dolibarr/dolibarr).
+Security report are valid only on current stable version (see https://onli.org web site to get current stable version) or on development version (branch "develop" on https://github.com/OnLi/onli).
 
 
 ## Reporting a Vulnerability
@@ -14,35 +14,35 @@ To report a vulnerability, for a private report, you can:
 
 - Send your report on Vulnerability Disclosure Program (VDP): Link will be updated soon (recommended for everybody)
 <!--
-- Send your report on Vulnerability Disclosure Program (VDP) [https://app.yogosha.com/cvd/dolibarr/10VxeNx6Ui3rSEhAgX63US](https://app.yogosha.com/cvd/dolibarr/10VxeNx6Ui3rSEhAgX63US) (recommended for everybody)
-- Or if you have permissions, use GitHub security advisory at [https://github.com/Dolibarr/dolibarr/security/advisories/new](https://github.com/Dolibarr/dolibarr/security/advisories/new)
+- Send your report on Vulnerability Disclosure Program (VDP) [https://app.yogosha.com/cvd/onli/10VxeNx6Ui3rSEhAgX63US](https://app.yogosha.com/cvd/onli/10VxeNx6Ui3rSEhAgX63US) (recommended for everybody)
+- Or if you have permissions, use GitHub security advisory at [https://github.com/OnLi/onli/security/advisories/new](https://github.com/OnLi/onli/security/advisories/new)
 -->
-- Or send an email to security@dolibarr.org with clear textual description of the report along with steps to reproduce the issue, include attachments such as screenshots or proof of concept code as necessary.
+- Or send an email to security@onli.org with clear textual description of the report along with steps to reproduce the issue, include attachments such as screenshots or proof of concept code as necessary.
 
 
-## Hunting vulnerabilities on Dolibarr
+## Hunting vulnerabilities on OnLi
 
 We believe that the future of software is online SaaS. This means software are more and more critical and no technology is perfect. Working with skilled security researchers is crucial in identifying weaknesses in our technology.
 
 If you believe you've found a security bug in our service, we are happy to work with you to resolve the issue promptly.
 We plan to re-open our bug bounty program (closed in end of 2024) in the future, but this is not yet available.
 
-Any type of denial-of-service attack is strictly forbidden, as well as any interference with network equipment and Dolibarr infrastructure.
+Any type of denial-of-service attack is strictly forbidden, as well as any interference with network equipment and OnLi infrastructure.
 
-We recommend to install Dolibarr ERP CRM on your own server (as most Open Source software, download and use is free: [https://www.dolibarr.org/download](https://www.dolibarr.org/download)) to get access on every side of application.
+We recommend to install OnLi ERP CRM on your own server (as most Open Source software, download and use is free: [https://www.onli.org/download](https://www.onli.org/download)) to get access on every side of application.
 
 ### User Agent
 
-If you try to find bug on Dolibarr, we recommend to append to your user-agent header the following value: '-securitytest-for-dolibarr'.
+If you try to find bug on OnLi, we recommend to append to your user-agent header the following value: '-securitytest-for-onli'.
 
 ### Account access
 
-You can install the web application yourself on your own platform/server so you get full access to application and sources. Download the zip of the files to put in your own web server virtual host from [https://www.dolibarr.org/download](https://www.dolibarr.org/download)
+You can install the web application yourself on your own platform/server so you get full access to application and sources. Download the zip of the files to put in your own web server virtual host from [https://www.onli.org/download](https://www.onli.org/download)
 
 
 ## Eligibility and Responsible Disclosure
 
-We are happy to thank everyone who submits valid reports which help us improve the security of Dolibarr, however only those that meet the following eligibility requirements will be "validated reports" (if not, we may close the report without any answer):
+We are happy to thank everyone who submits valid reports which help us improve the security of OnLi, however only those that meet the following eligibility requirements will be "validated reports" (if not, we may close the report without any answer):
 
 You must be the first reporter of the vulnerability (duplicate reports are closed).
 
@@ -58,9 +58,9 @@ Reports are processed around once a month.
 ONLY vulnerabilities discovered, when the following setup on test platform is used, are "valid":
 
 * The version to analyze must be the last version available in the "develop" branch. Reports on vulnerabilities already fixed (so already reported) in the develop branch will not be validated.   
-* $dolibarr_main_prod must be set to 1 in conf.php
-* $dolibarr_nocsrfcheck must be kept to the value 0 in conf.php (this is the default value)
-* $dolibarr_main_force_https must be set to something else than 0.
+* $onli_main_prod must be set to 1 in conf.php
+* $onli_nocsrfcheck must be kept to the value 0 in conf.php (this is the default value)
+* $onli_main_force_https must be set to something else than 0.
 * Some constant must be set in the backoffice menu Home - Setup - Other
   - MAIN_SECURITY_CSRF_WITH_TOKEN must be set to 3 
   - MAIN_RESTRICTHTML_ONLY_VALID_HTML = 1

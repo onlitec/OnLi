@@ -33,10 +33,10 @@ if (!defined('NOBROWSERNOTIF')) {
 	define('NOBROWSERNOTIF', 1);
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once '../../core/lib/functions2.lib.php';
 /**
@@ -54,9 +54,9 @@ $conf->dol_no_mouse_hover = GETPOSTINT('dol_no_mouse_hover');
 $conf->dol_use_jmobile = GETPOSTINT('dol_use_jmobile');
 
 // Security check
-global $dolibarr_main_demo;
-if (empty($dolibarr_main_demo)) {
-	httponly_accessforbidden('Parameter dolibarr_main_demo must be defined in conf file with value "default login,default pass" to enable the demo entry page');
+global $onli_main_demo;
+if (empty($onli_main_demo)) {
+	httponly_accessforbidden('Parameter onli_main_demo must be defined in conf file with value "default login,default pass" to enable the demo entry page');
 }
 
 // Initialize a technical object to manage hooks of the page.
@@ -88,7 +88,7 @@ if (empty($reshook)) {
 		array(
 			'default' => '1', 'key' => 'profdemoservonly', 'label' => 'DemoCompanyServiceOnly',
 			'disablemodules' => 'adherent,barcode,bom,cashdesk,don,expedition,externalsite,ftp,incoterm,mailmanspip,margin,mrp,prelevement,product,productbatch,stock,takepos',
-			//'icon'=>DOL_URL_ROOT.'/public/demo/dolibarr_screenshot8.png',
+			//'icon'=>DOL_URL_ROOT.'/public/demo/onli_screenshot8.png',
 			'icon' => DOL_URL_ROOT.'/public/demo/demo-profile-service.jpg',
 			'url' => $url,
 			'lang' => '',
@@ -103,7 +103,7 @@ if (empty($reshook)) {
 		array(
 			'default' => '0', 'key' => 'profdemoprodstock', 'label' => 'DemoCompanyProductAndStocks',
 			'disablemodules' => 'adherent,bom,contrat,don,externalsite,ficheinter,ftp,mailmanspip,mrp,prelevement,service',
-			//'icon'=>DOL_URL_ROOT.'/public/demo/dolibarr_screenshot2.png',
+			//'icon'=>DOL_URL_ROOT.'/public/demo/onli_screenshot2.png',
 			'icon' => DOL_URL_ROOT.'/public/demo/demo-profile-product.jpg',
 			'url' => $url,
 			'lang' => '',
@@ -111,7 +111,7 @@ if (empty($reshook)) {
 		array(
 			'default' => '0', 'key' => 'profdemofun2', 'label' => 'DemoFundation2',
 			'disablemodules' => 'barcode,cashdesk,bom,commande,commercial,compta,comptabilite,contrat,expedition,externalsite,ficheinter,ftp,incoterm,mailmanspip,margin,mrp,prelevement,product,productbatch,projet,propal,propale,service,societe,stock,tax,takepos',
-			//'icon'=>DOL_URL_ROOT.'/public/demo/dolibarr_screenshot6.png',
+			//'icon'=>DOL_URL_ROOT.'/public/demo/onli_screenshot6.png',
 			'icon' => DOL_URL_ROOT.'/public/demo/demo-profile-foundation.jpg',
 			'url' => $url,
 			'lang' => '',
@@ -120,7 +120,7 @@ if (empty($reshook)) {
 		array(
 			'default' => '0', 'key' => 'profdemoall', 'label' => 'ChooseYourDemoProfilMore',
 			'disablemodules' => 'adherent,cashdesk,don,externalsite,mailmanspip',
-			//'icon'=>DOL_URL_ROOT.'/public/demo/dolibarr_screenshot9.png'
+			//'icon'=>DOL_URL_ROOT.'/public/demo/onli_screenshot9.png'
 			'icon' => DOL_URL_ROOT.'/public/demo/demo-profile-all.jpg',
 			'lang' => '',
 		)
@@ -204,7 +204,7 @@ foreach ($modulesdir as $dir) {
 	}
 }
 
-'@phan-var-force DolibarrModules[] $modules';
+'@phan-var-force OnLiModules[] $modules';
 asort($orders);
 
 
@@ -254,7 +254,7 @@ if (GETPOST('action', 'aZ09') == 'gotodemo') {     // Action run when we click o
 
 $head = '';
 $head .= '<meta name="keywords" content="demo,online,demonstration,example,test,erp,crm,demos,web">'."\n";
-$head .= '<meta name="description" content="Dolibarr ERP and CRM demo. You can test here several profiles for Dolibarr ERP and CRM demonstration.">'."\n";
+$head .= '<meta name="description" content="OnLi ERP and CRM demo. You can test here several profiles for OnLi ERP and CRM demonstration.">'."\n";
 
 $head .= '
 <script type="text/javascript">
@@ -283,14 +283,14 @@ jQuery(document).ready(function () {
 });
 </script>';
 
-llxHeaderVierge($langs->trans("DolibarrDemo"), $head);
+llxHeaderVierge($langs->trans("OnLiDemo"), $head);
 
 
 print "\n";
 
 print '<div class="demoban demobackground">';
 print '<div class="right" style="padding-right: 30px; padding-top: 30px;">';
-print '<a alt="Official portal of your ERP CRM application" targe="_blank" href="https://www.dolibarr.org?utm_medium=website&utm_source=demo"><img class="demologo" src="'.DOL_URL_ROOT.'/theme/dolibarr_logo.svg" alt="Dolibarr logo"></a>';
+print '<a alt="Official portal of your ERP CRM application" targe="_blank" href="https://www.onli.org?utm_medium=website&utm_source=demo"><img class="demologo" src="'.DOL_URL_ROOT.'/theme/onli_logo.svg" alt="OnLi logo"></a>';
 print '</div>';
 print '</div>';
 
@@ -315,7 +315,7 @@ foreach ($demoprofiles as $profilearray) {
 
 		$url = $_SERVER["PHP_SELF"].'?action=gotodemo';
 		$urlwithmod = $url.'&amp;demochoice='.$profilearray['key'];
-		// Should work with DOL_URL_ROOT='' or DOL_URL_ROOT='/dolibarr'
+		// Should work with DOL_URL_ROOT='' or DOL_URL_ROOT='/onli'
 		//print "xx".$_SERVER["PHP_SELF"].' '.DOL_URL_ROOT.'<br>';
 
 		$urlfrom = preg_replace('/^'.preg_quote(DOL_URL_ROOT, '/').'/i', '', $_SERVER["PHP_SELF"]);
@@ -344,7 +344,7 @@ foreach ($demoprofiles as $profilearray) {
 		print '<input type="hidden" name="dol_no_mouse_hover" value="'.$conf->dol_no_mouse_hover.'">'."\n";
 		print '<input type="hidden" name="dol_use_jmobile" value="'.$conf->dol_use_jmobile.'">'."\n";
 
-		print '<div id="div'.$profilearray['key'].'" summary="Dolibarr online demonstration for profile '.$profilearray['label'].'" class="center inline-block CTable CTableRow'.($i % 2 == 0 ? '1' : '0').'">'."\n";
+		print '<div id="div'.$profilearray['key'].'" summary="OnLi online demonstration for profile '.$profilearray['label'].'" class="center inline-block CTable CTableRow'.($i % 2 == 0 ? '1' : '0').'">'."\n";
 
 
 		print '<div id="a1'.$profilearray['key'].'" class="demobox '.(empty($profilearray['url']) ? 'modulelineshow cursorpointer maxwidth1000' : 'nomodulelines').'">';

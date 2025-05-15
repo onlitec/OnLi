@@ -28,7 +28,7 @@
  *	\brief      Page to create a direct debit order or a credit transfer order
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/compta/prelevement/class/bonprelevement.class.php';
 require_once DOL_DOCUMENT_ROOT.'/compta/facture/class/facture.class.php';
@@ -116,7 +116,7 @@ if (empty($reshook)) {
 		//var_dump($default_account);var_dump(getDolGlobalString($default_account));var_dump($id_bankaccount);exit;
 
 		if ($id_bankaccount != getDolGlobalInt($default_account)) {
-			$res = dolibarr_set_const($db, $default_account, $id_bankaccount, 'chaine', 0, '', $conf->entity); // Set as default
+			$res = onli_set_const($db, $default_account, $id_bankaccount, 'chaine', 0, '', $conf->entity); // Set as default
 		}
 		require_once DOL_DOCUMENT_ROOT.'/compta/bank/class/account.class.php';
 		$bank = new Account($db);

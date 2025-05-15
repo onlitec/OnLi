@@ -567,7 +567,7 @@ class Conf extends stdClass
 							$value = $_ENV['DOLIBARR_'.$key];
 						}
 
-						$this->global->$key = dolDecrypt($value);	// decrypt data excrypted with dolibarr_set_const($db, $name, $value)
+						$this->global->$key = dolDecrypt($value);	// decrypt data excrypted with onli_set_const($db, $name, $value)
 
 						if ($value && strpos($key, 'MAIN_MODULE_') === 0) {
 							$reg = array();
@@ -1038,13 +1038,13 @@ class Conf extends stdClass
 			$this->theme = $this->global->MAIN_THEME;
 			$this->css = "/theme/".$this->theme."/style.css.php";
 
-			// conf->email_from = email by default to send Dolibarr automatic emails
+			// conf->email_from = email by default to send OnLi automatic emails
 			$this->email_from = "robot@example.com";
 			if (!empty($this->global->MAIN_MAIL_EMAIL_FROM)) {
 				$this->email_from = $this->global->MAIN_MAIL_EMAIL_FROM;
 			}
 
-			// conf->notification->email_from = email by default to send Dolibarr notifications
+			// conf->notification->email_from = email by default to send OnLi notifications
 			if (isModEnabled('notification')) {
 				$this->notification->email_from = $this->email_from;
 				if (!empty($this->global->NOTIFICATION_EMAIL_FROM)) {
@@ -1310,7 +1310,7 @@ class Conf extends stdClass
 			}
 
 			if (!isset($this->global->MAIL_SMTP_USE_FROM_FOR_HELO)) {
-				$this->global->MAIL_SMTP_USE_FROM_FOR_HELO = 2;	// Use the domain in $dolibarr_main_url_root (mydomain.com)
+				$this->global->MAIL_SMTP_USE_FROM_FOR_HELO = 2;	// Use the domain in $onli_main_url_root (mydomain.com)
 			}
 
 			if (!empty($this->use_javascript_ajax) && getDolGlobalInt('MAIN_FEATURES_LEVEL') >= 1) {
@@ -1336,18 +1336,18 @@ class Conf extends stdClass
 
 			// For backward compatibility
 			if (!empty($this->global->LDAP_SYNCHRO_ACTIVE)) {
-				if ($this->global->LDAP_SYNCHRO_ACTIVE == 'dolibarr2ldap') {
+				if ($this->global->LDAP_SYNCHRO_ACTIVE == 'onli2ldap') {
 					$this->global->LDAP_SYNCHRO_ACTIVE = 1;
-				} elseif ($this->global->LDAP_SYNCHRO_ACTIVE == 'ldap2dolibarr') {
+				} elseif ($this->global->LDAP_SYNCHRO_ACTIVE == 'ldap2onli') {
 					$this->global->LDAP_SYNCHRO_ACTIVE = 2;
 				}
 			}
 			// For backward compatibility
-			if (!empty($this->global->LDAP_MEMBER_ACTIVE) && $this->global->LDAP_MEMBER_ACTIVE == 'ldap2dolibarr') {
+			if (!empty($this->global->LDAP_MEMBER_ACTIVE) && $this->global->LDAP_MEMBER_ACTIVE == 'ldap2onli') {
 				$this->global->LDAP_MEMBER_ACTIVE = 2;
 			}
 			// For backward compatibility
-			if (!empty($this->global->LDAP_MEMBER_TYPE_ACTIVE) && $this->global->LDAP_MEMBER_TYPE_ACTIVE == 'ldap2dolibarr') {
+			if (!empty($this->global->LDAP_MEMBER_TYPE_ACTIVE) && $this->global->LDAP_MEMBER_TYPE_ACTIVE == 'ldap2onli') {
 				$this->global->LDAP_MEMBER_TYPE_ACTIVE = 2;
 			}
 

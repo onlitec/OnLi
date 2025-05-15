@@ -33,10 +33,10 @@ require_once DOL_DOCUMENT_ROOT.'/core/modules/product_batch/modules_product_batc
 class mod_sn_standard extends ModeleNumRefBatch
 {
 	/**
-	 * Dolibarr version of the loaded document
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental'
+	 * OnLi version of the loaded document
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental'
 	 */
-	public $version = 'dolibarr'; // 'development', 'experimental', 'dolibarr'
+	public $version = 'onli'; // 'development', 'experimental', 'onli'
 
 	/**
 	 * @var string prefix

@@ -105,7 +105,7 @@ if (getDolGlobalInt('MAILING_DELAY')) {
 //if (getDolGlobalString('MAILING_LIMIT_SENDBYCLI') == '-1') {
 //}
 
-if (!empty($dolibarr_main_db_readonly)) {
+if (!empty($onli_main_db_readonly)) {
 	print "Error: instance in read-only mode\n";
 	exit(1);
 }

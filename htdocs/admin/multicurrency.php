@@ -24,7 +24,7 @@
  * 	\brief		Page to setup multicurrency module
  */
 
-// Dolibarr environment
+// OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/multicurrency.lib.php';
@@ -60,7 +60,7 @@ $reg = array();
 if (preg_match('/set_([a-z0-9_\-]+)/i', $action, $reg)) {
 	$code = $reg[1];
 	$value = GETPOST($code, 'alpha');
-	if (dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity) > 0) {
+	if (onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity) > 0) {
 		setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');
 	} else {
 		setEventMessages($langs->trans("Error"), null, 'errors');
@@ -69,7 +69,7 @@ if (preg_match('/set_([a-z0-9_\-]+)/i', $action, $reg)) {
 
 if (preg_match('/del_([a-z0-9_\-]+)/i', $action, $reg)) {
 	$code = $reg[1];
-	if (dolibarr_del_const($db, $code, 0) > 0) {
+	if (onli_del_const($db, $code, 0) > 0) {
 		setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');
 	} else {
 		setEventMessages($langs->trans("Error"), null, 'errors');
@@ -142,10 +142,10 @@ if ($action == 'add_currency') {			// Manual insertion of a rate
 } elseif ($action == 'setapilayer') {		// Update rate from currencylayer
 	if (GETPOSTISSET('modify_apilayer')) {
 		// Save setup
-		dolibarr_set_const($db, 'MULTICURRENCY_APP_KEY', GETPOST('MULTICURRENCY_APP_KEY', 'alpha'), 'chaine', 0, '', $conf->entity);
-		dolibarr_set_const($db, 'MULTICURRENCY_APP_SOURCE', GETPOST('MULTICURRENCY_APP_SOURCE', 'alpha'), 'chaine', 0, '', $conf->entity);
-		dolibarr_set_const($db, 'MULTICURRENCY_APP_ENDPOINT', GETPOST('MULTICURRENCY_APP_ENDPOINT', 'alpha'), 'chaine', 0, '', $conf->entity);
-		//dolibarr_set_const($db, 'MULTICURRENCY_ALTERNATE_SOURCE', GETPOST('MULTICURRENCY_ALTERNATE_SOURCE', 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MULTICURRENCY_APP_KEY', GETPOST('MULTICURRENCY_APP_KEY', 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MULTICURRENCY_APP_SOURCE', GETPOST('MULTICURRENCY_APP_SOURCE', 'alpha'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'MULTICURRENCY_APP_ENDPOINT', GETPOST('MULTICURRENCY_APP_ENDPOINT', 'alpha'), 'chaine', 0, '', $conf->entity);
+		//onli_set_const($db, 'MULTICURRENCY_ALTERNATE_SOURCE', GETPOST('MULTICURRENCY_ALTERNATE_SOURCE', 'alpha'), 'chaine', 0, '', $conf->entity);
 
 		setEventMessages($langs->trans("SetupSaved"), null);
 	} else {

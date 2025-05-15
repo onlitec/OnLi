@@ -25,7 +25,7 @@
  *      \brief      Page to setup miscellaneous options of agenda module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/agenda.lib.php';
@@ -39,7 +39,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/agenda.lib.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 if (!$user->admin) {
@@ -75,10 +75,10 @@ if ($actionsave) {
 
 	$db->begin();
 
-	$i += dolibarr_set_const($db, 'MAIN_AGENDA_XCAL_EXPORTKEY', $MAIN_AGENDA_XCAL_EXPORTKEY, 'chaine', 0, '', $conf->entity);
-	$i += dolibarr_set_const($db, 'MAIN_AGENDA_EXPORT_PAST_DELAY', $MAIN_AGENDA_EXPORT_PAST_DELAY, 'chaine', 0, '', $conf->entity);
-	$i += dolibarr_set_const($db, 'MAIN_AGENDA_EXPORT_CACHE', $MAIN_AGENDA_EXPORT_CACHE, 'chaine', 0, '', $conf->entity);
-	$i += dolibarr_set_const($db, 'AGENDA_EXPORT_FIX_TZ', $AGENDA_EXPORT_FIX_TZ, 'chaine', 0, '', $conf->entity);
+	$i += onli_set_const($db, 'MAIN_AGENDA_XCAL_EXPORTKEY', $MAIN_AGENDA_XCAL_EXPORTKEY, 'chaine', 0, '', $conf->entity);
+	$i += onli_set_const($db, 'MAIN_AGENDA_EXPORT_PAST_DELAY', $MAIN_AGENDA_EXPORT_PAST_DELAY, 'chaine', 0, '', $conf->entity);
+	$i += onli_set_const($db, 'MAIN_AGENDA_EXPORT_CACHE', $MAIN_AGENDA_EXPORT_CACHE, 'chaine', 0, '', $conf->entity);
+	$i += onli_set_const($db, 'AGENDA_EXPORT_FIX_TZ', $AGENDA_EXPORT_FIX_TZ, 'chaine', 0, '', $conf->entity);
 
 	if ($i >= 4) {
 		$db->commit();
@@ -185,7 +185,7 @@ print "<br><br>";
 
 
 // Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 //$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 $getentity = ($conf->entity > 1 ? "&entity=".$conf->entity : "");

@@ -30,13 +30,13 @@
  *    \ingroup    subtotals
  *    \brief      Description and activation file for the module subtotals
  */
-include_once DOL_DOCUMENT_ROOT."/core/modules/DolibarrModules.class.php";
+include_once DOL_DOCUMENT_ROOT."/core/modules/OnLiModules.class.php";
 require_once DOL_DOCUMENT_ROOT.'/subtotals/class/commonsubtotal.class.php';
 
 /**
  *		Description and activation class for module subtotals
  */
-class modSubtotals extends DolibarrModules
+class modSubtotals extends OnLiModules
 {
 	/**
 	 *  Constructor. Define names, constants, directories, boxes, permissions
@@ -50,7 +50,7 @@ class modSubtotals extends DolibarrModules
 		$this->db = $db;
 
 		// Id for module (must be unique).
-		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
+		// Use here a free id (See in Home -> System information -> OnLi for list of used modules id).
 		$this->numero = SUBTOTALS_SPECIAL_CODE;
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'subtotals';
@@ -63,8 +63,8 @@ class modSubtotals extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Subtotal and title lines for certain documents";
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
+		$this->version = 'onli';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
@@ -86,7 +86,7 @@ class modSubtotals extends DolibarrModules
 		$this->requiredby = array(); // List of module ids to disable if this one is disabled
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(3, 0); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(3, 0); // Minimum version of OnLi required by module
 		$this->langfiles = array("subtotals");
 
 		// Constants
@@ -126,7 +126,7 @@ class modSubtotals extends DolibarrModules
 
 	/**
 	 *		Function called when module is enabled.
-	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *		The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *		It also creates data directories
 	 *
 	 *      @param      string	$options    Options when enabling module ('', 'newboxdefonly', 'noboxes')

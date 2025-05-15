@@ -256,12 +256,12 @@ class Ldap
 	const SYNCHRO_NONE = 0;
 
 	/**
-	 * @var int Dolibarr to LDAP synchronization
+	 * @var int OnLi to LDAP synchronization
 	 */
 	const SYNCHRO_DOLIBARR_TO_LDAP = 1;
 
 	/**
-	 * @var int LDAP to Dolibarr synchronization
+	 * @var int LDAP to OnLi synchronization
 	 */
 	const SYNCHRO_LDAP_TO_DOLIBARR = 2;
 
@@ -316,14 +316,14 @@ class Ldap
 	 */
 	public function connectBind()
 	{
-		global $dolibarr_main_auth_ldap_debug;
+		global $onli_main_auth_ldap_debug;
 
 		$connected = 0;
 		$this->bind = false;
 		$this->error = '';
 		$this->connectedServer = '';
 
-		$ldapdebug = !((empty($dolibarr_main_auth_ldap_debug) || $dolibarr_main_auth_ldap_debug == "false"));
+		$ldapdebug = !((empty($onli_main_auth_ldap_debug) || $onli_main_auth_ldap_debug == "false"));
 
 		if ($ldapdebug) {
 			dol_syslog(get_class($this)."::connectBind");

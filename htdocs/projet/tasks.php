@@ -871,7 +871,7 @@ if ($action == 'create' && $user->hasRight('projet', 'creer') && (empty($object-
 	if (getDolGlobalString('MAIN_INPUT_DESC_HEIGHT')) {
 		$nbrows = getDolGlobalString('MAIN_INPUT_DESC_HEIGHT');
 	}
-	$doleditor = new DolEditor('description', $object->description, '', 80, 'dolibarr_details', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), $nbrows, '90%');
+	$doleditor = new DolEditor('description', $object->description, '', 80, 'onli_details', '', false, true, getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), $nbrows, '90%');
 	print $doleditor->Create();
 
 	print '</td></tr>';

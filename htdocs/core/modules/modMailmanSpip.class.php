@@ -24,13 +24,13 @@
  *	\brief      Description and activation file for the module mailmanspip
  */
 
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to describe and enable module Click to Dial
  */
-class modMailmanSpip extends DolibarrModules
+class modMailmanSpip extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -51,8 +51,8 @@ class modMailmanSpip extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		$this->description = "Mailman or Spip interface for member module";
 
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or 'dolibarr_deprecated' or version
-		$this->version = 'dolibarr_deprecated';
+		// Possible values for version are: 'development', 'experimental', 'onli' or 'onli_deprecated' or version
+		$this->version = 'onli_deprecated';
 
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'technic';

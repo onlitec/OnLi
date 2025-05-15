@@ -27,9 +27,9 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/ticket.lib.php';
  * API class for ticket object
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Tickets extends DolibarrApi
+class Tickets extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when create and update object
@@ -128,7 +128,7 @@ class Tickets extends DolibarrApi
 	 */
 	private function getCommon($id = 0, $track_id = '', $ref = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ticket', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('ticket', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -181,8 +181,8 @@ class Tickets extends DolibarrApi
 			$this->ticket->messages = $messages;
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('ticket', $this->ticket->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('ticket', $this->ticket->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 		return $this->_cleanObjectDatas($this->ticket);
 	}
@@ -207,19 +207,19 @@ class Tickets extends DolibarrApi
 	 */
 	public function index($socid = 0, $sortfield = "t.rowid", $sortorder = "ASC", $limit = 100, $page = 0, $sqlfilters = '', $properties = '', $pagination_data = false)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ticket', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('ticket', 'read')) {
 			throw new RestException(403);
 		}
 
 		$obj_ret = array();
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : $socid;
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : $socid;
 
 		$search_sale = null;
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if (!DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if (!OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -312,7 +312,7 @@ class Tickets extends DolibarrApi
 	public function post($request_data = null)
 	{
 		$ticketstatic = new Ticket($this->db);
-		if (!DolibarrApiAccess::$user->hasRight('ticket', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('ticket', 'write')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -334,7 +334,7 @@ class Tickets extends DolibarrApi
 			$this->ticket->track_id = generate_random_id(16);
 		}
 
-		if ($this->ticket->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->ticket->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating ticket", array_merge(array($this->ticket->error), $this->ticket->errors));
 		}
 
@@ -352,7 +352,7 @@ class Tickets extends DolibarrApi
 	public function postNewMessage($request_data = null)
 	{
 		$ticketstatic = new Ticket($this->db);
-		if (!DolibarrApiAccess::$user->hasRight('ticket', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('ticket', 'write')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -373,7 +373,7 @@ class Tickets extends DolibarrApi
 			throw new RestException(404, 'Ticket not found');
 		}
 		$this->ticket->message = $ticketMessageText;
-		if (!$this->ticket->createTicketMessage(DolibarrApiAccess::$user)) {
+		if (!$this->ticket->createTicketMessage(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when creating ticket');
 		}
 		return $this->ticket->id;
@@ -390,7 +390,7 @@ class Tickets extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ticket', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('ticket', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -399,8 +399,8 @@ class Tickets extends DolibarrApi
 			throw new RestException(404, 'Ticket not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('ticket', $this->ticket->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('ticket', $this->ticket->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -423,7 +423,7 @@ class Tickets extends DolibarrApi
 			$this->ticket->$field = $this->_checkValForAPI($field, $value, $this->ticket);
 		}
 
-		if ($this->ticket->update(DolibarrApiAccess::$user) > 0) {
+		if ($this->ticket->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->ticket->error);
@@ -440,7 +440,7 @@ class Tickets extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('ticket', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('ticket', 'delete')) {
 			throw new RestException(403);
 		}
 		$result = $this->ticket->fetch($id);
@@ -448,11 +448,11 @@ class Tickets extends DolibarrApi
 			throw new RestException(404, 'Ticket not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('ticket', $this->ticket->id)) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('ticket', $this->ticket->id)) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->ticket->delete(DolibarrApiAccess::$user)) {
+		if (!$this->ticket->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when deleting ticket');
 		}
 

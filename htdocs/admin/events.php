@@ -23,7 +23,7 @@
  *      \brief      Log event setup page
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/agenda.lib.php';
@@ -77,9 +77,9 @@ if ($action == "save") {
 	foreach ($eventstolog as $key => $arr) {
 		$param = 'MAIN_LOGEVENTS_'.$arr['id'];
 		if (GETPOST($param, 'alphanohtml')) {
-			dolibarr_set_const($db, $param, GETPOST($param, 'alphanohtml'), 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, $param, GETPOST($param, 'alphanohtml'), 'chaine', 0, '', $conf->entity);
 		} else {
-			dolibarr_del_const($db, $param, $conf->entity);
+			onli_del_const($db, $param, $conf->entity);
 		}
 	}
 

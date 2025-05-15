@@ -24,12 +24,12 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/objectlink.class.php';
 
 
 /**
- * API that gives shows links between objects in an Dolibarr instance.
+ * API that gives shows links between objects in an OnLi instance.
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class ObjectLinks extends DolibarrApi
+class ObjectLinks extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when create and update object
@@ -155,14 +155,14 @@ class ObjectLinks extends DolibarrApi
 		if ($this->objectlink->targettype == 'subscription') {
 			$tgttype = 'adherent';
 		}
-		if (!DolibarrApiAccess::$user->hasRight((string) $srctype, 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight((string) $srctype, 'creer')) {
 			throw new RestException(403, 'denied access to create the objectlinks sourcetype='.$this->objectlink->sourcetype);
 		}
-		if (!DolibarrApiAccess::$user->hasRight((string) $tgttype, 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight((string) $tgttype, 'creer')) {
 			throw new RestException(403, 'denied access to create the objectlinks targettype='.$this->objectlink->targettype);
 		}
 
-		$result = $this->objectlink->create(DolibarrApiAccess::$user, $this->objectlink->fk_source, $this->objectlink->sourcetype, $this->objectlink->fk_target, $this->objectlink->targettype, $this->objectlink->relationtype, $this->notrigger);
+		$result = $this->objectlink->create(OnLiApiAccess::$user, $this->objectlink->fk_source, $this->objectlink->sourcetype, $this->objectlink->fk_target, $this->objectlink->targettype, $this->objectlink->relationtype, $this->notrigger);
 
 		if ($result < 0) {
 			throw new RestException(500, 'when create objectlink : '.$this->objectlink->error);
@@ -207,17 +207,17 @@ class ObjectLinks extends DolibarrApi
 			if ($this->objectlink->targettype == 'subscription') {
 				$tgttype = 'adherent';
 			}
-			if (!DolibarrApiAccess::$user->hasRight(((string) $srctype), 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight(((string) $srctype), 'lire')) {
 				throw new RestException(403, 'denied access to the objectlinks sourcetype');
 			}
-			if (!DolibarrApiAccess::$user->hasRight(((string) $tgttype), 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight(((string) $tgttype), 'lire')) {
 				throw new RestException(403, 'denied access to the objectlinks targettype');
 			}
 		} else {
 			throw new RestException(404, 'Object Link not found');
 		}
 
-		if (!$this->objectlink->delete(DolibarrApiAccess::$user)) {
+		if (!$this->objectlink->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when delete objectlink : '.$this->objectlink->error);
 		}
 
@@ -273,10 +273,10 @@ class ObjectLinks extends DolibarrApi
 		if ($this->objectlink->targettype == 'subscription') {
 			$tgttype = 'adherent';
 		}
-		if (!DolibarrApiAccess::$user->hasRight((string) $srctype, 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight((string) $srctype, 'creer')) {
 			throw new RestException(403, 'denied access to get the objectlinks sourcetype='.$this->objectlink->sourcetype);
 		}
-		if (!DolibarrApiAccess::$user->hasRight((string) $tgttype, 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight((string) $tgttype, 'creer')) {
 			throw new RestException(403, 'denied access to get the objectlinks targettype='.$this->objectlink->targettype);
 		}
 
@@ -337,10 +337,10 @@ class ObjectLinks extends DolibarrApi
 		if ($this->objectlink->targettype == 'subscription') {
 			$tgttype = 'adherent';
 		}
-		if (!DolibarrApiAccess::$user->hasRight((string) $srctype, 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight((string) $srctype, 'creer')) {
 			throw new RestException(403, 'denied access to delete the objectlinks sourcetype='.$this->objectlink->sourcetype);
 		}
-		if (!DolibarrApiAccess::$user->hasRight((string) $tgttype, 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight((string) $tgttype, 'creer')) {
 			throw new RestException(403, 'denied access to delete the objectlinks targettype='.$this->objectlink->targettype);
 		}
 
@@ -349,7 +349,7 @@ class ObjectLinks extends DolibarrApi
 		if ($findresult < 0) {
 			throw new RestException(500, 'Error when finding objectlink : '.$this->objectlink->error);
 		} elseif ($findresult > 0) {
-			$result = $this->objectlink->delete(DolibarrApiAccess::$user, $notrigger);
+			$result = $this->objectlink->delete(OnLiApiAccess::$user, $notrigger);
 
 			if ($result < 0) {
 				throw new RestException(500, 'Error when delete objectlink : '.$this->objectlink->error);
@@ -391,10 +391,10 @@ class ObjectLinks extends DolibarrApi
 			if ($this->objectlink->targettype == 'subscription') {
 				$tgttype = 'adherent';
 			}
-			if (!DolibarrApiAccess::$user->hasRight(((string) $srctype), 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight(((string) $srctype), 'lire')) {
 				throw new RestException(403, 'denied access to the objectlinks sourcetype');
 			}
-			if (!DolibarrApiAccess::$user->hasRight(((string) $tgttype), 'lire')) {
+			if (!OnLiApiAccess::$user->hasRight(((string) $tgttype), 'lire')) {
 				throw new RestException(403, 'denied access to the objectlinks targettype');
 			}
 		} else {

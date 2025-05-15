@@ -24,7 +24,7 @@
  *   \brief      Page to setup module ClickToDial
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -36,7 +36,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Load translation files required by the page
@@ -58,9 +58,9 @@ if (!isModEnabled('clicktodial')) {
  */
 
 if ($action == 'setvalue'/*  && $user->admin */) {
-	$result1 = dolibarr_set_const($db, "CLICKTODIAL_USE_TEL_LINK_ON_PHONE_NUMBERS", GETPOST("CLICKTODIAL_USE_TEL_LINK_ON_PHONE_NUMBERS"), 'chaine', 0, '', $conf->entity);
-	$result2 = dolibarr_set_const($db, "CLICKTODIAL_URL", GETPOST("CLICKTODIAL_URL"), 'chaine', 0, '', $conf->entity);
-	$result3 = dolibarr_set_const($db, "CLICKTODIAL_KEY_FOR_CIDLOOKUP", GETPOST("CLICKTODIAL_KEY_FOR_CIDLOOKUP"), 'chaine', 0, '', $conf->entity);
+	$result1 = onli_set_const($db, "CLICKTODIAL_USE_TEL_LINK_ON_PHONE_NUMBERS", GETPOST("CLICKTODIAL_USE_TEL_LINK_ON_PHONE_NUMBERS"), 'chaine', 0, '', $conf->entity);
+	$result2 = onli_set_const($db, "CLICKTODIAL_URL", GETPOST("CLICKTODIAL_URL"), 'chaine', 0, '', $conf->entity);
+	$result3 = onli_set_const($db, "CLICKTODIAL_KEY_FOR_CIDLOOKUP", GETPOST("CLICKTODIAL_KEY_FOR_CIDLOOKUP"), 'chaine', 0, '', $conf->entity);
 
 	if ($result1 >= 0 && $result2 >= 0 && $result3 >= 0) {
 		setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');
@@ -132,10 +132,10 @@ print '<tr class="oddeven">';
 print '<td>'.$langs->trans("SecurityKey").'</td>';
 print '<td>';
 
-global $dolibarr_main_url_root;
+global $onli_main_url_root;
 
 // Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 //$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

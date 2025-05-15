@@ -30,10 +30,10 @@ require_once DOL_DOCUMENT_ROOT.'/core/modules/accountancy/modules_accountancy.ph
 class mod_bookkeeping_argon extends ModeleNumRefBookkeeping
 {
 	/**
-	 * Dolibarr version of the loaded document
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental'
+	 * OnLi version of the loaded document
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental'
 	 */
-	public $version = 'dolibarr'; // 'development', 'experimental', 'dolibarr'
+	public $version = 'onli'; // 'development', 'experimental', 'onli'
 
 	/**
 	 * @var string Error code (or message)

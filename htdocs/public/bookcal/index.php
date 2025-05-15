@@ -37,7 +37,7 @@ if (!defined('NOBROWSERNOTIF')) {
 	define('NOBROWSERNOTIF', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/payments.lib.php';
@@ -60,7 +60,7 @@ if (!isModEnabled('bookcal')) {
  * @var DoliDB $db
  * @var Translate $langs
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 $langs->loadLangs(array("main", "other", "dict", "agenda", "errors", "companies"));
@@ -274,7 +274,7 @@ $form = new Form($db);
 
 
 // Define $urlwithroot
-$urlwithouturlroot=preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot=preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot=$urlwithouturlroot.DOL_URL_ROOT;		// This is to use external domain name found into config file
 //$urlwithroot = DOL_MAIN_URL_ROOT; // This is to use same domain name than current. For Paypal payment, we can use internal URL like localhost.
 // TODO Replace DOL_URL_ROOT with $urlwithroot ?

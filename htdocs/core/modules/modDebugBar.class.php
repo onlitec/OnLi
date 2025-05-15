@@ -23,13 +23,13 @@
  *  \ingroup    debugbar
  *  \brief     Description and activation file for the module debugbar
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to describe and enable module
  */
-class modDebugBar extends DolibarrModules
+class modDebugBar extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -50,8 +50,8 @@ class modDebugBar extends DolibarrModules
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		$this->description = "A tool for developer adding a debug bar in your browser.";
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
+		$this->version = 'onli';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'bug';
 
@@ -88,7 +88,7 @@ class modDebugBar extends DolibarrModules
 
 	/**
 	 *      Function called when module is enabled.
-	 *      The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *      The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *      It also creates data directories.
 	 *
 	 *      @param      string	$options    Options when enabling module ('', 'noboxes')

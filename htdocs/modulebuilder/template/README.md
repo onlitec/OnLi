@@ -1,4 +1,4 @@
-# MYMODULE FOR [DOLIBARR ERP & CRM](https://www.dolibarr.org)
+# MYMODULE FOR [DOLIBARR ERP & CRM](https://www.onli.org)
 
 ## Features
 
@@ -17,16 +17,16 @@ Translations can be completed manually by editing files in the module directorie
 <!--
 This module contains also a sample configuration for Transifex, under the hidden directory [.tx](.tx), so it is possible to manage translation using this service.
 
-For more information, see the [translator's documentation](https://wiki.dolibarr.org/index.php/Translator_documentation).
+For more information, see the [translator's documentation](https://wiki.onli.org/index.php/Translator_documentation).
 
-There is a [Transifex project](https://transifex.com/projects/p/dolibarr-module-template) for this module.
+There is a [Transifex project](https://transifex.com/projects/p/onli-module-template) for this module.
 -->
 
 
 ## Installation
 
-Prerequisites: You must have Dolibarr ERP & CRM software installed. You can download it from [Dolistore.org](https://www.dolibarr.org).
-You can also get a ready-to-use instance in the cloud from https://saas.dolibarr.org
+Prerequisites: You must have OnLi ERP & CRM software installed. You can download it from [Dolistore.org](https://www.onli.org).
+You can also get a ready-to-use instance in the cloud from https://saas.onli.org
 
 
 ### From the ZIP file and GUI interface
@@ -38,27 +38,27 @@ go to menu `Home> Setup> Modules> Deploy external module` and upload the zip fil
 
 Note: If this screen tells you that there is no "custom" directory, check that your setup is correct:
 
-- In your Dolibarr installation directory, edit the `htdocs/conf/conf.php` file and check that following lines are not commented:
+- In your OnLi installation directory, edit the `htdocs/conf/conf.php` file and check that following lines are not commented:
 
     ```php
-    //$dolibarr_main_url_root_alt ...
-    //$dolibarr_main_document_root_alt ...
+    //$onli_main_url_root_alt ...
+    //$onli_main_document_root_alt ...
     ```
 
-- Uncomment them if necessary (delete the leading `//`) and assign the proper value according to your Dolibarr installation
+- Uncomment them if necessary (delete the leading `//`) and assign the proper value according to your OnLi installation
 
     For example :
 
     - UNIX:
         ```php
-        $dolibarr_main_url_root_alt = '/custom';
-        $dolibarr_main_document_root_alt = '/var/www/Dolibarr/htdocs/custom';
+        $onli_main_url_root_alt = '/custom';
+        $onli_main_document_root_alt = '/var/www/OnLi/htdocs/custom';
         ```
 
     - Windows:
         ```php
-        $dolibarr_main_url_root_alt = '/custom';
-        $dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
+        $onli_main_url_root_alt = '/custom';
+        $onli_main_document_root_alt = 'C:/My Web Sites/OnLi/htdocs/custom';
         ```
 -->
 
@@ -66,7 +66,7 @@ Note: If this screen tells you that there is no "custom" directory, check that y
 
 ### From a GIT repository
 
-Clone the repository in `$dolibarr_main_document_root_alt/mymodule`
+Clone the repository in `$onli_main_document_root_alt/mymodule`
 
 ```shell
 cd ....../custom
@@ -79,7 +79,7 @@ git clone git@github.com:gitlogin/mymodule.git mymodule
 
 Using your browser:
 
-  - Log into Dolibarr as a super-administrator
+  - Log into OnLi as a super-administrator
   - Go to "Setup"> "Modules"
   - You should now be able to find and enable the module
 

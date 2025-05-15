@@ -44,7 +44,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/commonpeople.class.php';
 
 
 /**
- *	Class to manage Dolibarr users
+ *	Class to manage OnLi users
  */
 class User extends CommonObject
 {
@@ -2219,7 +2219,7 @@ class User extends CommonObject
 		$sql .= ", national_registration_number = '".$this->db->escape($this->national_registration_number)."'";
 		$sql .= ", employee = ".(int) $this->employee;
 		$sql .= ", login = '".$this->db->escape($this->login)."'";
-		$sql .= ", api_key = ".($this->api_key ? "'".$this->db->escape(dolEncrypt($this->api_key, '', '', 'dolibarr'))."'" : "null");
+		$sql .= ", api_key = ".($this->api_key ? "'".$this->db->escape(dolEncrypt($this->api_key, '', '', 'onli'))."'" : "null");
 		$sql .= ", gender = ".($this->gender != -1 ? "'".$this->db->escape($this->gender)."'" : "null"); // 'man' or 'woman' or 'other'
 		$sql .= ", birth=".(strval($this->birth) != '' ? "'".$this->db->idate($this->birth, 'tzserver')."'" : 'null');
 		if (!empty($user->admin)) {
@@ -2660,7 +2660,7 @@ class User extends CommonObject
 	{
 		// phpcs:enable
 		global $conf, $langs;
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		require_once DOL_DOCUMENT_ROOT.'/core/class/CMailFile.class.php';
 
@@ -2685,7 +2685,7 @@ class User extends CommonObject
 		$subject = '['.$appli.'] '.$outputlangs->transnoentitiesnoconv("SubjectNewPassword", $appli);
 
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 
 		if (!$changelater) {
@@ -3011,7 +3011,7 @@ class User extends CommonObject
 	public function getTooltipContentArray($params)
 	{
 		global $conf, $langs, $menumanager;
-		global $dolibarr_main_demo;
+		global $onli_main_demo;
 
 		$infologin = $params['infologin'] ?? 0;
 		$option = $params['option'] ?? '';
@@ -3077,7 +3077,7 @@ class User extends CommonObject
 			if (getDolGlobalString('MAIN_MODULE_MULTICOMPANY')) {
 				$data['multicompany'] = '<br><b>'.$langs->trans("ConnectedOnMultiCompany").':</b> '.$conf->entity.' (User entity '.$this->entity.')';
 			}
-			$data['authentication'] = '<br><b>'.$langs->trans("AuthenticationMode").':</b> '.dol_string_nohtmltag($_SESSION["dol_authmode"].(empty($dolibarr_main_demo) ? '' : ' (demo)'));
+			$data['authentication'] = '<br><b>'.$langs->trans("AuthenticationMode").':</b> '.dol_string_nohtmltag($_SESSION["dol_authmode"].(empty($onli_main_demo) ? '' : ' (demo)'));
 			$data['connectedsince'] = '<br><b>'.$langs->trans("ConnectedSince").':</b> '.dol_print_date($this->datelastlogin, "dayhour", 'tzuser');
 			$data['previousconnexion'] = '<br><b>'.$langs->trans("PreviousConnexion").':</b> '.dol_print_date($this->datepreviouslogin, "dayhour", 'tzuser');
 			$data['currenttheme'] = '<br><b>'.$langs->trans("CurrentTheme").':</b> '.dol_string_nohtmltag($conf->theme);
@@ -3528,7 +3528,7 @@ class User extends CommonObject
 				// Just for the default MD5 !
 				if (!getDolGlobalString('MAIN_SECURITY_HASH_ALGO')) {
 					if ($this->pass_indatabase_crypted && getDolGlobalString('LDAP_FIELD_PASSWORD_CRYPTED')) {
-						$info[getDolGlobalString('LDAP_FIELD_PASSWORD_CRYPTED')] = dolGetLdapPasswordHash($this->pass_indatabase_crypted, 'md5frommd5'); // Create OpenLDAP MD5 password from Dolibarr MD5 password
+						$info[getDolGlobalString('LDAP_FIELD_PASSWORD_CRYPTED')] = dolGetLdapPasswordHash($this->pass_indatabase_crypted, 'md5frommd5'); // Create OpenLDAP MD5 password from OnLi MD5 password
 					}
 				}
 			} elseif (!empty($this->pass_indatabase)) {
@@ -3752,7 +3752,7 @@ class User extends CommonObject
 	 *  @param	Object	$ldapuser	Ladp User
 	 *  @return int  				Return integer <0 if KO, >0 if OK
 	 */
-	public function update_ldap2dolibarr(&$ldapuser)
+	public function update_ldap2onli(&$ldapuser)
 	{
 		// phpcs:enable
 		// TODO: Voir pourquoi le update met à jour avec toutes les valeurs vide (global $user écrase ?)
@@ -3793,7 +3793,7 @@ class User extends CommonObject
 
 		$result = $this->update($user);
 
-		dol_syslog(get_class($this)."::update_ldap2dolibarr result=".$result, LOG_DEBUG);
+		dol_syslog(get_class($this)."::update_ldap2onli result=".$result, LOG_DEBUG);
 
 		return $result;
 	}
@@ -4186,7 +4186,7 @@ class User extends CommonObject
 	 */
 	public function getOnlineVirtualCardUrl($mode = '', $typeofurl = 'external')
 	{
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 		global $conf;
 
 		$encodedsecurekey = dol_hash($conf->file->instance_unique_id.'uservirtualcard'.$this->id.'-'.$this->login, 'md5');
@@ -4196,7 +4196,7 @@ class User extends CommonObject
 			$entity_qr = '';
 		}
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

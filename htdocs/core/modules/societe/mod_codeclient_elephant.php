@@ -39,7 +39,7 @@ class mod_codeclient_elephant extends ModeleThirdPartyCode
 {
 	// variables inherited from ModeleThirdPartyCode class
 	public $name = 'Elephant';
-	public $version = 'dolibarr';
+	public $version = 'onli';
 
 	// variables not inherited
 
@@ -123,14 +123,14 @@ class mod_codeclient_elephant extends ModeleThirdPartyCode
 
 		// Date of switch to that numbering model
 		$datedb = getDolGlobalString('COMPANY_ELEPHANT_DATE_START');
-		// After save, default dolibarr store data like displayed : 20/05/2024 and we need a timestamp -> override data
+		// After save, default onli store data like displayed : 20/05/2024 and we need a timestamp -> override data
 		if (!empty($datedb)) {
 			if (!is_numeric($datedb) && GETPOSTISSET('value3')) {
 				if (GETPOST('value4') == 1) {
 					$dateinput = GETPOSTDATE('value3');
-					$res = dolibarr_set_const($this->db, 'COMPANY_ELEPHANT_DATE_START', $dateinput, 'chaine', 0, '', $conf->entity);
+					$res = onli_set_const($this->db, 'COMPANY_ELEPHANT_DATE_START', $dateinput, 'chaine', 0, '', $conf->entity);
 				} else {
-					$res = dolibarr_set_const($this->db, 'COMPANY_ELEPHANT_DATE_START', '', 'chaine', 0, '', $conf->entity);
+					$res = onli_set_const($this->db, 'COMPANY_ELEPHANT_DATE_START', '', 'chaine', 0, '', $conf->entity);
 				}
 			} else {
 				$dateinput = $datedb;

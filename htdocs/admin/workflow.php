@@ -26,7 +26,7 @@
  *	\brief		Workflows setup page
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -54,13 +54,13 @@ $action = GETPOST('action', 'aZ09');
  */
 
 if (preg_match('/set(.*)/', $action, $reg)) {
-	if (!dolibarr_set_const($db, $reg[1], '1', 'chaine', 0, '', $conf->entity) > 0) {
+	if (!onli_set_const($db, $reg[1], '1', 'chaine', 0, '', $conf->entity) > 0) {
 		dol_print_error($db);
 	}
 }
 
 if (preg_match('/del(.*)/', $action, $reg)) {
-	if (!dolibarr_set_const($db, $reg[1], '0', 'chaine', 0, '', $conf->entity) > 0) {
+	if (!onli_set_const($db, $reg[1], '0', 'chaine', 0, '', $conf->entity) > 0) {
 		dol_print_error($db);
 	}
 }
@@ -246,7 +246,7 @@ $workflowcodes = array_filter(
 if ($action == 'setvarworkflow') {	// Test on permission already done
 	if (GETPOSTISSET('product_category_id')) {
 		$param_ticket_product_category = GETPOSTINT('product_category_id');
-		$res = dolibarr_set_const($db, 'TICKET_PRODUCT_CATEGORY', $param_ticket_product_category, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'TICKET_PRODUCT_CATEGORY', $param_ticket_product_category, 'chaine', 0, '', $conf->entity);
 	}
 }
 

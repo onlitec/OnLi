@@ -1118,7 +1118,7 @@ class FormMail extends Form
 					$out .= '<input type="hidden" id="message" name="message" disabled value="'.$defaultmessage.'" />';
 				} else {
 					if (!isset($this->ckeditortoolbar)) {
-						$this->ckeditortoolbar = 'dolibarr_mailings';
+						$this->ckeditortoolbar = 'onli_mailings';
 					}
 
 					// Editor wysiwyg

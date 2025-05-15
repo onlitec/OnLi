@@ -23,7 +23,7 @@
 /**
  *  \file		htdocs/core/lib/security.lib.php
  *  \ingroup    core
- *  \brief		Set of function used for dolibarr security (common function included into filefunc.inc.php)
+ *  \brief		Set of function used for onli security (common function included into filefunc.inc.php)
  *  			Warning, this file must not depends on other library files, except function.lib.php
  *  			because it is used at low code level.
  */
@@ -117,7 +117,7 @@ define('MAIN_SECURITY_REVERSIBLE_ALGO', 'AES-256-CTR');
  *  This function is called for example by dol_set_const() when saving a sensible data into database, like into configuration table llx_const, or societe_rib, ...
  *
  *	@param   string		$chain		String to encode
- *	@param   string		$key		If '', we use $conf->file->instance_unique_id (so $dolibarr_main_instance_unique_id in conf.php)
+ *	@param   string		$key		If '', we use $conf->file->instance_unique_id (so $onli_main_instance_unique_id in conf.php)
  *  @param	 string		$ciphering	Default ciphering algorithm
  *  @param	 string		$forceseed	To force the seed
  *	@return  string					encoded string
@@ -127,7 +127,7 @@ define('MAIN_SECURITY_REVERSIBLE_ALGO', 'AES-256-CTR');
 function dolEncrypt($chain, $key = '', $ciphering = '', $forceseed = '')
 {
 	global $conf;
-	global $dolibarr_disable_dolcrypt_for_debug;
+	global $onli_disable_dolcrypt_for_debug;
 
 	if ($chain === '' || is_null($chain)) {
 		return '';
@@ -148,7 +148,7 @@ function dolEncrypt($chain, $key = '', $ciphering = '', $forceseed = '')
 
 	$newchain = $chain;
 
-	if (function_exists('openssl_encrypt') && empty($dolibarr_disable_dolcrypt_for_debug)) {
+	if (function_exists('openssl_encrypt') && empty($onli_disable_dolcrypt_for_debug)) {
 		if (empty($key)) {
 			return $chain;
 		}
@@ -380,7 +380,7 @@ function dolGetLdapPasswordHash($password, $type = 'md5')
 	if ($type === 'md5') {
 		return '{MD5}' . base64_encode(hash("md5", $password, true)); //For OpenLdap with md5 (based on an unencrypted password in base)
 	} elseif ($type === 'md5frommd5') {
-		return '{MD5}' . base64_encode(hex2bin($password)); // Create OpenLDAP MD5 password from Dolibarr MD5 password
+		return '{MD5}' . base64_encode(hex2bin($password)); // Create OpenLDAP MD5 password from OnLi MD5 password
 	} elseif ($type === 'smd5') {
 		return "{SMD5}" . base64_encode(hash("md5", $password . $salt, true) . $salt);
 	} elseif ($type === 'sha') {

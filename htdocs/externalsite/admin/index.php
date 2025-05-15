@@ -31,7 +31,7 @@ if (!defined('NOSCANPOSTFORINJECTION')) {
 	define('NOSCANPOSTFORINJECTION', '1'); // Do not check anti CSRF attack test
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -71,8 +71,8 @@ if ($action == 'update') {
 	$exturl = dol_string_onlythesehtmltags($exturl, 1, 1, 0, 1, array(), 1);
 	$exturl = dol_string_onlythesehtmlattributes($exturl);
 
-	$i += dolibarr_set_const($db, 'EXTERNALSITE_LABEL', trim($label), 'chaine', 0, '', $conf->entity);
-	$i += dolibarr_set_const($db, 'EXTERNALSITE_URL', trim($exturl), 'chaine', 0, '', $conf->entity);
+	$i += onli_set_const($db, 'EXTERNALSITE_LABEL', trim($label), 'chaine', 0, '', $conf->entity);
+	$i += onli_set_const($db, 'EXTERNALSITE_URL', trim($exturl), 'chaine', 0, '', $conf->entity);
 
 	if ($i >= 2) {
 		$db->commit();

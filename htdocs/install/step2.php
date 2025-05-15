@@ -26,9 +26,9 @@
  */
 
 include 'inc.php';
-require_once $dolibarr_main_document_root.'/core/class/conf.class.php';
-require_once $dolibarr_main_document_root.'/core/lib/admin.lib.php';
-require_once $dolibarr_main_document_root.'/core/lib/security.lib.php';
+require_once $onli_main_document_root.'/core/class/conf.class.php';
+require_once $onli_main_document_root.'/core/lib/admin.lib.php';
+require_once $onli_main_document_root.'/core/lib/security.lib.php';
 
 global $langs;
 
@@ -55,30 +55,30 @@ $langs->loadLangs(array("admin", "install"));
 // Choice of DBMS
 
 $choix = 0;
-if ($dolibarr_main_db_type == "mysqli") {
+if ($onli_main_db_type == "mysqli") {
 	$choix = 1;
 }
-if ($dolibarr_main_db_type == "pgsql") {
+if ($onli_main_db_type == "pgsql") {
 	$choix = 2;
 }
-if ($dolibarr_main_db_type == "mssql") {
+if ($onli_main_db_type == "mssql") {
 	$choix = 3;
 }
-if ($dolibarr_main_db_type == "sqlite") {
+if ($onli_main_db_type == "sqlite") {
 	$choix = 4;
 }
-if ($dolibarr_main_db_type == "sqlite3") {
+if ($onli_main_db_type == "sqlite3") {
 	$choix = 5;
 }
-//if (empty($choix)) dol_print_error(null,'Database type '.$dolibarr_main_db_type.' not supported into step2.php page');
+//if (empty($choix)) dol_print_error(null,'Database type '.$onli_main_db_type.' not supported into step2.php page');
 
 
 // Now we load forced values from install.forced.php file.
 
 $useforcedwizard = false;
 $forcedfile = "./install.forced.php";
-if ($conffile == "/etc/dolibarr/conf.php") {
-	$forcedfile = "/etc/dolibarr/install.forced.php";
+if ($conffile == "/etc/onli/conf.php") {
+	$forcedfile = "/etc/onli/install.forced.php";
 }
 if (@file_exists($forcedfile)) {
 	$useforcedwizard = true;
@@ -89,9 +89,9 @@ if (@file_exists($forcedfile)) {
 	}
 }
 
-dolibarr_install_syslog("--- step2: entering step2.php page");
+onli_install_syslog("--- step2: entering step2.php page");
 
-'@phan-var-force string $dolibarr_main_db_prefix';  // From configuraiotn file or install/inc.php
+'@phan-var-force string $onli_main_db_prefix';  // From configuraiotn file or install/inc.php
 
 
 /*
@@ -105,7 +105,7 @@ dolibarr_install_syslog("--- step2: entering step2.php page");
  *	View
  */
 
-pHeader($langs->trans("DolibarrSetup").' - '.$langs->trans("CreateDatabaseObjects"), "step4");
+pHeader($langs->trans("OnLiSetup").' - '.$langs->trans("CreateDatabaseObjects"), "step4");
 
 // Test if we can run a first install process
 if (!is_writable($conffile)) {
@@ -132,9 +132,9 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 
 	if ($ok) {
 		if ($db->database_selected) {
-			dolibarr_install_syslog("step2: successful connection to database: ".$conf->db->name);
+			onli_install_syslog("step2: successful connection to database: ".$conf->db->name);
 		} else {
-			dolibarr_install_syslog("step2: failed connection to database :".$conf->db->name, LOG_ERR);
+			onli_install_syslog("step2: failed connection to database :".$conf->db->name, LOG_ERR);
 			print "<tr><td>Failed to select database ".$conf->db->name.'</td><td><img src="../theme/eldy/img/error.png" alt="Error"></td></tr>';
 			$ok = 0;
 		}
@@ -158,7 +158,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 	$requestnb = 0;
 
 	// To disable some code, so you can call step2 with url like
-	// http://localhost/dolibarrnew/install/step2.php?action=set&token='.newToken().'&createtables=0&createkeys=0&createfunctions=0&createdata=llx_20_c_departements
+	// http://localhost/onlinew/install/step2.php?action=set&token='.newToken().'&createtables=0&createkeys=0&createfunctions=0&createdata=llx_20_c_departements
 	$createtables = GETPOSTISSET('createtables') ? GETPOST('createtables') : 1;
 	$createkeys = GETPOSTISSET('createkeys') ? GETPOST('createkeys') : 1;
 	$createfunctions = GETPOSTISSET('createfunctions') ? GETPOST('createfunction') : 1;
@@ -182,7 +182,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 
 		$ok = 0;
 		$handle = opendir($dir);
-		dolibarr_install_syslog("step2: open tables directory ".$dir." handle=".(is_bool($handle) ? json_encode($handle) : $handle));
+		onli_install_syslog("step2: open tables directory ".$dir." handle=".(is_bool($handle) ? json_encode($handle) : $handle));
 		$tablefound = 0;
 		$tabledata = array();
 		if (is_resource($handle)) {
@@ -222,14 +222,14 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 				}
 
 				// Replace the prefix tables
-				if ($dolibarr_main_db_prefix != 'llx_') {
-					$buffer = preg_replace('/llx_/i', $dolibarr_main_db_prefix, $buffer);
+				if ($onli_main_db_prefix != 'llx_') {
+					$buffer = preg_replace('/llx_/i', $onli_main_db_prefix, $buffer);
 				}
 
 				//print "<tr><td>Creation of table $name/td>";
 				$requestnb++;
 
-				dolibarr_install_syslog("step2: request: ".$buffer);
+				onli_install_syslog("step2: request: ".$buffer);
 				$resql = $db->query($buffer, 0, 'dml');
 				if ($resql) {
 					// print "<td>OK request ==== $buffer</td></tr>";
@@ -251,7 +251,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 				print "</td>";
 				print '<td><span class="error">'.$langs->trans("Error").' Failed to open file '.$dir.$file.'</span></td></tr>';
 				$error++;
-				dolibarr_install_syslog("step2: failed to open file ".$dir.$file, LOG_ERR);
+				onli_install_syslog("step2: failed to open file ".$dir.$file, LOG_ERR);
 			}
 		}
 
@@ -263,7 +263,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 			}
 		} else {
 			print '<tr><td>'.$langs->trans("ErrorFailedToFindSomeFiles", $dir).'</td><td><img src="../theme/eldy/img/error.png" alt="Error"></td></tr>';
-			dolibarr_install_syslog("step2: failed to find files to create database in directory ".$dir, LOG_ERR);
+			onli_install_syslog("step2: failed to find files to create database in directory ".$dir, LOG_ERR);
 		}
 	}
 
@@ -280,7 +280,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 
 		$okkeys = 0;
 		$handle = opendir($dir);
-		dolibarr_install_syslog("step2: open keys directory ".$dir." handle=".(is_bool($handle) ? json_encode($handle) : $handle));
+		onli_install_syslog("step2: open keys directory ".$dir." handle=".(is_bool($handle) ? json_encode($handle) : $handle));
 		$tablefound = 0;
 		$tabledata = array();
 		if (is_resource($handle)) {
@@ -343,14 +343,14 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 					$buffer = trim($req);
 					if ($buffer) {
 						// Replace the prefix tables
-						if ($dolibarr_main_db_prefix != 'llx_') {
-							$buffer = preg_replace('/llx_/i', $dolibarr_main_db_prefix, $buffer);
+						if ($onli_main_db_prefix != 'llx_') {
+							$buffer = preg_replace('/llx_/i', $onli_main_db_prefix, $buffer);
 						}
 
 						//print "<tr><td>Creation of keys and table index $name: '$buffer'</td>";
 						$requestnb++;
 
-						dolibarr_install_syslog("step2: request: ".$buffer);
+						onli_install_syslog("step2: request: ".$buffer);
 						$resql = $db->query($buffer, 0, 'dml');
 						if ($resql) {
 							//print "<td>OK request ==== $buffer</td></tr>";
@@ -378,7 +378,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 				print "</td>";
 				print '<td><span class="error">'.$langs->trans("Error")." Failed to open file ".$dir.$file."</span></td></tr>";
 				$error++;
-				dolibarr_install_syslog("step2: failed to open file ".$dir.$file, LOG_ERR);
+				onli_install_syslog("step2: failed to open file ".$dir.$file, LOG_ERR);
 			}
 		}
 
@@ -412,7 +412,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 		$file = "functions.sql";
 		if ($dir !== null && file_exists($dir.$file)) {
 			$fp = fopen($dir.$file, "r");
-			dolibarr_install_syslog("step2: open function file ".$dir.$file." handle=".(is_bool($fp) ? json_encode($fp) : $fp));
+			onli_install_syslog("step2: open function file ".$dir.$file." handle=".(is_bool($fp) ? json_encode($fp) : $fp));
 			$buffer = '';
 			if ($fp) {
 				while (!feof($fp)) {
@@ -431,10 +431,10 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 				$buffer = trim($buffer);
 				if ($buffer) {
 					// Replace the prefix in table names
-					if ($dolibarr_main_db_prefix != 'llx_') {
-						$buffer = preg_replace('/llx_/i', $dolibarr_main_db_prefix, $buffer);
+					if ($onli_main_db_prefix != 'llx_') {
+						$buffer = preg_replace('/llx_/i', $onli_main_db_prefix, $buffer);
 					}
-					dolibarr_install_syslog("step2: request: ".$buffer);
+					onli_install_syslog("step2: request: ".$buffer);
 					print "<!-- Insert line : ".$buffer."<br>-->\n";
 					$resql = $db->query($buffer, 0, 'dml');
 					if ($resql) {
@@ -479,7 +479,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 
 		// Insert data
 		$handle = opendir($dir);
-		dolibarr_install_syslog("step2: open directory data ".$dir." handle=".(is_bool($handle) ? json_encode($handle) : $handle));
+		onli_install_syslog("step2: open directory data ".$dir." handle=".(is_bool($handle) ? json_encode($handle) : $handle));
 		$tablefound = 0;
 		$tabledata = array();
 		if (is_resource($handle)) {
@@ -504,7 +504,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 		foreach ($tabledata as $file) {
 			$name = substr($file, 0, dol_strlen($file) - 4);
 			$fp = fopen($dir.$file, "r");
-			dolibarr_install_syslog("step2: open data file ".$dir.$file." handle=".(is_bool($fp) ? json_encode($fp) : $fp));
+			onli_install_syslog("step2: open data file ".$dir.$file." handle=".(is_bool($fp) ? json_encode($fp) : $fp));
 			if ($fp) {
 				$arrayofrequests = array();
 				$linefound = 0;
@@ -534,7 +534,7 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 				}
 				fclose($fp);
 
-				dolibarr_install_syslog("step2: found ".$linefound." records, defined ".count($arrayofrequests)." group(s).");
+				onli_install_syslog("step2: found ".$linefound." records, defined ".count($arrayofrequests)." group(s).");
 
 				$okallfile = 1;
 				$db->begin();
@@ -542,14 +542,14 @@ if ($action == "set") {		// Test on permission not required. Already managed by 
 				// We loop on each requests of file
 				foreach ($arrayofrequests as $buffer) {
 					// Replace the tables prefixes
-					if ($dolibarr_main_db_prefix != 'llx_') {
-						$buffer = preg_replace('/llx_/i', $dolibarr_main_db_prefix, $buffer);
+					if ($onli_main_db_prefix != 'llx_') {
+						$buffer = preg_replace('/llx_/i', $onli_main_db_prefix, $buffer);
 					}
 
 					// Replace __ENTITY__ tag with 1 (master entity), this is only for dictionaries.
 					$buffer = preg_replace('/__ENTITY__/i', '1', $buffer);
 
-					//dolibarr_install_syslog("step2: request: " . $buffer);
+					//onli_install_syslog("step2: request: " . $buffer);
 					$resql = $db->query($buffer, 1);
 					if ($resql) {
 						//$db->free($resql);     // Not required as request we launch here does not return memory needs.
@@ -590,26 +590,26 @@ $ret = 0;
 if (!$ok && isset($argv[1])) {
 	$ret = 1;
 }
-dolibarr_install_syslog("Exit ".$ret);
+onli_install_syslog("Exit ".$ret);
 
-dolibarr_install_syslog("- step2: end");
+onli_install_syslog("- step2: end");
 
 
 // Force here a value we need after because master.inc.php is not loaded into step2.
 // This code must be similar with the one into main.inc.php
 
-$conf->file->instance_unique_id = (empty($dolibarr_main_instance_unique_id) ? (empty($dolibarr_main_cookie_cryptkey) ? '' : $dolibarr_main_cookie_cryptkey) : $dolibarr_main_instance_unique_id); // Unique id of instance
+$conf->file->instance_unique_id = (empty($onli_main_instance_unique_id) ? (empty($onli_main_cookie_cryptkey) ? '' : $onli_main_cookie_cryptkey) : $onli_main_instance_unique_id); // Unique id of instance
 
-$hash_unique_id = dol_hash('dolibarr'.$conf->file->instance_unique_id, 'sha256');	// Note: if the global salt changes, this hash changes too so ping may be counted twice. We don't mind. It is for statistics purpose only.
+$hash_unique_id = dol_hash('onli'.$conf->file->instance_unique_id, 'sha256');	// Note: if the global salt changes, this hash changes too so ping may be counted twice. We don't mind. It is for statistics purpose only.
 
-$out  = '<input type="checkbox" name="dolibarrpingno" id="dolibarrpingno"'.((getDolGlobalString('MAIN_FIRST_PING_OK_ID') == 'disabled') ? '' : ' value="checked" checked="true"').'> ';
-$out .= '<label for="dolibarrpingno">'.$langs->trans("MakeAnonymousPing").'</label>';
+$out  = '<input type="checkbox" name="onlipingno" id="onlipingno"'.((getDolGlobalString('MAIN_FIRST_PING_OK_ID') == 'disabled') ? '' : ' value="checked" checked="true"').'> ';
+$out .= '<label for="onlipingno">'.$langs->trans("MakeAnonymousPing").'</label>';
 
 $out .= '<!-- Add js script to manage the uncheck of option to not send the ping -->';
 $out .= '<script type="text/javascript">';
 $out .= 'jQuery(document).ready(function(){';
 $out .= '  document.cookie = "DOLINSTALLNOPING_'.$hash_unique_id.'=0; path=/"'."\n";
-$out .= '  jQuery("#dolibarrpingno").click(function() {';
+$out .= '  jQuery("#onlipingno").click(function() {';
 $out .= '    if (! $(this).is(\':checked\')) {';
 $out .= '      console.log("We uncheck anonymous ping");';
 $out .= '      document.cookie = "DOLINSTALLNOPING_'.$hash_unique_id.'=1; path=/"'."\n";

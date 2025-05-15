@@ -27,7 +27,7 @@
 
 define("NOLOGIN", 1); // This means this output page does not require to be logged.
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/contact/class/contact.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/usergroups.lib.php';
@@ -54,7 +54,7 @@ if (getDolGlobalString('MAIN_SECURITY_DISABLEFORGETPASSLINK')) {
 }
 
 $action = GETPOST('action', 'aZ09');
-$mode = $dolibarr_main_authentication;
+$mode = $onli_main_authentication;
 if (!$mode) {
 	$mode = 'http';
 }
@@ -191,7 +191,7 @@ if (empty($reshook)) {
 $dol_url_root = DOL_URL_ROOT;
 
 // Title
-$title = 'Dolibarr '.DOL_VERSION;
+$title = 'OnLi '.DOL_VERSION;
 if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 	$title = getDolGlobalString('MAIN_APPLICATION_TITLE');
 }
@@ -228,15 +228,15 @@ if (!empty($mysoc->logo_small) && is_readable($conf->mycompany->dir_output.'/log
 } elseif (!empty($mysoc->logo_small) && is_readable($conf->mycompany->dir_output.'/logos/'.$mysoc->logo)) {
 	$urllogo = DOL_URL_ROOT.'/viewimage.php?cache=1&amp;modulepart=mycompany&amp;file='.urlencode('logos/'.$mysoc->logo);
 	$width = 128;
-} elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/'.$conf->theme.'/img/dolibarr_logo.svg')) {
-	$urllogo = DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/dolibarr_logo.svg';
-} elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/dolibarr_logo.svg')) {
-	$urllogo = DOL_URL_ROOT.'/theme/dolibarr_logo.svg';
+} elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/'.$conf->theme.'/img/onli_logo.svg')) {
+	$urllogo = DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/onli_logo.svg';
+} elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/onli_logo.svg')) {
+	$urllogo = DOL_URL_ROOT.'/theme/onli_logo.svg';
 }
 
 // Send password button enabled ?
 $disabled = 'disabled';
-if (preg_match('/dolibarr/i', $mode)) {
+if (preg_match('/onli/i', $mode)) {
 	$disabled = '';
 }
 if (getDolGlobalString('MAIN_SECURITY_ENABLE_SENDPASSWORD')) {

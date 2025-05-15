@@ -24,9 +24,9 @@ require_once DOL_DOCUMENT_ROOT.'/adherents/class/subscription.class.php';
  * API class for subscriptions
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Subscriptions extends DolibarrApi
+class Subscriptions extends OnLiApi
 {
 	/**
 	 * @var string[]   $FIELDS     Mandatory fields, checked when create and update object
@@ -66,7 +66,7 @@ class Subscriptions extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'cotisation', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'cotisation', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -106,7 +106,7 @@ class Subscriptions extends DolibarrApi
 
 		$obj_ret = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'cotisation', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'cotisation', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -184,7 +184,7 @@ class Subscriptions extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'cotisation', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'cotisation', 'creer')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -200,7 +200,7 @@ class Subscriptions extends DolibarrApi
 
 			$subscription->$field = $this->_checkValForAPI($field, $value, $subscription);
 		}
-		if ($subscription->create(DolibarrApiAccess::$user) < 0) {
+		if ($subscription->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error when creating subscription', array_merge(array($subscription->error), $subscription->errors));
 		}
 		return $subscription->id;
@@ -221,7 +221,7 @@ class Subscriptions extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'creer')) {
 			throw new RestException(403);
 		}
 
@@ -250,7 +250,7 @@ class Subscriptions extends DolibarrApi
 			$subscription->$field = $this->_checkValForAPI($field, $value, $subscription);
 		}
 
-		if ($subscription->update(DolibarrApiAccess::$user) > 0) {
+		if ($subscription->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, 'Error when updating contribution: '.$subscription->error);
@@ -273,7 +273,7 @@ class Subscriptions extends DolibarrApi
 	public function delete($id)
 	{
 		// The right to delete a subscription comes with the right to create one.
-		if (!DolibarrApiAccess::$user->hasRight('adherent', 'cotisation', 'creer')) {
+		if (!OnLiApiAccess::$user->hasRight('adherent', 'cotisation', 'creer')) {
 			throw new RestException(403);
 		}
 		$subscription = new Subscription($this->db);
@@ -282,7 +282,7 @@ class Subscriptions extends DolibarrApi
 			throw new RestException(404, 'Subscription not found');
 		}
 
-		$res = $subscription->delete(DolibarrApiAccess::$user);
+		$res = $subscription->delete(OnLiApiAccess::$user);
 		if ($res < 0) {
 			throw new RestException(500, "Can't delete, error occurs");
 		} elseif ($res == 0) {

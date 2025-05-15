@@ -87,7 +87,7 @@ class Ai
 	 */
 	public function generateContent($instructions, $model = 'auto', $function = 'textgeneration', $format = '')
 	{
-		global $dolibarr_main_data_root;
+		global $onli_main_data_root;
 
 		$arrayofai = getListOfAIServices();
 
@@ -229,8 +229,8 @@ class Ai
 			);
 
 			if (getDolGlobalString("AI_DEBUG")) {
-				if (@is_writable($dolibarr_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
-					$outputfile = $dolibarr_main_data_root."/dolibarr_ai.log";
+				if (@is_writable($onli_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
+					$outputfile = $onli_main_data_root."/onli_ai.log";
 					$fp = fopen($outputfile, "w");	// overwrite
 
 					if ($fp) {
@@ -268,8 +268,8 @@ class Ai
 			}
 
 			if (getDolGlobalString("AI_DEBUG")) {
-				if (@is_writable($dolibarr_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
-					$outputfile = $dolibarr_main_data_root."/dolibarr_ai.log";
+				if (@is_writable($onli_main_data_root)) {	// Avoid fatal error on fopen with open_basedir
+					$outputfile = $onli_main_data_root."/onli_ai.log";
 					$fp = fopen($outputfile, "a");
 
 					if ($fp) {

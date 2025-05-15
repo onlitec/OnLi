@@ -2006,7 +2006,7 @@ class ActionComm extends CommonObject
 		global $hookmanager;
 
 		// phpcs:enable
-		global $conf, $langs, $dolibarr_main_url_root, $mysoc;
+		global $conf, $langs, $onli_main_url_root, $mysoc;
 
 		require_once DOL_DOCUMENT_ROOT."/core/lib/xcal.lib.php";
 		require_once DOL_DOCUMENT_ROOT."/core/lib/date.lib.php";
@@ -2268,7 +2268,7 @@ class ActionComm extends CommonObject
 
 					// 'eid','startdate','duration','enddate','title','summary','category','email','url','desc','author'
 					$event = array();
-					$event['uid'] = 'dolibarragenda-'.$this->db->database_name.'-'.$obj->id."@".$_SERVER["SERVER_NAME"];
+					$event['uid'] = 'onliagenda-'.$this->db->database_name.'-'.$obj->id."@".$_SERVER["SERVER_NAME"];
 					$event['type'] = $type;
 
 					$datestart = (int) $this->db->jdate($obj->datep) - (getDolGlobalInt('AGENDA_EXPORT_FIX_TZ') * 3600);
@@ -2302,7 +2302,7 @@ class ActionComm extends CommonObject
 
 					// Public URL of event
 					if ($eventorganization != '') {
-						$link_subscription = $dolibarr_main_url_root.'/public/eventorganization/attendee_new.php?id='.((int) $obj->id).'&type=global&noregistration=1';
+						$link_subscription = $onli_main_url_root.'/public/eventorganization/attendee_new.php?id='.((int) $obj->id).'&type=global&noregistration=1';
 						$encodedsecurekey = dol_hash(getDolGlobalString('EVENTORGANIZATION_SECUREKEY').'conferenceorbooth'.((int) $obj->id), 'md5');
 						$link_subscription .= '&securekey='.urlencode($encodedsecurekey);
 
@@ -2389,11 +2389,11 @@ class ActionComm extends CommonObject
 							$timestampEnd   -= ($conf->global->AGENDA_EXPORT_FIX_TZ * 3600);
 						}
 
-						$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+						$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 						$urlwithroot       = $urlwithouturlroot.DOL_URL_ROOT;
 						$url               = $urlwithroot.'/holiday/card.php?id='.$obj->rowid;
 
-						$event['uid']          = 'dolibarrholiday-'.$this->db->database_name.'-'.$obj->rowid."@".$_SERVER["SERVER_NAME"];
+						$event['uid']          = 'onliholiday-'.$this->db->database_name.'-'.$obj->rowid."@".$_SERVER["SERVER_NAME"];
 						$event['author']       = dolGetFirstLastname($obj->firstname, $obj->lastname);
 						$event['type']         = 'event';
 						$event['category']     = "Holiday";
@@ -2442,16 +2442,16 @@ class ActionComm extends CommonObject
 			}
 			if ($more) {
 				if (empty($title)) {
-					$title = 'Dolibarr actions '.$mysoc->name.' - '.$more;
+					$title = 'OnLi actions '.$mysoc->name.' - '.$more;
 				}
 				$desc = $more;
-				$desc .= ' ('.$mysoc->name.' - built by Dolibarr)';
+				$desc .= ' ('.$mysoc->name.' - built by OnLi)';
 			} else {
 				if (empty($title)) {
-					$title = 'Dolibarr actions '.$mysoc->name;
+					$title = 'OnLi actions '.$mysoc->name;
 				}
 				$desc = $langs->transnoentities('ListOfActions');
-				$desc .= ' ('.$mysoc->name.' - built by Dolibarr)';
+				$desc .= ' ('.$mysoc->name.' - built by OnLi)';
 			}
 
 			// Create temp file

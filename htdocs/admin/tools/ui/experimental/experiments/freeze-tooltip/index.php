@@ -17,7 +17,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../../../../../main.inc.php';
 
 /**
@@ -74,7 +74,7 @@ $documentation->showSidebar(); ?>
 			<h2 class="documentation-title" >Tooltip Freeze with <kbd>Alt</kbd> Key</h2>
 
 			<p>
-				A new feature allows users to <strong>freeze tooltips</strong> in Dolibarr by holding down the <kbd>Alt</kbd> key.
+				A new feature allows users to <strong>freeze tooltips</strong> in OnLi by holding down the <kbd>Alt</kbd> key.
 				This makes it easier to read long tooltips without having to keep the cursor perfectly still.
 			</p>
 
@@ -103,7 +103,7 @@ $documentation->showSidebar(); ?>
 			<div class="documentation-example">
 				<?php
 				$tooltip = '<p>
-    Welcome to <a href="https://dolibarr.org" title="Official Dolibarr Website">Dolibarr</a>,
+    Welcome to <a href="https://onli.org" title="Official OnLi Website">OnLi</a>,
     an open-source ERP & CRM solution. This platform helps businesses manage their
     <abbr title="Customer Relationship Management">CRM</abbr>
     and <abbr title="Enterprise Resource Planning">ERP</abbr> needs efficiently.
@@ -111,19 +111,19 @@ $documentation->showSidebar(); ?>
 
 <p>
     For documentation, visit our
-    <a href="https://wiki.dolibarr.org" title="Dolibarr Documentation">Wiki</a>.
+    <a href="https://wiki.onli.org" title="OnLi Documentation">Wiki</a>.
     Developers can contribute on
-    <a href="https://github.com/Dolibarr/dolibarr" title="Dolibarr GitHub Repository">GitHub</a>.
+    <a href="https://github.com/OnLi/onli" title="OnLi GitHub Repository">GitHub</a>.
 </p>
 <p><strong class="classfortooltip" title="Tooltips in tooltips">try tooltip in a tooltip</strong></p>
 <p>
     Need help? Check out the
-    <a href="https://www.dolibarr.org/forum.php" title="Dolibarr Community Forum">Community Forum</a>.
+    <a href="https://www.onli.org/forum.php" title="OnLi Community Forum">Community Forum</a>.
 </p>
 
 <p>
     <strong>Try a link with attribute</strong> <code>target="_blank"</code> <br/>
-    <a href="https://www.dolibarr.org/" target="_blank" >Open website in a new window</a>.
+    <a href="https://www.onli.org/" target="_blank" >Open website in a new window</a>.
 </p>
 
 ';

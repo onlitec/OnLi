@@ -37,7 +37,7 @@ if (!defined('DISABLE_JS_GRAHP')) {
 
 //header('X-XSS-Protection:0');	// Disable XSS filtering protection of some browsers (note: use of Content-Security-Policy is more efficient). Disabled as deprecated.
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/website/lib/website.lib.php';
@@ -249,8 +249,8 @@ if (empty($pageid) && empty($pageref) && $object->id > 0 && $action != 'createco
 }
 
 
-global $dolibarr_main_data_root;
-$pathofwebsite = $dolibarr_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$websitekey;
+global $onli_main_data_root;
+$pathofwebsite = $onli_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$websitekey;
 $filehtmlheader = $pathofwebsite.'/htmlheader.html';
 $filecss = $pathofwebsite.'/styles.css.php';
 $filejs = $pathofwebsite.'/javascript.js.php';
@@ -267,7 +267,7 @@ $filemaster = $pathofwebsite.'/master.inc.php';
 $forceCSP = getDolGlobalString("WEBSITE_".$object->id."_SECURITY_FORCECSP");
 
 // Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 //$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -464,24 +464,24 @@ if ($action == 'seteditinline') {	// Test on permission not required here
 		setEventMessages($langs->trans("FeatureNotYetAvailable"), null, 'warnings');
 	}
 
-	dolibarr_set_const($db, 'WEBSITE_EDITINLINE', 1);
-	//dolibarr_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 0); // Force disable of 'Include dynamic content'
+	onli_set_const($db, 'WEBSITE_EDITINLINE', 1);
+	//onli_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 0); // Force disable of 'Include dynamic content'
 	header("Location: ".$_SERVER["PHP_SELF"].'?website='.urlencode(GETPOST('website')).'&pageid='.GETPOSTINT('pageid'));
 	exit;
 }
 if ($action == 'unseteditinline') {	// Test on permission not required here
-	dolibarr_del_const($db, 'WEBSITE_EDITINLINE');
+	onli_del_const($db, 'WEBSITE_EDITINLINE');
 	header("Location: ".$_SERVER["PHP_SELF"].'?website='.urlencode(GETPOST('website')).'&pageid='.GETPOSTINT('pageid'));
 	exit;
 }
 if ($action == 'setshowsubcontainers') {	// Test on permission not required here
-	dolibarr_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 1);
-	//dolibarr_set_const($db, 'WEBSITE_EDITINLINE', 0); // Force disable of edit inline
+	onli_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 1);
+	//onli_set_const($db, 'WEBSITE_EDITINLINE', 0); // Force disable of edit inline
 	header("Location: ".$_SERVER["PHP_SELF"].'?website='.urlencode(GETPOST('website')).'&pageid='.GETPOSTINT('pageid'));
 	exit;
 }
 if ($action == 'unsetshowsubcontainers') {	// Test on permission not required here
-	dolibarr_del_const($db, 'WEBSITE_SUBCONTAINERSINLINE');
+	onli_del_const($db, 'WEBSITE_SUBCONTAINERSINLINE');
 	header("Location: ".$_SERVER["PHP_SELF"].'?website='.urlencode(GETPOST('website')).'&pageid='.GETPOSTINT('pageid'));
 	exit;
 }
@@ -603,9 +603,9 @@ if ($massaction == 'delcategory' && GETPOST('confirmmassaction', 'alpha') && $us
 if ($massaction == 'replace' && GETPOST('confirmmassaction', 'alpha') && $usercanedit) {
 	$replacestring = GETPOST('replacestring', 'restricthtmlallowunvalid');	// or 'none', must be same then $searchstring
 
-	$dolibarrdataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
+	$onlidataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
 	$allowimportsite = true;
-	if (dol_is_file($dolibarrdataroot.'/installmodules.lock')) {
+	if (dol_is_file($onlidataroot.'/installmodules.lock')) {
 		$allowimportsite = false;
 	}
 
@@ -616,7 +616,7 @@ if ($massaction == 'replace' && GETPOST('confirmmassaction', 'alpha') && $userca
 			$message = $langs->trans('InstallModuleFromWebHasBeenDisabledContactUs');
 		} else {
 			// Show technical generic message
-			$message = $langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $dolibarrdataroot.'/installmodules.lock');
+			$message = $langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $onlidataroot.'/installmodules.lock');
 		}
 		setEventMessages($message, null, 'errors');
 	} elseif (!$user->hasRight('website', 'writephp')) {
@@ -1085,7 +1085,7 @@ if ($action == 'addcontainer' && $usercanedit) {
 
 						getAllImages($object, $objectpage, $urltograbbis, $tmpgeturl['content'], $action, 1, $grabimages, $grabimagesinto);
 
-						// We try to convert the CSS we got by adding a prefix .bodywebsite with lessc to avoid conflict with CSS of Dolibarr.
+						// We try to convert the CSS we got by adding a prefix .bodywebsite with lessc to avoid conflict with CSS of OnLi.
 						include_once DOL_DOCUMENT_ROOT.'/core/class/lessc.class.php';
 						$lesscobj = new Lessc();
 						try {
@@ -1118,7 +1118,7 @@ if ($action == 'addcontainer' && $usercanedit) {
 
 				getAllImages($object, $objectpage, $urltograb, $tmp, $action, 1, $grabimages, $grabimagesinto);
 
-				// Normalize links href to Dolibarr internal naming
+				// Normalize links href to OnLi internal naming
 				$tmp = preg_replace('/a href="\/([^\/"]+)\/([^\/"]+)"/', 'a href="/\1-\2.php"', $tmp);
 				$tmp = preg_replace('/a href="\/([^\/"]+)\/([^\/"]+)\/([^\/"]+)"/', 'a href="/\1-\2-\3.php"', $tmp);
 				$tmp = preg_replace('/a href="\/([^\/"]+)\/([^\/"]+)\/([^\/"]+)\/([^\/"]+)"/', 'a href="/\1-\2-\3-\4.php"', $tmp);
@@ -1375,7 +1375,7 @@ if ($action == 'addcontainer' && $usercanedit) {
 		}
 
 		if (!dol_is_file($filerobot)) {
-			$robotcontent = "# Robot file. Generated with Dolibarr\nUser-agent: *\nAllow: /public/\nDisallow: /administrator/";
+			$robotcontent = "# Robot file. Generated with OnLi\nUser-agent: *\nAllow: /public/\nDisallow: /administrator/";
 			$result = dolSaveRobotFile($filerobot, $robotcontent);
 		}
 
@@ -1390,7 +1390,7 @@ if ($action == 'addcontainer' && $usercanedit) {
 		}
 
 		if (!dol_is_file($filereadme)) {
-			$readmecontent = "Website generated by Dolibarr ERP CRM";
+			$readmecontent = "Website generated by OnLi ERP CRM";
 			$result = dolSaveReadme($filereadme, $readmecontent);
 		}
 
@@ -2000,7 +2000,7 @@ if ($action == "updatesecurity" && $usercanedit && GETPOST("btn_WEBSITE_SECURITY
 			}
 			$securityspstring .= $directive . $sourcestring;
 		}
-		$res = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSP', $securityspstring, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSP', $securityspstring, 'chaine', 0, '', $conf->entity);
 		if ($res <= 0) {
 			$error++;
 		}
@@ -2026,11 +2026,11 @@ if ($action == "updatesecurity" && $usercanedit) {
 	$securitysp = GETPOST('WEBSITE_'.$object->id.'_SECURITY_FORCECSP', 'alpha');
 	$securitycspro = GETPOST('WEBSITE_'.$object->id.'_SECURITY_FORCECSPRO', 'alpha');
 
-	$res1 = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCERP', $securityrp, 'chaine', 0, '', $conf->entity);
-	$res2 = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCESTS', $securitysts, 'chaine', 0, '', $conf->entity);
-	$res3 = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCEPP', $securitypp, 'chaine', 0, '', $conf->entity);
-	$res4 = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSP', $securitysp, 'chaine', 0, '', $conf->entity);
-	$res5 = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSPRO', $securitycspro, 'chaine', 0, '', $conf->entity);
+	$res1 = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCERP', $securityrp, 'chaine', 0, '', $conf->entity);
+	$res2 = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCESTS', $securitysts, 'chaine', 0, '', $conf->entity);
+	$res3 = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCEPP', $securitypp, 'chaine', 0, '', $conf->entity);
+	$res4 = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSP', $securitysp, 'chaine', 0, '', $conf->entity);
+	$res5 = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSPRO', $securitycspro, 'chaine', 0, '', $conf->entity);
 
 	if ($res1 >= 0 && $res2 >= 0 && $res3 >= 0 && $res4 >= 0 && $res5 >= 0) {
 		$db->commit();
@@ -2377,7 +2377,7 @@ if ((($action == 'updatesource' || $action == 'updatecontent' || $action == 'con
 			$tmpwebsite = new Website($db);
 			if ($newwebsiteid > 0 && $newwebsiteid != $object->id) {
 				$tmpwebsite->fetch($newwebsiteid);
-				$pathofwebsitenew = $dolibarr_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$tmpwebsite->ref;
+				$pathofwebsitenew = $onli_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$tmpwebsite->ref;
 			} else {
 				$tmpwebsite = $object;
 			}
@@ -2654,9 +2654,9 @@ if ($action == 'regeneratesite' && $usercanedit) {
 
 // Import site
 if ($action == 'importsiteconfirm' && $usercanedit) {
-	$dolibarrdataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
+	$onlidataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
 	$allowimportsite = true;
-	if (dol_is_file($dolibarrdataroot.'/installmodules.lock')) {
+	if (dol_is_file($onlidataroot.'/installmodules.lock')) {
 		$allowimportsite = false;
 	}
 
@@ -2737,7 +2737,7 @@ if ($action == 'importsiteconfirm' && $usercanedit) {
 						$action = 'importsite';
 					} else {
 						// Force mode dynamic on
-						dolibarr_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 1, 'chaine', 0, '', $conf->entity);
+						onli_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 1, 'chaine', 0, '', $conf->entity);
 
 						header("Location: ".$_SERVER["PHP_SELF"].'?website='.$object->ref);
 						exit();
@@ -2751,7 +2751,7 @@ if ($action == 'importsiteconfirm' && $usercanedit) {
 			$message = $langs->trans('InstallModuleFromWebHasBeenDisabledContactUs');
 		} else {
 			// Show technical generic message
-			$message = $langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $dolibarrdataroot.'/installmodules.lock');
+			$message = $langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $onlidataroot.'/installmodules.lock');
 		}
 		setEventMessages($message, null, 'errors');
 	}
@@ -2821,7 +2821,7 @@ if ($action == 'generatesitemaps' && $usercanedit) {
 					}
 				}
 
-				//$pathofpage = $dolibarr_main_url_root.'/'.$pageurl.'.php';
+				//$pathofpage = $onli_main_url_root.'/'.$pageurl.'.php';
 
 				// URL of sitemaps must end with trailing slash if page is ''
 				$loc = $domtree->createElement('loc', $domainname.'/'.$pageurl);
@@ -3024,7 +3024,7 @@ if ($action == 'removecspsource' && $usercanedit) {
 			}
 			$securityspstring .= $directive . $sourcestring;
 		}
-		$res = dolibarr_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSP', $securityspstring, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, 'WEBSITE_'.$object->id.'_SECURITY_FORCECSP', $securityspstring, 'chaine', 0, '', $conf->entity);
 		if ($res <= 0) {
 			$error++;
 		}
@@ -3678,7 +3678,7 @@ if (!GETPOST('hide_websitemenu')) {
 
 				// Force to show subcontainers if we are in setup mode
 				if ($objectpage->type_container == 'setup') {
-					dolibarr_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 1);
+					onli_set_const($db, 'WEBSITE_SUBCONTAINERSINLINE', 1);
 				}
 
 				if ($objectpage->type_container != 'setup') {
@@ -3906,7 +3906,7 @@ if (!GETPOST('hide_websitemenu')) {
 			$realpage = $urlwithroot.'/public/website/index.php?website='.$websitekey.'&pageref='.$websitepage->pageurl;
 			$pagealias = $websitepage->pageurl;
 
-			$htmltext = $langs->trans("PreviewSiteServedByDolibarr", $langs->transnoentitiesnoconv("Page"), $langs->transnoentitiesnoconv("Page"), $realpage, $langs->transnoentitiesnoconv("TestDeployOnWeb"));
+			$htmltext = $langs->trans("PreviewSiteServedByOnLi", $langs->transnoentitiesnoconv("Page"), $langs->transnoentitiesnoconv("Page"), $realpage, $langs->transnoentitiesnoconv("TestDeployOnWeb"));
 			//$htmltext .= '<br>'.$langs->trans("CheckVirtualHostPerms", $langs->transnoentitiesnoconv("ReadPerm"), '{s1}');
 			//$htmltext = str_replace('{s1}', $dataroot.'<br>'.DOL_DATA_ROOT.'/medias<br>'.DOL_DOCUMENT_ROOT, $htmltext);
 			//$htmltext .= '<br>'.$langs->trans("CheckVirtualHostPerms", $langs->transnoentitiesnoconv("WritePerm"), '{s1}');
@@ -3968,7 +3968,7 @@ if (!GETPOST('hide_websitemenu')) {
 
 		print '<span class="websitehelp">';
 		if ($action == 'editsource' || $action == 'editcontent' || GETPOST('editsource', 'alpha') || GETPOST('editcontent', 'alpha')) {
-			$url = 'https://wiki.dolibarr.org/index.php/Module_Website';
+			$url = 'https://wiki.onli.org/index.php/Module_Website';
 
 			$htmltext = '<small>';
 			$htmltext .= $langs->transnoentitiesnoconv("YouCanEditHtmlSource", $url);
@@ -4646,9 +4646,9 @@ if ($action == 'importsite') {
 	print '<span class="opacitymedium">'.$langs->trans("ZipOfWebsitePackageToImport").'</span><br><br>';
 
 
-	$dolibarrdataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
+	$onlidataroot = preg_replace('/([\\/]+)$/i', '', DOL_DATA_ROOT);
 	$allowimportsite = true;
-	if (dol_is_file($dolibarrdataroot.'/installmodules.lock')) {
+	if (dol_is_file($onlidataroot.'/installmodules.lock')) {
 		$allowimportsite = false;
 	}
 
@@ -4668,7 +4668,7 @@ if ($action == 'importsite') {
 			$message = $langs->trans('InstallModuleFromWebHasBeenDisabledContactUs');
 		} else {
 			// Show technical generic message
-			$message = $langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $dolibarrdataroot.'/installmodules.lock');
+			$message = $langs->trans("InstallModuleFromWebHasBeenDisabledByFile", $onlidataroot.'/installmodules.lock');
 		}
 		print info_admin($message).'<br><br>';
 	}
@@ -5093,7 +5093,7 @@ if ($action == 'editmeta' || $action == 'createcontainer') {	// Edit properties 
 	}
 
 	// Content - Example/templates of page
-	$url = 'https://wiki.dolibarr.org/index.php/Module_Website';
+	$url = 'https://wiki.onli.org/index.php/Module_Website';
 	$htmltext = '<small>';
 	$htmltext .= $langs->transnoentitiesnoconv("YouCanEditHtmlSource", $url);
 	$htmltext .= $langs->transnoentitiesnoconv("YouCanEditHtmlSource1", $url);
@@ -5142,8 +5142,8 @@ if ($action == 'editmeta' || $action == 'createcontainer') {	// Edit properties 
 			}
 		}
 		print '</td><td>';
-		//$doleditor = new DolEditor('content', GETPOST('content', 'restricthtmlallowunvalid'), '', 200, 'dolibarr_mailings', 'In', true, true, true, 40, '90%');
-		$doleditor = new DolEditor('content', GETPOST('content', 'none'), '', 200, 'dolibarr_mailings', 'In', true, true, true, 40, '90%');
+		//$doleditor = new DolEditor('content', GETPOST('content', 'restricthtmlallowunvalid'), '', 200, 'onli_mailings', 'In', true, true, true, 40, '90%');
+		$doleditor = new DolEditor('content', GETPOST('content', 'none'), '', 200, 'onli_mailings', 'In', true, true, true, 40, '90%');
 		$doleditor->Create();
 		print '</div>';
 		print '</td></tr>';
@@ -5869,7 +5869,7 @@ if ((empty($action) || $action == 'preview' || $action == 'createfromclone' || $
 		// $filecss
 		// $filephp
 
-		// Output page under the Dolibarr top menu
+		// Output page under the OnLi top menu
 		$objectpage->fetch($pageid);
 
 		$jscontent = @file_get_contents($filejs);
@@ -5936,7 +5936,7 @@ if ((empty($action) || $action == 'preview' || $action == 'createfromclone' || $
 			}
 		}
 		$tmpout .= $tmpstyleinheader."\n";
-		// Clean style that may affect global style of Dolibarr
+		// Clean style that may affect global style of OnLi
 		$tmpout = preg_replace('/}[\s\n]*body\s*{[^}]+}/ims', '}', $tmpout);
 		$out .= $tmpout;
 		$out .= '</style>'."\n";

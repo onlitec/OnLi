@@ -25,7 +25,7 @@
  *	\brief      Admin page to define miscellaneous constants
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/security.lib.php';
@@ -103,7 +103,7 @@ if ($action == 'add') {
 	}
 
 	if (!$error) {
-		if (dolibarr_set_const($db, $constname, $constvalue, 'chaine', 1, $constnote, $entity) >= 0) {
+		if (onli_set_const($db, $constname, $constvalue, 'chaine', 1, $constnote, $entity) >= 0) {
 			setEventMessages($langs->trans("RecordSaved"), null, 'mesgs');
 			$action = "";
 			$constname = "";
@@ -120,7 +120,7 @@ if (!empty($consts) && $action == 'update') {
 	$nbmodified = 0;
 	foreach ($consts as $const) {
 		if (!empty($const["check"])) {
-			if (dolibarr_set_const($db, $const["name"], $const["value"], $const["type"], 1, $const["note"], $const["entity"]) >= 0) {
+			if (onli_set_const($db, $const["name"], $const["value"], $const["type"], 1, $const["note"], $const["entity"]) >= 0) {
 				$nbmodified++;
 			} else {
 				dol_print_error($db);
@@ -138,7 +138,7 @@ if (!empty($consts) && $action == 'delete') {
 	$nbdeleted = 0;
 	foreach ($consts as $const) {
 		if (!empty($const["check"])) {	// Is checkbox checked
-			if (dolibarr_del_const($db, $const["rowid"], -1) >= 0) {
+			if (onli_del_const($db, $const["rowid"], -1) >= 0) {
 				$nbdeleted++;
 			} else {
 				dol_print_error($db);
@@ -153,7 +153,7 @@ if (!empty($consts) && $action == 'delete') {
 
 // Delete line from delete picto
 if ($action == 'delete') {
-	if (dolibarr_del_const($db, $rowid, $entity) >= 0) {
+	if (onli_del_const($db, $rowid, $entity) >= 0) {
 		setEventMessages($langs->trans("RecordDeleted"), null, 'mesgs');
 	} else {
 		dol_print_error($db);

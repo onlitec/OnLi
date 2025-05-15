@@ -24,7 +24,7 @@
  * \brief   Datapolicy setup page to define duration of data keeping.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
 require_once DOL_DOCUMENT_ROOT.'/datapolicy/lib/datapolicy.lib.php';
@@ -120,7 +120,7 @@ foreach ($arrayofparameters as $title => $tab) {
 				$val_const = GETPOST($key, 'alpha');
 			}
 
-			$result = dolibarr_set_const($db, $key, $val_const, 'chaine', 0, '', $conf->entity);
+			$result = onli_set_const($db, $key, $val_const, 'chaine', 0, '', $conf->entity);
 			if ($result < 0) {
 				$error++;
 				break;

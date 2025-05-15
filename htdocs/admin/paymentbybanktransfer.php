@@ -27,7 +27,7 @@
  *	\brief      Page to setup payments by credit transfer
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/compta/prelevement/class/bonprelevement.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
@@ -64,36 +64,36 @@ if ($action == "set") {
 	$id = GETPOSTINT('PAYMENTBYBANKTRANSFER_ID_BANKACCOUNT');
 	$account = new Account($db);
 	if ($account->fetch($id) > 0) {
-		$res = dolibarr_set_const($db, "PAYMENTBYBANKTRANSFER_ID_BANKACCOUNT", $id, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PAYMENTBYBANKTRANSFER_ID_BANKACCOUNT", $id, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
 		/*
-		$res = dolibarr_set_const($db, "PRELEVEMENT_CODE_BANQUE", $account->code_banque,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_CODE_BANQUE", $account->code_banque,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
-		$res = dolibarr_set_const($db, "PRELEVEMENT_CODE_GUICHET", $account->code_guichet,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_CODE_GUICHET", $account->code_guichet,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
-		$res = dolibarr_set_const($db, "PRELEVEMENT_NUMERO_COMPTE", $account->number,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_NUMERO_COMPTE", $account->number,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
-		$res = dolibarr_set_const($db, "PRELEVEMENT_NUMBER_KEY", $account->cle_rib,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_NUMBER_KEY", $account->cle_rib,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
-		$res = dolibarr_set_const($db, "PRELEVEMENT_IBAN", $account->iban,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_IBAN", $account->iban,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
-		$res = dolibarr_set_const($db, "PRELEVEMENT_BIC", $account->bic,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_BIC", $account->bic,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
-		$res = dolibarr_set_const($db, "PRELEVEMENT_RAISON_SOCIALE", $account->owner_address,'chaine',0,'',$conf->entity);
+		$res = onli_set_const($db, "PRELEVEMENT_RAISON_SOCIALE", $account->owner_address,'chaine',0,'',$conf->entity);
 		if (! $res > 0) $error++;
 		*/
 	} else {
 		$error++;
 	}
 	/* Moved to account
-	$res = dolibarr_set_const($db, "PAYMENTBYBANKTRANSFER_ICS", GETPOST("PAYMENTBYBANKTRANSFER_ICS"), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PAYMENTBYBANKTRANSFER_ICS", GETPOST("PAYMENTBYBANKTRANSFER_ICS"), 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) $error++;
 	*/
 
 	if (GETPOST("PAYMENTBYBANKTRANSFER_USER") > 0) {
-		$res = dolibarr_set_const($db, "PAYMENTBYBANKTRANSFER_USER", GETPOST("PAYMENTBYBANKTRANSFER_USER"), 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PAYMENTBYBANKTRANSFER_USER", GETPOST("PAYMENTBYBANKTRANSFER_USER"), 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
@@ -101,17 +101,17 @@ if ($action == "set") {
 	/*
 	if (GETPOST("PAYMENTBYBANKTRANSFER_END_TO_END") || GETPOST("PAYMENTBYBANKTRANSFER_END_TO_END") == "")
 	{
-		$res = dolibarr_set_const($db, "PAYMENTBYBANKTRANSFER_END_TO_END", GETPOST("PAYMENTBYBANKTRANSFER_END_TO_END"), 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PAYMENTBYBANKTRANSFER_END_TO_END", GETPOST("PAYMENTBYBANKTRANSFER_END_TO_END"), 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) $error++;
 	}
 	if (GETPOST("PAYMENTBYBANKTRANSFER_USTRD") || GETPOST("PAYMENTBYBANKTRANSFER_USTRD") == "")
 	{
-		$res = dolibarr_set_const($db, "PAYMENTBYBANKTRANSFER_USTRD", GETPOST("PAYMENTBYBANKTRANSFER_USTRD"), 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PAYMENTBYBANKTRANSFER_USTRD", GETPOST("PAYMENTBYBANKTRANSFER_USTRD"), 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) $error++;
 	}
 	*/
 	if (GETPOST("PAYMENTBYBANKTRANSFER_ADDDAYS") || GETPOST("PAYMENTBYBANKTRANSFER_ADDDAYS") == "") {
-		$res = dolibarr_set_const($db, "PAYMENTBYBANKTRANSFER_ADDDAYS", GETPOST("PAYMENTBYBANKTRANSFER_ADDDAYS"), 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PAYMENTBYBANKTRANSFER_ADDDAYS", GETPOST("PAYMENTBYBANKTRANSFER_ADDDAYS"), 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}

@@ -19,7 +19,7 @@
 
 /**
  *       \file       htdocs/webservices/server_thirdparty.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -57,14 +57,14 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
  * @var Translate $langs
  */
 
-dol_syslog("Call Dolibarr webservices interfaces");
+dol_syslog("Call OnLi webservices interfaces");
 
 $langs->load("main");
 
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -74,8 +74,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrThirdParty', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiThirdParty', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -87,7 +87,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -310,7 +310,7 @@ $server->register(
 /**
  * Get a thirdparty
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	string		$id		    		internal id
  * @param	string		$ref		    	internal reference
  * @param	string		$ref_ext	   		external reference
@@ -437,7 +437,7 @@ function getThirdParty($authentication, $id = '', $ref = '', $ref_ext = '', $bar
 /**
  * Create a thirdparty
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,fk_user_author:string,status:string,client:string,supplier:string,customer_code:string,supplier_code:string,customer_code_accountancy:string,supplier_code_accountancy:string,date_creation:string,date_modification:string,note_private:string,note_public:string,address:string,zip:string,town:string,region_code:string,country_id:string,country_code:string,country:string,phone:string,fax:string,email:string,url:string,profid1:string,profid2:string,profid3:string,profid4:string,profid5:string,profid6:string,capital:string,vat_used:string,vat_number:string}		$thirdparty		    Thirdparty
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -570,7 +570,7 @@ function createThirdParty($authentication, $thirdparty)
 /**
  * Update a thirdparty
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,fk_user_author:string,status:string,client:string,supplier:string,customer_code:string,supplier_code:string,customer_code_accountancy:string,supplier_code_accountancy:string,date_creation:string,date_modification:string,note_private:string,note_public:string,address:string,zip:string,town:string,region_code:string,country_id:string,country_code:string,country:string,phone:string,fax:string,email:string,url:string,profid1:string,profid2:string,profid3:string,profid4:string,profid5:string,profid6:string,capital:string,vat_used:string,vat_number:string}		$thirdparty		    Thirdparty
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -709,7 +709,7 @@ function updateThirdParty($authentication, $thirdparty)
 /**
  * getListOfThirdParties
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array<string,mixed>		$filterthirdparty	Filter fields (key=>value to filer on. For example 'client'=>2, 'supplier'=>1, 'category'=>idcateg, 'name'=>'searchstring', ...)
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -819,7 +819,7 @@ function getListOfThirdParties($authentication, $filterthirdparty)
 /**
  * Delete a thirdparty
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	string		$id		    		internal id
  * @param	string		$ref		    	internal reference
  * @param	string		$ref_ext	   		external reference

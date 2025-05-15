@@ -444,7 +444,7 @@ class MultiCurrency extends CommonObject
 	 * @param	double	$rate	new rate
 	 * @return 	int 			-1 if KO, 1 if OK, 2 if label found and OK
 	 */
-	public function addRateFromDolibarr($code, $rate)
+	public function addRateFromOnLi($code, $rate)
 	{
 		global $user;
 
@@ -577,12 +577,12 @@ class MultiCurrency extends CommonObject
 	 *
 	 * @param	int				$fk_facture				Id of invoice
 	 * @param	double			$amount					amount to convert
-	 * @param	string			$way					'dolibarr' mean the amount is in dolibarr currency
+	 * @param	string			$way					'onli' mean the amount is in onli currency
 	 * @param	string			$table					'facture' or 'facture_fourn'
 	 * @param	float|null		$invoice_rate			Invoice rate if known (to avoid to make the getInvoiceRate call)
 	 * @return	float|false 							amount converted or false if conversion fails
 	 */
-	public static function getAmountConversionFromInvoiceRate($fk_facture, $amount, $way = 'dolibarr', $table = 'facture', $invoice_rate = null)
+	public static function getAmountConversionFromInvoiceRate($fk_facture, $amount, $way = 'onli', $table = 'facture', $invoice_rate = null)
 	{
 		if (!is_null($invoice_rate)) {
 			$multicurrency_tx = $invoice_rate;
@@ -592,7 +592,7 @@ class MultiCurrency extends CommonObject
 		}
 
 		if ($multicurrency_tx) {
-			if ($way == 'dolibarr') {
+			if ($way == 'onli') {
 				return (float) price2num($amount * $multicurrency_tx, 'MU');
 			} else {
 				return (float) price2num($amount / $multicurrency_tx, 'MU');
@@ -705,7 +705,7 @@ class MultiCurrency extends CommonObject
 						if ($obj->fetch(0, $code) > 0) {
 							$obj->updateRate($rate);
 						} elseif ($addifnotfound) {
-							$this->addRateFromDolibarr($code, $rate);
+							$this->addRateFromOnLi($code, $rate);
 						}
 					}
 				}

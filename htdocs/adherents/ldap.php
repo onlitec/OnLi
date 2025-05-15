@@ -24,7 +24,7 @@
  *  \brief		Page fiche LDAP adherent
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/member.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/ldap.lib.php';
@@ -87,7 +87,7 @@ $result = restrictedArea($user, 'adherent', $object->id, '', '', 'socid', 'rowid
  * Actions
  */
 
-if ($action == 'dolibarr2ldap') {
+if ($action == 'onli2ldap') {
 	$ldap = new Ldap();
 	$result = $ldap->connectBind();
 
@@ -174,7 +174,7 @@ print dol_get_fiche_end();
 print '<div class="tabsAction">';
 
 if (getDolGlobalString('LDAP_MEMBER_ACTIVE') && getDolGlobalString('LDAP_MEMBER_ACTIVE') != Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {
-	print '<div class="inline-block divButAction"><a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=dolibarr2ldap">'.$langs->trans("ForceSynchronize").'</a></div>';
+	print '<div class="inline-block divButAction"><a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=onli2ldap">'.$langs->trans("ForceSynchronize").'</a></div>';
 }
 
 print "</div>\n";

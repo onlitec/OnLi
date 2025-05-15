@@ -330,7 +330,7 @@ class CodingPhpTest extends CommonClassTest
 			//if ($reg[0] != 'db') $ok=false;
 		}
 		//print __METHOD__." Result for checking we don't have non escaped string in sql requests for file ".$file."\n";
-		$this->assertTrue($ok, 'Found a forged SQL string that contains the function NOW() in file '.$file['relativename'].' Using this SQL function is forbidden. See https://wiki.dolibarr.org/index.php?title=Language_and_development_rules#SQL_Coding_rules');
+		$this->assertTrue($ok, 'Found a forged SQL string that contains the function NOW() in file '.$file['relativename'].' Using this SQL function is forbidden. See https://wiki.onli.org/index.php?title=Language_and_development_rules#SQL_Coding_rules');
 		//exit;
 
 		// Check bad casting on forge sql
@@ -637,15 +637,15 @@ class CodingPhpTest extends CommonClassTest
 		}
 		$this->assertTrue($ok, 'Found code empty($user->hasRight in file '.$file['relativename'].'. empty() must not be used on a var not on a function.');
 
-		// Test we don't have empty(DolibarrApiAccess::$user->hasRight
+		// Test we don't have empty(OnLiApiAccess::$user->hasRight
 		$ok = true;
 		$matches = array();
-		preg_match_all('/empty\(DolibarrApiAccess::\$user->hasRight/', $filecontent, $matches, PREG_SET_ORDER);
+		preg_match_all('/empty\(OnLiApiAccess::\$user->hasRight/', $filecontent, $matches, PREG_SET_ORDER);
 		foreach ($matches as $key => $val) {
 			$ok = false;
 			break;
 		}
-		$this->assertTrue($ok, 'Found code empty(DolibarrApiAccess::$user->hasRight in file '.$file['relativename'].'. empty() must not be used on a var not on a function.');
+		$this->assertTrue($ok, 'Found code empty(OnLiApiAccess::$user->hasRight in file '.$file['relativename'].'. empty() must not be used on a var not on a function.');
 
 		// Test we don't have empty($user->hasRight
 		$ok = true;

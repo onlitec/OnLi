@@ -49,8 +49,8 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 
 '
-@phan-var-force ?string $dolibarr_main_url_root_alt
-@phan-var-force ?string $dolibarr_main_db_prefix
+@phan-var-force ?string $onli_main_url_root_alt
+@phan-var-force ?string $onli_main_db_prefix
 ';
 
 $conf = new Conf();
@@ -72,8 +72,8 @@ $includeconferror = '';
 $conffile = "../conf/conf.php";
 $conffiletoshow = "htdocs/conf/conf.php";
 // For debian/redhat like systems
-//$conffile = "/etc/dolibarr/conf.php";
-//$conffiletoshow = "/etc/dolibarr/conf.php";
+//$conffile = "/etc/onli/conf.php";
+//$conffiletoshow = "/etc/onli/conf.php";
 
 $short_options = "c:h";
 $long_options = array(
@@ -203,57 +203,57 @@ if (php_sapi_name() === "cli" && (float) PHP_VERSION > 7.0) {
 if (!defined('DONOTLOADCONF') && file_exists($conffile) && filesize($conffile) > 8) { // Test on filesize is to ensure that conf file is more that an empty template with just <?php in first line
 	$result = include_once $conffile; // Load conf file
 	if ($result) {
-		if (empty($dolibarr_main_db_type)) {
-			$dolibarr_main_db_type = 'mysqli'; // For backward compatibility
+		if (empty($onli_main_db_type)) {
+			$onli_main_db_type = 'mysqli'; // For backward compatibility
 		}
 
 		//Mysql driver support has been removed in favor of mysqli
-		if ($dolibarr_main_db_type == 'mysql') {
-			$dolibarr_main_db_type = 'mysqli';
+		if ($onli_main_db_type == 'mysql') {
+			$onli_main_db_type = 'mysqli';
 		}
 
-		if (!isset($dolibarr_main_db_port) && ($dolibarr_main_db_type == 'mysqli')) {
-			$dolibarr_main_db_port = '3306'; // For backward compatibility
+		if (!isset($onli_main_db_port) && ($onli_main_db_type == 'mysqli')) {
+			$onli_main_db_port = '3306'; // For backward compatibility
 		}
 
 		// Clean parameters
-		$dolibarr_main_data_root = isset($dolibarr_main_data_root) ? trim($dolibarr_main_data_root) : DOL_DOCUMENT_ROOT.'/../documents';
-		$dolibarr_main_url_root         = isset($dolibarr_main_url_root) ? trim($dolibarr_main_url_root) : '';
-		$dolibarr_main_url_root_alt     = isset($dolibarr_main_url_root_alt) ? trim($dolibarr_main_url_root_alt) : '';
-		$dolibarr_main_document_root    = isset($dolibarr_main_document_root) ? trim($dolibarr_main_document_root) : '';
-		$dolibarr_main_document_root_alt = isset($dolibarr_main_document_root_alt) ? trim($dolibarr_main_document_root_alt) : '';
+		$onli_main_data_root = isset($onli_main_data_root) ? trim($onli_main_data_root) : DOL_DOCUMENT_ROOT.'/../documents';
+		$onli_main_url_root         = isset($onli_main_url_root) ? trim($onli_main_url_root) : '';
+		$onli_main_url_root_alt     = isset($onli_main_url_root_alt) ? trim($onli_main_url_root_alt) : '';
+		$onli_main_document_root    = isset($onli_main_document_root) ? trim($onli_main_document_root) : '';
+		$onli_main_document_root_alt = isset($onli_main_document_root_alt) ? trim($onli_main_document_root_alt) : '';
 
 		// Remove last / or \ on directories or url value
-		if (!empty($dolibarr_main_document_root) && !preg_match('/^[\\/]+$/', $dolibarr_main_document_root)) {
-			$dolibarr_main_document_root = preg_replace('/[\\/]+$/', '', $dolibarr_main_document_root);
+		if (!empty($onli_main_document_root) && !preg_match('/^[\\/]+$/', $onli_main_document_root)) {
+			$onli_main_document_root = preg_replace('/[\\/]+$/', '', $onli_main_document_root);
 		}
-		if (!empty($dolibarr_main_url_root) && !preg_match('/^[\\/]+$/', $dolibarr_main_url_root)) {
-			$dolibarr_main_url_root = preg_replace('/[\\/]+$/', '', $dolibarr_main_url_root);
+		if (!empty($onli_main_url_root) && !preg_match('/^[\\/]+$/', $onli_main_url_root)) {
+			$onli_main_url_root = preg_replace('/[\\/]+$/', '', $onli_main_url_root);
 		}
-		if (!empty($dolibarr_main_data_root) && !preg_match('/^[\\/]+$/', $dolibarr_main_data_root)) {
-			$dolibarr_main_data_root = preg_replace('/[\\/]+$/', '', $dolibarr_main_data_root);
+		if (!empty($onli_main_data_root) && !preg_match('/^[\\/]+$/', $onli_main_data_root)) {
+			$onli_main_data_root = preg_replace('/[\\/]+$/', '', $onli_main_data_root);
 		}
-		if (!empty($dolibarr_main_document_root_alt) && !preg_match('/^[\\/]+$/', $dolibarr_main_document_root_alt)) {
-			$dolibarr_main_document_root_alt = preg_replace('/[\\/]+$/', '', $dolibarr_main_document_root_alt);
+		if (!empty($onli_main_document_root_alt) && !preg_match('/^[\\/]+$/', $onli_main_document_root_alt)) {
+			$onli_main_document_root_alt = preg_replace('/[\\/]+$/', '', $onli_main_document_root_alt);
 		}
-		if (!empty($dolibarr_main_url_root_alt) && !preg_match('/^[\\/]+$/', $dolibarr_main_url_root_alt)) {
-			$dolibarr_main_url_root_alt = preg_replace('/[\\/]+$/', '', $dolibarr_main_url_root_alt);
+		if (!empty($onli_main_url_root_alt) && !preg_match('/^[\\/]+$/', $onli_main_url_root_alt)) {
+			$onli_main_url_root_alt = preg_replace('/[\\/]+$/', '', $onli_main_url_root_alt);
 		}
 
 		// Create conf object
-		if (!empty($dolibarr_main_document_root)) {
-			$result = conf($dolibarr_main_document_root);
+		if (!empty($onli_main_document_root)) {
+			$result = conf($onli_main_document_root);
 		}
 		// Load database driver
 		if ($result > 0) {
-			if (!empty($dolibarr_main_document_root) && !empty($dolibarr_main_db_type)) {
-				$result = include_once $dolibarr_main_document_root."/core/db/".$dolibarr_main_db_type.'.class.php';
+			if (!empty($onli_main_document_root) && !empty($onli_main_db_type)) {
+				$result = include_once $onli_main_document_root."/core/db/".$onli_main_db_type.'.class.php';
 				if (!$result) {
-					$includeconferror = 'ErrorBadValueForDolibarrMainDBType';
+					$includeconferror = 'ErrorBadValueForOnLiMainDBType';
 				}
 			}
 		} else {
-			$includeconferror = 'ErrorBadValueForDolibarrMainDocumentRoot';
+			$includeconferror = 'ErrorBadValueForOnLiMainDocumentRoot';
 		}
 	} else {
 		$includeconferror = 'ErrorBadFormatForConfFile';
@@ -263,20 +263,20 @@ if (!defined('DONOTLOADCONF') && file_exists($conffile) && filesize($conffile) >
 $conf->global->MAIN_ENABLE_LOG_TO_HTML = 1;
 
 // Define prefix
-if (!isset($dolibarr_main_db_prefix) || !$dolibarr_main_db_prefix) {
-	$dolibarr_main_db_prefix = 'llx_';
+if (!isset($onli_main_db_prefix) || !$onli_main_db_prefix) {
+	$onli_main_db_prefix = 'llx_';
 }
-define('MAIN_DB_PREFIX', (isset($dolibarr_main_db_prefix) ? $dolibarr_main_db_prefix : ''));
+define('MAIN_DB_PREFIX', (isset($onli_main_db_prefix) ? $onli_main_db_prefix : ''));
 
 define('DOL_CLASS_PATH', 'class/'); // Filesystem path to class dir
-define('DOL_DATA_ROOT', (isset($dolibarr_main_data_root) ? $dolibarr_main_data_root : DOL_DOCUMENT_ROOT.'/../documents'));
-define('DOL_MAIN_URL_ROOT', (isset($dolibarr_main_url_root) ? $dolibarr_main_url_root : '')); // URL relative root
+define('DOL_DATA_ROOT', (isset($onli_main_data_root) ? $onli_main_data_root : DOL_DOCUMENT_ROOT.'/../documents'));
+define('DOL_MAIN_URL_ROOT', (isset($onli_main_url_root) ? $onli_main_url_root : '')); // URL relative root
 $uri = preg_replace('/^http(s?):\/\//i', '', constant('DOL_MAIN_URL_ROOT')); // $uri contains url without http*
 $suburi = strstr($uri, '/'); // $suburi contains url without domain
 if ($suburi == '/') {
 	$suburi = ''; // If $suburi is /, it is now ''
 }
-define('DOL_URL_ROOT', $suburi); // URL relative root ('', '/dolibarr', ...)
+define('DOL_URL_ROOT', $suburi); // URL relative root ('', '/onli', ...)
 
 
 if (empty($conf->file->character_set_client)) {
@@ -285,14 +285,14 @@ if (empty($conf->file->character_set_client)) {
 if (empty($conf->db->character_set)) {
 	$conf->db->character_set = 'utf8';
 }
-if (empty($conf->db->dolibarr_main_db_collation)) {
-	$conf->db->dolibarr_main_db_collation = 'utf8_unicode_ci';
+if (empty($conf->db->onli_main_db_collation)) {
+	$conf->db->onli_main_db_collation = 'utf8_unicode_ci';
 }
-if (empty($conf->db->dolibarr_main_db_encryption)) {
-	$conf->db->dolibarr_main_db_encryption = 0;
+if (empty($conf->db->onli_main_db_encryption)) {
+	$conf->db->onli_main_db_encryption = 0;
 }
-if (empty($conf->db->dolibarr_main_db_cryptkey)) {
-	$conf->db->dolibarr_main_db_cryptkey = '';
+if (empty($conf->db->onli_main_db_cryptkey)) {
+	$conf->db->onli_main_db_cryptkey = '';
 }
 if (empty($conf->db->user)) {
 	$conf->db->user = '';
@@ -300,9 +300,9 @@ if (empty($conf->db->user)) {
 
 // Define an array of document root directories
 $conf->file->dol_document_root = array(DOL_DOCUMENT_ROOT);
-if (!empty($dolibarr_main_document_root_alt)) {
-	// dolibarr_main_document_root_alt contains several directories
-	$values = preg_split('/[;,]/', $dolibarr_main_document_root_alt);
+if (!empty($onli_main_document_root_alt)) {
+	// onli_main_document_root_alt contains several directories
+	$values = preg_split('/[;,]/', $onli_main_document_root_alt);
 	foreach ($values as $value) {
 		$conf->file->dol_document_root[] = $value;
 	}
@@ -344,13 +344,13 @@ if ($islocked) {	// Pages are locked
 	} else {
 		print $langs->trans("YouTryUpgradeDisabledByMissingFileUnLock").'<br>';
 	}
-	if (!empty($dolibarr_main_url_root)) {
-		if (GETPOST('action') != 'upgrade' && (!file_exists($conffile) || !isset($dolibarr_main_url_root))) {
+	if (!empty($onli_main_url_root)) {
+		if (GETPOST('action') != 'upgrade' && (!file_exists($conffile) || !isset($onli_main_url_root))) {
 			print $langs->trans("ClickOnLinkOrRemoveManualy").'<br>';
 		} else {
 			print $langs->trans("ClickOnLinkOrCreateUnlockFileManualy").'<br>';
 		}
-		print '<a href="'.$dolibarr_main_url_root.'/admin/index.php?mainmenu=home&leftmenu=setup'.(GETPOSTISSET("login") ? '&username='.urlencode(GETPOST("login")) : '').'">';
+		print '<a href="'.$onli_main_url_root.'/admin/index.php?mainmenu=home&leftmenu=setup'.(GETPOSTISSET("login") ? '&username='.urlencode(GETPOST("login")) : '').'">';
 		print $langs->trans("ClickHereToGoToApp");
 		print '</a>';
 	} else {
@@ -368,15 +368,15 @@ if (!defined('SYSLOG_HANDLERS')) {
 }
 if (!defined('SYSLOG_FILE')) {	// To avoid warning on systems with constant already defined
 	if (@is_writable('/tmp')) {
-		define('SYSLOG_FILE', '/tmp/dolibarr_install.log');
+		define('SYSLOG_FILE', '/tmp/onli_install.log');
 	} elseif (!empty($_ENV["TMP"]) && @is_writable($_ENV["TMP"])) {
-		define('SYSLOG_FILE', $_ENV["TMP"].'/dolibarr_install.log');
+		define('SYSLOG_FILE', $_ENV["TMP"].'/onli_install.log');
 	} elseif (!empty($_ENV["TEMP"]) && @is_writable($_ENV["TEMP"])) {
-		define('SYSLOG_FILE', $_ENV["TEMP"].'/dolibarr_install.log');
+		define('SYSLOG_FILE', $_ENV["TEMP"].'/onli_install.log');
 	} elseif (@is_writable('../../../../') && @file_exists('../../../../startdoliwamp.bat')) {
-		define('SYSLOG_FILE', '../../../../dolibarr_install.log'); // For DoliWamp
+		define('SYSLOG_FILE', '../../../../onli_install.log'); // For DoliWamp
 	} elseif (@is_writable('../../')) {
-		define('SYSLOG_FILE', '../../dolibarr_install.log'); // For others
+		define('SYSLOG_FILE', '../../onli_install.log'); // For others
 	}
 	//print 'SYSLOG_FILE='.SYSLOG_FILE;exit;
 }
@@ -417,36 +417,36 @@ if (GETPOST('lang', 'aZ09')) {
 /**
  * Load conf file (file must exists)
  *
- * @param	string		$dolibarr_main_document_root		Root directory of Dolibarr bin files
+ * @param	string		$onli_main_document_root		Root directory of OnLi bin files
  * @return	int												Return integer <0 if KO, >0 if OK
  */
-function conf($dolibarr_main_document_root)
+function conf($onli_main_document_root)
 {
 	global $conf;
-	global $dolibarr_main_db_type;
-	global $dolibarr_main_db_host;
-	global $dolibarr_main_db_port;
-	global $dolibarr_main_db_name;
-	global $dolibarr_main_db_user;
-	global $dolibarr_main_db_pass;
-	global $dolibarr_main_db_collation;
-	global $dolibarr_main_db_character_set;
+	global $onli_main_db_type;
+	global $onli_main_db_host;
+	global $onli_main_db_port;
+	global $onli_main_db_name;
+	global $onli_main_db_user;
+	global $onli_main_db_pass;
+	global $onli_main_db_collation;
+	global $onli_main_db_character_set;
 	global $character_set_client;
-	global $dolibarr_main_instance_unique_id;
-	global $dolibarr_main_cookie_cryptkey;
+	global $onli_main_instance_unique_id;
+	global $onli_main_cookie_cryptkey;
 
-	$return = @include_once $dolibarr_main_document_root.'/core/class/conf.class.php';
+	$return = @include_once $onli_main_document_root.'/core/class/conf.class.php';
 	if (!$return) {
 		return -1;
 	}
 
 	$conf = new Conf();
-	$conf->db->type = trim($dolibarr_main_db_type);
-	$conf->db->host = trim($dolibarr_main_db_host);
-	$conf->db->port = trim($dolibarr_main_db_port);
-	$conf->db->name = trim($dolibarr_main_db_name);
-	$conf->db->user = trim($dolibarr_main_db_user);
-	$conf->db->pass = (empty($dolibarr_main_db_pass) ? '' : trim($dolibarr_main_db_pass));
+	$conf->db->type = trim($onli_main_db_type);
+	$conf->db->host = trim($onli_main_db_host);
+	$conf->db->port = trim($onli_main_db_port);
+	$conf->db->name = trim($onli_main_db_name);
+	$conf->db->user = trim($onli_main_db_user);
+	$conf->db->pass = (empty($onli_main_db_pass) ? '' : trim($onli_main_db_pass));
 
 	// Mysql driver support has been removed in favor of mysqli
 	if ($conf->db->type == 'mysql') {
@@ -457,23 +457,23 @@ function conf($dolibarr_main_document_root)
 	}
 	$conf->file->character_set_client = strtoupper($character_set_client);
 	// Unique id of instance
-	$conf->file->instance_unique_id = empty($dolibarr_main_instance_unique_id) ? (empty($dolibarr_main_cookie_cryptkey) ? '' : $dolibarr_main_cookie_cryptkey) : $dolibarr_main_instance_unique_id;
-	if (empty($dolibarr_main_db_character_set)) {
-		$dolibarr_main_db_character_set = ($conf->db->type == 'mysqli' ? 'utf8' : '');
+	$conf->file->instance_unique_id = empty($onli_main_instance_unique_id) ? (empty($onli_main_cookie_cryptkey) ? '' : $onli_main_cookie_cryptkey) : $onli_main_instance_unique_id;
+	if (empty($onli_main_db_character_set)) {
+		$onli_main_db_character_set = ($conf->db->type == 'mysqli' ? 'utf8' : '');
 	}
-	$conf->db->character_set = $dolibarr_main_db_character_set;
-	if (empty($dolibarr_main_db_collation)) {
-		$dolibarr_main_db_collation = ($conf->db->type == 'mysqli' ? 'utf8_unicode_ci' : '');
+	$conf->db->character_set = $onli_main_db_character_set;
+	if (empty($onli_main_db_collation)) {
+		$onli_main_db_collation = ($conf->db->type == 'mysqli' ? 'utf8_unicode_ci' : '');
 	}
-	$conf->db->dolibarr_main_db_collation = $dolibarr_main_db_collation;
-	if (empty($dolibarr_main_db_encryption)) {
-		$dolibarr_main_db_encryption = 0;
+	$conf->db->onli_main_db_collation = $onli_main_db_collation;
+	if (empty($onli_main_db_encryption)) {
+		$onli_main_db_encryption = 0;
 	}
-	$conf->db->dolibarr_main_db_encryption = $dolibarr_main_db_encryption;
-	if (empty($dolibarr_main_db_cryptkey)) {
-		$dolibarr_main_db_cryptkey = '';
+	$conf->db->onli_main_db_encryption = $onli_main_db_encryption;
+	if (empty($onli_main_db_cryptkey)) {
+		$onli_main_db_cryptkey = '';
 	}
-	$conf->db->dolibarr_main_db_cryptkey = $dolibarr_main_db_cryptkey;
+	$conf->db->onli_main_db_cryptkey = $onli_main_db_cryptkey;
 
 	// Force usage of log file for install and upgrades
 	$conf->modules['syslog'] = 'syslog';
@@ -483,15 +483,15 @@ function conf($dolibarr_main_document_root)
 	}
 	if (!defined('SYSLOG_FILE')) {	// To avoid warning on systems with constant already defined
 		if (@is_writable('/tmp')) {
-			define('SYSLOG_FILE', '/tmp/dolibarr_install.log');
+			define('SYSLOG_FILE', '/tmp/onli_install.log');
 		} elseif (!empty($_ENV["TMP"]) && @is_writable($_ENV["TMP"])) {
-			define('SYSLOG_FILE', $_ENV["TMP"].'/dolibarr_install.log');
+			define('SYSLOG_FILE', $_ENV["TMP"].'/onli_install.log');
 		} elseif (!empty($_ENV["TEMP"]) && @is_writable($_ENV["TEMP"])) {
-			define('SYSLOG_FILE', $_ENV["TEMP"].'/dolibarr_install.log');
+			define('SYSLOG_FILE', $_ENV["TEMP"].'/onli_install.log');
 		} elseif (@is_writable('../../../../') && @file_exists('../../../../startdoliwamp.bat')) {
-			define('SYSLOG_FILE', '../../../../dolibarr_install.log'); // For DoliWamp
+			define('SYSLOG_FILE', '../../../../onli_install.log'); // For DoliWamp
 		} elseif (@is_writable('../../')) {
-			define('SYSLOG_FILE', '../../dolibarr_install.log'); // For others
+			define('SYSLOG_FILE', '../../onli_install.log'); // For others
 		}
 		//print 'SYSLOG_FILE='.SYSLOG_FILE;exit;
 	}
@@ -563,7 +563,7 @@ function pHeader($subtitle, $next, $action = 'set', $param = '', $forcejqueryurl
 	print '<head>'."\n";
 	print '<meta charset="'.$conf->file->character_set_client.'">'."\n";
 	print '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";
-	print '<meta name="generator" content="Dolibarr installer">'."\n";
+	print '<meta name="generator" content="OnLi installer">'."\n";
 	print '<link rel="stylesheet" type="text/css" href="default.css">'."\n";
 
 	print '<!-- Includes CSS for JQuery -->'."\n";
@@ -585,13 +585,13 @@ function pHeader($subtitle, $next, $action = 'set', $param = '', $forcejqueryurl
 		print '<script type="text/javascript" src="../includes/jquery/js/jquery-ui.min.js"></script>'."\n";
 	}
 
-	print '<title>'.$langs->trans("DolibarrSetup").'</title>'."\n";
+	print '<title>'.$langs->trans("OnLiSetup").'</title>'."\n";
 	print '</head>'."\n";
 
 	print '<body>'."\n";
 
 	print '<div class="divlogoinstall" style="text-align:center">';
-	print '<img class="imglogoinstall" src="../theme/dolibarr_logo.svg" alt="Dolibarr logo" width="300px"><br>';
+	print '<img class="imglogoinstall" src="../theme/onli_logo.svg" alt="OnLi logo" width="300px"><br>';
 	print '<span class="opacitymedium">'.DOL_VERSION.'</span>';
 	print '</div><br>';
 
@@ -599,7 +599,7 @@ function pHeader($subtitle, $next, $action = 'set', $param = '', $forcejqueryurl
 	if ($subtitle) {
 		print $subtitle;
 	} else {
-		print $langs->trans("DolibarrSetup");
+		print $langs->trans("OnLiSetup");
 	}
 	print '</span>'."\n";
 
@@ -692,7 +692,7 @@ function pFooter($nonext = 0, $setuplang = '', $jscheckfunction = '', $withpleas
  * @param 	int		$level		Level of log
  * @return	void
  */
-function dolibarr_install_syslog($message, $level = LOG_DEBUG)
+function onli_install_syslog($message, $level = LOG_DEBUG)
 {
 	if (!defined('LOG_DEBUG')) {
 		define('LOG_DEBUG', 6);
@@ -701,53 +701,53 @@ function dolibarr_install_syslog($message, $level = LOG_DEBUG)
 }
 
 /**
- * Automatically detect Dolibarr's main document root
+ * Automatically detect OnLi's main document root
  *
  * @return string
  */
-function detect_dolibarr_main_document_root()
+function detect_onli_main_document_root()
 {
 	// If PHP is in CGI mode, SCRIPT_FILENAME is PHP's path.
 	// Since that's not what we want, we suggest $_SERVER["DOCUMENT_ROOT"]
 	if ($_SERVER["SCRIPT_FILENAME"] == 'php' || preg_match('/[\\/]php$/i', $_SERVER["SCRIPT_FILENAME"]) || preg_match('/php\.exe$/i', $_SERVER["SCRIPT_FILENAME"])) {
-		$dolibarr_main_document_root = $_SERVER["DOCUMENT_ROOT"];
+		$onli_main_document_root = $_SERVER["DOCUMENT_ROOT"];
 
-		if (!preg_match('/[\\/]dolibarr[\\/]htdocs$/i', $dolibarr_main_document_root)) {
-			$dolibarr_main_document_root .= "/dolibarr/htdocs";
+		if (!preg_match('/[\\/]onli[\\/]htdocs$/i', $onli_main_document_root)) {
+			$onli_main_document_root .= "/onli/htdocs";
 		}
 	} else {
 		// We assume /install to be under /htdocs, so we get the parent directory of the current directory
-		$dolibarr_main_document_root = dirname(dirname($_SERVER["SCRIPT_FILENAME"]));
+		$onli_main_document_root = dirname(dirname($_SERVER["SCRIPT_FILENAME"]));
 	}
 
-	return $dolibarr_main_document_root;
+	return $onli_main_document_root;
 }
 
 /**
- * Automatically detect Dolibarr's main data root
+ * Automatically detect OnLi's main data root
  *
- * @param string $dolibarr_main_document_root Current main document root
+ * @param string $onli_main_document_root Current main document root
  * @return string
  */
-function detect_dolibarr_main_data_root($dolibarr_main_document_root)
+function detect_onli_main_data_root($onli_main_document_root)
 {
-	$dolibarr_main_data_root = preg_replace("/\/[^\/]+$/", "/documents", $dolibarr_main_document_root);
-	return $dolibarr_main_data_root;
+	$onli_main_data_root = preg_replace("/\/[^\/]+$/", "/documents", $onli_main_document_root);
+	return $onli_main_data_root;
 }
 
 /**
- * Automatically detect Dolibarr's main URL root
+ * Automatically detect OnLi's main URL root
  *
  * @return string
  */
-function detect_dolibarr_main_url_root()
+function detect_onli_main_url_root()
 {
 	// If defined (Ie: Apache with Linux)
 	if (isset($_SERVER["SCRIPT_URI"])) {
-		$dolibarr_main_url_root = $_SERVER["SCRIPT_URI"];
+		$onli_main_url_root = $_SERVER["SCRIPT_URI"];
 	} elseif (isset($_SERVER["SERVER_URL"]) && isset($_SERVER["DOCUMENT_URI"])) {
 		// If defined (Ie: Apache with Caudium)
-		$dolibarr_main_url_root = $_SERVER["SERVER_URL"].$_SERVER["DOCUMENT_URI"];
+		$onli_main_url_root = $_SERVER["SERVER_URL"].$_SERVER["DOCUMENT_URI"];
 	} else {
 		// If SCRIPT_URI, SERVER_URL, DOCUMENT_URI not defined (Ie: Apache 2.0.44 for Windows)
 		$proto = ((!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == 'on') || (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? 'https' : 'http';
@@ -758,13 +758,13 @@ function detect_dolibarr_main_url_root()
 		} else {
 			$serverport = 'localhost';
 		}
-		$dolibarr_main_url_root = $proto."://".$serverport.$_SERVER["SCRIPT_NAME"];
+		$onli_main_url_root = $proto."://".$serverport.$_SERVER["SCRIPT_NAME"];
 	}
 	// Clean proposed URL
 	// We assume /install to be under /htdocs, so we get the parent path of the current URL
-	$dolibarr_main_url_root = dirname(dirname($dolibarr_main_url_root));
+	$onli_main_url_root = dirname(dirname($onli_main_url_root));
 
-	return $dolibarr_main_url_root;
+	return $onli_main_url_root;
 }
 
 /**

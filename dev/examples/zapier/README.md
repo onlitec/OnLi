@@ -1,6 +1,6 @@
 # HOW TO BUILD
 
-Take a look at the dolibarr wiki page of Zapier module:
+Take a look at the onli wiki page of Zapier module:
 
-https://wiki.dolibarr.org/index.php?title=Module_Zapier
+https://wiki.onli.org/index.php?title=Module_Zapier
 

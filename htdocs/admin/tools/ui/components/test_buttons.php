@@ -50,11 +50,11 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/functions.lib.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var int $dolibarr_main_prod
+ * @var int $onli_main_prod
  */
 
 // Security
-if ($dolibarr_main_prod) {
+if ($onli_main_prod) {
 	accessforbidden();
 }
 

@@ -22,13 +22,13 @@
  *  \brief      Trigger file for blockedlog module
  */
 
-require_once DOL_DOCUMENT_ROOT.'/core/triggers/dolibarrtriggers.class.php';
+require_once DOL_DOCUMENT_ROOT.'/core/triggers/onlitriggers.class.php';
 
 
 /**
  *  Class of triggered functions for agenda module
  */
-class InterfaceActionsBlockedLog extends DolibarrTriggers
+class InterfaceActionsBlockedLog extends OnLiTriggers
 {
 	/**
 	 * Constructor
@@ -47,7 +47,7 @@ class InterfaceActionsBlockedLog extends DolibarrTriggers
 	}
 
 	/**
-	 * Function called on Dolibarr payment or invoice event.
+	 * Function called on OnLi payment or invoice event.
 	 *
 	 * @param string		$action		Event action code
 	 * @param Object		$object     Object

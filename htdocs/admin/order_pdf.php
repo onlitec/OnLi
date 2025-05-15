@@ -30,7 +30,7 @@
  *		\brief      Setup page for order module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/pdf.lib.php';
@@ -77,11 +77,11 @@ include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 $error = 0;
 if ($action == "update") {
 	if (GETPOSTISSET('MAIN_PDF_ADD_TERMSOFSALE_ORDER')) {
-		dolibarr_set_const($db, "MAIN_PDF_ADD_TERMSOFSALE_ORDER", GETPOST("MAIN_PDF_ADD_TERMSOFSALE_ORDER", 'int'), 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "MAIN_PDF_ADD_TERMSOFSALE_ORDER", GETPOST("MAIN_PDF_ADD_TERMSOFSALE_ORDER", 'int'), 'chaine', 0, '', $conf->entity);
 	}
 	if (GETPOSTISSET('SALES_ORDER_SHOW_SHIPPING_ADDRESS')) {
-		dolibarr_set_const($db, "SALES_ORDER_SHOW_SHIPPING_ADDRESS", GETPOSTINT("SALES_ORDER_SHOW_SHIPPING_ADDRESS"), 'chaine', 0, '', $conf->entity);
-		dolibarr_del_const($db, "SALES_ORDER_SHOW_SHIPPING_ADDRESS", $conf->entity);
+		onli_set_const($db, "SALES_ORDER_SHOW_SHIPPING_ADDRESS", GETPOSTINT("SALES_ORDER_SHOW_SHIPPING_ADDRESS"), 'chaine', 0, '', $conf->entity);
+		onli_del_const($db, "SALES_ORDER_SHOW_SHIPPING_ADDRESS", $conf->entity);
 	}
 
 	// Terms of sale
@@ -93,7 +93,7 @@ if ($action == "update") {
 			$original_file = $_FILES['termsofsale']["name"];
 			$result = dol_move_uploaded_file($_FILES['termsofsale']["tmp_name"], $dirforterms.$original_file, 1, 0, $_FILES['termsofsale']['error']);
 			if ($result) {
-				dolibarr_set_const($db, 'MAIN_INFO_ORDER_TERMSOFSALE', $original_file, 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, 'MAIN_INFO_ORDER_TERMSOFSALE', $original_file, 'chaine', 0, '', $conf->entity);
 			}
 		}
 	}
@@ -112,7 +112,7 @@ if ($action == 'removetermsofsale') {
 	if ($filename != '') {
 		dol_delete_file($file);
 	}
-	dolibarr_del_const($db, 'MAIN_INFO_ORDER_TERMSOFSALE', $conf->entity);
+	onli_del_const($db, 'MAIN_INFO_ORDER_TERMSOFSALE', $conf->entity);
 }
 
 /*

@@ -23,7 +23,7 @@
  *    \brief      Page to create/edit/view target
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formcompany.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
@@ -591,7 +591,7 @@ if ($action == "test") {
 
 	/*
 	include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor = new DolEditor("jsondata", $datatosend, 0, 200, 'dolibarr_details', 'In', true, true, 'ace');
+	$doleditor = new DolEditor("jsondata", $datatosend, 0, 200, 'onli_details', 'In', true, true, 'ace');
 	print $doleditor->Create(0, '', true, '', 'json');
 	*/
 	print '<textarea id="jsondata" class="flat minwidth100" style="margin-top: 5px; width: 95%" rows="8" name="jsondata">';

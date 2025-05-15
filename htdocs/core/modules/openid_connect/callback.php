@@ -32,8 +32,8 @@ require '../../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions.lib.php';
 
 /**
- * @var string $dolibarr_main_url_root
- * @var string $dolibarr_main_force_https
+ * @var string $onli_main_url_root
+ * @var string $onli_main_force_https
  */
 
 // Javascript code on logon page only to detect user tz, dst_observed, dst_first, dst_second
@@ -53,7 +53,7 @@ if (empty($callbackUrl) || !preg_match('/^\/[a-z0-9]/i', $callbackUrl)) {
 	$callbackUrl = '/';
 }
 if ($callbackUrl === '/') {
-	$callbackUrl = $dolibarr_main_url_root . '/index.php?mainmenu=home&leftmenu=';
+	$callbackUrl = $onli_main_url_root . '/index.php?mainmenu=home&leftmenu=';
 } else {
 	dolSetCookie('DOL_rollback_url_'.dol_getprefix(''), "", time() + 1);
 }

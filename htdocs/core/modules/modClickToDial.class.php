@@ -24,13 +24,13 @@
  *	\brief      Description and activation file for the module Click to Dial
  */
 
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *	Class to describe and enable module Click to Dial
  */
-class modClickToDial extends DolibarrModules
+class modClickToDial extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -48,7 +48,7 @@ class modClickToDial extends DolibarrModules
 		$this->description = "Integration of a ClickToDial system (Asterisk, ...)";
 		$this->descriptionlong = "Support a Click To Dial feature with a SIP system. When clicking on a phone number, your phone system automatically call the callee.";
 
-		$this->version = 'dolibarr'; // 'development' or 'experimental' or 'dolibarr' or version
+		$this->version = 'onli'; // 'development' or 'experimental' or 'onli' or version
 
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'phoning';

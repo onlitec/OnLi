@@ -24,7 +24,7 @@
  * \brief   WebPortal setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require_once "../../main.inc.php";
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
 require_once DOL_DOCUMENT_ROOT . "/webportal/lib/webportal.lib.php";
@@ -71,15 +71,15 @@ if ($reshook < 0) {
 $regs = array();
 if (preg_match('/^(set|del)_([A-Z_]+)$/', $action, $regs)) {
 	if ($regs[1] == 'set') {
-		dolibarr_set_const($db, $regs[2], 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, $regs[2], 1, 'chaine', 0, '', $conf->entity);
 	} else {
-		dolibarr_del_const($db, $regs[2], $conf->entity);
+		onli_del_const($db, $regs[2], $conf->entity);
 	}
 }
 
 if ($action == 'updatecss') {
-	dolibarr_set_const($db, "WEBPORTAL_CUSTOM_CSS", GETPOST('WEBPORTAL_CUSTOM_CSS', 'restricthtml'), 'chaine', 0, '', $conf->entity);
-	dolibarr_set_const($db, "WEBPORTAL_PARAMS_REV", ((int) $conf->global->WEBPORTAL_PARAMS_REV) + 1, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "WEBPORTAL_CUSTOM_CSS", GETPOST('WEBPORTAL_CUSTOM_CSS', 'restricthtml'), 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "WEBPORTAL_PARAMS_REV", ((int) $conf->global->WEBPORTAL_PARAMS_REV) + 1, 'chaine', 0, '', $conf->entity);
 }
 
 

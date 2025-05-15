@@ -26,7 +26,7 @@
  *  \brief      Page to show a trip card
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/trip.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/compta/deplacement/class/deplacement.class.php';
@@ -248,7 +248,7 @@ if ($action == 'create') {
 	print '<td class="tdtop">'.$langs->trans('NotePublic').'</td>';
 	print '<td>';
 
-	$doleditor = new DolEditor('note_public', GETPOST('note_public', 'restricthtml'), '', 200, 'dolibarr_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_8, '90%');
+	$doleditor = new DolEditor('note_public', GETPOST('note_public', 'restricthtml'), '', 200, 'onli_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_8, '90%');
 	print $doleditor->Create(1);
 
 	print '</td></tr>';
@@ -259,7 +259,7 @@ if ($action == 'create') {
 		print '<td class="tdtop">'.$langs->trans('NotePrivate').'</td>';
 		print '<td>';
 
-		$doleditor = new DolEditor('note_private', GETPOST('note_private', 'restricthtml'), '', 200, 'dolibarr_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_8, '90%');
+		$doleditor = new DolEditor('note_private', GETPOST('note_private', 'restricthtml'), '', 200, 'onli_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_8, '90%');
 		print $doleditor->Create(1);
 
 		print '</td></tr>';
@@ -340,7 +340,7 @@ if ($action == 'create') {
 			print '<tr><td class="tdtop">'.$langs->trans("NotePublic").'</td>';
 			print '<td>';
 
-			$doleditor = new DolEditor('note_public', $object->note_public, '', 200, 'dolibarr_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_8, '90%');
+			$doleditor = new DolEditor('note_public', $object->note_public, '', 200, 'onli_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_8, '90%');
 			print $doleditor->Create(1);
 
 			print "</td></tr>";
@@ -350,7 +350,7 @@ if ($action == 'create') {
 				print '<tr><td class="tdtop">'.$langs->trans("NotePrivate").'</td>';
 				print '<td>';
 
-				$doleditor = new DolEditor('note_private', $object->note_private, '', 200, 'dolibarr_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_8, '90%');
+				$doleditor = new DolEditor('note_private', $object->note_private, '', 200, 'onli_notes', 'In', false, true, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_8, '90%');
 				print $doleditor->Create(1);
 
 				print "</td></tr>";

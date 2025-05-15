@@ -33,9 +33,9 @@ dol_include_once('/recruitment/class/recruitmentcandidature.class.php');
  * API class for recruitment
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Recruitments extends DolibarrApi
+class Recruitments extends OnLiApi
 {
 	/**
 	 * @var RecruitmentJobPosition {@type RecruitmentJobPosition}
@@ -76,7 +76,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function getJobPosition($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -85,8 +85,8 @@ class Recruitments extends DolibarrApi
 			throw new RestException(404, 'JobPosition not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('recruitment', $this->jobposition->id, 'recruitment_recruitmentjobposition')) {
-			throw new RestException(403, 'Access to instance id='.$this->jobposition->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('recruitment', $this->jobposition->id, 'recruitment_recruitmentjobposition')) {
+			throw new RestException(403, 'Access to instance id='.$this->jobposition->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($this->jobposition);
@@ -107,7 +107,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function getCandidature($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -116,8 +116,8 @@ class Recruitments extends DolibarrApi
 			throw new RestException(404, 'Candidature not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('recruitment', $this->candidature->id, 'recruitment_recruitmentcandidature')) {
-			throw new RestException(403, 'Access to instance id='.$this->candidature->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('recruitment', $this->candidature->id, 'recruitment_recruitmentcandidature')) {
+			throw new RestException(403, 'Access to instance id='.$this->candidature->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($this->candidature);
@@ -148,18 +148,18 @@ class Recruitments extends DolibarrApi
 		$obj_ret = array();
 		$tmpobject = new RecruitmentJobPosition($this->db);
 
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
 			throw new RestException(403);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : 0;
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : 0;
 
 		$restrictonsocid = 0; // Set to 1 if there is a field socid in table of object
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if ($restrictonsocid && !DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if ($restrictonsocid && !OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -264,18 +264,18 @@ class Recruitments extends DolibarrApi
 		$obj_ret = array();
 		$tmpobject = new RecruitmentCandidature($this->db);
 
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'read')) {
 			throw new RestException(403);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : 0;
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : 0;
 
 		$restrictonsocid = 0; // Set to 1 if there is a field socid in table of object
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if ($restrictonsocid && !DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if ($restrictonsocid && !OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -367,7 +367,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function postJobPosition($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -387,7 +387,7 @@ class Recruitments extends DolibarrApi
 		// Clean data
 		// $this->jobposition->abc = sanitizeVal($this->jobposition->abc, 'alphanohtml');
 
-		if ($this->jobposition->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->jobposition->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating jobposition", array_merge(array($this->jobposition->error), $this->jobposition->errors));
 		}
 		return $this->jobposition->id;
@@ -407,7 +407,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function postCandidature($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -427,7 +427,7 @@ class Recruitments extends DolibarrApi
 		// Clean data
 		// $this->jobposition->abc = sanitizeVal($this->jobposition->abc, 'alphanohtml');
 
-		if ($this->candidature->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->candidature->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating candidature", array_merge(array($this->candidature->error), $this->candidature->errors));
 		}
 		return $this->candidature->id;
@@ -448,7 +448,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function putJobPosition($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -457,8 +457,8 @@ class Recruitments extends DolibarrApi
 			throw new RestException(404, 'jobposition not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('recruitment', $this->jobposition->id, 'recruitment_recruitmentjobposition')) {
-			throw new RestException(403, 'Access to instance id='.$this->jobposition->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('recruitment', $this->jobposition->id, 'recruitment_recruitmentjobposition')) {
+			throw new RestException(403, 'Access to instance id='.$this->jobposition->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -477,7 +477,7 @@ class Recruitments extends DolibarrApi
 		// Clean data
 		// $this->jobposition->abc = sanitizeVal($this->jobposition->abc, 'alphanohtml');
 
-		if ($this->jobposition->update(DolibarrApiAccess::$user, 0) > 0) {
+		if ($this->jobposition->update(OnLiApiAccess::$user, 0) > 0) {
 			return $this->getJobPosition($id);
 		} else {
 			throw new RestException(500, $this->jobposition->error);
@@ -499,7 +499,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function putCandidature($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -508,8 +508,8 @@ class Recruitments extends DolibarrApi
 			throw new RestException(404, 'candidature not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('recruitment', $this->candidature->id, 'recruitment_recruitmentcandidature')) {
-			throw new RestException(403, 'Access to instance id='.$this->candidature->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('recruitment', $this->candidature->id, 'recruitment_recruitmentcandidature')) {
+			throw new RestException(403, 'Access to instance id='.$this->candidature->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -528,7 +528,7 @@ class Recruitments extends DolibarrApi
 		// Clean data
 		// $this->jobposition->abc = sanitizeVal($this->jobposition->abc, 'alphanohtml');
 
-		if ($this->candidature->update(DolibarrApiAccess::$user, 0) > 0) {
+		if ($this->candidature->update(OnLiApiAccess::$user, 0) > 0) {
 			return $this->getCandidature($id);
 		} else {
 			throw new RestException(500, $this->candidature->error);
@@ -550,7 +550,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function deleteJobPosition($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'delete')) {
 			throw new RestException(403);
 		}
 		$result = $this->jobposition->fetch($id);
@@ -558,11 +558,11 @@ class Recruitments extends DolibarrApi
 			throw new RestException(404, 'jobposition not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('recruitment', $this->jobposition->id, 'recruitment_recruitmentjobposition')) {
-			throw new RestException(403, 'Access to instance id='.$this->jobposition->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('recruitment', $this->jobposition->id, 'recruitment_recruitmentjobposition')) {
+			throw new RestException(403, 'Access to instance id='.$this->jobposition->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->jobposition->delete(DolibarrApiAccess::$user)) {
+		if (!$this->jobposition->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when deleting jobposition : '.$this->jobposition->error);
 		}
 
@@ -588,7 +588,7 @@ class Recruitments extends DolibarrApi
 	 */
 	public function deleteCandidature($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('recruitment', 'recruitmentjobposition', 'delete')) {
 			throw new RestException(403);
 		}
 		$result = $this->candidature->fetch($id);
@@ -596,11 +596,11 @@ class Recruitments extends DolibarrApi
 			throw new RestException(404, 'candidature not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('recruitment', $this->candidature->id, 'recruitment_recruitmentcandidature')) {
-			throw new RestException(403, 'Access to instance id='.$this->candidature->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('recruitment', $this->candidature->id, 'recruitment_recruitmentcandidature')) {
+			throw new RestException(403, 'Access to instance id='.$this->candidature->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->candidature->delete(DolibarrApiAccess::$user)) {
+		if (!$this->candidature->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when deleting candidature : '.$this->candidature->error);
 		}
 

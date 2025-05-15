@@ -17,17 +17,17 @@
 
 /**
  *      \defgroup   webservices     Module webservices
- *      \brief      Module to enable the Dolibarr server of web services
+ *      \brief      Module to enable the OnLi server of web services
  *       \file       htdocs/core/modules/modWebServices.class.php
  *       \ingroup    webservices
  *       \brief      Description and activation file for the module webservices
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 /**
  *	Class to describe a WebServices module
  */
-class modWebServices extends DolibarrModules
+class modWebServices extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -43,9 +43,9 @@ class modWebServices extends DolibarrModules
 		$this->module_position = '25';
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
-		$this->description = "Enable the Dolibarr web services server";
-		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
-		$this->version = 'dolibarr_deprecated';
+		$this->description = "Enable the OnLi web services server";
+		// Possible values for version are: 'development', 'experimental', 'onli', 'onli_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
+		$this->version = 'onli_deprecated';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.

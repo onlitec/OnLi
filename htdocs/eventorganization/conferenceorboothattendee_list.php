@@ -26,7 +26,7 @@
  */
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formcompany.class.php';
@@ -49,7 +49,7 @@ if (isModEnabled('category')) {
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Load translation files required by the page
@@ -602,7 +602,7 @@ if ($projectstatic->id > 0 || $confOrBooth > 0) {
 		// Link to ICS for the event
 		print '<tr><td class="titlefield valignmiddle">'.$langs->trans("EventOrganizationICSLinkProject").'</td><td class="valuefield">';
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT;
 
 		// Show message
@@ -614,7 +614,7 @@ if ($projectstatic->id > 0 || $confOrBooth > 0) {
 
 		print '<tr><td valign="middle">'.$langs->trans("EventOrganizationICSLink").'</td><td>';
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT;
 
 		// Show message
@@ -630,7 +630,7 @@ if ($projectstatic->id > 0 || $confOrBooth > 0) {
 		print $form->textwithpicto($langs->trans("SuggestOrVoteForConfOrBooth"), $langs->trans("EvntOrgRegistrationHelpMessage"));
 		//print '</span>';
 		print '</td><td>';
-		$linksuggest = $dolibarr_main_url_root.'/public/project/index.php?id='.$projectstatic->id;
+		$linksuggest = $onli_main_url_root.'/public/project/index.php?id='.$projectstatic->id;
 		$encodedsecurekey = dol_hash(getDolGlobalString("EVENTORGANIZATION_SECUREKEY").'conferenceorbooth'.$projectstatic->id, 'md5');
 		$linksuggest .= '&securekey='.urlencode($encodedsecurekey);
 		//print '<div class="urllink">';
@@ -647,7 +647,7 @@ if ($projectstatic->id > 0 || $confOrBooth > 0) {
 		print $langs->trans("PublicAttendeeSubscriptionGlobalPage");
 		//print '</span>';
 		print '</td><td>';
-		$link_subscription = $dolibarr_main_url_root.'/public/eventorganization/attendee_new.php?id='.$projectstatic->id.'&type=global';
+		$link_subscription = $onli_main_url_root.'/public/eventorganization/attendee_new.php?id='.$projectstatic->id.'&type=global';
 		$encodedsecurekey = dol_hash(getDolGlobalString("EVENTORGANIZATION_SECUREKEY").'conferenceorbooth'.$projectstatic->id, 'md5');
 		$link_subscription .= '&securekey='.urlencode($encodedsecurekey);
 		//print '<div class="urllink">';

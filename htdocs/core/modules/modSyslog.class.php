@@ -25,12 +25,12 @@
  *  \brief      Description and activation file for the module syslog
  */
 
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 /**
  *	Class to enable/disable module Logs
  */
-class modSyslog extends DolibarrModules
+class modSyslog extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -53,8 +53,8 @@ class modSyslog extends DolibarrModules
 		$this->description = "Activate debug logs (syslog)";
 		// Can be enabled / disabled only in the main company
 		$this->core_enabled = 1;
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
+		$this->version = 'onli';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.

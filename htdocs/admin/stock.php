@@ -87,22 +87,22 @@ if ($action == 'update' || preg_match('/set_([a-z0-9_\-]+)/i', $action, $reg)) {
 
 		if ($value == 1) {
 			if (in_array($code, array('STOCK_CALCULATE_ON_BILL', 'STOCK_CALCULATE_ON_VALIDATE_ORDER', 'STOCK_CALCULATE_ON_SHIPMENT', 'STOCK_CALCULATE_ON_SHIPMENT_CLOSE'))) {
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_BILL', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_VALIDATE_ORDER', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_SHIPMENT', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_SHIPMENT_CLOSE', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_BILL', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_VALIDATE_ORDER', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_SHIPMENT', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_SHIPMENT_CLOSE', $conf->entity);
 			}
 			if (in_array($code, array('STOCK_CALCULATE_ON_SUPPLIER_BILL', 'STOCK_CALCULATE_ON_SUPPLIER_VALIDATE_ORDER', 'STOCK_CALCULATE_ON_RECEPTION', 'STOCK_CALCULATE_ON_RECEPTION_CLOSE', 'STOCK_CALCULATE_ON_SUPPLIER_DISPATCH_ORDER'))) {
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_SUPPLIER_BILL', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_SUPPLIER_VALIDATE_ORDER', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_RECEPTION', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_RECEPTION_CLOSE', $conf->entity);
-				dolibarr_del_const($db, 'STOCK_CALCULATE_ON_SUPPLIER_DISPATCH_ORDER', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_SUPPLIER_BILL', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_SUPPLIER_VALIDATE_ORDER', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_RECEPTION', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_RECEPTION_CLOSE', $conf->entity);
+				onli_del_const($db, 'STOCK_CALCULATE_ON_SUPPLIER_DISPATCH_ORDER', $conf->entity);
 			}
 		}
 
 		// If constant is for a unique choice, delete other choices
-		$result = dolibarr_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
+		$result = onli_set_const($db, $code, $value, 'chaine', 0, '', $conf->entity);
 	}
 
 	if ($result) {
@@ -125,7 +125,7 @@ if ($action == 'update' || preg_match('/del_([a-z0-9_\-]+)/i', $action, $reg)) {
 
 	$result = 1;
 	foreach ($arrayofcode as $code) {
-		$result = dolibarr_del_const($db, $code, $conf->entity);
+		$result = onli_del_const($db, $code, $conf->entity);
 	}
 	if ($result > 0) {
 		header("Location: ".$_SERVER["PHP_SELF"].($page_y ? '?page_y='.$page_y : ''));
@@ -137,9 +137,9 @@ if ($action == 'update' || preg_match('/del_([a-z0-9_\-]+)/i', $action, $reg)) {
 
 if ($action == 'warehouse') {
 	$value = GETPOST('default_warehouse', 'alpha');
-	$res = dolibarr_set_const($db, "MAIN_DEFAULT_WAREHOUSE", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "MAIN_DEFAULT_WAREHOUSE", $value, 'chaine', 0, '', $conf->entity);
 	if ($value == -1 || empty($value) && getDolGlobalString('MAIN_DEFAULT_WAREHOUSE')) {
-		$res = dolibarr_del_const($db, "MAIN_DEFAULT_WAREHOUSE", $conf->entity);
+		$res = onli_del_const($db, "MAIN_DEFAULT_WAREHOUSE", $conf->entity);
 	}
 	if (!($res > 0)) {
 		$error++;
@@ -188,12 +188,12 @@ if ($action == 'specimen') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (getDolGlobalString('STOCK_ADDON_PDF') == "$value") {
-			dolibarr_del_const($db, 'STOCK_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'STOCK_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') {
 	// Set default model
-	if (dolibarr_set_const($db, "STOCK_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "STOCK_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// The constant that was read before the new set
 		// We therefore requires a variable to have a coherent view
 		$conf->global->STOCK_ADDON_PDF = $value;

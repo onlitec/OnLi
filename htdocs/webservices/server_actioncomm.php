@@ -17,12 +17,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
- * Path to WSDL is: http://localhost/dolibarr/webservices/server_actioncomm.php?wsdl
+ * Path to WSDL is: http://localhost/onli/webservices/server_actioncomm.php?wsdl
  */
 
 /**
  *       \file       htdocs/webservices/server_actioncomm.php
- *       \brief      File that is entry point to call Dolibarr WebServices
+ *       \brief      File that is entry point to call OnLi WebServices
  */
 
 if (!defined('NOCSRFCHECK')) {
@@ -64,7 +64,7 @@ dol_syslog("Call ActionComm webservices interfaces");
 // Enable and test if module web services is enabled
 if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr webservices interfaces with module webservices disabled");
+	dol_syslog("Call OnLi webservices interfaces with module webservices disabled");
 	print $langs->trans("WarningModuleNotActive", 'WebServices').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	exit;
@@ -74,8 +74,8 @@ if (!getDolGlobalString('MAIN_MODULE_WEBSERVICES')) {
 $server = new nusoap_server();
 $server->soap_defencoding = 'UTF-8';
 $server->decode_utf8 = false;
-$ns = 'http://www.dolibarr.org/ns/';
-$server->configureWSDL('WebServicesDolibarrActionComm', $ns);
+$ns = 'http://www.onli.org/ns/';
+$server->configureWSDL('WebServicesOnLiActionComm', $ns);
 $server->wsdl->schemaTargetNamespace = $ns;
 
 
@@ -87,7 +87,7 @@ $server->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'dolibarrkey' => array('name' => 'dolibarrkey', 'type' => 'xsd:string'),
+		'onlikey' => array('name' => 'onlikey', 'type' => 'xsd:string'),
 		'sourceapplication' => array('name' => 'sourceapplication', 'type' => 'xsd:string'),
 		'login' => array('name' => 'login', 'type' => 'xsd:string'),
 		'password' => array('name' => 'password', 'type' => 'xsd:string'),
@@ -271,7 +271,7 @@ $server->register(
 /**
  * Get ActionComm
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}	$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}	$authentication		Array of authentication information
  * @param	int			$id					Id of object
  * @return	mixed
  */
@@ -374,7 +374,7 @@ function getActionComm($authentication, $id)
 /**
  * Get getListActionCommType
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @return	mixed
  */
 function getListActionCommType($authentication)
@@ -432,7 +432,7 @@ function getListActionCommType($authentication)
 /**
  * Create ActionComm
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,type_id:string,type_code:string,type:string,label:string,datep:int,datef:int,datec:int,datem:int,note:string,percentage:string,author:string,usermod:string,userownerid:string,priority:string,fulldayevent:string,location:string,socid:string,contactid:string,projectid:string,fk_element:string,elementtype:string}	$actioncomm		    $actioncomm
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */
@@ -516,7 +516,7 @@ function createActionComm($authentication, $actioncomm)
 /**
  * Create ActionComm
  *
- * @param	array{login:string,password:string,entity:?int,dolibarrkey:string}		$authentication		Array of authentication information
+ * @param	array{login:string,password:string,entity:?int,onlikey:string}		$authentication		Array of authentication information
  * @param	array{id:string,ref:string,ref_ext:string,type_id:string,type_code:string,type:string,label:string,datep:int,datef:int,datec:int,datem:int,note:string,percentage:string,author:string,usermod:string,userownerid:string,priority:string,fulldayevent:string,location:string,socid:string,contactid:string,projectid:string,fk_element:string,elementtype:string}	$actioncomm		    $actioncomm
  * @return array{result:array{result_code:string,result_label:string}} Array result
  */

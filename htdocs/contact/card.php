@@ -34,7 +34,7 @@
  */
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/comm/action/class/actioncomm.class.php';
 require_once DOL_DOCUMENT_ROOT.'/contact/class/contact.class.php';
@@ -82,7 +82,7 @@ $extrafields->fetch_name_optionals_label($object->table_element);
 
 $socialnetworks = getArrayOfSocialNetworks();
 
-// Get object canvas (By default, this is not defined, so standard usage of dolibarr)
+// Get object canvas (By default, this is not defined, so standard usage of onli)
 $object->getCanvas($id);
 $objcanvas = null;
 $canvas = (!empty($object->canvas) ? $object->canvas : GETPOST("canvas"));
@@ -1164,13 +1164,13 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($action)) {
 
 			// Note Public
 			print '<tr><td class="tdtop"><label for="note_public">'.$langs->trans("NotePublic").'</label></td><td colspan="3">';
-			$doleditor = new DolEditor('note_public', $object->note_public, '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
+			$doleditor = new DolEditor('note_public', $object->note_public, '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
 			print $doleditor->Create(1);
 			print '</td></tr>';
 
 			// Note Private
 			print '<tr><td class="tdtop"><label for="note_private">'.$langs->trans("NotePrivate").'</label></td><td colspan="3">';
-			$doleditor = new DolEditor('note_private', $object->note_private, '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
+			$doleditor = new DolEditor('note_private', $object->note_private, '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
 			print $doleditor->Create(1);
 			print '</td></tr>';
 
@@ -1233,14 +1233,14 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($action)) {
 				print '</td></tr>';
 			}
 
-			// Login Dolibarr
-			print '<tr><td>'.$langs->trans("DolibarrLogin").'</td><td colspan="3">';
+			// Login OnLi
+			print '<tr><td>'.$langs->trans("OnLiLogin").'</td><td colspan="3">';
 			if ($object->user_id) {
-				$dolibarr_user = new User($db);
-				$result = $dolibarr_user->fetch($object->user_id);
-				print $dolibarr_user->getLoginUrl(1);
+				$onli_user = new User($db);
+				$result = $onli_user->fetch($object->user_id);
+				print $onli_user->getLoginUrl(1);
 			} else {
-				print '<span class="opacitymedium">'.$langs->trans("NoDolibarrAccess").'</span>';
+				print '<span class="opacitymedium">'.$langs->trans("NoOnLiAccess").'</span>';
 			}
 			print '</td></tr>';
 
@@ -1320,7 +1320,7 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($action)) {
 					$text .= $langs->trans("UserWillBeInternalUser");
 				}
 			}
-			print $form->formconfirm($_SERVER["PHP_SELF"]."?id=".$object->id, $langs->trans("CreateDolibarrLogin"), $text, "confirm_create_user", $formquestion, 'yes');
+			print $form->formconfirm($_SERVER["PHP_SELF"]."?id=".$object->id, $langs->trans("CreateOnLiLogin"), $text, "confirm_create_user", $formquestion, 'yes');
 		}
 
 		$linkback = '<a href="'.DOL_URL_ROOT.'/contact/list.php?restore_lastsearch_values=1">'.$langs->trans("BackToList").'</a>';
@@ -1503,15 +1503,15 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($action)) {
 			print '</td></tr>';
 		}
 
-		print '<tr><td>'.$langs->trans("DolibarrLogin").'</td><td>';
+		print '<tr><td>'.$langs->trans("OnLiLogin").'</td><td>';
 		if ($object->user_id) {
-			$dolibarr_user = new User($db);
-			$result = $dolibarr_user->fetch($object->user_id);
-			print $dolibarr_user->getLoginUrl(-1);
+			$onli_user = new User($db);
+			$result = $onli_user->fetch($object->user_id);
+			print $onli_user->getLoginUrl(-1);
 		} else {
-			//print '<span class="opacitymedium">'.$langs->trans("NoDolibarrAccess").'</span>';
+			//print '<span class="opacitymedium">'.$langs->trans("NoOnLiAccess").'</span>';
 			if (!$object->user_id && $user->hasRight('user', 'user', 'creer')) {
-				print '<a class="aaa" href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'&action=create_user&token='.newToken().'">'.img_picto($langs->trans("CreateDolibarrLogin"), 'add', 'class="pictofixedwidth"').$langs->trans("CreateDolibarrLogin").'</a>';
+				print '<a class="aaa" href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'&action=create_user&token='.newToken().'">'.img_picto($langs->trans("CreateOnLiLogin"), 'add', 'class="pictofixedwidth"').$langs->trans("CreateOnLiLogin").'</a>';
 			}
 		}
 		print '</td></tr>';

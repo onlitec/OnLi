@@ -22,7 +22,7 @@
  * \brief   Zapier setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 // Libraries
@@ -73,7 +73,7 @@ include DOL_DOCUMENT_ROOT . '/core/actions_setmoduleoptions.inc.php';
  * View
  */
 
-$page_name = 'ZapierForDolibarrSetup';
+$page_name = 'ZapierForOnLiSetup';
 $help_url = 'EN:Module_Zapier';
 llxHeader('', $langs->trans($page_name), $help_url, '', 0, 0, '', '', '', 'mod-zapier page-admin_setup');
 

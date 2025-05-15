@@ -29,7 +29,7 @@
 /**
  *     	\file       htdocs/public/website/index.php
  *		\ingroup    website
- *		\brief      Wrapper to output pages when website is powered by Dolibarr instead of a native web server
+ *		\brief      Wrapper to output pages when website is powered by OnLi instead of a native web server
  */
 
 if (!defined('NOTOKENRENEWAL')) {
@@ -51,7 +51,7 @@ if (!defined('NOREQUIREAJAX')) {
 	define('NOREQUIREAJAX', '1');
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 if (!defined('NOBROWSERNOTIF')) {
 	define('NOBROWSERNOTIF', '1');
@@ -202,17 +202,17 @@ if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 
 
 // Security: Delete string ../ into $original_file
-global $dolibarr_main_data_root;
+global $onli_main_data_root;
 
 if ($pageid == 'css') {   // No more used ?
 	header('Content-type: text/css');
-	// Important: Following code is to avoid page request by browser and PHP CPU at each Dolibarr page access.
-	//if (empty($dolibarr_nocache)) header('Cache-Control: max-age=3600, public, must-revalidate');
+	// Important: Following code is to avoid page request by browser and PHP CPU at each OnLi page access.
+	//if (empty($onli_nocache)) header('Cache-Control: max-age=3600, public, must-revalidate');
 	//else
 	header('Cache-Control: no-cache');
-	$original_file = $dolibarr_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$websitekey.'/styles.css.php';
+	$original_file = $onli_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$websitekey.'/styles.css.php';
 } else {
-	$original_file = $dolibarr_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$websitekey.'/page'.$pageid.'.tpl.php';
+	$original_file = $onli_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$websitekey.'/page'.$pageid.'.tpl.php';
 }
 
 // Find the subdirectory name as the reference

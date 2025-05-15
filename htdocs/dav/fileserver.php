@@ -117,7 +117,7 @@ $authBackend = new \Sabre\DAV\Auth\Backend\BasicCallBack(
 	 */
 	static function ($username, $password) {
 		global $user, $conf;
-		global $dolibarr_main_authentication, $dolibarr_auto_user;
+		global $onli_main_authentication, $onli_auto_user;
 
 		if (empty($user->login)) {
 			dol_syslog("Failed to authenticate to DAV, login is not provided", LOG_WARNING);
@@ -133,22 +133,22 @@ $authBackend = new \Sabre\DAV\Auth\Backend\BasicCallBack(
 		}
 
 		// Authentication mode
-		if (empty($dolibarr_main_authentication) || $dolibarr_main_authentication == 'openid_connect') {
-			$dolibarr_main_authentication = 'dolibarr';
+		if (empty($onli_main_authentication) || $onli_main_authentication == 'openid_connect') {
+			$onli_main_authentication = 'onli';
 		}
 
 		// Authentication mode: forceuser
-		if ($dolibarr_main_authentication == 'forceuser') {
-			if (empty($dolibarr_auto_user)) {
-				$dolibarr_auto_user = 'auto';
+		if ($onli_main_authentication == 'forceuser') {
+			if (empty($onli_auto_user)) {
+				$onli_auto_user = 'auto';
 			}
-			if ($dolibarr_auto_user != $username) {
-				dol_syslog("Warning: your instance is set to use the automatic forced login '".$dolibarr_auto_user."' that is not the requested login. DAV usage is forbidden in this mode.");
+			if ($onli_auto_user != $username) {
+				dol_syslog("Warning: your instance is set to use the automatic forced login '".$onli_auto_user."' that is not the requested login. DAV usage is forbidden in this mode.");
 				return false;
 			}
 		}
 
-		$authmode = explode(',', $dolibarr_main_authentication);
+		$authmode = explode(',', $onli_main_authentication);
 		$entity = (GETPOSTINT('entity') ? GETPOSTINT('entity') : (!empty($conf->entity) ? $conf->entity : 1));
 
 		if (checkLoginPassEntity($username, $password, $entity, $authmode, 'dav') != $username) {
@@ -209,12 +209,12 @@ if (isModEnabled('ecm') && getDolGlobalString('DAV_ALLOW_ECM_DIR')) {
 
 
 // Principals Backend
-//$principalBackend = new \Sabre\DAVACL\PrincipalBackend\Dolibarr($user,$db);
+//$principalBackend = new \Sabre\DAVACL\PrincipalBackend\OnLi($user,$db);
 // /principals
 //$nodes[] = new \Sabre\DAVACL\PrincipalCollection($principalBackend);
 // CardDav & CalDav Backend
-//$carddavBackend   = new \Sabre\CardDAV\Backend\Dolibarr($user,$db,$langs);
-//$caldavBackend    = new \Sabre\CalDAV\Backend\Dolibarr($user,$db,$langs, $cdavLib);
+//$carddavBackend   = new \Sabre\CardDAV\Backend\OnLi($user,$db,$langs);
+//$caldavBackend    = new \Sabre\CalDAV\Backend\OnLi($user,$db,$langs, $cdavLib);
 // /addressbook
 //$nodes[] = new \Sabre\CardDAV\AddressBookRoot($principalBackend, $carddavBackend);
 // /calendars

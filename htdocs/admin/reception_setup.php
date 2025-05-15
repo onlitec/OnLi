@@ -23,7 +23,7 @@
  *		\brief      Page to setup reception module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/reception.lib.php';
@@ -61,7 +61,7 @@ $type = 'reception';
 
 if (isModEnabled('reception') && !getDolGlobalString('MAIN_SUBMODULE_RECEPTION')) {
 	// This option should always be set to on when module is on.
-	dolibarr_set_const($db, "MAIN_SUBMODULE_RECEPTION", "1", 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "MAIN_SUBMODULE_RECEPTION", "1", 'chaine', 0, '', $conf->entity);
 }
 
 if (!getDolGlobalString('RECEPTION_ADDON_NUMBER')) {
@@ -80,7 +80,7 @@ if ($action == 'updateMask') {
 	$maskconst = GETPOST('maskconstreception', 'aZ09');
 	$maskvalue = GETPOST('maskreception', 'alpha');
 	if (!empty($maskconst) && preg_match('/_MASK$/', $maskconst)) {
-		$res = dolibarr_set_const($db, $maskconst, $maskvalue, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconst, $maskvalue, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (isset($res)) {
@@ -92,14 +92,14 @@ if ($action == 'updateMask') {
 	}
 } elseif ($action == 'set_param') {
 	$freetext = GETPOST('RECEPTION_FREE_TEXT', 'restricthtml'); // No alpha here, we want exact string
-	$res = dolibarr_set_const($db, "RECEPTION_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "RECEPTION_FREE_TEXT", $freetext, 'chaine', 0, '', $conf->entity);
 	if ($res <= 0) {
 		$error++;
 		setEventMessages($langs->trans("Error"), null, 'errors');
 	}
 
 	$draft = GETPOST('RECEPTION_DRAFT_WATERMARK', 'alpha');
-	$res = dolibarr_set_const($db, "RECEPTION_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "RECEPTION_DRAFT_WATERMARK", trim($draft), 'chaine', 0, '', $conf->entity);
 	if ($res <= 0) {
 		$error++;
 		setEventMessages($langs->trans("Error"), null, 'errors');
@@ -150,12 +150,12 @@ if ($action == 'updateMask') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if ($conf->global->RECEPTION_ADDON_PDF == "$value") {
-			dolibarr_del_const($db, 'RECEPTION_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'RECEPTION_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') {
 	// Set default model
-	if (dolibarr_set_const($db, "RECEPTION_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "RECEPTION_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// La constante qui a ete lue en avant du nouveau set
 		// on passe donc par une variable pour avoir un affichage coherent
 		$conf->global->RECEPTION_ADDON_PDF = $value;
@@ -167,7 +167,7 @@ if ($action == 'updateMask') {
 		$ret = addDocumentModel($value, $type, $label, $scandir);
 	}
 } elseif ($action == 'setmodel') {
-	dolibarr_set_const($db, "RECEPTION_ADDON_NUMBER", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "RECEPTION_ADDON_NUMBER", $value, 'chaine', 0, '', $conf->entity);
 }
 
 
@@ -481,7 +481,7 @@ if (empty($conf->global->PDF_ALLOW_HTML_FOR_FREE_TEXT))
 else
 {
 	include_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-	$doleditor=new DolEditor($variablename, getDolGlobalString($variablename),'',80,'dolibarr_notes');
+	$doleditor=new DolEditor($variablename, getDolGlobalString($variablename),'',80,'onli_notes');
 	print $doleditor->Create();
 }
 print "</td></tr>\n";

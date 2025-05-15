@@ -27,7 +27,7 @@
  *  \brief      	Page for trip and expense report card
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formexpensereport.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
@@ -58,7 +58,7 @@ if (isModEnabled('accounting')) {
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Load translation files required by the page
@@ -104,7 +104,7 @@ if (isModEnabled('multicompany') && !empty($conf->entity) && $conf->entity > 1) 
 $conf->expensereport->dir_output = $rootfordata.'/expensereport';
 
 // Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 //$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -1152,7 +1152,7 @@ if (empty($reshook)) {
 			}
 		}
 
-		// if VAT is not used in Dolibarr, set VAT rate to 0 because VAT rate is necessary.
+		// if VAT is not used in OnLi, set VAT rate to 0 because VAT rate is necessary.
 		if (empty($vatrate)) {
 			$vatrate = "0.000";
 		}
@@ -1329,7 +1329,7 @@ if (empty($reshook)) {
 		$qty = price2num(GETPOST('qty', 'alpha'));
 		$vatrate = GETPOST('vatrate', 'alpha');
 
-		// if VAT is not used in Dolibarr, set VAT rate to 0 because VAT rate is necessary.
+		// if VAT is not used in OnLi, set VAT rate to 0 because VAT rate is necessary.
 		if (empty($vatrate)) {
 			$vatrate = "0.000";
 		}
@@ -1531,7 +1531,7 @@ if ($action == 'create') {
 	print '<td class="tdtop">'.$langs->trans('NotePublic').'</td>';
 	print '<td>';
 
-	$doleditor = new DolEditor('note_public', $note_public, '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
+	$doleditor = new DolEditor('note_public', $note_public, '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
 	print $doleditor->Create(1);
 	print '</td></tr>';
 
@@ -1543,7 +1543,7 @@ if ($action == 'create') {
 		print '<td class="tdtop">'.$langs->trans('NotePrivate').'</td>';
 		print '<td>';
 
-		$doleditor = new DolEditor('note_private', $note_private, '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
+		$doleditor = new DolEditor('note_private', $note_private, '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
 		print $doleditor->Create(1);
 		print '</td></tr>';
 	}

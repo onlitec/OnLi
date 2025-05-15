@@ -560,9 +560,9 @@ class SMTPs
 				$hosth = preg_replace('/>.*$/', '', $hosth);
 				$hosth = preg_replace('/.*@/', '', $hosth);
 			} elseif (getDolGlobalInt('MAIL_SMTP_USE_FROM_FOR_HELO') == 2) {
-				// If value of MAIL_SMTP_USE_FROM_FOR_HELO is 2, we use the domain in the $dolibarr_main_url_root.
-				global $dolibarr_main_url_root;
-				$hosth = getDomainFromURL($dolibarr_main_url_root, 1);
+				// If value of MAIL_SMTP_USE_FROM_FOR_HELO is 2, we use the domain in the $onli_main_url_root.
+				global $onli_main_url_root;
+				$hosth = getDomainFromURL($onli_main_url_root, 1);
 			}
 		}
 
@@ -747,9 +747,9 @@ class SMTPs
 						$hosth = preg_replace('/>.*$/', '', $hosth);
 						$hosth = preg_replace('/.*@/', '', $hosth);
 					} elseif (getDolGlobalInt('MAIL_SMTP_USE_FROM_FOR_HELO') == 2) {
-						// If value of MAIL_SMTP_USE_FROM_FOR_HELO is 2, we use the domain in the $dolibarr_main_url_root.
-						global $dolibarr_main_url_root;
-						$hosth = getDomainFromURL($dolibarr_main_url_root, 1);
+						// If value of MAIL_SMTP_USE_FROM_FOR_HELO is 2, we use the domain in the $onli_main_url_root.
+						global $onli_main_url_root;
+						$hosth = getDomainFromURL($onli_main_url_root, 1);
 					}
 				}
 
@@ -1552,8 +1552,8 @@ class SMTPs
 
 		$trackid = $this->getTrackId();
 		if ($trackid) {
-			$_header .= 'Message-ID: <'.time().'.SMTPs-dolibarr-'.$trackid.'@'.$host.">\r\n";
-			$_header .= 'X-Dolibarr-TRACKID: '.$trackid.'@'.$host."\r\n";
+			$_header .= 'Message-ID: <'.time().'.SMTPs-onli-'.$trackid.'@'.$host.">\r\n";
+			$_header .= 'X-OnLi-TRACKID: '.$trackid.'@'.$host."\r\n";
 		} else {
 			$_header .= 'Message-ID: <'.time().'.SMTPs@'.$host.">\r\n";
 		}
@@ -1584,8 +1584,8 @@ class SMTPs
 			$_header .= "Reply-To: ".$this->getReplyTo('addr')."\r\n";
 		}
 
-		$_header .= 'X-Mailer: Dolibarr version '.DOL_VERSION.' (using SMTPs Mailer)'."\r\n";
-		$_header .= 'X-Dolibarr-Option: '.($conf->global->MAIN_MAIL_USE_MULTI_PART ? 'MAIN_MAIL_USE_MULTI_PART' : 'No MAIN_MAIL_USE_MULTI_PART')."\r\n";
+		$_header .= 'X-Mailer: OnLi version '.DOL_VERSION.' (using SMTPs Mailer)'."\r\n";
+		$_header .= 'X-OnLi-Option: '.($conf->global->MAIN_MAIL_USE_MULTI_PART ? 'MAIN_MAIL_USE_MULTI_PART' : 'No MAIN_MAIL_USE_MULTI_PART')."\r\n";
 		$_header .= 'Mime-Version: 1.0'."\r\n";
 
 		// Add also $this->references and In-Reply-To
@@ -1984,8 +1984,8 @@ class SMTPs
 	private function _setBoundary()
 	{
 		$this->_smtpsBoundary = "multipart_x.".time().".x_boundary";
-		$this->_smtpsRelatedBoundary = 'mul_'.dol_hash(uniqid("dolibarr2"), '3');
-		$this->_smtpsAlternativeBoundary = 'mul_'.dol_hash(uniqid("dolibarr3"), '3');
+		$this->_smtpsRelatedBoundary = 'mul_'.dol_hash(uniqid("onli2"), '3');
+		$this->_smtpsAlternativeBoundary = 'mul_'.dol_hash(uniqid("onli3"), '3');
 	}
 
 	/**

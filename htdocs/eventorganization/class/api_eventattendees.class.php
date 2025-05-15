@@ -26,9 +26,9 @@ require_once DOL_DOCUMENT_ROOT.'/eventorganization/class/conferenceorboothattend
  * API for handling Object of table llx_eventorganization_conferenceorboothattendee
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class EventAttendees extends DolibarrApi
+class EventAttendees extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when create and update object
@@ -94,7 +94,7 @@ class EventAttendees extends DolibarrApi
 			throw new RestException(404, 'Event attendee with id '.$id.' not found');
 		}
 
-		if (!$this->event_attendees->delete(DolibarrApiAccess::$user)) {
+		if (!$this->event_attendees->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when delete event attendee : '.$this->event_attendees->error);
 		}
 
@@ -132,7 +132,7 @@ class EventAttendees extends DolibarrApi
 			throw new RestException(404, "Event attendee with ref ".$ref." not found");
 		}
 
-		if (!$this->event_attendees->delete(DolibarrApiAccess::$user)) {
+		if (!$this->event_attendees->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when delete event attendee : '.$this->event_attendees->error);
 		}
 
@@ -213,7 +213,7 @@ class EventAttendees extends DolibarrApi
 		// }
 		// access check delayed until we can do it for each row checking each fk_project
 		// entity stolen from api_setup.class.php
-		$entity = (int) DolibarrApiAccess::$user->entity;
+		$entity = (int) OnLiApiAccess::$user->entity;
 		$obj_ret = array();
 
 		$sql = "SELECT t.rowid";
@@ -333,7 +333,7 @@ class EventAttendees extends DolibarrApi
 			$this->event_attendees->$field = $this->_checkValForAPI($field, $value, $this->event_attendees);
 		}
 
-		if ($this->event_attendees->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->event_attendees->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating event attendee", array_merge(array($this->event_attendees->error), $this->event_attendees->errors));
 		}
 
@@ -384,7 +384,7 @@ class EventAttendees extends DolibarrApi
 			$this->event_attendees->$field = $this->_checkValForAPI($field, $value, $this->event_attendees);
 		}
 
-		if ($this->event_attendees->update(DolibarrApiAccess::$user) > 0) {
+		if ($this->event_attendees->update(OnLiApiAccess::$user) > 0) {
 			return $this->_fetch($id, '');
 		} else {
 			throw new RestException(500, end($this->event_attendees->errors));
@@ -439,7 +439,7 @@ class EventAttendees extends DolibarrApi
 			$this->event_attendees->$field = $this->_checkValForAPI($field, $value, $this->event_attendees);
 		}
 
-		if ($this->event_attendees->update(DolibarrApiAccess::$user) > 0) {
+		if ($this->event_attendees->update(OnLiApiAccess::$user) > 0) {
 			return $this->_fetch(0, $newref);
 		} else {
 			throw new RestException(500, end($this->event_attendees->errors));
@@ -604,11 +604,11 @@ class EventAttendees extends DolibarrApi
 	{
 		// what kind of access management do we need?
 		$moduleaccess = false;
-		if (isModEnabled("eventorganization") && DolibarrApiAccess::$user->hasRight('eventorganization', $accesstype)) {
+		if (isModEnabled("eventorganization") && OnLiApiAccess::$user->hasRight('eventorganization', $accesstype)) {
 			$moduleaccess = true;
 		}
 		$fullprojectaccess = false;
-		if (DolibarrApiAccess::$user->hasRight('projet', 'all', $accesstype)) {
+		if (OnLiApiAccess::$user->hasRight('projet', 'all', $accesstype)) {
 			$fullprojectaccess = true;
 		}
 
@@ -626,7 +626,7 @@ class EventAttendees extends DolibarrApi
 					if ( 1 == $public) {
 						$singleprojectaccess = true;
 					} else {
-						$userProjectAccessListId = $event_project->getProjectsAuthorizedForUser(DolibarrApiAccess::$user, 0, 0);
+						$userProjectAccessListId = $event_project->getProjectsAuthorizedForUser(OnLiApiAccess::$user, 0, 0);
 						$project_title = $event_project->title;
 						if (in_array($project_title, $userProjectAccessListId)) {
 							$singleprojectaccess = true;

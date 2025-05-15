@@ -27,9 +27,9 @@ require_once DOL_DOCUMENT_ROOT.'/salaries/class/paymentsalary.class.php';
  * API class for salaries
  *
  * @access protected
- * @class DolibarrApiAccess {@requires user,external}
+ * @class OnLiApiAccess {@requires user,external}
  */
-class Salaries extends DolibarrApi
+class Salaries extends OnLiApi
 {
 	/**
 	 * @var string[] Mandatory fields, checked when creating an object
@@ -77,7 +77,7 @@ class Salaries extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -124,7 +124,7 @@ class Salaries extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -147,7 +147,7 @@ class Salaries extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'write')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -158,7 +158,7 @@ class Salaries extends DolibarrApi
 			$salary->$field = $this->_checkValForAPI($field, $value, $salary);
 		}
 
-		if ($salary->create(DolibarrApiAccess::$user) < 0) {
+		if ($salary->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating salary', array_merge(array($salary->error), $salary->errors));
 		}
 		return $salary->id;
@@ -175,7 +175,7 @@ class Salaries extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -192,7 +192,7 @@ class Salaries extends DolibarrApi
 			$salary->$field = $this->_checkValForAPI($field, $value, $salary);
 		}
 
-		if ($salary->update(DolibarrApiAccess::$user) > 0) {
+		if ($salary->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $salary->error);
@@ -207,7 +207,7 @@ class Salaries extends DolibarrApi
 	 */
 	/*public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'delete')) {
 			throw new RestException(403);
 		}
 		$salary = new Salary($this->db);
@@ -216,7 +216,7 @@ class Salaries extends DolibarrApi
 			throw new RestException(404, 'salary not found');
 		}
 
-		if ($salary->delete(DolibarrApiAccess::$user) < 0) {
+		if ($salary->delete(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'error when deleting salary');
 		}
 
@@ -248,7 +248,7 @@ class Salaries extends DolibarrApi
 	{
 		$list = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -298,7 +298,7 @@ class Salaries extends DolibarrApi
 	 */
 	public function getPayments($pid)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -326,7 +326,7 @@ class Salaries extends DolibarrApi
 	 */
 	public function addPayment($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'write')) {
 			throw new RestException(403);
 		}
 		// Check mandatory fields
@@ -338,12 +338,12 @@ class Salaries extends DolibarrApi
 			$paymentsalary->$field = $this->_checkValForAPI($field, $value, $paymentsalary);
 		}
 
-		if ($paymentsalary->create(DolibarrApiAccess::$user, 1) < 0) {
+		if ($paymentsalary->create(OnLiApiAccess::$user, 1) < 0) {
 			throw new RestException(500, 'Error creating paymentsalary', array_merge(array($paymentsalary->error), $paymentsalary->errors));
 		}
 		if (isModEnabled("bank")) {
 			$paymentsalary->addPaymentToBank(
-				DolibarrApiAccess::$user,
+				OnLiApiAccess::$user,
 				'payment_salary',
 				'(SalaryPayment)',
 				(int) $request_data['accountid'],
@@ -369,7 +369,7 @@ class Salaries extends DolibarrApi
 	 */
 	public function updatePayment($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('salaries', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('salaries', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -386,7 +386,7 @@ class Salaries extends DolibarrApi
 			$paymentsalary->$field = $this->_checkValForAPI($field, $value, $paymentsalary);
 		}
 
-		if ($paymentsalary->update(DolibarrApiAccess::$user) > 0) {
+		if ($paymentsalary->update(OnLiApiAccess::$user) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $paymentsalary->error);
@@ -403,7 +403,7 @@ class Salaries extends DolibarrApi
 	 */
 	/*public function delete($id)
 	 {
-	 if (!DolibarrApiAccess::$user->hasRight('salaries', 'delete')) {
+	 if (!OnLiApiAccess::$user->hasRight('salaries', 'delete')) {
 	 throw new RestException(403);
 	 }
 	 $paymentsalary = new PaymentSalary($this->db);
@@ -412,7 +412,7 @@ class Salaries extends DolibarrApi
 	 throw new RestException(404, 'paymentsalary not found');
 	 }
 
-	 if ($paymentsalary->delete(DolibarrApiAccess::$user) < 0) {
+	 if ($paymentsalary->delete(OnLiApiAccess::$user) < 0) {
 	 throw new RestException(500, 'error when deleting paymentsalary');
 	 }
 

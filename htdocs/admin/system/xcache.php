@@ -21,7 +21,7 @@
  *     \brief      Page administration XCache
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

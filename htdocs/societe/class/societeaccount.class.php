@@ -65,7 +65,7 @@ class SocieteAccount extends CommonObject
 	 *  	'date', 'datetime', 'timestamp', 'duration',
 	 *  	'boolean', 'checkbox', 'radio', 'array',
 	 *  	'mail', 'phone', 'url', 'password', 'ip'
-	 *		Note: Filter must be a Dolibarr Universal Filter syntax string. Example: "(t.ref:like:'SO-%') or (t.date_creation:<:'20160101') or (t.status:!=:0) or (t.nature:is:NULL)"
+	 *		Note: Filter must be a OnLi Universal Filter syntax string. Example: "(t.ref:like:'SO-%') or (t.date_creation:<:'20160101') or (t.status:!=:0) or (t.nature:is:NULL)"
 	 *  'label' the translation key.
 	 *  'picto' is code of a picto to show before value in forms
 	 *  'enabled' is a condition when the field must be managed (Example: 1 or 'getDolGlobalInt("MY_SETUP_PARAM")' or 'isModEnabled("multicurrency")' ...)
@@ -245,7 +245,7 @@ class SocieteAccount extends CommonObject
 		if (isModEnabled('webportal')) {
 			$this->fields['site']['visible'] = 1;
 			$this->fields['site']['enabled'] = 1;
-			$site_type_list['dolibarr_portal'] = $langs->trans('WebsiteTypeDolibarrPortal');
+			$site_type_list['onli_portal'] = $langs->trans('WebsiteTypeOnLiPortal');
 		}
 
 		if (isModEnabled('website')) {
@@ -253,7 +253,7 @@ class SocieteAccount extends CommonObject
 			$this->fields['fk_website']['enabled'] = 1;
 			$this->fields['site']['visible'] = 1;
 			$this->fields['site']['enabled'] = 1;
-			$site_type_list['dolibarr_website'] = $langs->trans('WebsiteTypeDolibarrWebsite');
+			$site_type_list['onli_website'] = $langs->trans('WebsiteTypeOnLiWebsite');
 		}
 
 		$this->fields['site']['arrayofkeyval'] = $site_type_list;
@@ -270,7 +270,7 @@ class SocieteAccount extends CommonObject
 	{
 		global $langs;
 
-		if ($this->site == 'dolibarr_website') {
+		if ($this->site == 'onli_website') {
 			if ((int) $this->fk_website <= 0) {
 				$this->error = $langs->trans("ErrorFieldRequired", $langs->transnoentitiesnoconv("Website"));
 				return -1;
@@ -495,7 +495,7 @@ class SocieteAccount extends CommonObject
 	public function getNomUrl($withpicto = 0, $option = '', $notooltip = 0, $morecss = '', $save_lastsearch_value = -1)
 	{
 		global $conf, $langs;
-		global $dolibarr_main_authentication, $dolibarr_main_demo;
+		global $onli_main_authentication, $onli_main_demo;
 		global $menumanager;
 
 		if (!empty($conf->dol_no_mouse_hover)) {

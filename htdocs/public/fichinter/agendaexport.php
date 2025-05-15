@@ -21,9 +21,9 @@
  * 	\file       htdocs/public/fichinter/calendarexport.php
  * 	\ingroup    fichinter
  * 	\brief      Page to export fichinter agenda into a vcal, ical or rss
- * 				http://127.0.0.1/dolibarr/public/fichinter/calendarexport.php?format=vcal&exportkey=cle
- * 				http://127.0.0.1/dolibarr/public/fichinter/calendarexport.php?format=ical&type=event&exportkey=cle
- * 				http://127.0.0.1/dolibarr/public/fichinter/calendarexport.php?format=rss&exportkey=cle
+ * 				http://127.0.0.1/onli/public/fichinter/calendarexport.php?format=vcal&exportkey=cle
+ * 				http://127.0.0.1/onli/public/fichinter/calendarexport.php?format=ical&type=event&exportkey=cle
+ * 				http://127.0.0.1/onli/public/fichinter/calendarexport.php?format=rss&exportkey=cle
  *              Other parameters into url are:
  *              &notolderthan=99
  *              &year=2015
@@ -50,7 +50,7 @@ if (!defined('NOCSRFCHECK')) {
 	define("NOCSRFCHECK", 1); // We accept to go on this page from external web site.
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 
 
@@ -62,7 +62,7 @@ if (is_numeric($entity)) {
 	define("DOLENTITY", $entity);
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/fichinter/class/fichinter.class.php';
 /**
@@ -179,7 +179,7 @@ if ($reshook < 0) {
 }
 
 // Define filename with prefix on filters predica (each predica set must have on cache file)
-$shortfilename = 'dolibarrcalendar';
+$shortfilename = 'onlicalendar';
 $filename = $shortfilename;
 // Complete long filename
 foreach ($filters as $key => $value) {
@@ -233,7 +233,7 @@ if ($format == 'rss') {
 	$shortfilename .= '.rss';
 	$filename .= '.rss';
 }
-if ($shortfilename == 'dolibarrcalendar') {
+if ($shortfilename == 'onlicalendar') {
 	$langs->load("errors");
 
 	top_httphead();
@@ -389,7 +389,7 @@ function build_exportfile($format, $type, $cachedelay, $filename, $filters)
 	global $db;
 
 	// phpcs:enable
-	global $conf, $langs, $dolibarr_main_url_root, $mysoc;
+	global $conf, $langs, $onli_main_url_root, $mysoc;
 
 	require_once DOL_DOCUMENT_ROOT."/core/lib/xcal.lib.php";
 	require_once DOL_DOCUMENT_ROOT."/core/lib/date.lib.php";
@@ -578,7 +578,7 @@ function build_exportfile($format, $type, $cachedelay, $filename, $filters)
 
 				// 'eid','startdate','duration','enddate','title','summary','category','email','url','desc','author'
 				$event = array();
-				$event['uid'] = 'dolibarragenda-'.$db->database_name.'-'.$obj->id."@".$_SERVER["SERVER_NAME"];
+				$event['uid'] = 'onliagenda-'.$db->database_name.'-'.$obj->id."@".$_SERVER["SERVER_NAME"];
 				$event['type'] = $type;
 
 				$datestart = $db->jdate($obj->date) - ((int) getDolGlobalString('MAIN_FICHINTER_EXPORT_FIX_TZ', 0) * 3600);
@@ -620,7 +620,7 @@ function build_exportfile($format, $type, $cachedelay, $filename, $filters)
 
 				// Public URL of event
 				if ($eventorganization != '') {
-					$link_subscription = $dolibarr_main_url_root.'/public/eventorganization/attendee_new.php?id='.((int) $obj->id).'&type=global&noregistration=1';
+					$link_subscription = $onli_main_url_root.'/public/eventorganization/attendee_new.php?id='.((int) $obj->id).'&type=global&noregistration=1';
 					$encodedsecurekey = dol_hash(getDolGlobalString('EVENTORGANIZATION_SECUREKEY').'conferenceorbooth'.((int) $obj->id), 'md5');
 					$link_subscription .= '&securekey='.urlencode($encodedsecurekey);
 
@@ -686,16 +686,16 @@ function build_exportfile($format, $type, $cachedelay, $filename, $filters)
 		}
 		if ($more) {
 			if (empty($title)) {
-				$title = 'Dolibarr actions '.$mysoc->name.' - '.$more;
+				$title = 'OnLi actions '.$mysoc->name.' - '.$more;
 			}
 			$desc = $more;
-			$desc .= ' ('.$mysoc->name.' - built by Dolibarr)';
+			$desc .= ' ('.$mysoc->name.' - built by OnLi)';
 		} else {
 			if (empty($title)) {
-				$title = 'Dolibarr actions '.$mysoc->name;
+				$title = 'OnLi actions '.$mysoc->name;
 			}
 			$desc = $langs->transnoentities('ListOfActions');
-			$desc .= ' ('.$mysoc->name.' - built by Dolibarr)';
+			$desc .= ' ('.$mysoc->name.' - built by OnLi)';
 		}
 
 		// Create temp file

@@ -16,7 +16,7 @@
  */
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../../../main.inc.php';
 
 /**
@@ -25,12 +25,12 @@ require '../../../../main.inc.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var int $dolibarr_main_prod
+ * @var int $onli_main_prod
  */
 
 // Security
-if ($dolibarr_main_prod) {
-	accessforbidden('Access forbidden when $dolibarr_main_prod is set to 1');
+if ($onli_main_prod) {
+	accessforbidden('Access forbidden when $onli_main_prod is set to 1');
 }
 // Protection if external user
 if ($user->socid > 0) {
@@ -45,8 +45,8 @@ $optioncss = GETPOST('optioncsss', 'alpha');
 
 $form = new Form($db);
 
-// 1 = Test inside a dolibarr page, 0 = Use hard coded header
-// Using a dolibarr constant avoid phpstan hardcoded value always true or false
+// 1 = Test inside a onli page, 0 = Use hard coded header
+// Using a onli constant avoid phpstan hardcoded value always true or false
 $usedolheader = getDolGlobalInt('MAIN_TEST_UI_IN_DOLIBARR_PAGE', 1);
 
 // HEADER
@@ -63,7 +63,7 @@ if (empty($usedolheader)) {
 	<html>
 	<head>
 	<meta name="robots" content="noindex,nofollow" />
-	<meta name="author" content="Dolibarr Development Team">
+	<meta name="author" content="OnLi Development Team">
 	<title>Test page</title>
 	<!-- Includes for JQuery (Ajax library) -->
 	<link rel="stylesheet" type="text/css" href="<?php echo DOL_URL_ROOT ?>/includes/jquery/css/base/jquery-ui.css" />

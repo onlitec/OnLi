@@ -25,7 +25,7 @@
  *   \brief      Page with system information of database
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**
@@ -35,9 +35,9 @@ require '../../main.inc.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_db_pass
- * @var string $dolibarr_main_db_collation
- * @var string $dolibarr_main_db_character_set
+ * @var string $onli_main_db_pass
+ * @var string $onli_main_db_collation
+ * @var string $onli_main_db_character_set
  */
 
 $langs->load("admin");
@@ -92,7 +92,7 @@ print '<tr class="oddeven"><td width="300">'.$langs->trans("DatabaseName").'</td
 print '<tr class="oddeven"><td width="300">'.$langs->trans("DriverType").'</td><td>'.$conf->db->type.($db->getDriverInfo() ? ' ('.$db->getDriverInfo().')' : '').'</td></tr>'."\n";
 // @phan-suppress-next-line PhanTypeSuspiciousStringExpression  (user is defined in the stdClass)
 print '<tr class="oddeven"><td width="300">'.$langs->trans("User").'</td><td>'.$conf->db->user.'</td></tr>'."\n";
-print '<tr class="oddeven"><td width="300">'.$langs->trans("Password").'</td><td>'.preg_replace('/./i', '*', $dolibarr_main_db_pass).'</td></tr>'."\n";
+print '<tr class="oddeven"><td width="300">'.$langs->trans("Password").'</td><td>'.preg_replace('/./i', '*', $onli_main_db_pass).'</td></tr>'."\n";
 print '<tr class="oddeven"><td width="300">'.$langs->trans("DBStoringCharset").'</td><td>'.$db->getDefaultCharacterSetDatabase();
 if ($db->type == 'mysqli') {
 	$tooltipexample = "<br>SHOW VARIABLES LIKE 'character_set_database' (cached)<br>You can avoid cache effect with:<br>SELECT DEFAULT_CHARACTER_SET_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = '".$db->escape($conf->db->name)."'";
@@ -103,10 +103,10 @@ print '</td></tr>'."\n";
 print '<tr class="oddeven"><td width="300">'.$langs->trans("DBSortingCharset").'</td><td>';
 $defaultcollation = $db->getDefaultCollationDatabase();
 print dolPrintHTML($defaultcollation);
-global $dolibarr_main_db_collation;
+global $onli_main_db_collation;
 if ($db->type == 'mysqli') {
-	if ($defaultcollation != $conf->db->dolibarr_main_db_collation) {
-		print img_warning('The database default value of collation '.$defaultcollation.' differs from conf setup '.$conf->db->dolibarr_main_db_collation);
+	if ($defaultcollation != $conf->db->onli_main_db_collation) {
+		print img_warning('The database default value of collation '.$defaultcollation.' differs from conf setup '.$conf->db->onli_main_db_collation);
 	}
 	$tooltipexample = "<br>SHOW VARIABLES LIKE 'collation_database' (cached)<br>You can avoid cache effect with:<br>SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = '".$db->escape($conf->db->name)."'";
 	print ' '.$form->textwithpicto('', $langs->transnoentitiesnoconv("HelpMariaDBToGetValue", $tooltipexample.'<br>'.$langs->transnoentitiesnoconv("HelpMariaDBToGetPossibleValues", "<br>SHOW COLLATION")."<br><br>Example to change value: ALTER DATABASE ".$conf->db->name." CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"));
@@ -159,8 +159,8 @@ if (!count($listofvars) && !count($listofstatus)) {
 		$arraytest = array();
 		if (preg_match('/mysql/i', $db->type)) {
 			$arraytest = array(
-				'character_set_database' => array('var' => 'dolibarr_main_db_character_set', 'valifempty' => 'utf8'),
-				'collation_database' => array('var' => 'dolibarr_main_db_collation', 'valifempty' => 'utf8_unicode_ci')
+				'character_set_database' => array('var' => 'onli_main_db_character_set', 'valifempty' => 'utf8'),
+				'collation_database' => array('var' => 'onli_main_db_collation', 'valifempty' => 'utf8_unicode_ci')
 			);
 		}
 

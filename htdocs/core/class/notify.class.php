@@ -627,7 +627,7 @@ class Notify
 	{
 		global $user, $conf, $langs, $mysoc;
 		global $hookmanager;
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 		global $action;
 
 		// Complete the array Notify::$arrayofnotifsupported
@@ -657,12 +657,12 @@ class Notify
 		$langs->load("other");
 
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		//$urlwithroot=DOL_MAIN_URL_ROOT;						// This is to use same domain name than current
 
 		// Define some vars
-		$application = 'Dolibarr';
+		$application = 'OnLi';
 		if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 			$application = getDolGlobalString('MAIN_APPLICATION_TITLE');
 		}
@@ -751,7 +751,7 @@ class Notify
 
 						$appli = $mysoc->name;
 
-						$subject = '['.$appli.'] '.$outputlangs->transnoentitiesnoconv("DolibarrNotification").($projtitle ? ' '.$projtitle : '');
+						$subject = '['.$appli.'] '.$outputlangs->transnoentitiesnoconv("OnLiNotification").($projtitle ? ' '.$projtitle : '');
 
 						switch ($notifcode) {
 							case 'BILL_CANCEL':
@@ -1096,7 +1096,7 @@ class Notify
 
 				$appli = $mysoc->name;
 
-				$subject = '['.$appli.'] '.$langs->transnoentitiesnoconv("DolibarrNotification").($projtitle ? ' '.$projtitle : '');
+				$subject = '['.$appli.'] '.$langs->transnoentitiesnoconv("OnLiNotification").($projtitle ? ' '.$projtitle : '');
 
 				switch ($notifcode) {
 					case 'BILL_VALIDATE':

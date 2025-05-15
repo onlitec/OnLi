@@ -26,14 +26,14 @@
  *  \brief      Trigger file for workflows
  */
 
-require_once DOL_DOCUMENT_ROOT.'/core/triggers/dolibarrtriggers.class.php';
+require_once DOL_DOCUMENT_ROOT.'/core/triggers/onlitriggers.class.php';
 
 
 /**
  *  Class of triggers for workflow module
  */
 
-class InterfaceWorkflowManager extends DolibarrTriggers
+class InterfaceWorkflowManager extends OnLiTriggers
 {
 	/**
 	 * Constructor
@@ -52,7 +52,7 @@ class InterfaceWorkflowManager extends DolibarrTriggers
 	}
 
 	/**
-	 * Function called when a Dolibarr business event is done.
+	 * Function called when a OnLi business event is done.
 	 * All functions "runTrigger" are triggered if file is inside directory htdocs/core/triggers or htdocs/module/code/triggers (and declared)
 	 *
 	 * @param string		$action		Event action code
@@ -615,7 +615,7 @@ class InterfaceWorkflowManager extends DolibarrTriggers
 	}
 
 	/**
-	 * @param Conf  $conf                   Dolibarr settings object
+	 * @param Conf  $conf                   OnLi settings object
 	 * @param float $totalonlinkedelements  Sum of total amounts (excl VAT) of
 	 *                                      invoices linked to $object
 	 * @param float $object_total_ht        The total amount (excl VAT) of the object

@@ -46,7 +46,7 @@
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  * @var ?string $permissiontoadd
  * @var ?string $permissiontoread
  * @var ?string $permissiontodelete
@@ -1124,7 +1124,7 @@ if (!$error && ($massaction == 'delete' || ($action == 'delete' && $confirm == '
 	$nbignored = 0;
 	$TMsg = array();
 
-	//$toselect could contain duplicate entries, cf https://github.com/Dolibarr/dolibarr/issues/26244
+	//$toselect could contain duplicate entries, cf https://github.com/OnLi/onli/issues/26244
 	$unique_arr = array_unique($toselect);
 	foreach ($unique_arr as $toselectid) {
 		$result = $objecttmp->fetch($toselectid);
@@ -1777,7 +1777,7 @@ if (!$error && ($massaction == 'approveleave' || ($action == 'approveleave' && $
 
 						$message .= "- ".$langs->transnoentitiesnoconv("ValidatedBy")." : ".dolGetFirstLastname($expediteur->firstname, $expediteur->lastname)."\n";
 
-						$message .= "- ".$langs->transnoentitiesnoconv("Link")." : ".$dolibarr_main_url_root."/holiday/card.php?id=".$objecttmp->id."\n\n";
+						$message .= "- ".$langs->transnoentitiesnoconv("Link")." : ".$onli_main_url_root."/holiday/card.php?id=".$objecttmp->id."\n\n";
 						$message .= "\n";
 
 						$trackid = 'leav'.$objecttmp->id;

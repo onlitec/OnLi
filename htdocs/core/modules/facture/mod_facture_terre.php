@@ -42,10 +42,10 @@ class mod_facture_terre extends ModeleNumRefFactures
 	public $position = 40;
 
 	/**
-	 * Dolibarr version of the loaded document 'development', 'experimental', 'dolibarr'
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental'
+	 * OnLi version of the loaded document 'development', 'experimental', 'onli'
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental'
 	 */
-	public $version = 'dolibarr_deprecated';
+	public $version = 'onli_deprecated';
 
 	/**
 	 * Prefix for invoices

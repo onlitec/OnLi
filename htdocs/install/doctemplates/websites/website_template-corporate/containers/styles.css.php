@@ -13370,7 +13370,7 @@ html .bodywebsite.boxed .rd-navbar--is-clone {
 .bodywebsite .formcontact div {
   margin: 2px;
 }
-.bodywebsite section#sectionfooterdolibarr {
+.bodywebsite section#sectionfooteronli {
   padding-left: 3px;
   padding-right: 3px;
   padding-bottom: 10px;

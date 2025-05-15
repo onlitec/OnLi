@@ -96,7 +96,7 @@ class Login
 	 */
 	public function index($login, $password, $entity = '', $reset = 0)
 	{
-		global $conf, $dolibarr_main_authentication, $dolibarr_auto_user;
+		global $conf, $onli_main_authentication, $onli_auto_user;
 
 		// Is the login API disabled ? The token must be generated from backoffice only.
 		if (getDolGlobalString('API_DISABLE_LOGIN_API')) {
@@ -105,23 +105,23 @@ class Login
 		}
 
 		// Authentication mode
-		if (empty($dolibarr_main_authentication) || $dolibarr_main_authentication == 'openid_connect') {
-			$dolibarr_main_authentication = 'dolibarr';
+		if (empty($onli_main_authentication) || $onli_main_authentication == 'openid_connect') {
+			$onli_main_authentication = 'onli';
 		}
 
 		// Authentication mode: forceuser
-		if ($dolibarr_main_authentication == 'forceuser') {
-			if (empty($dolibarr_auto_user)) {
-				$dolibarr_auto_user = 'auto';
+		if ($onli_main_authentication == 'forceuser') {
+			if (empty($onli_auto_user)) {
+				$onli_auto_user = 'auto';
 			}
-			if ($dolibarr_auto_user != $login) {
-				dol_syslog("Warning: your instance is set to use the automatic forced login '".$dolibarr_auto_user."' that is not the requested login. API usage is forbidden in this mode.");
-				throw new RestException(403, "Your instance is set to use the automatic login '".$dolibarr_auto_user."' that is not the requested login. API usage is forbidden in this mode.");
+			if ($onli_auto_user != $login) {
+				dol_syslog("Warning: your instance is set to use the automatic forced login '".$onli_auto_user."' that is not the requested login. API usage is forbidden in this mode.");
+				throw new RestException(403, "Your instance is set to use the automatic login '".$onli_auto_user."' that is not the requested login. API usage is forbidden in this mode.");
 			}
 		}
 
 		// Set authmode
-		$authmode = explode(',', $dolibarr_main_authentication);
+		$authmode = explode(',', $onli_main_authentication);
 
 		if ($entity != '' && !is_numeric($entity)) {
 			throw new RestException(403, "Bad value for entity, must be the numeric ID of company.");
@@ -163,7 +163,7 @@ class Login
 
 			// We store API token into database
 			$sql = "UPDATE ".MAIN_DB_PREFIX."user";
-			$sql .= " SET api_key = '".$this->db->escape(dolEncrypt($token, '', '', 'dolibarr'))."'";
+			$sql .= " SET api_key = '".$this->db->escape(dolEncrypt($token, '', '', 'onli'))."'";
 			$sql .= " WHERE login = '".$this->db->escape($login)."'";
 
 			dol_syslog(get_class($this)."::login", LOG_DEBUG); // No log
@@ -188,7 +188,7 @@ class Login
 				'code' => 200,
 				'token' => $token,
 				'entity' => $tmpuser->entity,
-				'message' => 'Welcome '.$login.($reset ? ' - Token is new' : ' - This is your token (recorded for your user). You can use it to make any REST API call, or enter it into the DOLAPIKEY field to use the Dolibarr API explorer.')
+				'message' => 'Welcome '.$login.($reset ? ' - Token is new' : ' - This is your token (recorded for your user). You can use it to make any REST API call, or enter it into the DOLAPIKEY field to use the OnLi API explorer.')
 			)
 		);
 	}

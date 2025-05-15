@@ -32,7 +32,7 @@
  *  \brief      Setup page of product module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/product.lib.php';
@@ -82,7 +82,7 @@ if (getDolGlobalInt('MAIN_FEATURES_LEVEL') >= 2 || getDolGlobalString($keyforpar
 
 // Clean param
 if (getDolGlobalString('PRODUIT_MULTIPRICES') && !getDolGlobalString('PRODUIT_MULTIPRICES_LIMIT')) {
-	dolibarr_set_const($db, 'PRODUIT_MULTIPRICES_LIMIT', 5, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, 'PRODUIT_MULTIPRICES_LIMIT', 5, 'chaine', 0, '', $conf->entity);
 }
 
 $error = 0;
@@ -96,7 +96,7 @@ $nomessageinsetmoduleoptions = 1;
 include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 
 if ($action == 'setcodeproduct') {
-	if (dolibarr_set_const($db, "PRODUCT_CODEPRODUCT_ADDON", $value, 'chaine', 0, '', $conf->entity) > 0) {
+	if (onli_set_const($db, "PRODUCT_CODEPRODUCT_ADDON", $value, 'chaine', 0, '', $conf->entity) > 0) {
 		header("Location: ".$_SERVER["PHP_SELF"]);
 		exit;
 	} else {
@@ -105,13 +105,13 @@ if ($action == 'setcodeproduct') {
 }
 
 if ($action == 'other' && GETPOST('value_PRODUIT_LIMIT_SIZE') >= 0) {
-	$res = dolibarr_set_const($db, "PRODUIT_LIMIT_SIZE", GETPOST('value_PRODUIT_LIMIT_SIZE'), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_LIMIT_SIZE", GETPOST('value_PRODUIT_LIMIT_SIZE'), 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 }
 if ($action == 'other' && GETPOST('value_PRODUIT_MULTIPRICES_LIMIT') > 0) {
-	$res = dolibarr_set_const($db, "PRODUIT_MULTIPRICES_LIMIT", GETPOST('value_PRODUIT_MULTIPRICES_LIMIT'), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_MULTIPRICES_LIMIT", GETPOST('value_PRODUIT_MULTIPRICES_LIMIT'), 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
@@ -121,60 +121,60 @@ if ($action == 'other') {
 	foreach ($select_pricing_rules as $tmprule => $tmplabel) { // Loop on each possible mode
 		if ($tmprule == $princingrules) { // We are on selected rule, we enable it
 			if ($princingrules == 'PRODUCT_PRICE_UNIQ') { // For this case, we disable entries manually
-				$res = dolibarr_set_const($db, 'PRODUIT_MULTIPRICES', 0, 'chaine', 0, '', $conf->entity);
-				$res = dolibarr_set_const($db, 'PRODUIT_CUSTOMER_PRICES', 0, 'chaine', 0, '', $conf->entity);
-				$res = dolibarr_set_const($db, 'PRODUIT_CUSTOMER_PRICES_AND_MULTIPRICES', 0, 'chaine', 0, '', $conf->entity);
-				$res = dolibarr_set_const($db, 'PRODUIT_CUSTOMER_PRICES_BY_QTY', 0, 'chaine', 0, '', $conf->entity);
-				$res = dolibarr_set_const($db, 'PRODUIT_CUSTOMER_PRICES_BY_QTY_MULTIPRICES', 0, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, 'PRODUIT_MULTIPRICES', 0, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, 'PRODUIT_CUSTOMER_PRICES', 0, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, 'PRODUIT_CUSTOMER_PRICES_AND_MULTIPRICES', 0, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, 'PRODUIT_CUSTOMER_PRICES_BY_QTY', 0, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, 'PRODUIT_CUSTOMER_PRICES_BY_QTY_MULTIPRICES', 0, 'chaine', 0, '', $conf->entity);
 
-				dolibarr_set_const($db, 'PRODUCT_PRICE_UNIQ', 1, 'chaine', 0, '', $conf->entity);
+				onli_set_const($db, 'PRODUCT_PRICE_UNIQ', 1, 'chaine', 0, '', $conf->entity);
 			} else {
 				$multirule = explode('&', $princingrules);
 				foreach ($multirule as $rulesselected) {
-					$res = dolibarr_set_const($db, $rulesselected, 1, 'chaine', 0, '', $conf->entity);
+					$res = onli_set_const($db, $rulesselected, 1, 'chaine', 0, '', $conf->entity);
 				}
 			}
 		} else { // We clear this mode
 			if (strpos($tmprule, '&') === false) {
-				$res = dolibarr_set_const($db, $tmprule, 0, 'chaine', 0, '', $conf->entity);
+				$res = onli_set_const($db, $tmprule, 0, 'chaine', 0, '', $conf->entity);
 			}
 		}
 	}
 
 	$value = GETPOST('price_base_type', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUCT_PRICE_BASE_TYPE", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUCT_PRICE_BASE_TYPE", $value, 'chaine', 0, '', $conf->entity);
 
 	/*$value = GETPOST('PRODUIT_SOUSPRODUITS', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_SOUSPRODUITS", $value, 'chaine', 0, '', $conf->entity);*/
+	$res = onli_set_const($db, "PRODUIT_SOUSPRODUITS", $value, 'chaine', 0, '', $conf->entity);*/
 
 	$value = GETPOST('PRODUIT_DESC_IN_FORM', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_DESC_IN_FORM", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_DESC_IN_FORM", $value, 'chaine', 0, '', $conf->entity);
 
 	$value = GETPOST('activate_viewProdTextsInThirdpartyLanguage', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_TEXTS_IN_THIRDPARTY_LANGUAGE", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_TEXTS_IN_THIRDPARTY_LANGUAGE", $value, 'chaine', 0, '', $conf->entity);
 
 	$value = GETPOST('activate_mergePropalProductCard', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_PDF_MERGE_PROPAL", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_PDF_MERGE_PROPAL", $value, 'chaine', 0, '', $conf->entity);
 
 	$value = GETPOST('activate_usesearchtoselectproduct', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_USE_SEARCH_TO_SELECT", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_USE_SEARCH_TO_SELECT", $value, 'chaine', 0, '', $conf->entity);
 
 	$value = GETPOST('activate_FillProductDescAuto', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_AUTOFILL_DESC", $value, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_AUTOFILL_DESC", $value, 'chaine', 0, '', $conf->entity);
 
 	if (GETPOSTISSET('PRODUIT_FOURN_TEXTS')) {
 		$value = GETPOST('PRODUIT_FOURN_TEXTS', 'alpha');
-		$res = dolibarr_set_const($db, "PRODUIT_FOURN_TEXTS", $value, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PRODUIT_FOURN_TEXTS", $value, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (GETPOSTISSET('PRODUCT_USE_SUPPLIER_PACKAGING')) {
 		$value = GETPOST('PRODUCT_USE_SUPPLIER_PACKAGING', 'alpha');
-		$res = dolibarr_set_const($db, "PRODUCT_USE_SUPPLIER_PACKAGING", $value, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PRODUCT_USE_SUPPLIER_PACKAGING", $value, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (GETPOSTISSET('PRODUCT_USE_CUSTOMER_PACKAGING')) {
 		$value = GETPOST('PRODUCT_USE_CUSTOMER_PACKAGING', 'alpha');
-		$res = dolibarr_set_const($db, "PRODUCT_USE_CUSTOMER_PACKAGING", $value, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "PRODUCT_USE_CUSTOMER_PACKAGING", $value, 'chaine', 0, '', $conf->entity);
 	}
 }
 
@@ -226,14 +226,14 @@ if ($action == 'del') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (getDolGlobalString('PRODUCT_ADDON_PDF') == "$value") {
-			dolibarr_del_const($db, 'PRODUCT_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'PRODUCT_ADDON_PDF', $conf->entity);
 		}
 	}
 }
 
 // Set default model
 if ($action == 'setdoc') {
-	if (dolibarr_set_const($db, "PRODUCT_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "PRODUCT_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// La constante qui a ete lue en avant du nouveau set
 		// on passe donc par une variable pour avoir un affichage coherent
 		$conf->global->PRODUCT_ADDON_PDF = $value;
@@ -251,9 +251,9 @@ if ($action == 'set') {
 	$const = "PRODUCT_SPECIAL_".strtoupper(GETPOST('spe', 'alpha'));
 	$value = GETPOST('value');
 	if (GETPOST('value', 'alpha')) {
-		$res = dolibarr_set_const($db, $const, $value, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $const, $value, 'chaine', 0, '', $conf->entity);
 	} else {
-		$res = dolibarr_del_const($db, $const, $conf->entity);
+		$res = onli_del_const($db, $const, $conf->entity);
 	}
 	if (!($res > 0)) {
 		$error++;
@@ -265,7 +265,7 @@ if (preg_match('/set_(.+)/', $action, $reg)) {
 	$keyforvar = $reg[1];
 	if ($keyforvar) {
 		$value = 1;
-		$res = dolibarr_set_const($db, $keyforvar, $value, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $keyforvar, $value, 'chaine', 0, '', $conf->entity);
 	}
 }
 
@@ -273,7 +273,7 @@ if (preg_match('/set_(.+)/', $action, $reg)) {
 if (preg_match('/del_(.+)/', $action, $reg)) {
 	$keyforvar = $reg[1];
 	if ($keyforvar) {
-		$res = dolibarr_del_const($db, $keyforvar, $conf->entity);
+		$res = onli_del_const($db, $keyforvar, $conf->entity);
 	}
 }
 

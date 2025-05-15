@@ -25,7 +25,7 @@
  *      \brief      Security options setup
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -77,10 +77,10 @@ if ($action == 'updateform') {
 	$antivircommand = dol_string_nospecial($antivircommand, '', array("|", ";", "<", ">", "&", "+")); // Sanitize command
 	$antivirparam = dol_string_nospecial($antivirparam, '', array("|", ";", "<", ">", "&", "+")); // Sanitize params
 
-	if ($antivircommand && !empty($dolibarr_main_restrict_os_commands)) {
-		$arrayofallowedcommand = explode(',', $dolibarr_main_restrict_os_commands);
+	if ($antivircommand && !empty($onli_main_restrict_os_commands)) {
+		$arrayofallowedcommand = explode(',', $onli_main_restrict_os_commands);
 		$arrayofallowedcommand = array_map('trim', $arrayofallowedcommand);
-		dol_syslog("Command are restricted to ".$dolibarr_main_restrict_os_commands.". We check that one of this command is inside ".$antivircommand);
+		dol_syslog("Command are restricted to ".$onli_main_restrict_os_commands.". We check that one of this command is inside ".$antivircommand);
 		$basenamecmddump = basename(str_replace('\\', '/', $antivircommand));
 		if (!in_array($basenamecmddump, $arrayofallowedcommand)) {	// the provided command $cmddump must be an allowed command
 			$errormsg = $langs->trans('CommandIsNotInsideAllowedCommands');
@@ -100,13 +100,13 @@ if ($action == 'updateform') {
 			$tmpumask = '0664';
 		}
 
-		$res3 = dolibarr_set_const($db, 'MAIN_UPLOAD_DOC', GETPOST('MAIN_UPLOAD_DOC', 'alpha'), 'chaine', 0, '', $conf->entity);
-		$res4 = dolibarr_set_const($db, "MAIN_UMASK", $tmpumask, 'chaine', 0, '', $conf->entity);
-		$res5 = dolibarr_set_const($db, "MAIN_ANTIVIRUS_COMMAND", trim($antivircommand), 'chaine', 0, '', $conf->entity);
-		$res6 = dolibarr_set_const($db, "MAIN_ANTIVIRUS_PARAM", trim($antivirparam), 'chaine', 0, '', $conf->entity);
-		$res7 = dolibarr_set_const($db, "MAIN_FILE_EXTENSION_UPLOAD_RESTRICTION", GETPOST('MAIN_FILE_EXTENSION_UPLOAD_RESTRICTION', 'alpha'), 'chaine', 0, '', $conf->entity);
+		$res3 = onli_set_const($db, 'MAIN_UPLOAD_DOC', GETPOST('MAIN_UPLOAD_DOC', 'alpha'), 'chaine', 0, '', $conf->entity);
+		$res4 = onli_set_const($db, "MAIN_UMASK", $tmpumask, 'chaine', 0, '', $conf->entity);
+		$res5 = onli_set_const($db, "MAIN_ANTIVIRUS_COMMAND", trim($antivircommand), 'chaine', 0, '', $conf->entity);
+		$res6 = onli_set_const($db, "MAIN_ANTIVIRUS_PARAM", trim($antivirparam), 'chaine', 0, '', $conf->entity);
+		$res7 = onli_set_const($db, "MAIN_FILE_EXTENSION_UPLOAD_RESTRICTION", GETPOST('MAIN_FILE_EXTENSION_UPLOAD_RESTRICTION', 'alpha'), 'chaine', 0, '', $conf->entity);
 
-		$res8 = dolibarr_set_const($db, "MAIN_SECURITY_MAXFILESIZE_DOWNLOADED", GETPOST('MAIN_SECURITY_MAXFILESIZE_DOWNLOADED', 'alpha'), 'chaine', 0, '', $conf->entity);
+		$res8 = onli_set_const($db, "MAIN_SECURITY_MAXFILESIZE_DOWNLOADED", GETPOST('MAIN_SECURITY_MAXFILESIZE_DOWNLOADED', 'alpha'), 'chaine', 0, '', $conf->entity);
 
 		if ($res3 && $res4 && $res5 && $res6 && $res7 && $res8) {
 			setEventMessages($langs->trans("RecordModifiedSuccessfully"), null, 'mesgs');

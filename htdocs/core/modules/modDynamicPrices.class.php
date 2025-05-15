@@ -22,13 +22,13 @@
  *  \ingroup    produit
  *  \brief      Description and activation file for the module to manage dynamic prices in products
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 /**
  *  Class descriptor of DynamicPrices module
  */
-class modDynamicPrices extends DolibarrModules
+class modDynamicPrices extends OnLiModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -45,7 +45,7 @@ class modDynamicPrices extends DolibarrModules
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		$this->description = "Enable the usage of math expressions for prices";
-		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
+		// Possible values for version are: 'development', 'experimental', 'onli' or version
 		$this->version = 'experimental';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
@@ -86,7 +86,7 @@ class modDynamicPrices extends DolibarrModules
 
 	/**
 	 *  Function called when module is enabled.
-	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *  It also creates data directories.
 	 *
 	 *  @param      string  $options    Options

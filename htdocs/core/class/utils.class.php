@@ -80,7 +80,7 @@ class Utils
 	public function purgeFiles($choices = 'tempfilesold+logfiles', $nbsecondsold = 86400)
 	{
 		global $conf, $langs, $user;
-		global $dolibarr_main_data_root;
+		global $onli_main_data_root;
 
 		$langs->load("admin");
 
@@ -115,8 +115,8 @@ class Utils
 
 			if ($choice == 'tempfiles' || $choice == 'tempfilesold') {
 				// Delete temporary files
-				if ($dolibarr_main_data_root) {
-					$filesarray = dol_dir_list($dolibarr_main_data_root, "directories", 1, '^temp$', '', 'name', SORT_ASC, 2, 0, '', 1); // Do not follow symlinks
+				if ($onli_main_data_root) {
+					$filesarray = dol_dir_list($onli_main_data_root, "directories", 1, '^temp$', '', 'name', SORT_ASC, 2, 0, '', 1); // Do not follow symlinks
 
 					if ($choice == 'tempfilesold') {
 						foreach ($filesarray as $key => $val) {
@@ -130,22 +130,22 @@ class Utils
 
 			if ($choice == 'allfiles') {
 				// Delete all files (except .lock and .unlock files, do not follow symbolic links)
-				if ($dolibarr_main_data_root) {
-					$filesarray = dol_dir_list($dolibarr_main_data_root, "all", 0, '', '(\.lock|\.unlock)$', 'name', SORT_ASC, 0, 0, '', 1);	// No need to use recursive, we will delete directory
+				if ($onli_main_data_root) {
+					$filesarray = dol_dir_list($onli_main_data_root, "all", 0, '', '(\.lock|\.unlock)$', 'name', SORT_ASC, 0, 0, '', 1);	// No need to use recursive, we will delete directory
 				}
 			}
 
 			if ($choice == 'allfilesold') {
 				// Delete all files (except .lock and .unlock files, do not follow symbolic links)
-				if ($dolibarr_main_data_root) {
-					$filesarray = dol_dir_list($dolibarr_main_data_root, "files", 1, '', '(\.lock|\.unlock)$', 'name', SORT_ASC, 0, 0, '', 1, $nbsecondsold);	// No need to use recursive, we will delete directory
+				if ($onli_main_data_root) {
+					$filesarray = dol_dir_list($onli_main_data_root, "files", 1, '', '(\.lock|\.unlock)$', 'name', SORT_ASC, 0, 0, '', 1, $nbsecondsold);	// No need to use recursive, we will delete directory
 				}
 			}
 
 			if ($choice == 'logfile' || $choice == 'logfiles') {
 				// Define files log
-				if ($dolibarr_main_data_root) {
-					$filesarray = dol_dir_list($dolibarr_main_data_root, "files", 0, '.*\.log[\.0-9]*(\.gz)?$', '(\.lock|\.unlock)$', 'name', SORT_ASC, 0, 0, '', 1);
+				if ($onli_main_data_root) {
+					$filesarray = dol_dir_list($onli_main_data_root, "files", 0, '.*\.log[\.0-9]*(\.gz)?$', '(\.lock|\.unlock)$', 'name', SORT_ASC, 0, 0, '', 1);
 				}
 
 				if (isModEnabled('syslog')) {
@@ -245,9 +245,9 @@ class Utils
 	 */
 	public function dumpDatabase($compression = 'none', $type = 'auto', $usedefault = 1, $file = 'auto', $keeplastnfiles = 0, $execmethod = 0, $lowmemorydump = 0)
 	{
-		global $db, $conf, $langs, $dolibarr_main_data_root;
-		global $dolibarr_main_db_name, $dolibarr_main_db_host, $dolibarr_main_db_user, $dolibarr_main_db_port, $dolibarr_main_db_pass;
-		global $dolibarr_main_db_character_set;
+		global $db, $conf, $langs, $onli_main_data_root;
+		global $onli_main_db_name, $onli_main_db_host, $onli_main_db_user, $onli_main_db_port, $onli_main_db_pass;
+		global $onli_main_db_character_set;
 
 		$langs->load("admin");
 
@@ -285,7 +285,7 @@ class Utils
 			if (in_array($type, array('pgsql'))) {
 				$prefix = 'pg_dump';
 			}
-			$file = $prefix.'_'.$dolibarr_main_db_name.'_'.dol_sanitizeFileName(DOL_VERSION).'_'.dol_print_date(dol_now('gmt'), "dayhourlogsmall", 'tzuser').'.'.$ext;
+			$file = $prefix.'_'.$onli_main_db_name.'_'.dol_sanitizeFileName(DOL_VERSION).'_'.dol_print_date(dol_now('gmt'), "dayhourlogsmall", 'tzuser').'.'.$ext;
 		}
 
 		$outputdir = $conf->admin->dir_output.'/backup';
@@ -324,11 +324,11 @@ class Utils
 				$command = escapeshellarg($command); // If there is spaces, we add quotes on command to be sure $command is only a program and not a program+parameters
 			}
 
-			//$param=escapeshellarg($dolibarr_main_db_name)." -h ".escapeshellarg($dolibarr_main_db_host)." -u ".escapeshellarg($dolibarr_main_db_user)." -p".escapeshellarg($dolibarr_main_db_pass);
-			$param = $dolibarr_main_db_name." -h ".$dolibarr_main_db_host;
-			$param .= " -u ".$dolibarr_main_db_user;
-			if (!empty($dolibarr_main_db_port)) {
-				$param .= " -P ".$dolibarr_main_db_port." --protocol=tcp";
+			//$param=escapeshellarg($onli_main_db_name)." -h ".escapeshellarg($onli_main_db_host)." -u ".escapeshellarg($onli_main_db_user)." -p".escapeshellarg($onli_main_db_pass);
+			$param = $onli_main_db_name." -h ".$onli_main_db_host;
+			$param .= " -u ".$onli_main_db_user;
+			if (!empty($onli_main_db_port)) {
+				$param .= " -P ".$onli_main_db_port." --protocol=tcp";
 			}
 			if (GETPOST("use_transaction", "alpha")) {
 				$param .= " --single-transaction";
@@ -382,7 +382,7 @@ class Utils
 			} else {
 				$param .= " -d"; // No row information (no data)
 			}
-			if ($dolibarr_main_db_character_set == 'utf8mb4') {
+			if ($onli_main_db_character_set == 'utf8mb4') {
 				// We save output into utf8mb4 charset
 				$param .= " --default-character-set=utf8mb4 --no-tablespaces";
 			} else {
@@ -390,9 +390,9 @@ class Utils
 			}
 			$paramcrypted = $param;
 			$paramclear = $param;
-			if (!empty($dolibarr_main_db_pass)) {
-				$paramcrypted .= ' -p"'.preg_replace('/./i', '*', $dolibarr_main_db_pass).'"';
-				$paramclear .= ' -p"'.str_replace(array('"', '`', '$'), array('\"', '\`', '\$'), $dolibarr_main_db_pass).'"';
+			if (!empty($onli_main_db_pass)) {
+				$paramcrypted .= ' -p"'.preg_replace('/./i', '*', $onli_main_db_pass).'"';
+				$paramclear .= ' -p"'.str_replace(array('"', '`', '$'), array('\"', '\`', '\$'), $onli_main_db_pass).'"';
 			}
 
 			$handle = '';
@@ -633,13 +633,13 @@ class Utils
 				$command = escapeshellarg($command); // If there is spaces, we add quotes on command to be sure $command is only a program and not a program+parameters
 			}
 
-			//$param=escapeshellarg($dolibarr_main_db_name)." -h ".escapeshellarg($dolibarr_main_db_host)." -u ".escapeshellarg($dolibarr_main_db_user)." -p".escapeshellarg($dolibarr_main_db_pass);
+			//$param=escapeshellarg($onli_main_db_name)." -h ".escapeshellarg($onli_main_db_host)." -u ".escapeshellarg($onli_main_db_user)." -p".escapeshellarg($onli_main_db_pass);
 			//$param="-F c";
 			$param = "-F p";
-			$param .= " --no-tablespaces --inserts -h ".$dolibarr_main_db_host;
-			$param .= " -U ".$dolibarr_main_db_user;
-			if (!empty($dolibarr_main_db_port)) {
-				$param .= " -p ".$dolibarr_main_db_port;
+			$param .= " --no-tablespaces --inserts -h ".$onli_main_db_host;
+			$param .= " -U ".$onli_main_db_user;
+			if (!empty($onli_main_db_port)) {
+				$param .= " -p ".$onli_main_db_port;
 			}
 			if (GETPOST("sql_compat") && GETPOST("sql_compat") == 'ANSI') {
 				$param .= "  --disable-dollar-quoting";
@@ -671,13 +671,13 @@ class Utils
 			//if ($compression == 'bz')
 			$paramcrypted = $param;
 			$paramclear = $param;
-			/*if (!empty($dolibarr_main_db_pass))
+			/*if (!empty($onli_main_db_pass))
 			 {
-			 $paramcrypted.=" -W".preg_replace('/./i','*',$dolibarr_main_db_pass);
-			 $paramclear.=" -W".$dolibarr_main_db_pass;
+			 $paramcrypted.=" -W".preg_replace('/./i','*',$onli_main_db_pass);
+			 $paramclear.=" -W".$onli_main_db_pass;
 			 }*/
-			$paramcrypted .= " -w ".$dolibarr_main_db_name;
-			$paramclear .= " -w ".$dolibarr_main_db_name;
+			$paramcrypted .= " -w ".$onli_main_db_name;
+			$paramclear .= " -w ".$onli_main_db_name;
 
 			$this->output = "";
 			$this->result = array("commandbackuplastdone" => "", "commandbackuptorun" => $command." ".$paramcrypted);
@@ -1014,14 +1014,14 @@ class Utils
 
 		if (!getDolGlobalString('SYSLOG_FILE')) {
 			$mainlogdir = DOL_DATA_ROOT;
-			$mainlog = 'dolibarr.log';
+			$mainlog = 'onli.log';
 		} else {
 			$mainlogfull = str_replace('DOL_DATA_ROOT', DOL_DATA_ROOT, $conf->global->SYSLOG_FILE);
 			$mainlogdir = dirname($mainlogfull);
 			$mainlog = basename($mainlogfull);
 		}
 
-		$tabfiles = dol_dir_list(DOL_DATA_ROOT, 'files', 0, '^(dolibarr_.+|odt2pdf)\.log$'); // Also handle other log files like dolibarr_install.log
+		$tabfiles = dol_dir_list(DOL_DATA_ROOT, 'files', 0, '^(onli_.+|odt2pdf)\.log$'); // Also handle other log files like onli_install.log
 		$tabfiles[] = array('name' => $mainlog, 'path' => $mainlogdir);
 
 		foreach ($tabfiles as $file) {
@@ -1104,7 +1104,7 @@ class Utils
 	/**	Backup the db OR just a table without mysqldump binary, with PHP only (does not require any exec permission)
 	 *	Author: David Walsh (http://davidwalsh.name/backup-mysql-database-php)
 	 *	Updated and enhanced by Stephen Larroque (lrq3000) and by the many commentators from the blog
-	 *	Note about foreign keys constraints: for Dolibarr, since there are a lot of constraints and when imported the tables will be inserted in the dumped order, not in constraints order, then we ABSOLUTELY need to use SET FOREIGN_KEY_CHECKS=0; when importing the sql dump.
+	 *	Note about foreign keys constraints: for OnLi, since there are a lot of constraints and when imported the tables will be inserted in the dumped order, not in constraints order, then we ABSOLUTELY need to use SET FOREIGN_KEY_CHECKS=0; when importing the sql dump.
 	 *	Note2: db2SQL by Howard Yeend can be an alternative, by using SHOW FIELDS FROM and SHOW KEYS FROM we could generate a more precise dump (eg: by getting the type of the field and then precisely outputting the right formatting - in quotes, numeric or null - instead of trying to guess like we are doing now).
 	 *
 	 *	@param	string	$outputfile		Output file name
@@ -1148,7 +1148,7 @@ class Utils
 
 		// Print headers and global mysql config vars
 		$sqlhead = '';
-		$sqlhead .= "-- ".$db::LABEL." dump via php with Dolibarr ".DOL_VERSION."
+		$sqlhead .= "-- ".$db::LABEL." dump via php with OnLi ".DOL_VERSION."
 --
 -- Host: ".$db->db->host_info."    Database: ".$db->database_name."
 -- ------------------------------------------------------
@@ -1301,7 +1301,7 @@ class Utils
 	public function sendBackup($sendto = '', $from = '', $subject = '', $message = '', $filename = '', $filter = '', $sizelimit = 100000000)
 	{
 		global $conf, $langs;
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		$filepath = '';
 		$filesize = -1;
@@ -1362,7 +1362,7 @@ class Utils
 		if ($filepath) {
 			if ($filesize > $sizelimit) {
 				$message .= '<br>'.$langs->trans("BackupIsTooLargeSend");
-				$documenturl =  $dolibarr_main_url_root.'/document.php?modulepart=systemtools&atachement=1&file=backup/'.urlencode($filename[0]);
+				$documenturl =  $onli_main_url_root.'/document.php?modulepart=systemtools&atachement=1&file=backup/'.urlencode($filename[0]);
 				$message .= '<br><a href='.$documenturl.'>Download link</a>';
 				$filepath = '';
 				$mimetype = '';

@@ -426,9 +426,9 @@ if ($nolinesbefore) {
 		if (getDolGlobalString('MAIN_INPUT_DESC_HEIGHT')) {
 			$nbrows = getDolGlobalString('MAIN_INPUT_DESC_HEIGHT');
 		}
-		$toolbarname = 'dolibarr_details';
+		$toolbarname = 'onli_details';
 		if (getDolGlobalString('FCKEDITOR_ENABLE_DETAILS_FULL')) {
-			$toolbarname = 'dolibarr_notes';
+			$toolbarname = 'onli_notes';
 		}
 		$doleditor = new DolEditor('dp_desc', GETPOST('dp_desc', 'restricthtml'), '', getDolGlobalInt('MAIN_DOLEDITOR_HEIGHT', 100), $toolbarname, '', false, true, $enabled, $nbrows, '98%');
 		$doleditor->Create();

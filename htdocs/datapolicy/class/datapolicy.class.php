@@ -188,7 +188,7 @@ class DataPolicy
 		} else {
 			$l = $langs->defaultlang;
 		}
-		// TODO Use a dolibarr email template
+		// TODO Use a onli email template
 		$s = "DATAPOLICYSUBJECT_".$l;
 		$ma = "DATAPOLICYCONTENT_".$l;
 		$la = 'TXTLINKDATAPOLICYACCEPT_'.$l;
@@ -267,7 +267,7 @@ class DataPolicy
 		} else {
 			$l = $langs->defaultlang;
 		}
-		// TODO Use a dolibarr email template
+		// TODO Use a onli email template
 		$s = "DATAPOLICYSUBJECT_".$l;
 		$ma = "DATAPOLICYCONTENT_".$l;
 		$la = 'TXTLINKDATAPOLICYACCEPT_'.$l;
@@ -342,7 +342,7 @@ class DataPolicy
 		} else {
 			$l = $langs->defaultlang;
 		}
-		// TODO Use a dolibarr email template
+		// TODO Use a onli email template
 		$s = 'TXTLINKDATAPOLICYSUBJECT_'.$l;
 		$ma = 'TXTLINKDATAPOLICYMESSAGE_'.$l;
 		$la = 'TXTLINKDATAPOLICYACCEPT_'.$l;

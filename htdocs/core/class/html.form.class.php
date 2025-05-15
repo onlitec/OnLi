@@ -110,7 +110,7 @@ class Form
 	 * @param 	string		$preselected 	Value to show/edit (not used in this function)
 	 * @param 	object		$object 		Object (on the page we show)
 	 * @param 	int<0,1>	$perm 			Permission to allow button to edit parameter. Set it to 0 to have a not edited field.
-	 * @param 	string	 	$typeofdata 	Type of data ('string' by default, 'email', 'amount:99', 'numeric:99', 'text' or 'textarea:rows:cols', 'datepicker' ('day' do not work, don't know why), 'dayhour' or 'datehourpicker' 'checkbox:ckeditor:dolibarr_zzz:width:height:savemethod:1:rows:cols', 'select;xxx[:class]'...)
+	 * @param 	string	 	$typeofdata 	Type of data ('string' by default, 'email', 'amount:99', 'numeric:99', 'text' or 'textarea:rows:cols', 'datepicker' ('day' do not work, don't know why), 'dayhour' or 'datehourpicker' 'checkbox:ckeditor:onli_zzz:width:height:savemethod:1:rows:cols', 'select;xxx[:class]'...)
 	 * @param 	string		$moreparam		More param to add on a href URL.
 	 * @param 	int<0,1>	$fieldrequired	1 if we want to show field as mandatory using the "fieldrequired" CSS.
 	 * @param 	int<0,3>	$notabletag		1=Do not output table tags but output a ':', 2=Do not output table tags and no ':', 3=Do not output table tags but output a ' '
@@ -212,7 +212,7 @@ class Form
 	 * @param bool|int<0,1> $perm 		Permission to allow button to edit parameter
 	 * @param string		$typeofdata Type of data ('string' by default, 'checkbox', 'email', 'phone', 'amount:99', 'numeric:99',
 	 *                                  'text' or 'textarea:rows:cols%', 'safehtmlstring', 'restricthtml',
-	 *                                  'datepicker' ('day' do not work, don't know why), 'dayhour' or 'datehourpicker', 'ckeditor:dolibarr_zzz:width:height:savemethod:toolbarstartexpanded:rows:cols', 'select;xkey:xval,ykey:yval,...')
+	 *                                  'datepicker' ('day' do not work, don't know why), 'dayhour' or 'datehourpicker', 'ckeditor:onli_zzz:width:height:savemethod:toolbarstartexpanded:rows:cols', 'select;xkey:xval,ykey:yval,...')
 	 * @param ?string 	$editvalue 		When in edit mode, use this value as $value instead of value (for example, you can provide here a formatted price instead of numeric value, or a select combo). Use '' to use same than $value
 	 * @param ?CommonObject	$extObject 	External object ???
 	 * @param string|array<string,string>|null	$custommsg 		String or Array of custom messages : eg array('success' => 'MyMessage', 'error' => 'MyMessage')
@@ -321,9 +321,9 @@ class Form
 				} elseif (preg_match('/^link/', $typeofdata)) {
 					// TODO Not yet implemented. See code for extrafields
 				} elseif (preg_match('/^ckeditor/', $typeofdata)) {
-					$tmp = explode(':', $typeofdata); // Example: ckeditor:dolibarr_zzz:width:height:savemethod:toolbarstartexpanded:rows:cols:uselocalbrowser
+					$tmp = explode(':', $typeofdata); // Example: ckeditor:onli_zzz:width:height:savemethod:toolbarstartexpanded:rows:cols:uselocalbrowser
 					require_once DOL_DOCUMENT_ROOT . '/core/class/doleditor.class.php';
-					$doleditor = new DolEditor($htmlname, ($editvalue ? $editvalue : $value), (empty($tmp[2]) ? '' : $tmp[2]), (empty($tmp[3]) ? 100 : (int) $tmp[3]), (empty($tmp[1]) ? 'dolibarr_notes' : $tmp[1]), 'In', (empty($tmp[5]) ? false : (bool) $tmp[5]), (isset($tmp[8]) ? ($tmp[8] ? true : false) : true), true, (empty($tmp[6]) ? 20 : (int) $tmp[6]), (empty($tmp[7]) ? '100' : $tmp[7]));
+					$doleditor = new DolEditor($htmlname, ($editvalue ? $editvalue : $value), (empty($tmp[2]) ? '' : $tmp[2]), (empty($tmp[3]) ? 100 : (int) $tmp[3]), (empty($tmp[1]) ? 'onli_notes' : $tmp[1]), 'In', (empty($tmp[5]) ? false : (bool) $tmp[5]), (isset($tmp[8]) ? ($tmp[8] ? true : false) : true), true, (empty($tmp[6]) ? 20 : (int) $tmp[6]), (empty($tmp[7]) ? '100' : $tmp[7]));
 					$ret .= $doleditor->Create(1);
 				} elseif ($typeofdata == 'asis') {
 					$ret .= ($editvalue ? $editvalue : $value);
@@ -418,7 +418,7 @@ class Form
 	 * @param 	string			$fieldname	Name of the field
 	 * @param 	CommonObject	$object		Object
 	 * @param 	bool|int<0,1>	$perm		Permission to allow button to edit parameter. Set it to 0 to have a not edited field.
-	 * @param 	string			$typeofdata	Type of data ('string' by default, 'email', 'amount:99', 'numeric:99', 'text' or 'textarea:rows:cols', 'datepicker' ('day' do not work, don't know why), 'ckeditor:dolibarr_zzz:width:height:savemethod:1:rows:cols', 'select;xxx[:class]'...)
+	 * @param 	string			$typeofdata	Type of data ('string' by default, 'email', 'amount:99', 'numeric:99', 'text' or 'textarea:rows:cols', 'datepicker' ('day' do not work, don't know why), 'ckeditor:onli_zzz:width:height:savemethod:1:rows:cols', 'select;xxx[:class]'...)
 	 * @param 	string			$check 		Same coe than $check parameter of GETPOST()
 	 * @param 	string			$morecss 	More CSS
 	 * @return  string						HTML code for the edit of alternative language
@@ -491,7 +491,7 @@ class Form
 	 * @param 	string 	$value 		Value to show/edit
 	 * @param 	string 	$htmlname 	DIV ID (field name)
 	 * @param 	int 	$condition 	Condition to edit
-	 * @param 	string 	$inputType 	Type of input ('string', 'numeric', 'datepicker' ('day' do not work, don't know why), 'textarea:rows:cols', 'ckeditor:dolibarr_zzz:width:height:?:1:rows:cols', 'select:loadmethod:savemethod:buttononly')
+	 * @param 	string 	$inputType 	Type of input ('string', 'numeric', 'datepicker' ('day' do not work, don't know why), 'textarea:rows:cols', 'ckeditor:onli_zzz:width:height:?:1:rows:cols', 'select:loadmethod:savemethod:buttononly')
 	 * @param 	?string $editvalue 	When in edit mode, use this value as $value instead of value
 	 * @param 	?CommonObject	$extObject 	External object
 	 * @param 	string|array<string,string>|null	$custommsg 	String or Array of custom messages : eg array('success' => 'MyMessage', 'error' => 'MyMessage')
@@ -9257,7 +9257,7 @@ class Form
 		global $conf;
 		global $delayedhtmlcontent;    // Will be used later outside of this function
 
-		// TODO Use an internal dolibarr component instead of select2
+		// TODO Use an internal onli component instead of select2
 		if (!getDolGlobalString('MAIN_USE_JQUERY_MULTISELECT') && !defined('REQUIRE_JQUERY_MULTISELECT')) {
 			return '';
 		}
@@ -9362,7 +9362,7 @@ class Form
 		global $conf;
 		global $delayedhtmlcontent;    // Will be used later outside of this function
 
-		// TODO Use an internal dolibarr component instead of select2
+		// TODO Use an internal onli component instead of select2
 		if (!getDolGlobalString('MAIN_USE_JQUERY_MULTISELECT') && !defined('REQUIRE_JQUERY_MULTISELECT')) {
 			return '';
 		}
@@ -9777,7 +9777,7 @@ class Form
 				$ways = $c->print_all_ways(' &gt;&gt; ', ($nolink ? 'none' : ''), 0, 1); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 				foreach ($ways as $way) {
 					$color = $c->color;
-					$sfortag = '<li class="select2-search-choice-dolibarr noborderoncategories"' . ($color ? ' style="background: #' . $color . ';"' : ' style="background: #bbb"') . '>';
+					$sfortag = '<li class="select2-search-choice-onli noborderoncategories"' . ($color ? ' style="background: #' . $color . ';"' : ' style="background: #bbb"') . '>';
 					$sfortag .= $way;
 					$sfortag .= '</li>';
 					$toprint[] = $sfortag;
@@ -9786,7 +9786,7 @@ class Form
 			if (empty($toprint)) {
 				return '';
 			} else {
-				return '<div class="select2-container-multi-dolibarr"><ul class="select2-choices-dolibarr">' . implode(' ', $toprint) . '</ul></div>';
+				return '<div class="select2-container-multi-onli"><ul class="select2-choices-onli">' . implode(' ', $toprint) . '</ul></div>';
 			}
 		}
 

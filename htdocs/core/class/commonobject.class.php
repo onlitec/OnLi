@@ -1148,7 +1148,7 @@ abstract class CommonObject
 	 */
 	public function getLastMainDocLink($modulepart, $initsharekey = 0, $relativelink = 0)
 	{
-		global $user, $dolibarr_main_url_root;
+		global $user, $onli_main_url_root;
 
 		if (empty($this->last_main_doc)) {
 			return ''; // No way to known which document name to use
@@ -1199,7 +1199,7 @@ abstract class CommonObject
 			}
 		}
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		// This is to use external domain name found into config file
 		//if (DOL_URL_ROOT && ! preg_match('/\/$/', $urlwithouturlroot) && ! preg_match('/^\//', DOL_URL_ROOT)) $urlwithroot=$urlwithouturlroot.'/'.DOL_URL_ROOT;
 		//else
@@ -6817,7 +6817,7 @@ abstract class CommonObject
 								//var_dump('algo='.$algo.' '.$this->oldcopy->array_options[$key].' -> '.$this->array_options[$key]);
 								if (isset($this->oldcopy->array_options[$key]) && $this->array_options[$key] == $this->oldcopy->array_options[$key]) {
 									// If old value encrypted in database is same than submitted new value, it means we don't change it, so we don't update.
-									if ($algo == 'dolcrypt') {	// dolibarr reversible encryption
+									if ($algo == 'dolcrypt') {	// onli reversible encryption
 										if (!preg_match('/^dolcrypt:/', $this->array_options[$key])) {
 											$new_array_options[$key] = dolEncrypt($this->array_options[$key]);	// warning, must be called when on the master
 										} else {
@@ -6828,7 +6828,7 @@ abstract class CommonObject
 									}
 								} else {
 									// If value has changed
-									if ($algo == 'dolcrypt') {	// dolibarr reversible encryption
+									if ($algo == 'dolcrypt') {	// onli reversible encryption
 										if (!preg_match('/^dolcrypt:/', $this->array_options[$key])) {
 											$new_array_options[$key] = dolEncrypt($this->array_options[$key]);	// warning, must be called when on the master
 										} else {
@@ -6841,7 +6841,7 @@ abstract class CommonObject
 							} else {
 								//var_dump('jjj'.$algo.' '.$this->oldcopy->array_options[$key].' -> '.$this->array_options[$key]);
 								// If this->oldcopy is not defined, we can't know if we change attribute or not, so we must keep value
-								if ($algo == 'dolcrypt' && !preg_match('/^dolcrypt:/', $this->array_options[$key])) {	// dolibarr reversible encryption
+								if ($algo == 'dolcrypt' && !preg_match('/^dolcrypt:/', $this->array_options[$key])) {	// onli reversible encryption
 									$new_array_options[$key] = dolEncrypt($this->array_options[$key]);	// warning, must be called when on the master
 								} else {
 									$new_array_options[$key] = $this->array_options[$key]; // Value is kept
@@ -7277,7 +7277,7 @@ abstract class CommonObject
 							if (is_object($this->oldcopy)) {		// If this->oldcopy is not defined, we can't know if we change attribute or not, so we must keep value
 								//var_dump($this->oldcopy->array_options["options_".$key]); var_dump($this->array_options["options_".$key]);
 								if (isset($this->oldcopy->array_options["options_".$key]) && $this->array_options["options_".$key] == $this->oldcopy->array_options["options_".$key]) {	// If old value encrypted in database is same than submitted new value, it means we don't change it, so we don't update.
-									if ($algo == 'dolcrypt') {	// dolibarr reversible encryption
+									if ($algo == 'dolcrypt') {	// onli reversible encryption
 										if (!preg_match('/^dolcrypt:/', $this->array_options["options_".$key])) {
 											$new_array_options["options_".$key] = dolEncrypt($this->array_options["options_".$key]);	// warning, must be called when on the master
 										} else {
@@ -7287,7 +7287,7 @@ abstract class CommonObject
 										$new_array_options["options_".$key] = $this->array_options["options_".$key]; // Value is kept
 									}
 								} else {
-									if ($algo == 'dolcrypt') {	// dolibarr reversible encryption
+									if ($algo == 'dolcrypt') {	// onli reversible encryption
 										if (!preg_match('/^dolcrypt:/', $this->array_options["options_".$key])) {
 											$new_array_options["options_".$key] = dolEncrypt($this->array_options["options_".$key]);
 										} else {
@@ -7298,7 +7298,7 @@ abstract class CommonObject
 									}
 								}
 							} else {
-								if ($algo == 'dolcrypt' && !preg_match('/^dolcrypt:/', $this->array_options["options_".$key])) {	// dolibarr reversible encryption
+								if ($algo == 'dolcrypt' && !preg_match('/^dolcrypt:/', $this->array_options["options_".$key])) {	// onli reversible encryption
 									$new_array_options["options_".$key] = dolEncrypt($this->array_options["options_".$key]);	// warning, must be called when on the master
 								} else {
 									$new_array_options["options_".$key] = $this->array_options["options_".$key]; // Value is kept
@@ -7760,7 +7760,7 @@ abstract class CommonObject
 					$value = str_replace(',', "\n", $value);
 				}
 				require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'dolibarr_notes', 'In', false, false, false, ROWS_5, '90%');
+				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'onli_notes', 'In', false, false, false, ROWS_5, '90%');
 				$out .= (string) $doleditor->Create(1, '', true, '', '', '', $morecss);
 			} else {
 				$out = '<input type="text" class="flat '.$morecss.' maxwidthonsmartphone" name="'.$keyprefix.$key.$keysuffix.'" id="'.$keyprefix.$key.$keysuffix.'" value="'.dol_escape_htmltag($value).'" '.($moreparam ? $moreparam : '').'>';
@@ -7768,7 +7768,7 @@ abstract class CommonObject
 		} elseif (preg_match('/^html/', (string) $type)) {
 			if (!preg_match('/search_/', $keyprefix)) {		// If keyprefix is search_ or search_options_, we must just use a simple text field
 				require_once DOL_DOCUMENT_ROOT.'/core/class/doleditor.class.php';
-				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'dolibarr_notes', 'In', false, false, isModEnabled('fckeditor') && getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), ROWS_5, '90%');
+				$doleditor = new DolEditor($keyprefix.$key.$keysuffix, $value, '', 200, 'onli_notes', 'In', false, false, isModEnabled('fckeditor') && getDolGlobalInt('FCKEDITOR_ENABLE_SOCIETE'), ROWS_5, '90%');
 				$out = (string) $doleditor->Create(1, '', true, '', '', $moreparam, $morecss);
 			} else {
 				$out = '<input type="text" class="flat '.$morecss.' maxwidthonsmartphone" name="'.$keyprefix.$key.$keysuffix.'" id="'.$keyprefix.$key.$keysuffix.'" value="'.dol_escape_htmltag($value).'" '.($moreparam ? $moreparam : '').'>';
@@ -8755,9 +8755,9 @@ abstract class CommonObject
 					$c->fetch($obj->rowid);
 					$ways = $c->print_all_ways(); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 					foreach ($ways as $way) {
-						$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #aaa"') . '>' . img_object('', 'category') . ' ' . $way . '</li>';
+						$toprint[] = '<li class="select2-search-choice-onli noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #aaa"') . '>' . img_object('', 'category') . ' ' . $way . '</li>';
 					}
-					$value = '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">'.implode(' ', $toprint).'</ul></div>';
+					$value = '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">'.implode(' ', $toprint).'</ul></div>';
 				}
 			} else {
 				dol_syslog(get_class($this).'::showOutputField error '.$this->db->lasterror(), LOG_WARNING);
@@ -8771,11 +8771,11 @@ abstract class CommonObject
 				$toprint = array();
 				foreach ($value_arr as $keyval => $valueval) {
 					if (!empty($valueval)) {
-						$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">' . $param['options'][$valueval] . '</li>';
+						$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">' . $param['options'][$valueval] . '</li>';
 					}
 				}
 				if (!empty($toprint)) {
-					$value = '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">' . implode(' ', $toprint) . '</ul></div>';
+					$value = '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">' . implode(' ', $toprint) . '</ul></div>';
 				}
 			}
 		} elseif ($type == 'chkbxlst') {
@@ -8830,9 +8830,9 @@ abstract class CommonObject
 										$translabel = $langs->trans($obj->$field_toshow);
 									}
 									if ($translabel != $field_toshow) {
-										$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">' . dol_trunc($translabel, 18) . '</li>';
+										$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">' . dol_trunc($translabel, 18) . '</li>';
 									} else {
-										$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">' . $obj->$field_toshow . '</li>';
+										$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">' . $obj->$field_toshow . '</li>';
 									}
 								}
 							} else {
@@ -8841,9 +8841,9 @@ abstract class CommonObject
 									$translabel = $langs->trans($obj->{$InfoFieldList[1]});
 								}
 								if ($translabel != $obj->{$InfoFieldList[1]}) {
-									$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">' . dol_trunc($translabel, 18) . '</li>';
+									$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">' . dol_trunc($translabel, 18) . '</li>';
 								} else {
-									$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories" style="background: #bbb">' . $obj->{$InfoFieldList[1]} . '</li>';
+									$toprint[] = '<li class="select2-search-choice-onli noborderoncategories" style="background: #bbb">' . $obj->{$InfoFieldList[1]} . '</li>';
 								}
 							}
 						}
@@ -8858,12 +8858,12 @@ abstract class CommonObject
 							$c->fetch($obj->rowid);
 							$ways = $c->print_all_ways(); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 							foreach ($ways as $way) {
-								$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #aaa"') . '>' . img_object('', 'category') . ' ' . $way . '</li>';
+								$toprint[] = '<li class="select2-search-choice-onli noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #aaa"') . '>' . img_object('', 'category') . ' ' . $way . '</li>';
 							}
 						}
 					}
 				}
-				$value = '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">'.implode(' ', $toprint).'</ul></div>';
+				$value = '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">'.implode(' ', $toprint).'</ul></div>';
 			} else {
 				dol_syslog(get_class($this).'::showOutputField error '.$this->db->lasterror(), LOG_WARNING);
 			}
@@ -8896,7 +8896,7 @@ abstract class CommonObject
 					dol_include_once($InfoFieldList[1]);
 
 					if ($classname && !class_exists($classname)) {
-						// from V19 of Dolibarr, In some cases link use element instead of class, example project_task
+						// from V19 of OnLi, In some cases link use element instead of class, example project_task
 						// TODO use newObjectByElement() introduce in V20 by PR #30036 for better errors management
 						$element_prop = getElementProperties($classname);
 						if ($element_prop) {
@@ -9211,7 +9211,7 @@ abstract class CommonObject
 			if (!$validate->isFetchable((int) $fieldValue, $classname, $classpath)) {
 				$lastIsFetchableError = $validate->error;
 
-				// from V19 of Dolibarr, In some cases link use element instead of class, example project_task
+				// from V19 of OnLi, In some cases link use element instead of class, example project_task
 				if ($validate->isFetchableElement((int) $fieldValue, $classname)) {
 					return true;
 				}

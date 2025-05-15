@@ -28,7 +28,7 @@
  *      \brief      Home page of category area
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php'; // Load $user and permissions
 require_once DOL_DOCUMENT_ROOT.'/categories/class/categorie.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/treeview.lib.php';
@@ -74,7 +74,7 @@ if ($action == "SavePrinter1") {
 			$printedcategories = $printedcategories.$cat.";";
 		}
 	}
-	dolibarr_set_const($db, "TAKEPOS_PRINTED_CATEGORIES_1", $printedcategories, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "TAKEPOS_PRINTED_CATEGORIES_1", $printedcategories, 'chaine', 0, '', $conf->entity);
 }
 
 if ($action == "SavePrinter2") {
@@ -84,7 +84,7 @@ if ($action == "SavePrinter2") {
 			$printedcategories = $printedcategories.$cat.";";
 		}
 	}
-	dolibarr_set_const($db, "TAKEPOS_PRINTED_CATEGORIES_2", $printedcategories, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "TAKEPOS_PRINTED_CATEGORIES_2", $printedcategories, 'chaine', 0, '', $conf->entity);
 }
 
 if ($action == "SavePrinter3") {
@@ -94,7 +94,7 @@ if ($action == "SavePrinter3") {
 			$printedcategories = $printedcategories.$cat.";";
 		}
 	}
-	dolibarr_set_const($db, "TAKEPOS_PRINTED_CATEGORIES_3", $printedcategories, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "TAKEPOS_PRINTED_CATEGORIES_3", $printedcategories, 'chaine', 0, '', $conf->entity);
 }
 
 

@@ -21,7 +21,7 @@
  */
 
 /**
- * 	\defgroup   api     Module DolibarrApi
+ * 	\defgroup   api     Module OnLiApi
  *  \brief      API loader
  *				Search files htdocs/<module>/class/api_<module>.class.php
  *  \file       htdocs/api/index.php
@@ -128,7 +128,7 @@ if (getDolGlobalString('MAIN_NGINX_FIX')) {
 // Enable and test if module Api is enabled
 if (!isModEnabled('api')) {
 	$langs->load("admin");
-	dol_syslog("Call of Dolibarr API interfaces with module API REST are disabled");
+	dol_syslog("Call of OnLi API interfaces with module API REST are disabled");
 	print $langs->trans("WarningModuleNotActive", 'Api').'.<br><br>';
 	print $langs->trans("ToActivateModule");
 	//session_destroy();
@@ -138,7 +138,7 @@ if (!isModEnabled('api')) {
 // Test if explorer is not disabled
 if (preg_match('/api\/index\.php\/explorer/', $url) && getDolGlobalString('API_EXPLORER_DISABLED')) {
 	$langs->load("admin");
-	dol_syslog("Call Dolibarr API interfaces with module API REST disabled");
+	dol_syslog("Call OnLi API interfaces with module API REST disabled");
 	print $langs->trans("WarningAPIExplorerDisabled").'.<br><br>';
 	//session_destroy();
 	exit(0);
@@ -181,10 +181,10 @@ if (!empty($reg[1]) && $reg[1] == 'explorer' && ($reg[2] == '/swagger.json' || $
 	}
 }
 
-$api = new DolibarrApi($db, '', $refreshcache);
+$api = new OnLiApi($db, '', $refreshcache);
 //var_dump($api->r->apiVersionMap);
 
-// If MAIN_API_DEBUG is set to 1, we save logs into file "dolibarr_api.log"
+// If MAIN_API_DEBUG is set to 1, we save logs into file "onli_api.log"
 if (getDolGlobalString('MAIN_API_DEBUG')) {
 	$r = $api->r;
 	$r->onCall(function () use ($r) {
@@ -208,7 +208,7 @@ if (getDolGlobalString('MAIN_API_DEBUG')) {
 $api->r->addAPIClass('Luracast\\Restler\\Explorer');
 
 $api->r->setSupportedFormats('JsonFormat', 'XmlFormat', 'UploadFormat'); // 'YamlFormat'
-$api->r->addAuthenticationClass('DolibarrApiAccess', '');
+$api->r->addAuthenticationClass('OnLiApiAccess', '');
 
 // Define accepted mime types
 UploadFormat::$allowedMimeTypes = array('image/jpeg', 'image/png', 'text/plain', 'application/octet-stream');
@@ -465,7 +465,7 @@ if (Luracast\Restler\Defaults::$returnResponse) {
 if (getDolGlobalInt("API_ENABLE_COUNT_CALLS") && $api->r->responseCode == 200) {
 	$error = 0;
 	$db->begin();
-	$userid = DolibarrApiAccess::$user->id;
+	$userid = OnLiApiAccess::$user->id;
 
 	$sql = "SELECT up.value";
 	$sql .= " FROM ".MAIN_DB_PREFIX."user_param as up";

@@ -106,8 +106,8 @@ if ($action == 'uploadfile') {	// Test on permission not required here. Done lat
 
 $form = new Form($db);
 
-// Important: Following code is to avoid page request by browser and PHP CPU at each Dolibarr page access.
-if (empty($dolibarr_nocache) && GETPOSTINT('cache')) {
+// Important: Following code is to avoid page request by browser and PHP CPU at each OnLi page access.
+if (empty($onli_nocache) && GETPOSTINT('cache')) {
 	header('Cache-Control: max-age='.GETPOSTINT('cache').', public');
 	// For a .php, we must set an Expires to avoid to have it forced to an expired value by the web server
 	header('Expires: '.gmdate('D, d M Y H:i:s', dol_now('gmt') + GETPOSTINT('cache')).' GMT');
@@ -121,7 +121,7 @@ if (empty($dolibarr_nocache) && GETPOSTINT('cache')) {
 $title = $langs->trans("UploadFile");
 $help_url = '';
 
-// URL http://mydolibarr/core/search_page?dol_use_jmobile=1 can be used for tests
+// URL http://myonli/core/search_page?dol_use_jmobile=1 can be used for tests
 $head = '<!-- Upload file -->'."\n";	// This is used by DoliDroid to know page is a search page
 $arrayofjs = array();
 $arrayofcss = array();

@@ -22,7 +22,7 @@
  *	\brief      Print QR Menu
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

@@ -74,7 +74,7 @@ class ConferenceOrBooth extends ActionComm
 	 *  	'date', 'datetime', 'timestamp', 'duration',
 	 *  	'boolean', 'checkbox', 'radio', 'array',
 	 *  	'mail', 'phone', 'url', 'password', 'ip'
-	 *		Note: Filter must be a Dolibarr Universal Filter syntax string. Example: "(t.ref:like:'SO-%') or (t.date_creation:<:'20160101') or (t.status:!=:0) or (t.nature:is:NULL)"
+	 *		Note: Filter must be a OnLi Universal Filter syntax string. Example: "(t.ref:like:'SO-%') or (t.date_creation:<:'20160101') or (t.status:!=:0) or (t.nature:is:NULL)"
 	 *  'label' the translation key.
 	 *  'picto' is code of a picto to show before value in forms
 	 *  'enabled' is a condition when the field must be managed (Example: 1 or 'getDolGlobalString("MY_SETUP_PARAM")'
@@ -285,11 +285,11 @@ class ConferenceOrBooth extends ActionComm
 	 */
 	public function fetch($id, $ref = null, $ref_ext = '', $email_msgid = '', $loadresources = 1)
 	{
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		$result = parent::fetch($id, $ref, $ref_ext, $email_msgid);
 
-		$link_subscription = $dolibarr_main_url_root.'/public/eventorganization/attendee_new.php?id='.urlencode((string) ($id)).'&type=conf';
+		$link_subscription = $onli_main_url_root.'/public/eventorganization/attendee_new.php?id='.urlencode((string) ($id)).'&type=conf';
 
 		$encodedsecurekey = dol_hash(getDolGlobalString('EVENTORGANIZATION_SECUREKEY').'conferenceorbooth'.((int) $id), 'md5');
 		$link_subscription .= '&securekey='.urlencode($encodedsecurekey);
@@ -855,7 +855,7 @@ class ConferenceOrBooth extends ActionComm
 	{
 		global $conf, $langs;
 
-		//$conf->global->SYSLOG_FILE = 'DOL_DATA_ROOT/dolibarr_mydedicatedlofile.log';
+		//$conf->global->SYSLOG_FILE = 'DOL_DATA_ROOT/onli_mydedicatedlofile.log';
 
 		$error = 0;
 		$this->output = '';

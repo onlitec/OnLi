@@ -25,13 +25,13 @@
 
 /**
  *	\file       htdocs/core/db/mysqli.class.php
- *	\brief      Class file to manage Dolibarr database access for a MySQL database
+ *	\brief      Class file to manage OnLi database access for a MySQL database
  */
 
 require_once DOL_DOCUMENT_ROOT.'/core/db/DoliDB.class.php';
 
 /**
- *	Class to manage Dolibarr database access for a MySQL database using the MySQLi extension
+ *	Class to manage OnLi database access for a MySQL database using the MySQLi extension
  */
 class DoliDBMysqli extends DoliDB
 {
@@ -67,8 +67,8 @@ class DoliDBMysqli extends DoliDB
 		if (!empty($conf->db->character_set)) {
 			$this->forcecharset = $conf->db->character_set;
 		}
-		if (!empty($conf->db->dolibarr_main_db_collation)) {
-			$this->forcecollate = $conf->db->dolibarr_main_db_collation;
+		if (!empty($conf->db->onli_main_db_collation)) {
+			$this->forcecollate = $conf->db->onli_main_db_collation;
 		}
 
 		$this->database_user = $user;
@@ -124,7 +124,7 @@ class DoliDBMysqli extends DoliDB
 
 				if (empty($disableforcecharset) && $this->db->character_set_name() != $clientmustbe) {
 					try {
-						dol_syslog(get_class($this)."::DoliDBMysqli You should set the \$dolibarr_main_db_character_set and \$dolibarr_main_db_collation for the PHP to the same as the database default, so to ".$this->db->character_set_name(). " or upgrade database default to ".$clientmustbe.".", LOG_WARNING);
+						dol_syslog(get_class($this)."::DoliDBMysqli You should set the \$onli_main_db_character_set and \$onli_main_db_collation for the PHP to the same as the database default, so to ".$this->db->character_set_name(). " or upgrade database default to ".$clientmustbe.".", LOG_WARNING);
 						// To get current charset:   USE databasename; SHOW VARIABLES LIKE 'character_set_database'
 						//                     or:   USE databasename; SELECT schema_name, default_character_set_name FROM information_schema.SCHEMATA;
 						// To get current collation: USE databasename; SHOW VARIABLES LIKE 'collation_database'
@@ -146,7 +146,7 @@ class DoliDBMysqli extends DoliDB
 						exit;
 					}
 
-					$collation = (empty($conf) ? 'utf8_unicode_ci' : $conf->db->dolibarr_main_db_collation);
+					$collation = (empty($conf) ? 'utf8_unicode_ci' : $conf->db->onli_main_db_collation);
 					if (preg_match('/latin1/', $collation)) {
 						$collation = 'utf8_unicode_ci';
 					}
@@ -179,7 +179,7 @@ class DoliDBMysqli extends DoliDB
 				if (empty($disableforcecharset) && $this->db->character_set_name() != $clientmustbe) {
 					$this->db->set_charset($clientmustbe); // This set utf8_unicode_ci
 
-					$collation = $conf->db->dolibarr_main_db_collation;
+					$collation = $conf->db->onli_main_db_collation;
 					if (preg_match('/latin1/', $collation)) {
 						$collation = 'utf8_unicode_ci';
 					}
@@ -330,7 +330,7 @@ class DoliDBMysqli extends DoliDB
 	 */
 	public function query($query, $usesavepoint = 0, $type = 'auto', $result_mode = 0)
 	{
-		global $dolibarr_main_db_readonly;
+		global $onli_main_db_readonly;
 
 		$query = trim($query);
 
@@ -342,7 +342,7 @@ class DoliDBMysqli extends DoliDB
 			return false; // Return false = error if empty request
 		}
 
-		if (!empty($dolibarr_main_db_readonly)) {
+		if (!empty($onli_main_db_readonly)) {
 			if (preg_match('/^(INSERT|UPDATE|REPLACE|DELETE|CREATE|ALTER|TRUNCATE|DROP)/i', $query)) {
 				$this->lasterror = 'Application in read-only mode';
 				$this->lasterrno = 'APPREADONLY';
@@ -543,7 +543,7 @@ class DoliDBMysqli extends DoliDB
 			// Si il y a eu echec de connection, $this->db n'est pas valide.
 			return 'DB_ERROR_FAILED_TO_CONNECT';
 		} else {
-			// Constants to convert a MySql error code to a generic Dolibarr error code
+			// Constants to convert a MySql error code to a generic OnLi error code
 			$errorcode_map = array(
 				1004 => 'DB_ERROR_CANNOT_CREATE',
 				1005 => 'DB_ERROR_CANNOT_CREATE',
@@ -626,10 +626,10 @@ class DoliDBMysqli extends DoliDB
 		global $conf;
 
 		// Type of encryption (2: AES (recommended), 1: DES , 0: no encryption)
-		$cryptType = (!empty($conf->db->dolibarr_main_db_encryption) ? $conf->db->dolibarr_main_db_encryption : 0);
+		$cryptType = (!empty($conf->db->onli_main_db_encryption) ? $conf->db->onli_main_db_encryption : 0);
 
 		//Encryption key
-		$cryptKey = (!empty($conf->db->dolibarr_main_db_cryptkey) ? $conf->db->dolibarr_main_db_cryptkey : '');
+		$cryptKey = (!empty($conf->db->onli_main_db_cryptkey) ? $conf->db->onli_main_db_cryptkey : '');
 
 		$escapedstringwithquotes = ($withQuotes ? "'" : "").$this->escape($fieldorvalue).($withQuotes ? "'" : "");
 
@@ -655,10 +655,10 @@ class DoliDBMysqli extends DoliDB
 		global $conf;
 
 		// Type of encryption (2: AES (recommended), 1: DES , 0: no encryption)
-		$cryptType = (!empty($conf->db->dolibarr_main_db_encryption) ? $conf->db->dolibarr_main_db_encryption : 0);
+		$cryptType = (!empty($conf->db->onli_main_db_encryption) ? $conf->db->onli_main_db_encryption : 0);
 
 		//Encryption key
-		$cryptKey = (!empty($conf->db->dolibarr_main_db_cryptkey) ? $conf->db->dolibarr_main_db_cryptkey : '');
+		$cryptKey = (!empty($conf->db->onli_main_db_cryptkey) ? $conf->db->onli_main_db_cryptkey : '');
 
 		$return = $value;
 
@@ -714,7 +714,7 @@ class DoliDBMysqli extends DoliDB
 			$collation = $this->forcecollate;
 		}
 
-		// ALTER DATABASE dolibarr_db DEFAULT CHARACTER SET latin DEFAULT COLLATE latin1_swedish_ci
+		// ALTER DATABASE onli_db DEFAULT CHARACTER SET latin DEFAULT COLLATE latin1_swedish_ci
 		$sql = "CREATE DATABASE `".$this->escape($database)."`";
 		$sql .= " DEFAULT CHARACTER SET `".$this->escape($charset)."` DEFAULT COLLATE `".$this->escape($collation)."`";
 
@@ -1081,16 +1081,16 @@ class DoliDBMysqli extends DoliDB
 	/**
 	 * 	Create a user and privileges to connect to database (even if database does not exists yet)
 	 *
-	 *	@param	string	$dolibarr_main_db_host 		Ip server or '%'
-	 *	@param	string	$dolibarr_main_db_user 		Nom new user
-	 *	@param	string	$dolibarr_main_db_pass 		Password for the new user
-	 *	@param	string	$dolibarr_main_db_name		Database name where user must be granted
+	 *	@param	string	$onli_main_db_host 		Ip server or '%'
+	 *	@param	string	$onli_main_db_user 		Nom new user
+	 *	@param	string	$onli_main_db_pass 		Password for the new user
+	 *	@param	string	$onli_main_db_name		Database name where user must be granted
 	 *	@return	int									Return integer <0 if KO, >=0 if OK
 	 */
-	public function DDLCreateUser($dolibarr_main_db_host, $dolibarr_main_db_user, $dolibarr_main_db_pass, $dolibarr_main_db_name)
+	public function DDLCreateUser($onli_main_db_host, $onli_main_db_user, $onli_main_db_pass, $onli_main_db_name)
 	{
 		// phpcs:enable
-		$sql = "CREATE USER '".$this->escape($dolibarr_main_db_user)."' IDENTIFIED BY '".$this->escape($dolibarr_main_db_pass)."'";
+		$sql = "CREATE USER '".$this->escape($onli_main_db_user)."' IDENTIFIED BY '".$this->escape($onli_main_db_pass)."'";
 		dol_syslog(get_class($this)."::DDLCreateUser", LOG_DEBUG); // No sql to avoid password in log
 		$resql = $this->query($sql);
 		if (!$resql) {
@@ -1103,14 +1103,14 @@ class DoliDBMysqli extends DoliDB
 		}
 
 		// Redo with localhost forced (sometimes user is created on %)
-		$sql = "CREATE USER '".$this->escape($dolibarr_main_db_user)."'@'localhost' IDENTIFIED BY '".$this->escape($dolibarr_main_db_pass)."'";
+		$sql = "CREATE USER '".$this->escape($onli_main_db_user)."'@'localhost' IDENTIFIED BY '".$this->escape($onli_main_db_pass)."'";
 		$resql = $this->query($sql);
 
-		$sql = "GRANT ALL PRIVILEGES ON ".$this->escape($dolibarr_main_db_name).".* TO '".$this->escape($dolibarr_main_db_user)."'@'".$this->escape($dolibarr_main_db_host)."'";
+		$sql = "GRANT ALL PRIVILEGES ON ".$this->escape($onli_main_db_name).".* TO '".$this->escape($onli_main_db_user)."'@'".$this->escape($onli_main_db_host)."'";
 		dol_syslog(get_class($this)."::DDLCreateUser", LOG_DEBUG); // No sql to avoid password in log
 		$resql = $this->query($sql);
 		if (!$resql) {
-			$this->error = "Connected user not allowed to GRANT ALL PRIVILEGES ON ".$this->escape($dolibarr_main_db_name).".* TO '".$this->escape($dolibarr_main_db_user)."'@'".$this->escape($dolibarr_main_db_host)."'";
+			$this->error = "Connected user not allowed to GRANT ALL PRIVILEGES ON ".$this->escape($onli_main_db_name).".* TO '".$this->escape($onli_main_db_user)."'@'".$this->escape($onli_main_db_host)."'";
 			return -1;
 		}
 

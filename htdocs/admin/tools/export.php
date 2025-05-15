@@ -25,7 +25,7 @@
  *		\brief      Page to export a database into a dump file
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -39,7 +39,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string	$dolibarr_main_restrict_os_commands
+ * @var string	$onli_main_restrict_os_commands
  */
 
 $langs->load("admin");
@@ -79,8 +79,8 @@ $utils = new Utils($db);
  */
 
 if ($file && !$what) {
-	//print DOL_URL_ROOT.'/dolibarr_export.php';
-	header("Location: ".DOL_URL_ROOT.'/admin/tools/dolibarr_export.php?msg='.urlencode($langs->trans("ErrorFieldRequired", $langs->transnoentities("ExportMethod"))).(GETPOSTINT('page_y') ? '&page_y='.GETPOSTINT('page_y') : ''));
+	//print DOL_URL_ROOT.'/onli_export.php';
+	header("Location: ".DOL_URL_ROOT.'/admin/tools/onli_export.php?msg='.urlencode($langs->trans("ErrorFieldRequired", $langs->transnoentities("ExportMethod"))).(GETPOSTINT('page_y') ? '&page_y='.GETPOSTINT('page_y') : ''));
 	exit;
 }
 
@@ -140,10 +140,10 @@ if ($what == 'mysql') {
 		}
 	}
 
-	if (!empty($dolibarr_main_restrict_os_commands)) {
-		$arrayofallowedcommand = explode(',', $dolibarr_main_restrict_os_commands);
+	if (!empty($onli_main_restrict_os_commands)) {
+		$arrayofallowedcommand = explode(',', $onli_main_restrict_os_commands);
 		$arrayofallowedcommand = array_map('trim', $arrayofallowedcommand);
-		dol_syslog("Command are restricted to ".$dolibarr_main_restrict_os_commands.". We check that one of this command is inside ".$cmddump);
+		dol_syslog("Command are restricted to ".$onli_main_restrict_os_commands.". We check that one of this command is inside ".$cmddump);
 		if (!in_array($basenamecmddump, $arrayofallowedcommand)) {	// the provided command $cmddump must be an allowed command
 			$langs->load("errors");
 			$errormsg = $langs->trans('CommandIsNotInsideAllowedCommands');
@@ -152,7 +152,7 @@ if ($what == 'mysql') {
 	}
 
 	if (!$errormsg && $cmddump) {
-		dolibarr_set_const($db, 'SYSTEMTOOLS_MYSQLDUMP', $cmddump, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'SYSTEMTOOLS_MYSQLDUMP', $cmddump, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!$errormsg) {
@@ -179,11 +179,11 @@ if ($what == 'postgresql') {
 	$cmddump = dol_sanitizePathName($cmddump);
 
 	/* Not required, the command is output on screen but not ran for pgsql
-	if (!empty($dolibarr_main_restrict_os_commands))
+	if (!empty($onli_main_restrict_os_commands))
 	{
-		$arrayofallowedcommand=explode(',', $dolibarr_main_restrict_os_commands);
+		$arrayofallowedcommand=explode(',', $onli_main_restrict_os_commands);
 		$arrayofallowedcommand = array_map('trim', $arrayofallowedcommand);
-		dol_syslog("Command are restricted to ".$dolibarr_main_restrict_os_commands.". We check that one of this command is inside ".$cmddump);
+		dol_syslog("Command are restricted to ".$onli_main_restrict_os_commands.". We check that one of this command is inside ".$cmddump);
 		$basenamecmddump = basename(str_replace('\\', '/', $cmddump));
 		if (! in_array($basenamecmddump, $arrayofallowedcommand))	// the provided command $cmddump must be an allowed command
 		{
@@ -192,7 +192,7 @@ if ($what == 'postgresql') {
 	} */
 
 	if (!$errormsg && $cmddump) {
-		dolibarr_set_const($db, 'SYSTEMTOOLS_POSTGRESQLDUMP', $cmddump, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'SYSTEMTOOLS_POSTGRESQLDUMP', $cmddump, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!$errormsg) {
@@ -226,7 +226,7 @@ if ($errormsg) {
 	}
 	/*else
 	{
-		setEventMessages($langs->trans("YouMustRunCommandFromCommandLineAfterLoginToUser",$dolibarr_main_db_user,$dolibarr_main_db_user), null, 'warnings');
+		setEventMessages($langs->trans("YouMustRunCommandFromCommandLineAfterLoginToUser",$onli_main_db_user,$onli_main_db_user), null, 'warnings');
 	}*/
 }
 
@@ -241,5 +241,5 @@ top_httphead();
 $db->close();
 
 // Redirect to backup page
-header("Location: dolibarr_export.php".(GETPOSTINT('page_y') ? '?page_y='.GETPOSTINT('page_y') : ''));
+header("Location: onli_export.php".(GETPOSTINT('page_y') ? '?page_y='.GETPOSTINT('page_y') : ''));
 exit();

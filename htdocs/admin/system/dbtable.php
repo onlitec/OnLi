@@ -26,7 +26,7 @@
  *  \brief          Page with information about a database table
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 /**

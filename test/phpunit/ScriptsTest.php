@@ -125,7 +125,7 @@ class ScriptsTest extends CommonClassTest
 		$db = $this->savdb;
 
 		/*
-		$script=dirname(__FILE__).'/../../scripts/company/sync_contacts_dolibarr_2ldap now';
+		$script=dirname(__FILE__).'/../../scripts/company/sync_contacts_onli_2ldap now';
 		$result=exec($script, $output, $returnvar);
 
 		print __METHOD__." result=".$result."\n";

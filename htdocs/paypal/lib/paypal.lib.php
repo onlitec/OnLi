@@ -264,10 +264,10 @@ function callSetExpressCheckout($paymentAmount, $currencyCodeType, $paymentType,
 	}
 
 	if (getDolGlobalString('PAYPAL_LOGOIMG') && $mysoc->logo) {
-		global $dolibarr_main_url_root;
+		global $onli_main_url_root;
 
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 		$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -492,8 +492,8 @@ function hash_call($methodName, $nvpStr)
 
 	// Turning on or off the ssl target certificate
 	if ($ssl_verifypeer < 0) {
-		global $dolibarr_main_prod;
-		$ssl_verifypeer =  ($dolibarr_main_prod ? true : false);
+		global $onli_main_prod;
+		$ssl_verifypeer =  ($onli_main_prod ? true : false);
 	}
 	if (getDolGlobalString('MAIN_CURL_DISABLE_VERIFYPEER')) {
 		$ssl_verifypeer = 0;

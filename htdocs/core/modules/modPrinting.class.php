@@ -25,14 +25,14 @@
  *  \ingroup    printing
  *  \brief      Description and activation file for the module Direct Printing
  */
-include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT.'/core/modules/OnLiModules.class.php';
 
 
 
 /**
  *  Class to describe and activate module Direct Printing
  */
-class modPrinting extends DolibarrModules
+class modPrinting extends OnLiModules
 {
 	/**
 	 *  Constructor
@@ -51,7 +51,7 @@ class modPrinting extends DolibarrModules
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Enable Direct Printing System.";
-		$this->version = 'dolibarr'; // 'development' or 'experimental' or 'dolibarr' or version
+		$this->version = 'onli'; // 'development' or 'experimental' or 'onli' or version
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
@@ -70,7 +70,7 @@ class modPrinting extends DolibarrModules
 		$this->requiredby = array(); // List of module ids to disable if this one is disabled
 		$this->conflictwith = array(); // List of module class names as string this module is in conflict with
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(3, 7, -2); // Minimum version of Dolibarr required by module
+		$this->need_onli_version = array(3, 7, -2); // Minimum version of OnLi required by module
 		$this->conflictwith = array();
 		$this->langfiles = array("printing");
 

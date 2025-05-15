@@ -38,12 +38,12 @@
 function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 {
 	global $db, $conf, $langs;
-	global $dolibarr_main_auth_ldap_host, $dolibarr_main_auth_ldap_port;
-	global $dolibarr_main_auth_ldap_version, $dolibarr_main_auth_ldap_servertype;
-	global $dolibarr_main_auth_ldap_login_attribute, $dolibarr_main_auth_ldap_dn;
-	global $dolibarr_main_auth_ldap_admin_login, $dolibarr_main_auth_ldap_admin_pass;
-	global $dolibarr_main_auth_ldap_filter;
-	global $dolibarr_main_auth_ldap_debug;
+	global $onli_main_auth_ldap_host, $onli_main_auth_ldap_port;
+	global $onli_main_auth_ldap_version, $onli_main_auth_ldap_servertype;
+	global $onli_main_auth_ldap_login_attribute, $onli_main_auth_ldap_dn;
+	global $onli_main_auth_ldap_admin_login, $onli_main_auth_ldap_admin_pass;
+	global $onli_main_auth_ldap_filter;
+	global $onli_main_auth_ldap_debug;
 
 	// Force master entity in transversal mode
 	$entity = $entitytotest;
@@ -69,16 +69,16 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 		dol_syslog("functions_ldap::check_user_password_ldap usertotest=".$usertotest." passwordtotest=".preg_replace('/./', '*', $passwordtotest)." entitytotest=".$entitytotest);
 
 		// If test username/password asked, we define $test=false and $login var if ok, set $_SESSION["dol_loginmesg"] if ko
-		$ldaphost = $dolibarr_main_auth_ldap_host;
-		$ldapport = $dolibarr_main_auth_ldap_port;
-		$ldapversion = $dolibarr_main_auth_ldap_version;
-		$ldapservertype = (empty($dolibarr_main_auth_ldap_servertype) ? 'openldap' : $dolibarr_main_auth_ldap_servertype);
+		$ldaphost = $onli_main_auth_ldap_host;
+		$ldapport = $onli_main_auth_ldap_port;
+		$ldapversion = $onli_main_auth_ldap_version;
+		$ldapservertype = (empty($onli_main_auth_ldap_servertype) ? 'openldap' : $onli_main_auth_ldap_servertype);
 
-		$ldapuserattr = $dolibarr_main_auth_ldap_login_attribute;
-		$ldapdn = $dolibarr_main_auth_ldap_dn;
-		$ldapadminlogin = $dolibarr_main_auth_ldap_admin_login;
-		$ldapadminpass = $dolibarr_main_auth_ldap_admin_pass;
-		$ldapdebug = !(empty($dolibarr_main_auth_ldap_debug) || $dolibarr_main_auth_ldap_debug == "false");
+		$ldapuserattr = $onli_main_auth_ldap_login_attribute;
+		$ldapdn = $onli_main_auth_ldap_dn;
+		$ldapadminlogin = $onli_main_auth_ldap_admin_login;
+		$ldapadminpass = $onli_main_auth_ldap_admin_pass;
+		$ldapdebug = !(empty($onli_main_auth_ldap_debug) || $onli_main_auth_ldap_debug == "false");
 
 		if ($ldapdebug) {
 			print "DEBUG: Logging LDAP steps<br>\n";
@@ -104,16 +104,16 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 
 		// Define $userSearchFilter
 		$userSearchFilter = "";
-		if (empty($dolibarr_main_auth_ldap_filter)) {
+		if (empty($onli_main_auth_ldap_filter)) {
 			$userSearchFilter = "(".$ldapuserattr."=".$usertotest.")";
 		} else {
 			// @phan-suppress-next-line PhanPluginSuspiciousParamOrderInternal
-			$userSearchFilter = str_replace('%1%', $usertotest, $dolibarr_main_auth_ldap_filter);
+			$userSearchFilter = str_replace('%1%', $usertotest, $onli_main_auth_ldap_filter);
 		}
 
 		// If admin login or ldap auth filter provided
 		// Code to get user in LDAP from an admin connection (may differ from user connection, done later)
-		if ($ldapadminlogin || $dolibarr_main_auth_ldap_filter) {
+		if ($ldapadminlogin || $onli_main_auth_ldap_filter) {
 			$result = $ldap->connectBind();
 			if ($result > 0) {
 				$resultFetchLdapUser = $ldap->fetch($usertotest, $userSearchFilter);
@@ -166,9 +166,9 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 
 				// Note: Test on date validity is done later natively with isNotIntoValidityDateRange() by core after calling checkLoginPassEntity() that call this method
 
-				// ldap2dolibarr synchronisation
-				if ($login && isModEnabled('ldap') && getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {	// ldap2dolibarr synchronization
-					dol_syslog("functions_ldap::check_user_password_ldap Sync ldap2dolibarr");
+				// ldap2onli synchronisation
+				if ($login && isModEnabled('ldap') && getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {	// ldap2onli synchronization
+					dol_syslog("functions_ldap::check_user_password_ldap Sync ldap2onli");
 
 					// On charge les attributes du user ldap
 					if ($ldapdebug) {
@@ -186,7 +186,7 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 						print "DEBUG: badPasswordTime = ".dol_print_date($ldap->badpwdtime, 'day')."<br>\n";
 					}
 
-					// On recherche le user dolibarr en fonction de son SID ldap (only for Active Directory)
+					// On recherche le user onli en fonction de son SID ldap (only for Active Directory)
 					$sid = null;
 					if (getDolGlobalString('LDAP_SERVER_TYPE') == "activedirectory") {
 						$sid = $ldap->getObjectSid($login);
@@ -199,7 +199,7 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 					$resultFetchUser = $usertmp->fetch(0, $login, (string) $sid, 1, ($entitytotest > 0 ? $entitytotest : -1));
 					if ($resultFetchUser > 0) {
 						dol_syslog("functions_ldap::check_user_password_ldap Sync user found user id=".$usertmp->id);
-						// Verify if the login changed and update the Dolibarr attributes
+						// Verify if the login changed and update the OnLi attributes
 
 						if ($usertmp->login != $ldap->login && $ldap->login) {
 							$usertmp->login = $ldap->login;
@@ -207,7 +207,7 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 							// TODO What to do if the update fails because the login already exists for another account.
 						}
 
-						//$resultUpdate = $usertmp->update_ldap2dolibarr($ldap);
+						//$resultUpdate = $usertmp->update_ldap2onli($ldap);
 					}
 
 					unset($usertmp);

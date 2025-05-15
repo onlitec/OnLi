@@ -75,8 +75,8 @@ class pdf_octopus extends ModelePDFFactures
 	public $type;
 
 	/**
-	 * Dolibarr version of the loaded document
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental'
+	 * OnLi version of the loaded document
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental'
 	 */
 	public $version = 'disabled';	// Disabled by default. Enabled in constructor if option INVOICE_USE_SITUATION is 2.
 
@@ -187,7 +187,7 @@ class pdf_octopus extends ModelePDFFactures
 
 		// If hidden option INVOICE_USE_SITUATION is set to 2, we can show the invoice situation template
 		if (getDolGlobalString('INVOICE_USE_SITUATION') == 2) {
-			$this->version = 'dolibarr';
+			$this->version = 'onli';
 		}
 
 		// Translations
@@ -450,7 +450,7 @@ class pdf_octopus extends ModelePDFFactures
 
 				$pdf->SetTitle($outputlangs->convToOutputCharset($object->ref));
 				$pdf->SetSubject($outputlangs->transnoentities("PdfInvoiceSituationTitle"));
-				$pdf->SetCreator("Dolibarr ".DOL_VERSION);
+				$pdf->SetCreator("OnLi ".DOL_VERSION);
 				$pdf->SetAuthor($mysoc->name.($user->id > 0 ? ' - '.$outputlangs->convToOutputCharset($user->getFullName($outputlangs)) : ''));
 				$pdf->SetKeyWords($outputlangs->convToOutputCharset($object->ref)." ".$outputlangs->transnoentities("PdfInvoiceTitle")." ".$outputlangs->convToOutputCharset($object->thirdparty->name));
 				if (getDolGlobalString('MAIN_DISABLE_PDF_COMPRESSION')) {
@@ -3376,7 +3376,7 @@ class pdf_octopus extends ModelePDFFactures
 		$object = new Facture($db);
 		$object->fetch($id);
 
-		/* from dolibarr core
+		/* from onli core
 		* Fetch previous and next situations invoices.
 		* Return all previous and next invoices (both standard and credit notes).
 		*/

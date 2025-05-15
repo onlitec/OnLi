@@ -68,7 +68,7 @@ class Documentation
 	{
 		$this->db = $db;
 
-		// https://www.figma.com/community/file/1393171578760389765/dolibarr-ui-ux-kit
+		// https://www.figma.com/community/file/1393171578760389765/onli-ui-ux-kit
 
 		// Menu Constructor
 		$this->setMenu();
@@ -85,8 +85,8 @@ class Documentation
 
 		$hookmanager->initHooks(array('uidocumentation'));
 
-		// Go back to Dolibarr
-		$this->menu['BackToDolibarr'] = array(
+		// Go back to OnLi
+		$this->menu['BackToOnLi'] = array(
 			'url' => DOL_URL_ROOT,
 			'icon' => 'fas fa-arrow-left',
 			'submenu' => array(),
@@ -275,7 +275,7 @@ class Documentation
 
 		top_htmlhead('',  $title, 0, 0, $arrayofjs, $arrayofcss);
 
-		print '<body class="dolibarr-doc">';
+		print '<body class="onli-doc">';
 	}
 
 	/**
@@ -312,8 +312,8 @@ class Documentation
 
 		// LOGO
 		print '<div class="sidebar-logo">';
-		if (is_readable(DOL_DOCUMENT_ROOT.'/theme/dolibarr_logo.svg')) {
-			$urllogo = DOL_URL_ROOT.'/theme/dolibarr_logo.svg';
+		if (is_readable(DOL_DOCUMENT_ROOT.'/theme/onli_logo.svg')) {
+			$urllogo = DOL_URL_ROOT.'/theme/onli_logo.svg';
 			print '<img src="'.$urllogo.'" />';
 		}
 		print '</div>';
@@ -344,7 +344,7 @@ class Documentation
 		foreach ($menu as $key => $item) {
 			$levelclass = (!empty($item['submenu'])) ? 'li-withsubmenu' : '';
 			$levelclass .= (in_array($key, $this->view)) ? ' active' : '';
-			$levelclass .= ($key == 'BackToDolibarr') ? ' li-withseparator' : '';
+			$levelclass .= ($key == 'BackToOnLi') ? ' li-withseparator' : '';
 
 			print '<li class="'.trim($levelclass).' level-'.$level.'">';
 			print '<a href="'.$item['url'].'" class="'.((!empty($item['submenu'])) ? 'link-withsubmenu' : '').'">';

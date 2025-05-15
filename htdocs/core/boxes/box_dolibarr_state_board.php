@@ -21,9 +21,9 @@
  */
 
 /**
- *	\file       htdocs/core/boxes/box_dolibarr_state_board.php
+ *	\file       htdocs/core/boxes/box_onli_state_board.php
  *	\ingroup	core
- *	\brief      Module Dolibarr state base
+ *	\brief      Module OnLi state base
  */
 
 include_once DOL_DOCUMENT_ROOT . '/core/boxes/modules_boxes.php';
@@ -32,11 +32,11 @@ include_once DOL_DOCUMENT_ROOT . '/core/boxes/modules_boxes.php';
 /**
  * Class to manage the box to show last thirdparties
  */
-class box_dolibarr_state_board extends ModeleBoxes
+class box_onli_state_board extends ModeleBoxes
 {
-	public $boxcode = "dolibarrstatebox";
+	public $boxcode = "onlistatebox";
 	public $boximg = "generic";
-	public $boxlabel = "BoxDolibarrStateBoard";
+	public $boxlabel = "BoxOnLiStateBoard";
 	public $depends = array("user");
 
 	public $enabled = 1;
@@ -64,7 +64,7 @@ class box_dolibarr_state_board extends ModeleBoxes
 		$langs->load("boxes");
 
 		$this->max = $max;
-		$this->info_box_head = array('text' => $langs->trans("DolibarrStateBoard"));
+		$this->info_box_head = array('text' => $langs->trans("OnLiStateBoard"));
 
 		if (empty($user->socid) && !getDolGlobalString('MAIN_DISABLE_GLOBAL_BOXSTATS')) {
 			$hookmanager = new HookManager($this->db);

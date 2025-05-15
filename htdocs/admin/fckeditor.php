@@ -26,7 +26,7 @@
  *  \brief      Activation page for the FCKeditor module in the other modules
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/doleditor.lib.php';
@@ -46,12 +46,12 @@ $langs->loadLangs(array('admin', 'fckeditor', 'errors'));
 
 $action = GETPOST('action', 'aZ09');
 // Possible modes are:
-// dolibarr_details
-// dolibarr_notes
-// dolibarr_readonly
-// dolibarr_mailings
+// onli_details
+// onli_notes
+// onli_readonly
+// onli_mailings
 // Full (not sure this one is used)
-$mode = GETPOST('mode') ? GETPOST('mode', 'alpha') : 'dolibarr_notes';
+$mode = GETPOST('mode') ? GETPOST('mode', 'alpha') : 'onli_notes';
 
 if (!$user->admin) {
 	accessforbidden();
@@ -104,15 +104,15 @@ $picto = array(
 
 foreach ($modules as $const => $desc) {
 	if ($action == 'enable_'.strtolower($const)) {
-		dolibarr_set_const($db, "FCKEDITOR_ENABLE_".$const, "1", 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "FCKEDITOR_ENABLE_".$const, "1", 'chaine', 0, '', $conf->entity);
 
 		// If fckeditor is active in the product/service description, it is activated in the forms
 		if ($const == 'PRODUCTDESC' && getDolGlobalInt('PRODUIT_DESC_IN_FORM_ACCORDING_TO_DEVICE')) {
-			dolibarr_set_const($db, "FCKEDITOR_ENABLE_DETAILS", "1", 'chaine', 0, '', $conf->entity);
+			onli_set_const($db, "FCKEDITOR_ENABLE_DETAILS", "1", 'chaine', 0, '', $conf->entity);
 		}
 	}
 	if ($action == 'disable_'.strtolower($const)) {
-		dolibarr_set_const($db, "FCKEDITOR_ENABLE_".$const, "0", 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, "FCKEDITOR_ENABLE_".$const, "0", 'chaine', 0, '', $conf->entity);
 	}
 }
 
@@ -121,7 +121,7 @@ if (GETPOST('save', 'alpha')) {
 
 	$fckeditor_skin = GETPOST('fckeditor_skin', 'alpha');
 	if (!empty($fckeditor_skin)) {
-		$result = dolibarr_set_const($db, 'FCKEDITOR_SKIN', $fckeditor_skin, 'chaine', 0, '', $conf->entity);
+		$result = onli_set_const($db, 'FCKEDITOR_SKIN', $fckeditor_skin, 'chaine', 0, '', $conf->entity);
 		if ($result <= 0) {
 			$error++;
 		}
@@ -131,7 +131,7 @@ if (GETPOST('save', 'alpha')) {
 
 	$fckeditor_test = GETPOST('formtestfield', 'restricthtml');
 	if (!empty($fckeditor_test)) {
-		$result = dolibarr_set_const($db, 'FCKEDITOR_TEST', $fckeditor_test, 'chaine', 0, '', $conf->entity);
+		$result = onli_set_const($db, 'FCKEDITOR_TEST', $fckeditor_test, 'chaine', 0, '', $conf->entity);
 		if ($result <= 0) {
 			$error++;
 		}
@@ -243,7 +243,7 @@ if (empty($conf->use_javascript_ajax)) {
 	//show_skin(null, 1);
 	//print '<br>'."\n";
 
-	$listofmodes = array('dolibarr_readonly', 'dolibarr_details', 'dolibarr_notes', 'dolibarr_mailings', 'Full', 'Full_inline');
+	$listofmodes = array('onli_readonly', 'onli_details', 'onli_notes', 'onli_mailings', 'Full', 'Full_inline');
 	$linkstomode = '';
 	foreach ($listofmodes as $newmode) {
 		if ($linkstomode) {
@@ -264,7 +264,7 @@ if (empty($conf->use_javascript_ajax)) {
 	print '<input type="hidden" name="mode" value="'.dol_escape_htmltag($mode).'">';
 	if ($mode != 'Full_inline') {
 		$uselocalbrowser = true;
-		$readonly = ($mode == 'dolibarr_readonly' ? 1 : 0);
+		$readonly = ($mode == 'onli_readonly' ? 1 : 0);
 		$editor = new DolEditor('formtestfield', getDolGlobalString('FCKEDITOR_TEST', 'Test'), '', 200, $mode, 'In', true, $uselocalbrowser, 1, 120, '8', $readonly);
 		$editor->Create();
 	} else {

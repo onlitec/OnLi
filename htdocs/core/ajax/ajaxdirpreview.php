@@ -361,7 +361,7 @@ if ($type == 'directory') {
 			if ($relativepath && $relativepath != '/') {
 				$relativepath .= '/';
 			}
-			$upload_dir = $dolibarr_main_data_root.'/'.$module.'/'.$relativepath;
+			$upload_dir = $onli_main_data_root.'/'.$module.'/'.$relativepath;
 			if (GETPOSTISSET('website') || GETPOSTISSET('file_manager')) {
 				$param .= '&file_manager=1';
 				if (!preg_match('/website=/', $param) && GETPOST('website', 'alpha')) {

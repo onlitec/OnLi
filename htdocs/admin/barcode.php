@@ -26,7 +26,7 @@
  *	\brief      Page to setup barcode module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formbarcode.class.php';
@@ -60,22 +60,22 @@ include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
 
 if ($action == 'setbarcodeproducton') {
 	$barcodenumberingmodule = GETPOST('value', 'alpha');
-	$res = dolibarr_set_const($db, "BARCODE_PRODUCT_ADDON_NUM", $barcodenumberingmodule, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "BARCODE_PRODUCT_ADDON_NUM", $barcodenumberingmodule, 'chaine', 0, '', $conf->entity);
 	if ($barcodenumberingmodule == 'mod_barcode_product_standard' && !getDolGlobalString('BARCODE_STANDARD_PRODUCT_MASK')) {
-		$res = dolibarr_set_const($db, "BARCODE_STANDARD_PRODUCT_MASK", '04{0000000000}', 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "BARCODE_STANDARD_PRODUCT_MASK", '04{0000000000}', 'chaine', 0, '', $conf->entity);
 	}
 } elseif ($action == 'setbarcodeproductoff') {
-	$res = dolibarr_del_const($db, "BARCODE_PRODUCT_ADDON_NUM", $conf->entity);
+	$res = onli_del_const($db, "BARCODE_PRODUCT_ADDON_NUM", $conf->entity);
 }
 
 if ($action == 'setbarcodethirdpartyon') {
 	$barcodenumberingmodule = GETPOST('value', 'alpha');
-	$res = dolibarr_set_const($db, "BARCODE_THIRDPARTY_ADDON_NUM", $barcodenumberingmodule, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "BARCODE_THIRDPARTY_ADDON_NUM", $barcodenumberingmodule, 'chaine', 0, '', $conf->entity);
 	if ($barcodenumberingmodule == 'mod_barcode_thirdparty_standard' && !getDolGlobalString('BARCODE_STANDARD_THIRDPARTY_MASK')) {
-		$res = dolibarr_set_const($db, "BARCODE_STANDARD_THIRDPARTY_MASK", '04{0000000000}', 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, "BARCODE_STANDARD_THIRDPARTY_MASK", '04{0000000000}', 'chaine', 0, '', $conf->entity);
 	}
 } elseif ($action == 'setbarcodethirdpartyoff') {
-	$res = dolibarr_del_const($db, "BARCODE_THIRDPARTY_ADDON_NUM", $conf->entity);
+	$res = onli_del_const($db, "BARCODE_THIRDPARTY_ADDON_NUM", $conf->entity);
 }
 
 if ($action == 'setcoder') {
@@ -92,11 +92,11 @@ if ($action == 'setcoder') {
 	}
 } elseif ($action == 'update') {
 	$location = GETPOST('GENBARCODE_LOCATION', 'alpha');
-	$res = dolibarr_set_const($db, "GENBARCODE_LOCATION", $location, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "GENBARCODE_LOCATION", $location, 'chaine', 0, '', $conf->entity);
 	$coder_id = GETPOST('PRODUIT_DEFAULT_BARCODE_TYPE', 'alpha');
-	$res = dolibarr_set_const($db, "PRODUIT_DEFAULT_BARCODE_TYPE", $coder_id, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PRODUIT_DEFAULT_BARCODE_TYPE", $coder_id, 'chaine', 0, '', $conf->entity);
 	$coder_id = GETPOST('GENBARCODE_BARCODETYPE_THIRDPARTY', 'alpha');
-	$res = dolibarr_set_const($db, "GENBARCODE_BARCODETYPE_THIRDPARTY", $coder_id, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "GENBARCODE_BARCODETYPE_THIRDPARTY", $coder_id, 'chaine', 0, '', $conf->entity);
 
 	if ($res > 0) {
 		setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');

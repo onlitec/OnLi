@@ -44,7 +44,7 @@ if (!defined('NOREQUIREHTML')) {
 	define('NOREQUIREHTML', '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 $res = 0;
 if (!$res && file_exists("../../main.inc.php")) {
 	$res = @include "../../main.inc.php";

@@ -56,11 +56,11 @@ print '<br>';
 print 'session_status='.session_status().' (before main.inc.php)';
 print '<br>';
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 // Security
-if ($dolibarr_main_prod) {
+if ($onli_main_prod) {
 	accessforbidden();
 }
 

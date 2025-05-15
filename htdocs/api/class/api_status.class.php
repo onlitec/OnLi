@@ -23,12 +23,12 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/functions.lib.php';
 
 
 /**
- * API that gives the status of the Dolibarr instance.
+ * API that gives the status of the OnLi instance.
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class Status extends DolibarrApi
+class Status extends OnLiApi
 {
 	/**
 	 * Constructor of the class
@@ -40,25 +40,25 @@ class Status extends DolibarrApi
 	}
 
 	/**
-	 * Get status (Dolibarr version)
+	 * Get status (OnLi version)
 	 *
 	 * @return array
-	 * @phan-return array{success:array{code:int,dolibarr_version:string,access_locked:string,environment?:string,timestamp_now_utc?:int,timestamp_php_tz?:string,date_tz?:string}}
-	 * @phpstan-return array{success:array{code:int,dolibarr_version:string,access_locked:string,environment?:string,timestamp_now_utc?:int,timestamp_php_tz?:string,date_tz?:string}}
+	 * @phan-return array{success:array{code:int,onli_version:string,access_locked:string,environment?:string,timestamp_now_utc?:int,timestamp_php_tz?:string,date_tz?:string}}
+	 * @phpstan-return array{success:array{code:int,onli_version:string,access_locked:string,environment?:string,timestamp_now_utc?:int,timestamp_php_tz?:string,date_tz?:string}}
 	 */
 	public function index()
 	{
-		global $dolibarr_main_prod;
+		global $onli_main_prod;
 
 		$response = array(
 			'success' => array(
 				'code' => 200,
-				'dolibarr_version' => DOL_VERSION,
+				'onli_version' => DOL_VERSION,
 				'access_locked' => getDolGlobalString('MAIN_ONLY_LOGIN_ALLOWED', '0'),
 			),
 		);
 
-		if (empty($dolibarr_main_prod)) {
+		if (empty($onli_main_prod)) {
 			$response['success']['environment']       = 'non-production';
 			$response['success']['timestamp_now_utc'] = dol_now();
 			$response['success']['timestamp_php_tz']  = date_default_timezone_get();

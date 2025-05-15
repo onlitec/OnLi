@@ -31,7 +31,7 @@
  *	\brief      Page for supplier third party card (view, edit)
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.class.php';
 require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.facture.class.php';
@@ -468,7 +468,7 @@ if ($object->id > 0) {
 	if (isModEnabled('member')) {
 		$langs->load("members");
 		$langs->load("users");
-		print '<tr><td>'.$langs->trans("LinkedToDolibarrMember").'</td>';
+		print '<tr><td>'.$langs->trans("LinkedToOnLiMember").'</td>';
 		print '<td>';
 		$adh = new Adherent($db);
 		$result = $adh->fetch(0, '', $object->id);
@@ -497,7 +497,7 @@ if ($object->id > 0) {
 
 	// Summary link
 	$boxstat .= '<div class="box divboxtable box-halfright">';
-	$boxstat .= '<table summary="'.dol_escape_htmltag($langs->trans("DolibarrStateBoard")).'" class="border boxtable boxtablenobottom boxtablenotop" width="100%">';
+	$boxstat .= '<table summary="'.dol_escape_htmltag($langs->trans("OnLiStateBoard")).'" class="border boxtable boxtablenobottom boxtablenotop" width="100%">';
 	$boxstat .= '<tr class="impair nohover"><td colspan="2" class="tdboxstats nohover">';
 
 	if (isModEnabled('supplier_proposal')) {

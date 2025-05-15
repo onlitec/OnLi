@@ -26,7 +26,7 @@ if (! defined('CSRFCHECK_WITH_TOKEN')) {
 	define('CSRFCHECK_WITH_TOKEN', '1');		// Force use of CSRF protection with tokens even for GET
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 include_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 
@@ -37,7 +37,7 @@ include_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_data_root
+ * @var string $onli_main_data_root
  */
 
 $langs->load("admin");
@@ -95,7 +95,7 @@ $form = new Form($db);
 
 print load_fiche_titre($langs->trans("Purge"), '', 'title_setup');
 
-print '<span class="opacitymedium">'.$langs->trans("PurgeAreaDesc", $dolibarr_main_data_root).'</span><br>';
+print '<span class="opacitymedium">'.$langs->trans("PurgeAreaDesc", $onli_main_data_root).'</span><br>';
 print '<br>';
 
 
@@ -112,7 +112,7 @@ if (isModEnabled('syslog')) {
 	print '<input type="radio" name="choice" id="choicelogfile" value="logfile"';
 	print ($choice && $choice == 'logfile') ? ' checked' : '';
 	$filelogparam = $filelog;
-	if ($user->admin && preg_match('/^dolibarr.*\.log$/', basename($filelog))) {
+	if ($user->admin && preg_match('/^onli.*\.log$/', basename($filelog))) {
 		$filelogparam = '<a class="wordbreak" href="'.DOL_URL_ROOT.'/document.php?modulepart=logs&file=';
 		$filelogparam .= basename($filelog);
 		$filelogparam .= '">'.$filelog.'</a>';
@@ -129,7 +129,7 @@ print '> <label for="choicetempfiles">'.$langs->trans("PurgeDeleteTemporaryFiles
 
 print '<input type="radio" name="choice" id="choiceallfiles" value="confirm_allfiles"';
 print ($choice && $choice == 'confirm_allfiles') ? ' checked' : '';
-print '> <label for="choiceallfiles">'.$langs->trans("PurgeDeleteAllFilesInDocumentsDir", $dolibarr_main_data_root).'</label>';
+print '> <label for="choiceallfiles">'.$langs->trans("PurgeDeleteAllFilesInDocumentsDir", $onli_main_data_root).'</label>';
 print '<br>';
 if (getDolGlobalInt('MAIN_PURGE_ACCEPT_NBSECONDSOLD')) {
 	print 'NbSecondsOld = <input class="width50 right" type="text" name="nbsecondsold" value="'.$nbsecondsold.'">';

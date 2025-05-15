@@ -24,7 +24,7 @@
  *		\brief      Page to setup invoices payments
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/invoice.lib.php';
@@ -69,7 +69,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstpayment && preg_match('/_MASK$/', $maskconstpayment)) {
-		$res = dolibarr_set_const($db, $maskconstpayment, $maskpayment, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstpayment, $maskpayment, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -84,17 +84,17 @@ if ($action == 'updateMask') {
 }
 
 if ($action == 'setmod') {
-	dolibarr_set_const($db, "PAYMENT_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "PAYMENT_ADDON", $value, 'chaine', 0, '', $conf->entity);
 }
 
 if ($action == 'setparams') {
 	$freetext = GETPOST('FACTURE_PAYMENTS_ON_DIFFERENT_THIRDPARTIES_BILLS', 'restricthtml'); // No alpha here, we want exact string
-	$res = dolibarr_set_const($db, "FACTURE_PAYMENTS_ON_DIFFERENT_THIRDPARTIES_BILLS", $freetext, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "FACTURE_PAYMENTS_ON_DIFFERENT_THIRDPARTIES_BILLS", $freetext, 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}
 
-	$res = dolibarr_set_const($db, "PAYMENTS_REPORT_GROUP_BY_MOD", GETPOSTINT('PAYMENTS_REPORT_GROUP_BY_MOD'), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PAYMENTS_REPORT_GROUP_BY_MOD", GETPOSTINT('PAYMENTS_REPORT_GROUP_BY_MOD'), 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}

@@ -21,9 +21,9 @@
  */
 
 /**
- * \file scripts/user/sync_groups_dolibarr2ldap.php
+ * \file scripts/user/sync_groups_onli2ldap.php
  * \ingroup ldap core
- * \brief Script to update the groups in LDAP from the Dolibarr DB
+ * \brief Script to update the groups in LDAP from the OnLi DB
  */
 
 if (!defined('NOSESSION')) {
@@ -76,7 +76,7 @@ dol_syslog($script_file." launched with arg ".implode(',', $argv));
 
 /*
  * if (getDolGlobalString('LDAP_SYNCHRO_ACTIVE')) {
- * print $langs->trans("LDAPSynchronizationNotSetupInDolibarr");
+ * print $langs->trans("LDAPSynchronizationNotSetupInOnLi");
  * exit(1);
  * }
  */

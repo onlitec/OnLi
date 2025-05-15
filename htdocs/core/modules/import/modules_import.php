@@ -73,10 +73,10 @@ class ModeleImports
 	public $extension;
 
 	/**
-	 * Dolibarr version of driver
-	 * @var string Version, possible values are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'''|'development'|'dolibarr'|'experimental'
+	 * OnLi version of driver
+	 * @var string Version, possible values are: 'development', 'experimental', 'onli', 'onli_deprecated' or a version string like 'x.y.z'''|'development'|'onli'|'experimental'
 	 */
-	public $version = 'dolibarr';
+	public $version = 'onli';
 
 	/**
 	 * PHP minimal version required by driver

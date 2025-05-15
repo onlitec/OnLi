@@ -70,7 +70,7 @@ if (($action == 'update' || !empty($websitetemplateconf)) && !empty($arrayofpara
 				$val_const = GETPOST($key, 'alpha');
 			}
 
-			$result = dolibarr_set_const($db, $key, $val_const, 'chaine', 0, '', $conf->entity);
+			$result = onli_set_const($db, $key, $val_const, 'chaine', 0, '', $conf->entity);
 			if ($result < 0) {
 				$error++;
 				break;
@@ -132,7 +132,7 @@ if ($action == 'setModuleOptions' && !empty($user->admin)) {
 				$param = GETPOST("param".$reg[1], 'aZ09');
 				$value = GETPOST("value".$reg[1], 'alpha');
 				if ($param) {
-					$res = dolibarr_set_const($db, $param, $value, 'chaine', 0, '', $conf->entity);
+					$res = onli_set_const($db, $param, $value, 'chaine', 0, '', $conf->entity);
 					if (!($res > 0)) {
 						$error++;
 					}

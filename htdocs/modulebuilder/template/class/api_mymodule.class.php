@@ -33,9 +33,9 @@ dol_include_once('/mymodule/class/myobject.class.php');
  * API class for mymodule myobject
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class MyModuleApi extends DolibarrApi
+class MyModuleApi extends OnLiApi
 {
 	/**
 	 * @var MyObject {@type MyObject}
@@ -76,11 +76,11 @@ class MyModuleApi extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('mymodule', 'myobject', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('mymodule', 'myobject', 'read')) {
 			throw new RestException(403);
 		}
-		if (!DolibarrApi::_checkAccessToResource('myobject', $id, 'mymodule_myobject')) {
-			throw new RestException(403, 'Access to instance id='.$id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('myobject', $id, 'mymodule_myobject')) {
+			throw new RestException(403, 'Access to instance id='.$id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->myobject->fetch($id);
@@ -117,18 +117,18 @@ class MyModuleApi extends DolibarrApi
 		$obj_ret = array();
 		$tmpobject = new MyObject($this->db);
 
-		if (!DolibarrApiAccess::$user->hasRight('mymodule', 'myobject', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('mymodule', 'myobject', 'read')) {
 			throw new RestException(403);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : 0;
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : 0;
 
 		$restrictonsocid = 0; // Set to 1 if there is a field socid in table of object
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if ($restrictonsocid && !DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if ($restrictonsocid && !OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 		if (!isModEnabled('societe')) {
 			$search_sale = 0; // If module thirdparty not enabled, sale representative is something that does not exists
@@ -204,7 +204,7 @@ class MyModuleApi extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('mymodule', 'myobject', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('mymodule', 'myobject', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -231,7 +231,7 @@ class MyModuleApi extends DolibarrApi
 		// Clean data
 		// $this->myobject->abc = sanitizeVal($this->myobject->abc, 'alphanohtml');
 
-		if ($this->myobject->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->myobject->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating MyObject", array_merge(array($this->myobject->error), $this->myobject->errors));
 		}
 		return $this->myobject->id;
@@ -256,11 +256,11 @@ class MyModuleApi extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('mymodule', 'myobject', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('mymodule', 'myobject', 'write')) {
 			throw new RestException(403);
 		}
-		if (!DolibarrApi::_checkAccessToResource('myobject', $id, 'mymodule_myobject')) {
-			throw new RestException(403, 'Access to instance id='.$this->myobject->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('myobject', $id, 'mymodule_myobject')) {
+			throw new RestException(403, 'Access to instance id='.$this->myobject->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->myobject->fetch($id);
@@ -298,7 +298,7 @@ class MyModuleApi extends DolibarrApi
 		// Clean data
 		// $this->myobject->abc = sanitizeVal($this->myobject->abc, 'alphanohtml');
 
-		if ($this->myobject->update(DolibarrApiAccess::$user, 0) > 0) {
+		if ($this->myobject->update(OnLiApiAccess::$user, 0) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->myobject->error);
@@ -322,11 +322,11 @@ class MyModuleApi extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('mymodule', 'myobject', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('mymodule', 'myobject', 'delete')) {
 			throw new RestException(403);
 		}
-		if (!DolibarrApi::_checkAccessToResource('myobject', $id, 'mymodule_myobject')) {
-			throw new RestException(403, 'Access to instance id='.$this->myobject->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('myobject', $id, 'mymodule_myobject')) {
+			throw new RestException(403, 'Access to instance id='.$this->myobject->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		$result = $this->myobject->fetch($id);
@@ -334,9 +334,9 @@ class MyModuleApi extends DolibarrApi
 			throw new RestException(404, 'MyObject not found');
 		}
 
-		if ($this->myobject->delete(DolibarrApiAccess::$user) == 0) {
+		if ($this->myobject->delete(OnLiApiAccess::$user) == 0) {
 			throw new RestException(409, 'Error when deleting MyObject : '.$this->myobject->error);
-		} elseif ($this->myobject->delete(DolibarrApiAccess::$user) < 0) {
+		} elseif ($this->myobject->delete(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error when deleting MyObject : '.$this->myobject->error);
 		}
 

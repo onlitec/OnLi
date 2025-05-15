@@ -42,7 +42,7 @@ if (!defined('NOREQUIREAJAX')) {
 	define('NOREQUIREAJAX', '1');
 }
 if (!defined('NOIPCHECK')) {
-	define('NOIPCHECK', '1'); // Do not check IP defined into conf $dolibarr_main_restrict_ip
+	define('NOIPCHECK', '1'); // Do not check IP defined into conf $onli_main_restrict_ip
 }
 if (!defined('NOBROWSERNOTIF')) {
 	define('NOBROWSERNOTIF', '1');
@@ -144,9 +144,9 @@ if (empty($pageid))
 */
 
 // Security: Delete string ../ into $original_file
-global $dolibarr_main_data_root;
+global $onli_main_data_root;
 
-$original_file = $dolibarr_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$website.'/javascript.js.php';
+$original_file = $onli_main_data_root.($conf->entity > 1 ? '/'.$conf->entity : '').'/website/'.$website.'/javascript.js.php';
 
 // Find the subdirectory name as the reference
 $refname = basename(dirname($original_file)."/");

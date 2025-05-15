@@ -23,7 +23,7 @@
  *      \brief      Page to get oauth callback
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/includes/OAuth/bootstrap.php';
 /**
@@ -32,14 +32,14 @@ require_once DOL_DOCUMENT_ROOT.'/includes/OAuth/bootstrap.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 use OAuth\Common\Storage\DoliStorage;
 use OAuth\Common\Consumer\Credentials;
 
 // Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 //$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
@@ -73,7 +73,7 @@ $httpClient = new \OAuth\Common\Http\Client\CurlClient();
 //$httpClient->setCurlParameters($params);
 $serviceFactory->setHttpClient($httpClient);
 
-// Dolibarr storage
+// OnLi storage
 $storage = new DoliStorage($db, $conf, $keyforprovider);
 
 // Setup the credentials for the requests

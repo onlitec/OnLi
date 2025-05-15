@@ -22,7 +22,7 @@
  *  \brief      Page to show Security information
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/memory.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
@@ -67,7 +67,7 @@ llxHeader('', '', '', '', 0, 0, '', '', '', 'mod-admin page-system_security');
 
 print load_fiche_titre($langs->trans("Security"), '', 'title_setup');
 
-print '<span class="opacitymedium">'.$langs->trans("YouMayFindSecurityAdviceHere", 'hhttps://wiki.dolibarr.org/index.php/Security_information').'</span>';
+print '<span class="opacitymedium">'.$langs->trans("YouMayFindSecurityAdviceHere", 'hhttps://wiki.onli.org/index.php/Security_information').'</span>';
 print ' &nbsp; &nbsp; ';
 print '<a href="'.$_SERVER["PHP_SELF"].'">';
 print img_picto($langs->trans("Reload"), 'refresh').' ';
@@ -270,7 +270,7 @@ print '<br>';
 print '<br>';
 
 print '<strong>'.$langs->trans("PermissionsOnFile", $conffile).'</strong>: ';		// $conffile is defined into filefunc.inc.php
-$perms = fileperms($dolibarr_main_document_root.'/'.$conffile);
+$perms = fileperms($onli_main_document_root.'/'.$conffile);
 if ($perms) {
 	if (($perms & 0x0004) || ($perms & 0x0002)) {
 		print img_warning().' '.$langs->trans("ConfFileIsReadableOrWritableByAnyUsers");
@@ -296,7 +296,7 @@ $upgradeunlock = DOL_DATA_ROOT.'/upgrade.unlock';
 $installmoduleslock = DOL_DATA_ROOT.'/installmodules.lock';
 
 // Is install (upgrade) locked
-print '<strong>'.$langs->trans("DolibarrSetup").'</strong>: ';
+print '<strong>'.$langs->trans("OnLiSetup").'</strong>: ';
 if (file_exists($installlock)) {
 	if (file_exists($upgradeunlock)) {
 		print img_picto('', 'tick').' '.$langs->trans("InstallLockedBy", $installlock);
@@ -313,7 +313,7 @@ print '<br>';
 // Is upgrade unlocked
 if (file_exists($installlock)) {	// If install not locked, no need to show this.
 	if (file_exists($upgradeunlock)) {
-		print '<strong>'.$langs->trans("DolibarrUpgrade").'</strong>: ';
+		print '<strong>'.$langs->trans("OnLiUpgrade").'</strong>: ';
 		print img_warning().' '.$langs->trans("WarningUpgradeHasBeenUnlocked", $upgradeunlock);
 		print '<br>';
 		print '<br>';
@@ -321,7 +321,7 @@ if (file_exists($installlock)) {	// If install not locked, no need to show this.
 }
 
 // Is addon install locked ?
-print '<strong>'.$langs->trans("DolibarrAddonInstall").'</strong>: ';
+print '<strong>'.$langs->trans("OnLiAddonInstall").'</strong>: ';
 if (file_exists($installmoduleslock)) {
 	print img_picto('', 'tick').' '.$langs->trans("InstallAndUpgradeLockedBy", $installmoduleslock);
 } else {
@@ -339,41 +339,41 @@ print '<br>';
 print load_fiche_titre($langs->trans("ConfigurationFile").' ('.$conffile.')', '', 'folder');
 
 print '<div class="divsection wordbreak">';
-print '<strong>$dolibarr_main_prod</strong>: '.($dolibarr_main_prod ? $dolibarr_main_prod : '0');
-if (empty($dolibarr_main_prod)) {
+print '<strong>$onli_main_prod</strong>: '.($onli_main_prod ? $onli_main_prod : '0');
+if (empty($onli_main_prod)) {
 	print ' &nbsp; &nbsp; '.img_picto('', 'warning').' '.$langs->trans("IfYouAreOnAProductionSetThis", 1);
 }
 print '<br>';
 
-print '<strong>$dolibarr_nocsrfcheck</strong>: '.(empty($dolibarr_nocsrfcheck) ? '0' : $dolibarr_nocsrfcheck);
-if (!empty($dolibarr_nocsrfcheck)) {
+print '<strong>$onli_nocsrfcheck</strong>: '.(empty($onli_nocsrfcheck) ? '0' : $onli_nocsrfcheck);
+if (!empty($onli_nocsrfcheck)) {
 	print ' &nbsp; &nbsp;'.img_picto('', 'error').' '.$langs->trans("IfYouAreOnAProductionSetThis", 0);
 } else {
 	print ' &nbsp; &nbsp; <span class="opacitymedium">('.$langs->trans("Recommended").': 0)</span>';
 }
 print '<br>';
 
-print '<strong>$dolibarr_main_restrict_ip</strong>: ';
-if (empty($dolibarr_main_restrict_ip)) {
+print '<strong>$onli_main_restrict_ip</strong>: ';
+if (empty($onli_main_restrict_ip)) {
 	print $langs->trans("None");
 	print ' &nbsp; &nbsp; <span class="opacitymedium">('.$langs->trans("RecommendedValueIs", $langs->transnoentitiesnoconv("StaticIPsOfUsers")).')</span>';
 } else {
-	print $dolibarr_main_restrict_ip;
+	print $onli_main_restrict_ip;
 }
 print '<br>';
 
-print '<strong>$dolibarr_main_restrict_os_commands</strong>: ';
-if (empty($dolibarr_main_restrict_os_commands)) {
+print '<strong>$onli_main_restrict_os_commands</strong>: ';
+if (empty($onli_main_restrict_os_commands)) {
 	print $langs->trans("None");
 } else {
-	print $dolibarr_main_restrict_os_commands;
+	print $onli_main_restrict_os_commands;
 }
 print ' &nbsp; &nbsp; <span class="opacitymedium">('.$langs->trans("RecommendedValueIs", 'mysqldump, mysql, pg_dump, pg_restore, mariadb, mariadb-dump, clamdscan').')</span>';
 print '<br>';
 
 if (!getDolGlobalString('SECURITY_DISABLE_TEST_ON_OBFUSCATED_CONF')) {
-	print '<strong>$dolibarr_main_db_pass</strong>: ';
-	if (!empty($dolibarr_main_db_pass) && empty($dolibarr_main_db_encrypted_pass)) {
+	print '<strong>$onli_main_db_pass</strong>: ';
+	if (!empty($onli_main_db_pass) && empty($onli_main_db_encrypted_pass)) {
 		print img_picto('', 'warning').' '.$langs->trans("DatabasePasswordNotObfuscated").' &nbsp; &nbsp; <span class="opacitymedium">('.$langs->trans("Recommended").': '.$langs->trans("SetOptionTo", $langs->transnoentitiesnoconv("MainDbPasswordFileConfEncrypted"), yn(1)).')</span>';
 		//print ' <span class="opacitymedium">('.$langs->trans("RecommendedValueIs", $langs->transnoentitiesnoconv("IPsOfUsers")).')</span>';
 	} else {
@@ -383,13 +383,13 @@ if (!getDolGlobalString('SECURITY_DISABLE_TEST_ON_OBFUSCATED_CONF')) {
 	print '<br>';
 }
 
-print '<strong>$dolibarr_main_stream_to_disable</strong>: ';
+print '<strong>$onli_main_stream_to_disable</strong>: ';
 // $arrayofstreamtodisable is defined into filefunc.inc.php
 '@phan-var-force string[] $arrayofstreamtodisable';
-if (empty($dolibarr_main_stream_to_disable)) {
+if (empty($onli_main_stream_to_disable)) {
 	print '<span class="opacitymedium">'.$langs->trans("Undefined").' = '.implode(', ', $arrayofstreamtodisable).'</span>';
 } else {
-	print implode(', ', $dolibarr_main_stream_to_disable);
+	print implode(', ', $onli_main_stream_to_disable);
 }
 print '<span class="bold"> &nbsp; -> Current PHP streams allowed = </span>';
 $arrayofstreams = stream_get_wrappers();
@@ -402,12 +402,12 @@ print '</div>';
 
 
 /*
-if (!empty($dolibarr_main_stream_do_not_disable)) {
-	print '<strong>$dolibarr_main_stream_do_not_disable</strong>: ';
-	if (empty($dolibarr_main_stream_do_not_disable)) {
+if (!empty($onli_main_stream_do_not_disable)) {
+	print '<strong>$onli_main_stream_do_not_disable</strong>: ';
+	if (empty($onli_main_stream_do_not_disable)) {
 		print '<span class="opacitymedium">'.$langs->trans("Undefined").'</span>';
 	} else {
-		print join(', ', $dolibarr_main_stream_do_not_disable);
+		print join(', ', $onli_main_stream_do_not_disable);
 	}
 	print ' -> PHP stream allowed = ';
 	$arrayofstreams = stream_get_wrappers();
@@ -509,8 +509,8 @@ print '<br>';
 /* Already into section conf file */
 /*
 $usepassinconfencrypted = 0;
-global $dolibarr_main_db_pass, $dolibarr_main_db_encrypted_pass;
-if (preg_match('/crypted:/i', $dolibarr_main_db_pass) || !empty($dolibarr_main_db_encrypted_pass)) {
+global $onli_main_db_pass, $onli_main_db_encrypted_pass;
+if (preg_match('/crypted:/i', $onli_main_db_pass) || !empty($onli_main_db_encrypted_pass)) {
 	$usepassinconfencrypted = 1;
 }
 print '<strong>'.$langs->trans("MainDbPasswordFileConfEncrypted").'</strong>: ';
@@ -757,7 +757,7 @@ $exampletodecrypt = GETPOST('exampletodecrypt', 'password');
 
 print '<strong>'.$langs->trans("AlgorithmFor", $langs->transnoentitiesnoconv("SensitiveData"));
 print $form->textwithpicto('', 'reversible encryption done with dolEncrypt/dolDecrypt');
-print '</strong>: '.constant('MAIN_SECURITY_REVERSIBLE_ALGO').' with key defined into conf.php file in $dolibarr_main_instance_unique_id<br>';
+print '</strong>: '.constant('MAIN_SECURITY_REVERSIBLE_ALGO').' with key defined into conf.php file in $onli_main_instance_unique_id<br>';
 print '<form method="POST" action="'.$_SERVER["PHP_SELF"].'">';
 print '<input type="hidden" name="action" value="doldecrypt">';
 print '<input type="hidden" name="token" value="'.newToken().'">';
@@ -986,12 +986,12 @@ print $langs->trans("RecommendMitigationOnURL").'<br>';
 print '</span>';
 
 print '<br>';
-$urlexamplebase = 'https://github.com/Dolibarr/dolibarr/blob/develop/dev/setup/fail2ban/filter.d/';
-print '<span class="fas fa-shield-alt"></span> Login or API authentication (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'web-dolibarr-rulesbruteforce.conf">fail2ban example on GitHub</a>)<br>';
-print '<span class="fas fa-shield-alt"></span> '.DOL_URL_ROOT.'/passwordforgotten.php (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'web-dolibarr-rulespassforgotten.conf">fail2ban example on GitHub</a>)<br>';
-print '<span class="fas fa-shield-alt"></span> '.DOL_URL_ROOT.'/public/* (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'web-dolibarr-limitpublic.conf">fail2ban example on GitHub</a>)<br>';
+$urlexamplebase = 'https://github.com/OnLi/onli/blob/develop/dev/setup/fail2ban/filter.d/';
+print '<span class="fas fa-shield-alt"></span> Login or API authentication (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'web-onli-rulesbruteforce.conf">fail2ban example on GitHub</a>)<br>';
+print '<span class="fas fa-shield-alt"></span> '.DOL_URL_ROOT.'/passwordforgotten.php (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'web-onli-rulespassforgotten.conf">fail2ban example on GitHub</a>)<br>';
+print '<span class="fas fa-shield-alt"></span> '.DOL_URL_ROOT.'/public/* (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'web-onli-limitpublic.conf">fail2ban example on GitHub</a>)<br>';
 print '<br>';
-$urlexamplebase = 'https://github.com/Dolibarr/dolibarr/blob/develop/dev/setup/apache/';
+$urlexamplebase = 'https://github.com/OnLi/onli/blob/develop/dev/setup/apache/';
 print '<span class="fas fa-shield-alt"></span> You can also protect the application using a HTTP Basic authentication layer (see <a target="_blank" rel="noopener" href="'.$urlexamplebase.'virtualhost">apache2 virtualhost example on GitHub</a>)<br>';
 
 print '</div>';

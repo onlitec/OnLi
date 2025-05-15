@@ -28,7 +28,7 @@
  * \brief 		Export operation of book keeping
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/accountancy/class/accountancyexport.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/accounting.lib.php';
@@ -475,7 +475,7 @@ if (empty($reshook)) {
 
 	if ($action == 'setreexport' && $user->hasRight('accounting', 'mouvements', 'export')) {
 		$setreexport = GETPOSTINT('value');
-		if (!dolibarr_set_const($db, "ACCOUNTING_REEXPORT", $setreexport, 'yesno', 0, '', $conf->entity)) {
+		if (!onli_set_const($db, "ACCOUNTING_REEXPORT", $setreexport, 'yesno', 0, '', $conf->entity)) {
 			$error++;
 		}
 

@@ -51,7 +51,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';
  * @var Societe $mysoc
  * @var Translate $langs
  * @var User $user
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 /*
@@ -79,7 +79,7 @@ if (GETPOSTISSET('template')) {
 	}
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

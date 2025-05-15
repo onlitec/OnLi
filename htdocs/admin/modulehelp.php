@@ -32,7 +32,7 @@ if (!defined('NOTOKENRENEWAL')) {
 }
 
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -94,7 +94,7 @@ $modulesdir = dolGetModulesDirs();
 
 
 $filename = array();
-'@phan-var-force DolibarrModules[] $modules';
+'@phan-var-force OnLiModules[] $modules';
 $modules = array();
 $orders = array();
 $categ = array();
@@ -128,7 +128,7 @@ foreach ($modulesdir as $dir) {
 						if (class_exists($modName)) {
 							try {
 								$objMod = new $modName($db);
-								'@phan-var-force DolibarrModules $objMod';
+								'@phan-var-force OnLiModules $objMod';
 								$modNameLoaded[$modName] = $dir;
 
 								if (!$objMod->numero > 0 && $modName != 'modUser') {
@@ -239,7 +239,7 @@ $key = -1;
 $i = 0;
 foreach ($orders as $tmpkey => $tmpvalue) {
 	$tmpMod = $modules[$tmpkey];
-	'@phan-var-force DolibarrModules $tmpMod';
+	'@phan-var-force OnLiModules $tmpMod';
 	if ($tmpMod->numero == $id) {
 		$key = $i;
 		$modName = $filename[$tmpkey];
@@ -364,21 +364,21 @@ if ($mode == 'desc') {
 		$tmpdirofmoduletoshow = preg_replace('/^'.preg_quote(DOL_DOCUMENT_ROOT, '/').'/', '', (string) $dirofmodule);
 		$textexternal .= '<br><span class="opacitymedium">'.$langs->trans("Origin").':</span> '.$langs->trans("ExternalModule").' - '.$langs->trans("InstalledInto", $tmpdirofmoduletoshow);
 
-		global $dolibarr_allow_download_external_modules;
-		if (!empty($dolibarr_allow_download_external_modules) && preg_match('/\/custom\//', (string) $dirofmodule)) {
+		global $onli_allow_download_external_modules;
+		if (!empty($onli_allow_download_external_modules) && preg_match('/\/custom\//', (string) $dirofmodule)) {
 			// Add a link to download a zip of the module
 			$textexternal .= ' <a href="'.DOL_URL_ROOT.'/admin/tools/export_files.php?export_type=externalmodule&what='.urlencode($moduledir).'&compression=zip&zipfilename_template=module_'.$moduledir.'-'.$version.'.notorig" target="_blank" rel="noopener">'.img_picto('', 'download').'</a>';
 		}
 
-		if ($objMod->editor_name != 'dolibarr') {
+		if ($objMod->editor_name != 'onli') {
 			$textexternal .= '<br><span class="opacitymedium">'.$langs->trans("Publisher").':</span> '.(empty($objMod->editor_name) ? $langs->trans("Unknown") : $objMod->editor_name);
 		}
 		$editor_url = $objMod->editor_url;
 		if (!preg_match('/^http/', $editor_url)) {
 			$editor_url = 'http://'.$editor_url;
 		}
-		if (!empty($objMod->editor_url) && !preg_match('/dolibarr\.org/i', $objMod->editor_url)) {
-			$textexternal .= ($objMod->editor_name != 'dolibarr' ? ' - ' : '').img_picto('', 'globe').' <a href="'.$editor_url.'" target="_blank" rel="noopener noreferrer external">'.$objMod->editor_url.'</a>';
+		if (!empty($objMod->editor_url) && !preg_match('/onli\.org/i', $objMod->editor_url)) {
+			$textexternal .= ($objMod->editor_name != 'onli' ? ' - ' : '').img_picto('', 'globe').' <a href="'.$editor_url.'" target="_blank" rel="noopener noreferrer external">'.$objMod->editor_url.'</a>';
 		}
 		$text .= $textexternal;
 	} else {

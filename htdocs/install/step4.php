@@ -22,13 +22,13 @@
 /**
  *	\file       htdocs/install/step4.php
  *	\ingroup	install
- *	\brief      Ask login and password of Dolibarr admin user
+ *	\brief      Ask login and password of OnLi admin user
  */
 
 
 include_once 'inc.php';
-require_once $dolibarr_main_document_root.'/core/class/conf.class.php';
-require_once $dolibarr_main_document_root.'/core/lib/admin.lib.php';
+require_once $onli_main_document_root.'/core/class/conf.class.php';
+require_once $onli_main_document_root.'/core/lib/admin.lib.php';
 
 global $langs;
 
@@ -40,15 +40,15 @@ $langs->loadLangs(array("admin", "install"));
 // Now we load forced value from install.forced.php file.
 $useforcedwizard = false;
 $forcedfile = "./install.forced.php";
-if ($conffile == "/etc/dolibarr/conf.php") {
-	$forcedfile = "/etc/dolibarr/install.forced.php";
+if ($conffile == "/etc/onli/conf.php") {
+	$forcedfile = "/etc/onli/install.forced.php";
 }
 if (@file_exists($forcedfile)) {
 	$useforcedwizard = true;
 	include_once $forcedfile;
 }
 
-dolibarr_install_syslog("--- step4: entering step4.php page");
+onli_install_syslog("--- step4: entering step4.php page");
 
 $error = 0;
 $ok = 0;
@@ -59,7 +59,7 @@ $ok = 0;
  *	View
  */
 
-pHeader($langs->trans("DolibarrSetup").' - '.$langs->trans("AdminAccountCreation"), "step5");
+pHeader($langs->trans("OnLiSetup").' - '.$langs->trans("AdminAccountCreation"), "step5");
 
 // Test if we can run a first install process
 if (!is_writable($conffile)) {
@@ -69,7 +69,7 @@ if (!is_writable($conffile)) {
 }
 
 
-print '<h3><img class="valignmiddle inline-block paddingright" src="../theme/common/octicons/build/svg/key.svg" width="20" alt="Database"> '.$langs->trans("DolibarrAdminLogin").'</h3>';
+print '<h3><img class="valignmiddle inline-block paddingright" src="../theme/common/octicons/build/svg/key.svg" width="20" alt="Database"> '.$langs->trans("OnLiAdminLogin").'</h3>';
 
 print $langs->trans("LastStepDesc").'<br><br>';
 
@@ -80,7 +80,7 @@ $db = getDoliDBInstance($conf->db->type, $conf->db->host, $conf->db->user, $conf
 
 if ($db->ok) {
 	print '<tr><td><label for="login">'.$langs->trans("Login").' :</label></td><td>';
-	print '<input id="login" name="login" type="text" value="'.(GETPOSTISSET("login") ? GETPOST("login", 'alpha') : (isset($force_install_dolibarrlogin) ? $force_install_dolibarrlogin : '')).'"'.(@$force_install_noedit == 2 && $force_install_dolibarrlogin !== null ? ' disabled' : '').' autofocus></td></tr>';
+	print '<input id="login" name="login" type="text" value="'.(GETPOSTISSET("login") ? GETPOST("login", 'alpha') : (isset($force_install_onlilogin) ? $force_install_onlilogin : '')).'"'.(@$force_install_noedit == 2 && $force_install_onlilogin !== null ? ' disabled' : '').' autofocus></td></tr>';
 	print '<tr><td><label for="pass">'.$langs->trans("Password").' :</label></td><td>';
 	print '<input type="password" id="pass" name="pass" autocomplete="new-password" minlength="8"></td></tr>';
 	print '<tr><td><label for="pass_verif">'.$langs->trans("PasswordRetype").' :</label></td><td>';
@@ -112,9 +112,9 @@ $ret = 0;
 if ($error && isset($argv[1])) {
 	$ret = 1;
 }
-dolibarr_install_syslog("Exit ".$ret);
+onli_install_syslog("Exit ".$ret);
 
-dolibarr_install_syslog("--- step4: end");
+onli_install_syslog("--- step4: end");
 
 pFooter($error, $setuplang);
 

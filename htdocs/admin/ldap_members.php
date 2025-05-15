@@ -27,7 +27,7 @@
  *		\brief      Page d'administration/configuration du module Ldap adherent
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/adherents/class/adherent.class.php';
@@ -61,94 +61,94 @@ if ($action == 'setvalue' /* && $user->admin */) {
 
 	$db->begin();
 
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_DN', GETPOST("user"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_DN', GETPOST("user"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_OBJECT_CLASS', GETPOST("objectclass"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_OBJECT_CLASS', GETPOST("objectclass"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FILTER', GETPOST("filterconnection"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FILTER', GETPOST("filterconnection"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
 	// Members
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_FULLNAME', GETPOST("fieldfullname"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_FULLNAME', GETPOST("fieldfullname"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_LOGIN', GETPOST("fieldlogin"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_LOGIN', GETPOST("fieldlogin"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_LOGIN_SAMBA', GETPOST("fieldloginsamba"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_LOGIN_SAMBA', GETPOST("fieldloginsamba"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_PASSWORD', GETPOST("fieldpassword"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_PASSWORD', GETPOST("fieldpassword"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_PASSWORD_CRYPTED', GETPOST("fieldpasswordcrypted"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_PASSWORD_CRYPTED', GETPOST("fieldpasswordcrypted"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_NAME', GETPOST("fieldname"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_NAME', GETPOST("fieldname"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_FIRSTNAME', GETPOST("fieldfirstname"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_FIRSTNAME', GETPOST("fieldfirstname"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_MAIL', GETPOST("fieldmail"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_MAIL', GETPOST("fieldmail"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_PHONE', GETPOST("fieldphone"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_PHONE', GETPOST("fieldphone"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_PHONE_PERSO', GETPOST("fieldphoneperso"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_PHONE_PERSO', GETPOST("fieldphoneperso"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_MOBILE', GETPOST("fieldmobile"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_MOBILE', GETPOST("fieldmobile"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_FAX', GETPOST("fieldfax"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_FAX', GETPOST("fieldfax"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_COMPANY', GETPOST("fieldcompany"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_COMPANY', GETPOST("fieldcompany"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_ADDRESS', GETPOST("fieldaddress"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_ADDRESS', GETPOST("fieldaddress"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_ZIP', GETPOST("fieldzip"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_ZIP', GETPOST("fieldzip"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_TOWN', GETPOST("fieldtown"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_TOWN', GETPOST("fieldtown"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_COUNTRY', GETPOST("fieldcountry"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_COUNTRY', GETPOST("fieldcountry"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_DESCRIPTION', GETPOST("fielddescription"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_DESCRIPTION', GETPOST("fielddescription"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_NOTE_PUBLIC', GETPOST("fieldnotepublic"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_NOTE_PUBLIC', GETPOST("fieldnotepublic"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_MEMBER_FIELD_BIRTHDATE', GETPOST("fieldbirthdate"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_MEMBER_FIELD_BIRTHDATE', GETPOST("fieldbirthdate"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_FIELD_MEMBER_STATUS', GETPOST("fieldstatus"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_FIELD_MEMBER_STATUS', GETPOST("fieldstatus"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_FIELD_MEMBER_END_LASTSUBSCRIPTION', GETPOST("fieldendlastsubscription"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_FIELD_MEMBER_END_LASTSUBSCRIPTION', GETPOST("fieldendlastsubscription"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
 
 	// Subscriptions
-	if (!dolibarr_set_const($db, 'LDAP_FIELD_MEMBER_FIRSTSUBSCRIPTION_DATE', GETPOST("fieldfirstsubscriptiondate"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_FIELD_MEMBER_FIRSTSUBSCRIPTION_DATE', GETPOST("fieldfirstsubscriptiondate"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_FIELD_MEMBER_FIRSTSUBSCRIPTION_AMOUNT', GETPOST("fieldfirstsubscriptionamount"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_FIELD_MEMBER_FIRSTSUBSCRIPTION_AMOUNT', GETPOST("fieldfirstsubscriptionamount"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_FIELD_MEMBER_LASTSUBSCRIPTION_DATE', GETPOST("fieldlastsubscriptiondate"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_FIELD_MEMBER_LASTSUBSCRIPTION_DATE', GETPOST("fieldlastsubscriptiondate"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
-	if (!dolibarr_set_const($db, 'LDAP_FIELD_MEMBER_LASTSUBSCRIPTION_AMOUNT', GETPOST("fieldlastsubscriptionamount"), 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_FIELD_MEMBER_LASTSUBSCRIPTION_AMOUNT', GETPOST("fieldlastsubscriptionamount"), 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
 
@@ -158,7 +158,7 @@ if ($action == 'setvalue' /* && $user->admin */) {
 	if ($key) {
 		$valkey = getDolGlobalString($key);
 	}
-	if (!dolibarr_set_const($db, 'LDAP_KEY_MEMBERS', $valkey, 'chaine', 0, '', $conf->entity)) {
+	if (!onli_set_const($db, 'LDAP_KEY_MEMBERS', $valkey, 'chaine', 0, '', $conf->entity)) {
 		$error++;
 	}
 
@@ -235,7 +235,7 @@ print '<br>';
 print '<table class="noborder centpercent">';
 
 print '<tr class="liste_titre">';
-print '<td>'.$langs->trans("LDAPDolibarrMapping").'</td>';
+print '<td>'.$langs->trans("LDAPOnLiMapping").'</td>';
 print '<td colspan="2">'.$langs->trans("LDAPLdapMapping").'</td>';
 print '<td class="right">'.$langs->trans("LDAPNamingAttribute").'</td>';
 print "</tr>\n";

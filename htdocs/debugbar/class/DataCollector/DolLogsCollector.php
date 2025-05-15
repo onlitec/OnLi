@@ -130,8 +130,8 @@ class DolLogsCollector extends MessagesCollector
 	 */
 	public function getLogsFile()
 	{
-		// default dolibarr log file
-		$path = DOL_DATA_ROOT.'/dolibarr.log';
+		// default onli log file
+		$path = DOL_DATA_ROOT.'/onli.log';
 		return $path;
 	}
 

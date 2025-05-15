@@ -18,12 +18,12 @@
  */
 
 /**
- *		\file 		htdocs/admin/tools/dolibarr_export.php
+ *		\file 		htdocs/admin/tools/onli_export.php
  *		\ingroup	core
  *		\brief      Page to export database
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
@@ -99,7 +99,7 @@ $type = $db->type;
 //var_dump($db);
 
 $help_url = 'EN:Backups|FR:Sauvegardes|ES:Copias_de_seguridad';
-llxHeader('', '', $help_url, '', 0, 0, '', '', '', 'mod-admin page-tools_dolibarr_export');
+llxHeader('', '', $help_url, '', 0, 0, '', '', '', 'mod-admin page-tools_onli_export');
 
 print '<script type="text/javascript">
 jQuery(document).ready(function() {';
@@ -160,7 +160,7 @@ print '<input type="hidden" name="page_y" value="" />';
 print '<fieldset id="fieldsetexport"><legend class="legendforfieldsetstep" style="font-size: 3em">1</legend>';
 
 print '<span class="opacitymedium">';
-print $langs->trans("BackupDesc3", $dolibarr_main_db_name).'<br>';
+print $langs->trans("BackupDesc3", $onli_main_db_name).'<br>';
 //print $langs->trans("BackupDescY").'<br>';
 print '</span>';
 
@@ -175,7 +175,7 @@ print load_fiche_titre($title);
 //print '<table class="liste nohover centpercent noborderbottom">';
 //print '<tr class="liste_titre">';
 //print '<td class="liste_titre">';
-print '<span class="opacitymedium">'.$langs->trans("DatabaseName").' : </span><b>'.$dolibarr_main_db_name.'</b><br><br>';
+print '<span class="opacitymedium">'.$langs->trans("DatabaseName").' : </span><b>'.$onli_main_db_name.'</b><br><br>';
 //print '</td>';
 //print '</tr>';
 //print '<tr class="oddeven nohover"><td class="nohover">';
@@ -490,7 +490,7 @@ if (in_array($type, array('pgsql'))) {
 	$prefix = 'pg_dump';
 	$ext = 'sql';
 }
-$file = $prefix.'_'.$dolibarr_main_db_name.'_'.dol_sanitizeFileName(DOL_VERSION).'_'.dol_print_date(dol_now('gmt'), "dayhourlogsmall", 'tzuser').'.'.$ext;
+$file = $prefix.'_'.$onli_main_db_name.'_'.dol_sanitizeFileName(DOL_VERSION).'_'.dol_print_date(dol_now('gmt'), "dayhourlogsmall", 'tzuser').'.'.$ext;
 print '<input type="text" name="filename_template" style="width: 90%" id="filename_template" value="'.$file.'" />';
 print '<br>';
 print '<br>';
@@ -590,7 +590,7 @@ if (!empty($_SESSION["commandbackuplastdone"])) {
 	$_SESSION["commandbackupresult"] = '';
 }
 if (!empty($_SESSION["commandbackuptorun"])) {
-	print '<br><span class="warning">'.$langs->trans("YouMustRunCommandFromCommandLineAfterLoginToUser", $dolibarr_main_db_user, $dolibarr_main_db_user).':</span><br>'."\n";
+	print '<br><span class="warning">'.$langs->trans("YouMustRunCommandFromCommandLineAfterLoginToUser", $onli_main_db_user, $onli_main_db_user).':</span><br>'."\n";
 	print '<textarea id="commandbackuptoruntext" rows="'.ROWS_2.'" class="centpercent">'.$_SESSION["commandbackuptorun"].'</textarea><br>'."\n";
 	print ajax_autoselect("commandbackuptoruntext", '');
 	print '<br>';
@@ -645,7 +645,7 @@ print load_fiche_titre($title);
 print '<label for="zipfilename_template" class="line-height-large paddingbottom opacitymedium">'.$langs->trans("FileNameToGenerate").'</label><br>';
 $prefix = 'documents';
 $ext = 'zip';
-$file = $prefix.'_'.$dolibarr_main_db_name.'_'.dol_sanitizeFileName(DOL_VERSION).'_'.dol_print_date(dol_now('gmt'), "dayhourlogsmall", 'tzuser');
+$file = $prefix.'_'.$onli_main_db_name.'_'.dol_sanitizeFileName(DOL_VERSION).'_'.dol_print_date(dol_now('gmt'), "dayhourlogsmall", 'tzuser');
 print '<input type="text" name="zipfilename_template" style="width: 90%" id="zipfilename_template" value="'.$file.'" /> <br>';
 print '<br>';
 

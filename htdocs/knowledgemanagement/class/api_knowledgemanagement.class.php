@@ -1,6 +1,6 @@
 <?php
 /* Copyright (C) 2015   Jean-François Ferry     <jfefe@aternatik.fr>
- * Copyright (C) 2021 	SuperAdmin 				<test@dolibarr.com>
+ * Copyright (C) 2021 	SuperAdmin 				<test@onli.com>
  * Copyright (C) 2025 	Charlene Benke 			<charlent@patas-monkey.com>
  * Copyright (C) 2025	MDW						<mdeweerd@users.noreply.github.com>
  *
@@ -35,9 +35,9 @@ dol_include_once('/categories/class/categorie.class.php');
  * API class for knowledgemanagement knowledgerecord
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user,external}
+ * @class  OnLiApiAccess {@requires user,external}
  */
-class KnowledgeManagement extends DolibarrApi
+class KnowledgeManagement extends OnLiApi
 {
 	/**
 	 * @var KnowledgeRecord {@type KnowledgeRecord}
@@ -71,7 +71,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function get($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -80,8 +80,8 @@ class KnowledgeManagement extends DolibarrApi
 			throw new RestException(404, 'KnowledgeRecord not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('knowledgerecord', $this->knowledgerecord->id, 'knowledgemanagement_knowledgerecord')) {
-			throw new RestException(403, 'Access to instance id='.$this->knowledgerecord->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('knowledgerecord', $this->knowledgerecord->id, 'knowledgemanagement_knowledgerecord')) {
+			throw new RestException(403, 'Access to instance id='.$this->knowledgerecord->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		return $this->_cleanObjectDatas($this->knowledgerecord);
@@ -102,7 +102,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function getCategories($id, $sortfield = "s.rowid", $sortorder = 'ASC', $limit = 0, $page = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('categorie', 'lire')) {
+		if (!OnLiApiAccess::$user->hasRight('categorie', 'lire')) {
 			throw new RestException(403);
 		}
 
@@ -143,18 +143,18 @@ class KnowledgeManagement extends DolibarrApi
 		$obj_ret = array();
 		$tmpobject = new KnowledgeRecord($this->db);
 
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'read')) {
 			throw new RestException(403);
 		}
 
-		$socid = DolibarrApiAccess::$user->socid ? DolibarrApiAccess::$user->socid : 0;
+		$socid = OnLiApiAccess::$user->socid ? OnLiApiAccess::$user->socid : 0;
 
 		$restrictonsocid = 0; // Set to 1 if there is a field socid in table of object
 
 		// If the internal user must only see his customers, force searching by him
 		$search_sale = 0;
-		if ($restrictonsocid && !DolibarrApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
-			$search_sale = DolibarrApiAccess::$user->id;
+		if ($restrictonsocid && !OnLiApiAccess::$user->hasRight('societe', 'client', 'voir') && !$socid) {
+			$search_sale = OnLiApiAccess::$user->id;
 		}
 
 		$sql = "SELECT t.rowid";
@@ -254,7 +254,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -274,7 +274,7 @@ class KnowledgeManagement extends DolibarrApi
 		// Clean data
 		// $this->knowledgerecord->abc = sanitizeVal($this->knowledgerecord->abc, 'alphanohtml');
 
-		if ($this->knowledgerecord->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->knowledgerecord->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, "Error creating KnowledgeRecord", array_merge(array($this->knowledgerecord->error), $this->knowledgerecord->errors));
 		}
 		return $this->knowledgerecord->id;
@@ -295,7 +295,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -304,8 +304,8 @@ class KnowledgeManagement extends DolibarrApi
 			throw new RestException(404, 'KnowledgeRecord not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('knowledgerecord', $this->knowledgerecord->id, 'knowledgemanagement_knowledgerecord')) {
-			throw new RestException(403, 'Access to instance id='.$this->knowledgerecord->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('knowledgerecord', $this->knowledgerecord->id, 'knowledgemanagement_knowledgerecord')) {
+			throw new RestException(403, 'Access to instance id='.$this->knowledgerecord->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
 		foreach ($request_data as $field => $value) {
@@ -331,7 +331,7 @@ class KnowledgeManagement extends DolibarrApi
 		// Clean data
 		// $this->knowledgerecord->abc = sanitizeVal($this->knowledgerecord->abc, 'alphanohtml');
 
-		if ($this->knowledgerecord->update(DolibarrApiAccess::$user, 0) > 0) {
+		if ($this->knowledgerecord->update(OnLiApiAccess::$user, 0) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->knowledgerecord->error);
@@ -352,7 +352,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'delete')) {
 			throw new RestException(403);
 		}
 		$result = $this->knowledgerecord->fetch($id);
@@ -360,11 +360,11 @@ class KnowledgeManagement extends DolibarrApi
 			throw new RestException(404, 'KnowledgeRecord not found');
 		}
 
-		if (!DolibarrApi::_checkAccessToResource('knowledgerecord', $this->knowledgerecord->id, 'knowledgemanagement_knowledgerecord')) {
-			throw new RestException(403, 'Access to instance id='.$this->knowledgerecord->id.' of object not allowed for login '.DolibarrApiAccess::$user->login);
+		if (!OnLiApi::_checkAccessToResource('knowledgerecord', $this->knowledgerecord->id, 'knowledgemanagement_knowledgerecord')) {
+			throw new RestException(403, 'Access to instance id='.$this->knowledgerecord->id.' of object not allowed for login '.OnLiApiAccess::$user->login);
 		}
 
-		if (!$this->knowledgerecord->delete(DolibarrApiAccess::$user)) {
+		if (!$this->knowledgerecord->delete(OnLiApiAccess::$user)) {
 			throw new RestException(500, 'Error when deleting KnowledgeRecord : '.$this->knowledgerecord->error);
 		}
 
@@ -456,7 +456,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function validate($id, $notrigger = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		$result = $this->knowledgerecord->fetch($id);
@@ -465,7 +465,7 @@ class KnowledgeManagement extends DolibarrApi
 		}
 
 
-		$result = $this->knowledgerecord->validate(DolibarrApiAccess::$user, $notrigger);
+		$result = $this->knowledgerecord->validate(OnLiApiAccess::$user, $notrigger);
 		if ($result == 0) {
 			throw new RestException(304, 'Error nothing done. May be object is already validated');
 		}
@@ -493,7 +493,7 @@ class KnowledgeManagement extends DolibarrApi
 	 */
 	public function cancel($id, $notrigger = 0)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('knowledgemanagement', 'knowledgerecord', 'write')) {
 			throw new RestException(403, "Insuffisant rights");
 		}
 		$result = $this->knowledgerecord->fetch($id);
@@ -502,7 +502,7 @@ class KnowledgeManagement extends DolibarrApi
 		}
 
 
-		$result = $this->knowledgerecord->cancel(DolibarrApiAccess::$user, $notrigger);
+		$result = $this->knowledgerecord->cancel(OnLiApiAccess::$user, $notrigger);
 		if ($result == 0) {
 			throw new RestException(304, 'Error nothing done. May be object is already validated');
 		}

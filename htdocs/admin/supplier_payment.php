@@ -25,7 +25,7 @@
  *		\brief      Page to setup supplier invoices payments
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/fourn.lib.php';
@@ -69,7 +69,7 @@ if ($action == 'updateMask') {
 	$res = 0;
 
 	if ($maskconstsupplierpayment && preg_match('/_MASK$/', $maskconstsupplierpayment)) {
-		$res = dolibarr_set_const($db, $maskconstsupplierpayment, $masksupplierpayment, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconstsupplierpayment, $masksupplierpayment, 'chaine', 0, '', $conf->entity);
 	}
 
 	if (!($res > 0)) {
@@ -82,7 +82,7 @@ if ($action == 'updateMask') {
 		setEventMessages($langs->trans("Error"), null, 'errors');
 	}
 } elseif ($action == 'setmod') {
-	dolibarr_set_const($db, "SUPPLIER_PAYMENT_ADDON", $value, 'chaine', 0, '', $conf->entity);
+	onli_set_const($db, "SUPPLIER_PAYMENT_ADDON", $value, 'chaine', 0, '', $conf->entity);
 } elseif ($action == 'set') {
 	// Activate a model
 	$ret = addDocumentModel($value, $type, $label, $scandir);
@@ -90,12 +90,12 @@ if ($action == 'updateMask') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (getDolGlobalString("FACTURE_ADDON_PDF") == "$value") {
-			dolibarr_del_const($db, 'SUPPLIER_PAYMENT_ADDON_PDF', $conf->entity);
+			onli_del_const($db, 'SUPPLIER_PAYMENT_ADDON_PDF', $conf->entity);
 		}
 	}
 } elseif ($action == 'setdoc') {
 	// Set default model
-	if (dolibarr_set_const($db, "SUPPLIER_PAYMENT_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
+	if (onli_set_const($db, "SUPPLIER_PAYMENT_ADDON_PDF", $value, 'chaine', 0, '', $conf->entity)) {
 		// La constante qui a ete lue en avant du nouveau set
 		// on passe donc par une variable pour avoir un affichage coherent
 		$conf->global->FACTURE_ADDON_PDF = $value;
@@ -107,7 +107,7 @@ if ($action == 'updateMask') {
 		$ret = addDocumentModel($value, $type, $label, $scandir);
 	}
 } elseif ($action == 'unsetdoc') {
-	dolibarr_del_const($db, "SUPPLIER_PAYMENT_ADDON_PDF", $conf->entity);
+	onli_del_const($db, "SUPPLIER_PAYMENT_ADDON_PDF", $conf->entity);
 } elseif ($action == 'specimen') {
 	$modele = GETPOST('module', 'alpha');
 
@@ -144,7 +144,7 @@ if ($action == 'updateMask') {
 		dol_syslog($langs->trans("ErrorModuleNotFound"), LOG_ERR);
 	}
 } elseif ($action == 'setparams') {
-	$res = dolibarr_set_const($db, "PAYMENTS_FOURN_REPORT_GROUP_BY_MOD", GETPOSTINT('PAYMENTS_FOURN_REPORT_GROUP_BY_MOD'), 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PAYMENTS_FOURN_REPORT_GROUP_BY_MOD", GETPOSTINT('PAYMENTS_FOURN_REPORT_GROUP_BY_MOD'), 'chaine', 0, '', $conf->entity);
 	if (!($res > 0)) {
 		$error++;
 	}

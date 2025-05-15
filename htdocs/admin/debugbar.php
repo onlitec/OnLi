@@ -25,7 +25,7 @@
  *	\brief      Setup page for debugbar module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -56,8 +56,8 @@ $action = GETPOST('action', 'aZ09');
 if ($action == 'set') {
 	$db->begin();
 
-	$result1 = dolibarr_set_const($db, "DEBUGBAR_LOGS_LINES_NUMBER", GETPOSTINT('DEBUGBAR_LOGS_LINES_NUMBER'), 'chaine', 0, '', 0);
-	$result2 = dolibarr_set_const($db, "DEBUGBAR_USE_LOG_FILE", GETPOSTINT('DEBUGBAR_USE_LOG_FILE'), 'chaine', 0, '', 0);
+	$result1 = onli_set_const($db, "DEBUGBAR_LOGS_LINES_NUMBER", GETPOSTINT('DEBUGBAR_LOGS_LINES_NUMBER'), 'chaine', 0, '', 0);
+	$result2 = onli_set_const($db, "DEBUGBAR_USE_LOG_FILE", GETPOSTINT('DEBUGBAR_USE_LOG_FILE'), 'chaine', 0, '', 0);
 	if ($result1 < 0 || $result2 < 0) {
 		$error++;
 	}

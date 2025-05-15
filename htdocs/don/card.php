@@ -28,7 +28,7 @@
  *  \brief      Page of donation card
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/modules/dons/modules_don.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/donation.lib.php';
@@ -511,7 +511,7 @@ if ($action == 'create') {
 	if (!isset($note_public)) {  // Does not seem set before! @phan-suppress-current-line PhanPluginUndeclaredVariableIsset
 		$note_public = $object->getDefaultCreateValueFor('note_public');
 	}
-	$doleditor = new DolEditor('note_public', $note_public, '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
+	$doleditor = new DolEditor('note_public', $note_public, '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PUBLIC') ? 0 : 1, ROWS_3, '90%');
 	print $doleditor->Create(1);
 	print '</td></tr>';
 
@@ -523,7 +523,7 @@ if ($action == 'create') {
 		if (!isset($note_private)) {  // Does not seem set before! @phan-suppress-current-line PhanPluginUndeclaredVariableIsset
 			$note_private = $object->getDefaultCreateValueFor('note_private');
 		}
-		$doleditor = new DolEditor('note_private', $note_private, '', 80, 'dolibarr_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
+		$doleditor = new DolEditor('note_private', $note_private, '', 80, 'onli_notes', 'In', false, false, !getDolGlobalString('FCKEDITOR_ENABLE_NOTE_PRIVATE') ? 0 : 1, ROWS_3, '90%');
 		print $doleditor->Create(1);
 		print '</td></tr>';
 	}

@@ -22,9 +22,9 @@ use Luracast\Restler\RestException;
  * API class for webhooks
  *
  * @access protected
- * @class  DolibarrApiAccess {@requires user}
+ * @class  OnLiApiAccess {@requires user}
  */
-class Webhook extends DolibarrApi
+class Webhook extends OnLiApi
 {
 	/**
 	 * @var string[]       Mandatory fields, checked when we create and update the object
@@ -87,7 +87,7 @@ class Webhook extends DolibarrApi
 	{
 		$obj_ret = array();
 
-		if (!DolibarrApiAccess::$user->hasRight('webhook', 'webhook_target', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('webhook', 'webhook_target', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -166,7 +166,7 @@ class Webhook extends DolibarrApi
 	 */
 	public function post($request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('webhook', 'webhook_target', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('webhook', 'webhook_target', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -185,7 +185,7 @@ class Webhook extends DolibarrApi
 			$this->target->status = 1;
 		}
 
-		if ($this->target->create(DolibarrApiAccess::$user) < 0) {
+		if ($this->target->create(OnLiApiAccess::$user) < 0) {
 			throw new RestException(500, 'Error creating target', array_merge(array($this->target->error), $this->target->errors));
 		}
 
@@ -207,7 +207,7 @@ class Webhook extends DolibarrApi
 	 */
 	public function put($id, $request_data = null)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('webhook', 'webhook_target', 'write')) {
+		if (!OnLiApiAccess::$user->hasRight('webhook', 'webhook_target', 'write')) {
 			throw new RestException(403);
 		}
 
@@ -223,7 +223,7 @@ class Webhook extends DolibarrApi
 			$this->target->$field = $this->_checkValForAPI($field, $value, $this->target);
 		}
 
-		if ($this->target->update(DolibarrApiAccess::$user, 1) > 0) {
+		if ($this->target->update(OnLiApiAccess::$user, 1) > 0) {
 			return $this->get($id);
 		} else {
 			throw new RestException(500, $this->target->error);
@@ -240,7 +240,7 @@ class Webhook extends DolibarrApi
 	 */
 	public function delete($id)
 	{
-		if (!DolibarrApiAccess::$user->hasRight('webhook', 'webhook_target', 'delete')) {
+		if (!OnLiApiAccess::$user->hasRight('webhook', 'webhook_target', 'delete')) {
 			throw new RestException(403);
 		}
 
@@ -249,7 +249,7 @@ class Webhook extends DolibarrApi
 			throw new RestException(404, 'Target not found');
 		}
 
-		$res = $this->target->delete(DolibarrApiAccess::$user);
+		$res = $this->target->delete(OnLiApiAccess::$user);
 		if ($res < 0) {
 			throw new RestException(500, "Can't delete target, error occurs");
 		}
@@ -273,7 +273,7 @@ class Webhook extends DolibarrApi
 	 */
 	public function listOfTriggers()
 	{
-		if (!DolibarrApiAccess::$user->hasRight('webhook', 'webhook_target', 'read')) {
+		if (!OnLiApiAccess::$user->hasRight('webhook', 'webhook_target', 'read')) {
 			throw new RestException(403);
 		}
 
@@ -414,8 +414,8 @@ class Webhook extends DolibarrApi
 	 */
 	private function _fetch($rowid, $ref = '')
 	{
-		if (!DolibarrApiAccess::$user->hasRight('webhook', 'webhook_target', 'read')) {
-			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login.'. No read permission on target.');
+		if (!OnLiApiAccess::$user->hasRight('webhook', 'webhook_target', 'read')) {
+			throw new RestException(403, 'Access not allowed for login '.OnLiApiAccess::$user->login.'. No read permission on target.');
 		}
 
 		if ($rowid === 0) {

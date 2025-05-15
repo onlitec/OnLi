@@ -22,9 +22,9 @@
  */
 
 /**
- * \file scripts/user/sync_groups_ldap2dolibarr.php
+ * \file scripts/user/sync_groups_ldap2onli.php
  * \ingroup ldap member
- * \brief Script to update groups into Dolibarr from LDAP
+ * \brief Script to update groups into OnLi from LDAP
  */
 
 if (!defined('NOSESSION')) {
@@ -116,7 +116,7 @@ if (getDolGlobalString('LDAP_GROUP_FILTER')) {
 } else {
 	print 'Filter=(' . getDolGlobalString('LDAP_KEY_GROUPS').'=*)'."\n";
 }
-print "----- To Dolibarr database:\n";
+print "----- To OnLi database:\n";
 print "type=".$conf->db->type."\n";
 print "host=".$conf->db->host."\n";
 print "port=".$conf->db->port."\n";
@@ -133,7 +133,7 @@ if (!$confirmed) {
 }
 
 if (!getDolGlobalString('LDAP_GROUP_DN')) {
-	print $langs->trans("Error").': '.$langs->trans("LDAP setup for groups not defined inside Dolibarr");
+	print $langs->trans("Error").': '.$langs->trans("LDAP setup for groups not defined inside OnLi");
 	exit(1);
 }
 
@@ -142,7 +142,7 @@ $result = $ldap->connectBind();
 if ($result >= 0) {
 	$justthese = array();
 
-	// We disable synchro Dolibarr-LDAP
+	// We disable synchro OnLi-LDAP
 	$conf->global->LDAP_SYNCHRO_ACTIVE = 0;
 
 	$ldaprecords = $ldap->getRecords('*', getDolGlobalString('LDAP_GROUP_DN'), getDolGlobalString('LDAP_KEY_GROUPS'), $required_fields, 'group', array(getDolGlobalString('LDAP_GROUP_FIELD_GROUPMEMBERS')));
@@ -187,7 +187,7 @@ if ($result >= 0) {
 			// print_r($group);
 
 			// Management of the users associated with the group
-			// 1 - Association of users in the LDAP group with the Dolibarr group
+			// 1 - Association of users in the LDAP group with the OnLi group
 			$userList = array();
 			$userIdList = array();
 			$groupMembers = $ldapgroup[getDolGlobalString('LDAP_GROUP_FIELD_GROUPMEMBERS')];
@@ -232,7 +232,7 @@ if ($result >= 0) {
 				}
 			}
 
-			// 2 - Delete users from the Dolibarr group that are no longer in the LDAP group
+			// 2 - Delete users from the OnLi group that are no longer in the LDAP group
 			foreach ($group->members as $guser) {
 				if (!in_array($guser->id, $userIdList)) {
 					$guser->RemoveFromGroup($group->id, $group->entity);

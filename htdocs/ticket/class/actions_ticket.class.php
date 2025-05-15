@@ -237,7 +237,7 @@ class ActionsTicket extends CommonHookActions
 			if (!$ckeditorenabledforticket) {
 				$msg = dol_string_nohtmltag($msg, 2);
 			}
-			$doleditor = new DolEditor('message_initial', $msg, '100%', 250, 'dolibarr_details', 'In', true, $uselocalbrowser, $ckeditorenabledforticket, ROWS_9, '95%');
+			$doleditor = new DolEditor('message_initial', $msg, '100%', 250, 'onli_details', 'In', true, $uselocalbrowser, $ckeditorenabledforticket, ROWS_9, '95%');
 			$doleditor->Create();
 		} else {
 			print '<div class="longmessagecut small">';

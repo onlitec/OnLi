@@ -23,7 +23,7 @@
  *		\brief      Page to setup bookmark module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 
@@ -51,7 +51,7 @@ $error = 0;
 
 if ($action == 'setvalue') {
 	$showmenu = GETPOST('BOOKMARKS_SHOW_IN_MENU', 'alpha');
-	$res = dolibarr_set_const($db, "BOOKMARKS_SHOW_IN_MENU", $showmenu, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "BOOKMARKS_SHOW_IN_MENU", $showmenu, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;

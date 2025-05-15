@@ -27,7 +27,7 @@
  * \brief   HrmTest setup page.
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 
 // Libraries
@@ -119,7 +119,7 @@ if ($action == 'update') {
 	$maskvalue = GETPOST('maskEvaluation', 'alpha');
 
 	if ($maskconst && preg_match('/_MASK$/', $maskconst)) {
-		$res = dolibarr_set_const($db, $maskconst, $maskvalue, 'chaine', 0, '', $conf->entity);
+		$res = onli_set_const($db, $maskconst, $maskvalue, 'chaine', 0, '', $conf->entity);
 		if (!($res > 0)) {
 			$error++;
 		}
@@ -170,7 +170,7 @@ if ($action == 'update') {
 	// TODO Check if numbering module chosen can be activated by calling method canBeActivated
 	if (!empty($tmpobjectkey)) {
 		$constforval = 'HRMTEST_'.strtoupper($tmpobjectkey)."_ADDON";
-		dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
 	}
 } elseif ($action == 'set') {
 	// Activate a model
@@ -181,7 +181,7 @@ if ($action == 'update') {
 		if (!empty($tmpobjectkey)) {
 			$constforval = 'HRMTEST_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
 			if (getDolGlobalString($constforval) == "$value") {
-				dolibarr_del_const($db, $constforval, $conf->entity);
+				onli_del_const($db, $constforval, $conf->entity);
 			}
 		}
 	}
@@ -189,7 +189,7 @@ if ($action == 'update') {
 	// Set or unset default model
 	if (!empty($tmpobjectkey)) {
 		$constforval = 'HRMTEST_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
-		if (dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
+		if (onli_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
 			// The constant that was read before the new set
 			// We therefore requires a variable to have a coherent view
 			$conf->global->$constforval = $value;
@@ -204,7 +204,7 @@ if ($action == 'update') {
 } elseif ($action == 'unsetdoc') {
 	if (!empty($tmpobjectkey)) {
 		$constforval = 'HRMTEST_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
-		dolibarr_del_const($db, $constforval, $conf->entity);
+		onli_del_const($db, $constforval, $conf->entity);
 	}
 }
 
@@ -528,7 +528,7 @@ if ($action == 'edit') {
 				print '<input  class="flat" name="' . $constname . '" id="' . $constname . '" value="' . getDolGlobalString($constname) . '" type="number" step="1" min="0" max="50" >' . "\n";
 			} elseif ($val['type'] == 'html') {
 				require_once DOL_DOCUMENT_ROOT . '/core/class/doleditor.class.php';
-				$doleditor = new DolEditor($constname, getDolGlobalString($constname), '', 160, 'dolibarr_notes', '', false, false, isModEnabled('fckeditor'), ROWS_5, '90%');
+				$doleditor = new DolEditor($constname, getDolGlobalString($constname), '', 160, 'onli_notes', '', false, false, isModEnabled('fckeditor'), ROWS_5, '90%');
 				$doleditor->Create();
 			} elseif ($val['type'] == 'yesno') {
 				print $form->selectyesno($constname, getDolGlobalString($constname), 1);
@@ -631,9 +631,9 @@ if ($action == 'edit') {
 					$ways = $c->print_all_ways(' &gt;&gt; ', 'none', 0, 1); // $ways[0] = "ccc2 >> ccc2a >> ccc2a1" with html formatted text
 					$toprint = array();
 					foreach ($ways as $way) {
-						$toprint[] = '<li class="select2-search-choice-dolibarr noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #bbb"') . '>' . $way . '</li>';
+						$toprint[] = '<li class="select2-search-choice-onli noborderoncategories"' . ($c->color ? ' style="background: #' . $c->color . ';"' : ' style="background: #bbb"') . '>' . $way . '</li>';
 					}
-					print '<div class="select2-container-multi-dolibarr" style="width: 90%;"><ul class="select2-choices-dolibarr">' . implode(' ', $toprint) . '</ul></div>';
+					print '<div class="select2-container-multi-onli" style="width: 90%;"><ul class="select2-choices-onli">' . implode(' ', $toprint) . '</ul></div>';
 				} elseif (preg_match('/thirdparty_type/', $val['type'])) {
 					if (getDolGlobalString($constname) == 2) {
 						print $langs->trans("Prospect");

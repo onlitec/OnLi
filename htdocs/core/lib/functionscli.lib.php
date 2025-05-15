@@ -18,7 +18,7 @@
 
 /**
  *	\file			htdocs/core/lib/functionscli.lib.php
- *	\brief			A set of functions for CLI scripts of Dolibarr
+ *	\brief			A set of functions for CLI scripts of OnLi
  *					This file contains only functions used by script run on command line.
  */
 

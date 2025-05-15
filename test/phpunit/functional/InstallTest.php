@@ -22,13 +22,13 @@
  */
 class InstallTest extends PHPUnit_Extensions_Selenium2TestCase
 {
-	protected static $url = 'https://dev.dolibarr.org';
-	protected static $db_name = 'dolibarr_test';
+	protected static $url = 'https://dev.onli.org';
+	protected static $db_name = 'onli_test';
 	protected static $db_host = 'localhost';
 	protected static $db_admin_user = 'root';
 	protected static $db_admin_pass = '';
-	protected static $db_user = 'dolibarr';
-	protected static $db_pass = 'dolibarr';
+	protected static $db_user = 'onli';
+	protected static $db_pass = 'onli';
 	protected static $dol_admin_user = 'admin';
 	protected static $dol_admin_pass = 'admin';
 
@@ -114,7 +114,7 @@ class InstallTest extends PHPUnit_Extensions_Selenium2TestCase
 	 */
 	public function testInstallPageTitle()
 	{
-		$this->assertStringContainsString('Dolibarr', $this->title());
+		$this->assertStringContainsString('OnLi', $this->title());
 	}
 
 	/**
@@ -162,7 +162,7 @@ class InstallTest extends PHPUnit_Extensions_Selenium2TestCase
 		$this->assertFalse($this->byName('main_force_https')->selected());
 		$this->byName('main_force_https')->click();
 
-		$this->assertEquals('dolibarr', $this->byId('db_name')->value());
+		$this->assertEquals('onli', $this->byId('db_name')->value());
 		$this->byId('db_name')->clear();
 		$this->byId('db_name')->value(self::$db_name);
 

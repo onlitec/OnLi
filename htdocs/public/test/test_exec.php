@@ -36,12 +36,12 @@ if (!defined("NOSESSION")) {
 	define("NOSESSION", '1');
 }
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 
 // Security
-if ($dolibarr_main_prod) {
-	accessforbidden('Access forbidden when $dolibarr_main_prod is set to 1');
+if ($onli_main_prod) {
+	accessforbidden('Access forbidden when $onli_main_prod is set to 1');
 }
 
 

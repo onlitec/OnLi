@@ -25,7 +25,7 @@
  *		\brief      File of main public page for partnership module
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
@@ -40,7 +40,7 @@ require_once DOL_DOCUMENT_ROOT.'/partnership/class/partnership.class.php';
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Load translation files required by the page
@@ -61,16 +61,16 @@ if (!$user->admin) {
 
 if ($action == 'setPARTNERSHIP_ENABLE_PUBLIC') {
 	if (GETPOST('value')) {
-		dolibarr_set_const($db, 'PARTNERSHIP_ENABLE_PUBLIC', 1, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'PARTNERSHIP_ENABLE_PUBLIC', 1, 'chaine', 0, '', $conf->entity);
 	} else {
-		dolibarr_set_const($db, 'PARTNERSHIP_ENABLE_PUBLIC', 0, 'chaine', 0, '', $conf->entity);
+		onli_set_const($db, 'PARTNERSHIP_ENABLE_PUBLIC', 0, 'chaine', 0, '', $conf->entity);
 	}
 }
 
 if ($action == 'update') {
 	$public = GETPOST('PARTNERSHIP_ENABLE_PUBLIC');
 
-	$res = dolibarr_set_const($db, "PARTNERSHIP_ENABLE_PUBLIC", $public, 'chaine', 0, '', $conf->entity);
+	$res = onli_set_const($db, "PARTNERSHIP_ENABLE_PUBLIC", $public, 'chaine', 0, '', $conf->entity);
 
 	if (!($res > 0)) {
 		$error++;
@@ -232,7 +232,7 @@ if (getDolGlobalString('PARTNERSHIP_ENABLE_PUBLIC')) {
 	}
 
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

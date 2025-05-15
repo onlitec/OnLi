@@ -26,7 +26,7 @@
 
 /**
  *	\file			htdocs/core/lib/functions2.lib.php
- *	\brief			A set of functions for Dolibarr
+ *	\brief			A set of functions for OnLi
  *					This file contains all rare functions.
  */
 
@@ -361,7 +361,7 @@ function dol_print_object_info($object, $usetable = 0)
 		} else {
 			print ': ';
 		}
-		// user_approve is not defined in Dolibarr code @phan-suppress-next-line PhanUndeclaredProperty
+		// user_approve is not defined in OnLi code @phan-suppress-next-line PhanUndeclaredProperty
 		if (!empty($object->user_approve) && is_object($object->user_approve)) {
 			if ($object->user_approve->id) {  // @phan-suppress-current-line PhanUndeclaredProperty
 				// @phan-suppress-next-line PhanUndeclaredProperty,PhanPluginUnknownObjectMethodCall
@@ -598,7 +598,7 @@ function dol_print_object_info($object, $usetable = 0)
 		}
 	}
 
-	// Date conciliate  Note: date_rappro is not found on Dolibarr classes
+	// Date conciliate  Note: date_rappro is not found on OnLi classes
 	if (!empty($object->date_rappro)) {
 		// Datte
 		if ($usetable) {
@@ -768,7 +768,7 @@ function isValidVATID($company)
  */
 function clean_url($url, $http = 1)
 {
-	// Fixed by Matelli (see http://matelli.fr/showcases/patch%73-dolibarr/fix-cleaning-url.html)
+	// Fixed by Matelli (see http://matelli.fr/showcases/patch%73-onli/fix-cleaning-url.html)
 	// To include the minus sign in a char class, we must not escape it but put it at the end of the class
 	// Also, there's no need of escape a dot sign in a class
 	$regs = array();
@@ -1807,7 +1807,7 @@ function weight_convert($weight, &$from_unit, $to_unit)
  *	@param	array<string,string|int>	$tab        Array (key=>value) with all parameters to save/update
  *	@return int         		Return integer <0 if KO, >0 if OK
  *
- *	@see		dolibarr_get_const(), dolibarr_set_const(), dolibarr_del_const()
+ *	@see		onli_get_const(), onli_set_const(), onli_del_const()
  */
 function dol_set_user_param($db, $conf, &$user, $tab)
 {
@@ -1935,12 +1935,12 @@ function version_db()
 }
 
 /**
- * 	Return Dolibarr version
+ * 	Return OnLi version
  *
- * 	@return		string			Dolibarr version
- *  @see		versiondolibarrarray(), versioncompare()
+ * 	@return		string			OnLi version
+ *  @see		versiononliarray(), versioncompare()
  */
-function version_dolibarr()
+function version_onli()
 {
 	return DOL_VERSION;
 }
@@ -2832,9 +2832,9 @@ if (!function_exists('dolEscapeXML')) {
  */
 function convertBackOfficeMediasLinksToPublicLinks($notetoshow)
 {
-	global $dolibarr_main_url_root;
+	global $onli_main_url_root;
 	// Define $urlwithroot
-	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 	$notetoshow = preg_replace('/src="[a-zA-Z0-9_\/\-\.]*(viewimage\.php\?modulepart=medias[^"]*)"/', 'src="'.$urlwithroot.'/\1"', $notetoshow);
@@ -2979,7 +2979,7 @@ function acceptLocalLinktoMedia()
 
 	// If $acceptlocallinktomedia is true, we can add link media files int email templates (we already can do this into HTML editor of an email).
 	// Note that local link to a file into medias are replaced with a real link by email in CMailFile.class.php with value $urlwithroot defined like this:
-	// $urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+	// $urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 	// $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 
 	$acceptlocallinktomedia = getDolGlobalInt('MAIN_DISALLOW_MEDIAS_IN_EMAIL_TEMPLATES') ? 0 : 1;
@@ -2989,8 +2989,8 @@ function acceptLocalLinktoMedia()
 	// except if MAIN_ALLOW_WYSIWYG_LOCAL_MEDIAS_ON_PRIVATE_NETWORK is net, in which case we accept also if instance has a local or private network URL.
 
 	if ($acceptlocallinktomedia) {
-		global $dolibarr_main_url_root;
-		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+		global $onli_main_url_root;
+		$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 
 		// Parse $newUrl to get the IP of the server
 		$newUrlArray = parse_url($urlwithouturlroot);
@@ -3153,7 +3153,7 @@ function csvClean($newvalue, $charset = '', $separator = '')
 	$newvalue = $langs->convToOutputCharset($newvalue, 'UTF-8', $charset); // newvalue is now encoded into $charset
 
 
-	// Rule Dolibarr: No HTML
+	// Rule OnLi: No HTML
 	//print $charset.' '.$newvalue."\n";
 	//$newvalue=dol_string_nohtmltag($newvalue,0,$charset);
 	$newvalue = dol_htmlcleanlastbr($newvalue);

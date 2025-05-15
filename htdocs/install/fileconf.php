@@ -27,29 +27,29 @@
 /**
  *       \file       htdocs/install/fileconf.php
  *       \ingroup    install
- *       \brief      Ask all information required to build Dolibarr htdocs/conf/conf.php file (will be written to disk on next page step1)
+ *       \brief      Ask all information required to build OnLi htdocs/conf/conf.php file (will be written to disk on next page step1)
  */
 
 include_once 'inc.php';
 /**
  * @var Translate $langs
  *
- * @var string $dolibarr_main_db_host
- * @var string $dolibarr_main_db_port
- * @var string $dolibarr_main_db_name
- * @var string $dolibarr_main_db_user
- * @var string $dolibarr_main_db_pass
- * @var string $dolibarr_main_db_encrypted_pass
+ * @var string $onli_main_db_host
+ * @var string $onli_main_db_port
+ * @var string $onli_main_db_name
+ * @var string $onli_main_db_user
+ * @var string $onli_main_db_pass
+ * @var string $onli_main_db_encrypted_pass
  * @var string $conffile
  * @var string $conffiletoshow
  */
 '
-@phan-var-force string $dolibarr_main_db_host
-@phan-var-force string $dolibarr_main_db_port
-@phan-var-force string $dolibarr_main_db_name
-@phan-var-force string $dolibarr_main_db_user
-@phan-var-force string $dolibarr_main_db_pass
-@phan-var-force string $dolibarr_main_db_encrypted_pass
+@phan-var-force string $onli_main_db_host
+@phan-var-force string $onli_main_db_port
+@phan-var-force string $onli_main_db_name
+@phan-var-force string $onli_main_db_user
+@phan-var-force string $onli_main_db_pass
+@phan-var-force string $onli_main_db_encrypted_pass
 @phan-var-force string $conffile
 @phan-var-force string $conffiletoshow
 @phan-var-force ?bool $force_install_
@@ -67,7 +67,7 @@ include_once 'inc.php';
 @phan-var-force ?string $force_install_databasepass
 @phan-var-force ?string $force_install_databaserootlogin
 @phan-var-force ?string $force_install_databaserootpass
-@phan-var-force ?string $force_install_dolibarrlogin
+@phan-var-force ?string $force_install_onlilogin
 @phan-var-force ?string $force_install_nophpinfo
 @phan-var-force ?string $force_install_lockinstall
 @phan-var-force ?string $force_install_distrib
@@ -82,9 +82,9 @@ $langs->setDefaultLang($setuplang);
 
 $langs->loadLangs(array("install", "errors"));
 
-dolibarr_install_syslog("- fileconf: entering fileconf.php page");
+onli_install_syslog("- fileconf: entering fileconf.php page");
 
-// You can force preselected values of the config step of Dolibarr by adding a file
+// You can force preselected values of the config step of OnLi by adding a file
 // install.forced.php into directory htdocs/install (This is the case with some wizard
 // installer like DoliWamp, DoliMamp or DoliBuntu).
 // We first init "forced values" to nothing.
@@ -124,8 +124,8 @@ if (!isset($force_install_databaserootpass)) {
 // Now we load forced values from install.forced.php file.
 $useforcedwizard = false;
 $forcedfile = "./install.forced.php";
-if ($conffile == "/etc/dolibarr/conf.php") {
-	$forcedfile = "/etc/dolibarr/install.forced.php"; // Must be after inc.php
+if ($conffile == "/etc/onli/conf.php") {
+	$forcedfile = "/etc/onli/install.forced.php"; // Must be after inc.php
 }
 if (@file_exists($forcedfile)) {
 	$useforcedwizard = true;
@@ -140,13 +140,13 @@ if (@file_exists($forcedfile)) {
 
 session_start(); // To be able to keep info into session (used for not losing pass during navigation. pass must not transit through parameters)
 
-pHeader($langs->trans("DolibarrSetup").' - '.$langs->trans("ConfigurationFile"), "step1", "set", "", (empty($force_dolibarr_js_JQUERY) ? '' : $force_dolibarr_js_JQUERY.'/'), 'main-inside-bis');
+pHeader($langs->trans("OnLiSetup").' - '.$langs->trans("ConfigurationFile"), "step1", "set", "", (empty($force_onli_js_JQUERY) ? '' : $force_onli_js_JQUERY.'/'), 'main-inside-bis');
 
 // Test if we can run a first install process
 if (!is_writable($conffile)) {
 	print $langs->trans("ConfFileIsNotWritable", $conffiletoshow);
-	dolibarr_install_syslog("fileconf: config file is not writable", LOG_WARNING);
-	dolibarr_install_syslog("- fileconf: end");
+	onli_install_syslog("fileconf: config file is not writable", LOG_WARNING);
+	onli_install_syslog("- fileconf: end");
 	pFooter(1, $setuplang, 'jscheckparam');
 	exit;
 }
@@ -182,18 +182,18 @@ if (!empty($force_install_message)) {
 		</td>
 	</tr>
 
-	<!-- Documents root $dolibarr_main_document_root -->
+	<!-- Documents root $onli_main_document_root -->
 	<tr>
 		<td class="label"><label for="main_dir"><b><?php print $langs->trans("WebPagesDirectory"); ?></b></label></td>
 <?php
-if (empty($dolibarr_main_document_root)) {
-	$dolibarr_main_document_root = GETPOSTISSET('main_dir') ? GETPOST('main_dir') : detect_dolibarr_main_document_root();
+if (empty($onli_main_document_root)) {
+	$onli_main_document_root = GETPOSTISSET('main_dir') ? GETPOST('main_dir') : detect_onli_main_document_root();
 }
 ?>
 		<td class="label">
 			<input type="text" class="minwidth300" id="main_dir"
 				   name="main_dir"
-				   value="<?php print $dolibarr_main_document_root ?>"
+				   value="<?php print $onli_main_document_root ?>"
 <?php
 if (!empty($force_install_noedit)) {
 	print ' disabled';
@@ -206,21 +206,21 @@ if (!empty($force_install_noedit)) {
 		print $langs->trans("Examples").":<br>";
 		?>
 		<ul>
-			<li>/var/www/dolibarr/htdocs</li>
-			<li>C:/wwwroot/dolibarr/htdocs</li>
+			<li>/var/www/onli/htdocs</li>
+			<li>C:/wwwroot/onli/htdocs</li>
 		</ul>
 		</td>
 	</tr>
 
-	<!-- Documents URL $dolibarr_main_data_root -->
+	<!-- Documents URL $onli_main_data_root -->
 	<tr>
 		<td class="label"><label for="main_data_dir"><b><?php print $langs->trans("DocumentsDirectory"); ?></b></label></td>
 		<?php
 		if (!empty($force_install_main_data_root)) {
-			$dolibarr_main_data_root = @$force_install_main_data_root;
+			$onli_main_data_root = @$force_install_main_data_root;
 		}
-		if (empty($dolibarr_main_data_root)) {
-			$dolibarr_main_data_root = GETPOSTISSET('main_data_dir') ? GETPOST('main_data_dir') : detect_dolibarr_main_data_root($dolibarr_main_document_root);
+		if (empty($onli_main_data_root)) {
+			$onli_main_data_root = GETPOSTISSET('main_data_dir') ? GETPOST('main_data_dir') : detect_onli_main_data_root($onli_main_document_root);
 		}
 		?>
 		<td class="label">
@@ -228,7 +228,7 @@ if (!empty($force_install_noedit)) {
 				   class="minwidth300"
 				   id="main_data_dir"
 				   name="main_data_dir"
-				   value="<?php print $dolibarr_main_data_root ?>"
+				   value="<?php print $onli_main_data_root ?>"
 <?php if (!empty($force_install_noedit)) {
 	print ' disabled';
 } ?>
@@ -240,16 +240,16 @@ if (!empty($force_install_noedit)) {
 		print $langs->trans("Examples").":<br>";
 		?>
 		<ul>
-			<li>/var/lib/dolibarr/documents</li>
-			<li>C:/My Documents/dolibarr/documents</li>
+			<li>/var/lib/onli/documents</li>
+			<li>C:/My Documents/onli/documents</li>
 		</ul>
 		</td>
 	</tr>
 
-	<!-- Root URL $dolibarr_main_url_root -->
+	<!-- Root URL $onli_main_url_root -->
 	<?php
-	if (empty($dolibarr_main_url_root)) {
-		$dolibarr_main_url_root = GETPOSTISSET('main_url') ? GETPOST('main_url') : detect_dolibarr_main_url_root();
+	if (empty($onli_main_url_root)) {
+		$onli_main_url_root = GETPOSTISSET('main_url') ? GETPOST('main_url') : detect_onli_main_url_root();
 	}
 	?>
 	<tr>
@@ -260,7 +260,7 @@ if (!empty($force_install_noedit)) {
 				   class="minwidth300"
 				   id="main_url"
 				   name="main_url"
-				   value="<?php print $dolibarr_main_url_root; ?> "
+				   value="<?php print $onli_main_url_root; ?> "
 <?php if (!empty($force_install_noedit) && $force_install_noedit != 3) {
 	print ' disabled';
 }
@@ -270,8 +270,8 @@ if (!empty($force_install_noedit)) {
 		<td class="comment"><?php print $langs->trans("Examples").":<br>"; ?>
 		<ul>
 			<li>http://localhost/</li>
-			<li>http://www.myserver.com:8180/dolibarr</li>
-			<li>https://www.myvirtualfordolibarr.com/</li>
+			<li>http://www.myserver.com:8180/onli</li>
+			<li>https://www.myvirtualforonli.com/</li>
 		</ul>
 		</td>
 	</tr>
@@ -301,11 +301,11 @@ if (!empty($force_install_noedit)) {
 	}
 	?>
 
-	<!-- Dolibarr database -->
+	<!-- OnLi database -->
 
 	<tr>
 		<td colspan="3" class="label"><br>
-		<h3><img class="valignmiddle inline-block paddingright" src="../theme/common/octicons/build/svg/database.svg" width="20" alt="webserver"> <?php echo $langs->trans("DolibarrDatabase"); ?></h3>
+		<h3><img class="valignmiddle inline-block paddingright" src="../theme/common/octicons/build/svg/database.svg" width="20" alt="webserver"> <?php echo $langs->trans("OnLiDatabase"); ?></h3>
 		</td>
 	</tr>
 
@@ -315,7 +315,7 @@ if (!empty($force_install_noedit)) {
 			<input type="text"
 				   id="db_name"
 				   name="db_name"
-				   value="<?php echo (!empty($dolibarr_main_db_name)) ? $dolibarr_main_db_name : ($force_install_database ? $force_install_database : 'dolibarr'); ?>"
+				   value="<?php echo (!empty($onli_main_db_name)) ? $onli_main_db_name : ($force_install_database ? $force_install_database : 'onli'); ?>"
 				<?php if (($force_install_noedit == 2 || $force_install_noedit == 3) && $force_install_database !== null) {
 					print ' disabled';
 				} ?>
@@ -326,14 +326,14 @@ if (!empty($force_install_noedit)) {
 
 
 	<?php
-	if (!isset($dolibarr_main_db_host)) {
-		$dolibarr_main_db_host = "localhost";
+	if (!isset($onli_main_db_host)) {
+		$onli_main_db_host = "localhost";
 	}
-	if (!isset($dolibarr_main_db_port)) {
-		$dolibarr_main_db_port = "";
+	if (!isset($onli_main_db_port)) {
+		$onli_main_db_port = "";
 	}
-	if (!isset($dolibarr_main_db_user)) {
-		$dolibarr_main_db_user = "";
+	if (!isset($onli_main_db_user)) {
+		$onli_main_db_user = "";
 	}
 
 	?>
@@ -344,7 +344,7 @@ if (!empty($force_install_noedit)) {
 		<td class="label">
 		<?php
 
-		$defaultype = !empty($dolibarr_main_db_type) ? $dolibarr_main_db_type : (empty($force_install_type) ? 'mysqli' : $force_install_type);
+		$defaultype = !empty($onli_main_db_type) ? $onli_main_db_type : (empty($force_install_type) ? 'mysqli' : $force_install_type);
 
 		$modules = array();
 		$nbok = $nbko = 0;
@@ -455,7 +455,7 @@ if (!empty($force_install_noedit)) {
 			<input type="text"
 				   id="db_host"
 				   name="db_host"
-				   value="<?php print(!empty($force_install_dbserver) ? $force_install_dbserver : (!empty($dolibarr_main_db_host) ? $dolibarr_main_db_host : 'localhost')); ?>"
+				   value="<?php print(!empty($force_install_dbserver) ? $force_install_dbserver : (!empty($onli_main_db_host) ? $onli_main_db_host : 'localhost')); ?>"
 				<?php if (($force_install_noedit == 2 || $force_install_noedit == 3) && $force_install_dbserver !== null) {
 					print ' disabled';
 				} ?>
@@ -472,7 +472,7 @@ if (!empty($force_install_noedit)) {
 			<input type="text"
 				   name="db_port"
 				   id="db_port"
-				   value="<?php print (!empty($force_install_port)) ? $force_install_port : $dolibarr_main_db_port; ?>"
+				   value="<?php print (!empty($force_install_port)) ? $force_install_port : $onli_main_db_port; ?>"
 				<?php if (($force_install_noedit == 2 || $force_install_noedit == 3) && $force_install_port !== null) {
 					print ' disabled';
 				} ?>
@@ -489,7 +489,7 @@ if (!empty($force_install_noedit)) {
 			<input type="text"
 				   id="db_prefix"
 				   name="db_prefix"
-				   value="<?php echo(!empty($force_install_prefix) ? $force_install_prefix : (!empty($dolibarr_main_db_prefix) ? $dolibarr_main_db_prefix : 'llx_')); ?>"
+				   value="<?php echo(!empty($force_install_prefix) ? $force_install_prefix : (!empty($onli_main_db_prefix) ? $onli_main_db_prefix : 'llx_')); ?>"
 				<?php if (($force_install_noedit == 2 || $force_install_noedit == 3) && $force_install_prefix !== null) {
 					print ' disabled';
 				} ?>
@@ -527,7 +527,7 @@ if (!empty($force_install_noedit)) {
 			<input type="text"
 				   id="db_user"
 				   name="db_user"
-				   value="<?php print (!empty($force_install_databaselogin)) ? $force_install_databaselogin : $dolibarr_main_db_user; ?>"
+				   value="<?php print (!empty($force_install_databaselogin)) ? $force_install_databaselogin : $onli_main_db_user; ?>"
 				<?php if (($force_install_noedit == 2 || $force_install_noedit == 3) && $force_install_databaselogin !== null) {
 					print ' disabled';
 				} ?>
@@ -546,7 +546,7 @@ if (!empty($force_install_noedit)) {
 					// If $force_install_databasepass is on, we don't want to set password, we just show '***'. Real value will be extracted from the forced install file at step1.
 					// @phan-suppress-next-line PhanParamSuspiciousOrder
 					$autofill = ((!empty($_SESSION['dol_save_pass'])) ? $_SESSION['dol_save_pass'] : str_pad('', strlen($force_install_databasepass), '*'));
-					if (!empty($dolibarr_main_prod) && empty($_SESSION['dol_save_pass'])) {    // So value can't be found if install page still accessible
+					if (!empty($onli_main_prod) && empty($_SESSION['dol_save_pass'])) {    // So value can't be found if install page still accessible
 						$autofill = '';
 					}
 					print dol_escape_htmltag($autofill);
@@ -630,7 +630,7 @@ if (!empty($force_install_noedit)) {
 					// If $force_install_databaserootpass is on, we don't want to set password here, we just show '***'. Real value will be extracted from the forced install file at step1.
 					// @phan-suppress-next-line PhanParamSuspiciousOrder
 					$autofill = ((!empty($force_install_databaserootpass)) ? str_pad('', strlen($force_install_databaserootpass), '*') : (isset($db_pass_root) ? $db_pass_root : ''));
-					if (!empty($dolibarr_main_prod)) {
+					if (!empty($onli_main_prod)) {
 						$autofill = '';
 					}
 					// Do not autofill password if instance is a production instance
@@ -786,6 +786,6 @@ jQuery(document).ready(function() {	// TODO Test $( window ).load(function() to 
 
 // $db->close();	Not database connection yet
 
-dolibarr_install_syslog("- fileconf: end");
+onli_install_syslog("- fileconf: end");
 
 pFooter($err, $setuplang, 'jscheckparam');

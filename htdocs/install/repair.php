@@ -35,22 +35,22 @@ if (file_exists($conffile)) {
  * @var Conf $conf
  * @var Translate $langs
  *
- * @var string $dolibarr_main_document_root
- * @var string $dolibarr_main_db_host
- * @var string $dolibarr_main_db_port
- * @var string $dolibarr_main_db_name
- * @var string $dolibarr_main_db_user
- * @var string $dolibarr_main_db_pass
+ * @var string $onli_main_document_root
+ * @var string $onli_main_db_host
+ * @var string $onli_main_db_port
+ * @var string $onli_main_db_name
+ * @var string $onli_main_db_user
+ * @var string $onli_main_db_pass
  */
 
 '
-@phan-var-force ?string $dolibarr_main_db_encryption
-@phan-var-force ?string $dolibarr_main_db_cryptkey
+@phan-var-force ?string $onli_main_db_encryption
+@phan-var-force ?string $onli_main_db_cryptkey
 ';
 
-require_once $dolibarr_main_document_root.'/core/lib/admin.lib.php';
-include_once $dolibarr_main_document_root.'/core/lib/images.lib.php';
-require_once $dolibarr_main_document_root.'/core/class/extrafields.class.php';
+require_once $onli_main_document_root.'/core/lib/admin.lib.php';
+include_once $onli_main_document_root.'/core/lib/images.lib.php';
+require_once $onli_main_document_root.'/core/class/extrafields.class.php';
 require_once 'lib/repair.lib.php';
 
 $step = 2;
@@ -69,20 +69,20 @@ $langs->setDefaultLang($setuplang);
 
 $langs->loadLangs(array("admin", "install", "other"));
 
-if ($dolibarr_main_db_type == "mysqli") {
+if ($onli_main_db_type == "mysqli") {
 	$choix = 1;
 }
-if ($dolibarr_main_db_type == "pgsql") {
+if ($onli_main_db_type == "pgsql") {
 	$choix = 2;
 }
-if ($dolibarr_main_db_type == "mssql") {
+if ($onli_main_db_type == "mssql") {
 	$choix = 3;
 }
 
 
-dolibarr_install_syslog("--- repair: entering upgrade.php page");
+onli_install_syslog("--- repair: entering upgrade.php page");
 if (!is_object($conf)) {
-	dolibarr_install_syslog("repair: conf file not initialized", LOG_ERR);
+	onli_install_syslog("repair: conf file not initialized", LOG_ERR);
 }
 
 
@@ -124,11 +124,11 @@ print 'Option set_empty_time_spent_amount is '.(GETPOST('set_empty_time_spent_am
 print 'Option force_utf8_on_tables (force utf8 + row=dynamic), for mysql/mariadb only, is '.(GETPOST('force_utf8_on_tables', 'alpha') ? GETPOST('force_utf8_on_tables', 'alpha') : 'undefined').'<br>'."\n";
 print '<span class="valignmiddle">'."Option force_utf8mb4_on_tables (force utf8mb4 + row=dynamic, EXPERIMENTAL!), for mysql/mariadb only, is ".(GETPOST('force_utf8mb4_on_tables', 'alpha') ? GETPOST('force_utf8mb4_on_tables', 'alpha') : 'undefined');
 print '</span>';
-if ($dolibarr_main_db_character_set != 'utf8mb4') {
-	print '<img src="../theme/eldy/img/warning.png" class="pictofortooltip valignmiddle" title="If you switch to utf8mb4, you must also check the value for $dolibarr_main_db_character_set and $dolibarr_main_db_collation into conf/conf.php file.">';
+if ($onli_main_db_character_set != 'utf8mb4') {
+	print '<img src="../theme/eldy/img/warning.png" class="pictofortooltip valignmiddle" title="If you switch to utf8mb4, you must also check the value for $onli_main_db_character_set and $onli_main_db_collation into conf/conf.php file.">';
 }
 print "<br>\n";
-print "Option force_collation_from_conf_on_tables (force ".$conf->db->character_set."/".$conf->db->dolibarr_main_db_collation." + row=dynamic), for mysql/mariadb only is ".(GETPOST('force_collation_from_conf_on_tables', 'alpha') ? GETPOST('force_collation_from_conf_on_tables', 'alpha') : 'undefined')."<br>\n";
+print "Option force_collation_from_conf_on_tables (force ".$conf->db->character_set."/".$conf->db->onli_main_db_collation." + row=dynamic), for mysql/mariadb only is ".(GETPOST('force_collation_from_conf_on_tables', 'alpha') ? GETPOST('force_collation_from_conf_on_tables', 'alpha') : 'undefined')."<br>\n";
 
 // Rebuild sequence
 print 'Option rebuild_sequences, for postgresql only, is '.(GETPOST('rebuild_sequences', 'alpha') ? GETPOST('rebuild_sequences', 'alpha') : 'undefined').'<br>'."\n";
@@ -140,51 +140,51 @@ print '<table cellspacing="0" cellpadding="1" class="centpercent">';
 $error = 0;
 
 // If password is encoded, we decode it
-if (preg_match('/crypted:/i', $dolibarr_main_db_pass) || !empty($dolibarr_main_db_encrypted_pass)) {
-	require_once $dolibarr_main_document_root.'/core/lib/security.lib.php';
-	if (preg_match('/crypted:/i', $dolibarr_main_db_pass)) {
-		$dolibarr_main_db_pass = preg_replace('/crypted:/i', '', $dolibarr_main_db_pass);
-		$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_pass);
-		$dolibarr_main_db_encrypted_pass = $dolibarr_main_db_pass; // We need to set this as it is used to know the password was initially encrypted
+if (preg_match('/crypted:/i', $onli_main_db_pass) || !empty($onli_main_db_encrypted_pass)) {
+	require_once $onli_main_document_root.'/core/lib/security.lib.php';
+	if (preg_match('/crypted:/i', $onli_main_db_pass)) {
+		$onli_main_db_pass = preg_replace('/crypted:/i', '', $onli_main_db_pass);
+		$onli_main_db_pass = dol_decode($onli_main_db_pass);
+		$onli_main_db_encrypted_pass = $onli_main_db_pass; // We need to set this as it is used to know the password was initially encrypted
 	} else {
-		$dolibarr_main_db_pass = dol_decode($dolibarr_main_db_encrypted_pass);
+		$onli_main_db_pass = dol_decode($onli_main_db_encrypted_pass);
 	}
 }
 
 // $conf is already instancied inside inc.php
-$conf->db->type = $dolibarr_main_db_type;
-$conf->db->host = $dolibarr_main_db_host;
-$conf->db->port = $dolibarr_main_db_port;
-$conf->db->name = $dolibarr_main_db_name;
-$conf->db->user = $dolibarr_main_db_user;
-$conf->db->pass = $dolibarr_main_db_pass;
+$conf->db->type = $onli_main_db_type;
+$conf->db->host = $onli_main_db_host;
+$conf->db->port = $onli_main_db_port;
+$conf->db->name = $onli_main_db_name;
+$conf->db->user = $onli_main_db_user;
+$conf->db->pass = $onli_main_db_pass;
 
 // For encryption
-$conf->db->dolibarr_main_db_encryption = isset($dolibarr_main_db_encryption) ? $dolibarr_main_db_encryption : 0;
-$conf->db->dolibarr_main_db_cryptkey = isset($dolibarr_main_db_cryptkey) ? $dolibarr_main_db_cryptkey : '';
+$conf->db->onli_main_db_encryption = isset($onli_main_db_encryption) ? $onli_main_db_encryption : 0;
+$conf->db->onli_main_db_cryptkey = isset($onli_main_db_cryptkey) ? $onli_main_db_cryptkey : '';
 
 $db = getDoliDBInstance($conf->db->type, $conf->db->host, $conf->db->user, $conf->db->pass, $conf->db->name, (int) $conf->db->port);
 
 if ($db->connected) {
 	print '<tr><td class="nowrap">';
-	print $langs->trans("ServerConnection")." : $dolibarr_main_db_host</td><td class=\"right\">".$langs->trans("OK")."</td></tr>";
-	dolibarr_install_syslog("repair: ".$langs->transnoentities("ServerConnection").": ".$dolibarr_main_db_host.$langs->transnoentities("OK"));
+	print $langs->trans("ServerConnection")." : $onli_main_db_host</td><td class=\"right\">".$langs->trans("OK")."</td></tr>";
+	onli_install_syslog("repair: ".$langs->transnoentities("ServerConnection").": ".$onli_main_db_host.$langs->transnoentities("OK"));
 	$ok = 1;
 } else {
-	print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name)."</td><td class=\"right\">".$langs->transnoentities("Error")."</td></tr>";
-	dolibarr_install_syslog("repair: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name));
+	print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $onli_main_db_name)."</td><td class=\"right\">".$langs->transnoentities("Error")."</td></tr>";
+	onli_install_syslog("repair: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $onli_main_db_name));
 	$ok = 0;
 }
 
 if ($ok) {
 	if ($db->database_selected) {
 		print '<tr><td class="nowrap">';
-		print $langs->trans("DatabaseConnection")." : ".$dolibarr_main_db_name."</td><td class=\"right\">".$langs->trans("OK")."</td></tr>";
-		dolibarr_install_syslog("repair: database connection successful: ".$dolibarr_main_db_name);
+		print $langs->trans("DatabaseConnection")." : ".$onli_main_db_name."</td><td class=\"right\">".$langs->trans("OK")."</td></tr>";
+		onli_install_syslog("repair: database connection successful: ".$onli_main_db_name);
 		$ok = 1;
 	} else {
-		print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name)."</td><td class=\"right\">".$langs->trans("Error")."</td></tr>";
-		dolibarr_install_syslog("repair: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $dolibarr_main_db_name));
+		print "<tr><td>".$langs->trans("ErrorFailedToConnectToDatabase", $onli_main_db_name)."</td><td class=\"right\">".$langs->trans("Error")."</td></tr>";
+		onli_install_syslog("repair: ".$langs->transnoentities("ErrorFailedToConnectToDatabase", $onli_main_db_name));
 		$ok = 0;
 	}
 }
@@ -195,7 +195,7 @@ if ($ok) {
 	$versionarray = $db->getVersionArray();
 	print '<tr><td>'.$langs->trans("ServerVersion").'</td>';
 	print '<td class="right">'.$version.'</td></tr>';
-	dolibarr_install_syslog("repair: ".$langs->transnoentities("ServerVersion").": ".$version);
+	onli_install_syslog("repair: ".$langs->transnoentities("ServerVersion").": ".$version);
 	//print '<td class="right">'.join('.',$versionarray).'</td></tr>';
 }
 
@@ -542,17 +542,17 @@ if ($ok && GETPOST('restore_thirdparties_logos')) {
 			}
 
 			if (!empty($name)) {
-				$filetotest = $dolibarr_main_data_root.'/societe/logos/'.$name.$ext;
-				$filetotestsmall = $dolibarr_main_data_root.'/societe/logos/thumbs/'.$name.'_small'.$ext;
+				$filetotest = $onli_main_data_root.'/societe/logos/'.$name.$ext;
+				$filetotestsmall = $onli_main_data_root.'/societe/logos/thumbs/'.$name.'_small'.$ext;
 				$exists = (int) dol_is_file($filetotest);
 				print 'Check thirdparty '.$obj->rowid.' name='.$obj->name.' logo='.$obj->logo.' file '.$filetotest." exists=".$exists."<br>\n";
 				if ($exists) {
-					$filetarget = $dolibarr_main_data_root.'/societe/'.$obj->rowid.'/logos/'.$name.$ext;
-					$filetargetsmall = $dolibarr_main_data_root.'/societe/'.$obj->rowid.'/logos/thumbs/'.$name.'_small'.$ext;
+					$filetarget = $onli_main_data_root.'/societe/'.$obj->rowid.'/logos/'.$name.$ext;
+					$filetargetsmall = $onli_main_data_root.'/societe/'.$obj->rowid.'/logos/thumbs/'.$name.'_small'.$ext;
 					$existt = dol_is_file($filetarget);
 					if (!$existt) {
 						if (GETPOST('restore_thirdparties_logos', 'alpha') == 'confirmed') {
-							dol_mkdir($dolibarr_main_data_root.'/societe/'.$obj->rowid.'/logos');
+							dol_mkdir($onli_main_data_root.'/societe/'.$obj->rowid.'/logos');
 						}
 
 						print "  &nbsp; &nbsp; &nbsp; -> Copy file ".$filetotest." -> ".$filetarget."<br>\n";
@@ -564,7 +564,7 @@ if ($ok && GETPOST('restore_thirdparties_logos')) {
 					$existtt = dol_is_file($filetargetsmall);
 					if (!$existtt) {
 						if (GETPOST('restore_thirdparties_logos', 'alpha') == 'confirmed') {
-							dol_mkdir($dolibarr_main_data_root.'/societe/'.$obj->rowid.'/logos/thumbs');
+							dol_mkdir($onli_main_data_root.'/societe/'.$obj->rowid.'/logos/thumbs');
 						}
 						print "  &nbsp; &nbsp; &nbsp; -> Copy file ".$filetotestsmall." -> ".$filetargetsmall."<br>\n";
 						if (GETPOST('restore_thirdparties_logos', 'alpha') == 'confirmed') {
@@ -616,20 +616,20 @@ if ($ok && GETPOST('restore_user_pictures', 'alpha')) {
 			}
 
 			if (!empty($name)) {
-				$filetotest = $dolibarr_main_data_root.'/users/'.substr(sprintf('%08d', $obj->rowid), -1, 1).'/'.substr(sprintf('%08d', $obj->rowid), -2, 1).'/'.$name.$ext;
-				$filetotestsmall = $dolibarr_main_data_root.'/users/'.substr(sprintf('%08d', $obj->rowid), -1, 1).'/'.substr(sprintf('%08d', $obj->rowid), -2, 1).'/thumbs/'.$name.'_small'.$ext;
-				$filetotestmini = $dolibarr_main_data_root.'/users/'.substr(sprintf('%08d', $obj->rowid), -1, 1).'/'.substr(sprintf('%08d', $obj->rowid), -2, 1).'/thumbs/'.$name.'_mini'.$ext;
+				$filetotest = $onli_main_data_root.'/users/'.substr(sprintf('%08d', $obj->rowid), -1, 1).'/'.substr(sprintf('%08d', $obj->rowid), -2, 1).'/'.$name.$ext;
+				$filetotestsmall = $onli_main_data_root.'/users/'.substr(sprintf('%08d', $obj->rowid), -1, 1).'/'.substr(sprintf('%08d', $obj->rowid), -2, 1).'/thumbs/'.$name.'_small'.$ext;
+				$filetotestmini = $onli_main_data_root.'/users/'.substr(sprintf('%08d', $obj->rowid), -1, 1).'/'.substr(sprintf('%08d', $obj->rowid), -2, 1).'/thumbs/'.$name.'_mini'.$ext;
 				$exists = (int) dol_is_file($filetotest);
 				print 'Check user '.$obj->rowid.' lastname='.$obj->lastname.' firstname='.$obj->firstname.' photo='.$obj->photo.' file '.$filetotest." exists=".$exists."<br>\n";
 				if ($exists) {
-					$filetarget = $dolibarr_main_data_root.'/users/'.$obj->rowid.'/'.$name.$ext;
-					$filetargetsmall = $dolibarr_main_data_root.'/users/'.$obj->rowid.'/thumbs/'.$name.'_small'.$ext;
-					$filetargetmini = $dolibarr_main_data_root.'/users/'.$obj->rowid.'/thumbs/'.$name.'_mini'.$ext;
+					$filetarget = $onli_main_data_root.'/users/'.$obj->rowid.'/'.$name.$ext;
+					$filetargetsmall = $onli_main_data_root.'/users/'.$obj->rowid.'/thumbs/'.$name.'_small'.$ext;
+					$filetargetmini = $onli_main_data_root.'/users/'.$obj->rowid.'/thumbs/'.$name.'_mini'.$ext;
 
 					$existt = dol_is_file($filetarget);
 					if (!$existt) {
 						if (GETPOST('restore_user_pictures', 'alpha') == 'confirmed') {
-							dol_mkdir($dolibarr_main_data_root.'/users/'.$obj->rowid);
+							dol_mkdir($onli_main_data_root.'/users/'.$obj->rowid);
 						}
 
 						print "  &nbsp; &nbsp; &nbsp; -> Copy file ".$filetotest." -> ".$filetarget."<br>\n";
@@ -641,7 +641,7 @@ if ($ok && GETPOST('restore_user_pictures', 'alpha')) {
 					$existtt = dol_is_file($filetargetsmall);
 					if (!$existtt) {
 						if (GETPOST('restore_user_pictures', 'alpha') == 'confirmed') {
-							dol_mkdir($dolibarr_main_data_root.'/users/'.$obj->rowid.'/thumbs');
+							dol_mkdir($onli_main_data_root.'/users/'.$obj->rowid.'/thumbs');
 						}
 
 						print "  &nbsp; &nbsp; &nbsp; -> Copy file ".$filetotestsmall." -> ".$filetargetsmall."<br>\n";
@@ -653,7 +653,7 @@ if ($ok && GETPOST('restore_user_pictures', 'alpha')) {
 					$existtt = dol_is_file($filetargetmini);
 					if (!$existtt) {
 						if (GETPOST('restore_user_pictures', 'alpha') == 'confirmed') {
-							dol_mkdir($dolibarr_main_data_root.'/users/'.$obj->rowid.'/thumbs');
+							dol_mkdir($onli_main_data_root.'/users/'.$obj->rowid.'/thumbs');
 						}
 
 						print "  &nbsp; &nbsp; &nbsp; -> Copy file ".$filetotestmini." -> ".$filetargetmini."<br>\n";
@@ -692,7 +692,7 @@ if ($ok && GETPOST('rebuild_product_thumbs', 'alpha')) {
 			$obj = $db->fetch_object($resql);
 
 			if (!empty($obj->ref)) {
-				$files = dol_dir_list($dolibarr_main_data_root.'/produit/'.$obj->ref, 'files', 0);
+				$files = dol_dir_list($onli_main_data_root.'/produit/'.$obj->ref, 'files', 0);
 				foreach ($files as $file) {
 					// Generate thumbs.
 					if (image_format_supported($file['fullname']) == 1) {
@@ -1378,7 +1378,7 @@ if ($ok && GETPOST('force_utf8_on_tables', 'alpha')) {
 		// First loop to delete foreign keys
 		foreach ($listoftables as $table) {
 			// do not convert llx_const if mysql encrypt/decrypt is used
-			if ($conf->db->dolibarr_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
+			if ($conf->db->onli_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
 				continue;
 			}
 			if ($table[1] == 'VIEW') {
@@ -1412,7 +1412,7 @@ if ($ok && GETPOST('force_utf8_on_tables', 'alpha')) {
 
 		foreach ($listoftables as $table) {
 			// do not convert llx_const if mysql encrypt/decrypt is used
-			if ($conf->db->dolibarr_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
+			if ($conf->db->onli_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
 				continue;
 			}
 			if ($table[1] == 'VIEW') {
@@ -1508,7 +1508,7 @@ if ($ok && GETPOST('force_utf8mb4_on_tables', 'alpha')) {
 		// First loop to delete foreign keys
 		foreach ($listoftables as $table) {
 			// do not convert llx_const if mysql encrypt/decrypt is used
-			if ($conf->db->dolibarr_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
+			if ($conf->db->onli_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
 				continue;
 			}
 			if ($table[1] == 'VIEW') {
@@ -1542,7 +1542,7 @@ if ($ok && GETPOST('force_utf8mb4_on_tables', 'alpha')) {
 
 		foreach ($listoftables as $table) {
 			// do not convert llx_const if mysql encrypt/decrypt is used
-			if ($conf->db->dolibarr_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
+			if ($conf->db->onli_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
 				continue;
 			}
 			if ($table[1] == 'VIEW') {
@@ -1616,7 +1616,7 @@ if ($ok && GETPOST('force_utf8mb4_on_tables', 'alpha')) {
 }
 
 if ($ok && GETPOST('force_collation_from_conf_on_tables', 'alpha')) {
-	print '<tr><td colspan="2"><br>*** Force page code and collation of tables into '.$conf->db->character_set.'/'.$conf->db->dolibarr_main_db_collation.' and row_format=dynamic (for mysql/mariadb only)</td></tr>';
+	print '<tr><td colspan="2"><br>*** Force page code and collation of tables into '.$conf->db->character_set.'/'.$conf->db->onli_main_db_collation.' and row_format=dynamic (for mysql/mariadb only)</td></tr>';
 
 	if ($db->type == "mysql" || $db->type == "mysqli") {
 		$force_collation_from_conf_on_tables = GETPOST('force_collation_from_conf_on_tables', 'alpha');
@@ -1632,7 +1632,7 @@ if ($ok && GETPOST('force_collation_from_conf_on_tables', 'alpha')) {
 
 		foreach ($listoftables as $table) {
 			// do not convert collation on llx_const if mysql encrypt/decrypt is used
-			if ($conf->db->dolibarr_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
+			if ($conf->db->onli_main_db_encryption != 0 && preg_match('/\_const$/', $table[0])) {
 				continue;
 			}
 			if ($table[1] == 'VIEW') {
@@ -1643,7 +1643,7 @@ if ($ok && GETPOST('force_collation_from_conf_on_tables', 'alpha')) {
 			print '<tr><td colspan="2">';
 			print $table[0];
 			$sql1 = "ALTER TABLE ".$table[0]." ROW_FORMAT=dynamic";
-			$sql2 = "ALTER TABLE ".$table[0]." CONVERT TO CHARACTER SET ".$conf->db->character_set." COLLATE ".$conf->db->dolibarr_main_db_collation;
+			$sql2 = "ALTER TABLE ".$table[0]." CONVERT TO CHARACTER SET ".$conf->db->character_set." COLLATE ".$conf->db->onli_main_db_collation;
 			print '<!-- '.$sql1.' -->';
 			print '<!-- '.$sql2.' -->';
 			if ($force_collation_from_conf_on_tables == 'confirmed') {
@@ -1691,7 +1691,7 @@ if ($ok && GETPOST('rebuild_sequences', 'alpha')) {
 //
 if ($ok && GETPOST('repair_link_dispatch_lines_supplier_order_lines')) {
 	/*
-	 * This script is meant to be run when upgrading from a dolibarr version < 3.8
+	 * This script is meant to be run when upgrading from a onli version < 3.8
 	 * to a newer version.
 	 *
 	 * Version 3.8 introduces a new column in llx_commande_fournisseur_dispatch, which
@@ -1700,7 +1700,7 @@ if ($ok && GETPOST('repair_link_dispatch_lines_supplier_order_lines')) {
 	 * which line were dispatched where).
 	 *
 	 * However when migrating, the new column has a default value of 0, which means that
-	 * old supplier orders whose lines were dispatched using the old dolibarr version
+	 * old supplier orders whose lines were dispatched using the old onli version
 	 * have unspecific dispatch lines, which are not taken into account by the new version,
 	 * thus making the order look like it was never dispatched at all.
 	 *
@@ -1952,11 +1952,11 @@ if (empty($actiondone)) {
 
 if ($oneoptionset) {
 	print '<div class="center" style="padding-top: 10px"><a href="../index.php?mainmenu=home&leftmenu=home'.(GETPOSTISSET("login") ? '&username='.urlencode(GETPOST("login")) : '').'">';
-	print $langs->trans("GoToDolibarr");
+	print $langs->trans("GoToOnLi");
 	print '</a></div>';
 }
 
-dolibarr_install_syslog("--- repair: end");
+onli_install_syslog("--- repair: end");
 pFooter(1, $setuplang);
 
 if ($db->connected) {

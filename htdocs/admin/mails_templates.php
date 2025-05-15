@@ -34,7 +34,7 @@
  *		\brief      Page to administer emails templates
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formadmin.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formcompany.class.php';
@@ -186,7 +186,7 @@ $tabhelp[25] = array(
 );
 
 
-// We save list of template email Dolibarr can manage. This list can found by a grep into code on "->param['models']"
+// We save list of template email OnLi can manage. This list can found by a grep into code on "->param['models']"
 $elementList = array();
 // Add all and none after the sort
 
@@ -891,7 +891,7 @@ if ($action == 'create') {
 			if (!getDolGlobalString('FCKEDITOR_ENABLE_MAIL')) {
 				$okforextended = false;
 			}
-			$doleditor = new DolEditor($tmpfieldlist, (!empty($obj->$tmpfieldlist) ? $obj->$tmpfieldlist : ''), '', 400, 'dolibarr_mailings', 'In', false, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%');
+			$doleditor = new DolEditor($tmpfieldlist, (!empty($obj->$tmpfieldlist) ? $obj->$tmpfieldlist : ''), '', 400, 'onli_mailings', 'In', false, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%');
 			print $doleditor->Create(1);
 		}
 		print '<br>';
@@ -1192,7 +1192,7 @@ if ($num) {
 							if (!getDolGlobalString('FCKEDITOR_ENABLE_MAIL')) {
 								$okforextended = false;
 							}
-							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 500, 'dolibarr_mailings', 'In', false, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%', ($action != 'edit' ? 1 : 0));
+							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 500, 'onli_mailings', 'In', false, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%', ($action != 'edit' ? 1 : 0));
 							print $doleditor->Create(1);
 						}
 						if ($tmpfieldlist == 'content_lines') {
@@ -1202,7 +1202,7 @@ if ($num) {
 							if (!getDolGlobalString('FCKEDITOR_ENABLE_MAIL')) {
 								$okforextended = false;
 							}
-							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 140, 'dolibarr_mailings', 'In', false, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%');
+							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 140, 'onli_mailings', 'In', false, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%');
 							print $doleditor->Create(1);
 						}
 					}

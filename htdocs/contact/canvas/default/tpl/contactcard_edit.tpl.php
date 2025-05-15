@@ -155,8 +155,8 @@ if (!empty($this->control->tpl['contact_element'])) {
 } ?>
 
 <tr>
-	<td><?php echo $langs->trans("DolibarrLogin"); ?></td>
-	<td colspan="3"><?php echo $this->control->tpl['dolibarr_user']; ?></td>
+	<td><?php echo $langs->trans("OnLiLogin"); ?></td>
+	<td colspan="3"><?php echo $this->control->tpl['onli_user']; ?></td>
 </tr>
 
 <tr>

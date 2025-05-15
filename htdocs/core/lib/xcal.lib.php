@@ -326,7 +326,7 @@ function build_calfile($format, $title, $desc, $events_array, $outputfile)
 function build_rssfile($format, $title, $desc, $events_array, $outputfile, $filter = '', $url = '', $langcode = '')
 {
 	global $user, $conf, $langs, $mysoc;
-	global $dolibarr_main_url_root;
+	global $onli_main_url_root;
 
 	dol_syslog("xcal.lib.php::build_rssfile Build rss file ".$outputfile." to format ".$format);
 
@@ -355,7 +355,7 @@ function build_rssfile($format, $title, $desc, $events_array, $outputfile, $filt
 		}
 
 		// Define $urlwithroot
-		$urlwithouturlroot = preg_replace("/".preg_quote(DOL_URL_ROOT, "/")."$/i", "", trim($dolibarr_main_url_root));
+		$urlwithouturlroot = preg_replace("/".preg_quote(DOL_URL_ROOT, "/")."$/i", "", trim($onli_main_url_root));
 		$urlwithroot       = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 		//$urlwithroot=DOL_MAIN_URL_ROOT;                       // This is to use same domain name than current
 
@@ -475,7 +475,7 @@ function build_rssfile($format, $title, $desc, $events_array, $outputfile, $filt
 				fwrite($fichier, "]]></description>\n");
 				fwrite($fichier, "<pubDate>".date("r", $startdate)."</pubDate>\n");
 				fwrite($fichier, '<guid isPermaLink="false"><![CDATA['.str_pad($uid, 10, "0", STR_PAD_LEFT).']]></guid>'."\n");
-				fwrite($fichier, '<source url="'.$url.'"><![CDATA[Dolibarr]]></source>'."\n");
+				fwrite($fichier, '<source url="'.$url.'"><![CDATA[OnLi]]></source>'."\n");
 				fwrite($fichier, "</item>\n");
 			}
 		}

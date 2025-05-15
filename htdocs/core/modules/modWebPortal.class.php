@@ -25,12 +25,12 @@
  *  \ingroup    webportal
  *  \brief      Description and activation file for module WebPortal
  */
-include_once DOL_DOCUMENT_ROOT . '/core/modules/DolibarrModules.class.php';
+include_once DOL_DOCUMENT_ROOT . '/core/modules/OnLiModules.class.php';
 
 /**
  *  Description and activation class for module WebPortal
  */
-class modWebPortal extends DolibarrModules
+class modWebPortal extends OnLiModules
 {
 	/**
 	 * Constructor. Define names, constants, directories, boxes, permissions
@@ -43,8 +43,8 @@ class modWebPortal extends DolibarrModules
 		$this->db = $db;
 
 		// Id for module (must be unique).
-		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
-		$this->numero = 11000; // TODO Go on page https://wiki.dolibarr.org/index.php/List_of_modules_id to reserve an id number for your module
+		// Use here a free id (See in Home -> System information -> OnLi for list of used modules id).
+		$this->numero = 11000; // TODO Go on page https://wiki.onli.org/index.php/List_of_modules_id to reserve an id number for your module
 
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'webportal';
@@ -67,11 +67,11 @@ class modWebPortal extends DolibarrModules
 		$this->descriptionlong = "WebPortalDescription";
 
 		// Author
-		//$this->editor_name = 'Dolibarr';
-		//$this->editor_url = 'dolibarr.org';
+		//$this->editor_name = 'OnLi';
+		//$this->editor_url = 'onli.org';
 
-		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
-		$this->version = 'dolibarr';
+		// Possible values for version are: 'development', 'experimental', 'onli', 'onli_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
+		$this->version = 'onli';
 		// Url to the file with your last numberversion of this module
 		//$this->url_last_version = 'http://www.example.com/versionmodule.txt';
 
@@ -144,7 +144,7 @@ class modWebPortal extends DolibarrModules
 
 		// Prerequisites
 		$this->phpmin = array(7, 0); // Minimum version of PHP required by module
-		//$this->need_dolibarr_version = array(11, -3); // Minimum version of Dolibarr required by module
+		//$this->need_onli_version = array(11, -3); // Minimum version of OnLi required by module
 		//$this->need_javascript_ajax = 0;
 
 		// Messages at activation
@@ -345,7 +345,7 @@ class modWebPortal extends DolibarrModules
 
 	/**
 	 *  Function called when module is enabled.
-	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into Dolibarr database.
+	 *  The init function add constants, boxes, permissions and menus (defined in constructor) into OnLi database.
 	 *  It also creates data directories
 	 *
 	 * @param	string	$options	Options when enabling module ('', 'noboxes')
@@ -363,7 +363,7 @@ class modWebPortal extends DolibarrModules
 
 	/**
 	 *  Function called when module is disabled.
-	 *  Remove from database constants, boxes and permissions from Dolibarr database.
+	 *  Remove from database constants, boxes and permissions from OnLi database.
 	 *  Data directories are not deleted
 	 *
 	 * @param	string $options		Options when enabling module ('', 'noboxes')

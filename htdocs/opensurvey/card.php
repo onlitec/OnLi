@@ -24,7 +24,7 @@
  *    \brief      Page to edit survey
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT."/core/class/doleditor.class.php";
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
@@ -40,7 +40,7 @@ require_once DOL_DOCUMENT_ROOT."/opensurvey/lib/opensurvey.lib.php";
  * @var Translate $langs
  * @var User $user
  *
- * @var string $dolibarr_main_url_root
+ * @var string $onli_main_url_root
  */
 
 // Security check
@@ -301,7 +301,7 @@ print '</td></tr>';
 // Description
 print '<tr><td class="tdtop">'.$langs->trans("Description").'</td><td class="wordbreak">';
 if ($action == 'edit') {
-	$doleditor = new DolEditor('nouveauxcommentaires', $object->description, '', 120, 'dolibarr_notes', 'In', true, 1, 1, ROWS_7, '90%');
+	$doleditor = new DolEditor('nouveauxcommentaires', $object->description, '', 120, 'onli_notes', 'In', true, 1, 1, ROWS_7, '90%');
 	$doleditor->Create(0, '');
 } else {
 	print(dol_textishtml($object->description) ? $object->description : dol_nl2br($object->description, 1, true));
@@ -346,7 +346,7 @@ print '</td></tr>';
 print '<tr><td>'.$langs->trans("UrlForSurvey", '').'</td><td>';
 
 // Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($onli_main_url_root));
 $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 //$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 

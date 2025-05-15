@@ -92,7 +92,7 @@ if ($action == 'switchentity') {	// Test on permission not required here. Test w
 
 $title = $langs->trans("Multicompanies");
 
-// URL http://mydolibarr/core/multicompany_page?dol_use_jmobile=1 can be used for tests
+// URL http://myonli/core/multicompany_page?dol_use_jmobile=1 can be used for tests
 $head = '<!-- Multicompany selection -->'."\n";	// This is used by DoliDroid to know page is a multicompany selection page
 $arrayofjs = array();
 $arrayofcss = array();

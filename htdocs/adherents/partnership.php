@@ -24,7 +24,7 @@
  *		\brief      Page to create/edit/view partnership
  */
 
-// Load Dolibarr environment
+// Load OnLi environment
 require '../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formprojet.class.php';
@@ -235,7 +235,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 	}
 
 
-	//$morehtmlright = 'partnership/partnership_card.php?action=create&backtopage=%2Fdolibarr%2Fhtdocs%2Fpartnership%2Fpartnership_list.php';
+	//$morehtmlright = 'partnership/partnership_card.php?action=create&backtopage=%2Fonli%2Fhtdocs%2Fpartnership%2Fpartnership_list.php';
 	$morehtmlright = '';
 
 	print load_fiche_titre($langs->trans("PartnershipDedicatedToThisMember", $langs->transnoentitiesnoconv("Partnership")), $morehtmlright, '');
