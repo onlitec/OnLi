@@ -5,12 +5,12 @@
 #
 #--------------------------------------------------------------------
 
-# Usage: dolibarr-doxygen-getversion.pl pathtofilefromdolibarrroot
+# Usage: OnLi-doxygen-getversion.pl pathtofilefromOnLiroot
 
 $file=$ARGV[0];
 if (! $file)
 {
-	print "Usage: dolibarr-doxygen-getversion.pl pathtofilefromdolibarrroot\n";
+	print "Usage: OnLi-doxygen-getversion.pl pathtofilefromOnLiroot\n";
 	exit;
 }
 

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Xa estaba aberta un pedimento ligado a este orzamento, polo que non se creou outro pedimento automaticamente
 OrdersArea=Área pedimentos de clientes
 SuppliersOrdersArea=Área pedimentos a provedores
@@ -131,8 +131,8 @@ ConfirmCloneOrder=¿Está certo de querer clonar este pedimento <b>%s</b>?
 DispatchSupplierOrder=Recepción do pedimento a provedor %s
 FirstApprovalAlreadyDone=Primeira aprobación realizada
 SecondApprovalAlreadyDone=Segunda aprobación realizada
-SupplierOrderReceivedInDolibarr=Pedimento a provedor %s recibido %s
-SupplierOrderSubmitedInDolibarr=Pedimento a provedor %s enviado (%s)
+SupplierOrderReceivedInOnLi=Pedimento a provedor %s recibido %s
+SupplierOrderSubmitedInOnLi=Pedimento a provedor %s enviado (%s)
 SupplierOrderClassifiedBilled=Pedimento a provedor %s facturado
 OtherOrders=Outros pedimentos
 SupplierOrderValidatedAndApproved=A orde do provedor está validada e aprobada: %s

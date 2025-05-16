@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 #----------------------------------------------------------------------------
-# \file         dev/build/makepack-dolibarr.pl
-# \brief        Dolibarr package builder (tgz, zip, rpm, deb, exe, aps)
+# \file         dev/build/makepack-OnLi.pl
+# \brief        OnLi package builder (tgz, zip, rpm, deb, exe, aps)
 # \author       (c)2004-2023 Laurent Destailleur  <eldy@users.sourceforge.net>
 #
 # This is list of constant you can set to have generated packages moved into a specific dir:
-#DESTIBETARC='/media/HDDATA1_LD/Mes Sites/Web/Dolibarr/dolibarr.org/files/lastbuild'
-#DESTISTABLE='/media/HDDATA1_LD/Mes Sites/Web/Dolibarr/dolibarr.org/files/stable'
+#DESTIBETARC='/media/HDDATA1_LD/Mes Sites/Web/OnLi/OnLi.org/files/lastbuild'
+#DESTISTABLE='/media/HDDATA1_LD/Mes Sites/Web/OnLi/OnLi.org/files/stable'
 #DESTIMODULES='/media/HDDATA1_LD/Mes Sites/Web/Admin1/wwwroot/files/modules'
 #DESTIDOLIMEDBETARC='/media/HDDATA1_LD/Mes Sites/Web/DoliCloud/dolimed.com/htdocs/files/lastbuild'
 #DESTIDOLIMEDMODULES='/media/HDDATA1_LD/Mes Sites/Web/DoliCloud/dolimed.com/htdocs/files/modules'
@@ -17,10 +17,10 @@ use Cwd;
 use Term::ANSIColor;
 
 # Change this to defined target for option 98 and 99
-$PROJECT="dolibarr";
+$PROJECT="OnLi";
 
-$PUBLISHBETARC="$ENV{'DESTIASSOLOGIN'}\@vmprod1.dolibarr.org:/home/dolibarr/asso.dolibarr.org/dolibarr_documents/website/www.dolibarr.org/files";
-$PUBLISHSTABLE="$ENV{'DESTISFLOGIN'}\@frs.sourceforge.net:/home/frs/project/dolibarr";
+$PUBLISHBETARC="$ENV{'DESTIASSOLOGIN'}\@vmprod1.OnLi.org:/home/OnLi/asso.OnLi.org/OnLi_documents/website/www.OnLi.org/files";
+$PUBLISHSTABLE="$ENV{'DESTISFLOGIN'}\@frs.sourceforge.net:/home/frs/project/OnLi";
 
 #@LISTETARGET=("TGZ","ZIP","RPM_GENERIC","RPM_FEDORA","RPM_MANDRIVA","RPM_OPENSUSE","DEB","EXEDOLIWAMP","SNAPSHOT");   # Possible packages
 @LISTETARGET=("TGZ","ZIP","RPM_GENERIC","RPM_FEDORA","RPM_MANDRIVA","RPM_OPENSUSE","DEB","EXEDOLIWAMP","SNAPSHOT");   # Possible packages
@@ -75,7 +75,7 @@ if ($SOURCE !~ /^\// && $SOURCE !~ /^[a-z]:/i)
 if (! $ENV{"DESTIASSOLOGIN"} || ! $ENV{"DESTISFLOGIN"})
 {
 	print "Error: Missing environment variables.\n";
-	print "You must define the environment variable DESTIASSOLOGIN and DESTISFLOGIN to define your login to connect to the dolibarr foundation server and/or mirrors servers.\n";
+	print "You must define the environment variable DESTIASSOLOGIN and DESTISFLOGIN to define your login to connect to the OnLi foundation server and/or mirrors servers.\n";
 	print "$PROG.$Extension aborted.\n";
 	print "\n";
 	print "You can set them with\n";
@@ -105,8 +105,8 @@ if (! $ENV{"DESTIBETARC"} || ! $ENV{"DESTISTABLE"})
 	print "set DESTISTABLE=c:/tmp\n";
 	print "\n";
 	print "Example in .bashrc:\n";
-	print "export DESTIBETARC='/mnt/HDDATA1_LD/Mes Archives/Doli/dolibarr/lastbuild'\n";
-	print "export DESTISTABLE='/mnt/HDDATA1_LD/Mes Archives/Doli/dolibarr/stable'\n";
+	print "export DESTIBETARC='/mnt/HDDATA1_LD/Mes Archives/Doli/OnLi/lastbuild'\n";
+	print "export DESTISTABLE='/mnt/HDDATA1_LD/Mes Archives/Doli/OnLi/stable'\n";
 	sleep 2;
 	exit 1;
 }
@@ -391,15 +391,15 @@ if ($nboftargetok) {
 		if (! $BUILD || $BUILD eq '0-alpha' || $BUILD eq '0-beta' || $BUILD eq '0-rc')	# For a major or future version
 		{
 			print "Building changeLog file for a major version:\n";
-			print 'cd ~/git/dolibarr_dev; ';
+			print 'cd ~/git/OnLi_dev; ';
 			#print 'git log `git rev-list --boundary '.$MAJOR.'.'.$MINOR.'..origin/develop | grep ^- | cut -c2- | head -n 1`.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e \'^FIX\|NEW\|PERF\|SEC\|QUAL\|CLOSE\' | sort -u | sed \'s/FIXED:/FIX:/g\' | sed \'s/FIXED :/FIX:/g\' | sed \'s/FIX :/FIX:/g\' | sed \'s/FIX /FIX: /g\' | sed \'s/CLOSE/NEW/g\' | sed \'s/NEW :/NEW:/g\' | sed \'s/NEW /NEW: /g\' | sed \'s/^* //g\' > /tmp/aaa';
 			print 'git log `diff -u <(git rev-list --first-parent '.($MAJOR - 1).'.0)  <(git rev-list --first-parent develop) | sed -ne \'s/^ //p\' | head -1`.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e \'^FIX\|NEW\' | sort -u | sed \'s/FIXED:/FIX:/g\' | sed \'s/FIXED :/FIX:/g\' | sed \'s/FIX :/FIX:/g\' | sed \'s/FIX /FIX: /g\' | sed \'s/NEW :/NEW:/g\' | sed \'s/NEW /NEW: /g\' > /tmp/changelogtocopy'
 		}
 		else			# For a maintenance release
 		{
 			print "Building changeLog file for a maintenance version:\n";
-			#print 'cd ~/git/dolibarr_'.$MAJOR.'.'.$MINOR.'; git log '.$MAJOR.'.'.$MINOR.'.'.($BUILD-1).'.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e \'^FIX\|NEW\|PERF\|SEC\|QUAL\|CLOSE\' | sort -u | sed \'s/FIXED:/FIX:/g\' | sed \'s/FIXED :/FIX:/g\' | sed \'s/FIX :/FIX:/g\' | sed \'s/FIX /FIX: /g\' | sed \'s/CLOSE/NEW/g\'| sed \'s/NEW :/NEW:/g\' | sed \'s/NEW /NEW: /g\' > /tmp/aaa';
-			print 'cd ~/git/dolibarr_'.$MAJOR.'.'.$MINOR.'; git log '.$MAJOR.'.'.$MINOR.'.'.($BUILD-1).'.. | grep -v "Merge branch" | grep -v "Merge pull" | grep "^ " | sed -e "s/^[0-9a-z]* *//" | grep -e \'^FIX\|NEW\|PERF\|SEC\|QUAL\|CLOSE\' | sort -u | sed \'s/FIXED:/FIX:/g\' | sed \'s/FIXED :/FIX:/g\' | sed \'s/FIX :/FIX:/g\' | sed \'s/FIX /FIX: /g\' | sed \'s/CLOSE/NEW/g\' | sed \'s/NEW :/NEW:/g\' | sed \'s/NEW /NEW: /g\' | sed \'s/^* //g\' > /tmp/aaa';
+			#print 'cd ~/git/OnLi_'.$MAJOR.'.'.$MINOR.'; git log '.$MAJOR.'.'.$MINOR.'.'.($BUILD-1).'.. --no-merges --pretty=short --oneline | sed -e "s/^[0-9a-z]* //" | grep -e \'^FIX\|NEW\|PERF\|SEC\|QUAL\|CLOSE\' | sort -u | sed \'s/FIXED:/FIX:/g\' | sed \'s/FIXED :/FIX:/g\' | sed \'s/FIX :/FIX:/g\' | sed \'s/FIX /FIX: /g\' | sed \'s/CLOSE/NEW/g\'| sed \'s/NEW :/NEW:/g\' | sed \'s/NEW /NEW: /g\' > /tmp/aaa';
+			print 'cd ~/git/OnLi_'.$MAJOR.'.'.$MINOR.'; git log '.$MAJOR.'.'.$MINOR.'.'.($BUILD-1).'.. | grep -v "Merge branch" | grep -v "Merge pull" | grep "^ " | sed -e "s/^[0-9a-z]* *//" | grep -e \'^FIX\|NEW\|PERF\|SEC\|QUAL\|CLOSE\' | sort -u | sed \'s/FIXED:/FIX:/g\' | sed \'s/FIXED :/FIX:/g\' | sed \'s/FIX :/FIX:/g\' | sed \'s/FIX /FIX: /g\' | sed \'s/CLOSE/NEW/g\' | sed \'s/NEW :/NEW:/g\' | sed \'s/NEW /NEW: /g\' | sed \'s/^* //g\' > /tmp/aaa';
 		}
 		print "\n";
 		if (! $ret)
@@ -523,18 +523,18 @@ if ($nboftargetok) {
 
 		$ret=`rm -fr $BUILDROOT/$PROJECT/dev/build/html`;
 		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/Doli*-*`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr_*.deb`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr_*.dsc`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr_*.tar.gz`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr_*.tar.xz`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.deb`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.rpm`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.tar`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.tar.gz`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.tar.xz`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.tgz`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.xz`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/dolibarr-*.zip`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi_*.deb`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi_*.dsc`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi_*.tar.gz`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi_*.tar.xz`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.deb`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.rpm`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.tar`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.tar.gz`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.tar.xz`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.tgz`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.xz`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/OnLi-*.zip`;
 		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/build/doxygen/doxygen_warnings.log`;
 		$ret=`rm -fr $BUILDROOT/$PROJECT/dev/build/phpstan/phpstan`;
 		$ret=`rm -f  $BUILDROOT/$PROJECT/htdocs/cache.manifest`;
@@ -576,19 +576,19 @@ if ($nboftargetok) {
 		$ret=`rm -fr $BUILDROOT/$PROJECT/dev/uml`;
 		$ret=`rm -fr $BUILDROOT/$PROJECT/dev/vagrant`;
 		$ret=`rm -fr $BUILDROOT/$PROJECT/dev/xdebug`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/dolibarr_changes.txt`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/OnLi_changes.txt`;
 		$ret=`rm -f  $BUILDROOT/$PROJECT/dev/README`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot2.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot3.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot4.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot5.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot6.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot7.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot8.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot9.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot10.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot11.png`;
-		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/dolibarr_screenshot12.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot2.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot3.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot4.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot5.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot6.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot7.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot8.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot9.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot10.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot11.png`;
+		$ret=`rm -f  $BUILDROOT/$PROJECT/doc/images/OnLi_screenshot12.png`;
 
 		# Security to avoid to package data files
         print "Remove documents dir\n";
@@ -889,8 +889,8 @@ if ($nboftargetok) {
 			close SPECTO;
 
 			print "Copy patch file to $RPMDIR/SOURCES\n";
-			$ret=`cp "$SOURCE/dev/build/rpm/dolibarr-forrpm.patch" "$RPMDIR/SOURCES"`;
-			$ret=`chmod 644 $RPMDIR/SOURCES/dolibarr-forrpm.patch`;
+			$ret=`cp "$SOURCE/dev/build/rpm/OnLi-forrpm.patch" "$RPMDIR/SOURCES"`;
+			$ret=`chmod 644 $RPMDIR/SOURCES/OnLi-forrpm.patch`;
 
 			print "Launch RPM build (rpmbuild --clean -ba $BUILDROOT/${BUILDFIC})\n";
 			#$ret=`rpmbuild -vvvv --clean -ba $BUILDROOT/${BUILDFIC}`;
@@ -959,15 +959,15 @@ if ($nboftargetok) {
 			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/compat`;
 			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/control*`;
 			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/copyright`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.config`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.desktop`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.docs`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.install`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.lintian-overrides`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.postrm`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.postinst`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.templates`;
-			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/dolibarr.templates.futur`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.config`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.desktop`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.docs`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.install`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.lintian-overrides`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.postrm`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.postinst`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.templates`;
+			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/OnLi.templates.futur`;
 			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/rules`;
 			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/README.Debian`;
 			$ret=`rm -f  $BUILDROOT/$PROJECT.tmp/dev/build/debian/README.howto`;
@@ -1027,11 +1027,11 @@ if ($nboftargetok) {
 			$ret=`cp -f  "$SOURCE/dev/build/debian/compat"         "$BUILDROOT/$PROJECT.tmp/debian"`;
 			$ret=`cp -f  "$SOURCE/dev/build/debian/control"        "$BUILDROOT/$PROJECT.tmp/debian"`;
 			$ret=`cp -f  "$SOURCE/dev/build/debian/copyright"      "$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.desktop"        	"$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.docs"        		"$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.install" 	        "$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.lintian-overrides"  "$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.xpm"  		      	"$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.desktop"        	"$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.docs"        		"$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.install" 	        "$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.lintian-overrides"  "$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.xpm"  		      	"$BUILDROOT/$PROJECT.tmp/debian"`;
 			$ret=`cp -f  "$SOURCE/dev/build/debian/rules"          "$BUILDROOT/$PROJECT.tmp/debian"`;
 			$ret=`cp -f  "$SOURCE/dev/build/debian/watch"          "$BUILDROOT/$PROJECT.tmp/debian"`;
 			$ret=`cp -fr "$SOURCE/dev/build/debian/patches"        "$BUILDROOT/$PROJECT.tmp/debian"`;
@@ -1041,10 +1041,10 @@ if ($nboftargetok) {
 			$ret=`cp -f  "$SOURCE/dev/build/debian/apache/.htaccess" "$BUILDROOT/$PROJECT.tmp/debian/apache"`;
 			$ret=`cp -fr "$SOURCE/dev/build/debian/lighttpd"       "$BUILDROOT/$PROJECT.tmp/debian/lighttpd"`;
 			# Add files also required to dev/build binary package
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.config"         "$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.postinst"       "$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.postrm"         "$BUILDROOT/$PROJECT.tmp/debian"`;
-			$ret=`cp -f  "$SOURCE/dev/build/debian/dolibarr.templates"      "$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.config"         "$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.postinst"       "$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.postrm"         "$BUILDROOT/$PROJECT.tmp/debian"`;
+			$ret=`cp -f  "$SOURCE/dev/build/debian/OnLi.templates"      "$BUILDROOT/$PROJECT.tmp/debian"`;
 			$ret=`cp -f  "$SOURCE/dev/build/debian/install.forced.php.install"      "$BUILDROOT/$PROJECT.tmp/debian"`;
 
 			# Set owners and permissions
@@ -1190,17 +1190,17 @@ if ($nboftargetok) {
 		print "\nList of files to publish (BUILD=$BUILD)\n";
 		%filestoscansf=(
 			"$DESTI/signatures/filelist-$MAJOR.$MINOR.$BUILD.xml"=>'none',				# none means it won't be published on SF
-			"$DESTI/package_rpm_generic/$FILENAMERPM"=>'Dolibarr installer for Fedora-Redhat-Mandriva-Opensuse (DoliRpm)',
+			"$DESTI/package_rpm_generic/$FILENAMERPM"=>'OnLi installer for Fedora-Redhat-Mandriva-Opensuse (DoliRpm)',
 			"$DESTI/package_rpm_generic/$FILENAMERPMSRC"=>'none',						# none means it won't be published on SF
-			"$DESTI/package_debian-ubuntu/${FILENAMEDEB}_all.deb"=>'Dolibarr installer for Debian-Ubuntu (DoliDeb)',
+			"$DESTI/package_debian-ubuntu/${FILENAMEDEB}_all.deb"=>'OnLi installer for Debian-Ubuntu (DoliDeb)',
 			"$DESTI/package_debian-ubuntu/${FILENAMEDEB}_amd64.changes"=>'none',		# none means it won't be published on SF
 			"$DESTI/package_debian-ubuntu/${FILENAMEDEB}.dsc"=>'none',					# none means it won't be published on SF
 			#"$DESTI/package_debian-ubuntu/${FILENAMEDEB}.debian.tar.xz"=>'none',		# none means it won't be published on SF
 			"$DESTI/package_debian-ubuntu/${FILENAMEDEB}.debian.tar.gz"=>'none',		# none means it won't be published on SF
 			"$DESTI/package_debian-ubuntu/${FILENAMEDEBSHORT}.orig.tar.gz"=>'none',		# none means it won't be published on SF
-			"$DESTI/package_windows/$FILENAMEEXEDOLIWAMP.exe"=>'Dolibarr installer for Windows (DoliWamp)',
-			"$DESTI/standard/$FILENAMETGZ.tgz"=>'Dolibarr ERP-CRM',
-			"$DESTI/standard/$FILENAMETGZ.zip"=>'Dolibarr ERP-CRM'
+			"$DESTI/package_windows/$FILENAMEEXEDOLIWAMP.exe"=>'OnLi installer for Windows (DoliWamp)',
+			"$DESTI/standard/$FILENAMETGZ.tgz"=>'OnLi ERP-CRM',
+			"$DESTI/standard/$FILENAMETGZ.zip"=>'OnLi ERP-CRM'
 		);
 		%filestoscanstableasso=(
 			"$DESTI/signatures/filelist-$MAJOR.$MINOR.$BUILD.xml"=>'signatures',
@@ -1218,11 +1218,11 @@ if ($nboftargetok) {
 		);
 		if ($target eq 'ASSO' && $BUILD =~ /[a-z]/i)   { 	# Not stable
 			%filestoscansf=(
-				"$DESTI/$FILENAMERPM"=>'Dolibarr installer for Fedora-Redhat-Mandriva-Opensuse (DoliRpm)',
-				"$DESTI/${FILENAMEDEB}_all.deb"=>'Dolibarr installer for Debian-Ubuntu (DoliDeb)',
-				"$DESTI/$FILENAMEEXEDOLIWAMP.exe"=>'Dolibarr installer for Windows (DoliWamp)',
-				"$DESTI/$FILENAMETGZ.tgz"=>'Dolibarr ERP-CRM',
-				"$DESTI/$FILENAMETGZ.zip"=>'Dolibarr ERP-CRM'
+				"$DESTI/$FILENAMERPM"=>'OnLi installer for Fedora-Redhat-Mandriva-Opensuse (DoliRpm)',
+				"$DESTI/${FILENAMEDEB}_all.deb"=>'OnLi installer for Debian-Ubuntu (DoliDeb)',
+				"$DESTI/$FILENAMEEXEDOLIWAMP.exe"=>'OnLi installer for Windows (DoliWamp)',
+				"$DESTI/$FILENAMETGZ.tgz"=>'OnLi ERP-CRM',
+				"$DESTI/$FILENAMETGZ.zip"=>'OnLi ERP-CRM'
 			);
 			%filestoscanstableasso=(
 				"$DESTI/$FILENAMERPM"=>'',
@@ -1305,7 +1305,7 @@ if ($nboftargetok) {
 				#my $sftp = Net::SFTP::Foreign->new($ip, user => $user, password => $pass, autodie => 1);
 				#$sftp->mkdir($destFolder)
 
-				#$command="ssh eldy,dolibarr\@frs.sourceforge.net mkdir -p \"$destFolder\"";
+				#$command="ssh eldy,OnLi\@frs.sourceforge.net mkdir -p \"$destFolder\"";
 				#print "$command\n";
 				#my $ret=`$command 2>&1`;
 

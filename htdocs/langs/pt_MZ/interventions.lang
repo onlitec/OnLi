@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 InterventionCard=Ficha de Intervenção
 NewIntervention=Nova Intervenção
 AddIntervention=Criar Intervenção
@@ -19,10 +19,10 @@ InterventionClassifyUnBilled=Classificar "à faturar"
 InterventionClassifyDone=Classificar "Feito"
 SendInterventionRef=Apresentação de intervenção %s
 SendInterventionByMail=Envio da intervenção por e-mail
-InterventionModifiedInDolibarr=Intervenção %s alterada
-InterventionClassifiedBilledInDolibarr=Intervenção %s classificada como Faturada
-InterventionClassifiedUnbilledInDolibarr=Intervenção %s definida como à faturar
-InterventionDeletedInDolibarr=Intervenção %s excluída
+InterventionModifiedInOnLi=Intervenção %s alterada
+InterventionClassifiedBilledInOnLi=Intervenção %s classificada como Faturada
+InterventionClassifiedUnbilledInOnLi=Intervenção %s definida como à faturar
+InterventionDeletedInOnLi=Intervenção %s excluída
 InterventionsArea=Área intervenções
 DraftFichinter=Rascunho de intervenções
 FichinterToProcess=Intermediações para processar

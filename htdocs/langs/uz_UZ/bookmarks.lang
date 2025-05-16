@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Xatcho'plarga joriy sahifani qo'shing
 BehaviourOnClick = Xatcho‘p URL manzili tanlangandagi xatti-harakatlari
@@ -21,4 +21,4 @@ ReplaceWindow = Joriy yorliqni almashtirish
 SetHereATitleForLink = Xatcho'p uchun nom o'rnating
 ShowBookmark = Xatcho'pni ko'rsatish
 UrlOrLink = URL manzili
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Tashqi/mutlaq havoladan (https://externalurl.com) yoki ichki/nisbiy havoladan (/mypage.php) foydalaning. Siz 0123456 kabi telefondan ham foydalanishingiz mumkin.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Tashqi/mutlaq havoladan (https://externalurl.com) yoki ichki/nisbiy havoladan (/mypage.php) foydalaning. Siz 0123456 kabi telefondan ham foydalanishingiz mumkin.

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Dërgimi me email
 EMailing=Dërgimi me email
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kontaktet sipas kategorive
 MailingModuleDescContactsByFunction=Kontaktet sipas pozicionit
 MailingModuleDescEmailsFromFile=Email nga skedari
 MailingModuleDescEmailsFromUser=Futja e emaileve nga përdoruesi
-MailingModuleDescDolibarrUsers=Përdoruesit me email
+MailingModuleDescOnLiUsers=Përdoruesit me email
 MailingModuleDescThirdPartiesByCategories=Palëve të treta
 SendingFromWebInterfaceIsNotAllowed=Dërgimi nga ndërfaqja e uebit nuk lejohet.
 EmailCollectorFilterDesc=Të gjithë filtrat duhet të përputhen që të mblidhet një email.<br>Mund të përdorni karakterin "!" përpara vlerës së vargut të kërkimit nëse keni nevojë për një test negativ

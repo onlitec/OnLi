@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - users
+# OnLi language file - Source file is en_US - users
 HRMArea=HRM område
 UserCard=Användarkort
 GroupCard=Gruppkort
@@ -36,7 +36,7 @@ SuperAdministrator=Flerföretagsadministratör
 SuperAdministratorDesc=Systemadministratör för flera företag (kan ändra inställningar och användare)
 DefaultRights=Standardrättigheter
 DefaultRightsDesc=Ange <u>standardrättigheter</u> som automatiskt tilldelas en <u>ny</u> användare (för att ändra rättigheter för befintliga användare går du till användarkortet).
-DolibarrUsers=Dolibarranvändare
+OnLiUsers=OnLianvändare
 LastName=Efternamn
 FirstName=Förnamn
 ListOfGroups=Lista grupper
@@ -60,13 +60,13 @@ PhotoFile=Bildfil
 ListOfUsersInGroup=Lista över användare i denna grupp
 ListOfGroupsForUser=Lista över grupper för denna användare
 LinkToCompanyContact=Länk till tredjepart/kontakt
-LinkedToDolibarrMember=Länk till medlem
-LinkedToDolibarrUser=Länk till användare
-LinkedToDolibarrThirdParty=Länk till tredjepart
-CreateDolibarrLogin=Skapa användare
-CreateDolibarrThirdParty=Skapa tredjepart
-LoginAccountDisableInDolibarr=Kontot inaktiverat i Dolibarr
-PASSWORDInDolibarr=Lösenordet ändrat i Dolibarr
+LinkedToOnLiMember=Länk till medlem
+LinkedToOnLiUser=Länk till användare
+LinkedToOnLiThirdParty=Länk till tredjepart
+CreateOnLiLogin=Skapa användare
+CreateOnLiThirdParty=Skapa tredjepart
+LoginAccountDisableInOnLi=Kontot inaktiverat i OnLi
+PASSWORDInOnLi=Lösenordet ändrat i OnLi
 UsePersonalValue=Använd personligt värde
 ExportDataset_user_1=Användare och egenskaper
 DomainUser=Domänanvändare %s

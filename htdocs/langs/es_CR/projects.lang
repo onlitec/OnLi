@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 ProjectId=ID de Proyecto
 ProjectLabel=Etiqueta de Proyecto
 ProjectsArea=Área de Proyectos
@@ -74,8 +74,8 @@ CloneMoveDate=Actualizar las fechas de proyecto/tareas a partir de ahora?
 ConfirmCloneProject=¿Está seguro de clonar este proyecto?
 ProjectReportDate=Cambiar las fechas de las tareas según la fecha de inicio del nuevo proyecto
 ErrorShiftTaskDate=Imposible cambiar la fecha de la tarea de acuerdo con la fecha de inicio del nuevo proyecto
-TaskCreatedInDolibarr=Tarea%s creada
-TaskModifiedInDolibarr=Tarea%s modificada
+TaskCreatedInOnLi=Tarea%s creada
+TaskModifiedInOnLi=Tarea%s modificada
 OpportunityStatus=Estado de iniciativa
 OpportunityStatusShort=Estado de iniciativa
 OpportunityProbability=Probabilidad de la Iniciativa

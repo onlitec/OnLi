@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=ኢሜል መላክ
 EMailing=ኢሜል መላክ
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=እውቂያዎች በምድቦች
 MailingModuleDescContactsByFunction=እውቂያዎች በቦታ
 MailingModuleDescEmailsFromFile=ኢሜይሎች ከፋይል
 MailingModuleDescEmailsFromUser=የኢሜል ግቤት በተጠቃሚ
-MailingModuleDescDolibarrUsers=ኢሜይሎች ያላቸው ተጠቃሚዎች
+MailingModuleDescOnLiUsers=ኢሜይሎች ያላቸው ተጠቃሚዎች
 MailingModuleDescThirdPartiesByCategories=ሦስተኛ ወገኖች
 SendingFromWebInterfaceIsNotAllowed=ከድር በይነገጽ መላክ አይፈቀድም።
 EmailCollectorFilterDesc=ኢሜል እንዲሰበሰብ ሁሉም ማጣሪያዎች መመሳሰል አለባቸው።<br>የ"!" አሉታዊ ሙከራ ከፈለጉ ከፍለጋው ሕብረቁምፊ ዋጋ በፊት

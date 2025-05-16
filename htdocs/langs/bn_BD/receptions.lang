@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=বিক্রেতা অভ্যর্থনা ব্যবস্থাপনা (অভ্যর্থনা নথি তৈরি করুন)
 ReceptionsSetup=বিক্রেতা অভ্যর্থনা সেটআপ
 RefReception=রেফ. অভ্যর্থনা
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=অভ্যর্থনা জন্য সংখ্
 ReceptionsReceiptModel=অভ্যর্থনা জন্য নথি টেমপ্লেট
 NoMorePredefinedProductToDispatch=পাঠানোর জন্য আর কোনো পূর্বনির্ধারিত পণ্য নেই
 ReceptionExist=একটি অভ্যর্থনা বিদ্যমান
-ReceptionBackToDraftInDolibarr=অভ্যর্থনা %s খসড়াতে ফিরে
-ReceptionClassifyClosedInDolibarr=অভ্যর্থনা %s শ্রেণীবদ্ধ বন্ধ
-ReceptionUnClassifyCloseddInDolibarr=রিসেপশন %s আবার খুলুন
+ReceptionBackToDraftInOnLi=অভ্যর্থনা %s খসড়াতে ফিরে
+ReceptionClassifyClosedInOnLi=অভ্যর্থনা %s শ্রেণীবদ্ধ বন্ধ
+ReceptionUnClassifyCloseddInOnLi=রিসেপশন %s আবার খুলুন
 RestoreWithCurrentQtySaved=সর্বশেষ সংরক্ষিত মান দিয়ে পরিমাণ পূরণ করুন
 ReceptionsRecorded=অভ্যর্থনা রেকর্ড করা হয়েছে
 ReceptionUpdated=অভ্যর্থনা সফলভাবে আপডেট করা হয়েছে

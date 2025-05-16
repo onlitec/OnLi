@@ -38,7 +38,7 @@ function dolSaveMasterFile($filemaster)
 
 	$mastercontent = '<?php'."\n";
 	$mastercontent .= '// File generated to link to the master file - DO NOT MODIFY - It is just an include'."\n";
-	$mastercontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) {\n";
+	$mastercontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) {\n";
 	$mastercontent .= "    if (! defined('USEEXTERNALSERVER')) define('USEEXTERNALSERVER', 1);\n";
 	$mastercontent .= "    require_once '".DOL_DOCUMENT_ROOT."/master.inc.php';\n";
 	$mastercontent .= "}\n";
@@ -180,7 +180,7 @@ function dolSavePageContent($filetpl, Website $object, WebsitePage $objectpage, 
 		// If we want to generate a page with some code to manage PHP content
 		$tplcontent .= "<?php // BEGIN PHP\n";
 		$tplcontent .= '$websitekey=basename(__DIR__); if (empty($websitepagefile)) $websitepagefile=__FILE__;'."\n";
-		$tplcontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) {\n";
+		$tplcontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) {\n";
 		$tplcontent .= '	$pathdepth = count(explode(\'/\', $_SERVER[\'SCRIPT_NAME\'])) - 2;'."\n";
 		$tplcontent .= '	require_once ($pathdepth ? str_repeat(\'../\', $pathdepth) : \'./\').\'master.inc.php\';'."\n";
 		if (empty($objectpage->disable_waf)) {
@@ -437,7 +437,7 @@ function dolSavePageContent($filetpl, Website $object, WebsitePage $objectpage, 
 	} else {
 		$tplcontent .= "<?php // BEGIN PHP\n";
 		$tplcontent .= '$websitekey=basename(__DIR__); if (empty($websitepagefile)) $websitepagefile=__FILE__;'."\n";
-		$tplcontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) {\n";
+		$tplcontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) {\n";
 		$tplcontent .= '	$pathdepth = count(explode(\'/\', $_SERVER[\'SCRIPT_NAME\'])) - 2;'."\n";
 		$tplcontent .= '	require_once ($pathdepth ? str_repeat(\'../\', $pathdepth) : \'./\').\'master.inc.php\';'."\n";
 		if (empty($objectpage->disable_waf)) {
@@ -487,7 +487,7 @@ function dolSaveIndexPage($pathofwebsite, $fileindex, $filetpl, $filewrapper, $o
 		$indexcontent = '<?php'."\n";
 		$indexcontent .= "// BEGIN PHP File generated to provide an index.php as Home Page or alias redirector - DO NOT MODIFY - It is just a generated wrapper.\n";
 		$indexcontent .= '$websitekey=basename(__DIR__); if (empty($websitepagefile)) $websitepagefile=__FILE__;'."\n";
-		$indexcontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once './master.inc.php'; } // Load master if not already loaded\n";
+		$indexcontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once './master.inc.php'; } // Load master if not already loaded\n";
 		$indexcontent .= 'if (!empty($_GET[\'pageref\']) || !empty($_GET[\'pagealiasalt\']) || !empty($_GET[\'pageid\'])) {'."\n";
 		$indexcontent .= "	require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 		$indexcontent .= "	require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
@@ -520,7 +520,7 @@ function dolSaveIndexPage($pathofwebsite, $fileindex, $filetpl, $filewrapper, $o
 						$indexcontent = '<?php'."\n";
 						$indexcontent .= "// BEGIN PHP File generated to provide an index.php as Home Page or alias redirector - DO NOT MODIFY - It is just a generated wrapper.\n";
 						$indexcontent .= '$websitekey=basename(__DIR__); if (empty($websitepagefile)) $websitepagefile=__FILE__;'."\n";
-						$indexcontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once '".$relpath."/master.inc.php'; } // Load master if not already loaded\n";
+						$indexcontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once '".$relpath."/master.inc.php'; } // Load master if not already loaded\n";
 						$indexcontent .= 'if (!empty($_GET[\'pageref\']) || !empty($_GET[\'pagealiasalt\']) || !empty($_GET[\'pageid\'])) {'."\n";
 						$indexcontent .= "	require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 						$indexcontent .= "	require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";

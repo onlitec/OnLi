@@ -49,7 +49,7 @@ fi
 # ----------------------------- if no params on command line
 if [ "x$demopass" = "x" ]
 then
-	export dumpfile=`ls -v $mydir/mysqldump_dolibarr_*.sql | tail -n 1`
+	export dumpfile=`ls -v $mydir/mysqldump_OnLi_*.sql | tail -n 1`
 	export dumpfile=`basename $dumpfile`
 
 	# ----------------------------- database name
@@ -58,7 +58,7 @@ then
 	fichtemp=`tempfile 2>/dev/null` || fichtemp=/tmp/test$$
 	trap "rm -f $fichtemp" 0 1 2 5 15
 	$DIALOG --title "Reset login password" --clear \
-		--inputbox "Mysql database name :" 16 55 dolibarrdemo 2> $fichtemp
+		--inputbox "Mysql database name :" 16 55 OnLidemo 2> $fichtemp
 	valret=$?
 	case $valret in
 		0)
@@ -96,7 +96,7 @@ then
 	fichtemp=`tempfile 2>/dev/null` || fichtemp=/tmp/test$$
 	trap "rm -f $fichtemp" 0 1 2 5 15
 	$DIALOG --title "Reset login password" --clear \
-		--inputbox "Login to reset :" 16 55 dolibarrdemologin 2> $fichtemp
+		--inputbox "Login to reset :" 16 55 OnLidemologin 2> $fichtemp
 	valret=$?
 	case $valret in
 		0)
@@ -114,7 +114,7 @@ then
 	fichtemp=`tempfile 2>/dev/null` || fichtemp=/tmp/test$$
 	trap "rm -f $fichtemp" 0 1 2 5 15
 	$DIALOG --title "Reset login password" --clear \
-		--inputbox "Pass to set :" 16 55 dolibarrdemopass 2> $fichtemp
+		--inputbox "Pass to set :" 16 55 OnLidemopass 2> $fichtemp
 	valret=$?
 	case $valret in
 		0)
@@ -127,7 +127,7 @@ then
 	rm fichtemp
 
 
-	export documentdir=`cat $mydir/../../htdocs/conf/conf.php | grep '^\$dolibarr_main_data_root' | sed -e 's/$dolibarr_main_data_root=//' | sed -e 's/;//' | sed -e "s/'//g" | sed -e 's/"//g' `
+	export documentdir=`cat $mydir/../../htdocs/conf/conf.php | grep '^\$OnLi_main_data_root' | sed -e 's/$OnLi_main_data_root=//' | sed -e 's/;//' | sed -e "s/'//g" | sed -e 's/"//g' `
 
 
 	# ---------------------------- confirmation

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Сілт. жоба
 ProjectRef=Жоба рефераты
 ProjectId=Жоба идентификаторы
@@ -160,12 +160,12 @@ ConfirmCloneProject=Сіз бұл жобаны клондауды сенімді
 ProjectReportDate=Жобаның басталу күніне сәйкес тапсырма күндерін өзгертіңіз
 ErrorShiftTaskDate=Жобаның басталу күніне сәйкес тапсырма күнін ауыстыру мүмкін емес
 ProjectsAndTasksLines=Жобалар мен тапсырмалар
-ProjectCreatedInDolibarr=%s жобасы жасалды
-ProjectValidatedInDolibarr=%s жобасы расталды
-ProjectModifiedInDolibarr=%s жобасы өзгертілді
-TaskCreatedInDolibarr=%s тапсырмасы жасалды
-TaskModifiedInDolibarr=%s тапсырмасы өзгертілді
-TaskDeletedInDolibarr=%s тапсырмасы жойылды
+ProjectCreatedInOnLi=%s жобасы жасалды
+ProjectValidatedInOnLi=%s жобасы расталды
+ProjectModifiedInOnLi=%s жобасы өзгертілді
+TaskCreatedInOnLi=%s тапсырмасы жасалды
+TaskModifiedInOnLi=%s тапсырмасы өзгертілді
+TaskDeletedInOnLi=%s тапсырмасы жойылды
 OpportunityStatus=Жетекші мәртебесі
 OpportunityStatusShort=Жетекші мәртебесі
 OpportunityProbability=Қорғасын ықтималдығы

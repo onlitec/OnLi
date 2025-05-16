@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Замовлення вже було відкрито, пов’язане з цією пропозицією, тому жодне інше замовлення не було створено автоматично
 OrdersArea=Зона замовлень клієнтів
 SuppliersOrdersArea=Зона замовлень на закупівлю
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Ви впевнені, що хочете клонувати ц
 DispatchSupplierOrder=Отримання замовлення на покупку %s
 FirstApprovalAlreadyDone=Перше затвердження вже виконано
 SecondApprovalAlreadyDone=Друге затвердження вже виконано
-SupplierOrderReceivedInDolibarr=Замовлення на покупку %s отримано %s
-SupplierOrderSubmitedInDolibarr=Замовлення на купівлю %s подано (%s)
+SupplierOrderReceivedInOnLi=Замовлення на покупку %s отримано %s
+SupplierOrderSubmitedInOnLi=Замовлення на купівлю %s подано (%s)
 SupplierOrderClassifiedBilled=Замовлення на покупку %s набір виставлено
 OtherOrders=Інші замовлення
 SupplierOrderValidatedAndApproved=Замовлення постачальника підтверджено та затверджено: %s

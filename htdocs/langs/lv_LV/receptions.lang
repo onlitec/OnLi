@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Pārdevēja pieņemšanas vadība (izveidot pieņemšanas dokumentus)
 ReceptionsSetup=Pārdevēja pieņemšanas iestatīšana
 RefReception=Ref. uzņemšana
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Pieņemšanas numurēšanas modulis
 ReceptionsReceiptModel=Pieņemšanas dokumentu veidnes
 NoMorePredefinedProductToDispatch=Vairs nav iepriekš nosūtītu produktu
 ReceptionExist=Reģistratūra pastāv
-ReceptionBackToDraftInDolibarr=Saņemšana %s atpakaļ uz melnrakstu
-ReceptionClassifyClosedInDolibarr=Reģistratūra %s klasificēta Slēgta
-ReceptionUnClassifyCloseddInDolibarr=Reģistratūra %s atkal tiek atvērta
+ReceptionBackToDraftInOnLi=Saņemšana %s atpakaļ uz melnrakstu
+ReceptionClassifyClosedInOnLi=Reģistratūra %s klasificēta Slēgta
+ReceptionUnClassifyCloseddInOnLi=Reģistratūra %s atkal tiek atvērta
 RestoreWithCurrentQtySaved=Aizpildiet daudzumus ar jaunākajām saglabātajām vērtībām
 ReceptionsRecorded=Pieņemšanas ierakstītas
 ReceptionUpdated=Reģistratūra ir veiksmīgi atjaunināta

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Toimittaja vastaanoton hallinta (luo vastaanottoasiakirjaa)
 ReceptionsSetup=Toimittaja Vastaanoton määrittäminen
 RefReception=Viite. vastaanotto
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Numerointimoduuli vastaanottoja varten
 ReceptionsReceiptModel=Asiakirjamallit vastaanottoja varten
 NoMorePredefinedProductToDispatch=Ei enää ennalta määritettyä tuotteet lähetettävää
 ReceptionExist=Vastaanotto on olemassa
-ReceptionBackToDraftInDolibarr=Vastaanotto %s takaisin osoitteeseen Luonnos
-ReceptionClassifyClosedInDolibarr=Vastaanotto %s luokiteltu Suljettu
-ReceptionUnClassifyCloseddInDolibarr=Vastaanotto %s avaa uudelleen
+ReceptionBackToDraftInOnLi=Vastaanotto %s takaisin osoitteeseen Luonnos
+ReceptionClassifyClosedInOnLi=Vastaanotto %s luokiteltu Suljettu
+ReceptionUnClassifyCloseddInOnLi=Vastaanotto %s avaa uudelleen
 RestoreWithCurrentQtySaved=Täytä määrät uusimmilla tallennetuilla arvoilla
 ReceptionsRecorded=Vastaanotot tallennettu
 ReceptionUpdated=Vastaanoton päivitys onnistui

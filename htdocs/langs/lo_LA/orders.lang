@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=ຄໍາສັ່ງໄດ້ຖືກເປີດຢູ່ແລ້ວທີ່ເຊື່ອມໂຍງກັບການສະເຫນີນີ້, ດັ່ງນັ້ນບໍ່ມີຄໍາສັ່ງອື່ນຖືກສ້າງຂື້ນໂດຍອັດຕະໂນມັດ
 OrdersArea=ເຂດທີ່ລູກຄ້າສັ່ງ
 SuppliersOrdersArea=ພື້ນທີ່ການສັ່ງຊື້
@@ -129,8 +129,8 @@ ConfirmCloneOrder=ເຈົ້າແນ່ໃຈບໍ່ວ່າເຈົ້�
 DispatchSupplierOrder=ໄດ້ຮັບຄໍາສັ່ງຊື້ %s
 FirstApprovalAlreadyDone=ການອະນຸມັດ ທຳ ອິດໄດ້ເຮັດແລ້ວ
 SecondApprovalAlreadyDone=ການອະນຸມັດຄັ້ງທີສອງ ສຳ ເລັດແລ້ວ
-SupplierOrderReceivedInDolibarr=ການສັ່ງຊື້ %s ໄດ້ຮັບ %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=ການສັ່ງຊື້ %s ໄດ້ຮັບ %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=ການສັ່ງຊື້ຊຸດຊຸດ %s
 OtherOrders=ຄໍາສັ່ງອື່ນ
 SupplierOrderValidatedAndApproved=ຄໍາສັ່ງຂອງຜູ້ຜະລິດແມ່ນຖືກຕ້ອງແລະອະນຸມັດ: %s

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Fatura
 Bills=Faturat
 BillsCustomers=Faturat e klientit
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Cakto datën e fillimit
 AutoFillDateTo=Cakto datën e përfundimit për linjën e shërbimit me datën tjetër të faturës
 AutoFillDateToShort=Cakto datën e përfundimit
 MaxNumberOfGenerationReached=Numri maksimal i gjen. arritur
-BILL_DELETEInDolibarr=Fatura u fshi
-BILL_SUPPLIER_DELETEInDolibarr=Fatura e furnizuesit u fshi
+BILL_DELETEInOnLi=Fatura u fshi
+BILL_SUPPLIER_DELETEInOnLi=Fatura e furnizuesit u fshi
 UnitPriceXQtyLessDiscount=Çmimi për njësi x Sasia - Zbritje
 CustomersInvoicesArea=Zona e faturimit të klientit
 SupplierInvoicesArea=Zona e faturimit të furnizuesit

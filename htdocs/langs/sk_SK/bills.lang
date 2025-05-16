@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Faktúra
 Bills=Faktúry
 BillsCustomers=Odberateľské faktúry
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Nastavte dátum začiatku
 AutoFillDateTo=Nastavte dátum ukončenia pre servisný riadok s dátumom nasledujúcej faktúry
 AutoFillDateToShort=Nastavte dátum ukončenia
 MaxNumberOfGenerationReached=Max počet gen. dosiahnuté
-BILL_DELETEInDolibarr=Faktúra zmazaná
-BILL_SUPPLIER_DELETEInDolibarr=Dodávateľská faktúra bola vymazaná
+BILL_DELETEInOnLi=Faktúra zmazaná
+BILL_SUPPLIER_DELETEInOnLi=Dodávateľská faktúra bola vymazaná
 UnitPriceXQtyLessDiscount=Jednotková cena x Množ. - zľava
 CustomersInvoicesArea=Oblasť fakturácie zákazníkov
 SupplierInvoicesArea=Oblasť fakturácie dodávateľa

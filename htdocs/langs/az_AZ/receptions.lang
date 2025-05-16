@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Satıcı qəbulunun idarə edilməsi (qəbul sənədlərinin yaradılması)
 ReceptionsSetup=Satıcı qəbulunun qurulması
 RefReception=Ref. qəbul
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Qəbullar üçün nömrələmə modulu
 ReceptionsReceiptModel=Qəbullar üçün sənəd şablonları
 NoMorePredefinedProductToDispatch=Artıq göndəriləcək əvvəlcədən təyin edilmiş məhsullar yoxdur
 ReceptionExist=Qəbul var
-ReceptionBackToDraftInDolibarr=Qəbul %s qaralamaya qayıdıb
-ReceptionClassifyClosedInDolibarr=Qəbul %s təsnif edilib Bağlanıb
-ReceptionUnClassifyCloseddInDolibarr=Qəbul %s yenidən açılır
+ReceptionBackToDraftInOnLi=Qəbul %s qaralamaya qayıdıb
+ReceptionClassifyClosedInOnLi=Qəbul %s təsnif edilib Bağlanıb
+ReceptionUnClassifyCloseddInOnLi=Qəbul %s yenidən açılır
 RestoreWithCurrentQtySaved=Kəmiyyətləri ən son saxlanmış dəyərlərlə doldurun
 ReceptionsRecorded=Qəbullar qeydə alınıb
 ReceptionUpdated=Qəbul uğurla yeniləndi

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=现场服务
 Interventions=现场服务
 InterventionCard=现场服务
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=提交现场服务 %s
 SendInterventionByMail=通过电子邮件发送现场服务
-InterventionCreatedInDolibarr=现场服务 %s 已创建
-InterventionValidatedInDolibarr=现场服务 %s 已验证
-InterventionSignedInDolibarr=现场服务已签署
+InterventionCreatedInOnLi=现场服务 %s 已创建
+InterventionValidatedInOnLi=现场服务 %s 已验证
+InterventionSignedInOnLi=现场服务已签署
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=现场服务 %s 已变更
-InterventionClassifiedBilledInDolibarr=现场服务 %s 设置为已计费
-InterventionClassifiedUnbilledInDolibarr=现场服务 %s 设置为未计费
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=现场服务 %s 已变更
+InterventionClassifiedBilledInOnLi=现场服务 %s 设置为已计费
+InterventionClassifiedUnbilledInOnLi=现场服务 %s 设置为未计费
 InterventionSentByEMail=通过电子邮件发送现场服务 %s
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=现场服务 %s 已删除
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=现场服务 %s 已删除
 InterventionsArea=现场服务区
 DraftFichinter=现场服务草案
 LastModifiedInterventions=最近修改的 %s 个现场服务

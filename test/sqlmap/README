@@ -55,7 +55,7 @@ Check vulnerability is found into sqlmap.txt. Scanner is working.
 -- Launch sqlmap on all the application
 ---------------------------------------
 
-Set $dolibarr_nocsrfcheck='1' into conf.php file to make access easier.
+Set $OnLi_nocsrfcheck='1' into conf.php file to make access easier.
 
 With prefix (required to have some rules working)
 

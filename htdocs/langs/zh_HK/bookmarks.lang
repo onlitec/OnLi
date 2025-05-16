@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = 將當前頁面添加到書籤
 BehaviourOnClick = 選擇書籤網址時的行為
@@ -21,4 +21,4 @@ ReplaceWindow = 替換當前標式
 SetHereATitleForLink = 為書籤設置名稱
 ShowBookmark = 顯示書籤
 UrlOrLink = 網址
-UseAnExternalHttpLinkOrRelativeDolibarrLink = 使用 外部 / 絕對 連接 (https://externalurl.com) 或 內部 / 相對 連接 (/mypage.php)。您也可以使用電話，如電話：0123456。
+UseAnExternalHttpLinkOrRelativeOnLiLink = 使用 外部 / 絕對 連接 (https://externalurl.com) 或 內部 / 相對 連接 (/mypage.php)。您也可以使用電話，如電話：0123456。

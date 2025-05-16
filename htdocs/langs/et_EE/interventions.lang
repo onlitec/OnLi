@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Sekkumine
 Interventions=Sekkumised
 InterventionCard=Sekkumise kaart
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=Sekkumise %s saatmine
 SendInterventionByMail=Saada sekkumine e-postiga
-InterventionCreatedInDolibarr=Sekkumine %s loodud
-InterventionValidatedInDolibarr=Sekkumine %s on kinnitatud
-InterventionSignedInDolibarr=Sekkumine allkirjastatud
+InterventionCreatedInOnLi=Sekkumine %s loodud
+InterventionValidatedInOnLi=Sekkumine %s on kinnitatud
+InterventionSignedInOnLi=Sekkumine allkirjastatud
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=Sekkumine %s muudetud
-InterventionClassifiedBilledInDolibarr=Sekkumisele %s seatud "arve esitatud"
-InterventionClassifiedUnbilledInDolibarr=Sekkumisele %s seatud "arve esitamata"
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=Sekkumine %s muudetud
+InterventionClassifiedBilledInOnLi=Sekkumisele %s seatud "arve esitatud"
+InterventionClassifiedUnbilledInOnLi=Sekkumisele %s seatud "arve esitamata"
 InterventionSentByEMail=Sekkumine %s saadetud e-postiga
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=Sekkumine %s kustutatud
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=Sekkumine %s kustutatud
 InterventionsArea=Sekkumiste ala
 DraftFichinter=Sekkumiste mustandid
 LastModifiedInterventions=Viimased %s muudetud sekkumised

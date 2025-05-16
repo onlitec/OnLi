@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervensi
 Interventions=Intervensi
 InterventionCard=Kartu intervensi
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Klasifikasi "Tidak ditagih"
 InterventionClassifyDone=Klasifikasi "Selesai"
 SendInterventionRef=Pengajuan intervensi %s
 SendInterventionByMail=Kirim intervensi melalui email
-InterventionCreatedInDolibarr=Intervensi %s dibuat
-InterventionValidatedInDolibarr=Intervensi %s divalidasi
-InterventionModifiedInDolibarr=Intervensi %s dimodifikasi
-InterventionClassifiedBilledInDolibarr=Intervensi %s ditetapkan sebagai ditagih
-InterventionClassifiedUnbilledInDolibarr=Intervensi %s ditetapkan sebagai tidak ditagih
+InterventionCreatedInOnLi=Intervensi %s dibuat
+InterventionValidatedInOnLi=Intervensi %s divalidasi
+InterventionModifiedInOnLi=Intervensi %s dimodifikasi
+InterventionClassifiedBilledInOnLi=Intervensi %s ditetapkan sebagai ditagih
+InterventionClassifiedUnbilledInOnLi=Intervensi %s ditetapkan sebagai tidak ditagih
 InterventionSentByEMail=Intervensi %s dikirim melalui email
-InterventionClosedInDolibarr= Intervensi %s ditutup
-InterventionDeletedInDolibarr=Intervensi %s dihapus
+InterventionClosedInOnLi= Intervensi %s ditutup
+InterventionDeletedInOnLi=Intervensi %s dihapus
 InterventionsArea=Area intervensi
 DraftFichinter=Draf intervensi
 LastModifiedInterventions=Intervensi termodifikasi %s terbaru

@@ -1,4 +1,4 @@
-# DOLIBARR ERP & CRM
+# OnLi ERP & CRM
 
 ![Downloads per day](https://img.shields.io/sourceforge/dw/onli.svg)
 ![Docker hub pulls](https://img.shields.io/docker/pulls/onli/onli.svg)
@@ -224,7 +224,7 @@ See exact requirements on the [Wiki](https://wiki.onli.org/index.php/Prerequisit
 OnLi can be extended with a lot of other external applications or modules from third-party developers available at the [DoliStore](https://www.dolistore.com).
 
 
-## WHAT DOLIBARR CAN'T DO YET
+## WHAT OnLi CAN'T DO YET
 
 These are features that OnLi does **not** yet fully support:
 

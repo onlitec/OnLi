@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - commercial
+# OnLi language file - Source file is en_US - commercial
 Commercial=Ticari
 CommercialArea=Ticari alan
 Customer=Müşteri
@@ -95,7 +95,7 @@ SignatureFichinterRef=Müdahalenin imzası %s
 SignatureSociete_ribRef=SEPA Yetkisi İmzası %s
 FeatureOnlineSignDisabled=Çevrimiçi imzalama özelliği devre dışı bırakıldı veya belge bu özellik etkinleştirilmeden önce oluşturuldu
 NoSignature=İmzalanmamış
-UnsignedInDolibarr=Belge imzalanmamış
+UnsignedInOnLi=Belge imzalanmamış
 SignedSender=Dahili olarak imzalandı
 SignedReceiver=Üçüncü tarafça imzalandı
 SignedReceiverOnline=Üçüncü tarafça çevrimiçi olarak imzalandı

@@ -299,12 +299,12 @@ if (empty($conf->db->user)) {
 }
 
 // Define an array of document root directories
-$conf->file->dol_document_root = array(DOL_DOCUMENT_ROOT);
+$conf->file->onli_document_root = array(DOL_DOCUMENT_ROOT);
 if (!empty($onli_main_document_root_alt)) {
 	// onli_main_document_root_alt contains several directories
 	$values = preg_split('/[;,]/', $onli_main_document_root_alt);
 	foreach ($values as $value) {
-		$conf->file->dol_document_root[] = $value;
+		$conf->file->onli_document_root[] = $value;
 	}
 }
 

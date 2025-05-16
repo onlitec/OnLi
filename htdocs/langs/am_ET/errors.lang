@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - errors
+# OnLi language file - Source file is en_US - errors
 
 # No errors
 NoErrorCommitIsDone=ምንም ስህተት የለም, እንሰራለን
@@ -57,7 +57,7 @@ ErrorFieldsRequired=አንዳንድ አስፈላጊ መስኮች ባዶ ቀር�
 ErrorSubjectIsRequired=የኢሜል ርዕሰ ጉዳይ ያስፈልጋል
 ErrorInAddAttachmentsImageBaseOnMedia=Error in creating image files into media directory for attachment
 ErrorInAddAttachmentsImageBaseIsSrcData=Error in creating image files (found as data:) into temp directory for attachment
-ErrorFailedToCreateDir=ማውጫ መፍጠር አልተሳካም። የድር አገልጋይ ተጠቃሚ ወደ Dolibarr ሰነዶች ማውጫ ውስጥ የመፃፍ ፍቃድ እንዳለው ያረጋግጡ። ፓራሜትር <b>safe_mode</b> በዚህ ፒኤችፒ ላይ ከነቃ የዶሊባርር php ፋይሎች ባለቤት መሆናቸውን ያረጋግጡ የድር አገልጋይ ተጠቃሚ (ወይም ቡድን)።
+ErrorFailedToCreateDir=ማውጫ መፍጠር አልተሳካም። የድር አገልጋይ ተጠቃሚ ወደ OnLi ሰነዶች ማውጫ ውስጥ የመፃፍ ፍቃድ እንዳለው ያረጋግጡ። ፓራሜትር <b>safe_mode</b> በዚህ ፒኤችፒ ላይ ከነቃ የዶሊባርር php ፋይሎች ባለቤት መሆናቸውን ያረጋግጡ የድር አገልጋይ ተጠቃሚ (ወይም ቡድን)።
 ErrorNoMailDefinedForThisUser=ለዚህ ተጠቃሚ ምንም ደብዳቤ አልተገለጸም።
 ErrorSetupOfEmailsNotComplete=ኢሜይሎችን ማዋቀር አልተጠናቀቀም።
 ErrorAccountingClosureSetupNotComplete=Setup of closure accounts not complete
@@ -88,7 +88,7 @@ ErrorFieldCanNotContainSpecialNorUpperCharacters=መስኩ <b>%s</b> ልዩ ቁ�
 ErrorFieldMustHaveXChar=The field <b>%s</b> must have at least %s characters.
 ErrorNoAccountancyModuleLoaded=ምንም የሂሳብ ሞጁል አልነቃም።
 ErrorExportDuplicateProfil=ይህ የመገለጫ ስም አስቀድሞ ለዚህ ወደ ውጭ መላኪያ ስብስብ አለ።
-ErrorLDAPSetupNotComplete=Dolibarr-LDAP ማዛመድ አልተጠናቀቀም።
+ErrorLDAPSetupNotComplete=OnLi-LDAP ማዛመድ አልተጠናቀቀም።
 ErrorLDAPMakeManualTest=የ .ldif ፋይል በማውጫው %s ውስጥ ተፈጥሯል። በስህተቶች ላይ ተጨማሪ መረጃ ለማግኘት ከትእዛዝ መስመር እራስዎ ለመጫን ይሞክሩ።
 ErrorCantSaveADoneUserWithZeroPercentage=በ"የተሰራ" መስክ ከተሞላ "ሁኔታ አልተጀመረም" ያለው ድርጊት ማስቀመጥ አይቻልም።
 ErrorPleaseTypeBankTransactionReportName=እባክዎ የመግቢያው መዘግየት ያለበትን የባንክ መግለጫ ስም ያስገቡ (ቅርጸት yyyym ወይም yyyymdam)
@@ -147,7 +147,7 @@ ErrorWebServerUserHasNotPermission=የተጠቃሚ መለያ <b>%s</b>የድር 
 ErrorNoActivatedBarcode=ምንም አይነት የአሞሌ ኮድ አልነቃም።
 ErrUnzipFails=በዚፕ ማህደር %sን ዚፕ መክፈት አልተሳካም
 ErrNoZipEngine=በዚህ ፒኤችፒ ውስጥ %s ፋይል የሚከፍት/የሚከፍት ሞተር የለም
-ErrorFileMustBeADolibarrPackage=ፋይሉ %s የዶሊባርር ዚፕ ጥቅል መሆን አለበት
+ErrorFileMustBeAOnLiPackage=ፋይሉ %s የዶሊባርር ዚፕ ጥቅል መሆን አለበት
 ErrorModuleFileRequired=የዶሊባርር ሞጁል ጥቅል ፋይል መምረጥ አለብህ
 ErrorPhpCurlNotInstalled=PHP CURL አልተጫነም ከ Paypal ጋር ለመነጋገር ይህ አስፈላጊ ነው።
 ErrorFailedToAddToMailmanList=መዝገብ %s ወደ የመልእክተኛ ዝርዝር %s ወይም SPIP ቤዝ ማከል አልተሳካም
@@ -225,7 +225,7 @@ ErrorUserNotAssignedToTask=ተጠቃሚው የሚፈጀውን ጊዜ ማስገ�
 ErrorTaskAlreadyAssigned=ተግባር አስቀድሞ ለተጠቃሚ ተሰጥቷል።
 ErrorModuleFileSeemsToHaveAWrongFormat=የሞጁሉ ጥቅል የተሳሳተ ቅርጸት ያለው ይመስላል።
 ErrorModuleFileSeemsToHaveAWrongFormat2=At least one mandatory directory must exists into zip of module: <strong>%s</strong> or <strong>%s</strong>
-ErrorFilenameDosNotMatchDolibarrPackageRules=The file name of the module package (<strong>%s</strong>) does not match the expected name syntax: <strong>%s</strong>
+ErrorFilenameDosNotMatchOnLiPackageRules=The file name of the module package (<strong>%s</strong>) does not match the expected name syntax: <strong>%s</strong>
 ErrorDuplicateTrigger=ስህተት፣ የተባዛ የማስነሻ ስም %s። ቀድሞውንም ከ%s ተጭኗል።
 ErrorNoWarehouseDefined=ስህተት፣ ምንም መጋዘኖች አልተገለጹም።
 ErrorBadLinkSourceSetButBadValueForRef=የሚጠቀሙበት አገናኝ ልክ አይደለም። የመክፈያ 'ምንጭ' ይገለጻል፣ የ'ref' ዋጋ ግን ልክ አይደለም።
@@ -348,7 +348,7 @@ ErrorNoCloneWithoutEmail=The new user must have an email
 ErrorUserClone=Error in user clone categories
 ErrorQtyOrderedLessQtyShipped = The quantity ordered cannot be less than the quantity shipped.
 ErrorVariousPaymentOnBankAccountWithADifferentCurrencyNotYetSupported=Error, creating a various payment on a bank account with a currency different than the currency of the company is not yet supported.
-ErrorStreamMustBeEnabled=The PHP stream %s is not available. Check your PHP modules and Dolibarr parameter $dolibarr_main_stream_to_disable.
+ErrorStreamMustBeEnabled=The PHP stream %s is not available. Check your PHP modules and OnLi parameter $OnLi_main_stream_to_disable.
 ErrorYouTryToPayInvoicesWithDifferentCurrenciesInSamePayment=Error, you try to pay different invoices with different currencies in the same payment
 # Warnings
 WarningParamUploadMaxFileSizeHigherThanPostMaxSize=የእርስዎ ፒኤችፒ መለኪያ upload_max_filesize (%s) ከPHP መለኪያ post_max_size (%s) ከፍ ያለ ነው። ይህ ወጥነት ያለው ማዋቀር አይደለም።
@@ -399,7 +399,7 @@ WarningReadBankAlsoAllowedIfUserHasPermission=Warning, reading bank account is a
 WarningNoDataTransferedInAccountancyYet=Please note, there is no data in the accounting table. Please transfer your data recorded in the application to the accounting section or change the calculation mode to analyze the data recorded outside of accounting.
 WarningChangingThisMayBreakStopTaskScheduler=Warning, changing this value may disable the scheduler
 WarningAmountOfFileDiffersFromSumOfLines=Warning, amount of file (%s) differs from the sum of lines (%s)
-WarningModuleAffiliatedToAReportedCompany=Warning, this module has been reported to the Dolibarr foundation as being published by a company using illegal practices (non-compliance with the rules for using the Dolibarr brand, collecting your data without your consent or deploying malware).
+WarningModuleAffiliatedToAReportedCompany=Warning, this module has been reported to the OnLi foundation as being published by a company using illegal practices (non-compliance with the rules for using the OnLi brand, collecting your data without your consent or deploying malware).
 WarningModuleAffiliatedToAPiratPlatform=Be careful when getting a module (paid or free) from a suspicious non official platform like %s
 
 SwissQrOnlyVIR = የስዊስQR ደረሰኝ በክሬዲት ማስተላለፍ ክፍያዎች እንዲከፈሉ በተዘጋጁ ደረሰኞች ላይ ብቻ መጨመር ይችላል።

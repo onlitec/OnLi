@@ -438,7 +438,7 @@ class doc_generic_odt extends ModeleThirdPartyDoc
 						$odfHandler->title = $object->builddoc_filename;
 						$odfHandler->subject = $object->builddoc_filename;
 
-						if (getDolGlobalString('ODT_ADD_DOLIBARR_ID')) {
+						if (getDolGlobalString('ODT_ADD_OnLi_ID')) {
 							$odfHandler->userdefined['dol_id'] = $object->id;
 							$odfHandler->userdefined['dol_element'] = $object->element;
 						}

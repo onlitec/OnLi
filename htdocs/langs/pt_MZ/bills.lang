@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 BillsCustomers=Faturas de clientes
 BillsCustomer=Fatura de cliente
 BillsSuppliers=Faturas de fornecedores
@@ -372,8 +372,8 @@ ConfirmDeleteRepeatableInvoice=Você tem certeza que deseja excluir o tema de fa
 BillCreated=%s fatura (s) gerada (s)
 StatusOfGeneratedDocuments=Status da geração de documentos
 DoNotGenerateDoc=Não gere arquivo de documento
-BILL_DELETEInDolibarr=Fatura excluída
-BILL_SUPPLIER_DELETEInDolibarr=Fatura de fornecedor excluída
+BILL_DELETEInOnLi=Fatura excluída
+BILL_SUPPLIER_DELETEInOnLi=Fatura de fornecedor excluída
 UnitPriceXQtyLessDiscount=Preço unitário x Qtd. - Desconto
 CustomersInvoicesArea=Área de cobrança do cliente
 SupplierInvoicesArea=Área de cobrança do cliente

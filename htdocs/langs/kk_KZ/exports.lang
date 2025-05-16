@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=Экспорттау
 ImportArea=Импорттау
 NewExport=Жаңа экспорт
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=%s белгішесін басу арқылы имп�
 ChooseFileToImport=Файлды жүктеңіз, содан кейін %s белгішесін нұқыңыз, файлды бастапқы импорттық файл ретінде таңдаңыз ...
 SourceFileFormat=Бастапқы файл пішімі
 FieldsInSourceFile=Бастапқы файлдағы өрістер
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=Өрістер жоқ
 MoveField=%s өрісінің баған нөмірін жылжытыңыз
 ExampleOfImportFile=Импорт_файлының мысалы

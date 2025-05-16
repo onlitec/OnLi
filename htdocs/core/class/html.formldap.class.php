@@ -130,8 +130,8 @@ class FormLdap
 
 		$arraylist = array(
 			Ldap::SYNCHRO_NONE				=> $langs->trans("No"),
-			Ldap::SYNCHRO_DOLIBARR_TO_LDAP	=> $onli2ldaplabel,
-			Ldap::SYNCHRO_LDAP_TO_DOLIBARR	=> $ldap2onlilabel
+			Ldap::SYNCHRO_ONLI_TO_LDAP	=> $onli2ldaplabel,
+			Ldap::SYNCHRO_LDAP_TO_ONLI	=> $ldap2onlilabel
 		);
 
 		if (is_array($exclude) && !empty($exclude)) {

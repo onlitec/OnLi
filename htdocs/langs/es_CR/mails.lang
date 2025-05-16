@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Correo electrónico
 EMailing=Correo electrónico
 MailCard=Tarjeta de e-mailing
@@ -56,7 +56,7 @@ MailingModuleDescContactsByCompanyCategory=Contactos por categoría de tercero
 MailingModuleDescContactsByCategory=Contactos por categorías
 MailingModuleDescEmailsFromFile=Correos desde archivo
 MailingModuleDescEmailsFromUser=Correos ingresados por el usuario
-MailingModuleDescDolibarrUsers=Usuarios con correos
+MailingModuleDescOnLiUsers=Usuarios con correos
 MailingModuleDescThirdPartiesByCategories=Clientes / Proveedores
 SendingFromWebInterfaceIsNotAllowed=No está permitido el envío desde interfaz web.
 LineInFile=Línea %s del archivo

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - contracts
+# OnLi language file - Source file is en_US - contracts
 ContractsArea=Contracts area
 ListOfContracts=List of contracts
 AllContracts=All contracts
@@ -45,9 +45,9 @@ ValidateAContract=Validate a contract
 UnsignContract=Unsign contract
 ContractSign=Set Signed
 ContractUnsign=Set Unsigned
-ContractSignedInDolibarr=Contract signed
+ContractSignedInOnLi=Contract signed
 ContractSignedOnline=Contract signed online
-ContractUnsignedInDolibarr=Contract unsigned
+ContractUnsignedInOnLi=Contract unsigned
 ActivateService=Activate service
 ConfirmActivateService=Are you sure you want to activate this service with date <b>%s</b>?
 RefContract=Contract reference

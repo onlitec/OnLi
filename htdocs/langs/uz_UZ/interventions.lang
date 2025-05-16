@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Aralashish
 Interventions=Aralashuvlar
 InterventionCard=Interventsiya kartasi
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled="Hisob-kitob qilinmagan" tasnifi
 InterventionClassifyDone="Bajarildi" tasnifi
 SendInterventionRef=%s aralashuvini yuborish
 SendInterventionByMail=Elektron pochta orqali aralashuvni yuboring
-InterventionCreatedInDolibarr=%s aralashuvi yaratildi
-InterventionValidatedInDolibarr=%s aralashuvi tasdiqlangan
-InterventionModifiedInDolibarr=%s aralashuvi o'zgartirildi
-InterventionClassifiedBilledInDolibarr=%s aralashuvi hisob-kitob sifatida o'rnatildi
-InterventionClassifiedUnbilledInDolibarr=%s aralashuvi to'lanmagan deb belgilandi
+InterventionCreatedInOnLi=%s aralashuvi yaratildi
+InterventionValidatedInOnLi=%s aralashuvi tasdiqlangan
+InterventionModifiedInOnLi=%s aralashuvi o'zgartirildi
+InterventionClassifiedBilledInOnLi=%s aralashuvi hisob-kitob sifatida o'rnatildi
+InterventionClassifiedUnbilledInOnLi=%s aralashuvi to'lanmagan deb belgilandi
 InterventionSentByEMail=Elektron pochta orqali yuborilgan aralashuv %s
-InterventionClosedInDolibarr= Intervensiya %s yopildi
-InterventionDeletedInDolibarr=%s aralashuvi o'chirildi
+InterventionClosedInOnLi= Intervensiya %s yopildi
+InterventionDeletedInOnLi=%s aralashuvi o'chirildi
 InterventionsArea=Intervensiyalar maydoni
 DraftFichinter=Aralashmalarning loyihasi
 LastModifiedInterventions=Oxirgi %s o'zgartirilgan aralashuvlar

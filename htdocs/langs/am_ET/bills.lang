@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=ደረሰኝ
 Bills=ደረሰኞች
 BillsCustomers=የደንበኛ ደረሰኞች
@@ -640,8 +640,8 @@ AutoFillDateFromShort=የመጀመሪያ ቀን ያዘጋጁ
 AutoFillDateTo=የአገልግሎት መስመር ማብቂያ ቀንን በሚቀጥለው የክፍያ መጠየቂያ ቀን ያዘጋጁ
 AutoFillDateToShort=የማብቂያ ቀን ያዘጋጁ
 MaxNumberOfGenerationReached=ከፍተኛው የጄኔራል ቁጥር ደርሷል
-BILL_DELETEInDolibarr=ደረሰኝ ተሰርዟል።
-BILL_SUPPLIER_DELETEInDolibarr=የአቅራቢ ደረሰኝ ተሰርዟል።
+BILL_DELETEInOnLi=ደረሰኝ ተሰርዟል።
+BILL_SUPPLIER_DELETEInOnLi=የአቅራቢ ደረሰኝ ተሰርዟል።
 UnitPriceXQtyLessDiscount=የክፍል ዋጋ x Qty - ቅናሽ
 CustomersInvoicesArea=የደንበኛ መክፈያ ቦታ
 SupplierInvoicesArea=የአቅራቢ ክፍያ ቦታ

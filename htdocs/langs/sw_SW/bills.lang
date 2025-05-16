@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Ankara
 Bills=ankara
 BillsCustomers=ankara za wateja
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Weka tarehe ya kuanza
 AutoFillDateTo=Weka tarehe ya mwisho ya laini ya huduma na tarehe inayofuata ya ankara
 AutoFillDateToShort=Weka tarehe ya mwisho
 MaxNumberOfGenerationReached=Idadi ya juu ya gen. kufikiwa
-BILL_DELETEInDolibarr=Ankara imefutwa
-BILL_SUPPLIER_DELETEInDolibarr=Ankara ya mtoa huduma imefutwa
+BILL_DELETEInOnLi=Ankara imefutwa
+BILL_SUPPLIER_DELETEInOnLi=Ankara ya mtoa huduma imefutwa
 UnitPriceXQtyLessDiscount=Bei ya kitengo x Uchina - Punguzo
 CustomersInvoicesArea=Sehemu ya malipo ya mteja
 SupplierInvoicesArea=Sehemu ya malipo ya wasambazaji

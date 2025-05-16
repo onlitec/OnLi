@@ -54,7 +54,7 @@ function save_db_cache() (
 	VERSIONS+=("4.0.0")
 	# Next versions are automatic
 
-	# Append versions up to the current dolibarr version
+	# Append versions up to the current OnLi version
 	last_version=${VERSIONS[-1]}
 
 	target_major=${target_version%%.*}
@@ -88,34 +88,34 @@ if [ -r "${CONF_FILE}" ] ; then
 	echo "'${CONF_FILE} exists, not overwriting!"
 
 else
-	echo "Setting up Dolibarr '$CONF_FILE'"
+	echo "Setting up OnLi '$CONF_FILE'"
 	{
 		echo '<?php'
 		echo 'error_reporting(E_ALL);'
-		echo '$'dolibarr_main_url_root=\'http://127.0.0.1\'';'
-		echo '$'dolibarr_main_document_root=\'${TRAVIS_DOC_ROOT_PHP}\'';'
-		echo '$'dolibarr_main_data_root=\'${TRAVIS_DATA_ROOT_PHP}\'';'
-		echo '$'dolibarr_main_db_host=\'127.0.0.1\'';'
-		echo '$'dolibarr_main_db_name=\'travis\'';'
-		echo '$'dolibarr_main_instance_unique_id=\'travis1234567890\'';'
+		echo '$'OnLi_main_url_root=\'http://127.0.0.1\'';'
+		echo '$'OnLi_main_document_root=\'${TRAVIS_DOC_ROOT_PHP}\'';'
+		echo '$'OnLi_main_data_root=\'${TRAVIS_DATA_ROOT_PHP}\'';'
+		echo '$'OnLi_main_db_host=\'127.0.0.1\'';'
+		echo '$'OnLi_main_db_name=\'travis\'';'
+		echo '$'OnLi_main_instance_unique_id=\'travis1234567890\'';'
 		if [ "$DB" = 'mysql' ] || [ "$DB" = 'mariadb' ]; then
-			echo '$'dolibarr_main_db_type=\'mysqli\'';'
-			echo '$'dolibarr_main_db_port=3306';'
-			echo '$'"dolibarr_main_db_user='${DB_USER}'"';'
-			echo '$'"dolibarr_main_db_pass='${DB_PASS}'"';'
+			echo '$'OnLi_main_db_type=\'mysqli\'';'
+			echo '$'OnLi_main_db_port=3306';'
+			echo '$'"OnLi_main_db_user='${DB_USER}'"';'
+			echo '$'"OnLi_main_db_pass='${DB_PASS}'"';'
 		fi
 		if [ "$DB" = 'postgresql' ]; then
-			echo '$'dolibarr_main_db_type=\'pgsql\'';'
-			echo '$'dolibarr_main_db_port=5432';'
-			echo '$'dolibarr_main_db_user=\'postgres\'';'
-			echo '$'dolibarr_main_db_pass=\'postgres\'';'
+			echo '$'OnLi_main_db_type=\'pgsql\'';'
+			echo '$'OnLi_main_db_port=5432';'
+			echo '$'OnLi_main_db_user=\'postgres\'';'
+			echo '$'OnLi_main_db_pass=\'postgres\'';'
 		fi
 		if [ "${DB_PREFIX}" != '' ]; then
-			echo '$'"dolibarr_main_db_prefix='${DB_PREFIX}'"';'
+			echo '$'"OnLi_main_db_prefix='${DB_PREFIX}'"';'
 		fi
-		echo '$'dolibarr_main_authentication=\'dolibarr\'';'
+		echo '$'OnLi_main_authentication=\'OnLi\'';'
 		echo '$'force_install_createuser=true';'
-		echo '$'"dolibarr_main_db_collation='utf8_unicode_ci'"';'
+		echo '$'"OnLi_main_db_collation='utf8_unicode_ci'"';'
 	} > "$CONF_FILE"
 	cat $CONF_FILE
 	echo
@@ -199,7 +199,7 @@ if [ "$DB" = 'mysql' ] || [ "$DB" = 'mariadb' ] || [ "$DB" = 'postgresql' ]; the
 		eval ${SUDO} "${MYSQL}" --force ${USERPASS_OPT} -h 127.0.0.1 -D travis < ${DB_CACHE_FILE} | tee $TRAVIS_BUILD_DIR/db_from_cacheinit.log
 	else
 		echo "MySQL load initial sql"
-		sed 's/\([ `]\)llx_/\1'"${DB_PREFIX}/g" < "${TRAVIS_BUILD_DIR}/dev/initdemo/mysqldump_dolibarr_3.5.0.sql" | eval ${SUDO} "${MYSQL}" --force ${USERPASS_OPT} -h 127.0.0.1 -D travis | tee $TRAVIS_BUILD_DIR/initial_350.log
+		sed 's/\([ `]\)llx_/\1'"${DB_PREFIX}/g" < "${TRAVIS_BUILD_DIR}/dev/initdemo/mysqldump_OnLi_3.5.0.sql" | eval ${SUDO} "${MYSQL}" --force ${USERPASS_OPT} -h 127.0.0.1 -D travis | tee $TRAVIS_BUILD_DIR/initial_350.log
 	fi
 elif [ "$DB" = 'postgresql' ]; then
 	echo Install pgsql if run is for pgsql
@@ -225,7 +225,7 @@ fi
 
 
 export INSTALL_FORCED_FILE="${TRAVIS_BUILD_DIR}/htdocs/install/install.forced.php"
-echo "Setting up Dolibarr '$INSTALL_FORCED_FILE' to test installation"
+echo "Setting up OnLi '$INSTALL_FORCED_FILE' to test installation"
 # Ensure we catch errors
 set +e
 {
@@ -253,7 +253,7 @@ set +e
 	if [ "${DB_PREFIX}" != '' ] ; then
 		echo '$'"force_install_prefix='${DB_PREFIX}'"';'
 	fi
-	#echo '$'"force_install_dolibarrlogin='admin'"';'
+	#echo '$'"force_install_OnLilogin='admin'"';'
 	#echo '$'force_install_createuser=true';'
 } > "$INSTALL_FORCED_FILE"
 

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Mailingi
 EMailing=Mailing
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kontakty według kategorii
 MailingModuleDescContactsByFunction=Kontakty według pozycji
 MailingModuleDescEmailsFromFile=E-maile z pliku
 MailingModuleDescEmailsFromUser=E-maile wprowadzone przez użytkownika
-MailingModuleDescDolibarrUsers=Użytkownicy z e-mailami
+MailingModuleDescOnLiUsers=Użytkownicy z e-mailami
 MailingModuleDescThirdPartiesByCategories=Kontrahenci
 SendingFromWebInterfaceIsNotAllowed=Wysyłanie z interfejsu internetowego jest niedozwolone.
 EmailCollectorFilterDesc=Aby e-mail został odebrany, wszystkie filtry muszą być zgodne.<br>Możesz użyć znaku „!” przed wartością ciągu wyszukiwania, jeśli potrzebujesz negatywnego testu

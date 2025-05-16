@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Menaxhimi i pritjes së shitësit (Krijoni dokumente pritjeje)
 ReceptionsSetup=Konfigurimi i pritjes së shitësit
 RefReception=Ref. pritje
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Moduli i numërimit për pritjet
 ReceptionsReceiptModel=Modelet e dokumenteve për pritjet
 NoMorePredefinedProductToDispatch=Nuk ka më produkte të paracaktuara për të dërguar
 ReceptionExist=Ekziston një pritje
-ReceptionBackToDraftInDolibarr=Pritja %s kthehet në draft
-ReceptionClassifyClosedInDolibarr=Pritja %s e klasifikuar e mbyllur
-ReceptionUnClassifyCloseddInDolibarr=Pritja %s rihapet
+ReceptionBackToDraftInOnLi=Pritja %s kthehet në draft
+ReceptionClassifyClosedInOnLi=Pritja %s e klasifikuar e mbyllur
+ReceptionUnClassifyCloseddInOnLi=Pritja %s rihapet
 RestoreWithCurrentQtySaved=Plotësoni sasitë me vlerat më të fundit të ruajtura
 ReceptionsRecorded=Pritje të regjistruara
 ReceptionUpdated=Pritja u përditësua me sukses

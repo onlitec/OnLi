@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Une commande était déjà ouverte liée à cette proposition, donc aucune autre commande n'a été créée automatiquement
 OrdersArea=Espace commandes clients
 SuppliersOrdersArea=Espace commandes fournisseurs
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Êtes-vous sûr de vouloir cloner cette commande <b>%s</b> ?
 DispatchSupplierOrder=Réception de la commande fournisseur %s
 FirstApprovalAlreadyDone=Premier niveau d'approbation déjà réalisé
 SecondApprovalAlreadyDone=Deuxième niveau d'approbation déjà réalisé
-SupplierOrderReceivedInDolibarr=Commande fournisseur %s réceptionné %s
-SupplierOrderSubmitedInDolibarr=Commande fournisseur %s soumise (%s)
+SupplierOrderReceivedInOnLi=Commande fournisseur %s réceptionné %s
+SupplierOrderSubmitedInOnLi=Commande fournisseur %s soumise (%s)
 SupplierOrderClassifiedBilled=Commande fournisseur %s classée facturée
 OtherOrders=Autres commandes
 SupplierOrderValidatedAndApproved=Commande fournisseur validée et approuvée : %s

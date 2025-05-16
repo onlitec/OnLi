@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receiptprinter
+# OnLi language file - Source file is en_US - receiptprinter
 ReceiptPrinterSetup=Usanidi wa moduli ReceiptPrinter
 PrinterAdded=Kichapishaji %s aliongeza
 PrinterUpdated=Kichapishaji %s imesasishwa

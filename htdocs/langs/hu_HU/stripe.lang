@@ -1,8 +1,8 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Stripe modul beállítása
-StripeDesc=Ajánljon fel ügyfelei számára egy online fizetési oldalt hitel-/bankkártyás fizetéshez a <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a> szolgáltatáson keresztül. . Ez felhasználható arra, hogy ügyfelei eseti vagy egy adott Dolibarr objektumhoz kapcsolódó kifizetéseket hajtsanak végre (számla, megrendelés stb.)
+StripeDesc=Ajánljon fel ügyfelei számára egy online fizetési oldalt hitel-/bankkártyás fizetéshez a <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a> szolgáltatáson keresztül. . Ez felhasználható arra, hogy ügyfelei eseti vagy egy adott OnLi objektumhoz kapcsolódó kifizetéseket hajtsanak végre (számla, megrendelés stb.)
 StripeOrCBDoPayment=Fizetés hitelkártyával vagy Stripe-pal
-FollowingUrlAreAvailableToMakePayments=A következő URL-ek állnak rendelkezésre, hogy egy oldalt kínálhassanak az ügyfeleknek a Dolibarr objektumok kifizetésére
+FollowingUrlAreAvailableToMakePayments=A következő URL-ek állnak rendelkezésre, hogy egy oldalt kínálhassanak az ügyfeleknek a OnLi objektumok kifizetésére
 PaymentForm=Fizetési űrlap
 WelcomeOnPaymentPage=Üdvözöljük online fizetési szolgáltatásunkban
 ThisScreenAllowsYouToPay=Ez a képernyő lehetővé teszi, hogy online fizetést hajtson végre %s részére.
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=URL egy %s online fizetési oldal felaj
 ToOfferALinkForOnlinePaymentOnMemberSubscription=URL %s online fizetési oldal felajánlásához egy tagi előfizetéshez
 ToOfferALinkForOnlinePaymentOnDonation=URL %s online fizetési oldal felajánlásához adomány kifizetéséhez
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=If you want to integrate the payment page into a Dolibarr website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
+YouCanEmbedOnWebsite=If you want to integrate the payment page into a OnLi website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
 SetupStripeToHavePaymentCreatedAutomatically=Állítsa be a Stripe-ot a(z) <b>%s</b> URL-lel, hogy a Stripe ellenőrzésekor automatikusan létrejöjjön a fizetés.
 AccountParameter=Számlaparaméterek
 UsageParameter=Használati paraméterek

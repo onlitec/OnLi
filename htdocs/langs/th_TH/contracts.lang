@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - contracts
+# OnLi language file - Source file is en_US - contracts
 ContractsArea=พื้นที่สัญญา
 ListOfContracts=รายชื่อของสัญญา
 AllContracts=สัญญาทั้งหมด
@@ -45,9 +45,9 @@ ValidateAContract=ตรวจสอบสัญญา
 UnsignContract=Unsign contract
 ContractSign=Set Signed
 ContractUnsign=Set Unsigned
-ContractSignedInDolibarr=Contract signed
+ContractSignedInOnLi=Contract signed
 ContractSignedOnline=Contract signed online
-ContractUnsignedInDolibarr=Contract unsigned
+ContractUnsignedInOnLi=Contract unsigned
 ActivateService=เปิดใช้งานบริการ
 ConfirmActivateService=คุณแน่ใจหรือไม่ว่าต้องการเปิดใช้งานบริการนี้ด้วยวันที่ <b>%s</b> ?
 RefContract=อ้างอิงตามสัญญา

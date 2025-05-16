@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=您的聯絡資訊已被記錄。我們會盡快回覆您...
 ContactUsDesc=透過此表單，您可以向我們發送首次聯繫的訊息。
 ErrorCompanyNameAlreadyExists=公司名稱%s已經存在。請選擇另一個。
@@ -14,7 +14,7 @@ MenuNewSupplier=新供應商
 MenuNewPrivateIndividual=新私營個體
 NewCompany=新公司(潛在方、客戶、供應商)
 NewThirdParty=新合作方(潛在方、客戶、供應商)
-CreateDolibarrThirdPartySupplier=建立合作方(供應商)
+CreateOnLiThirdPartySupplier=建立合作方(供應商)
 CreateThirdPartyOnly=建立合作方
 CreateThirdPartyAndContact=建立合作方+連絡人
 ProspectionArea=潛在方區域
@@ -335,7 +335,7 @@ CapitalOf=%s的資本
 EditCompany=編輯公司資料
 ThisUserIsNot=此用戶非潛在方、客戶或供應商
 VATIntraCheck=確認
-VATIntraCheckDesc=營業稅ID必須包含國家/地區前綴。連結<b>%s</b>使用歐洲銷售稅檢查器服務（VIES），該服務需要Dolibarr伺服器連上網路。
+VATIntraCheckDesc=營業稅ID必須包含國家/地區前綴。連結<b>%s</b>使用歐洲銷售稅檢查器服務（VIES），該服務需要OnLi伺服器連上網路。
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=檢查在歐盟區網站內的區內營業稅
 VATIntraManualCheck=您也可以自行在歐盟委員會網站<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>進行確認
@@ -381,8 +381,8 @@ ProspectsByStatus=依狀態排序的潛在方
 NoParentCompany=無
 ExportCardToFormat=匯出格式
 ContactNotLinkedToCompany=連絡人沒有連結到任何合作方
-DolibarrLogin=Dolibarr 登入
-NoDolibarrAccess=無Dolibarr存取
+OnLiLogin=OnLi 登入
+NoOnLiAccess=無OnLi存取
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=合作方其他聯絡人/地址和屬性
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

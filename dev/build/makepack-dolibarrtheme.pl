@@ -1,14 +1,14 @@
 #!/usr/bin/perl
 #-----------------------------------------------------------------------------
-# \file         dev/build/makepack-dolibarrtheme.pl
-# \brief        Script to build a theme Package for Dolibarr
+# \file         dev/build/makepack-OnLitheme.pl
+# \brief        Script to build a theme Package for OnLi
 # \author       (c)2005-2009 Laurent Destailleur  <eldy@users.sourceforge.net>
 #-----------------------------------------------------------------------------
 
 use Cwd;
 use Term::ANSIColor;
 
-$PROJECT="dolibarr";
+$PROJECT="OnLi";
 
 @LISTETARGET=("TGZ");   # Possible packages
 %REQUIREMENTTARGET=(    # Tool requirement for each package
@@ -64,11 +64,11 @@ if ($OS =~ /windows/) {
 if (! $TEMP || ! -d $TEMP) {
     print "Error: A temporary directory can not be find.\n";
     print "Check that TEMP or TMP environment variable is set correctly.\n";
-	print "makepack-dolibarrtheme.pl aborted.\n";
+	print "makepack-OnLitheme.pl aborted.\n";
     sleep 2;
     exit 2;
 }
-$BUILDROOT="$TEMP/dolibarr-buildroot";
+$BUILDROOT="$TEMP/OnLi-buildroot";
 
 
 my $copyalreadydone=0;

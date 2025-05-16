@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Bu teklifle bağlantılı bir sipariş zaten açık olduğundan otomatik olarak başka bir sipariş oluşturulmadı
 OrdersArea=Müşteri siparişleri alanı
 SuppliersOrdersArea=Tedarikçi siparişleri alanı
@@ -129,8 +129,8 @@ ConfirmCloneOrder=<b>%s</b> siparişinin kopyasını oluşturmak istediğinizden
 DispatchSupplierOrder=%s Satınalma siparişinin kabulü
 FirstApprovalAlreadyDone=İlk onay zaten yapılmış
 SecondApprovalAlreadyDone=İkinci onaylama zaten yapılmış
-SupplierOrderReceivedInDolibarr=%s Tedarikçi Siparişi teslim alındı %s
-SupplierOrderSubmitedInDolibarr=Satın Alma Siparişi %s gönderildi (%s)
+SupplierOrderReceivedInOnLi=%s Tedarikçi Siparişi teslim alındı %s
+SupplierOrderSubmitedInOnLi=Satın Alma Siparişi %s gönderildi (%s)
 SupplierOrderClassifiedBilled=%s Tedarikçi Siparişi faturalandı olarak ayarlı
 OtherOrders=Diğer siparişler
 SupplierOrderValidatedAndApproved=Tedarikçi siparişi doğrulandı ve onaylandı : %s

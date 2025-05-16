@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=รหัส
 WebsiteName=ชื่อของเว็บไซต์
 WebsiteSetupDesc=สร้างเว็บไซต์ที่คุณต้องการใช้ที่นี่ จากนั้นเข้าไปที่เมนู Websites เพื่อแก้ไข
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=To deploy this website live, you have
 SetHereVirtualHost=<u>ใช้กับ Apache/NGinx/...</u><br>สร้างบน เว็บเซิร์ฟเวอร์ของคุณ (Apache, Nginx, ...) โฮสต์เสมือนเฉพาะที่เปิดใช้งาน PHP และไดเรกทอรีรากบน<br><strong> %s</strong>
 ExampleToUseInApacheVirtualHostConfig=ตัวอย่างที่ใช้ในการตั้งค่าโฮสต์เสมือน Apache:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=ตรวจสอบด้วยว่าผู้ใช้โฮสต์เสมือน (เช่น www-data) มี <strong>%s</strong>  สิทธิ์ในไฟล์ใน<br><strong>%s</strong>
 ReadPerm=อ่าน
 WritePerm=เขียน
 TestDeployOnWeb=ทดสอบ/ปรับใช้บนเว็บ
 PreviewSiteServedByWebServer=<u>ดูตัวอย่าง %s ในแท็บใหม่</u><br><br>%s จะถูกให้บริการโดยเว็บเซิร์ฟเวอร์ภายนอก (เช่น Apache, Nginx, IIS ). คุณต้องติดตั้งและตั้งค่าเซิร์ฟเวอร์นี้ก่อนที่จะชี้ไปที่ไดเรกทอรี:<br><strong>%s%s</strong><br>URL ที่ให้บริการโดยเซิร์ฟเวอร์ภายนอก:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=URL ของโฮสต์เสมือนที่ให้บริการโดยเว็บเซิร์ฟเวอร์ภายนอกไม่ได้กำหนดไว้
 NoPageYet=ยังไม่มีหน้า
 YouCanCreatePageOrImportTemplate=คุณสามารถสร้างหน้าใหม่หรือนำเข้าเทมเพลตเว็บไซต์แบบเต็มได้
@@ -163,8 +163,8 @@ PagesViewedTotal=หน้าที่ดู (ทั้งหมด)
 Everyone=ทุกคน
 AssignedContacts=ผู้ติดต่อที่ได้รับมอบหมาย
 WebsiteTypeLabel=ประเภทของเว็บไซต์
-WebsiteTypeDolibarrWebsite=Web site (Module WebSites CMS)
-WebsiteTypeDolibarrPortal=Native and ready to use web portal (Module Web Portal)
+WebsiteTypeOnLiWebsite=Web site (Module WebSites CMS)
+WebsiteTypeOnLiPortal=Native and ready to use web portal (Module Web Portal)
 WebPortalURL=Web portal URL
 NewWebsiteAccount=New accounts for websites
 ModuleWebPortalName=Web portal
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=You will be redirected to the order details page 
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

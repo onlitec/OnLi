@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=صادرات
 ImportArea=يستورد
 NewExport=تصدير جديد
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=اختر تنسيق الملف لاستخدامه ك�
 ChooseFileToImport=قم بتحميل الملف ثم انقر فوق أيقونة %s لتحديد الملف كملف استيراد المصدر ...
 SourceFileFormat=مصدر تنسيق ملف
 FieldsInSourceFile=الحقول في ملف المصدر
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=لا الحقول
 MoveField=تحرك %s حقل رقم العمود
 ExampleOfImportFile=Example_of_import_file

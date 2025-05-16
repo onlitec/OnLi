@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Hivatkozás projektre
 ProjectRef=Projekt hivatkozás
 ProjectId=Projekt azonosító
@@ -160,12 +160,12 @@ ConfirmCloneProject=Biztosan klónozza ezt a projektet?
 ProjectReportDate=Módosítsa a feladat dátumait a projekt új kezdési dátumának megfelelően
 ErrorShiftTaskDate=A feladat dátumát nem lehet a projekt új kezdési dátuma szerint eltolni
 ProjectsAndTasksLines=Projektek és feladatok
-ProjectCreatedInDolibarr=%s projekt létrehozva
-ProjectValidatedInDolibarr=%s projekt érvényesítve
-ProjectModifiedInDolibarr=%s projekt módosítva
-TaskCreatedInDolibarr=%s feladat létrehozva
-TaskModifiedInDolibarr=%s feladat módosítva
-TaskDeletedInDolibarr=%s feladat törölve
+ProjectCreatedInOnLi=%s projekt létrehozva
+ProjectValidatedInOnLi=%s projekt érvényesítve
+ProjectModifiedInOnLi=%s projekt módosítva
+TaskCreatedInOnLi=%s feladat létrehozva
+TaskModifiedInOnLi=%s feladat módosítva
+TaskDeletedInOnLi=%s feladat törölve
 OpportunityStatus=Előrehaladás állapota
 OpportunityStatusShort=Előrehaladás állapota
 OpportunityProbability=Előrehaladás valószínűség

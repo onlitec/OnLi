@@ -1288,7 +1288,7 @@ class Paiement extends CommonObject
 				$classname = "mod_payment_" . getDolGlobalString('PAYMENT_ADDON');
 				$classname = preg_replace('/\-.*$/', '', $classname);
 				// Include file with class
-				foreach ($conf->file->dol_document_root as $dirroot) {
+				foreach ($conf->file->onli_document_root as $dirroot) {
 					$dir = $dirroot."/core/modules/payment/";
 
 					// Load file with numbering class (if found)

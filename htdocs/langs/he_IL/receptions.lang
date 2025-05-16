@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=ניהול קבלה של ספקים (יצירת מסמכי קבלה)
 ReceptionsSetup=הגדרת קבלת ספק
 RefReception=רפ. קבלה
@@ -49,9 +49,9 @@ ReceptionsNumberingModules=מודול מספור לקבלת פנים
 ReceptionsReceiptModel=תבניות מסמכים לקבלת פנים
 NoMorePredefinedProductToDispatch=אין עוד מוצרים מוגדרים מראש לשליחה
 ReceptionExist=קיימת קבלה
-ReceptionBackToDraftInDolibarr=הקבלה %s חזרה לטיוטה
-ReceptionClassifyClosedInDolibarr=הקבלה %s מסווגת סגורה
-ReceptionUnClassifyCloseddInDolibarr=הקבלה %s נפתחת מחדש
+ReceptionBackToDraftInOnLi=הקבלה %s חזרה לטיוטה
+ReceptionClassifyClosedInOnLi=הקבלה %s מסווגת סגורה
+ReceptionUnClassifyCloseddInOnLi=הקבלה %s נפתחת מחדש
 RestoreWithCurrentQtySaved=מילוי כמויות בערכים האחרונים שנשמרו
 ReceptionsRecorded=הקבלות מוקלטות
 ReceptionUpdated=הקבלה עודכנה בהצלחה

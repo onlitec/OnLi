@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Веќе беше отворена нарачка поврзана со овој предлог, така што ниедна друга нарачка не беше креирана автоматски
 OrdersArea=Областа за нарачки на клиентите
 SuppliersOrdersArea=Област за нарачки за купување
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Are you sure you want to clone this order <b>%s</b>?
 DispatchSupplierOrder=Се прима нарачка %s
 FirstApprovalAlreadyDone=Првото одобрување е веќе направено
 SecondApprovalAlreadyDone=Второто одобрување е веќе направено
-SupplierOrderReceivedInDolibarr=Нарачката за купување %s е примена %s
-SupplierOrderSubmitedInDolibarr=Нарачката за купување %s е поднесена (%s)
+SupplierOrderReceivedInOnLi=Нарачката за купување %s е примена %s
+SupplierOrderSubmitedInOnLi=Нарачката за купување %s е поднесена (%s)
 SupplierOrderClassifiedBilled=Нарачка за купување %s е наплатена
 OtherOrders=Други нарачки
 SupplierOrderValidatedAndApproved=Нарачката од добавувачот е потврдена и одобрена: %s

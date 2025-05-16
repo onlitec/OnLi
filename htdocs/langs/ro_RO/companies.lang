@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Datele tale de contact au fost înregistrate. Te vom contacta în curând...
 ContactUsDesc=Acest formular îți permite să ne trimiți un mesaj pentru un prim contact.
 ErrorCompanyNameAlreadyExists=Numele societăţii %s există deja. Alegeţi un altul.
@@ -14,7 +14,7 @@ MenuNewSupplier=Furnizor nou
 MenuNewPrivateIndividual=Persoană fizică nouă
 NewCompany=Companie nouă (prospect, client, furnizor)
 NewThirdParty=Terț nou (prospect, client, furnizor)
-CreateDolibarrThirdPartySupplier=Crează un terț (furnizor)
+CreateOnLiThirdPartySupplier=Crează un terț (furnizor)
 CreateThirdPartyOnly=Creare terţ
 CreateThirdPartyAndContact=Creați un terț + un contact asociat
 ProspectionArea=Prospecţi
@@ -381,8 +381,8 @@ ProspectsByStatus=Prospecţi după status
 NoParentCompany=Niciunul
 ExportCardToFormat=Export fişă în format
 ContactNotLinkedToCompany=Contact neasociat la un terţ
-DolibarrLogin=Nume de autentificare
-NoDolibarrAccess=Utilizator fără acces în sistem
+OnLiLogin=Nume de autentificare
+NoOnLiAccess=Utilizator fără acces în sistem
 ExportDataset_company_1=Terți (organizații/persoane fizice) și atribute
 ExportDataset_company_2=Contacte/adrese și atribute suplimentare pentru terţi
 ExportDataset_company_3=Moduri de plată terți (conturi bancare)

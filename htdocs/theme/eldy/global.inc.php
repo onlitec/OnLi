@@ -39,6 +39,804 @@ $leftmenuwidth = 240;
  * @var int<0,1> $dol_no_mouse_hover
  * @var string $badgeDanger
  * @var string $badgeWarning
+ * @var string $borderwidth
+ * @var string $colorbackbody
+ * @var string $colorbackhmenu1
+ * @var string $colorbacklinebreak
+ * @var string $colorbacklineimpair1
+ * @var string $colorbacklineimpair2
+ * @var string $colorbacklinepair1
+ * @var string $colorbacklinepair2
+ * @var string $colorbacklinepairchecked
+ * @var string $colorbacklinepairhover
+ * @var string $colorbacktabactive
+ * @var string $colorbacktabcard1
+ * @var string $colorbacktitle1
+ * @var string $colorbackvmenu1
+ * @var string $colorblind_deuteranopes_textSuccess
+ * @var string $colorblind_deuteranopes_textWarning
+ * @var string $colorshadowtitle
+ * @var string $colortext
+ * @var string $colortextbackhmenu
+ * @var string $colortextbacktab
+ * @var string $colortextbackvmenu
+ * @var string $colortextlink
+ * @var string $colortexttitle
+ * @var string $colortexttitlelink
+ * @var string $colortexttitlenotab
+ * @var string $colortexttitlenotab2
+ * @var string $colortopbordertitle1
+ * @var int<0,1> $disableimages
+ * @var int<0,1> $dol_hide_leftmenu
+ * @var int<0,1> $dol_hide_topmenu
+ * @var int<0,1> $dol_optimize_smallscreen
+ * @var string $fontlist
+ * @var string $fontsize
+ * @var int $heightmenu
+ * @var string $heightrow
+ * @var string $img_button
+ * @var string $left
+ * @var string $maxwidthloginblock
+ * @var int $minwidthtmenu
+ * @var int $nbtopmenuentries
+ * @var int $nbtopmenuentriesreal
+ * @var string $path
+ * @var string $theme
+ * @var string $left
+ * @var string $right
+ * @var string $textDanger
+ * @var string $textSuccess
+ * @var string $textWarning
+ * @var string $toolTipBgColor
+ * @var string $toolTipFontColor
+ * @var int<0,1> $useboldtitle
+ * @var int $userborderontable
+ * @var array{h:int,l:int,s:int,a:int} $colortextlinkHsla
+ */
+'
+@phan-var-force int<0,1> $dol_hide_topmenu
+@phan-var-force int<0,1> $dol_hide_leftmenu
+@phan-var-force int<0,1> $dol_optimize_smallscreen
+@phan-var-force int<0,1> $dol_no_mouse_hover
+@phan-var-force string $badgeDanger
+@phan-var-force string $badgeWarning
+@phan-var-force string $borderwidth
+@phan-var-force string $colorbackbody
+@phan-var-force string $colorbackhmenu1
+@phan-var-force string $colorbacklinebreak
+@phan-var-force string $colorbacklineimpair1
+@phan-var-force string $colorbacklineimpair2
+@phan-var-force string $colorbacklinepair1
+@phan-var-force string $colorbacklinepair2
+@phan-var-force string $colorbacklinepairhover
+@phan-var-force string $colorbacklinepairchecked
+@phan-var-force string $colorbacktabactive
+@phan-var-force string $colorbacktabcard1
+@phan-var-force string $colorbacktitle1
+@phan-var-force string $colorbackvmenu1
+@phan-var-force string $colorblind_deuteranopes_textSuccess
+@phan-var-force string $colorblind_deuteranopes_textWarning
+@phan-var-force string $colorshadowtitle
+@phan-var-force string $colortext
+@phan-var-force string $colortextbackhmenu
+@phan-var-force string $colortextbacktab
+@phan-var-force string $colortextbackvmenu
+@phan-var-force string $colortextlink
+@phan-var-force string $colortexttitle
+@phan-var-force string $colortexttitlelink
+@phan-var-force string $colortexttitlenotab
+@phan-var-force string $colortexttitlenotab2
+@phan-var-force string $colortopbordertitle1
+@phan-var-force int<0,1> $disableimages
+@phan-var-force int<0,1> $dol_hide_leftmenu
+@phan-var-force int<0,1> $dol_hide_topmenu
+@phan-var-force int<0,1> $dol_optimize_smallscreen
+@phan-var-force string $fontlist
+@phan-var-force string $fontsize
+@phan-var-force int $heightmenu
+@phan-var-force string $heightrow
+@phan-var-force string $img_button
+@phan-var-force string $left
+@phan-var-force string $maxwidthloginblock
+@phan-var-force int $minwidthtmenu
+@phan-var-force int $nbtopmenuentries
+@phan-var-force int $nbtopmenuentriesreal
+@phan-var-force string $path
+@phan-var-force string $right
+@phan-var-force string $textDanger
+@phan-var-force string $textSuccess
+@phan-var-force string $textWarning
+@phan-var-force string $toolTipBgColor
+@phan-var-force string $toolTipFontColor
+@phan-var-force int<0,1> $useboldtitle
+@phan-var-force int $userborderontable
+@phan-var-force array{h:int,l:int,s:int,a:int} $colortextlinkHsla
+';
+
+$borderradius = getDolGlobalString('THEME_ELDY_USEBORDERONTABLE') ? getDolGlobalInt('THEME_ELDY_BORDER_RADIUS', 6) : 0;
+
+?>
+/* IDE Hack <style type="text/css"> */
+
+/* ============================================================================== */
+/* Default styles                                                                 */
+/* ============================================================================== */
+
+:root {
+	--colorbackhmenu1: rgb(<?php print $colorbackhmenu1; ?>);
+	--colorbackvmenu1: rgb(<?php print $colorbackvmenu1; ?>);
+	--colorbacktitle1: rgb(<?php print $colorbacktitle1; ?>);
+	--colorbacktabcard1: rgb(<?php print $colorbacktabcard1; ?>);
+	--colorbacktabactive: rgb(<?php print $colorbacktabactive; ?>);
+	--colorbacklineimpair1: rgb(<?php print $colorbacklineimpair1; ?>);
+	--colorbacklineimpair2: rgb(<?php print $colorbacklineimpair2; ?>);
+	--colorbacklinepair1: rgb(<?php print $colorbacklinepair1; ?>);
+	--colorbacklinepair2: rgb(<?php print $colorbacklinepair2; ?>);
+	--colorbacklinepairhover: rgb(<?php print $colorbacklinepairhover; ?>);
+	--colorbacklinepairchecked: rgb(<?php print $colorbacklinepairchecked; ?>);
+	--colorbacklinebreak: rgb(<?php print $colorbacklinebreak; ?>);
+	--colorbackbody: rgb(<?php print $colorbackbody; ?>);
+	--colorbackmobilemenu: #f8f8f8;
+	--colorbackgrey: #f0f0f0;
+	--colortexttitlenotab: rgb(<?php print $colortexttitlenotab; ?>);
+	--colortexttitlenotab2: rgb(<?php print $colortexttitlenotab2; ?>);
+	--colortexttitle: rgba(<?php print $colortexttitle; ?>, 0.9);
+	--colortexttitlelink: rgba(<?php print $colortexttitlelink; ?>, 0.9);
+	--colortext: rgb(<?php print $colortext; ?>);
+	--colortextlink: rgb(<?php print $colortextlink; ?>);
+	--colortextlink-h: <?php print $colortextlinkHsla['h']; ?>;
+	--colortextlink-l: <?php print $colortextlinkHsla['l']; ?>%;
+	--colortextlink-s: <?php print $colortextlinkHsla['s']; ?>%;
+	--colortextlink-a: 1;
+	--colortextbackhmenu: #<?php print $colortextbackhmenu; ?>;
+	--colortextbackvmenu: #<?php print $colortextbackvmenu; ?>;
+	--colortopbordertitle1: rgb(<?php print $colortopbordertitle1; ?>);
+	--listetotal: #888888;
+	--inputbackgroundcolor: #FFF;
+	--inputbackgroundcolordisabled: #eee;
+	--inputcolordisabled: rgb(80, 80, 80);
+	--inputbordercolor: rgba(0,0,0,.15);
+	--tooltipbgcolor: <?php print $toolTipBgColor; ?>;
+	--tooltipfontcolor : <?php print $toolTipFontColor; ?>;
+	--oddevencolor: #202020;
+	--colorboxstatsborder: #e0e0e0;
+	--dolgraphbg: rgba(255,255,255,0);
+	--fieldrequiredcolor: #400030;
+	--colortextbacktab: #<?php print $colortextbacktab; ?>;
+	--colorboxiconbg: #eee;
+	--refidnocolor:#444;
+	--tableforfieldcolor:#888;
+	--amountremaintopaycolor:#880000;
+	--amountpaymentcomplete:#008855;
+	--amountremaintopaybackcolor:none;
+	--productlinestockod: #002200;
+	--productlinestocktoolow: #884400;
+	--infoboxmoduleenabledbgcolor : linear-gradient(0.4turn, #fff, #fff, #fff, #e4efe8);
+	--tablevalidbgcolor: rgb(252, 248, 227);
+	--colorblack: #000;
+	--colorwhite: #fff;
+	--heightrow: <?php print $heightrow; ?>;
+}
+
+<?php
+if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+	print "/* For dark mode */\n";
+	if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+		print "@media (prefers-color-scheme: dark) {";	// To test, click on the 3 dots menu, then Other options then Display then emulate prefer-color-schemes
+	} else {
+		print "@media not print {";
+	}
+	print ":root {
+	            --colorbackhmenu1: #3d3e40;
+	            --colorbackvmenu1: #2b2c2e;
+	            --colorbacktitle1: #3b3c3e;
+	            --colorbacktabcard1: #1d1e20;				/* Must be same than colorbackbody */
+	            --colorbacktabactive: rgb(220,220,220);
+	            --colorbacklineimpair1: #38393d;
+	            --colorbacklineimpair2: #2b2d2f;
+	            --colorbacklinepair1: #38393d;
+	            --colorbacklinepair2: #2b2d2f;
+	            --colorbacklinepairhover: #2b2d2f;
+	            --colorbacklinepairchecked: #0e5ccd;
+	            --colorbackbody: #1d1e20;
+				--colorbackmobilemenu: #080808;
+				--colorbackgrey: #0f0f0f;
+	            --tooltipbgcolor: #2b2d2f;
+	            --colortexttitlenotab: rgb(220,220,220);
+	            --colortexttitlenotab2: rgb(220,220,220);
+	            --colortexttitle: rgb(220,220,220);
+	            --colortext: rgb(220,220,220);
+	            --colortextlink: #4390dc;
+	            --colortexttitlelink: #4390dc;
+	            --colortextbackhmenu: rgb(220,220,220);
+	            --colortextbackvmenu: rgb(220,220,220);
+				--tooltipfontcolor : rgb(220,220,220);
+	            --listetotal: rgb(245, 83, 158);
+	            --inputbackgroundcolor: rgb(70, 70, 70);
+				--inputbackgroundcolordisabled: rgb(60, 60, 60);
+				--inputcolordisabled: rgb(140, 140, 140);
+	            --inputbordercolor: rgb(220,220,220);
+	            --oddevencolor: rgb(220,220,220);
+	            --colorboxstatsborder: rgb(65,100,138);
+	            --dolgraphbg: #1d1e20;
+	            --fieldrequiredcolor: rgb(250,183,59);
+	            --colortextbacktab: rgb(220,220,220);
+	            --colorboxiconbg: rgb(36,38,39);
+	            --refidnocolor: rgb(220,220,220);
+	            --tableforfieldcolor:rgb(220,220,220);
+	            --amountremaintopaycolor:rgb(252,84,91);
+	            --amountpaymentcomplete:rgb(101,184,77);
+	            --amountremaintopaybackcolor:rbg(245,130,46);
+				--infoboxmoduleenabledbgcolor : linear-gradient(0.4turn, #000, #000, #000, #274231);
+				--tablevalidbgcolor: rgb(80, 64, 33);
+				--colorblack: #fff;
+				--colorwhite: #000;
+	      }
+
+		body, button {
+			color: #bbb;
+		}\n
+	}\n";
+}
+?>
+
+body {
+<?php if (GETPOST('optioncss', 'aZ09') == 'print') {  ?>
+	background-color: #FFFFFF;
+<?php } ?>
+	font-size: <?php print is_numeric($fontsize) ? $fontsize.'px' : $fontsize; ?>;
+	line-height: 1.4;
+	font-family: <?php print $fontlist ?>;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 0;
+	margin-left: 0;
+	font-weight: 400;
+	background-color: var(--colorbackbody);
+	<?php print 'direction: '.$langs->trans("DIRECTION").";\n"; ?>
+	/*transform: scale(1.2);
+	transform-origin: 0 0;*/
+	<?php
+	//print getDolUserInt('MAIN_OPTIMIZEFORTEXTBROWSER') ? (getDolUserInt('MAIN_OPTIMIZEFORTEXTBROWSER') > 100 ? 'zoom: '.getDolUserInt('MAIN_OPTIMIZEFORTEXTBROWSER').'%;' : 'zoom: 150%;') : '';
+	?>
+	/* zoom: 105%; */	/* not supported by all browsers. pb for popup position with select2. */
+}
+
+/* Style used to protect html content in output to avoid attack by replacing full page with js content */
+.sensiblehtmlcontent * {
+	position: static !important;
+}
+
+.thumbstat { font-weight: bold !important; }
+th a { font-weight: <?php echo($useboldtitle ? 'bold' : 'normal'); ?> !important; }
+a.tab { font-weight: 500 !important; }
+
+a:link, a:visited, a:hover, a:active, .classlink { color: var(--colortextlink); text-decoration: none;  }
+a:hover { text-decoration: underline; color: var(--colortextlink); }
+a.commonlink { color: var(--colortextlink) !important; text-decoration: none; }
+
+th.liste_titre a div div:hover, th.liste_titre_sel a div div:hover { text-decoration: underline; }
+tr.liste_titre th.liste_titre_sel:not(.maxwidthsearch), tr.liste_titre td.liste_titre_sel:not(.maxwidthsearch),
+tr.liste_titre th.liste_titre:not(.maxwidthsearch), tr.liste_titre td.liste_titre:not(.maxwidthsearch) { opacity: 0.8; }
+/* th.liste_titre_sel a, th.liste_titre a, td.liste_titre_sel a, td.liste_titre a { color: #766; } */
+tr.liste_titre_filter th.liste_titre:not(.center) { text-align: unset; }
+.liste_titre.trheight5em {
+	height: 4em !important;
+}
+
+input {
+	font-size: unset;
+	box-sizing: border-box;
+}
+select.vmenusearchselectcombo {
+	background-color: unset;
+}
+
+table.liste th.wrapcolumntitle.liste_titre:not(.maxwidthsearch), table.liste td.wrapcolumntitle.liste_titre:not(.maxwidthsearch),
+table.liste th.wrapcolumntitle.liste_titre_sel:not(.maxwidthsearch), table.liste td.wrapcolumntitle.liste_titre_sel:not(.maxwidthsearch) {
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 100px;
+	text-overflow: ellipsis;
+}
+th.wrapcolumntitle dl dt a span.fas.fa-list {
+	vertical-align: middle;
+	padding-bottom: 1px;
+}
+
+/*.liste_titre input[name=month_date_when], .liste_titre input[name=monthvalid], .liste_titre input[name=search_ordermonth], .liste_titre input[name=search_deliverymonth],
+.liste_titre input[name=search_smonth], .liste_titre input[name=search_month], .liste_titre input[name=search_emonth], .liste_titre input[name=smonth], .liste_titre input[name=month], .liste_titre select[name=month],
+.liste_titre select[name=year],
+.liste_titre input[name=month_lim], .liste_titre input[name=month_start], .liste_titre input[name=month_end], .liste_titre input[name=month_create],
+.liste_titre input[name=search_month_lim], .liste_titre input[name=search_month_start], .liste_titre input[name=search_month_end], .liste_titre input[name=search_month_create],
+.liste_titre input[name=search_month_update], .liste_titre input[name=search_month_start], .liste_titre input[name=search_month_end],
+.liste_titre input[name=day_date_when], .liste_titre input[name=dayvalid], .liste_titre input[name=search_orderday], .liste_titre input[name=search_deliveryday],
+.liste_titre input[name=search_sday], .liste_titre input[name=search_day], .liste_titre input[name=search_eday], .liste_titre input[name=sday], .liste_titre input[name=day], .liste_titre select[name=day],
+.liste_titre input[name=day_lim], .liste_titre input[name=day_start], .liste_titre input[name=day_end], .liste_titre input[name=day_create],
+.liste_titre input[name=search_day_lim], .liste_titre input[name=search_day_start], .liste_titre input[name=search_day_end], .liste_titre input[name=search_day_create],
+.liste_titre input[name=search_day_create], .liste_titre input[name=search_day_start], .liste_titre input[name=search_day_end],
+.liste_titre input[name=search_day_date_when], .liste_titre input[name=search_month_date_when], .liste_titre input[name=search_year_date_when],
+.liste_titre input[name=search_dtstartday], .liste_titre input[name=search_dtendday], .liste_titre input[name=search_dtstartmonth], .liste_titre input[name=search_dtendmonth],
+*/
+.liste_titre input[name=search_month], .liste_titre input[name=search_month_start], .liste_titre input[name=search_month_end] {
+	margin-right: 4px;
+}
+
+select#date_startday, select#date_startmonth, select#date_endday, select#date_endmonth, select#reday, select#remonth,
+input, input.flat, form.flat select, select, select.flat, .dataTables_length label select {
+	border: none;
+}
+input, input.flat, textarea, textarea.flat, form.flat select, select, select.flat, .dataTables_length label select {
+	color: var(--colortext);
+	border-radius: 3px;
+	font-family: <?php print $fontlist ?>;
+	outline: none;
+	margin: 0px 0px 0px 0px;
+	background-color: var(--inputbackgroundcolor);
+	<?php if (!getDolGlobalString('THEME_ADD_BACKGROUND_ON_INPUT')) { ?>
+		border<?php echo !getDolGlobalString('THEME_SHOW_BORDER_ON_INPUT') ? '-bottom' : ''; ?>: solid 1px var(--inputbordercolor);
+	<?php } ?>
+}
+
+.liste_titre input, .liste_titre select {
+	border: none;
+	border<?php echo !getDolGlobalString('THEME_SHOW_BORDER_ON_INPUT') ? '-bottom' : ''; ?>: solid 1px var(--inputbordercolor);
+	/* padding: 5px; */
+}
+.divadvancedsearchfieldcompinput,
+div.tabBar input, div.tabBar input.flat, div.tabBar textarea, div.tabBar textarea.flat, div.tabBar form.flat select, div.tabBar select, div.tabBar select.flat, div.tabBar .dataTables_length label select
+{
+	border<?php echo !getDolGlobalString('THEME_SHOW_BORDER_ON_INPUT') ? '-bottom' : ''; ?>: solid 1px var(--inputbordercolor);
+	<?php
+	if (getDolGlobalString('THEME_ADD_BACKGROUND_ON_INPUT')) { ?>
+		background-color: #f8f8fa;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+								<?php
+	}
+	?>
+}
+.divadvancedsearchfieldcompinput {
+	background: #fff;
+	border-bottom: solid 1px var(--inputbordercolor);
+	border-radius: 3px;
+}
+input[name=duration_value], input[name=durationhour]
+{
+	margin-right: 4px !important;
+}
+input[type=submit], input[type=submit]:hover {
+	margin-left: 5px;
+}
+input[type=checkbox], input[type=radio] {
+	margin: 0 5px 0 1px;
+	transform: scale(1.25);
+}
+.kanban input.checkforselect {
+	margin-right: 0px;
+	margin-top: 5px;
+}
+input {
+	padding: 4px;
+	padding-left: 5px;
+}
+.liste_titre input {
+	line-height: 1.3em;
+}
+.tableforfield input, .refidno input {
+	padding: 2px;
+}
+select {
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 5px;
+	padding-left: 2px;
+}
+input, select {
+	margin-left: 0px;
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+#mainbody input.button:not(.buttongen):not(.bordertransp), #mainbody a.button:not(.buttongen):not(.bordertransp) {
+	background: var(--butactionbg);
+	color: var(--textbutaction);
+	border-radius: 4px;
+	border-collapse: collapse;
+	border: none;
+}
+#mainbody span.websitetools input.button:not(.buttongen):not(.bordertransp) {
+	color: #000 !important;
+}
+#mainbody input.buttongen, #mainbody button.buttongen {
+	padding: 3px 4px;
+}
+input.button:hover {
+	box-shadow: 0px 0px 6px 1px rgb(50 50 50 / 40%), 0px 0px 0px rgb(60 60 60 / 10%);
+}
+input.button:focus {
+	border-bottom: 0;
+}
+
+input.button.massactionconfirmed {
+	margin: 4px;
+}
+
+input:invalid, select:invalid, input.--error , select.--error {
+	border-color: #ea1212;
+}
+
+section.setupsection {
+	padding: 20px;
+	background-color: var(--colorbackgrey);
+	border-radius: 5px;
+}
+section.setupsection:hover {
+	box-shadow: 0 0 5px #aaa;
+}
+
+
+.field-error-icon { color: #ea1212 !important; }
+
+/* Focus definitions must be after standard definition */
+div.tabBar textarea:focus:not(.textarea-ai_feature):not(.cke_source) {
+	border: 1px solid #aaa !important;
+}
+input:focus:not(.button):not(.buttonwebsite):not(.buttonreset):not(.select2-search__field):not(#top-bookmark-search-input):not(.search_component_input):not(.input-nobottom),
+ select:focus, .select2-container--open [aria-expanded="false"].select2-selection--single,
+ .select2-container--focus span.selection span.select2-selection {
+	border-bottom: 1px solid #666 !important;
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+textarea.cke_source:focus
+{
+	box-shadow: none;
+}
+div#cke_dp_desc {
+	margin-top: 5px;
+}
+textarea {
+	border-radius: 3px;
+	border-top: solid 1px var(--inputbordercolor);
+	border-left: solid 1px var(--inputbordercolor);
+	border-right: solid 1px var(--inputbordercolor);
+	border-bottom: solid 1px var(--inputbordercolor);
+
+	padding:4px;
+	margin-left:0px;
+	margin-bottom:1px;
+	margin-top:1px;
+	}
+input.removedassigned, input.removedassignedresource  {
+	padding: 2px !important;
+	vertical-align: text-bottom;
+	margin-bottom: -3px;
+}
+input.smallpadd {	/* Used for timesheet input */
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+input.buttongen {
+	vertical-align: middle;
+}
+input.buttonpayment, button.buttonpayment, div.buttonpayment {
+	min-width: 290px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	height: 60px;
+	background-image: none;
+	line-height: 24px;
+	padding: 8px;
+	background: none;
+	text-align: center;
+	border: 0;
+	background-color: #9999bb;
+	white-space: normal;
+	box-shadow: 1px 1px 4px #bbb;
+	color: #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	max-width: 350px;
+}
+input.short {
+	width: 40px;
+}
+.nofocusvisible:focus-visible {
+	outline: none;
+}
+
+div.buttonpayment input:focus {
+	color: #008;
+}
+.buttonpaymentsmall {
+	font-size: 0.65em;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+div.buttonpayment input {
+	background-color: unset;
+	color: #fff;
+	border-bottom: unset;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+input.buttonpaymentcb {
+	background-image: url(<?php echo dol_buildpath($path.'/theme/common/credit_card.png', 1) ?>);
+	background-size: 26px;
+	background-repeat: no-repeat;
+	background-position: 5px 11px;
+}
+input.buttonpaymentcheque {
+	background-image: url(<?php echo dol_buildpath($path.'/theme/common/cheque.png', 1) ?>);
+	background-size: 24px;
+	background-repeat: no-repeat;
+	background-position: 5px 8px;
+}
+input.buttonpaymentpaypal {
+	background-image: url(<?php echo dol_buildpath($path.'/paypal/img/object_paypal.png', 1) ?>);
+	background-repeat: no-repeat;
+	background-position: 8px 11px;
+}
+input.buttonpaymentpaybox {
+	background-image: url(<?php echo dol_buildpath($path.'/paybox/img/object_paybox.png', 1) ?>);
+	background-repeat: no-repeat;
+	background-position: 8px 11px;
+}
+input.buttonpaymentstripe {
+	background-image: url(<?php echo dol_buildpath($path.'/stripe/img/object_stripe.png', 1) ?>);
+	background-repeat: no-repeat;
+	background-position: 8px 11px;
+}
+.logopublicpayment #dolpaymentlogo {
+	max-height: 80px;
+	max-width: 300px;
+	image-rendering: -webkit-optimize-contrast;		/* better rendering on public page header */
+	border-radius: 4px;
+}
+
+a.butStatus {
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: transparent;
+	color: var(--colortext) !important;
+	border: 1px solid #888 !important;
+	margin: 0 0.45em !important;
+}
+
+span.userimg.notfirst, div.userimg.notfirst {
+	margin-left: -5px;
+}
+div.userimg.notfirst {
+	display: block-inline;
+}
+
+/* Used by timesheets */
+span.timesheetalreadyrecorded input {
+	border: none;
+	border-bottom: solid 1px rgba(0,0,0,0.4);
+	margin-right: 1px !important;
+}
+td.onholidaymorning, td.onholidayafternoon {
+	background-color: #fdf6f2;
+}
+td.onholidayallday {
+	background-color: #f4eede;
+}
+td.onholidayallday:not(.weekend) input {
+	background-color: #f8f7f0;
+}
+td.weekend {	/* must be after td.onholidayallday */
+	background-color: #f8f4f4;
+}
+td.weekend input {
+	/* background-color: #f8f8f8; */
+}
+tr:hover td.weekend {
+	background: var(--colorbacklinepairhover) !important;
+}
+
+/*
+td.leftborder, td.hide0 {
+	border-left: 1px solid #ccc;
+}
+td.leftborder, td.hide6 {
+	border-right: 1px solid #ccc;
+}
+*/
+td.rightborder {
+	border-right: 1px solid #ccc;
+}
+
+td.linecoldescription.bomline {
+	width: 400px;
+}
+
+td.amount, span.amount, div.amount, b.amount {
+	color: #006666;
+}
+td.amountneg, span.amountneg, div.amountneg, b.amountneg
+{
+	color: #660000;
+}
+td.amount.amountbadge, span.amount.amountbadge, div.amount.amountbadge, b.amount.amountbadge {
+	background-color: <?php echo $badgeStatus4; ?>;
+	color: #FFF;
+	padding: 4px;
+	border-radius: 4px;
+}
+td.amountneg.amountbadge, span.amountneg.amountbadge, div.amountneg.amountbadge, b.amountneg.amountbadge
+{
+	background-color: #660000;
+	color: #FFF;
+	padding: 4px;
+	border-radius: 4px;
+}
+
+td.amount, span.amount, div.amount, b.amount,
+td.amountneg, span.amountneg, div.amountneg, b.amountneg,
+span.amount, span.amountneg {
+	white-space: nowrap;
+}
+td.actionbuttons a {
+	padding-left: 6px;
+}
+select.flat, form.flat select, .pageplusone {
+	font-weight: normal;
+	font-size: unset;
+}
+input.pageplusone {
+	padding-bottom: 4px;
+	padding-top: 4px;
+	margin-right: 4px;
+	margin-left: 3px;
+}
+.paginationlastpage a {
+	padding-left: 8px;
+}
+
+.saturatemedium {
+	filter: saturate(0.8);
+}
+
+.optionblue {
+	color: var(--colortextlink);
+}
+.optiongrey, .opacitymedium {
+	opacity: 0.4;
+}
+.opacitymediumbycolor {
+	color: rgba(0, 0, 0, 0.4);
+}
+.opacitylow {
+	opacity: 0.6;
+}
+.opacityhigh {
+	opacity: 0.24;
+}
+.opacitytransp {
+	opacity: 0;
+}
+.colorwhite {
+	color: var(--colorwhite);
+}
+.colorgrey {
+	color: #888 !important;
+}
+.colorblack {
+	color: var(--colorblack);
+}
+.colorblack.totalnboflines {
+	font-size: 90%;
+	opacity: 0.5;
+}
+.fontsizeunset {
+	font-size: unset !important;
+}
+.vmirror {
+	transform: scale(1, -1);
+}
+.hmirror {
+	transform: scale(-1, 1);
+}
+
+select:invalid, select.--error {
+	color: gray;
+}
+input:disabled, textarea:disabled, select[disabled='disabled']
+{
+	background: var(--inputbackgroundcolordisabled);
+	color: var(--inputcolordisabled);
+}
+
+input.liste_titre {
+	box-shadow: none !important;
+}
+input.removedfile {
+	padding: 0px !important;
+	border: 0px !important;
+	vertical-align: text-bottom;
+}
+input[type=file]    {
+	background-color: transparent;
+	box-shadow: none;
+	<?php if (!getDolGlobalString('THEME_SHOW_BORDER_ON_INPUT')) { ?>
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	<?php } ?>
+	border<?php echo !getDolGlobalString('THEME_SHOW_BORDER_ON_INPUT') ? '-bottom' : ''; ?>: solid 1px var(--inputbordercolor);
+}
+input[type=checkbox] { background-color: transparent; border: none; box-shadow: none; }
+input[type=radio]    { background-color: transparent; border: none; box-shadow: none; }
+input[type=image]    { background-color: transparent; border: none; box-shadow: none; }
+input:-webkit-autofill {
+	background-color: #FDFFF0 !important;
+	background-image:none !important;
+	-webkit-box-shadow: 0 0 0 50px #FDFFF0 inset;
+}
+
+/* CSS for placeholder */
+.placeholder { color: #ccc; }
+select.placeholder { color: #ccc; }
+.select2-selection__choice .placeholder { color: #aaa; }
+::-webkit-input-placeholder { color: #ccc; }
+input:-moz-placeholder { color: #ccc; }
+select.placeholder option:not(.opacitymediumbycolor):not(.opacitymedium) {
+	color: var(--colortext);
+}
+
+input[name=price], input[name=weight], input[name=volume], input[name=surface], input[name=sizeheight], input[name=net_measure], select[name=incoterm_id] { margin-right: 6px; }
+fieldset {
+	border: 1px solid #aaa !important;
+	padding-inline-start: 2em;
+	padding-inline-end: 2em;
+	min-inline-size: auto;
+}
+#div_container_exportoptions fieldset, #div_container_sub_exportoptions fieldset {
+	border: 1px solid #ccc !important;
+}
+<?php
+/* Copyright (C) 2004-2024	Laurent Destailleur			<eldy@users.sourceforge.net>
+ * Copyright (C) 2024-2025  Frédéric France             <frederic.france@free.fr>
+ * Copyright (C) 2024		MDW							<mdeweerd@users.noreply.github.com>
+ * Copyright (C) 2025		Marc de Lima Lucio			<marc-dll@user.noreply.github.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/**
+ *		\file       htdocs/theme/eldy/global.inc.php
+ *		\brief      File for CSS style sheet Eldy
+ */
+if (!defined('ISLOADEDBYSTEELSHEET')) {
+	die('Must be called by steelsheet');
+}
+
+$leftmenuwidth = 240;
+
+// Variables defined in style.css.php (includes this file).
+/**
+ * @var Conf $conf
+ * @var Translate $langs
+ *
+ * @var int<0,1> $dol_hide_topmenu
+ * @var int<0,1> $dol_hide_leftmenu
+ * @var int<0,1> $dol_optimize_smallscreen
+ * @var int<0,1> $dol_no_mouse_hover
+ * @var string $badgeDanger
+ * @var string $badgeWarning
  * @var string $badgeStatus4
  * @var string $borderwidth
  * @var string $colorbackbody

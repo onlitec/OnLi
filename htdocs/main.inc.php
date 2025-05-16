@@ -1,4 +1,7 @@
 <?php
+// ----------------------------------------------------------------------------
+// Arquivo modificado em 15/05/2025 por OnLi Developer - Não alterar sem autorização explícita
+// ----------------------------------------------------------------------------
 /* Copyright (C) 2002-2007  Rodolphe Quiedeville    <rodolphe@quiedeville.org>
  * Copyright (C) 2003       Xavier Dutoit           <doli@sydesy.com>
  * Copyright (C) 2004-2021  Laurent Destailleur     <eldy@users.sourceforge.net>
@@ -179,20 +182,19 @@ if (getDolGlobalString('MAIN_ONLY_LOGIN_ALLOWED')) {
 // Activate end of page function
 register_shutdown_function('dol_shutdown');
 
-// Load debugbar
-if (isModEnabled('debugbar') && !GETPOST('dol_use_jmobile') && empty($_SESSION['dol_use_jmobile'])) {
-	global $debugbar;
-	include_once DOL_DOCUMENT_ROOT.'/debugbar/class/DebugBar.php';
-	$debugbar = new OnLiDebugBar();
-	$renderer = $debugbar->getJavascriptRenderer();
-	if (!getDolGlobalString('MAIN_HTML_HEADER')) {
-		$conf->global->MAIN_HTML_HEADER = '';
-	}
-	$conf->global->MAIN_HTML_HEADER .= $renderer->renderHead();
-
-	'@phan-var-force array{time:DebugBar\DataCollector\TimeDataCollector} $debugbar';
-	$debugbar['time']->startMeasure('pageaftermaster', 'Page generation (after environment init)');
-}
+// Load debugbar (desabilitado temporariamente)
+// if (isModEnabled('debugbar') && !GETPOST('dol_use_jmobile') && empty($_SESSION['dol_use_jmobile'])) {
+// global $debugbar;
+// include_once DOL_DOCUMENT_ROOT.'/debugbar/class/DebugBar.php';
+// $debugbar = new OnLiDebugBar();
+// $renderer = $debugbar->getJavascriptRenderer();
+// if (!getDolGlobalString('MAIN_HTML_HEADER')) {
+//     $conf->global->MAIN_HTML_HEADER = '';
+// }
+// $conf->global->MAIN_HTML_HEADER .= $renderer->renderHead();
+// '@phan-var-force array{time:DebugBar\DataCollector\TimeDataCollector} $debugbar';
+// $debugbar['time']->startMeasure('pageaftermaster', 'Page generation (after environment init)');
+// }
 
 // Detection browser
 if (isset($_SERVER["HTTP_USER_AGENT"])) {
@@ -2293,7 +2295,7 @@ function top_menu_user($hideloginname = 0, $urllogout = '')
 	global $menumanager;
 
 	// Return empty in some case
-	if ($conf->browser->name == 'textbrowser') {
+	if (getDolGlobalString('MAIN_OPTIMIZEFORTEXTBROWSER')) {
 		return '';
 	}
 

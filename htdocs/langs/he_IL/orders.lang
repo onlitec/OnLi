@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=הזמנה כבר הייתה פתוחה המקושרת להצעה זו, כך שלא נוצרה הזמנה אחרת באופן אוטומטי
 OrdersArea=אזור הזמנות לקוחות
 SuppliersOrdersArea=אזור הזמנות רכש
@@ -129,8 +129,8 @@ ConfirmCloneOrder=האם אתה בטוח שברצונך לשכפל הזמנה ז
 DispatchSupplierOrder=מקבל הזמנת רכש %s
 FirstApprovalAlreadyDone=האישור הראשון כבר נעשה
 SecondApprovalAlreadyDone=האישור השני כבר נעשה
-SupplierOrderReceivedInDolibarr=הזמנת רכש %s התקבלה %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=הזמנת רכש %s התקבלה %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=הזמנת רכש %s מוגדרת מחויבת
 OtherOrders=הזמנות אחרות
 SupplierOrderValidatedAndApproved=הזמנת הספק מאומתת ומאושרת: %s

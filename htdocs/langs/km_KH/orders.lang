@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=ការបញ្ជាទិញត្រូវបានបើកភ្ជាប់ជាមួយសំណើនេះរួចហើយ ដូច្នេះគ្មានការបញ្ជាទិញផ្សេងទៀតត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិទេ។
 OrdersArea=តំបន់បញ្ជាទិញរបស់អតិថិជន
 SuppliersOrdersArea=តំបន់បញ្ជាទិញ
@@ -129,8 +129,8 @@ ConfirmCloneOrder=តើអ្នកប្រាកដថាចង់ក្ល�
 DispatchSupplierOrder=កំពុងទទួលការបញ្ជាទិញ %s
 FirstApprovalAlreadyDone=ការអនុម័តដំបូងរួចរាល់ហើយ។
 SecondApprovalAlreadyDone=ការអនុម័តលើកទីពីររួចរាល់ហើយ។
-SupplierOrderReceivedInDolibarr=ការបញ្ជាទិញ %s បានទទួល %s
-SupplierOrderSubmitedInDolibarr=ការបញ្ជាទិញ %s ត្រូវបានបញ្ជូន (%s)
+SupplierOrderReceivedInOnLi=ការបញ្ជាទិញ %s បានទទួល %s
+SupplierOrderSubmitedInOnLi=ការបញ្ជាទិញ %s ត្រូវបានបញ្ជូន (%s)
 SupplierOrderClassifiedBilled=ការបញ្ជាទិញ %s បានកំណត់វិក្កយបត្រ
 OtherOrders=ការបញ្ជាទិញផ្សេងទៀត។
 SupplierOrderValidatedAndApproved=ការបញ្ជាទិញរបស់អ្នកផ្គត់ផ្គង់មានសុពលភាព និងយល់ព្រម៖ %s

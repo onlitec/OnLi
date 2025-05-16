@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Một đơn hàng đã được mở liên kết với đề xuất này nên không có đơn hàng nào khác được tạo tự động
 OrdersArea=Khu vực đặt hàng của khách hàng
 SuppliersOrdersArea=Khu vực đặt hàng thu mua
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Bạn có chắc chắn muốn sao chép đơn đặt hàng n�
 DispatchSupplierOrder=Nhận đơn đặt hàng mua %s
 FirstApprovalAlreadyDone=Duyệt mức đầu tiên đã xong
 SecondApprovalAlreadyDone=Phê duyệt lần thứ hai đã được thực hiện
-SupplierOrderReceivedInDolibarr=Đơn đặt hàng mua %s đã nhận %s
-SupplierOrderSubmitedInDolibarr=Đơn đặt hàng đã được gửi %s (%s)
+SupplierOrderReceivedInOnLi=Đơn đặt hàng mua %s đã nhận %s
+SupplierOrderSubmitedInOnLi=Đơn đặt hàng đã được gửi %s (%s)
 SupplierOrderClassifiedBilled=Đơn đặt hàng mua %s đã xuất hóa đơn
 OtherOrders=Đơn hàng khác
 SupplierOrderValidatedAndApproved=Đơn đặt hàng của nhà cung cấp được xác thực và phê duyệt: %s

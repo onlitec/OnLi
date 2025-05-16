@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - ecm
+# OnLi language file - Source file is en_US - ecm
 ECMNbOfDocs=Nombre de documents al directori
 ECMSection=Carpeta
 ECMSectionManual=Carpeta manual
@@ -16,7 +16,7 @@ ECMNbOfSubDir=Nombre de subcarpetes
 ECMNbOfFilesInSubDir=Nombre d'arxius en les subcarpetes
 ECMCreationUser=Creador
 ECMArea=Àrea SGD/GCE
-ECMAreaDesc=L’àrea SGD/GED (Sistema de Gestió de Documents / Gestió de Continguts Electrònics) us permet desar, compartir i cercar ràpidament tota mena de documents a Dolibarr.
+ECMAreaDesc=L’àrea SGD/GED (Sistema de Gestió de Documents / Gestió de Continguts Electrònics) us permet desar, compartir i cercar ràpidament tota mena de documents a OnLi.
 ECMAreaDesc2a=* Els directoris manuals es poden utilitzar per a desar documents amb una organització lliure de l'estructura d'arbre.
 ECMAreaDesc2b=* Els directoris automàtics s'omplen automàticament quan s'afegeixen documents des de la pàgina d'un element.
 ECMAreaDesc3=* Public directories are files into the subdirectory <b>/medias</b> of the documents directory, readable by everybody on internet with no need to be logged and no need to have the file shared explicitly. It is used to store image files for the emailing or website module for example.

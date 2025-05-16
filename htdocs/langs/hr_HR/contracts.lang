@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - contracts
+# OnLi language file - Source file is en_US - contracts
 ContractsArea=Područje ugovora
 ListOfContracts=Popis ugovora
 AllContracts=Svi ugovori
@@ -45,9 +45,9 @@ ValidateAContract=Ovjeri ugovor
 UnsignContract=Odjavi ugovor
 ContractSign=Postavi Potpisano
 ContractUnsign=Postavi bez potpisa
-ContractSignedInDolibarr=Ugovor potpisan
+ContractSignedInOnLi=Ugovor potpisan
 ContractSignedOnline=Ugovor potpisan online
-ContractUnsignedInDolibarr=Ugovor nepotpisan
+ContractUnsignedInOnLi=Ugovor nepotpisan
 ActivateService=Aktiviraj uslugu
 ConfirmActivateService=Jeste li sigurni da želite za aktivaciju ove usluge s datumom <b>%s</b>?
 RefContract=Referenca ugovora

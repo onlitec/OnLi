@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Thêm trang hiện tại vào dấu trang
 BehaviourOnClick = Hành vi khi URL dấu trang được chọn
@@ -21,4 +21,4 @@ ReplaceWindow = Thay thế tab hiện tại
 SetHereATitleForLink = Đặt tên cho dấu trang
 ShowBookmark = Hiển thị dấu trang
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Sử dụng liên kết bên ngoài/tuyệt đối (https://externalurl.com) hoặc liên kết nội bộ/tương đối (/mypage.php). Bạn cũng có thể sử dụng điện thoại như tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Sử dụng liên kết bên ngoài/tuyệt đối (https://externalurl.com) hoặc liên kết nội bộ/tương đối (/mypage.php). Bạn cũng có thể sử dụng điện thoại như tel:0123456.

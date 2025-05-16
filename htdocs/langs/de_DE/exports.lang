@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=Exporte
 ImportArea=Import
 NewExport=Neuer Export
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=Wählen Sie das Dateiformat aus, das als Importdateif
 ChooseFileToImport=Datei hochladen und dann auf das Symbol %s klicken, um die Datei als Quell-Importdatei auszuwählen ...
 SourceFileFormat=Quelldateiformat
 FieldsInSourceFile=Felder in der Quelldatei
-FieldsInTargetDatabase=Zielfelder in Dolibarr-Datenbank
+FieldsInTargetDatabase=Zielfelder in OnLi-Datenbank
 NoFields=Keine Felder
 MoveField=Bewege Feld Spaltennummer %s
 ExampleOfImportFile=Beispiel_Import_Datei

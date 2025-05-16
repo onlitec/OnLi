@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Els vostres detalls de contacte han estat enregistrats. Ens posarem en contacte amb tu aviat ...
 ContactUsDesc=Aquest formulari us permet d'enviar-nos un missatge per a un primer contacte.
 ErrorCompanyNameAlreadyExists=El nom de l'empresa %s ja existeix. Indica un altre.
@@ -14,7 +14,7 @@ MenuNewSupplier=Proveïdor nou
 MenuNewPrivateIndividual=Particular nou
 NewCompany=Empresa nova (client potencial, client, proveïdor)
 NewThirdParty=Tercer nou (client potencial, client, proveïdor)
-CreateDolibarrThirdPartySupplier=Crea un tercer (proveïdor)
+CreateOnLiThirdPartySupplier=Crea un tercer (proveïdor)
 CreateThirdPartyOnly=Crea tercer
 CreateThirdPartyAndContact=Crea un tercer + un contacte fill
 ProspectionArea=Àrea de pressupostos
@@ -335,7 +335,7 @@ CapitalOf=Capital de %s
 EditCompany=Edita l'empresa
 ThisUserIsNot=Aquest usuari no és client potencial, client o proveïdor
 VATIntraCheck=Verificar
-VATIntraCheckDesc=El NIF Intracomunitari ha d'incloure el prefix del país. L'enllaç <b>%s</b> utilitza el servei europeu de verificació de NIF (VIES) que requereix accés a Internet des del servidor Dolibarr.
+VATIntraCheckDesc=El NIF Intracomunitari ha d'incloure el prefix del país. L'enllaç <b>%s</b> utilitza el servei europeu de verificació de NIF (VIES) que requereix accés a Internet des del servidor OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Verifica el NIF Intracomunitari a la web de la Comissió Europea
 VATIntraManualCheck=També podeu comprovar manualment al lloc web de la Comissió Europea <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Clients potencials per estat
 NoParentCompany=Cap
 ExportCardToFormat=Exporta fitxa a format
 ContactNotLinkedToCompany=Contacte no vinculat a un tercer
-DolibarrLogin=Nom d'usuari de Dolibarr
-NoDolibarrAccess=Sense accés d'usuari
+OnLiLogin=Nom d'usuari de OnLi
+NoOnLiAccess=Sense accés d'usuari
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Contactes/Adreces i atributs addicionals de tercers
 ExportDataset_company_3=Modes de pagament de tercers (comptes bancaris)

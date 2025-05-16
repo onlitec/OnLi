@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Työmääräin
 Interventions=Työmääräimet
 InterventionCard=Työmääräin
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Luokittele "Ei laskutettu"
 InterventionClassifyDone=Luokittele "Valmis"
 SendInterventionRef=Lähetä työmääräin %s
 SendInterventionByMail=Lähetä työmääräin sähköpostitse
-InterventionCreatedInDolibarr=Työmääräin %s luotu
-InterventionValidatedInDolibarr=Työmääräin %s vahvistettu
-InterventionModifiedInDolibarr=Työmääräintä %s muokattu
-InterventionClassifiedBilledInDolibarr=Työmääräin %s asetettu laskutetuksi
-InterventionClassifiedUnbilledInDolibarr=Työmääräin %s asetettu ei laskutetuksi
+InterventionCreatedInOnLi=Työmääräin %s luotu
+InterventionValidatedInOnLi=Työmääräin %s vahvistettu
+InterventionModifiedInOnLi=Työmääräintä %s muokattu
+InterventionClassifiedBilledInOnLi=Työmääräin %s asetettu laskutetuksi
+InterventionClassifiedUnbilledInOnLi=Työmääräin %s asetettu ei laskutetuksi
 InterventionSentByEMail=Työmääräin %s lähetetty sähköpostitse
-InterventionClosedInDolibarr= Työmääräin %s suljettu
-InterventionDeletedInDolibarr=Työmääräin %s poistettu
+InterventionClosedInOnLi= Työmääräin %s suljettu
+InterventionDeletedInOnLi=Työmääräin %s poistettu
 InterventionsArea=Työmääräin alue
 DraftFichinter=Työmääräin luonnokset
 LastModifiedInterventions=Viimeisimmät %s muokatut työmääräimet

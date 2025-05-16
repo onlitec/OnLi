@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Vendor reception management (Create reception documents)
 ReceptionsSetup=Vendor Reception setup
 RefReception=Ref. reception
@@ -49,6 +49,6 @@ ReceptionsReceiptModel=Document templates for receptions
 NoMorePredefinedProductToDispatch=No more predefined products to dispatch
 ReceptionExist=A reception exists
 ByingPrice=Bying price
-ReceptionBackToDraftInDolibarr=Reception %s back to draft
-ReceptionClassifyClosedInDolibarr=Reception %s classified Closed
-ReceptionUnClassifyCloseddInDolibarr=Reception %s re-open
+ReceptionBackToDraftInOnLi=Reception %s back to draft
+ReceptionClassifyClosedInOnLi=Reception %s classified Closed
+ReceptionUnClassifyCloseddInOnLi=Reception %s re-open

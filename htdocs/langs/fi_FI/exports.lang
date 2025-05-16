@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=Exports
 ImportArea=Tuonti
 NewExport=Uusi vienti
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=Valitse tiedosto-muoto käytettäväksi tuontimuotona
 ChooseFileToImport=Lataa tiedosto ja napsauta sitten %s-kuvaketta valitaksesi tiedosto lähteen tuomiseksi. tiedosto...
 SourceFileFormat=Lähde tiedostomuoto
 FieldsInSourceFile=Fields in source file
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=Ei kentät
 MoveField=Siirrä kenttä sarakkeeseen numero %s
 ExampleOfImportFile=Example_of_import_file

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Twoje dane kontaktowe zostały zapisane. Wkrótce do Ciebie wrócimy...
 ContactUsDesc=Formularz ten pozwala na przesłanie nam wiadomości w celu pierwszego kontaktu.
 ErrorCompanyNameAlreadyExists=Taka nazwa firmy %s już istnieje. Wybierz inną.
@@ -14,7 +14,7 @@ MenuNewSupplier=Nowy dostawca
 MenuNewPrivateIndividual=Nowa osoba prywatna
 NewCompany=Nowa firma (potencjalny klient, klient, sprzedawca)
 NewThirdParty=Nowy kontrahent (potencjalny klient, klient, sprzedawca)
-CreateDolibarrThirdPartySupplier=Stwórz kontrahenta (dostawcę)
+CreateOnLiThirdPartySupplier=Stwórz kontrahenta (dostawcę)
 CreateThirdPartyOnly=Utwórz kontrahenta
 CreateThirdPartyAndContact=Utwórz kontrahenta i potomny kontakt
 ProspectionArea=Obszar potencjalnych klientów
@@ -335,7 +335,7 @@ CapitalOf=Kapitał %s
 EditCompany=Edycja firmy
 ThisUserIsNot=Ten użytkownik nie jest potencjalnym klientem, klientem ani sprzedawcą
 VATIntraCheck=Sprawdź
-VATIntraCheckDesc=Identyfikator VAT musi zawierać prefiks kraju. Łącze <b> %s </b> korzysta z usługi europejskiego sprawdzania podatku VAT (VIES), która wymaga dostępu do Internetu z serwera Dolibarr.
+VATIntraCheckDesc=Identyfikator VAT musi zawierać prefiks kraju. Łącze <b> %s </b> korzysta z usługi europejskiego sprawdzania podatku VAT (VIES), która wymaga dostępu do Internetu z serwera OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Sprawdź wewnątrzwspólnotowy identyfikator VAT na stronie internetowej Komisji Europejskiej
 VATIntraManualCheck=Można to również sprawdzić ręcznie na stronie internetowej Komisji Europejskiej <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Potencjalni klienci według statusu
 NoParentCompany=Żaden
 ExportCardToFormat=Eksport karty do formatu
 ContactNotLinkedToCompany=Kontakt nie połączony z żadnym kontrahentem
-DolibarrLogin=Dolibarr login
-NoDolibarrAccess=Brak dostępu do Dolibarr
+OnLiLogin=OnLi login
+NoOnLiAccess=Brak dostępu do OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Dodatkowe kontakty/adresy i atrybuty kontrahentów
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

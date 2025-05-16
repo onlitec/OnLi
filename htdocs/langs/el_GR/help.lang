@@ -1,12 +1,12 @@
-# Dolibarr language file - Source file is en_US - help
+# OnLi language file - Source file is en_US - help
 CommunitySupport=Υποστήριξη μέσω φόρουμ/Wiki
 EMailSupport=Υποστήριξη με email
 RemoteControlSupport=Online υποστήριξη σε πραγματικό χρόνο / απομακρυσμένη υποστήριξη
 OtherSupport=Άλλου τύπου υποστήριξη
 ToSeeListOfAvailableRessources=Για να επικοινωνήσετε / δείτε τους διαθέσιμους πόρους:
 HelpCenter=Κέντρο βοηθείας
-DolibarrHelpCenter=Κέντρο βοήθειας και υποστήριξης Dolibarr
-ToGoBackToDolibarr=Διαφορετικά, <a href="%s">κάντε κλικ εδώ για να συνεχίσετε να χρησιμοποιείτε το Dolibarr</a> .
+OnLiHelpCenter=Κέντρο βοήθειας και υποστήριξης OnLi
+ToGoBackToOnLi=Διαφορετικά, <a href="%s">κάντε κλικ εδώ για να συνεχίσετε να χρησιμοποιείτε το OnLi</a> .
 TypeOfSupport=Τύπος υποστήριξης
 TypeSupportCommunauty=Κοινότητα (δωρεάν)
 TypeSupportCommercial=Εμπορική
@@ -17,7 +17,7 @@ TypeHelpOnly=Βοήθεια μόνο
 TypeHelpDev=Βοήθεια + Ανάπτυξη
 TypeHelpDevForm=Βοήθεια + Ανάπτυξη + Εκπαίδευση
 BackToHelpCenter=Διαφορετικά, <a href="%s">επιστρέψτε στην κεντρική σελίδα του Κέντρου βοήθειας</a> .
-LinkToGoldMember=Μπορείτε να καλέσετε έναν από τους εκπαιδευτές που έχουν προεπιλεγεί από το Dolibarr για τη γλώσσα σας (%s) κάνοντας κλικ στο Widget (η κατάσταση και η μέγιστη τιμή ενημερώνονται αυτόματα):
+LinkToGoldMember=Μπορείτε να καλέσετε έναν από τους εκπαιδευτές που έχουν προεπιλεγεί από το OnLi για τη γλώσσα σας (%s) κάνοντας κλικ στο Widget (η κατάσταση και η μέγιστη τιμή ενημερώνονται αυτόματα):
 PossibleLanguages=Υποστηριζόμενες γλώσσες
-SubscribeToFoundation=Βοηθήστε την πλατφόρμα του Dolibarr, εγγραφείτε στο Dolibarr Foundation
-SeeOfficalSupport=Για επίσημη υποστήριξη του Dolibarr στη γλώσσα σας: <br> <b> <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a> </b>
+SubscribeToFoundation=Βοηθήστε την πλατφόρμα του OnLi, εγγραφείτε στο OnLi Foundation
+SeeOfficalSupport=Για επίσημη υποστήριξη του OnLi στη γλώσσα σας: <br> <b> <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a> </b>

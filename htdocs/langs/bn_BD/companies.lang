@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=আপনার যোগাযোগের বিবরণ রেকর্ড করা হয়েছে. আমরা খুব শীঘ্রই আপনার কাছে ফিরে আসবো...
 ContactUsDesc=এই ফর্মটি আপনাকে প্রথম পরিচিতির জন্য আমাদের একটি বার্তা পাঠাতে দেয়।
 ErrorCompanyNameAlreadyExists=কোম্পানির নাম %s ইতিমধ্যেই বিদ্যমান। অন্য একটি চয়ন করুন.
@@ -14,7 +14,7 @@ MenuNewSupplier=নতুন বিক্রেতা
 MenuNewPrivateIndividual=নতুন ব্যক্তিগত ব্যক্তি
 NewCompany=নতুন কোম্পানি (সম্ভাব্য, গ্রাহক, বিক্রেতা)
 NewThirdParty=নতুন তৃতীয় পক্ষ (সম্ভাব্য, গ্রাহক, বিক্রেতা)
-CreateDolibarrThirdPartySupplier=একটি তৃতীয় পক্ষ তৈরি করুন (বিক্রেতা)
+CreateOnLiThirdPartySupplier=একটি তৃতীয় পক্ষ তৈরি করুন (বিক্রেতা)
 CreateThirdPartyOnly=তৃতীয় পক্ষ তৈরি করুন
 CreateThirdPartyAndContact=একটি তৃতীয় পক্ষ + একটি শিশু পরিচিতি তৈরি করুন
 ProspectionArea=সম্ভাব্য এলাকা
@@ -381,8 +381,8 @@ ProspectsByStatus=অবস্থা দ্বারা সম্ভাবনা
 NoParentCompany=কোনোটিই নয়
 ExportCardToFormat=ফরম্যাটে কার্ড রপ্তানি করুন
 ContactNotLinkedToCompany=যোগাযোগ কোনো তৃতীয় পক্ষের সাথে লিঙ্ক করা নেই
-DolibarrLogin=Dolibarr লগইন
-NoDolibarrAccess=Dolibarr অ্যাক্সেস নেই
+OnLiLogin=OnLi লগইন
+NoOnLiAccess=OnLi অ্যাক্সেস নেই
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

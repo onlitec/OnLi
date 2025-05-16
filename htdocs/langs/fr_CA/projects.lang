@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 ProjectRef=Projet ref.
 ProjectId=Id de projet
 ProjectLabel=Étiquette du projet
@@ -109,7 +109,7 @@ CloneMoveDate=Mettre à jour les dates de projets / tâches à partir de mainten
 ConfirmCloneProject=Êtes-vous sûr de cloner ce projet?
 ProjectReportDate=Modifier les dates des tâches en fonction de la nouvelle date de début du projet
 ErrorShiftTaskDate=Impossible de modifier la date de la tâche selon la nouvelle date de début du projet
-TaskDeletedInDolibarr=Tâche %s supprimé
+TaskDeletedInOnLi=Tâche %s supprimé
 OpportunityStatus=Statut du prospect
 OpportunityStatusShort=Statut du prospect
 OpportunityProbability=Probabilité de prospect

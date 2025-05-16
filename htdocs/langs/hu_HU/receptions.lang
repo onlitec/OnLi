@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Szállítói átvétel kezelése (Átvételi dokumentumok létrehozása)
 ReceptionsSetup=Szállítói átvétel beállítása
 RefReception=Ref. átvétel
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Számozási modul átvételekhez
 ReceptionsReceiptModel=Dokumentum sablonok átvételhez
 NoMorePredefinedProductToDispatch=Nincs több előre meghatározott termék kiszállításra
 ReceptionExist=Átvétel van
-ReceptionBackToDraftInDolibarr=%s átvétel vissza a piszkozatba
-ReceptionClassifyClosedInDolibarr=Az átvétel %s besorolása zárva
-ReceptionUnClassifyCloseddInDolibarr=A %s átvétel újra megnyílik
+ReceptionBackToDraftInOnLi=%s átvétel vissza a piszkozatba
+ReceptionClassifyClosedInOnLi=Az átvétel %s besorolása zárva
+ReceptionUnClassifyCloseddInOnLi=A %s átvétel újra megnyílik
 RestoreWithCurrentQtySaved=Töltse ki a mennyiségeket a legutóbb mentett értékekkel
 ReceptionsRecorded=A fogadások rögzítve
 ReceptionUpdated=A vétel sikeresen frissítve

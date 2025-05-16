@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=פרטי הקשר שלך נרשמו. אנחנו נחזור אליך בקרוב...
 ContactUsDesc=טופס זה מאפשר לך לשלוח לנו הודעה ליצירת קשר ראשון.
 ErrorCompanyNameAlreadyExists=שם החברה %s כבר קיים. בחר אחד אחר.
@@ -14,7 +14,7 @@ MenuNewSupplier=ספק חדש
 MenuNewPrivateIndividual=אדם פרטי חדש
 NewCompany=חברה חדשה (לקוח פוטנציאלי, לקוח, ספק)
 NewThirdParty=צד שלישי חדש (לקוח פוטנציאלי, לקוח, ספק)
-CreateDolibarrThirdPartySupplier=צור צד שלישי (ספק)
+CreateOnLiThirdPartySupplier=צור צד שלישי (ספק)
 CreateThirdPartyOnly=צור צד שלישי
 CreateThirdPartyAndContact=צור צד שלישי + איש קשר ילד
 ProspectionArea=אזור פרוספקציה
@@ -335,7 +335,7 @@ CapitalOf=הבירה של %s
 EditCompany=ערוך חברה
 ThisUserIsNot=משתמש זה אינו לקוח פוטנציאלי, לקוח או ספק
 VATIntraCheck=חשבון
-VATIntraCheckDesc=מזהה המע"מ חייב לכלול את קידומת המדינה. הקישור <b>%s</b> משתמש בשירות בודק המע"מ האירופי (VIES) אשר דורש גישה לאינטרנט משרת Dolibarr.
+VATIntraCheckDesc=מזהה המע"מ חייב לכלול את קידומת המדינה. הקישור <b>%s</b> משתמש בשירות בודק המע"מ האירופי (VIES) אשר דורש גישה לאינטרנט משרת OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=בדוק את מזהה המע"מ הבין-קהילתי באתר הנציבות האירופית
 VATIntraManualCheck=אתה יכול גם לבדוק ידנית באתר הנציבות האירופית <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=סיכויים לפי סטטוס
 NoParentCompany=None
 ExportCardToFormat=ייצא כרטיס לפורמט
 ContactNotLinkedToCompany=איש קשר אינו מקושר לצד שלישי כלשהו
-DolibarrLogin=התחברות של Dolibarr
-NoDolibarrAccess=אין גישה ל-Dolibarr
+OnLiLogin=התחברות של OnLi
+NoOnLiAccess=אין גישה ל-OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

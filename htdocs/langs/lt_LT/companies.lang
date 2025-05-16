@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Your contact details have been recorded. We will get back to you soon...
 ContactUsDesc=This form allows you to send us a message for a first contact.
 ErrorCompanyNameAlreadyExists=Įmonės pavadinimas %s jau egzistuoja. Pasirinkite kitą.
@@ -14,7 +14,7 @@ MenuNewSupplier=New Vendor
 MenuNewPrivateIndividual=Naujas privatus asmuo
 NewCompany=New company (prospect, customer, vendor)
 NewThirdParty=New Third Party (prospect, customer, vendor)
-CreateDolibarrThirdPartySupplier=Sukurkite trečią šalį (pardavėją)
+CreateOnLiThirdPartySupplier=Sukurkite trečią šalį (pardavėją)
 CreateThirdPartyOnly=Sukurti trečią šalį
 CreateThirdPartyAndContact=Sukurti trečią šalį + kontaktas
 ProspectionArea=Numatoma sritis
@@ -335,7 +335,7 @@ CapitalOf=Kapitalas %s
 EditCompany=Redaguoti įmonę
 ThisUserIsNot=This user is not a prospect, customer or vendor
 VATIntraCheck=Patikrinti
-VATIntraCheckDesc=The VAT ID must include the country prefix. The link <b>%s</b> uses the European VAT checker service (VIES) which requires internet access from the Dolibarr server.
+VATIntraCheckDesc=The VAT ID must include the country prefix. The link <b>%s</b> uses the European VAT checker service (VIES) which requires internet access from the OnLi server.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Check the intra-Community VAT ID on the European Commission website
 VATIntraManualCheck=You can also check manually on the European Commission website <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Numatomi klientai pagal būklę
 NoParentCompany=Nė vienas
 ExportCardToFormat=Formuoti eksporto kortelę
 ContactNotLinkedToCompany=Kontaktas nėra susijęs su jokia trečiąja šalimi
-DolibarrLogin=Dolibarr prisijungimas
-NoDolibarrAccess=Nėra Dolibarr prieigos
+OnLiLogin=OnLi prisijungimas
+NoOnLiAccess=Nėra OnLi prieigos
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

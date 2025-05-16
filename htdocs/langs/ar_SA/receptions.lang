@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=إدارة استقبال البائعين (إنشاء مستندات استلام)
 ReceptionsSetup=إعداد استقبال البائعين
 RefReception=المرجع. استقبال
@@ -46,9 +46,9 @@ ReceptionsNumberingModules=وحدة الترقيم لحفلات الاستقبا
 ReceptionsReceiptModel=قوالب الوثيقة لحفلات الاستقبال
 NoMorePredefinedProductToDispatch=لا مزيد من المنتجات المحددة مسبقًا لإرسالها
 ReceptionExist=يوجد استقبال
-ReceptionBackToDraftInDolibarr=الاستقبال %s يعود إلى المسودة
-ReceptionClassifyClosedInDolibarr=الاستقبال %s مصنف مغلق
-ReceptionUnClassifyCloseddInDolibarr=إعادة فتح الاستقبال %s
+ReceptionBackToDraftInOnLi=الاستقبال %s يعود إلى المسودة
+ReceptionClassifyClosedInOnLi=الاستقبال %s مصنف مغلق
+ReceptionUnClassifyCloseddInOnLi=إعادة فتح الاستقبال %s
 RestoreWithCurrentQtySaved=تعبئة الكميات بأحدث القيم المحفوظة
 ReceptionsRecorded=تم تسجيل الاستقبالات
 ReceptionUpdated=تم تحديث الاستقبال بنجاح

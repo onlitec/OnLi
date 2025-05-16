@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Bu təkliflə əlaqəli sifariş artıq açıq idi, ona görə də avtomatik olaraq başqa heç bir sifariş yaradılmadı
 OrdersArea=Müştərilərin sifariş sahəsi
 SuppliersOrdersArea=Satınalma sifarişləri sahəsi
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Bu sifarişi <b>%s</b> klonlamaq istədiyinizə əminsiniz?
 DispatchSupplierOrder=Satınalma sifarişi qəbul edilir %s
 FirstApprovalAlreadyDone=İlk təsdiq artıq edilib
 SecondApprovalAlreadyDone=İkinci təsdiq artıq edilib
-SupplierOrderReceivedInDolibarr=Satınalma Sifarişi %s alındı %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=Satınalma Sifarişi %s alındı %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=Satınalma Sifarişi %s dəsti hesablanıb
 OtherOrders=Digər sifarişlər
 SupplierOrderValidatedAndApproved=Təchizatçı sifarişi təsdiq edilib və təsdiqlənib: %s

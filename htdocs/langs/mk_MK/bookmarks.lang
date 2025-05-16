@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Додајте тековна страница во обележувачите
 BehaviourOnClick = Однесување кога е избрана URL-адреса за обележувач
@@ -21,4 +21,4 @@ ReplaceWindow = Заменете го тековното јазиче
 SetHereATitleForLink = Поставете име за обележувачот
 ShowBookmark = Show bookmark
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Користете надворешна/апсолутна врска (https://externalurl.com) или внатрешна/релативна врска (/mypage.php). Може да користите и телефон како тел:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Користете надворешна/апсолутна врска (https://externalurl.com) или внатрешна/релативна врска (/mypage.php). Може да користите и телефон како тел:0123456.

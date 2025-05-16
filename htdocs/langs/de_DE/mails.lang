@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=E-Mail-Versand
 EMailing=E-Mail-Kampagne
 EMailings=E-Mail-Kampagnen
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kontakte nach Kategorien
 MailingModuleDescContactsByFunction=Kontakte nach Position
 MailingModuleDescEmailsFromFile=E-Mail-Adressen aus csv-Datei importieren
 MailingModuleDescEmailsFromUser=E-Mail-Adresse durch manuelle Eingabe hinzufügen
-MailingModuleDescDolibarrUsers=Benutzer mit E-Mail-Adresse
+MailingModuleDescOnLiUsers=Benutzer mit E-Mail-Adresse
 MailingModuleDescThirdPartiesByCategories=Geschäftspartner
 SendingFromWebInterfaceIsNotAllowed=Versand vom Webinterface ist nicht erlaubt
 EmailCollectorFilterDesc=Alle Filter müssen übereinstimmen, damit eine E-Mail erfasst wird. <br>Sie können das Zeichen "!" vor dem Wert der Suchzeichenfolge verwenden, wenn Sie einen negativen Test benötigen

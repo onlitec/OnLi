@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrdersArea=Área de pedidos de clientes
 SuppliersOrdersArea=Área de pedidos de compras
 OrderCard=Tarjeta de pedido
@@ -95,7 +95,7 @@ ConfirmCloneOrder=¿Estas seguro que deseas clonar esta orden <b>%s</b>?
 DispatchSupplierOrder=Recibiendo orden de compra %s
 FirstApprovalAlreadyDone=Primera aprobación ya hecha
 SecondApprovalAlreadyDone=Segunda aprobación ya hecha
-SupplierOrderReceivedInDolibarr=La orden de compra %s recibió %s
+SupplierOrderReceivedInOnLi=La orden de compra %s recibió %s
 SupplierOrderClassifiedBilled=Pedido de compra %s establecido facturado
 OtherOrders=Otras órdenes
 TypeContact_commande_internal_SALESREPFOLL=Representante seguimiento de orden de venta

@@ -12,10 +12,10 @@ centpecent->centpercent
 choosed->chosen
 cumuled->cumulative
 dokument->document
-dolibar->dolibarr
-dolibarrr->dolibarr
-dollibar->dolibarr
-dollibarr->dolibarr
+dolibar->OnLi
+OnLir->OnLi
+dollibar->OnLi
+dollibarr->OnLi
 extrafeild->extrafield
 thoose->those
 # fiche->card

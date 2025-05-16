@@ -1,5 +1,5 @@
-# Dolibarr language file - Source file is en_US - boxes
-BoxDolibarrStateBoard=በመረጃ ቋት ውስጥ በዋና ዋና የንግድ ዕቃዎች ላይ ስታትስቲክስ
+# OnLi language file - Source file is en_US - boxes
+BoxOnLiStateBoard=በመረጃ ቋት ውስጥ በዋና ዋና የንግድ ዕቃዎች ላይ ስታትስቲክስ
 BoxLoginInformation=የመግቢያ መረጃ
 BoxLastRssInfos=የአርኤስኤስ መረጃ
 BoxLastProducts=የቅርብ ጊዜ %s ምርቶች/አገልግሎቶች

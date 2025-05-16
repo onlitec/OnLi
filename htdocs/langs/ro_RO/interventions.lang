@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervenţie
 Interventions=Intervenţii
 InterventionCard=Fişă intervenţie
@@ -37,17 +37,17 @@ InterventionSign=Setare ca semnată
 InterventionUnsign=Setare ca nesemnată
 SendInterventionRef=Ref. intervenţie %s
 SendInterventionByMail=Trimite intervenția pe email
-InterventionCreatedInDolibarr=Intervenţia %s a fost creată
-InterventionValidatedInDolibarr=Intervenţia %s a fost validată
-InterventionSignedInDolibarr=Intervenție semnată
+InterventionCreatedInOnLi=Intervenţia %s a fost creată
+InterventionValidatedInOnLi=Intervenţia %s a fost validată
+InterventionSignedInOnLi=Intervenție semnată
 InterventionSignedOnline=Intervenție semnată online
-InterventionUnsignedInDolibarr=Intervenție nesemnată
-InterventionModifiedInDolibarr=Intervenţia %s a fost modificată
-InterventionClassifiedBilledInDolibarr=Intervenţia %s a fost setată ca facturată
-InterventionClassifiedUnbilledInDolibarr=Intervenţia %s a fost setată ca nefacturată
+InterventionUnsignedInOnLi=Intervenție nesemnată
+InterventionModifiedInOnLi=Intervenţia %s a fost modificată
+InterventionClassifiedBilledInOnLi=Intervenţia %s a fost setată ca facturată
+InterventionClassifiedUnbilledInOnLi=Intervenţia %s a fost setată ca nefacturată
 InterventionSentByEMail=Intervenția %s a fost trimisă pe email
-InterventionClosedInDolibarr= Intervenția pe %s a fost închisă
-InterventionDeletedInDolibarr=Intervenţia %s a fost ştearsă
+InterventionClosedInOnLi= Intervenția pe %s a fost închisă
+InterventionDeletedInOnLi=Intervenţia %s a fost ştearsă
 InterventionsArea=Intervenţii
 DraftFichinter=Intervenții schiţă
 LastModifiedInterventions=Ultimele %s intervenţii modificate

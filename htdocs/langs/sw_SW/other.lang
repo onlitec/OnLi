@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Nambari ya usalama
 NumberingShort=N°
 Tools=Tools
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Unaweza kubofya kiungo kilicho hapa chini ili kufanya malipo yako ikiwa bado hayajafanyika.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Kikumbusho cha tukio "__EVENT_LABEL__" mnamo __EVENT_DATE__ saa __EVENT_TIME__ <br>  <br> Huu ni ujumbe otomatiki, tafadhali usijibu.
-DemoDesc=Dolibarr ni ERP/CRM kompakt inayosaidia moduli kadhaa za biashara. Onyesho linaloonyesha moduli zote halina maana kwani hali hii haifanyiki kamwe (mamia kadhaa yanapatikana). Kwa hivyo, profaili kadhaa za demo zinapatikana.
+DemoDesc=OnLi ni ERP/CRM kompakt inayosaidia moduli kadhaa za biashara. Onyesho linaloonyesha moduli zote halina maana kwani hali hii haifanyiki kamwe (mamia kadhaa yanapatikana). Kwa hivyo, profaili kadhaa za demo zinapatikana.
 ChooseYourDemoProfil=Chagua wasifu wa onyesho unaolingana vyema na mahitaji yako...
 ChooseYourDemoProfilMore=...au unda wasifu wako <br> (uteuzi wa moduli kwa mikono)
 DemoFundation=Dhibiti wanachama wa taasisi
@@ -192,10 +192,10 @@ BugTracker=Kifuatiliaji cha hitilafu
 SendNewPasswordDesc=Fomu hii hukuruhusu kuomba nenosiri mpya. Itatumwa kwa barua pepe yako. <br> Mabadiliko yataanza kutumika mara tu unapobofya kiungo cha uthibitishaji katika barua pepe. <br> Angalia kisanduku pokezi chako.
 EnterNewPasswordHere=Weka nenosiri lako jipya hapa
 BackToLoginPage=Rudi kwenye ukurasa wa kuingia
-AuthenticationDoesNotAllowSendNewPassword=Hali ya uthibitishaji ni <b> %s </b> . <br> Katika hali hii, Dolibarr hawezi kujua wala kubadilisha nenosiri lako. <br> Wasiliana na msimamizi wa mfumo wako ikiwa unataka kubadilisha nenosiri lako.
+AuthenticationDoesNotAllowSendNewPassword=Hali ya uthibitishaji ni <b> %s </b> . <br> Katika hali hii, OnLi hawezi kujua wala kubadilisha nenosiri lako. <br> Wasiliana na msimamizi wa mfumo wako ikiwa unataka kubadilisha nenosiri lako.
 EnableGDLibraryDesc=Sakinisha au wezesha maktaba ya GD kwenye usakinishaji wako wa PHP ili kutumia chaguo hili.
 ProfIdShortDesc= <b> Prof Id %s </b>  ni habari kulingana na nchi ya mtu wa tatu. <br> Kwa mfano, kwa nchi <b> %s </b> , ni msimbo <b> %s </b> .
-DolibarrDemo=Onyesho la ERP/CRM la Dolibarr
+OnLiDemo=Onyesho la ERP/CRM la OnLi
 StatsByAmount=Takwimu za kiasi cha bidhaa/huduma
 StatsByAmountProducts=Statistics on amount of products
 StatsByAmountServices=Statistics on amount of services
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=Ondoka ombi %s imethibitishwa.
 EMailTextHolidayApproved=Ondoka ombi %s imeidhinishwa.
 EMailTextActionAdded=Kitendo %s imeongezwa kwenye Ajenda.
 ImportedWithSet=Seti ya data ya uingizaji
-DolibarrNotification=Arifa ya kiotomatiki
+OnLiNotification=Arifa ya kiotomatiki
 ResizeDesc=Weka upana mpya <b> AU </b>  urefu mpya. Uwiano utawekwa wakati wa kubadilisha ukubwa...
 NewLength=Upana mpya
 NewHeight=Urefu mpya

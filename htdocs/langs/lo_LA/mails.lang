@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=ອີເມວ
 EMailing=ອີເມວ
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=ລາຍຊື່ຜູ້ຕິດຕໍ�
 MailingModuleDescContactsByFunction=ຕິດຕໍ່ພົວພັນໂດຍຕໍາແຫນ່ງ
 MailingModuleDescEmailsFromFile=ອີເມວຈາກໄຟລ
 MailingModuleDescEmailsFromUser=ການປ້ອນຂໍ້ມູນອີເມວໂດຍຜູ້ໃຊ້
-MailingModuleDescDolibarrUsers=ຜູ້ໃຊ້ທີ່ມີອີເມລ
+MailingModuleDescOnLiUsers=ຜູ້ໃຊ້ທີ່ມີອີເມລ
 MailingModuleDescThirdPartiesByCategories=ພາກສ່ວນທີສາມ
 SendingFromWebInterfaceIsNotAllowed=ການສົ່ງຈາກອິນເຕີເຟດເວັບແມ່ນບໍ່ອະນຸຍາດ.
 EmailCollectorFilterDesc=ການກັ່ນຕອງທັງໝົດຕ້ອງກົງກັນເພື່ອໃຫ້ມີອີເມວຖືກເກັບກຳ.<br>ທ່ານສາມາດໃຊ້ຕົວອັກສອນ "!" ກ່ອນຄ່າສະຕຣິງຄົ້ນຫາຖ້າທ່ານຕ້ອງການການທົດສອບທາງລົບ

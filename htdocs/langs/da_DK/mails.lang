@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Emailing
 EMailing=Emailing
 EMailings=Masse-e-mails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Contacts by categories
 MailingModuleDescContactsByFunction=Contacts by position
 MailingModuleDescEmailsFromFile=E-mails fra filen
 MailingModuleDescEmailsFromUser=Emails indlæst af brugeren
-MailingModuleDescDolibarrUsers=Brugere med e-mails
+MailingModuleDescOnLiUsers=Brugere med e-mails
 MailingModuleDescThirdPartiesByCategories=Tredje partier
 SendingFromWebInterfaceIsNotAllowed=Afsendelse fra webgrænseflade er ikke tilladt.
 EmailCollectorFilterDesc=Alle filtre skal matche for at have en e-mail, der indsamles. <br> Du kan bruge tegnet "!" før søgestrengværdien, hvis du har brug for en negativ test

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Ja hi havia una comanda oberta vinculada a aquesta proposta, de manera que no es va crear cap altra comanda automàticament
 OrdersArea=Àrea comandes de clients
 SuppliersOrdersArea=Àrea de comandes de compra
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Vols clonar aquesta comanda <b>%s</b>?
 DispatchSupplierOrder=Recepció de l'ordre de compra %s
 FirstApprovalAlreadyDone=Primera aprovació realitzada
 SecondApprovalAlreadyDone=Segona aprovació realitzada
-SupplierOrderReceivedInDolibarr=La comanda de compra %s ha rebut %s
-SupplierOrderSubmitedInDolibarr=S'ha enviat la comanda de compra %s (%s)
+SupplierOrderReceivedInOnLi=La comanda de compra %s ha rebut %s
+SupplierOrderSubmitedInOnLi=S'ha enviat la comanda de compra %s (%s)
 SupplierOrderClassifiedBilled=Comanda de compra %s com a facturada
 OtherOrders=Altres comandes
 SupplierOrderValidatedAndApproved=La comanda del proveïdor està validada i aprovada: %s

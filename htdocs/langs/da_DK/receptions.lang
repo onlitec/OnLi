@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Leverandørens receptionsstyring (Opret receptionsdokumenter)
 ReceptionsSetup=Opsætning af sælgerreception
 RefReception=Modtager Ref.
@@ -46,9 +46,9 @@ ReceptionsNumberingModules=Nummerering modul til receptioner
 ReceptionsReceiptModel=Dokumentskabeloner til modtagelser
 NoMorePredefinedProductToDispatch=Ikke flere foruddefinerede produkter, der skal sendes
 ReceptionExist=Der findes en reception
-ReceptionBackToDraftInDolibarr=Modtagelse %s tilbage til udkast
-ReceptionClassifyClosedInDolibarr=Reception %s klassificeret Lukket
-ReceptionUnClassifyCloseddInDolibarr=Receptionen %s genåbner
+ReceptionBackToDraftInOnLi=Modtagelse %s tilbage til udkast
+ReceptionClassifyClosedInOnLi=Reception %s klassificeret Lukket
+ReceptionUnClassifyCloseddInOnLi=Receptionen %s genåbner
 RestoreWithCurrentQtySaved=Fyld mængder med senest gemte værdier
 ReceptionsRecorded=Receptioner optaget
 ReceptionUpdated=Receptionen er opdateret

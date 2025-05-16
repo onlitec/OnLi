@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=আপনার যোগাযোগের বিবরণ রেকর্ড করা হয়েছে. আমরা খুব শীঘ্রই আপনার কাছে ফিরে আসবো...
 ContactUsDesc=এই ফর্মটি আপনাকে প্রথম পরিচিতির জন্য আমাদের একটি বার্তা পাঠাতে দেয়।
 ErrorCompanyNameAlreadyExists=কোম্পানির নাম %s ইতিমধ্যেই বিদ্যমান। অন্য একটি চয়ন করুন.
@@ -14,7 +14,7 @@ MenuNewSupplier=নতুন বিক্রেতা
 MenuNewPrivateIndividual=নতুন ব্যক্তিগত ব্যক্তি
 NewCompany=নতুন কোম্পানি (সম্ভাব্য, গ্রাহক, বিক্রেতা)
 NewThirdParty=নতুন তৃতীয় পক্ষ (সম্ভাব্য, গ্রাহক, বিক্রেতা)
-CreateDolibarrThirdPartySupplier=একটি তৃতীয় পক্ষ তৈরি করুন (বিক্রেতা)
+CreateOnLiThirdPartySupplier=একটি তৃতীয় পক্ষ তৈরি করুন (বিক্রেতা)
 CreateThirdPartyOnly=তৃতীয় পক্ষ তৈরি করুন
 CreateThirdPartyAndContact=একটি তৃতীয় পক্ষ + একটি শিশু পরিচিতি তৈরি করুন
 ProspectionArea=সম্ভাব্য এলাকা
@@ -335,7 +335,7 @@ CapitalOf=%s এর মূলধন
 EditCompany=কোম্পানি সম্পাদনা করুন
 ThisUserIsNot=এই ব্যবহারকারী একটি সম্ভাবনা, গ্রাহক বা বিক্রেতা নয়
 VATIntraCheck=চেক করুন
-VATIntraCheckDesc=ভ্যাট আইডিতে অবশ্যই দেশের উপসর্গ থাকতে হবে। লিঙ্ক <b>%s</b> ইউরোপীয় ভ্যাট চেকার পরিষেবা (VIES) ব্যবহার করে যার জন্য Dolibarr সার্ভার থেকে ইন্টারনেট অ্যাক্সেস প্রয়োজন।
+VATIntraCheckDesc=ভ্যাট আইডিতে অবশ্যই দেশের উপসর্গ থাকতে হবে। লিঙ্ক <b>%s</b> ইউরোপীয় ভ্যাট চেকার পরিষেবা (VIES) ব্যবহার করে যার জন্য OnLi সার্ভার থেকে ইন্টারনেট অ্যাক্সেস প্রয়োজন।
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=ইউরোপীয় কমিশনের ওয়েবসাইটে ইন্ট্রা-কমিউনিটি ভ্যাট আইডি চেক করুন
 VATIntraManualCheck=এছাড়াও আপনি ইউরোপীয় কমিশনের ওয়েবসাইটে ম্যানুয়ালি চেক করতে পারেন <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=অবস্থা দ্বারা সম্ভাবনা
 NoParentCompany=কোনোটিই নয়
 ExportCardToFormat=ফরম্যাটে কার্ড রপ্তানি করুন
 ContactNotLinkedToCompany=যোগাযোগ কোনো তৃতীয় পক্ষের সাথে লিঙ্ক করা নেই
-DolibarrLogin=Dolibarr লগইন
-NoDolibarrAccess=Dolibarr অ্যাক্সেস নেই
+OnLiLogin=OnLi লগইন
+NoOnLiAccess=OnLi অ্যাক্সেস নেই
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

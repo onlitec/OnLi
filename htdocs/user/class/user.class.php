@@ -3611,7 +3611,7 @@ class User extends CommonObject
 		$this->ref = 'SPECIMEN';
 		$this->specimen = 1;
 
-		$this->lastname = 'DOLIBARR';
+		$this->lastname = 'ONLI';
 		$this->firstname = 'SPECIMEN';
 		$this->gender = 'man';
 		$this->note_public = 'This is a note public';

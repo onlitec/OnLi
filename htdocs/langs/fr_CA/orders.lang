@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrdersArea=Zone de commandes clients
 SuppliersOrdersArea=Espace commandes d'achat
 OrderCard=Carte de commande
@@ -95,8 +95,8 @@ ConfirmCloneOrder=Êtes-vous sûr de vouloir cloner cette commande <b>%s</b>?
 DispatchSupplierOrder=Réception du bon de commande %s
 FirstApprovalAlreadyDone=Première approbation déjà terminée
 SecondApprovalAlreadyDone=Deuxième approbation déjà terminée
-SupplierOrderReceivedInDolibarr=Bon de commande %s reçu %s
-SupplierOrderSubmitedInDolibarr=Bon de commande %s soumis (%s)
+SupplierOrderReceivedInOnLi=Bon de commande %s reçu %s
+SupplierOrderSubmitedInOnLi=Bon de commande %s soumis (%s)
 SupplierOrderClassifiedBilled=Bon de commande %s facturé
 SupplierOrderValidatedAndApproved=La commande fournisseur est validée et approuvée : %s
 SupplierOrderValidated=La commande fournisseur est validée : %s

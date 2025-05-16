@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=參考號項目
 ProjectRef=項目參考
 ProjectId=項目編號
@@ -161,12 +161,12 @@ ConfirmCloneProject=您確定要複製這個項目嗎？
 ProjectReportDate=根據新項目開始日期更改任務日期
 ErrorShiftTaskDate=無法根據新項目開始日期更改任務日期
 ProjectsAndTasksLines=項目和任務
-ProjectCreatedInDolibarr=項目%s 已創建
-ProjectValidatedInDolibarr=項目 %s 已驗證
-ProjectModifiedInDolibarr=項目 %s 已修改
-TaskCreatedInDolibarr=任務%s 已創建
-TaskModifiedInDolibarr=任務 %s 已修改
-TaskDeletedInDolibarr=任務%s 已刪除
+ProjectCreatedInOnLi=項目%s 已創建
+ProjectValidatedInOnLi=項目 %s 已驗證
+ProjectModifiedInOnLi=項目 %s 已修改
+TaskCreatedInOnLi=任務%s 已創建
+TaskModifiedInOnLi=任務 %s 已修改
+TaskDeletedInOnLi=任務%s 已刪除
 OpportunityStatus=潛在客戶狀態
 OpportunityStatusShort=潛在客戶狀態
 OpportunityProbability=潛在客戶機率

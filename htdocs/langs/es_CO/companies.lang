@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Tus datos de contacto han sido registrados. Nos pondremos en contacto contigo pronto...
 MenuNewThirdParty=Nuevo Tercero
 MenuNewCustomer=Nuevo Cliente
@@ -6,7 +6,7 @@ MenuNewProspect=Nuevo Prospecto
 MenuNewSupplier=Nuevo Proveedor
 NewCompany=Nueva compañía (prospecto, cliente, vendedor)
 NewThirdParty=Nuevo Tercero (cliente potencial, cliente, proveedor)
-CreateDolibarrThirdPartySupplier=Crear un tercero (vendedor)
+CreateOnLiThirdPartySupplier=Crear un tercero (vendedor)
 CreateThirdPartyAndContact=Crear un contacto de terceros + un contact vinculado
 ThirdPartyContacts=Contactos de terceros
 ThirdPartyContact=Contacto/dirección de terceros
@@ -100,7 +100,7 @@ NoContactForAnyOrderOrShipments=Este contacto no es un contacto para ningún ped
 NoContactForAnyProposal=Este contacto no es contacto de ningúna cotización
 NewContactAddress=Nuevo contacto/dirección
 ThisUserIsNot=Este usuario no es un cliente potencial, cliente o proveedor.
-VATIntraCheckDesc=El número de identificación fiscal debe incluir el prefijo del país. El enlace <b> %s </b> utiliza el servicio de verificación de IVA europeo (VIES) que requiere acceso a Internet desde el servidor Dolibarr.
+VATIntraCheckDesc=El número de identificación fiscal debe incluir el prefijo del país. El enlace <b> %s </b> utiliza el servicio de verificación de IVA europeo (VIES) que requiere acceso a Internet desde el servidor OnLi.
 VATIntraCheckableOnEUSite=Verifique el ID de IVA intracomunitario en el sitio web de la Comisión Europea
 VATIntraManualCheck=También puede consultar manualmente en el sitio web de la Comisión Europea <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
 NorProspectNorCustomer=No prospecto, ni cliente

@@ -1,4 +1,4 @@
-# CHANGELOG MODULE MYMODULE FOR [DOLIBARR ERP CRM](https://www.onli.org)
+# CHANGELOG MODULE MYMODULE FOR [OnLi ERP CRM](https://www.onli.org)
 
 ## 1.0
 

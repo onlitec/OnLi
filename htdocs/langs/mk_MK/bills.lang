@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Фактура
 Bills=Фактури
 BillsCustomers=Фактури на клиенти
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Поставете датум за почеток
 AutoFillDateTo=Поставете го датумот на завршување на линијата за услуги со следниот датум на фактура
 AutoFillDateToShort=Поставете го датумот на завршување
 MaxNumberOfGenerationReached=Максималниот број на ген. достигна
-BILL_DELETEInDolibarr=Фактурата е избришана
-BILL_SUPPLIER_DELETEInDolibarr=Фактурата на добавувачот е избришана
+BILL_DELETEInOnLi=Фактурата е избришана
+BILL_SUPPLIER_DELETEInOnLi=Фактурата на добавувачот е избришана
 UnitPriceXQtyLessDiscount=Единечна цена x Количина - Попуст
 CustomersInvoicesArea=Област за наплата на клиентите
 SupplierInvoicesArea=Област за наплата на добавувачот

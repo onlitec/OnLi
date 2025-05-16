@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=ព័ត៌មានលម្អិតទំនាក់ទំនងរបស់អ្នកត្រូវបានកត់ត្រាទុក។ យើងនឹងត្រលប់មកអ្នកវិញឆាប់ៗនេះ...
 ContactUsDesc=ទម្រង់បែបបទនេះអនុញ្ញាតឱ្យអ្នកផ្ញើសារមកយើងសម្រាប់ទំនាក់ទំនងដំបូង។
 ErrorCompanyNameAlreadyExists=ឈ្មោះក្រុមហ៊ុន %s មានរួចហើយ។ ជ្រើសរើសមួយផ្សេងទៀត។
@@ -14,7 +14,7 @@ MenuNewSupplier=អ្នកលក់ថ្មី។
 MenuNewPrivateIndividual=បុគ្គលឯកជនថ្មី។
 NewCompany=ក្រុមហ៊ុនថ្មី (អនាគត អតិថិជន អ្នកលក់)
 NewThirdParty=ភាគីទីបីថ្មី (អនាគត អតិថិជន អ្នកលក់)
-CreateDolibarrThirdPartySupplier=បង្កើតភាគីទីបី (អ្នកលក់)
+CreateOnLiThirdPartySupplier=បង្កើតភាគីទីបី (អ្នកលក់)
 CreateThirdPartyOnly=បង្កើតភាគីទីបី
 CreateThirdPartyAndContact=បង្កើតភាគីទីបី + ទំនាក់ទំនងកុមារ
 ProspectionArea=តំបន់អនាគត
@@ -335,7 +335,7 @@ CapitalOf=រាជធានីនៃ %s
 EditCompany=កែសម្រួលក្រុមហ៊ុន
 ThisUserIsNot=អ្នកប្រើប្រាស់នេះមិនមែនជាអនាគត អតិថិជន ឬអ្នកលក់ទេ។
 VATIntraCheck=ពិនិត្យ
-VATIntraCheckDesc=លេខសម្គាល់ VAT ត្រូវតែរួមបញ្ចូលបុព្វបទប្រទេស។ តំណភ្ជាប់ <b>%s</b> ប្រើប្រាស់សេវាកម្មត្រួតពិនិត្យអាករលើតម្លៃបន្ថែមអឺរ៉ុប (VIES) ដែលទាមទារការចូលប្រើអ៊ីនធឺណិតពីម៉ាស៊ីនមេ Dolibarr ។
+VATIntraCheckDesc=លេខសម្គាល់ VAT ត្រូវតែរួមបញ្ចូលបុព្វបទប្រទេស។ តំណភ្ជាប់ <b>%s</b> ប្រើប្រាស់សេវាកម្មត្រួតពិនិត្យអាករលើតម្លៃបន្ថែមអឺរ៉ុប (VIES) ដែលទាមទារការចូលប្រើអ៊ីនធឺណិតពីម៉ាស៊ីនមេ OnLi ។
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=ពិនិត្យលេខសម្គាល់ពន្ធលើតម្លៃបន្ថែមក្នុងសហគមន៍នៅលើគេហទំព័ររបស់គណៈកម្មការអឺរ៉ុប
 VATIntraManualCheck=អ្នកក៏អាចពិនិត្យមើលដោយដៃនៅលើគេហទំព័ររបស់គណៈកម្មការអឺរ៉ុប <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=ការរំពឹងទុកតាមស្ថានភ�
 NoParentCompany=គ្មាន
 ExportCardToFormat=នាំចេញកាតទៅជាទម្រង់
 ContactNotLinkedToCompany=ទំនាក់ទំនងមិនត្រូវបានភ្ជាប់ទៅភាគីទីបីណាមួយឡើយ។
-DolibarrLogin=ចូល Dolibarr
-NoDolibarrAccess=គ្មានការចូលប្រើ Dolibarr ទេ។
+OnLiLogin=ចូល OnLi
+NoOnLiAccess=គ្មានការចូលប្រើ OnLi ទេ។
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

@@ -33,7 +33,7 @@
  *  MEMBER_NEWFORM_AMOUNT               Default amount for auto-subscribe form
  *  MEMBER_MIN_AMOUNT                   Minimum amount
  *  MEMBER_NEWFORM_PAYONLINE            Suggest payment with paypal, paybox or stripe
- *  MEMBER_NEWFORM_DOLIBARRTURNOVER     Show field turnover (specific for onli foundation)
+ *  MEMBER_NEWFORM_OnLiTURNOVER     Show field turnover (specific for onli foundation)
  *  MEMBER_URL_REDIRECT_SUBSCRIPTION    Url to redirect once registration form has been submitted (hidden option, by default we just show a message on same page or redirect to the payment page)
  *  MEMBER_NEWFORM_FORCETYPE            Force type of member
  *  MEMBER_NEWFORM_FORCEMORPHY          Force nature of member (mor/phy)
@@ -237,7 +237,7 @@ if (empty($reshook) && $action == 'add') {	// Test on permission not required he
 		$langs->load("errors");
 		$errmsg .= $langs->trans("ErrorBadDateFormat")."<br>\n";
 	}
-	if (getDolGlobalString('MEMBER_NEWFORM_DOLIBARRTURNOVER')) {
+	if (getDolGlobalString('MEMBER_NEWFORM_OnLiTURNOVER')) {
 		if (GETPOST("morphy") == 'mor' && GETPOST('budget') <= 0) {
 			$error++;
 			$errmsg .= $langs->trans("ErrorFieldRequired", $langs->transnoentitiesnoconv("TurnoverOrBudget"))."<br>\n";
@@ -703,7 +703,7 @@ if (getDolGlobalString('MEMBER_SKIP_TABLE') || getDolGlobalString('MEMBER_NEWFOR
 
 	// Add specific fields used by OnLi foundation for example
 	// TODO Move this into generic feature.
-	if (getDolGlobalString('MEMBER_NEWFORM_DOLIBARRTURNOVER')) {
+	if (getDolGlobalString('MEMBER_NEWFORM_OnLiTURNOVER')) {
 		$arraybudget = array('50' => '<= 100 000', '100' => '<= 200 000', '200' => '<= 500 000', '300' => '<= 1 500 000', '600' => '<= 3 000 000', '1000' => '<= 5 000 000', '2000' => '5 000 000+');
 		print '<tr id="trbudget" class="trcompany"><td>'.$langs->trans("TurnoverOrBudget").' <span class="star">*</span></td><td>';
 		print $form->selectarray('budget', $arraybudget, GETPOST('budget'), 1);

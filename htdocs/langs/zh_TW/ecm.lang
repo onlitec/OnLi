@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - ecm
+# OnLi language file - Source file is en_US - ecm
 ECMNbOfDocs=在資料夾中的文件數量
 ECMSection=資料夾
 ECMSectionManual=手冊資料夾
@@ -16,7 +16,7 @@ ECMNbOfSubDir=各子資料夾數量
 ECMNbOfFilesInSubDir=在各子資料夾的檔案數量
 ECMCreationUser=建立者
 ECMArea=檔案管理/電子內容管理區
-ECMAreaDesc=DMS / ECM（檔案管理系統/電子內容管理）區域使您可以在Dolibarr中快速儲存，共享和搜索所有類型的文件。
+ECMAreaDesc=DMS / ECM（檔案管理系統/電子內容管理）區域使您可以在OnLi中快速儲存，共享和搜索所有類型的文件。
 ECMAreaDesc2a=* 手動資料夾可以樹狀結構自由組織的方式保存文件。
 ECMAreaDesc2b=* 自動資料夾在從元件的頁面加入文件時會自動填入。
 ECMAreaDesc3=* Public directories are files into the subdirectory <b>/medias</b> of the documents directory, readable by everybody on internet with no need to be logged and no need to have the file shared explicitly. It is used to store image files for the emailing or website module for example.

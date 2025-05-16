@@ -185,7 +185,7 @@ if (!file_exists($original_file_osencoded)) {
 
 
 // Output page content
-define('USEDOLIBARRSERVER', 1);
+define('USEOnLiSERVER', 1);
 print '/* Page content '.$original_file.' : JS content that was saved into tpl dir */'."\n";
 require_once $original_file_osencoded;
 

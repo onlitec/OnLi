@@ -1,4 +1,7 @@
 <?php
+// ----------------------------------------------------------------------------
+// Arquivo modificado em 15/05/2025 por OnLi Developer - Não alterar sem autorização explícita
+// ----------------------------------------------------------------------------
 /* Copyright (C) 2002-2007 Rodolphe Quiedeville <rodolphe@quiedeville.org>
  * Copyright (C) 2003      Xavier Dutoit        <doli@sydesy.com>
  * Copyright (C) 2004-2017 Laurent Destailleur  <eldy@users.sourceforge.net>
@@ -165,6 +168,11 @@ $conffiletoshow = "htdocs/conf/conf.php";
 // Include configuration
 // @phpstan-ignore-next-line
 $result = @include_once $conffile; // Keep @ because with some error reporting mode, this breaks the redirect done when file is not found
+
+// Defino constante PHP MAIN_LANG_DEFAULT com valor do conf.php, para forçar idioma padrão
+if (!defined('MAIN_LANG_DEFAULT') && !empty($onli_main_lang_default)) {
+	define('MAIN_LANG_DEFAULT', $onli_main_lang_default);
+}
 
 // Disable some not used PHP stream
 $listofwrappers = stream_get_wrappers();

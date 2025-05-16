@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=参照プロジェクト
 ProjectRef=プロジェクト参照符号
 ProjectId=プロジェクトID
@@ -161,12 +161,12 @@ ConfirmCloneProject=このプロジェクトのクローンを作成してもよ
 ProjectReportDate=新規プロジェクトの開始日に応じてタスクの日付を変更する
 ErrorShiftTaskDate=新規プロジェクトの開始日に応じてタスクの日付をシフトすることはできない
 ProjectsAndTasksLines=プロジェクトとタスク
-ProjectCreatedInDolibarr=プロジェクト%sは作成済
-ProjectValidatedInDolibarr=プロジェクト%sは検証済
-ProjectModifiedInDolibarr=プロジェクト%sは変更済
-TaskCreatedInDolibarr=タスク%sが作成された
-TaskModifiedInDolibarr=タスク%sが変更された
-TaskDeletedInDolibarr=タスク%sが削除された
+ProjectCreatedInOnLi=プロジェクト%sは作成済
+ProjectValidatedInOnLi=プロジェクト%sは検証済
+ProjectModifiedInOnLi=プロジェクト%sは変更済
+TaskCreatedInOnLi=タスク%sが作成された
+TaskModifiedInOnLi=タスク%sが変更された
+TaskDeletedInOnLi=タスク%sが削除された
 OpportunityStatus=リード状態
 OpportunityStatusShort=リード状態
 OpportunityProbability=リード確率

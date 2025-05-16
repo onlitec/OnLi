@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Дахолат
 Interventions=Интервенсияҳо
 InterventionCard=Корти мудохила
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Гурӯҳбандии "ҳисобнашуда"
 InterventionClassifyDone=Гурӯҳбандии "Иҷро шуд"
 SendInterventionRef=Пешниҳоди мудохила %s
 SendInterventionByMail=Интервенсияро тавассути почтаи электронӣ фиристед
-InterventionCreatedInDolibarr=Интервенсия %s сохта шудааст
-InterventionValidatedInDolibarr=Дахолат %s тасдиқ карда шуд
-InterventionModifiedInDolibarr=Дахолати %s тағир дода шуд
-InterventionClassifiedBilledInDolibarr=Интервенсия %s ҳамчун ҳисоб ҳисоб карда мешавад
-InterventionClassifiedUnbilledInDolibarr=Интервенсия %s ҳамчун ҳисобнашуда муқаррар карда шудааст
+InterventionCreatedInOnLi=Интервенсия %s сохта шудааст
+InterventionValidatedInOnLi=Дахолат %s тасдиқ карда шуд
+InterventionModifiedInOnLi=Дахолати %s тағир дода шуд
+InterventionClassifiedBilledInOnLi=Интервенсия %s ҳамчун ҳисоб ҳисоб карда мешавад
+InterventionClassifiedUnbilledInOnLi=Интервенсия %s ҳамчун ҳисобнашуда муқаррар карда шудааст
 InterventionSentByEMail=Дахолат %s тавассути почтаи электронӣ фиристода шудааст
-InterventionClosedInDolibarr= Дахолати %s баста шуд
-InterventionDeletedInDolibarr=Дахолати %s нест карда шуд
+InterventionClosedInOnLi= Дахолати %s баста шуд
+InterventionDeletedInOnLi=Дахолати %s нест карда шуд
 InterventionsArea=Минтақаи мудохила
 DraftFichinter=Лоиҳаҳои мудохила
 LastModifiedInterventions=Охирин дахолатҳои тағирёфтаи %s

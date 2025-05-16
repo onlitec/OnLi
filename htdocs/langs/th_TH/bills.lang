@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=ใบกำกับสินค้า
 Bills=ใบแจ้งหนี้
 BillsCustomers=ใบแจ้งหนี้ของลูกค้า
@@ -640,8 +640,8 @@ AutoFillDateFromShort=ตั้งวันที่เริ่มต้น
 AutoFillDateTo=กำหนดวันที่สิ้นสุดสำหรับรายการบริการด้วยวันที่ในใบแจ้งหนี้ถัดไป
 AutoFillDateToShort=กำหนดวันที่สิ้นสุด
 MaxNumberOfGenerationReached=จำนวนเจนสูงสุด ถึง
-BILL_DELETEInDolibarr=ลบใบแจ้งหนี้แล้ว
-BILL_SUPPLIER_DELETEInDolibarr=ลบใบแจ้งหนี้ของซัพพลายเออร์แล้ว
+BILL_DELETEInOnLi=ลบใบแจ้งหนี้แล้ว
+BILL_SUPPLIER_DELETEInOnLi=ลบใบแจ้งหนี้ของซัพพลายเออร์แล้ว
 UnitPriceXQtyLessDiscount=ราคาต่อหน่วย x จำนวน - ส่วนลด
 CustomersInvoicesArea=พื้นที่การเรียกเก็บเงินของลูกค้า
 SupplierInvoicesArea=พื้นที่การเรียกเก็บเงินของซัพพลายเออร์

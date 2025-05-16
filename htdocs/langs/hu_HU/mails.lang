@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Levelezés
 EMailing=E-mailezés
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kategóriák szerinti névjegyek
 MailingModuleDescContactsByFunction=Kapcsolattartók pozíció szerint
 MailingModuleDescEmailsFromFile=E-mailek fájlból
 MailingModuleDescEmailsFromUser=E-mailek a felhasználó által
-MailingModuleDescDolibarrUsers=E-mailekkel rendelkező felhasználók
+MailingModuleDescOnLiUsers=E-mailekkel rendelkező felhasználók
 MailingModuleDescThirdPartiesByCategories=Harmadik felek
 SendingFromWebInterfaceIsNotAllowed=A webes felületről történő küldés nem megengedett.
 EmailCollectorFilterDesc=Minden szűrőnek egyeznie kell ahhoz, hogy e-mailt gyűjtsön.<br>Használhatja a "!" a keresési karakterlánc értéke előtt, ha negatív tesztre van szüksége

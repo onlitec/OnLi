@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Koodi
 WebsiteName=Verkkosivuston nimi
 WebsiteSetupDesc=luo tässä verkkosivustot, joita haluat käyttää. Siirry sitten valikko Web-sivustoihin muokataksesi niitä.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=To deploy this website live, you have
 SetHereVirtualHost=<u>Käytä kanssa Apache/NGinx/...</u><br>Luo verkkopalvelimesi (Apache, Nginx, ...) omistettu virtuaalipalvelin, jossa PHP on käytössä ja juurihakemisto osoitteessa<br><strong>%s</strong>
 ExampleToUseInApacheVirtualHostConfig=Esimerkki käytettäväksi Apache-virtuaaliisäntäasetuksissa:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Tarkista myös, että virtuaalipalvelimen käyttäjällä (esimerkiksi www-data) on <strong>%s</strong>  tiedostojen käyttöoikeudet kohteeseen<br><strong>%s</strong>
 ReadPerm=Lue
 WritePerm=Kirjoita
 TestDeployOnWeb=Testaa / ota käyttöön verkossa
 PreviewSiteServedByWebServer=<u>Preview %s in a new tab.</u><br><br>The %s will be served by an external web server (like Apache, Nginx, IIS). You must install and setup this server before to point to directory:<br><strong>%s</strong><br>URL served by external server:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=Ulkoisen verkkopalvelimen palveleman virtuaalisen isännän URL-osoitetta ei ole määritetty
 NoPageYet=Ei vielä sivuja
 YouCanCreatePageOrImportTemplate=Voit luo uuden sivun tai tuoda täyden verkkosivustomallin
@@ -163,8 +163,8 @@ PagesViewedTotal=Katsotut sivut (yhteensä)
 Everyone=Kaikki
 AssignedContacts=Määritetyt yhteystiedot
 WebsiteTypeLabel=Verkkosivuston tyyppi
-WebsiteTypeDolibarrWebsite=Verkkosivusto (moduuli WebSites CMS)
-WebsiteTypeDolibarrPortal=Natiivi ja käyttövalmis verkkoportaali (moduuli Web Portal)
+WebsiteTypeOnLiWebsite=Verkkosivusto (moduuli WebSites CMS)
+WebsiteTypeOnLiPortal=Natiivi ja käyttövalmis verkkoportaali (moduuli Web Portal)
 WebPortalURL=Verkkoportaalin URL
 NewWebsiteAccount=Uudet tilit verkkosivustoille
 ModuleWebPortalName=Verkkoportaali
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=Sinut ohjataan pian tilaustietosivulle.
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

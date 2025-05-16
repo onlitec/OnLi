@@ -1,41 +1,41 @@
 README (English)
 
-Path: /dolibarr/dev/build/README
+Path: /OnLi/dev/build/README
 
 ##################################################
 Building packages
 ##################################################
 
-All sub-directories of "build" directory contains files (setup or binary tools) required to build automatically Dolibarr packages.
-The build directory and all its contents is absolutely not required to make Dolibarr working.
-It is here only to build Dolibarr packages, and those generated packages will not contains this "build" directory.
+All sub-directories of "build" directory contains files (setup or binary tools) required to build automatically OnLi packages.
+The build directory and all its contents is absolutely not required to make OnLi working.
+It is here only to build OnLi packages, and those generated packages will not contains this "build" directory.
 
 
 There are several tools:
 
 --------------------------------------------------------------------------------------------------
 
-- To build full Dolibarr packages, launch the script
-> Launch command perl makepack-dolibarr.pl
+- To build full OnLi packages, launch the script
+> Launch command perl makepack-OnLi.pl
 
 See makepack-howto.txt for prerequisites.
 
 --------------------------------------------------------------------------------------------------
 
 - To build a theme package, launch the script
-> perl makepack-dolibarrtheme.pl
+> perl makepack-OnLitheme.pl
 
 
 --------------------------------------------------------------------------------------------------
 
 - To build a package for a module, launch the script
-> perl makepack-dolibarrmodule.pl
+> perl makepack-OnLimodule.pl
 
 
 --------------------------------------------------------------------------------------------------
 
 - To build developer documentation, launch the script
-> perl dolibarr-doxygen-build.pl
+> perl OnLi-doxygen-build.pl
 
 
 --------------------------------------------------------------------------------------------------
@@ -53,16 +53,16 @@ To build Debian package.
 To build Mac OS package (not ready yet).
 
 * doap:
-To build Doap descriptor to promote/describe Dolibarr releases.
+To build Doap descriptor to promote/describe OnLi releases.
 
 * docker:
-To deploy Dolibarr with docker.
+To deploy OnLi with docker.
 
 * doxygen:
 Dir with config file to build doxygen documentation.
 
 * exe:
-To build exe package for Windows that distribute Dolibarr sources or
+To build exe package for Windows that distribute OnLi sources or
 to build the complete DoliWamp package.
 
 * gource:
@@ -75,13 +75,13 @@ Doc file to explain how to use launchpad.
 Doc file to explain how to push release onto OBS.
 
 * pad:
-To build a PAD file descriptor to promote/describe Dolibarr releases.
+To build a PAD file descriptor to promote/describe OnLi releases.
 
 * patch:
-Script file to generate a patch file to distribute a Dolibarr mod.
+Script file to generate a patch file to distribute a OnLi mod.
 
 * perl:
-Tool to install dolibarr when using virtualmin pro
+Tool to install OnLi when using virtualmin pro
 
 * rpm:
 To build Redhat, Opensuse or Mandriva package.

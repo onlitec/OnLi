@@ -1,5 +1,5 @@
-# Dolibarr language file - Source file is en_US - boxes
-BoxDolibarrStateBoard=Thống kê các đối tượng nghiệp vụ chính trong cơ sở dữ liệu
+# OnLi language file - Source file is en_US - boxes
+BoxOnLiStateBoard=Thống kê các đối tượng nghiệp vụ chính trong cơ sở dữ liệu
 BoxLoginInformation=Thông tin đăng nhập
 BoxLastRssInfos=Thông tin RSS
 BoxLastProducts=Sản phẩm/Dịch vụ mới nhất %s

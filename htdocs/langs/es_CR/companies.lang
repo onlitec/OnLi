@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Tus detalles de contactos han sido grabados. Regresaremos pronto
 ContactUsDesc=Este formulario le permitirá enviarnos un mensaje para un primer contacto
 ErrorCompanyNameAlreadyExists=El nombre de compañía %s ya existe. Elija otro diferente.
@@ -220,7 +220,7 @@ NoContactForAnyInvoice=Este contacto no es un contacto por una factura
 NewContactAddress=Nuevo contacto/dirección
 ThisUserIsNot=Este usuario no es un cliente potencial, cliente ni proveedor
 VATIntraCheck=Revisar
-VATIntraCheckDesc=El ID de IVA debe incluir el prefijo del país. El enlace <b>%s</b> utiliza el servicio de verificación de IVA europeo (VIES) que requiere acceso a Internet desde Dolibarr.
+VATIntraCheckDesc=El ID de IVA debe incluir el prefijo del país. El enlace <b>%s</b> utiliza el servicio de verificación de IVA europeo (VIES) que requiere acceso a Internet desde OnLi.
 VATIntraCheckableOnEUSite=Verificar el numero de control de IVA intracomunitario en la web de la Comisión Europea
 VATIntraManualCheck=También puede consultar manualmente en el sitio web de la Comisión Europea <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
 ErrorVATCheckMS_UNAVAILABLE=No es posible comprobar. El servicio de verificación no lo proporciona el estado del miembro (%s).
@@ -242,8 +242,8 @@ ChangeContactInProcess=Marcar como 'Contacto en curso'
 ChangeContactDone=Marcar como 'Contacto realizado'
 NoParentCompany=Ninguno
 ContactNotLinkedToCompany=Contacto no vinculado a ningún tercero
-DolibarrLogin=Ingreso Dolibbarr
-NoDolibarrAccess=Sin acceso a Dolibarr
+OnLiLogin=Ingreso Dolibbarr
+NoOnLiAccess=Sin acceso a OnLi
 ExportDataset_company_2=Contactos/direcciones y atributos adicionales de terceros
 ImportDataset_company_1=Terceros y sus propiedades
 ImportDataset_company_2=Contactos/direcciones y atributos adicionales de terceros

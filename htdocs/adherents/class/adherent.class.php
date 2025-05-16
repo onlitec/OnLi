@@ -1209,7 +1209,7 @@ class Adherent extends CommonObject
 	 *    Change password of a user
 	 *
 	 *    @param	User	$user           Object user de l'utilisateur qui fait la modification
-	 *    @param 	string	$password       New password (to generate if empty)
+	 *    @param  string	$password       New password (to generate if empty)
 	 *    @param    int		$isencrypted    0 ou 1 if the password needs to be encrypted in the DB (default: 0)
 	 *	  @param	int		$notrigger		1=Does not raise the triggers
 	 *    @param	int		$nosyncuser		Do not synchronize linked user
@@ -2729,7 +2729,7 @@ class Adherent extends CommonObject
 		$this->entity = 1;
 		$this->specimen = 1;
 		$this->civility_id = 'MR';
-		$this->lastname = 'DOLIBARR';
+		$this->lastname = 'ONLI';
 		$this->firstname = 'SPECIMEN';
 		$this->gender = 'man';
 		$this->login = 'dolibspec';

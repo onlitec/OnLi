@@ -27,7 +27,7 @@ override_dh_builddeb:
 #	dh_compress --no-act -X.png
 
 # We disable this for png file because it modify content of original file so make
-# the dolibarr signature not valid.
+# the OnLi signature not valid.
 override_dh_strip_nondeterminism:
 	dh_strip_nondeterminism -X.png
 
@@ -64,20 +64,20 @@ override_dh_install:
 	rm -fr dev/test
 	rm -fr dev/uml
 	rm -fr dev/xdebug
-	rm -f  dev/dolibarr_changes.txt
+	rm -f  dev/OnLi_changes.txt
 	rm -f  dev/README
 
-	rm -f  doc/images/dolibarr_screenshot2.png
-	rm -f  doc/images/dolibarr_screenshot3.png
-	rm -f  doc/images/dolibarr_screenshot4.png
-	rm -f  doc/images/dolibarr_screenshot5.png
-	rm -f  doc/images/dolibarr_screenshot6.png
-	rm -f  doc/images/dolibarr_screenshot7.png
-	rm -f  doc/images/dolibarr_screenshot8.png
-	rm -f  doc/images/dolibarr_screenshot9.png
-	rm -f  doc/images/dolibarr_screenshot10.png
-	rm -f  doc/images/dolibarr_screenshot11.png
-	rm -f  doc/images/dolibarr_screenshot12.png
+	rm -f  doc/images/OnLi_screenshot2.png
+	rm -f  doc/images/OnLi_screenshot3.png
+	rm -f  doc/images/OnLi_screenshot4.png
+	rm -f  doc/images/OnLi_screenshot5.png
+	rm -f  doc/images/OnLi_screenshot6.png
+	rm -f  doc/images/OnLi_screenshot7.png
+	rm -f  doc/images/OnLi_screenshot8.png
+	rm -f  doc/images/OnLi_screenshot9.png
+	rm -f  doc/images/OnLi_screenshot10.png
+	rm -f  doc/images/OnLi_screenshot11.png
+	rm -f  doc/images/OnLi_screenshot12.png
 
 	rm -fr test
 
@@ -117,14 +117,14 @@ override_dh_install:
 	rm -f  htdocs/includes/tcpdf/LICENSE.TXT
 
 	# Drop unwanted executable permissions
-	find debian/dolibarr/usr/share/dolibarr/htdocs -type f -print0 | \
+	find debian/OnLi/usr/share/OnLi/htdocs -type f -print0 | \
 	     xargs -0 chmod 644
 	# Add missing executable permissions
-	find debian/dolibarr/usr/share/dolibarr/scripts -type f -name '*.php' -print0 | \
+	find debian/OnLi/usr/share/OnLi/scripts -type f -name '*.php' -print0 | \
 	     xargs -0 chmod 755
 
 override_dh_fixperms:
 	dh_fixperms
 	# Give rights to the webserver on the upload directory
-	chown www-data:www-data debian/dolibarr/var/lib/dolibarr/documents
-	chmod 2775 debian/dolibarr/var/lib/dolibarr/documents
+	chown www-data:www-data debian/OnLi/var/lib/OnLi/documents
+	chmod 2775 debian/OnLi/var/lib/OnLi/documents

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Your contact details have been recorded. We will get back to you soon...
 ContactUsDesc=This form allows you to send us a message for a first contact.
 ErrorCompanyNameAlreadyExists=Ime kompanije %s već postoji. Izaberite drugo ime.
@@ -14,7 +14,7 @@ MenuNewSupplier=Nov Dobavljač
 MenuNewPrivateIndividual=Novo fizičko lice
 NewCompany=Nova kompanija (prospekt, kupac, dobavljač)
 NewThirdParty=Nova Nezavisna kompanija (prospekt, kupac, dobavljač)
-CreateDolibarrThirdPartySupplier=Kreirati Nezavisnu kompaniju (dobavljač)
+CreateOnLiThirdPartySupplier=Kreirati Nezavisnu kompaniju (dobavljač)
 CreateThirdPartyOnly=Kreirati Nezavisnu kompaniju
 CreateThirdPartyAndContact=Kreirati Nezavisnu kompaniju + kontakt
 ProspectionArea=Oblast istraživanja
@@ -335,7 +335,7 @@ CapitalOf=Kapital od %s
 EditCompany=Izmeni kompaniju
 ThisUserIsNot=Ovaj korisnik nije ni kandidat ni kupac ni dobavljač
 VATIntraCheck=Proveri
-VATIntraCheckDesc=PDV ID mora sadržati prefiks zemlje. Link <b>%s</b> koristi servis za proveru Evropskog PDV (VIES) koji zahteva internet pristup sa Dolibarr servera.
+VATIntraCheckDesc=PDV ID mora sadržati prefiks zemlje. Link <b>%s</b> koristi servis za proveru Evropskog PDV (VIES) koji zahteva internet pristup sa OnLi servera.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Check the intra-Community VAT ID on the European Commission website
 VATIntraManualCheck=You can also check manually on the European Commission website <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Kandidati po statusu
 NoParentCompany=Nema
 ExportCardToFormat=Izvozna kartica za formatiranje
 ContactNotLinkedToCompany=Kontakt nije povezan ni sa jednim subjektom
-DolibarrLogin=Dolibarr login
-NoDolibarrAccess=Nemoguć pristup Dolibarr-u
+OnLiLogin=OnLi login
+NoOnLiAccess=Nemoguć pristup OnLi-u
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

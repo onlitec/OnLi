@@ -1,5 +1,7 @@
-# Security policies of Dolibarr ERP CRM project
-Contact: mailto:security@dolibarr.org
-Preferred-Languages: en
-Policy: https://github.com/Dolibarr/dolibarr/security/policy
+# Security policies of OnLi ERP CRM project
+Contact: mailto:security@onli.org
+Encryption: # TODO: Add OnLi PGP key URL
+Policy: # TODO: Add OnLi security policy URL
+Source: # TODO: Add OnLi source code URL
+Hiring: # TODO: Add OnLi hiring page URL
 Expires: Sat, 31 Dec 2050 00:00:00 GMT

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=وینڈر ریسپشن مینجمنٹ (استقبالیہ دستاویزات بنائیں)
 ReceptionsSetup=وینڈر ریسپشن سیٹ اپ
 RefReception=حوالہ استقبالیہ
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=استقبالیہ کے لیے نمبرنگ ماڈی�
 ReceptionsReceiptModel=استقبالیہ کے لیے دستاویز کے سانچے
 NoMorePredefinedProductToDispatch=بھیجنے کے لیے مزید پہلے سے طے شدہ مصنوعات نہیں۔
 ReceptionExist=ایک استقبالیہ موجود ہے۔
-ReceptionBackToDraftInDolibarr=استقبالیہ %s ڈرافٹ پر واپس
-ReceptionClassifyClosedInDolibarr=استقبالیہ %s کلاسیفائیڈ بند
-ReceptionUnClassifyCloseddInDolibarr=استقبالیہ %s دوبارہ کھولیں۔
+ReceptionBackToDraftInOnLi=استقبالیہ %s ڈرافٹ پر واپس
+ReceptionClassifyClosedInOnLi=استقبالیہ %s کلاسیفائیڈ بند
+ReceptionUnClassifyCloseddInOnLi=استقبالیہ %s دوبارہ کھولیں۔
 RestoreWithCurrentQtySaved=تازہ ترین محفوظ شدہ اقدار کے ساتھ مقدار بھریں۔
 ReceptionsRecorded=استقبالیہ ریکارڈ کیا گیا۔
 ReceptionUpdated=استقبالیہ کامیابی کے ساتھ اپ ڈیٹ ہو گیا۔

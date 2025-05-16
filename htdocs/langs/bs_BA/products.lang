@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - products
+# OnLi language file - Source file is en_US - products
 ProductRef=Ref. proizvoda
 ProductLabel=Oznaka proizvoda
 ProductLabelTranslated=Prevedeni naslov proizvoda
@@ -297,7 +297,7 @@ MinSupplierPrice=Minimalna kupovna cijena
 MinCustomerPrice=Minimalna prodajna cijena
 NoDynamicPrice=Nema dinamičke cijene
 DynamicPriceConfiguration=Dinamička konfiguracija cijena
-DynamicPriceDesc=Možete definirati matematičke formule za izračunavanje cijena kupaca ili dobavljača. Takve formule mogu koristiti sve matematičke operatore, neke konstantne i varijable. Ovdje možete definirati varijable koje želite koristiti. Ako varijablu treba automatsko ažuriranje, možete definirati vanjski URL kako biste dozvolili Dolibarru da automatski ažurira vrijednost.
+DynamicPriceDesc=Možete definirati matematičke formule za izračunavanje cijena kupaca ili dobavljača. Takve formule mogu koristiti sve matematičke operatore, neke konstantne i varijable. Ovdje možete definirati varijable koje želite koristiti. Ako varijablu treba automatsko ažuriranje, možete definirati vanjski URL kako biste dozvolili OnLiu da automatski ažurira vrijednost.
 AddVariable=Dodaj varijablu
 AddUpdater=Add Updater
 GlobalVariables=Globalne varijable
@@ -385,7 +385,7 @@ NewProductAttribute=Novi atribut
 NewProductAttributeValue=Nova vrijednost atributa
 ErrorCreatingProductAttributeValue=Došlo je do greške prilikom kreiranja vrijednosti atributa. To može biti zato što već postoji postojeća vrijednost s tom referencom
 ProductCombinationGeneratorWarning=Ako nastavite, prije generiranja novih varijanti, sve prethodne će biti IZBRISANE. Već postojeće će biti ažurirane novim vrijednostima
-TooMuchCombinationsWarning=Generisanje puno varijanti može rezultirati visokim CPU-om, korištenjem memorije i Dolibarr ih ne može kreirati. Omogućavanje opcije "%s" može pomoći u smanjenju upotrebe memorije.
+TooMuchCombinationsWarning=Generisanje puno varijanti može rezultirati visokim CPU-om, korištenjem memorije i OnLi ih ne može kreirati. Omogućavanje opcije "%s" može pomoći u smanjenju upotrebe memorije.
 DoNotRemovePreviousCombinations=Nemojte uklanjati prethodne varijante
 UsePercentageVariations=Koristite procentualne varijacije
 PercentageVariation=Procentualna varijacija

@@ -1,11 +1,11 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 ErrorSetACountryFirst=Wähle zuerst das Land
 SelectThirdParty=Wähle einen Geschäftspartner
 MenuNewThirdParty=Erzeuge Geschäftspartner
 MenuNewCustomer=Erzeuge Kunde
 NewCompany=Erzeuge Partner (Lead / Kunde / Lieferant)
 NewThirdParty=Erzeuge Geschäftspartner (Lead / Kunde / Lieferant)
-CreateDolibarrThirdPartySupplier=Erstelle einen Lieferant
+CreateOnLiThirdPartySupplier=Erstelle einen Lieferant
 CreateThirdPartyAndContact=Erzeuge Geschäftspartner mit Kontakt
 IdThirdParty=Geschäftspartner ID
 IdCompany=Unternehmens ID
@@ -141,8 +141,8 @@ ChangeContactDone=Ändern Sie den Status auf 'Erfolgreich kontaktiert'
 ProspectsByStatus=Leads nach Status
 NoParentCompany=Keine Mutterfirma
 ContactNotLinkedToCompany=Kontakt keinem Geschäftspartner zugeordnet
-DolibarrLogin=Dolibarr Benutzername
-NoDolibarrAccess=Kein Zugang
+OnLiLogin=OnLi Benutzername
+NoOnLiAccess=Kein Zugang
 ExportDataset_company_2=Zusätzliche Kontakte / Adressen und Attribute von Geschäftspatnern
 ImportDataset_company_1=Geschäftspartner und deren Eigenschaften
 ImportDataset_company_2=Zusätzliche Kontakte / Adressen und Attribute von Geschäftspatnern

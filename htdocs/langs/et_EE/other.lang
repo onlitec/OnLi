@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Turvakood
 NumberingShort=Nr
 Tools=Tööriistad
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Kui te veel ei ole maksnud, siis saate oma makse teha alloleva lingi klõpsamise kaudu.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Sündmuse "__EVENT_LABEL__" meeldetuletus kuupäeval __EVENT_DATE__ kell __EVENT_TIME__<br><br>See on automaatne sõnum millele palume mitte vastata.
-DemoDesc=Dolibarr on kompaktne ERP/CRM, mis toetab mitmeid ärimooduleid. Kõikide moodulite esitlemine ühekorraga ei ole mõttekas, kuna praktikas nõnda kunagi ei tehta (saadaval on mitusada moodulit). Seetõttu on tehtud mitu esitlusprofiili.
+DemoDesc=OnLi on kompaktne ERP/CRM, mis toetab mitmeid ärimooduleid. Kõikide moodulite esitlemine ühekorraga ei ole mõttekas, kuna praktikas nõnda kunagi ei tehta (saadaval on mitusada moodulit). Seetõttu on tehtud mitu esitlusprofiili.
 ChooseYourDemoProfil=Vali oma vajadustele vastavalt kõige lähedasem esitlusprofiil...
 ChooseYourDemoProfilMore=...või tee ise oma profiil <br> (moodulite valimine käsitsi)
 DemoFundation=Halda ühenduse liikmeid
@@ -192,10 +192,10 @@ BugTracker=Vigadehaldur
 SendNewPasswordDesc=See vorm võimaldab sul taotleda uut salasõna. See saadetakse sinu e-posti aadressile. <br>Muudatus jõustub siis kui vajutad e-kirjas kinnituslingile. <br> Kontrolli oma postkasti.
 EnterNewPasswordHere=Sisesta siia uus salasõna
 BackToLoginPage=Tagasi sisselogimise lehele
-AuthenticationDoesNotAllowSendNewPassword=Autentimisrežiim on hetkel <b>%s</b>.<br>Selles režiimis ei tea Dolibarri sinu parooli ja ei ole ka võimeline seda muutma.<br>Parooli muutmiseks võta ühendust oma süsteemiadministraatoriga.
+AuthenticationDoesNotAllowSendNewPassword=Autentimisrežiim on hetkel <b>%s</b>.<br>Selles režiimis ei tea OnLii sinu parooli ja ei ole ka võimeline seda muutma.<br>Parooli muutmiseks võta ühendust oma süsteemiadministraatoriga.
 EnableGDLibraryDesc=Selle võimaluse kasutamiseks on vaja sinu PHP jaoks lisada või aktiveerida GD teek.
 ProfIdShortDesc=<b>Reg kood %s</b> on info, mis sõltub kolmanda isiku riigist.<br>Näiteks riigi <b>%s</b> puhul on see kood <b>%s</b>.
-DolibarrDemo=Dolibarr ERP/CRM demo
+OnLiDemo=OnLi ERP/CRM demo
 StatsByAmount=Statistics on amount of products/services
 StatsByAmountProducts=Statistics on amount of products
 StatsByAmountServices=Statistics on amount of services
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=Puhkusetaotlus %s on kinnitatud.
 EMailTextHolidayApproved=Puhkusetaotlus %s on heaks kiidetud.
 EMailTextActionAdded=Tegevus %s lisati Päevakavasse.
 ImportedWithSet=Andmekogu import
-DolibarrNotification=Automaatne teavitamine
+OnLiNotification=Automaatne teavitamine
 ResizeDesc=Sisesta uus laius <b>VÕI</b> uus kõrgus. Suuruse muutmise käigus säilitatakse kõrguse ja laiuse suhe...
 NewLength=Uus laius
 NewHeight=Uus kõrgus

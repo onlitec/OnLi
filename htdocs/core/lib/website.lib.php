@@ -124,7 +124,7 @@ function dolWebsiteReplacementOfLinks($website, $content, $removephppart = 0, $c
 {
 	$nbrep = 0;
 
-	dol_syslog('dolWebsiteReplacementOfLinks start (contenttype='.$contenttype." containerid=".$containerid." USEDOLIBARREDITOR=".(defined('USEDOLIBARREDITOR') ? '1' : '')." USEDOLIBARRSERVER=".(defined('USEDOLIBARRSERVER') ? '1' : '').')', LOG_DEBUG);
+	dol_syslog('dolWebsiteReplacementOfLinks start (contenttype='.$contenttype." containerid=".$containerid." USEOnLiEDITOR=".(defined('USEOnLiEDITOR') ? '1' : '')." USEOnLiSERVER=".(defined('USEOnLiSERVER') ? '1' : '').')', LOG_DEBUG);
 	//if ($contenttype == 'html') { print $content;exit; }
 
 	// Replace php code. Note $content may come from database and does not contain body tags.
@@ -291,7 +291,7 @@ function dolWebsiteOutput($content, $contenttype = 'html', $containerid = 0)
 
 	$nbrep = 0;
 
-	dol_syslog("dolWebsiteOutput start - contenttype=".$contenttype." containerid=".$containerid.(defined('USEDOLIBARREDITOR') ? ' USEDOLIBARREDITOR=1' : '').(defined('USEDOLIBARRSERVER') ? ' USEDOLIBARRSERVER=1' : '').' includehtmlcontentopened='.$includehtmlcontentopened);
+	dol_syslog("dolWebsiteOutput start - contenttype=".$contenttype." containerid=".$containerid.(defined('USEOnLiEDITOR') ? ' USEOnLiEDITOR=1' : '').(defined('USEOnLiSERVER') ? ' USEOnLiSERVER=1' : '').' includehtmlcontentopened='.$includehtmlcontentopened);
 
 	//print $containerid.' '.$content;
 
@@ -300,14 +300,14 @@ function dolWebsiteOutput($content, $contenttype = 'html', $containerid = 0)
 	$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
 	//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
 
-	if (defined('USEDOLIBARREDITOR')) {		// REPLACEMENT OF LINKS When page called from OnLi editor
+	if (defined('USEOnLiEDITOR')) {		// REPLACEMENT OF LINKS When page called from OnLi editor
 		// We remove the <head> part of content
 		if ($contenttype == 'html') {
 			$content = preg_replace('/<head>.*<\/head>/ims', '', $content);
 			$content = preg_replace('/^.*<body(\s[^>]*)*>/ims', '', $content);
 			$content = preg_replace('/<\/body(\s[^>]*)*>.*$/ims', '', $content);
 		}
-	} elseif (defined('USEDOLIBARRSERVER')) {	// REPLACEMENT OF LINKS When page called from OnLi server
+	} elseif (defined('USEOnLiSERVER')) {	// REPLACEMENT OF LINKS When page called from OnLi server
 		$content = str_replace('<link rel="stylesheet" href="/styles.css', '<link rel="stylesheet" href="styles.css', $content);
 		$content = str_replace(' async src="/javascript.js', ' async src="javascript.js', $content);
 
@@ -427,7 +427,7 @@ function dolWebsiteOutput($content, $contenttype = 'html', $containerid = 0)
 		}
 	}
 
-	if (!defined('USEDOLIBARREDITOR')) {
+	if (!defined('USEOnLiEDITOR')) {
 		$content = str_replace(' contenteditable="true"', ' contenteditable="false"', $content);
 	}
 
@@ -492,7 +492,7 @@ function dolWebsiteSaveContent($content)
 	global $db, $langs, $conf, $user;
 	global $onli_main_url_root, $onli_main_data_root;
 
-	//dol_syslog("dolWebsiteSaveContent start (mode=".(defined('USEDOLIBARRSERVER')?'USEDOLIBARRSERVER':'').')');
+	//dol_syslog("dolWebsiteSaveContent start (mode=".(defined('USEOnLiSERVER')?'USEOnLiSERVER':'').')');
 
 	// Define $urlwithroot
 	$urlwithouturlroot=preg_replace('/'.preg_quote(DOL_URL_ROOT,'/').'$/i','',trim($onli_main_url_root));
@@ -539,7 +539,7 @@ function redirectToContainer($containerref, $containeraliasalt = '', $containeri
 		}
 	}
 
-	if (defined('USEDOLIBARREDITOR')) {
+	if (defined('USEOnLiEDITOR')) {
 		/*print '<div class="margintoponly marginleftonly">';
 		print "This page contains dynamic code that make a redirect to '".$containerref."' in your current context. Redirect has been canceled as it is not supported in edition mode.";
 		print '</div>';*/
@@ -548,7 +548,7 @@ function redirectToContainer($containerref, $containeraliasalt = '', $containeri
 		return;
 	}
 
-	if (defined('USEDOLIBARRSERVER')) {	// When page called from OnLi server
+	if (defined('USEOnLiSERVER')) {	// When page called from OnLi server
 		// Check new container exists
 		if (!$containeraliasalt) {	// If containeraliasalt set, we already did the test
 			include_once DOL_DOCUMENT_ROOT.'/website/class/websitepage.class.php';
@@ -1120,7 +1120,7 @@ function getImagePublicURLOfObject($object, $no = 1, $extName = '', $cover = 1)
 				} else {
 					$found++;
 
-					if (defined('USEDOLIBARRSERVER') || defined('USEDOLIBARREDITOR')) {
+					if (defined('USEOnLiSERVER') || defined('USEOnLiEDITOR')) {
 						$image_path = DOL_URL_ROOT.'/viewimage.php?hashp='.urlencode($obj->share);
 					} else {
 						$image_path = '/wrapper.php?hashp='.urlencode($obj->share);
@@ -1137,7 +1137,7 @@ function getImagePublicURLOfObject($object, $no = 1, $extName = '', $cover = 1)
 			$i++;
 		}
 		if (!$found && $foundnotshared) {
-			if (defined('USEDOLIBARRSERVER') || defined('USEDOLIBARREDITOR')) {
+			if (defined('USEOnLiSERVER') || defined('USEOnLiEDITOR')) {
 				$image_path = DOL_URL_ROOT.'/viewimage.php?modulepart=common&file=nophotopublic.png';
 			} else {
 				$image_path = '/wrapper.php?modulepart=common&file=nophotopublic.png';
@@ -1146,7 +1146,7 @@ function getImagePublicURLOfObject($object, $no = 1, $extName = '', $cover = 1)
 	}
 
 	if (empty($image_path)) {
-		if (defined('USEDOLIBARRSERVER') || defined('USEDOLIBARREDITOR')) {
+		if (defined('USEOnLiSERVER') || defined('USEOnLiEDITOR')) {
 			$image_path = DOL_URL_ROOT.'/viewimage.php?modulepart=common&file=nophoto.png';
 		} else {
 			$image_path = '/wrapper.php?modulepart=common&file=nophoto.png';
@@ -1189,7 +1189,7 @@ function getPublicFilesOfObject($object)
 				if (!empty($obj->share)) {
 					$files[$obj->rowid]['filename'] = $obj->filename;
 					$files[$obj->rowid]['position'] = $obj->position;
-					if (defined('USEDOLIBARRSERVER') || defined('USEDOLIBARREDITOR')) {
+					if (defined('USEOnLiSERVER') || defined('USEOnLiEDITOR')) {
 						if (preg_match($regexforimg, $obj->filename)) {
 							$files[$obj->rowid]['url'] = DOL_URL_ROOT.'/viewimage.php?hashp='.urlencode($obj->share);
 						} else {

@@ -253,17 +253,17 @@ class Ldap
 	/**
 	 * @var int No LDAP synchronization
 	 */
-	const SYNCHRO_NONE = 0;
+	const SYNCHRO_NONE = 0; // No synchronisation
 
 	/**
 	 * @var int OnLi to LDAP synchronization
 	 */
-	const SYNCHRO_DOLIBARR_TO_LDAP = 1;
+	const SYNCHRO_ONLI_TO_LDAP = 1; // Synchronize OnLi users to LDAP
 
 	/**
 	 * @var int LDAP to OnLi synchronization
 	 */
-	const SYNCHRO_LDAP_TO_DOLIBARR = 2;
+	const SYNCHRO_LDAP_TO_ONLI = 2; // Synchronize LDAP users to OnLi
 
 	/**
 	 *  Constructor

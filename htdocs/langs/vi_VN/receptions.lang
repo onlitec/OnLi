@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Quản lý lễ tân nhà cung cấp (Tạo hồ sơ tiếp tân)
 ReceptionsSetup=Thiết lập lễ tân nhà cung cấp
 RefReception=Tham chiếu tiếp nhận
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Mô-đun đánh số cho tiếp nhận
 ReceptionsReceiptModel=Mẫu tài liệu cho tiếp nhận
 NoMorePredefinedProductToDispatch=Không còn sản phẩm được xác định trước để gửi đi
 ReceptionExist=Có sự tiếp nhận
-ReceptionBackToDraftInDolibarr=Tiếp nhận %s quay lại bản nháp
-ReceptionClassifyClosedInDolibarr=Lễ tân %s được phân loại Đã đóng
-ReceptionUnClassifyCloseddInDolibarr=Lễ tân %s mở lại
+ReceptionBackToDraftInOnLi=Tiếp nhận %s quay lại bản nháp
+ReceptionClassifyClosedInOnLi=Lễ tân %s được phân loại Đã đóng
+ReceptionUnClassifyCloseddInOnLi=Lễ tân %s mở lại
 RestoreWithCurrentQtySaved=Điền số lượng với các giá trị đã lưu mới nhất
 ReceptionsRecorded=Lễ tân được ghi lại
 ReceptionUpdated=Lễ tân đã cập nhật thành công

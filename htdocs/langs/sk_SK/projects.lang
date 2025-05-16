@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Ref. projektu
 ProjectRef=Ref.
 ProjectId=ID projektu
@@ -160,12 +160,12 @@ ConfirmCloneProject=Ste si istý, že klonujete tento projekt?
 ProjectReportDate=Zmeňte dátumy úloh podľa nového dátumu začiatku projektu
 ErrorShiftTaskDate=Nemožno presunúť úloha termín podľa nový dátum začatia projektu
 ProjectsAndTasksLines=Projekty a úlohy
-ProjectCreatedInDolibarr=Projekt vytvoril %s
-ProjectValidatedInDolibarr=Projekt %s overený
-ProjectModifiedInDolibarr=Projekt %s upravený
-TaskCreatedInDolibarr=Úloha %s vytvorená
-TaskModifiedInDolibarr=Úloha %s upravená
-TaskDeletedInDolibarr=Úloha %s bola odstránená
+ProjectCreatedInOnLi=Projekt vytvoril %s
+ProjectValidatedInOnLi=Projekt %s overený
+ProjectModifiedInOnLi=Projekt %s upravený
+TaskCreatedInOnLi=Úloha %s vytvorená
+TaskModifiedInOnLi=Úloha %s upravená
+TaskDeletedInOnLi=Úloha %s bola odstránená
 OpportunityStatus=Stav potenciálneho zákazníka
 OpportunityStatusShort=Stav potenciálneho zákazníka
 OpportunityProbability=Pravdepodobnosť olova

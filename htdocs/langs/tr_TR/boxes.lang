@@ -1,5 +1,5 @@
-# Dolibarr language file - Source file is en_US - boxes
-BoxDolibarrStateBoard=Veritabanındaki ana iş nesnelerine ilişkin istatistikler
+# OnLi language file - Source file is en_US - boxes
+BoxOnLiStateBoard=Veritabanındaki ana iş nesnelerine ilişkin istatistikler
 BoxLoginInformation=Oturum açma bilgileri
 BoxLastRssInfos=RSS Bilgisi
 BoxLastProducts=Son %s Ürün/Hizmet

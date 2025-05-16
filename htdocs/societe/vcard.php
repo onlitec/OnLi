@@ -59,7 +59,7 @@ if ($result <= 0) {
 $v = new vCard();
 $v->setProdId('OnLi '.DOL_VERSION);
 
-$v->setUid('DOLIBARR-THIRDPARTYID-'.$company->id);
+$v->setUid('OnLi-THIRDPARTYID-'.$company->id);
 
 
 // Data from company

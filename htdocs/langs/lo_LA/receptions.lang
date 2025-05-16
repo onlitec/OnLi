@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=ການຄຸ້ມຄອງການຕ້ອນຮັບຜູ້ຂາຍ (ສ້າງເອກະສານການຕ້ອນຮັບ)
 ReceptionsSetup=ການຕັ້ງຄ່າການຕ້ອນຮັບຜູ້ຂາຍ
 RefReception=ອ້າງອີງ ການຕ້ອນຮັບ
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=ໂມດູນຕົວເລກ ສຳ ລັບກ
 ReceptionsReceiptModel=ແມ່ແບບເອກະສານສໍາລັບການຮັບ
 NoMorePredefinedProductToDispatch=ບໍ່ມີຜະລິດຕະພັນທີ່ ກຳ ນົດໄວ້ລ່ວງ ໜ້າ ຫຼາຍກວ່າທີ່ຈະສົ່ງ
 ReceptionExist=ມີການຕ້ອນຮັບຢູ່
-ReceptionBackToDraftInDolibarr=ການຮັບ %s ກັບໄປສະບັບຮ່າງ
-ReceptionClassifyClosedInDolibarr=ການຕ້ອນຮັບ %s ຈັດປະເພດປິດ
-ReceptionUnClassifyCloseddInDolibarr=ການຕ້ອນຮັບ %s ເປີດຄືນໃໝ່
+ReceptionBackToDraftInOnLi=ການຮັບ %s ກັບໄປສະບັບຮ່າງ
+ReceptionClassifyClosedInOnLi=ການຕ້ອນຮັບ %s ຈັດປະເພດປິດ
+ReceptionUnClassifyCloseddInOnLi=ການຕ້ອນຮັບ %s ເປີດຄືນໃໝ່
 RestoreWithCurrentQtySaved=ຕື່ມຂໍ້ມູນໃສ່ປະລິມານທີ່ມີຄ່າທີ່ບັນທຶກໄວ້ຫຼ້າສຸດ
 ReceptionsRecorded=ບັນທຶກການຕ້ອນຮັບ
 ReceptionUpdated=ອັບເດດການຮັບສຳເລັດແລ້ວ

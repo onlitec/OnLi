@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervention
 Interventions=Interventions
 InterventionCard=Intervention card
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=Submission of intervention %s
 SendInterventionByMail=Send intervention by email
-InterventionCreatedInDolibarr=Intervention %s created
-InterventionValidatedInDolibarr=Intervention %s validated
-InterventionSignedInDolibarr=Intervention signed
+InterventionCreatedInOnLi=Intervention %s created
+InterventionValidatedInOnLi=Intervention %s validated
+InterventionSignedInOnLi=Intervention signed
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=Intervention %s modified
-InterventionClassifiedBilledInDolibarr=Intervention %s set as billed
-InterventionClassifiedUnbilledInDolibarr=Intervention %s set as unbilled
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=Intervention %s modified
+InterventionClassifiedBilledInOnLi=Intervention %s set as billed
+InterventionClassifiedUnbilledInOnLi=Intervention %s set as unbilled
 InterventionSentByEMail=Intervention %s sent by email
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=Intervention %s deleted
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=Intervention %s deleted
 InterventionsArea=Interventions area
 DraftFichinter=Draft interventions
 LastModifiedInterventions=Latest %s modified interventions

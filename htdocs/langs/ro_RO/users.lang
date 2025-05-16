@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - users
+# OnLi language file - Source file is en_US - users
 HRMArea=HRM 
 UserCard=Fişă utilizator 
 GroupCard=Fişă grup
@@ -36,7 +36,7 @@ SuperAdministrator=Administrator multicompanie
 SuperAdministratorDesc=Administrator de sistem multicompanie (poate modifica configurări și utilizatori)
 DefaultRights=Permisiuni implicite
 DefaultRightsDesc=Definiți aici permisiunile <u>implicite</u> care sunt acordate automat unui utilizator <u>nou</u> (pentru a modifica permisiunile pentru utilizatorii existenți, accesați fişa utilizatorului).
-DolibarrUsers=Utilizatori sistem
+OnLiUsers=Utilizatori sistem
 LastName=Nume
 FirstName=Prenume
 ListOfGroups=Listă grupuri
@@ -60,13 +60,13 @@ PhotoFile=Fişier foto
 ListOfUsersInGroup=Listă utilizatori în acest grup
 ListOfGroupsForUser=Listă grupuri pentru acest utilizator
 LinkToCompanyContact=Link către un terţ/contact
-LinkedToDolibarrMember=Asociază la membru
-LinkedToDolibarrUser=Asociere la utilizator
-LinkedToDolibarrThirdParty=Asociere la terţ
-CreateDolibarrLogin=Creare utilizator
-CreateDolibarrThirdParty=Creare terţ
-LoginAccountDisableInDolibarr=Cont dezactivat în Dolibarr
-PASSWORDInDolibarr=Parolă modificată în Dolibarr
+LinkedToOnLiMember=Asociază la membru
+LinkedToOnLiUser=Asociere la utilizator
+LinkedToOnLiThirdParty=Asociere la terţ
+CreateOnLiLogin=Creare utilizator
+CreateOnLiThirdParty=Creare terţ
+LoginAccountDisableInOnLi=Cont dezactivat în OnLi
+PASSWORDInOnLi=Parolă modificată în OnLi
 UsePersonalValue=Utilizare setări personalizate
 ExportDataset_user_1=Utilizatori și proprietățile acestora
 DomainUser=Utilizator de domeniu %s

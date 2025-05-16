@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=İxrac
 ImportArea=İdxal
 NewExport=Yeni İxrac
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=İdxal fayl formatı kimi istifadə ediləcək fayl f
 ChooseFileToImport=Faylı yükləyin, sonra faylı mənbə idxal faylı kimi seçmək üçün %s ikonasına klikləyin...
 SourceFileFormat=Mənbə fayl formatı
 FieldsInSourceFile=Mənbə faylındakı sahələr
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=Sahə yoxdur
 MoveField=Sahənin sütun nömrəsini köçürün %s
 ExampleOfImportFile=İdxal_faylının_nümunəsi

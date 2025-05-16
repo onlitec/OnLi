@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=ማጣቀሻ. ፕሮጀክት
 ProjectRef=የፕሮጀክት ማጣቀሻ.
 ProjectId=የፕሮጀክት መታወቂያ
@@ -160,12 +160,12 @@ ConfirmCloneProject=ይህን ፕሮጀክት ለመዝጋት እርግጠኛ �
 ProjectReportDate=በአዲሱ የፕሮጀክት መጀመሪያ ቀን መሠረት የተግባር ቀናትን ይለውጡ
 ErrorShiftTaskDate=በአዲሱ የፕሮጀክት መጀመሪያ ቀን መሰረት የተግባር ቀንን መቀየር አይቻልም
 ProjectsAndTasksLines=ፕሮጀክቶች እና ተግባራት
-ProjectCreatedInDolibarr=ፕሮጀክት %s ተፈጥሯል
-ProjectValidatedInDolibarr=ፕሮጀክት %s ተረጋግጧል
-ProjectModifiedInDolibarr=ፕሮጀክት %s ተቀይሯል
-TaskCreatedInDolibarr=ተግባር %s ተፈጥሯል
-TaskModifiedInDolibarr=ተግባር %s ተቀይሯል
-TaskDeletedInDolibarr=ተግባር %s ተሰርዟል
+ProjectCreatedInOnLi=ፕሮጀክት %s ተፈጥሯል
+ProjectValidatedInOnLi=ፕሮጀክት %s ተረጋግጧል
+ProjectModifiedInOnLi=ፕሮጀክት %s ተቀይሯል
+TaskCreatedInOnLi=ተግባር %s ተፈጥሯል
+TaskModifiedInOnLi=ተግባር %s ተቀይሯል
+TaskDeletedInOnLi=ተግባር %s ተሰርዟል
 OpportunityStatus=የመሪነት ሁኔታ
 OpportunityStatusShort=የመሪነት ሁኔታ
 OpportunityProbability=የመሪነት ዕድል

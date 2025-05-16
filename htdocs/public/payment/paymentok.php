@@ -2189,7 +2189,7 @@ if (!empty($doactionsthenredirect)) {
 		$_SESSION['paymentoksessioncode'] = $randomseckey;		// key between paymentok.php to another page like a paymentok of the website.
 
 		// Paymentok page must be created for the specific website
-		if (!defined('USEDOLIBARRSERVER') && !empty($ws_virtuelhost)) {
+		if (!defined('USEONLISERVER') && !empty($ws_virtuelhost)) {
 			$ext_urlok = $ws_virtuelhost . '/paymentok.php?paymentoksessioncode='.urlencode($randomseckey).'&fulltag='.$FULLTAG;
 		} else {
 			$ext_urlok = DOL_URL_ROOT.'/public/website/index.php?paymentoksessioncode='.urlencode($randomseckey).'&website='.urlencode($ws).'&pageref=paymentok&fulltag='.$FULLTAG;
@@ -2204,7 +2204,7 @@ if (!empty($doactionsthenredirect)) {
 		$_SESSION['paymentkosessioncode'] = $randomseckey;		// key between paymentok.php to another page like a paymentko of the website.
 
 		// Paymentko page must be created for the specific website
-		if (!defined('USEDOLIBARRSERVER') && !empty($ws_virtuelhost)) {
+		if (!defined('USEONLISERVER') && !empty($ws_virtuelhost)) {
 			$ext_urlko = $ws_virtuelhost . '/paymentko.php?paymentkosessioncode='.urlencode($randomseckey).'&fulltag='.$FULLTAG;
 		} else {
 			$ext_urlko = DOL_URL_ROOT.'/public/website/index.php?paymentkosessioncode='.urlencode($randomseckey).'&website='.urlencode($ws).'&pageref=paymentko&fulltag='.$FULLTAG;

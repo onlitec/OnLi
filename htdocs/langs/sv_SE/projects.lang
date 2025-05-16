@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Ref. projekt
 ProjectRef=Projektref.
 ProjectId=Projekt ID
@@ -160,12 +160,12 @@ ConfirmCloneProject=Är du säker på att klona det här projektet?
 ProjectReportDate=Ändra uppgiftsdatum enligt nytt projekt startdatum
 ErrorShiftTaskDate=Omöjligt att flytta datum på uppgiften enligt nytt projekt startdatum
 ProjectsAndTasksLines=Projekt och uppdrag
-ProjectCreatedInDolibarr=Projekt %s skapad
-ProjectValidatedInDolibarr=Projekt %s bekräftat
-ProjectModifiedInDolibarr=Projekt %s modified
-TaskCreatedInDolibarr=Uppgift %s skapad
-TaskModifiedInDolibarr=Uppgift %s modifierade
-TaskDeletedInDolibarr=Uppgift %s raderad
+ProjectCreatedInOnLi=Projekt %s skapad
+ProjectValidatedInOnLi=Projekt %s bekräftat
+ProjectModifiedInOnLi=Projekt %s modified
+TaskCreatedInOnLi=Uppgift %s skapad
+TaskModifiedInOnLi=Uppgift %s modifierade
+TaskDeletedInOnLi=Uppgift %s raderad
 OpportunityStatus=Ledningsstatus
 OpportunityStatusShort=Ledningsstatus
 OpportunityProbability=Ledsannolikhet

@@ -466,7 +466,7 @@ class RemiseCheque extends CommonObject
 				$classname = "mod_chequereceipt_" . getDolGlobalString('CHEQUERECEIPTS_ADDON');
 				$classname = preg_replace('/\-.*$/', '', $classname);
 				// Include file with class
-				foreach ($conf->file->dol_document_root as $dirroot) {
+				foreach ($conf->file->onli_document_root as $dirroot) {
 					$dir = $dirroot."/core/modules/cheque/";
 
 					// Load file with numbering class (if found)

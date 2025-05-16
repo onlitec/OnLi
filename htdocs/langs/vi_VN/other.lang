@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Mã bảo vệ
 NumberingShort=N°
 Tools=Công cụ
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Bạn có thể nhấp vào liên kết bên dưới để thực hiện thanh toán nếu chưa được thực hiện.\n\n %s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Lời nhắc sự kiện "__EVENT_LABEL__" vào __EVENT_DATE__ lúc __EVENT_TIME__<br><br>Đây là tin nhắn tự động, vui lòng không trả lời.
-DemoDesc=Dolibarr là một ERP / CRM nhỏ gọn hỗ trợ một số mô-đun kinh doanh. Một bản demo giới thiệu tất cả các mô-đun không có ý nghĩa vì kịch bản này không bao giờ xảy ra (có sẵn hàng trăm). Vì vậy, một số hồ sơ demo là có sẵn.
+DemoDesc=OnLi là một ERP / CRM nhỏ gọn hỗ trợ một số mô-đun kinh doanh. Một bản demo giới thiệu tất cả các mô-đun không có ý nghĩa vì kịch bản này không bao giờ xảy ra (có sẵn hàng trăm). Vì vậy, một số hồ sơ demo là có sẵn.
 ChooseYourDemoProfil=Chọn hồ sơ demo phù hợp nhất với nhu cầu của bạn ...
 ChooseYourDemoProfilMore=... hoặc xây dựng hồ sơ của riêng bạn <br> (lựa chọn mô-đun thủ công)
 DemoFundation=Quản lý thành viên của một nền tảng
@@ -192,10 +192,10 @@ BugTracker=Theo dõi lỗi
 SendNewPasswordDesc=Hình thức này cho phép bạn yêu cầu một mật khẩu mới. Nó sẽ được gửi đến địa chỉ email của bạn. <br> Thay đổi sẽ có hiệu lực khi bạn nhấp vào liên kết xác nhận trong email. <br> Kiểm tra hộp thư của bạn.
 EnterNewPasswordHere=Nhập mật khẩu mới của bạn vào đây
 BackToLoginPage=Trở lại trang đăng nhập
-AuthenticationDoesNotAllowSendNewPassword=Chế độ xác thực <b>là% s.</b> <br> Trong chế độ này, Dolibarr không thể biết và cũng không thay đổi mật khẩu của bạn. <br> Liên hệ quản trị hệ thống của bạn nếu bạn muốn thay đổi mật khẩu của bạn.
+AuthenticationDoesNotAllowSendNewPassword=Chế độ xác thực <b>là% s.</b> <br> Trong chế độ này, OnLi không thể biết và cũng không thay đổi mật khẩu của bạn. <br> Liên hệ quản trị hệ thống của bạn nếu bạn muốn thay đổi mật khẩu của bạn.
 EnableGDLibraryDesc=Cài đặt hoặc kích hoạt thư viện GD trên bản cài đặt PHP của bạn để sử dụng tùy chọn này.
 ProfIdShortDesc=<b>Id Giáo sư% s</b> là một thông tin phụ thuộc vào quốc gia của bên thứ ba. <br> Ví dụ, đối với đất <b>nước% s,</b> đó là <b>mã% s.</b>
-DolibarrDemo=Giới thiệu Dolibarr ERP / CRM
+OnLiDemo=Giới thiệu OnLi ERP / CRM
 StatsByAmount=Thống kê số lượng sản phẩm/dịch vụ
 StatsByAmountProducts=Thống kê số lượng sản phẩm
 StatsByAmountServices=Thống kê số lượng dịch vụ
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=Yêu cầu nghỉ phép %s đã được xác nhận.
 EMailTextHolidayApproved=Yêu cầu nghỉ phép %s đã được phê duyệt.
 EMailTextActionAdded=Hành động %s đã được thêm vào Chương trình làm việc.
 ImportedWithSet=Thiết lập nhập dữ liệu
-DolibarrNotification=Thông báo tự động
+OnLiNotification=Thông báo tự động
 ResizeDesc=Nhập chiều rộng mới <b>HOẶC</b> chiều cao mới. Tỷ lệ sẽ được giữ trong khi thay đổi kích thước ...
 NewLength=Chiều rộng mới
 NewHeight=Chiều cao mới

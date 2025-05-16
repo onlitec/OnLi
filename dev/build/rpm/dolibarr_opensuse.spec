@@ -6,7 +6,7 @@
 # edit it if you need to match your rules.
 # --------------------------------------------------------
 
-Name: dolibarr
+Name: OnLi
 Version: __VERSION__
 Release: __RELEASE__
 Summary: ERP and CRM software for small and medium companies or foundations
@@ -16,10 +16,10 @@ Summary(it): Programmo gestionale per piccole imprese, fondazioni e liberi profe
 
 License: GPL-3.0+
 #Packager: Laurent Destailleur (Eldy) <eldy@users.sourceforge.net>
-Vendor: Dolibarr dev team
+Vendor: OnLi dev team
 
-URL: https://www.dolibarr.org
-Source0: https://www.dolibarr.org/files/lastbuild/package_rpm_opensuse/%{name}-%{version}.tgz
+URL: https://www.OnLi.org
+Source0: https://www.OnLi.org/files/lastbuild/package_rpm_opensuse/%{name}-%{version}.tgz
 Patch0: %{name}-forrpm.patch
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
@@ -40,7 +40,7 @@ An easy to use CRM & ERP open source/free software package for small
 and medium companies, foundations or freelances. It includes different
 features for Enterprise Resource Planning (ERP) and Customer Relationship
 Management (CRM) but also for different other activities.
-Dolibarr was designed to provide only features you need and be easy to
+OnLi was designed to provide only features you need and be easy to
 use.
 
 %description -l es
@@ -48,7 +48,7 @@ Un software ERP y CRM para pequeñas y medianas empresas, asociaciones
 o autónomos. Incluye diferentes funcionalidades para la Planificación
 de Recursos Empresariales (ERP) y Gestión de la Relación con los
 Clientes (CRM) así como para para otras diferentes actividades.
-Dolibarr ha sido diseñado para suministrarle solamente las funcionalidades
+OnLi ha sido diseñado para suministrarle solamente las funcionalidades
 que necesita y haciendo hincapié en su facilidad de uso.
 
 %description -l fr
@@ -84,15 +84,15 @@ cui hai bisogno ed essere facile da usare.
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 %{__install} -m 644 dev/build/rpm/conf.php $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/conf.php
-%{__install} -m 644 dev/build/rpm/httpd-dolibarr.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/apache.conf
-%{__install} -m 644 dev/build/rpm/file_contexts.dolibarr $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/file_contexts.dolibarr
+%{__install} -m 644 dev/build/rpm/httpd-OnLi.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/apache.conf
+%{__install} -m 644 dev/build/rpm/file_contexts.OnLi $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/file_contexts.OnLi
 %{__install} -m 644 dev/build/rpm/install.forced.php.opensuse $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/install.forced.php
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/pixmaps
 %{__install} -m 644 doc/images/appicon_64.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/%{name}.png
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/applications
 #desktop-file-install --delete-original --dir=$RPM_BUILD_ROOT%{_datadir}/applications dev/build/rpm/%{name}.desktop
-%{__install} -m 644 dev/build/rpm/dolibarr.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
+%{__install} -m 644 dev/build/rpm/OnLi.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/%{name}/dev/build/rpm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/%{name}/dev/build/tgz
@@ -124,7 +124,7 @@ done >>%{name}.lang
 %if 0%{?suse_version}
 
 # Enable this command to tag desktop file for suse
-%suse_update_desktop_file dolibarr
+%suse_update_desktop_file OnLi
 
 # Enable this command to allow suse detection of duplicate files and create hardlinks instead
 %fdupes $RPM_BUILD_ROOT%{_datadir}/%{name}/htdocs
@@ -143,132 +143,132 @@ done >>%{name}.lang
 
 %defattr(0755, root, root, 0755)
 
-%dir %_datadir/dolibarr
+%dir %_datadir/OnLi
 
-%dir %_datadir/dolibarr/scripts
-%_datadir/dolibarr/scripts/*
+%dir %_datadir/OnLi/scripts
+%_datadir/OnLi/scripts/*
 
 %defattr(-, root, root, 0755)
 %doc COPYING ChangeLog doc/index.html htdocs/langs/HOWTO-Translation.txt
 
-%_datadir/pixmaps/dolibarr.png
-%_datadir/applications/dolibarr.desktop
+%_datadir/pixmaps/OnLi.png
+%_datadir/applications/OnLi.desktop
 
-%dir %_datadir/dolibarr/dev/build
+%dir %_datadir/OnLi/dev/build
 
-%dir %_datadir/dolibarr/dev/build/rpm
-%_datadir/dolibarr/dev/build/rpm/*
+%dir %_datadir/OnLi/dev/build/rpm
+%_datadir/OnLi/dev/build/rpm/*
 
-%dir %_datadir/dolibarr/dev/build/tgz
-%_datadir/dolibarr/dev/build/tgz/*
+%dir %_datadir/OnLi/dev/build/tgz
+%_datadir/OnLi/dev/build/tgz/*
 
-%dir %_datadir/dolibarr/htdocs
-%_datadir/dolibarr/htdocs/accountancy
-%_datadir/dolibarr/htdocs/adherents
-%_datadir/dolibarr/htdocs/admin
-%_datadir/dolibarr/htdocs/ai
-%_datadir/dolibarr/htdocs/api
-%_datadir/dolibarr/htdocs/asset
-%_datadir/dolibarr/htdocs/asterisk
-%_datadir/dolibarr/htdocs/barcode
-%_datadir/dolibarr/htdocs/blockedlog
-%_datadir/dolibarr/htdocs/bookmarks
-%_datadir/dolibarr/htdocs/bookcal
-%_datadir/dolibarr/htdocs/bom
-%_datadir/dolibarr/htdocs/categories
-%_datadir/dolibarr/htdocs/collab
-%_datadir/dolibarr/htdocs/comm
-%_datadir/dolibarr/htdocs/commande
-%_datadir/dolibarr/htdocs/compta
-%_datadir/dolibarr/htdocs/conf
-%_datadir/dolibarr/htdocs/contact
-%_datadir/dolibarr/htdocs/contrat
-%_datadir/dolibarr/htdocs/core
-%_datadir/dolibarr/htdocs/cron
-%_datadir/dolibarr/htdocs/custom
-%_datadir/dolibarr/htdocs/datapolicy
-%_datadir/dolibarr/htdocs/dav
-%_datadir/dolibarr/htdocs/debugbar
-%_datadir/dolibarr/htdocs/delivery
-%_datadir/dolibarr/htdocs/don
-%_datadir/dolibarr/htdocs/ecm
-%_datadir/dolibarr/htdocs/emailcollector
-%_datadir/dolibarr/htdocs/eventorganization
-%_datadir/dolibarr/htdocs/expedition
-%_datadir/dolibarr/htdocs/expensereport
-%_datadir/dolibarr/htdocs/exports
-%_datadir/dolibarr/htdocs/externalsite
-%_datadir/dolibarr/htdocs/fichinter
-%_datadir/dolibarr/htdocs/fourn
-%_datadir/dolibarr/htdocs/ftp
-%_datadir/dolibarr/htdocs/holiday
-%_datadir/dolibarr/htdocs/hrm
-%_datadir/dolibarr/htdocs/imports
-%_datadir/dolibarr/htdocs/includes
-%_datadir/dolibarr/htdocs/install
-%_datadir/dolibarr/htdocs/intracommreport
-%_datadir/dolibarr/htdocs/knowledgemanagement
-%_datadir/dolibarr/htdocs/langs/HOWTO-Translation.txt
-%_datadir/dolibarr/htdocs/loan
-%_datadir/dolibarr/htdocs/mailmanspip
-%_datadir/dolibarr/htdocs/margin
-%_datadir/dolibarr/htdocs/modulebuilder
-%_datadir/dolibarr/htdocs/mrp
-%_datadir/dolibarr/htdocs/multicurrency
-%_datadir/dolibarr/htdocs/opensurvey
-%_datadir/dolibarr/htdocs/partnership
-%_datadir/dolibarr/htdocs/paybox
-%_datadir/dolibarr/htdocs/paypal
-%_datadir/dolibarr/htdocs/printing
-%_datadir/dolibarr/htdocs/product
-%_datadir/dolibarr/htdocs/projet
-%_datadir/dolibarr/htdocs/public
-%_datadir/dolibarr/htdocs/recruitment
-%_datadir/dolibarr/htdocs/reception
-%_datadir/dolibarr/htdocs/resource
-%_datadir/dolibarr/htdocs/salaries
-%_datadir/dolibarr/htdocs/societe
-%_datadir/dolibarr/htdocs/stripe
-%_datadir/dolibarr/htdocs/supplier_proposal
-%_datadir/dolibarr/htdocs/support
-%_datadir/dolibarr/htdocs/theme
-%_datadir/dolibarr/htdocs/takepos
-%_datadir/dolibarr/htdocs/ticket
-%_datadir/dolibarr/htdocs/user
-%_datadir/dolibarr/htdocs/variants
-%_datadir/dolibarr/htdocs/webhook
-%_datadir/dolibarr/htdocs/webportal
-%_datadir/dolibarr/htdocs/webservices
-%_datadir/dolibarr/htdocs/website
-%_datadir/dolibarr/htdocs/workstation
-%_datadir/dolibarr/htdocs/zapier
-%_datadir/dolibarr/htdocs/*.ico
-%_datadir/dolibarr/htdocs/*.patch
-%_datadir/dolibarr/htdocs/*.php
-%_datadir/dolibarr/htdocs/*.txt
+%dir %_datadir/OnLi/htdocs
+%_datadir/OnLi/htdocs/accountancy
+%_datadir/OnLi/htdocs/adherents
+%_datadir/OnLi/htdocs/admin
+%_datadir/OnLi/htdocs/ai
+%_datadir/OnLi/htdocs/api
+%_datadir/OnLi/htdocs/asset
+%_datadir/OnLi/htdocs/asterisk
+%_datadir/OnLi/htdocs/barcode
+%_datadir/OnLi/htdocs/blockedlog
+%_datadir/OnLi/htdocs/bookmarks
+%_datadir/OnLi/htdocs/bookcal
+%_datadir/OnLi/htdocs/bom
+%_datadir/OnLi/htdocs/categories
+%_datadir/OnLi/htdocs/collab
+%_datadir/OnLi/htdocs/comm
+%_datadir/OnLi/htdocs/commande
+%_datadir/OnLi/htdocs/compta
+%_datadir/OnLi/htdocs/conf
+%_datadir/OnLi/htdocs/contact
+%_datadir/OnLi/htdocs/contrat
+%_datadir/OnLi/htdocs/core
+%_datadir/OnLi/htdocs/cron
+%_datadir/OnLi/htdocs/custom
+%_datadir/OnLi/htdocs/datapolicy
+%_datadir/OnLi/htdocs/dav
+%_datadir/OnLi/htdocs/debugbar
+%_datadir/OnLi/htdocs/delivery
+%_datadir/OnLi/htdocs/don
+%_datadir/OnLi/htdocs/ecm
+%_datadir/OnLi/htdocs/emailcollector
+%_datadir/OnLi/htdocs/eventorganization
+%_datadir/OnLi/htdocs/expedition
+%_datadir/OnLi/htdocs/expensereport
+%_datadir/OnLi/htdocs/exports
+%_datadir/OnLi/htdocs/externalsite
+%_datadir/OnLi/htdocs/fichinter
+%_datadir/OnLi/htdocs/fourn
+%_datadir/OnLi/htdocs/ftp
+%_datadir/OnLi/htdocs/holiday
+%_datadir/OnLi/htdocs/hrm
+%_datadir/OnLi/htdocs/imports
+%_datadir/OnLi/htdocs/includes
+%_datadir/OnLi/htdocs/install
+%_datadir/OnLi/htdocs/intracommreport
+%_datadir/OnLi/htdocs/knowledgemanagement
+%_datadir/OnLi/htdocs/langs/HOWTO-Translation.txt
+%_datadir/OnLi/htdocs/loan
+%_datadir/OnLi/htdocs/mailmanspip
+%_datadir/OnLi/htdocs/margin
+%_datadir/OnLi/htdocs/modulebuilder
+%_datadir/OnLi/htdocs/mrp
+%_datadir/OnLi/htdocs/multicurrency
+%_datadir/OnLi/htdocs/opensurvey
+%_datadir/OnLi/htdocs/partnership
+%_datadir/OnLi/htdocs/paybox
+%_datadir/OnLi/htdocs/paypal
+%_datadir/OnLi/htdocs/printing
+%_datadir/OnLi/htdocs/product
+%_datadir/OnLi/htdocs/projet
+%_datadir/OnLi/htdocs/public
+%_datadir/OnLi/htdocs/recruitment
+%_datadir/OnLi/htdocs/reception
+%_datadir/OnLi/htdocs/resource
+%_datadir/OnLi/htdocs/salaries
+%_datadir/OnLi/htdocs/societe
+%_datadir/OnLi/htdocs/stripe
+%_datadir/OnLi/htdocs/supplier_proposal
+%_datadir/OnLi/htdocs/support
+%_datadir/OnLi/htdocs/theme
+%_datadir/OnLi/htdocs/takepos
+%_datadir/OnLi/htdocs/ticket
+%_datadir/OnLi/htdocs/user
+%_datadir/OnLi/htdocs/variants
+%_datadir/OnLi/htdocs/webhook
+%_datadir/OnLi/htdocs/webportal
+%_datadir/OnLi/htdocs/webservices
+%_datadir/OnLi/htdocs/website
+%_datadir/OnLi/htdocs/workstation
+%_datadir/OnLi/htdocs/zapier
+%_datadir/OnLi/htdocs/*.ico
+%_datadir/OnLi/htdocs/*.patch
+%_datadir/OnLi/htdocs/*.php
+%_datadir/OnLi/htdocs/*.txt
 
-%dir %{_sysconfdir}/dolibarr
+%dir %{_sysconfdir}/OnLi
 
 %defattr(0664, root, www)
-%config(noreplace) %{_sysconfdir}/dolibarr/conf.php
-%config(noreplace) %{_sysconfdir}/dolibarr/apache.conf
-%config(noreplace) %{_sysconfdir}/dolibarr/install.forced.php
-%config(noreplace) %{_sysconfdir}/dolibarr/file_contexts.dolibarr
+%config(noreplace) %{_sysconfdir}/OnLi/conf.php
+%config(noreplace) %{_sysconfdir}/OnLi/apache.conf
+%config(noreplace) %{_sysconfdir}/OnLi/install.forced.php
+%config(noreplace) %{_sysconfdir}/OnLi/file_contexts.OnLi
 
 
 
 #---- post (after unzip during install)
 %post
 
-echo Run post script of packager dolibarr_opensuse.spec
+echo Run post script of packager OnLi_opensuse.spec
 
 # Define vars
-export docdir="/var/lib/dolibarr/documents"
-export apachelink="%{_sysconfdir}/apache2/conf.d/dolibarr.conf"
+export docdir="/var/lib/OnLi/documents"
+export apachelink="%{_sysconfdir}/apache2/conf.d/OnLi.conf"
 export apacheuser='wwwrun';
 export apachegroup='www';
 
-# Remove dolibarr install/upgrade lock file if it exists
+# Remove OnLi install/upgrade lock file if it exists
 %{__rm} -f $docdir/install.lock
 
 # Create empty directory for uploaded files and generated documents
@@ -276,40 +276,40 @@ echo Create document directory $docdir
 %{__mkdir} -p $docdir
 
 # Set correct owner on config files
-%{__chown} -R root:$apachegroup /etc/dolibarr/*
+%{__chown} -R root:$apachegroup /etc/OnLi/*
 
 # If a conf already exists and its content was already completed by installer
-export config=%{_sysconfdir}/dolibarr/conf.php
+export config=%{_sysconfdir}/OnLi/conf.php
 if [ -s $config ] && grep -q "File generated by" $config
 then
   # File already exist. We add params not found.
   echo Add new params to overwrite path to use shared libraries/fonts
-  grep -q -c "dolibarr_lib_FPDI_PATH" $config      || [ ! -d "/usr/share/php/fpdi" ]   || echo "<?php \$dolibarr_lib_FPDI_PATH='/usr/share/php/fpdi'; ?>" >> $config
-  #grep -q -c "dolibarr_lib_GEOIP_PATH" $config    || echo "<?php \$dolibarr_lib_GEOIP_PATH=''; ?>" >> $config
-  grep -q -c "dolibarr_lib_NUSOAP_PATH" $config    || [ ! -d "/usr/share/php/nusoap" ] || echo "<?php \$dolibarr_lib_NUSOAP_PATH='/usr/share/php/nusoap'; ?>" >> $config
-  grep -q -c "dolibarr_lib_ODTPHP_PATHTOPCLZIP" $config || [ ! -d "/usr/share/php/libphp-pclzip" ]  || echo "<?php \$dolibarr_lib_ODTPHP_PATHTOPCLZIP='/usr/share/php/libphp-pclzip'; ?>" >> $config
-  #grep -q -c "dolibarr_lib_TCPDF_PATH" $config    || echo "<?php \$dolibarr_lib_TCPDF_PATH=''; ?>" >> $config
-  grep -q -c "dolibarr_js_CKEDITOR" $config        || [ ! -d "/usr/share/javascript/ckeditor" ]  || echo "<?php \$dolibarr_js_CKEDITOR='/javascript/ckeditor'; ?>" >> $config
-  grep -q -c "dolibarr_js_JQUERY" $config          || [ ! -d "/usr/share/javascript/jquery" ]    || echo "<?php \$dolibarr_js_JQUERY='/javascript/jquery'; ?>" >> $config
-  grep -q -c "dolibarr_js_JQUERY_UI" $config       || [ ! -d "/usr/share/javascript/jquery-ui" ] || echo "<?php \$dolibarr_js_JQUERY_UI='/javascript/jquery-ui'; ?>" >> $config
-  grep -q -c "dolibarr_js_JQUERY_FLOT" $config     || [ ! -d "/usr/share/javascript/flot" ]      || echo "<?php \$dolibarr_js_JQUERY_FLOT='/javascript/flot'; ?>" >> $config
-  grep -q -c "dolibarr_font_DOL_DEFAULT_TTF_BOLD" $config || echo "<?php \$dolibarr_font_DOL_DEFAULT_TTF_BOLD='/usr/share/fonts/truetype/DejaVuSans-Bold.ttf'; ?>" >> $config
+  grep -q -c "OnLi_lib_FPDI_PATH" $config      || [ ! -d "/usr/share/php/fpdi" ]   || echo "<?php \$OnLi_lib_FPDI_PATH='/usr/share/php/fpdi'; ?>" >> $config
+  #grep -q -c "OnLi_lib_GEOIP_PATH" $config    || echo "<?php \$OnLi_lib_GEOIP_PATH=''; ?>" >> $config
+  grep -q -c "OnLi_lib_NUSOAP_PATH" $config    || [ ! -d "/usr/share/php/nusoap" ] || echo "<?php \$OnLi_lib_NUSOAP_PATH='/usr/share/php/nusoap'; ?>" >> $config
+  grep -q -c "OnLi_lib_ODTPHP_PATHTOPCLZIP" $config || [ ! -d "/usr/share/php/libphp-pclzip" ]  || echo "<?php \$OnLi_lib_ODTPHP_PATHTOPCLZIP='/usr/share/php/libphp-pclzip'; ?>" >> $config
+  #grep -q -c "OnLi_lib_TCPDF_PATH" $config    || echo "<?php \$OnLi_lib_TCPDF_PATH=''; ?>" >> $config
+  grep -q -c "OnLi_js_CKEDITOR" $config        || [ ! -d "/usr/share/javascript/ckeditor" ]  || echo "<?php \$OnLi_js_CKEDITOR='/javascript/ckeditor'; ?>" >> $config
+  grep -q -c "OnLi_js_JQUERY" $config          || [ ! -d "/usr/share/javascript/jquery" ]    || echo "<?php \$OnLi_js_JQUERY='/javascript/jquery'; ?>" >> $config
+  grep -q -c "OnLi_js_JQUERY_UI" $config       || [ ! -d "/usr/share/javascript/jquery-ui" ] || echo "<?php \$OnLi_js_JQUERY_UI='/javascript/jquery-ui'; ?>" >> $config
+  grep -q -c "OnLi_js_JQUERY_FLOT" $config     || [ ! -d "/usr/share/javascript/flot" ]      || echo "<?php \$OnLi_js_JQUERY_FLOT='/javascript/flot'; ?>" >> $config
+  grep -q -c "OnLi_font_DOL_DEFAULT_TTF_BOLD" $config || echo "<?php \$OnLi_font_DOL_DEFAULT_TTF_BOLD='/usr/share/fonts/truetype/DejaVuSans-Bold.ttf'; ?>" >> $config
 fi
 
-# Create a config link dolibarr.conf
+# Create a config link OnLi.conf
 if [ ! -L $apachelink ]; then
   apachelinkdir=`dirname $apachelink`
   if [ -d $apachelinkdir ]; then
-    echo Create dolibarr web server config link from %{_sysconfdir}/dolibarr/apache.conf to $apachelink
-    ln -fs %{_sysconfdir}/dolibarr/apache.conf $apachelink
+    echo Create OnLi web server config link from %{_sysconfdir}/OnLi/apache.conf to $apachelink
+    ln -fs %{_sysconfdir}/OnLi/apache.conf $apachelink
   else
     echo Do not create link $apachelink - web server conf dir $apachelinkdir not found. web server package may not be installed
   fi
 fi
 
-echo Set permission to $apacheuser:$apachegroup on /var/lib/dolibarr
-%{__chown} -R $apacheuser:$apachegroup /var/lib/dolibarr
-%{__chmod} -R o-w /var/lib/dolibarr
+echo Set permission to $apacheuser:$apachegroup on /var/lib/OnLi
+%{__chown} -R $apacheuser:$apachegroup /var/lib/OnLi
+%{__chmod} -R o-w /var/lib/OnLi
 
 # Restart web server
 echo Restart web server
@@ -331,12 +331,12 @@ fi
 
 # Show result
 echo
-echo "----- Dolibarr %version-%release - (c) Dolibarr dev team -----"
-echo "Dolibarr files are now installed (into /usr/share/dolibarr)."
-echo "To finish installation and use Dolibarr, click on the menu"
-echo "entry Dolibarr ERP-CRM or call the following page from your"
+echo "----- OnLi %version-%release - (c) OnLi dev team -----"
+echo "OnLi files are now installed (into /usr/share/OnLi)."
+echo "To finish installation and use OnLi, click on the menu"
+echo "entry OnLi ERP-CRM or call the following page from your"
 echo "web browser:"
-echo "http://localhost/dolibarr/"
+echo "http://localhost/OnLi/"
 echo "-------------------------------------------------------"
 echo
 
@@ -350,12 +350,12 @@ then
   echo "Removed package"
 
   # Define vars
-  export apachelink="%{_sysconfdir}/apache2/conf.d/dolibarr.conf"
+  export apachelink="%{_sysconfdir}/apache2/conf.d/OnLi.conf"
 
   # Remove apache link
   if [ -L $apachelink ] ;
   then
-    echo "Delete apache config link for Dolibarr ($apachelink)"
+    echo "Delete apache config link for OnLi ($apachelink)"
     %{__rm} -f $apachelink
     status=purge
   fi

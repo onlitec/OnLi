@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=Экспорт
 ImportArea=Импортировать
 NewExport=Новый экспорт
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=Выберите формат файла для ис�
 ChooseFileToImport=Загрузите файл, затем щелкните значок %s, чтобы выбрать файл в качестве исходного файла импорта ...
 SourceFileFormat=Формат исходного файла
 FieldsInSourceFile=Поля в исходном файле
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=Нет поля
 MoveField=Перемещение поля %s номер столбца
 ExampleOfImportFile=Пример файла импорта

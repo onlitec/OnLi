@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Your contact details have been recorded. We will get back to you soon...
 ContactUsDesc=This form allows you to send us a message for a first contact.
 ErrorCompanyNameAlreadyExists=Jina la kampuni %s tayari ipo. Chagua nyingine.
@@ -14,7 +14,7 @@ MenuNewSupplier=Muuzaji Mpya
 MenuNewPrivateIndividual=Mtu mpya wa kibinafsi
 NewCompany=Kampuni mpya (mtarajiwa, mteja, muuzaji)
 NewThirdParty=Mtu Mpya wa Tatu (mtarajiwa, mteja, muuzaji)
-CreateDolibarrThirdPartySupplier=Unda mtu wa tatu (muuzaji)
+CreateOnLiThirdPartySupplier=Unda mtu wa tatu (muuzaji)
 CreateThirdPartyOnly=Unda mtu wa tatu
 CreateThirdPartyAndContact=Unda mtu wa tatu + mawasiliano ya mtoto
 ProspectionArea=Eneo la matarajio
@@ -335,7 +335,7 @@ CapitalOf=Mtaji wa %s
 EditCompany=Badilisha kampuni
 ThisUserIsNot=Mtumiaji huyu si mtarajiwa, mteja au mchuuzi
 VATIntraCheck=Angalia
-VATIntraCheckDesc=Kitambulisho cha VAT lazima kijumuishe kiambishi awali cha nchi. Kiungo <b> %s </b>  hutumia huduma ya Ulaya ya kukagua VAT (VIES) ambayo inahitaji ufikiaji wa mtandao kutoka kwa seva ya Dolibarr.
+VATIntraCheckDesc=Kitambulisho cha VAT lazima kijumuishe kiambishi awali cha nchi. Kiungo <b> %s </b>  hutumia huduma ya Ulaya ya kukagua VAT (VIES) ambayo inahitaji ufikiaji wa mtandao kutoka kwa seva ya OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Angalia Kitambulisho cha VAT ya ndani ya Jumuiya kwenye tovuti ya Tume ya Ulaya
 VATIntraManualCheck=Unaweza pia kuangalia mwenyewe kwenye tovuti ya Tume ya Ulaya <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Matarajio kwa hali
 NoParentCompany=Hakuna
 ExportCardToFormat=Hamisha kadi kwa umbizo
 ContactNotLinkedToCompany=Anwani haijaunganishwa na wahusika wengine
-DolibarrLogin=Dolibarr kuingia
-NoDolibarrAccess=Hakuna ufikiaji wa Dolibarr
+OnLiLogin=OnLi kuingia
+NoOnLiAccess=Hakuna ufikiaji wa OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

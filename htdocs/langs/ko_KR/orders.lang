@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=해당 제안서에 관련 오픈된 주문이 있기에 다른 주문은 자동 생성되지 않았습니다
 OrdersArea=고객 주문 영역
 SuppliersOrdersArea=구매 주문 영역
@@ -129,8 +129,8 @@ ConfirmCloneOrder=해당 주문 <b>%s</b> 복사하시겠습니까?
 DispatchSupplierOrder=구매 주문 %s 수령함
 FirstApprovalAlreadyDone=첫 번째 승인 절차 완료
 SecondApprovalAlreadyDone=두 번째 승인 절차 완료
-SupplierOrderReceivedInDolibarr=구매 주문 %s 수령됨 %s
-SupplierOrderSubmitedInDolibarr=구매 주문 %s 제출됨 (%s)
+SupplierOrderReceivedInOnLi=구매 주문 %s 수령됨 %s
+SupplierOrderSubmitedInOnLi=구매 주문 %s 제출됨 (%s)
 SupplierOrderClassifiedBilled=구매 주문 %s 청구됨
 OtherOrders=다른 주문들
 SupplierOrderValidatedAndApproved=공급업체 주문 확인 및 승인 완료되었습니다 : %s

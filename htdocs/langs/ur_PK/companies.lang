@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=آپ کے رابطے کی تفصیلات ریکارڈ کر لی گئی ہیں۔ ہم جلد ہی آپ سے رابطہ کریں گے...
 ContactUsDesc=یہ فارم آپ کو پہلے رابطے کے لیے ہمیں پیغام بھیجنے کی اجازت دیتا ہے۔
 ErrorCompanyNameAlreadyExists=کمپنی کا نام %s پہلے سے موجود ہے۔ ایک اور کا انتخاب کریں۔
@@ -14,7 +14,7 @@ MenuNewSupplier=نیا فروش
 MenuNewPrivateIndividual=نیا نجی فرد
 NewCompany=نئی کمپنی (امکان، گاہک، وینڈر)
 NewThirdParty=نئی تیسری پارٹی (امکان، گاہک، وینڈر)
-CreateDolibarrThirdPartySupplier=تیسری پارٹی بنائیں (فروش)
+CreateOnLiThirdPartySupplier=تیسری پارٹی بنائیں (فروش)
 CreateThirdPartyOnly=تھرڈ پارٹی بنائیں
 CreateThirdPartyAndContact=ایک فریق ثالث + بچے کا رابطہ بنائیں
 ProspectionArea=پراسپیکشن ایریا
@@ -335,7 +335,7 @@ CapitalOf=%s کا سرمایہ
 EditCompany=کمپنی میں ترمیم کریں۔
 ThisUserIsNot=یہ صارف کوئی امکان، گاہک یا وینڈر نہیں ہے۔
 VATIntraCheck=چیک کریں۔
-VATIntraCheckDesc=VAT ID میں ملک کا سابقہ شامل ہونا چاہیے۔ لنک <b> %s </b> یورپی VAT چیکر سروس (VIES) کا استعمال کرتا ہے جسے Dolibarr سرور سے انٹرنیٹ تک رسائی کی ضرورت ہوتی ہے۔
+VATIntraCheckDesc=VAT ID میں ملک کا سابقہ شامل ہونا چاہیے۔ لنک <b> %s </b> یورپی VAT چیکر سروس (VIES) کا استعمال کرتا ہے جسے OnLi سرور سے انٹرنیٹ تک رسائی کی ضرورت ہوتی ہے۔
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=یورپی کمیشن کی ویب سائٹ پر انٹرا کمیونٹی VAT ID چیک کریں۔
 VATIntraManualCheck=آپ یورپی کمیشن کی ویب سائٹ <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a> پر دستی طور پر بھی چیک کر سکتے ہیں۔
@@ -381,8 +381,8 @@ ProspectsByStatus=حیثیت کے لحاظ سے امکانات
 NoParentCompany=کوئی نہیں۔
 ExportCardToFormat=فارمیٹ میں کارڈ برآمد کریں۔
 ContactNotLinkedToCompany=رابطہ کسی تیسرے فریق سے منسلک نہیں ہے۔
-DolibarrLogin=Dolibarr لاگ ان
-NoDolibarrAccess=Dolibarr تک رسائی نہیں ہے۔
+OnLiLogin=OnLi لاگ ان
+NoOnLiAccess=OnLi تک رسائی نہیں ہے۔
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

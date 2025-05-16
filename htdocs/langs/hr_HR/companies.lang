@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Vaši podaci za kontakt su zabilježeni. Javit ćemo vam se uskoro...
 ContactUsDesc=Ovaj obrazac vam omogućuje da nam pošaljete poruku za prvi kontakt.
 ErrorCompanyNameAlreadyExists=Ime tvrtke %s već postoji. Odaberite drugo.
@@ -14,7 +14,7 @@ MenuNewSupplier=Novi dobavljač
 MenuNewPrivateIndividual=Nova fizička osoba
 NewCompany=Nova tvrtka (mogući kupac, dobavljač)
 NewThirdParty=Nova Treća Osoba (mogući kupac, dobavljač)
-CreateDolibarrThirdPartySupplier=Izradi treću osobu (dobavljača)
+CreateOnLiThirdPartySupplier=Izradi treću osobu (dobavljača)
 CreateThirdPartyOnly=Izradi treću osobu
 CreateThirdPartyAndContact=Izradi treću osobu i pripadajući kontakt
 ProspectionArea=Mogući kupci
@@ -335,7 +335,7 @@ CapitalOf=Temeljna vrijednost %s
 EditCompany=Uredi tvrtku
 ThisUserIsNot=Ovaj korisnik nije ni potencijalni kupac, kupac ni dobavljač
 VATIntraCheck=Provjeri
-VATIntraCheckDesc=PDV ID mora sadržavati prefiks zemlje. Veza <b> %s </b> koristi europsku uslugu provjere VAT-a (VIES) koja zahtijeva pristup internetu s Dolibarr poslužitelja.
+VATIntraCheckDesc=PDV ID mora sadržavati prefiks zemlje. Veza <b> %s </b> koristi europsku uslugu provjere VAT-a (VIES) koja zahtijeva pristup internetu s OnLi poslužitelja.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Provjerite VAT ID unutar Zajednice na web stranici Europske komisije
 VATIntraManualCheck=Također možete ručno provjeriti na web stranici Europske komisije <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Mogući kupci po statusu
 NoParentCompany=Ništa
 ExportCardToFormat=Izvezi karticu u formatu
 ContactNotLinkedToCompany=Kontakt nije povezan ni sa jednim komitentom
-DolibarrLogin=Dolibarr korisničko ime
-NoDolibarrAccess=Nema pristup Dolibarr-u
+OnLiLogin=OnLi korisničko ime
+NoOnLiAccess=Nema pristup OnLi-u
 ExportDataset_company_1=Atributi trećih strana (organizacije/fizičke osobe) i
 ExportDataset_company_2=Dodatni kontakti/adrese i atributi trećih strana
 ExportDataset_company_3=Načini plaćanja trećih strana (bankovni računi)

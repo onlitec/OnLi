@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervencija
 Interventions=Intervencije
 InterventionCard=Kartica intervencija
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Razvrstaj "Nenaplaćeno"
 InterventionClassifyDone=Razvrstaj "Gotovo"
 SendInterventionRef=Podnošenje intervencije %s
 SendInterventionByMail=Pošaljite intervenciju na email
-InterventionCreatedInDolibarr=Intervencija %s kreirana
-InterventionValidatedInDolibarr=Intervencija %s potvrđena
-InterventionModifiedInDolibarr=Intervencija %s izmijenjena
-InterventionClassifiedBilledInDolibarr=Intervencija %s postavljena kao naplaćena
-InterventionClassifiedUnbilledInDolibarr=Intervencija %s postavljena kao nenaplaćena
+InterventionCreatedInOnLi=Intervencija %s kreirana
+InterventionValidatedInOnLi=Intervencija %s potvrđena
+InterventionModifiedInOnLi=Intervencija %s izmijenjena
+InterventionClassifiedBilledInOnLi=Intervencija %s postavljena kao naplaćena
+InterventionClassifiedUnbilledInOnLi=Intervencija %s postavljena kao nenaplaćena
 InterventionSentByEMail=Intervencija %s poslana e-poštom
-InterventionClosedInDolibarr= Intervencija %s zatvorena
-InterventionDeletedInDolibarr=Intervencija %s izbrisana
+InterventionClosedInOnLi= Intervencija %s zatvorena
+InterventionDeletedInOnLi=Intervencija %s izbrisana
 InterventionsArea=Područje intervencija
 DraftFichinter=Nacrt intervencija
 LastModifiedInterventions=Posljednjih %s izmijenjenih intervencija

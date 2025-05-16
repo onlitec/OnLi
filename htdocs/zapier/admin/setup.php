@@ -51,8 +51,8 @@ $action = GETPOST('action', 'aZ09');
 $backtopage = GETPOST('backtopage', 'alpha');
 
 $arrayofparameters = array(
-	//	'ZAPIERFORDOLIBARR_MYPARAM1'=>array('css'=>'minwidth200', 'enabled'=>1),
-	//	'ZAPIERFORDOLIBARR_MYPARAM2'=>array('css'=>'minwidth500', 'enabled'=>1)
+	//	'ZAPIERFOROnLi_MYPARAM1'=>array('css'=>'minwidth200', 'enabled'=>1),
+	//	'ZAPIERFOROnLi_MYPARAM2'=>array('css'=>'minwidth500', 'enabled'=>1)
 );
 
 if (!isModEnabled('zapier')) {

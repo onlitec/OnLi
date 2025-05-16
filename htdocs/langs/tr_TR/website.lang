@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Kod
 WebsiteName=Web sitesinin adı
 WebsiteSetupDesc=Kullanmak istediğiniz web sitelerini burada oluşturun. Daha sonra bunları düzenlemek için "Web siteleri" menüsüne gidin.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=Bu web sitesini canlı olarak dağıt
 SetHereVirtualHost=<u>Apache/NGinx/... ile kullanın</u><br>Oluşturma tarihi web sunucunuz (Apache, Nginx, ...), PHP etkinleştirilmiş özel bir Sanal Ana Bilgisayar ve<br><strong> üzerinde bir Kök dizin %s</strong>
 ExampleToUseInApacheVirtualHostConfig=Apache sanal konak kurulumunda kullanılacak örnek:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Ayrıca sanal ana bilgisayar kullanıcısının (örneğin www-data) <strong>%s</strong>'a sahip olup olmadığını kontrol edin.  <br><strong>%s</strong>
 ReadPerm=Okundu
 WritePerm=Yaz
 TestDeployOnWeb=Web'de dene/yayınla
 PreviewSiteServedByWebServer=<u>Preview %s in a new tab.</u><br><br>The %s will be served by an external web server (like Apache, Nginx, IIS). You must install and setup this server before to point to directory:<br><strong>%s</strong><br>URL served by external server:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=Harici web sunucusu tarafından sunulan sanal host URL'si tanımlanmamış
 NoPageYet=Henüz hiç sayfa yok
 YouCanCreatePageOrImportTemplate=Yeni bir sayfa oluşturabilir veya tam bir web sitesi şablonunu içe aktarabilirsiniz
@@ -166,8 +166,8 @@ PagesViewedTotal=Görüntülenen sayfalar (toplam)
 Everyone=Herkes
 AssignedContacts=Atanan kişiler
 WebsiteTypeLabel=Web sitesi türü
-WebsiteTypeDolibarrWebsite=Web sitesi (Modül WebSites CMS)
-WebsiteTypeDolibarrPortal=Yerli ve kullanıma hazır web portalı (Modül Web Portalı)
+WebsiteTypeOnLiWebsite=Web sitesi (Modül WebSites CMS)
+WebsiteTypeOnLiPortal=Yerli ve kullanıma hazır web portalı (Modül Web Portalı)
 WebPortalURL=Web portalı URL'si
 NewWebsiteAccount=Web siteleri için yeni hesaplar
 ModuleWebPortalName=Web portalı
@@ -367,7 +367,7 @@ youWillBeRedirectedToOrderPage=Kısa süre içinde sipariş ayrıntıları sayfa
 WebPortalSetupNotComplete=Web portalı kurulumu tamamlanmadı
 DeleteWebsiteAccount=Web sitesi hesabını sil
 ConfirmDeleteWebsiteAccount=Bu hesabı silmek için İstediğinizden emin misiniz?
-ConfirmDeleteWebsiteAccount2=Eğer bu hesap Dolibarr tarafından desteklenen genel portala veya herhangi bir başka web sitesine giriş yapmak için kullanılmışsa, giriş artık mümkün olmayabilir.
+ConfirmDeleteWebsiteAccount2=Eğer bu hesap OnLi tarafından desteklenen genel portala veya herhangi bir başka web sitesine giriş yapmak için kullanılmışsa, giriş artık mümkün olmayabilir.
 ContentSecurityPolicy=Content Security Policy
 WebsiteSecurityForceRP=Website Security RP
 WebsiteSecurityForceSTS=Website Security STS

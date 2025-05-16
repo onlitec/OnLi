@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=হস্তক্ষেপ
 Interventions=হস্তক্ষেপ
 InterventionCard=হস্তক্ষেপ কার্ড
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled="অবিল" শ্রেণীবদ্ধ ক�
 InterventionClassifyDone="সম্পন্ন" শ্রেণীবদ্ধ করুন
 SendInterventionRef=হস্তক্ষেপ জমা %s
 SendInterventionByMail=ইমেল দ্বারা হস্তক্ষেপ পাঠান
-InterventionCreatedInDolibarr=হস্তক্ষেপ %s তৈরি করা হয়েছে
-InterventionValidatedInDolibarr=হস্তক্ষেপ %s বৈধ
-InterventionModifiedInDolibarr=হস্তক্ষেপ %s পরিবর্তিত
-InterventionClassifiedBilledInDolibarr=হস্তক্ষেপ %s বিল হিসাবে সেট করা হয়েছে
-InterventionClassifiedUnbilledInDolibarr=হস্তক্ষেপ %s বিলবিহীন হিসাবে সেট করা হয়েছে
+InterventionCreatedInOnLi=হস্তক্ষেপ %s তৈরি করা হয়েছে
+InterventionValidatedInOnLi=হস্তক্ষেপ %s বৈধ
+InterventionModifiedInOnLi=হস্তক্ষেপ %s পরিবর্তিত
+InterventionClassifiedBilledInOnLi=হস্তক্ষেপ %s বিল হিসাবে সেট করা হয়েছে
+InterventionClassifiedUnbilledInOnLi=হস্তক্ষেপ %s বিলবিহীন হিসাবে সেট করা হয়েছে
 InterventionSentByEMail=হস্তক্ষেপ %s ইমেলের মাধ্যমে পাঠানো
-InterventionClosedInDolibarr= হস্তক্ষেপ %s বন্ধ
-InterventionDeletedInDolibarr=হস্তক্ষেপ %s মুছে ফেলা হয়েছে
+InterventionClosedInOnLi= হস্তক্ষেপ %s বন্ধ
+InterventionDeletedInOnLi=হস্তক্ষেপ %s মুছে ফেলা হয়েছে
 InterventionsArea=হস্তক্ষেপ এলাকা
 DraftFichinter=খসড়া হস্তক্ষেপ
 LastModifiedInterventions=সর্বশেষ %s পরিবর্তিত হস্তক্ষেপ

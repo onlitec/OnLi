@@ -18,7 +18,7 @@ concurrency:
 env:
   gh_event: ${{ inputs.gh_event || github.event_name }}
   PHPUNIT_LOG: phpunit_tests.log
-  DOLIBARR_LOG: documents/onli.log
+  OnLi_LOG: documents/onli.log
   PHPSERVER_LOG: phpserver.log
   PHPSERVER_DOMAIN_PORT: 127.0.0.1:8000  # could be 127.0.0.1:8000 if config modified
   CACHE_KEY_PART: ${{ ( inputs.gh_event == 'pull_request' || github.event_name == 'pull_request' ) && format('{0}-{1}', github.base_ref, github.head_ref) || github.ref_name }}
@@ -177,7 +177,7 @@ jobs:
           name: win-ci-logs
           path: |
             ${{ env.PHPUNIT_LOG }}
-            ${{ env.DOLIBARR_LOG }}
+            ${{ env.OnLi_LOG }}
             ${{ env.PHPSERVER_LOG }}
             db_init.sql
             db_init.sql.md5

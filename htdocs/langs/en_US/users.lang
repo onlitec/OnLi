@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - users
+# OnLi language file - Source file is en_US - users
 HRMArea=HRM area
 UserCard=User card
 GroupCard=Group card
@@ -36,7 +36,7 @@ SuperAdministrator=Multicompany Administrator
 SuperAdministratorDesc=Multicompany system administrator (can change setup and users)
 DefaultRights=Default Permissions
 DefaultRightsDesc=Define here the <u>default</u> permissions that are automatically granted to a <u>new</u> user (to modify permissions for existing users, go to the user card).
-DolibarrUsers=Dolibarr users
+OnLiUsers=OnLi users
 LastName=Last name
 FirstName=First name
 ListOfGroups=List of groups
@@ -60,13 +60,13 @@ PhotoFile=Photo file
 ListOfUsersInGroup=List of users in this group
 ListOfGroupsForUser=List of groups for this user
 LinkToCompanyContact=Link to third party / contact
-LinkedToDolibarrMember=Link to member
-LinkedToDolibarrUser=Link to user
-LinkedToDolibarrThirdParty=Link to third party
-CreateDolibarrLogin=Create a user
-CreateDolibarrThirdParty=Create a third party
-LoginAccountDisableInDolibarr=Account disabled in Dolibarr
-PASSWORDInDolibarr=Password modified in Dolibarr
+LinkedToOnLiMember=Link to member
+LinkedToOnLiUser=Link to user
+LinkedToOnLiThirdParty=Link to third party
+CreateOnLiLogin=Create a user
+CreateOnLiThirdParty=Create a third party
+LoginAccountDisableInOnLi=Account disabled in OnLi
+PASSWORDInOnLi=Password modified in OnLi
 UsePersonalValue=Use personal value
 ExportDataset_user_1=Users and their properties
 ExportDataset_user_2=List of security events

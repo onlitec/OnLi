@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=የአቅራቢዎች መቀበያ አስተዳደር (የመቀበያ ሰነዶችን ይፍጠሩ)
 ReceptionsSetup=የአቅራቢ መቀበያ ማዋቀር
 RefReception=ማጣቀሻ. መቀበያ
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=የቁጥር ሞጁል ለእንግዶች አቀባ�
 ReceptionsReceiptModel=የሰነድ አብነቶች ለአቀባበል
 NoMorePredefinedProductToDispatch=ለመላክ ምንም ተጨማሪ አስቀድሞ የተገለጹ ምርቶች የሉም
 ReceptionExist=አቀባበል አለ።
-ReceptionBackToDraftInDolibarr=አቀባበል %s ወደ ረቂቅ ተመለስ
-ReceptionClassifyClosedInDolibarr=መቀበያ %s ተዘግቷል
-ReceptionUnClassifyCloseddInDolibarr=መቀበያ %s እንደገና ይከፈታል
+ReceptionBackToDraftInOnLi=አቀባበል %s ወደ ረቂቅ ተመለስ
+ReceptionClassifyClosedInOnLi=መቀበያ %s ተዘግቷል
+ReceptionUnClassifyCloseddInOnLi=መቀበያ %s እንደገና ይከፈታል
 RestoreWithCurrentQtySaved=በቅርብ የተቀመጡ ዋጋዎች መጠኖችን ይሙሉ
 ReceptionsRecorded=አቀባበል ተመዝግቧል
 ReceptionUpdated=አቀባበል በተሳካ ሁኔታ ዘምኗል

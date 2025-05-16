@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Kod
 WebsiteName=Veb-sayt nomi
 WebsiteSetupDesc=Bu erda siz foydalanmoqchi bo'lgan veb-saytlarni yarating. Keyin ularni tahrirlash uchun veb-saytlar menyusiga o'ting.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=To deploy this website live, you have
 SetHereVirtualHost= <u> Apache/NGinx/bilan ishlatish ... </u> <br> Veb -serveringizda (Apache, Nginx, ...) PHP yoqilgan maxsus Virtual Xost PHP bilan va Root direktoriyada <br><strong>%s</strong>
 ExampleToUseInApacheVirtualHostConfig=Apache virtual xostini o'rnatishda foydalanish uchun misol:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Virtual xost foydalanuvchisi (masalan, www-data) <strong> %s </strong> fayllariga <br> a0e7843947c064az0c a0e7843947c064010c a0e7843947fz0 </strong> ruxsati borligini ham tekshiring.
 ReadPerm=O'qing
 WritePerm=Yozing
 TestDeployOnWeb=Internetda sinov / tarqatish
 PreviewSiteServedByWebServer= <u> %s ni yangi varaqda ko'rib chiqish. </u> <br> <br> %s tashqi veb -server tomonidan xizmat ko'rsatiladi (Apache, Nginx, IIS kabi). Siz ushbu serverni o'rnatishingiz va sozlashingiz kerak:<br><strong>%s</strong><br>URL serverda yo'rdamchi server:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=Tashqi veb-server tomonidan xizmat ko'rsatiladigan virtual xost manzili aniqlanmagan
 NoPageYet=Hali sahifalar yo'q
 YouCanCreatePageOrImportTemplate=Siz yangi sahifa yaratishingiz yoki to'liq veb-sayt shablonini import qilishingiz mumkin
@@ -163,8 +163,8 @@ PagesViewedTotal=Koʻrilgan sahifalar (jami)
 Everyone=Hamma
 AssignedContacts=Belgilangan kontaktlar
 WebsiteTypeLabel=Veb-sayt turi
-WebsiteTypeDolibarrWebsite=Veb-sayt (Module WebSites CMS)
-WebsiteTypeDolibarrPortal=Mahalliy va foydalanishga tayyor veb-portal (Module Web Portal)
+WebsiteTypeOnLiWebsite=Veb-sayt (Module WebSites CMS)
+WebsiteTypeOnLiPortal=Mahalliy va foydalanishga tayyor veb-portal (Module Web Portal)
 WebPortalURL=Veb-portalning URL manzili
 NewWebsiteAccount=Veb-saytlar uchun yangi hisoblar
 ModuleWebPortalName=Veb-portal
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=You will be redirected to the order details page 
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

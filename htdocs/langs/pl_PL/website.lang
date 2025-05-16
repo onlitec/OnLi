@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Kod
 WebsiteName=Nazwa strony internetowej
 WebsiteSetupDesc=Tu utwórz witryny, które chcesz użyć. Następnie, przejdź do menu Witryny, aby je edytować.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=Aby wdrożyć tę witrynę na żywo, 
 SetHereVirtualHost= <u> Użyj z Apache / NGinx / ... </u> <br> Utwórz na swoim serwerze internetowym (Apache, Nginx, ...) dedykowany wirtualny host z włączoną obsługą PHP i katalog główny na <br> <strong>%s</strong>
 ExampleToUseInApacheVirtualHostConfig=Przykład do użycia w konfiguracji hosta wirtualnego Apache:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Sprawdź również, czy użytkownik wirtualnego hosta (na przykład dane www) ma <strong> %s </strong> uprawnienia do plików w <br> <strong> %s</strong>
 ReadPerm=Czytanie
 WritePerm=Zapis
 TestDeployOnWeb=Testuj/wdróż na web serwerze
 PreviewSiteServedByWebServer=<u>Podgląd %s w nowej zakładce.</u><br><br>%s będzie obsługiwana przez zewnętrzny web serwer (np. Apache, Nginx, IIS). Musisz zainstalować i skonfigurować taki web serwer, zanim wskazanie do katalogu:<br><strong>%s</strong><br>URL obsługiwany przez zewnętrzny web serwer:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=Adres URL wirtualnego hosta obsługiwanego przez zewnętrzny web serwer nie został zdefiniowany
 NoPageYet=Brak stron
 YouCanCreatePageOrImportTemplate=Możesz utworzyć nową stronę albo załadować pełny szablon witryny
@@ -163,8 +163,8 @@ PagesViewedTotal=Wyświetlone strony (łącznie)
 Everyone=Wszyscy
 AssignedContacts=Przypisane kontakty
 WebsiteTypeLabel=Typ witryny internetowej
-WebsiteTypeDolibarrWebsite=Web site (Module WebSites CMS)
-WebsiteTypeDolibarrPortal=Native and ready to use web portal (Module Web Portal)
+WebsiteTypeOnLiWebsite=Web site (Module WebSites CMS)
+WebsiteTypeOnLiPortal=Native and ready to use web portal (Module Web Portal)
 WebPortalURL=Web portal URL
 NewWebsiteAccount=Nowe konta dla stron internetowych
 ModuleWebPortalName=Web portal
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=You will be redirected to the order details page 
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - loan
+# OnLi language file - Source file is en_US - loan
 IdModule= Module id
 ModuleBuilderDesc=This tool must be used only by experienced users or developers. It provides utilities to build or edit your own module. Documentation for alternative <a href="%s" target="_blank" rel="noopener noreferrer">manual development is here</a>.
 EnterNameOfModuleDesc=Enter the name of the module/application to create with no spaces. Use uppercase to separate words (For example: MyModule, EcommerceForShop, SyncWithMySystem...)
@@ -30,7 +30,7 @@ EnterNameOfModuleToDeleteDesc=Modul můžete smazat. VAROVÁNÍ: Všechny kódov
 EnterNameOfObjectToDeleteDesc=You can delete an object. WARNING: All coding files (generated or created manually) related to the object will be deleted!
 DangerZone=Nebezpečná zóna
 BuildPackage=Sestavte balíček
-BuildPackageDesc=Můžete si vytvořit balíček ZIP vaší aplikace, abyste byli připraveni distribuovat jej na libovolném Dolibarru. Můžete jej také distribuovat nebo prodávat na trhu jako <a href="https://www.dolistore.com"> DoliStore.com </a>.
+BuildPackageDesc=Můžete si vytvořit balíček ZIP vaší aplikace, abyste byli připraveni distribuovat jej na libovolném OnLiu. Můžete jej také distribuovat nebo prodávat na trhu jako <a href="https://www.dolistore.com"> DoliStore.com </a>.
 BuildDocumentation=Vytvoření dokumentace
 ModuleIsNotActive=Tento modul ještě není aktivován. Chcete-li ji zveřejnit, přejděte na %s nebo klikněte zde
 ModuleIsLive=Tento modul byl aktivován. Jakákoli změna na něm může narušit aktuální aktivní funkci.
@@ -110,7 +110,7 @@ HooksDefDesc=Define in the property <b>module_parts['hooks']</b>, in the module 
 TriggerDefDesc=Define in the trigger file the code that you want to execute when a business event external to your module is executed (events triggered by other modules).
 SeeIDsInUse=Viz ID používané ve vaší instalaci
 SeeReservedIDsRangeHere=Viz rozsah vyhrazených ID
-ToolkitForDevelopers=Toolkit pro vývojáře Dolibarr
+ToolkitForDevelopers=Toolkit pro vývojáře OnLi
 TryToUseTheModuleBuilder=Pokud máte znalosti o SQL a PHP, můžete použít průvodce nativní modul builder. <br> Povolte modul <strong> %s </strong> a pomocí průvodce klikněte na <span class="fa fa-bug"> </span> v pravé horní nabídce. <br> Upozornění: Jedná se o pokročilou funkci vývojáře, <b>nestačí </b>experiment   na vaší produkční stránce!
 SeeTopRightMenu=Viz <span class="fa fa-bug"> </span> v pravé horní nabídce
 AddLanguageFile=Přidat jazyk

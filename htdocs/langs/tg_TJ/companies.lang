@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Маълумоти тамосии шумо сабт карда шуд. Мо ба зудӣ ба шумо бармегардем...
 ContactUsDesc=Ин шакл ба шумо имкон медиҳад, ки барои тамоси аввал ба мо паём фиристед.
 ErrorCompanyNameAlreadyExists=Номи ширкат %s аллакай вуҷуд дорад. Дигареро интихоб кунед.
@@ -14,7 +14,7 @@ MenuNewSupplier=Фурӯшандаи нав
 MenuNewPrivateIndividual=Шахси нави хусусӣ
 NewCompany=Ширкати нав (эҳтимол, муштарӣ, фурӯшанда)
 NewThirdParty=Шахси нави сеюм (эҳтимол, муштарӣ, фурӯшанда)
-CreateDolibarrThirdPartySupplier=Эҷоди як шахси сеюм (фурӯшанда)
+CreateOnLiThirdPartySupplier=Эҷоди як шахси сеюм (фурӯшанда)
 CreateThirdPartyOnly=Эҷоди шахси сеюм
 CreateThirdPartyAndContact=Эҷоди як шахси сеюм + алоқа бо кӯдак
 ProspectionArea=Минтақаи ҷустуҷӯ
@@ -335,7 +335,7 @@ CapitalOf=Сармояи %s
 EditCompany=Таҳрири ширкат
 ThisUserIsNot=Ин корбар дурнамо, муштарӣ ё фурӯшанда нест
 VATIntraCheck=Санҷед
-VATIntraCheckDesc=ID ААИ бояд префикси кишварро дар бар гирад. Истиноди <b> %s </b> аз хидмати Аврупо оид ба андоз аз арзиши иловашуда (VIES) истифода мебарад, ки дастрасии интернетро аз сервери Dolibarr талаб мекунад.
+VATIntraCheckDesc=ID ААИ бояд префикси кишварро дар бар гирад. Истиноди <b> %s </b> аз хидмати Аврупо оид ба андоз аз арзиши иловашуда (VIES) истифода мебарад, ки дастрасии интернетро аз сервери OnLi талаб мекунад.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Дар вебсайти Комиссияи Аврупо шиносномаи андоз аз арзиши иловашударо дар дохили ҷомеа санҷед
 VATIntraManualCheck=Шумо инчунин метавонед ба таври дастӣ дар вебсайти Комиссияи Аврупо тафтиш кунед <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Дурнамо аз рӯи мақом
 NoParentCompany=Ҳеҷ
 ExportCardToFormat=Корти содиротӣ ба формат
 ContactNotLinkedToCompany=Тамос бо ягон шахси сеюм алоқаманд нест
-DolibarrLogin=Воридшавӣ Dolibarr
-NoDolibarrAccess=Дастрасии Dolibarr нест
+OnLiLogin=Воридшавӣ OnLi
+NoOnLiAccess=Дастрасии OnLi нест
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

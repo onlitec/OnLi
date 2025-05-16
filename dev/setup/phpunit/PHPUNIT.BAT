@@ -15,7 +15,7 @@ REM  for your test installation database).
 SET PHPSERVER_DOMAIN_PORT=127.0.0.1:8080
 SET PHPSERVER_LOG=%~dp0/php_serv.log
 
-echo if (class_exists('PHPUnit\Framework\TestSuite')) { $dolibarr_main_url_root='http://%PHPSERVER_DOMAIN_PORT%'; } >> %~dp0\htdocs\conf\conf.php
+echo if (class_exists('PHPUnit\Framework\TestSuite')) { $OnLi_main_url_root='http://%PHPSERVER_DOMAIN_PORT%'; } >> %~dp0\htdocs\conf\conf.php
 GOTO :START
 
 REM The error handler

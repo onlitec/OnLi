@@ -814,7 +814,7 @@ class PaiementFourn extends Paiement
 				$classname = "mod_supplier_payment_" . getDolGlobalString('SUPPLIER_PAYMENT_ADDON');
 				$classname = preg_replace('/\-.*$/', '', $classname);
 				// Include file with class
-				foreach ($conf->file->dol_document_root as $dirroot) {
+				foreach ($conf->file->onli_document_root as $dirroot) {
 					$dir = $dirroot."/core/modules/supplier_payment/";
 
 					// Load file with numbering class (if found)

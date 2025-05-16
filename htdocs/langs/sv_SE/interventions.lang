@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervention
 Interventions=Interventioner
 InterventionCard=Interventionskort
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=Inlämning av intervention %s
 SendInterventionByMail=Skicka intervention via e-post
-InterventionCreatedInDolibarr=Intervention %s skapad
-InterventionValidatedInDolibarr=Intervention %s bekräftad
-InterventionSignedInDolibarr=Intervention undertecknad
+InterventionCreatedInOnLi=Intervention %s skapad
+InterventionValidatedInOnLi=Intervention %s bekräftad
+InterventionSignedInOnLi=Intervention undertecknad
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=Intervention %s ändrad
-InterventionClassifiedBilledInDolibarr=Intervention %s angiven som fakturerad
-InterventionClassifiedUnbilledInDolibarr=Intervention %s angiven som ofakturerad
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=Intervention %s ändrad
+InterventionClassifiedBilledInOnLi=Intervention %s angiven som fakturerad
+InterventionClassifiedUnbilledInOnLi=Intervention %s angiven som ofakturerad
 InterventionSentByEMail=Intervention %s skickad via e-post
-InterventionClosedInDolibarr= Intervention %s stängd
-InterventionDeletedInDolibarr=Intervention %s raderad
+InterventionClosedInOnLi= Intervention %s stängd
+InterventionDeletedInOnLi=Intervention %s raderad
 InterventionsArea=Interventioner
 DraftFichinter=Utkast till Interventioner
 LastModifiedInterventions=Senaste %s ändrade interventioner

@@ -64,7 +64,7 @@ class modZapier extends OnLiModules
 		$this->version = 'development';
 		//Url to the file with your last numberversion of this module
 		//$this->url_last_version = 'http://www.example.com/versionmodule.txt';
-		// Key used in llx_const table to save module status enabled/disabled (where ZAPIERFORDOLIBARR is value of property name of module in uppercase)
+		// Key used in llx_const table to save module status enabled/disabled (where ZAPIERFOROnLi is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
@@ -140,11 +140,11 @@ class modZapier extends OnLiModules
 		// Constants
 		// List of particular constants to add when module is enabled (key, 'chaine', value, desc, visible, 'current' or 'allentities', deleteonunactive)
 		// Example: $this->const=array(
-		//    1 => array('ZAPIERFORDOLIBARR_MYNEWCONST1', 'chaine', 'myvalue', 'This is a constant to add', 1),
-		//    2 => array('ZAPIERFORDOLIBARR_MYNEWCONST2', 'chaine', 'myvalue', 'This is another constant to add', 0, 'current', 1)
+		//    1 => array('ZAPIERFOROnLi_MYNEWCONST1', 'chaine', 'myvalue', 'This is a constant to add', 1),
+		//    2 => array('ZAPIERFOROnLi_MYNEWCONST2', 'chaine', 'myvalue', 'This is another constant to add', 0, 'current', 1)
 		// );
 		$this->const = array(
-			// 1 => array('ZAPIERFORDOLIBARR_MYCONSTANT', 'chaine', 'avalue', 'This is a constant to add', 1, 'allentities', 1)
+			// 1 => array('ZAPIERFOROnLi_MYCONSTANT', 'chaine', 'avalue', 'This is a constant to add', 1, 'allentities', 1)
 		);
 		// Some keys to add into the overwriting translation tables
 		/*$this->overwrite_translation = array(

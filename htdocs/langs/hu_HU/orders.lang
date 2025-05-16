@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Az ajánlathoz kapcsolódó megrendelés már nyitva volt, ezért nem jött létre automatikusan más megrendelés
 OrdersArea=Vevők megrendelései
 SuppliersOrdersArea=Beszerzési rendelési terület
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Biztosan klónozni szeretné ezt a <b>%s</b> megrendelést?
 DispatchSupplierOrder=%s beszerzési rendelés fogadása
 FirstApprovalAlreadyDone=Első jóváhagyás már elvégezve
 SecondApprovalAlreadyDone=Másod jóváhagyás már elvégezve
-SupplierOrderReceivedInDolibarr=%s beszerzési rendelés érkezett %s
-SupplierOrderSubmitedInDolibarr=megrendelés %s vásárlás elküldve (%s)
+SupplierOrderReceivedInOnLi=%s beszerzési rendelés érkezett %s
+SupplierOrderSubmitedInOnLi=megrendelés %s vásárlás elküldve (%s)
 SupplierOrderClassifiedBilled=Megrendelés %s készlet kiszámlázva
 OtherOrders=Egyéb rendelések
 SupplierOrderValidatedAndApproved=A beszállítói rendelés érvényesítése és jóváhagyása megtörtént: %s

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Roedd archeb eisoes ar agor yn gysylltiedig â'r cynnig hwn, felly ni chrëwyd unrhyw archeb arall yn awtomatig
 OrdersArea=Ardal archebion cwsmeriaid
 SuppliersOrdersArea=Ardal archebion prynu
@@ -129,8 +129,8 @@ ConfirmCloneOrder=A ydych yn siŵr eich bod am glonio'r archeb hon <b> %s </b> ?
 DispatchSupplierOrder=Yn derbyn archeb brynu %s
 FirstApprovalAlreadyDone=Cymeradwyaeth gyntaf wedi ei wneud yn barod
 SecondApprovalAlreadyDone=Ail gymeradwyaeth wedi ei wneud yn barod
-SupplierOrderReceivedInDolibarr=Derbyniwyd archeb brynu %s %s
-SupplierOrderSubmitedInDolibarr=Archeb Brynu %s a gyflwynwyd (%s)
+SupplierOrderReceivedInOnLi=Derbyniwyd archeb brynu %s %s
+SupplierOrderSubmitedInOnLi=Archeb Brynu %s a gyflwynwyd (%s)
 SupplierOrderClassifiedBilled=Archeb Brynu %s set bilio
 OtherOrders=Gorchmynion eraill
 SupplierOrderValidatedAndApproved=Mae archeb cyflenwr yn cael ei ddilysu a'i gymeradwyo: %s

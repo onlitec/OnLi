@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Фармоиш аллакай кушода буд, ки ба ин пешниҳод алоқаманд аст, бинобар ин ягон фармоиши дигар ба таври худкор эҷод нашудааст
 OrdersArea=Минтақаи фармоишҳои муштариён
 SuppliersOrdersArea=Минтақаи фармоишҳо
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Шумо мутмаин ҳастед, ки ин фармонр
 DispatchSupplierOrder=Гирифтани фармоиши харид %s
 FirstApprovalAlreadyDone=Тасдиқи аввал аллакай анҷом дода шудааст
 SecondApprovalAlreadyDone=Тасдиқи дуюм аллакай анҷом дода шудааст
-SupplierOrderReceivedInDolibarr=Фармоиши харид %s %s гирифт
-SupplierOrderSubmitedInDolibarr=Фармоиши харид %s пешниҳод карда шуд (%s)
+SupplierOrderReceivedInOnLi=Фармоиши харид %s %s гирифт
+SupplierOrderSubmitedInOnLi=Фармоиши харид %s пешниҳод карда шуд (%s)
 SupplierOrderClassifiedBilled=Тартиби харид %s ҳисоб карда мешавад
 OtherOrders=Фармоишҳои дигар
 SupplierOrderValidatedAndApproved=Фармоиши таъминкунанда тасдиқ ва тасдиқ шудааст: %s

@@ -1,4 +1,4 @@
-# AI FOR [DOLIBARR ERP CRM](https://www.onli.org)
+# AI FOR [OnLi ERP CRM](https://www.onli.org)
 
 ## Features
 

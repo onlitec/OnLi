@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for dolibarr
+# postinst script for OnLi
 
 # shellcheck disable=1091,2086,2154
 
@@ -22,24 +22,24 @@ fi
 
 setup_empty_conf() {
 	echo Create empty file $config
-	mkdir -p /etc/dolibarr
-	touch /etc/dolibarr/conf.php
-	chown root:www-data /etc/dolibarr/conf.php
-	chmod 660 /etc/dolibarr/conf.php
+	mkdir -p /etc/OnLi
+	touch /etc/OnLi/conf.php
+	chown root:www-data /etc/OnLi/conf.php
+	chmod 660 /etc/OnLi/conf.php
 }
 
 is_new_upstream_version() {
 	# $1 can be empty (not installed) and will result in a true value
 	# for the check
 	old_version=$(echo "$1" | sed -e 's/-[^-]*$//' -e 's/^[0-9]*://')
-	new_version=$(dpkg-query -f '${Version}' -W dolibarr | \
+	new_version=$(dpkg-query -f '${Version}' -W OnLi | \
 		sed -e 's/-[^-]*$//' -e 's/^[0-9]*://')
 	test "$old_version" != "$new_version"
 }
 
 enable_install_upgrade_wizard() {
 	echo Enable install wizard by removing install.lock file if present
-	rm -f /var/lib/dolibarr/documents/install.lock
+	rm -f /var/lib/OnLi/documents/install.lock
 }
 
 
@@ -60,23 +60,23 @@ apache_install() {
 		a2enmod alias
 	fi
 
-	# Enable dolibarr conf
+	# Enable OnLi conf
 	if which a2enconf >/dev/null 2>&1 ;then
 		# a2enconf exists for ubuntu only
 		echo "Enable link for Apache config file with a2enconf"
-		a2enconf dolibarr
+		a2enconf OnLi
 	else
-		if [ -d /etc/$webserver/conf.d ] && [ ! -e /etc/$webserver/conf.d/dolibarr.conf ]; then
+		if [ -d /etc/$webserver/conf.d ] && [ ! -e /etc/$webserver/conf.d/OnLi.conf ]; then
 			echo "Add link for Apache config file"
-			ln -s /etc/$webserver/conf-available/dolibarr.conf /etc/$webserver/conf.d/dolibarr.conf
+			ln -s /etc/$webserver/conf-available/OnLi.conf /etc/$webserver/conf.d/OnLi.conf
 		fi
 	fi
 }
 
 lighttpd_install() {
 	if which lighty-enable-mod >/dev/null 2>&1 ; then
-		echo "Enable lighttpd link for dolibarr config file"
-		lighty-enable-mod dolibarr fastcgi-php
+		echo "Enable lighttpd link for OnLi config file"
+		lighty-enable-mod OnLi fastcgi-php
 	else
 		echo "Lighttpd not installed, skipping"
 	fi
@@ -89,14 +89,14 @@ lighttpd_install() {
 db_version 2.0
 
 
-echo Run the dolibarr postinst script
+echo Run the OnLi postinst script
 
 
 # Define vars
-docdir='/var/lib/dolibarr/documents'
-installfileorig="/etc/dolibarr/install.forced.php.install"
-installconfig="/etc/dolibarr/install.forced.php"
-config="/etc/dolibarr/conf.php"
+docdir='/var/lib/OnLi/documents'
+installfileorig="/etc/OnLi/install.forced.php.install"
+installconfig="/etc/OnLi/install.forced.php"
+config="/etc/OnLi/conf.php"
 
 
 case "$1" in
@@ -148,18 +148,18 @@ case "$1" in
 			#else
 			# File already exist. We add params not found.
 			#echo Add new params to overwrite path to use shared libraries/fonts
-			##grep -q -c "dolibarr_lib_GEOIP_PATH" $config    || echo "<?php \$dolibarr_lib_GEOIP_PATH=''; ?>" >> $config
-			#grep -q -c "dolibarr_lib_NUSOAP_PATH" $config   || [ ! -d "/usr/share/php/nusoap" ] || echo "<?php \$dolibarr_lib_NUSOAP_PATH='/usr/share/php/nusoap'; ?>" >> $config
-			#grep -q -c "dolibarr_lib_ODTPHP_PATHTOPCLZIP" $config || [ ! -d "/usr/share/php/libphp-pclzip" ]  || echo "<?php \$dolibarr_lib_ODTPHP_PATHTOPCLZIP='/usr/share/php/libphp-pclzip'; ?>" >> $config
-			##grep -q -c "dolibarr_lib_TCPDF_PATH" $config    || echo "<?php \$dolibarr_lib_TCPDF_PATH=''; ?>" >> $config
-			#grep -q -c "dolibarr_js_CKEDITOR" $config       || [ ! -d "/usr/share/javascript/ckeditor" ]  || echo "<?php \$dolibarr_js_CKEDITOR='/javascript/ckeditor'; ?>" >> $config
-			#grep -q -c "dolibarr_js_JQUERY" $config         || [ ! -d "/usr/share/javascript/jquery" ]    || echo "<?php \$dolibarr_js_JQUERY='/javascript/jquery'; ?>" >> $config
-			#grep -q -c "dolibarr_js_JQUERY_UI" $config      || [ ! -d "/usr/share/javascript/jquery-ui" ] || echo "<?php \$dolibarr_js_JQUERY_UI='/javascript/jquery-ui'; ?>" >> $config
-			#grep -q -c "dolibarr_js_JQUERY_FLOT" $config    || [ ! -d "/usr/share/javascript/flot" ]      || echo "<?php \$dolibarr_js_JQUERY_FLOT='/javascript/flot'; ?>" >> $config
-			#grep -q -c "dolibarr_font_DOL_DEFAULT_TTF_BOLD" $config || echo "<?php \$dolibarr_font_DOL_DEFAULT_TTF_BOLD='/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf'; ?>" >> $config
+			##grep -q -c "OnLi_lib_GEOIP_PATH" $config    || echo "<?php \$OnLi_lib_GEOIP_PATH=''; ?>" >> $config
+			#grep -q -c "OnLi_lib_NUSOAP_PATH" $config   || [ ! -d "/usr/share/php/nusoap" ] || echo "<?php \$OnLi_lib_NUSOAP_PATH='/usr/share/php/nusoap'; ?>" >> $config
+			#grep -q -c "OnLi_lib_ODTPHP_PATHTOPCLZIP" $config || [ ! -d "/usr/share/php/libphp-pclzip" ]  || echo "<?php \$OnLi_lib_ODTPHP_PATHTOPCLZIP='/usr/share/php/libphp-pclzip'; ?>" >> $config
+			##grep -q -c "OnLi_lib_TCPDF_PATH" $config    || echo "<?php \$OnLi_lib_TCPDF_PATH=''; ?>" >> $config
+			#grep -q -c "OnLi_js_CKEDITOR" $config       || [ ! -d "/usr/share/javascript/ckeditor" ]  || echo "<?php \$OnLi_js_CKEDITOR='/javascript/ckeditor'; ?>" >> $config
+			#grep -q -c "OnLi_js_JQUERY" $config         || [ ! -d "/usr/share/javascript/jquery" ]    || echo "<?php \$OnLi_js_JQUERY='/javascript/jquery'; ?>" >> $config
+			#grep -q -c "OnLi_js_JQUERY_UI" $config      || [ ! -d "/usr/share/javascript/jquery-ui" ] || echo "<?php \$OnLi_js_JQUERY_UI='/javascript/jquery-ui'; ?>" >> $config
+			#grep -q -c "OnLi_js_JQUERY_FLOT" $config    || [ ! -d "/usr/share/javascript/flot" ]      || echo "<?php \$OnLi_js_JQUERY_FLOT='/javascript/flot'; ?>" >> $config
+			#grep -q -c "OnLi_font_DOL_DEFAULT_TTF_BOLD" $config || echo "<?php \$OnLi_font_DOL_DEFAULT_TTF_BOLD='/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf'; ?>" >> $config
 		fi
 
-		db_get dolibarr/reconfigure-webserver
+		db_get OnLi/reconfigure-webserver
 
 		webservers="$RET"
 
@@ -182,7 +182,7 @@ case "$1" in
 			echo Web user.group used is $webuser.$webgroup
 
 			# Set permissions to web server
-			chown -R $webuser:$webgroup /usr/share/dolibarr
+			chown -R $webuser:$webgroup /usr/share/OnLi
 			chown -R root:$webgroup $config
 		done
 
@@ -211,7 +211,7 @@ case "$1" in
 
 
 		echo ----------
-		echo "Call Dolibarr page http://localhost/dolibarr/ to complete the setup and use Dolibarr."
+		echo "Call OnLi page http://localhost/OnLi/ to complete the setup and use OnLi."
 		echo ----------
 		;;
 

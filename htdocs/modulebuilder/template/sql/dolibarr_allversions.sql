@@ -1,3 +1,3 @@
 --
--- Script run when an upgrade of Dolibarr is done. Whatever is the Dolibarr version.
+-- Script run when an upgrade of OnLi is done. Whatever is the OnLi version.
 --

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=התערבות
 Interventions=התערבויות
 InterventionCard=כרטיס התערבות
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=סיווג "לא מחויב"
 InterventionClassifyDone=סיווג "בוצע"
 SendInterventionRef=הגשת התערבות %s
 SendInterventionByMail=שלח התערבות במייל
-InterventionCreatedInDolibarr=התערבות %s נוצרה
-InterventionValidatedInDolibarr=התערבות %s מאומתת
-InterventionModifiedInDolibarr=התערבות %s השתנתה
-InterventionClassifiedBilledInDolibarr=התערבות %s הוגדרה כחיוב
-InterventionClassifiedUnbilledInDolibarr=התערבות %s הוגדרה כבלתי מחויבת
+InterventionCreatedInOnLi=התערבות %s נוצרה
+InterventionValidatedInOnLi=התערבות %s מאומתת
+InterventionModifiedInOnLi=התערבות %s השתנתה
+InterventionClassifiedBilledInOnLi=התערבות %s הוגדרה כחיוב
+InterventionClassifiedUnbilledInOnLi=התערבות %s הוגדרה כבלתי מחויבת
 InterventionSentByEMail=התערבות %s נשלחה בדוא"ל
-InterventionClosedInDolibarr= התערבות %s נסגרה
-InterventionDeletedInDolibarr=התערבות %s נמחקה
+InterventionClosedInOnLi= התערבות %s נסגרה
+InterventionDeletedInOnLi=התערבות %s נמחקה
 InterventionsArea=אזור התערבויות
 DraftFichinter=טיוטת התערבויות
 LastModifiedInterventions=התערבויות אחרונות ששונו %s

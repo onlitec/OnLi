@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Newsletter
 EMailing=Newsletter
 EMailings=Email-uri în masă
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Contacte pe categorii
 MailingModuleDescContactsByFunction=Contacte după funcţie
 MailingModuleDescEmailsFromFile=Adrese email din fișier
 MailingModuleDescEmailsFromUser=Adrese de email introduse de utilizator
-MailingModuleDescDolibarrUsers=Utilizatori cu adrese de email
+MailingModuleDescOnLiUsers=Utilizatori cu adrese de email
 MailingModuleDescThirdPartiesByCategories=Terţi
 SendingFromWebInterfaceIsNotAllowed=Trimiterea de pe interfața web nu este permisă.
 EmailCollectorFilterDesc=Toate filtrele trebuie să se potrivească pentru ca un email să fie colectat. <br>Poți folosi caracterul "!" înainte de valoarea șirului de căutare dacă ai nevoie de un test negativ

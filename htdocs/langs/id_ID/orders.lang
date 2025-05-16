@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Pesanan sudah terbuka dan tertaut ke proposal ini, jadi tidak ada pesanan lain yang dibuat secara otomatis
 OrdersArea=Area pesanan pelanggan
 SuppliersOrdersArea=Area pesanan pembelian
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Apakah Anda yakin ingin mengkloning pesanan ini<b>%s </b>?
 DispatchSupplierOrder=Menerima pesanan pembelian %s
 FirstApprovalAlreadyDone=Persetujuan pertama sudah dilakukan
 SecondApprovalAlreadyDone=Persetujuan kedua sudah dilakukan
-SupplierOrderReceivedInDolibarr=Purchase Order %s menerima %s
-SupplierOrderSubmitedInDolibarr=Pesanan Pembelian %s telah dikirimkan (%s)
+SupplierOrderReceivedInOnLi=Purchase Order %s menerima %s
+SupplierOrderSubmitedInOnLi=Pesanan Pembelian %s telah dikirimkan (%s)
 SupplierOrderClassifiedBilled=Pesanan Pembelian %s ditetapkan ditagih
 OtherOrders=Pesanan lainnya
 SupplierOrderValidatedAndApproved=Pesanan pemasok divalidasi dan disetujui: %s

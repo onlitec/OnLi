@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=elektronička pošta
 EMailing=elektronička pošta
 EMailings=Masovna e-pošta
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kontakti autora Kategorije
 MailingModuleDescContactsByFunction=Kontakti po poziciji
 MailingModuleDescEmailsFromFile=E-poruke iz datoteke
 MailingModuleDescEmailsFromUser=Unos e-pošte od strane korisnika
-MailingModuleDescDolibarrUsers=Korisnici s e-poštom
+MailingModuleDescOnLiUsers=Korisnici s e-poštom
 MailingModuleDescThirdPartiesByCategories=Treće osobe
 SendingFromWebInterfaceIsNotAllowed=Slanje s web sučelja nije dopušteno.
 EmailCollectorFilterDesc=Svi se filtri moraju podudarati da bi se prikupio e-pošta.<br>Možete koristiti znak "!" prije vrijednosti niza za pretraživanje ako trebate negativan test

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages
+# OnLi language file - Source file is en_US - marque pages
 AddThisPageToBookmarks=Tilføj denne side til bogmærker
 Bookmark=Bogmærke
 Bookmarks=Bogmærker
@@ -15,7 +15,7 @@ UrlOrLink=URL
 BehaviourOnClick=Adfærd ved klik på URL
 CreateBookmark=Opret bogmærke
 SetHereATitleForLink=Tildel et navn til bogmærket
-UseAnExternalHttpLinkOrRelativeDolibarrLink=Brug et eksternt/absolut link (https://externalurl.com) eller et internt/relativt link (/mypage.php). Du kan også bruge telefon som tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink=Brug et eksternt/absolut link (https://externalurl.com) eller et internt/relativt link (/mypage.php). Du kan også bruge telefon som tel:0123456.
 ChooseIfANewWindowMustBeOpenedOnClickOnBookmark=Vælg om bogmærket skal åbne i denne fane eller en ny fane
 BookmarksManagement=Bogmærke styring
 BookmarksMenuShortCut=Ctrl + shift + m

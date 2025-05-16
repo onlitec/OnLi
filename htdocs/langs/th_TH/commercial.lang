@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - commercial
+# OnLi language file - Source file is en_US - commercial
 Commercial=พาณิชย์
 CommercialArea=พื้นที่การค้า
 Customer=ลูกค้า
@@ -95,7 +95,7 @@ SignatureFichinterRef=ลายเซ็นของการแทรกแซ�
 SignatureSociete_ribRef=ลายเซ็นของอาณัติ SEPA %s
 FeatureOnlineSignDisabled=คุณลักษณะสำหรับการลงนามแบบออนไลน์ถูกปิดใช้งานหรือเอกสารที่สร้างขึ้นก่อนที่จะเปิดใช้งานคุณลักษณะนี้
 NoSignature=ไม่ได้ลงนาม
-UnsignedInDolibarr=Document unsigned
+UnsignedInOnLi=Document unsigned
 SignedSender=Signed internally
 SignedReceiver=Signed by third party
 SignedReceiverOnline=Signed by third party online

@@ -84,7 +84,7 @@ if (!empty($pageid) && $pageid > 0) {
 	if (empty($srclang)) {
 		$reg = array();
 		// With OnLi server, url is in parameter pageref
-		if (defined('USEDOLIBARRSERVER') && !empty($_GET['pageref']) && preg_match('/^\/?(\w\w)\//', $_GET['pageref'], $reg) && $reg[1] != 'js') {	// We reuse $_GET['pageref'] because $pageref may have been cleaned already from the language code.
+		if (defined('USEOnLiSERVER') && !empty($_GET['pageref']) && preg_match('/^\/?(\w\w)\//', $_GET['pageref'], $reg) && $reg[1] != 'js') {	// We reuse $_GET['pageref'] because $pageref may have been cleaned already from the language code.
 			$srclang = $reg[1];
 		}
 		// With External server, url is in parameter pageref
@@ -99,7 +99,7 @@ if (!empty($pageid) && $pageid > 0) {
 
 	$pagelangs->setDefaultLang($websitepage->lang ? $websitepage->lang : $weblangs->shortlang);
 
-	if (!defined('USEDOLIBARREDITOR') && (in_array($websitepage->type_container, array('menu', 'setup', 'other')) || empty($websitepage->status) && !defined('USEDOLIBARRSERVER'))) {
+	if (!defined('USEOnLiEDITOR') && (in_array($websitepage->type_container, array('menu', 'setup', 'other')) || empty($websitepage->status) && !defined('USEOnLiSERVER'))) {
 		$weblangs->load("website");
 
 		// Security options
@@ -119,7 +119,7 @@ if (!empty($pageid) && $pageid > 0) {
 	}
 }
 
-if (!defined('USEDOLIBARRSERVER') && !defined('USEDOLIBARREDITOR')) {
+if (!defined('USEOnLiSERVER') && !defined('USEOnLiEDITOR')) {
 	// Security options
 
 	// X-Content-Type-Options
@@ -256,7 +256,7 @@ if ($_SERVER['PHP_SELF'] != DOL_URL_ROOT.'/website/index.php') {	// If we browsi
 			if ($obj) {
 				$newpageid = $obj->rowid;
 				if ($newpageid != $pageid) { 		// To avoid to make a redirect on same page (infinite loop)
-					if (defined('USEDOLIBARRSERVER')) {
+					if (defined('USEOnLiSERVER')) {
 						header("Location: ".DOL_URL_ROOT.'/public/website/index.php?website='.$websitekey.'&pageid='.$newpageid.'&l='.GETPOST('l', 'aZ09'));
 						exit;
 					} else {
@@ -271,7 +271,7 @@ if ($_SERVER['PHP_SELF'] != DOL_URL_ROOT.'/website/index.php') {	// If we browsi
 }
 
 // Show off line message when all website is off
-if (!defined('USEDOLIBARREDITOR') && empty($website->status)) {
+if (!defined('USEOnLiEDITOR') && empty($website->status)) {
 	// Security options
 
 	// X-Content-Type-Options

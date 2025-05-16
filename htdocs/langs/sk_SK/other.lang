@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Bezpečnostný kód
 NumberingShort=č
 Tools=Nástroje
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Môžete kliknúť na odkaz nižšie a uskutočniť platbu, ak ste tak ešte neurobili.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Pripomenutie udalosti „__EVENT_LABEL__“ dňa __EVENT_DATE__ o __EVENT_TIME__<br><br>Toto je automatická správa, neodpovedajte, prosím.
-DemoDesc=Dolibarr je kompaktný ERP/CRM podporujúci niekoľko obchodných modulov. Ukážka všetkých modulov nemá zmysel, pretože tento scenár sa nikdy nevyskytuje (k dispozícii je niekoľko stoviek). K dispozícii je teda niekoľko demo profilov.
+DemoDesc=OnLi je kompaktný ERP/CRM podporujúci niekoľko obchodných modulov. Ukážka všetkých modulov nemá zmysel, pretože tento scenár sa nikdy nevyskytuje (k dispozícii je niekoľko stoviek). K dispozícii je teda niekoľko demo profilov.
 ChooseYourDemoProfil=Vyberte si demo profil, ktorý najlepšie vyhovuje vašim potrebám...
 ChooseYourDemoProfilMore=...alebo si vytvorte vlastný profil<br>(manuálny výber modulu)
 DemoFundation=Správa členov nadácie
@@ -192,10 +192,10 @@ BugTracker=Hlásenie chýb
 SendNewPasswordDesc=Tento formulár vám umožňuje požiadať o nové heslo. Bude odoslaná na vašu e-mailovú adresu.<br>Zmena nadobudne účinnosť po kliknutí na potvrdzovací odkaz v e-maile.<br> Skontroluj si poštu.
 EnterNewPasswordHere=Tu zadajte svoje nové heslo
 BackToLoginPage=Späť na prihlasovaciu stránku
-AuthenticationDoesNotAllowSendNewPassword=Režim overovania je <b>%s.</b> <br> V tomto režime je možné Dolibarr neviem ani zmeniť heslo. <br> Obráťte sa na správcu systému, či chcete zmeniť heslo.
+AuthenticationDoesNotAllowSendNewPassword=Režim overovania je <b>%s.</b> <br> V tomto režime je možné OnLi neviem ani zmeniť heslo. <br> Obráťte sa na správcu systému, či chcete zmeniť heslo.
 EnableGDLibraryDesc=Ak chcete použiť túto možnosť, nainštalujte alebo povoľte knižnicu GD vo svojej inštalácii PHP.
 ProfIdShortDesc=<b>Prof Id %s</b> je informácia v závislosti na tretích strán krajiny. <br> Napríklad pre krajiny <b>%s,</b> je to kód <b>%s.</b>
-DolibarrDemo=Dolibarr ERP / CRM demo
+OnLiDemo=OnLi ERP / CRM demo
 StatsByAmount=Štatistiky o množstve produktov/služieb
 StatsByAmountProducts=Štatistiky o množstve produktov
 StatsByAmountServices=Štatistiky o množstve služieb
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=Žiadosť o zanechanie %s bola potvrdená.
 EMailTextHolidayApproved=Žiadosť o zanechanie %s bola schválená.
 EMailTextActionAdded=Akcia %s bola pridaná do agendy.
 ImportedWithSet=Dovoz súbor dát
-DolibarrNotification=Automatické upozornenie
+OnLiNotification=Automatické upozornenie
 ResizeDesc=Zadajte novú šírku <b>alebo</b> výšku novej. Pomer budú uchovávané pri zmene veľkosti ...
 NewLength=Nová šírka
 NewHeight=Nová výška

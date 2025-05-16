@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Вашите данни за контакт са записани. Ще се свържем с вас скоро...
 ContactUsDesc=Тази форма ви позволява да ни изпратите съобщение за първи контакт.
 ErrorCompanyNameAlreadyExists=Името на фирмата %s вече съществува. Изберете друго.
@@ -14,7 +14,7 @@ MenuNewSupplier=Нов доставчик
 MenuNewPrivateIndividual=Ново физическо лице
 NewCompany=Нова фирма (потенциален клиент, клиент, доставчик)
 NewThirdParty=Нов контрагент (потенциален клиент, клиент, доставчик)
-CreateDolibarrThirdPartySupplier=Създаване на контрагент (доставчик)
+CreateOnLiThirdPartySupplier=Създаване на контрагент (доставчик)
 CreateThirdPartyOnly=Създаване на контрагент
 CreateThirdPartyAndContact=Създаване на контрагент + свързан контакт
 ProspectionArea=Секция с потенциални клиенти
@@ -335,7 +335,7 @@ CapitalOf=Капитал от %s
 EditCompany=Променяне на фирма
 ThisUserIsNot=Този потребител не е потенциален клиент, настоящ клиент или доставчик
 VATIntraCheck=Проверяване
-VATIntraCheckDesc=Идентификационния номер по ДДС трябва да включва префикса на държавата. Връзката <b> %s </b> използва услугата на Европейската комисия за проверка на номер по ДДС (VIES), която изисква достъп до интернет извън сървъра на Dolibarr.
+VATIntraCheckDesc=Идентификационния номер по ДДС трябва да включва префикса на държавата. Връзката <b> %s </b> използва услугата на Европейската комисия за проверка на номер по ДДС (VIES), която изисква достъп до интернет извън сървъра на OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Проверяване на вътрешно-общностния идентификационен номер по ДДС в интернет страницата на Европейската Комисия
 VATIntraManualCheck=Можете също да проверите ръчно на уебсайта на Европейската комисия <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Потенциални клиенти по статус
 NoParentCompany=Няма
 ExportCardToFormat=Карта за експортиране във формат
 ContactNotLinkedToCompany=Контактът не е свързан с нито един контрагент
-DolibarrLogin=Dolibarr потребител
-NoDolibarrAccess=Няма достъп до Dolibarr
+OnLiLogin=OnLi потребител
+NoOnLiAccess=Няма достъп до OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Допълнителни контакти / адреси и атрибути към контрагента
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

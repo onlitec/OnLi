@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Réf. projet
 ProjectRef=Ref projet
 ProjectId=Id projet
@@ -161,12 +161,12 @@ ConfirmCloneProject=Êtes-vous sûr de vouloir cloner ce projet ?
 ProjectReportDate=Reporter les dates des tâches en fonction de la date de départ.
 ErrorShiftTaskDate=Une erreur s'est produite dans le report des dates des tâches.
 ProjectsAndTasksLines=Projets et tâches
-ProjectCreatedInDolibarr=Projet %s créé
-ProjectValidatedInDolibarr=Projet %s validé
-ProjectModifiedInDolibarr=Projet %s modifié
-TaskCreatedInDolibarr=Tâche %s créée
-TaskModifiedInDolibarr=Tâche %s modifiée
-TaskDeletedInDolibarr=Tâche %s supprimée
+ProjectCreatedInOnLi=Projet %s créé
+ProjectValidatedInOnLi=Projet %s validé
+ProjectModifiedInOnLi=Projet %s modifié
+TaskCreatedInOnLi=Tâche %s créée
+TaskModifiedInOnLi=Tâche %s modifiée
+TaskDeletedInOnLi=Tâche %s supprimée
 OpportunityStatus=Statut opportunité
 OpportunityStatusShort=Statut opportunité
 OpportunityProbability=Probabilité d'opportunité

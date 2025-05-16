@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 Individual=Privado individual
 VATIsUsed=Sujeto a IGV
 VATReverseCharge=Cargo inverso de IGV
@@ -11,6 +11,6 @@ ProfId3DZ=RUC
 VATIntra=RUC
 VATIntraShort=RUC
 VATPaymentFrequency=Frecuencia de pago de IGV
-VATIntraCheckDesc=El ID de IGV debe incluir el prefijo del país. El enlace <b>%s</b> utiliza el servicio de verificación de VAT europeo (VIES) que requiere acceso a Internet desde Dolibarr.
+VATIntraCheckDesc=El ID de IGV debe incluir el prefijo del país. El enlace <b>%s</b> utiliza el servicio de verificación de VAT europeo (VIES) que requiere acceso a Internet desde OnLi.
 TE_PRIVATE=Privado individual
 InActivity=Abrir

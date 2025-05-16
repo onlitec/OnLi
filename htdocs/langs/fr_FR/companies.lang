@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Vos coordonnées ont été enregistrées. Nous reviendrons vers vous bientôt...
 ContactUsDesc=Ce formulaire vous permet de nous envoyer un message pour un premier contact.
 ErrorCompanyNameAlreadyExists=Le nom de société %s existe déjà. Veuillez en choisir un autre.
@@ -14,7 +14,7 @@ MenuNewSupplier=Nouveau fournisseur
 MenuNewPrivateIndividual=Nouveau particulier
 NewCompany=Nouvelle société (prospect, client, fournisseur)
 NewThirdParty=Nouveau tiers (prospect, client, fournisseur)
-CreateDolibarrThirdPartySupplier=Créer un Tiers (fournisseur)
+CreateOnLiThirdPartySupplier=Créer un Tiers (fournisseur)
 CreateThirdPartyOnly=Créer tiers
 CreateThirdPartyAndContact=Créer un tiers + un contact/adresse fils
 ProspectionArea=Espace prospection
@@ -381,8 +381,8 @@ ProspectsByStatus=Prospects par état
 NoParentCompany=Aucune
 ExportCardToFormat=Exporter fiche au format
 ContactNotLinkedToCompany=Contact non lié à un tiers
-DolibarrLogin=Identifiant utilisateur
-NoDolibarrAccess=Pas d'accès utilisateur
+OnLiLogin=Identifiant utilisateur
+NoOnLiAccess=Pas d'accès utilisateur
 ExportDataset_company_1=Tierces parties (organisations/personnes physiques) et attributs
 ExportDataset_company_2=Contacts/Adresses (de tiers ou libre) et attributs
 ExportDataset_company_3=Modes de paiement tiers (comptes bancaires)

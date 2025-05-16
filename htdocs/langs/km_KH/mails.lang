@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=ការផ្ញើអ៊ីមែល
 EMailing=ការផ្ញើអ៊ីមែល
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=ទំនាក់ទំនងតាមប�
 MailingModuleDescContactsByFunction=ទំនាក់ទំនងតាមទីតាំង
 MailingModuleDescEmailsFromFile=អ៊ីមែលពីឯកសារ
 MailingModuleDescEmailsFromUser=អ៊ីមែលបញ្ចូលដោយអ្នកប្រើប្រាស់
-MailingModuleDescDolibarrUsers=អ្នកប្រើប្រាស់ដែលមានអ៊ីមែល
+MailingModuleDescOnLiUsers=អ្នកប្រើប្រាស់ដែលមានអ៊ីមែល
 MailingModuleDescThirdPartiesByCategories=Third parties
 SendingFromWebInterfaceIsNotAllowed=ការផ្ញើពីចំណុចប្រទាក់គេហទំព័រមិនត្រូវបានអនុញ្ញាតទេ។
 EmailCollectorFilterDesc=តម្រងទាំងអស់ត្រូវតែផ្គូផ្គងដើម្បីឱ្យមានអ៊ីមែលដែលត្រូវបានប្រមូល។<br>អ្នកអាចប្រើតួអក្សរ "!" មុនពេលតម្លៃខ្សែអក្សរស្វែងរក ប្រសិនបើអ្នកត្រូវការការធ្វើតេស្តអវិជ្ជមាន

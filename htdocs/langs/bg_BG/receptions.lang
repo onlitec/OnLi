@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Vendor reception management (Create reception documents)
 ReceptionsSetup=Vendor Reception setup
 RefReception=Съгласно стокова разписка №
@@ -49,9 +49,9 @@ ReceptionsNumberingModules=Модул за номериране на стоко�
 ReceptionsReceiptModel=Шаблони на документи за стокови разписки
 NoMorePredefinedProductToDispatch=No more predefined products to dispatch
 ReceptionExist=A reception exists
-ReceptionBackToDraftInDolibarr=Reception %s back to draft
-ReceptionClassifyClosedInDolibarr=Reception %s classified Closed
-ReceptionUnClassifyCloseddInDolibarr=Reception %s re-open
+ReceptionBackToDraftInOnLi=Reception %s back to draft
+ReceptionClassifyClosedInOnLi=Reception %s classified Closed
+ReceptionUnClassifyCloseddInOnLi=Reception %s re-open
 RestoreWithCurrentQtySaved=Fill quantities with latest saved values
 ReceptionsRecorded=Receptions recorded
 ReceptionUpdated=Reception successfully updated

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - errors
+# OnLi language file - Source file is en_US - errors
 
 # No errors
 NoErrorCommitIsDone=Nuk ka gabim, ne kryejmë
@@ -52,12 +52,12 @@ ErrorWrongDate=Data nuk është e saktë!
 ErrorFailedToWriteInDir=Dështoi të shkruante në drejtorinë %s
 ErrorFailedToBuildArchive=Dështoi në ndërtimin e skedarit të arkivit %s
 ErrorFoundBadEmailInFile=Found incorrect email syntax for %s lines in file (example line %s with email=%s)
-ErrorUserCannotBeDelete=Përdoruesi nuk mund të fshihet. Ndoshta është e lidhur me entitetet Dolibarr.
+ErrorUserCannotBeDelete=Përdoruesi nuk mund të fshihet. Ndoshta është e lidhur me entitetet OnLi.
 ErrorFieldsRequired=Disa fusha të kërkuara janë lënë bosh.
 ErrorSubjectIsRequired=Kërkohet tema e emailit
 ErrorInAddAttachmentsImageBaseOnMedia=Gabim në krijimin e skedarëve të imazhit në direktorinë e medias për bashkëngjitje
 ErrorInAddAttachmentsImageBaseIsSrcData=Gabim në krijimin e skedarëve të imazhit (të gjetura si të dhëna :) në direktorinë temp për bashkëngjitje
-ErrorFailedToCreateDir=Dështoi në krijimin e një drejtorie. Kontrolloni që përdoruesi i serverit të uebit ka leje për të shkruar në dosjen e dokumenteve Dolibarr. Nëse parametri <b>safe_mode</b> është i aktivizuar në këtë PHP, kontrolloni që skedarët Dolibarr php janë në pronësi të përdoruesit të serverit të uebit.
+ErrorFailedToCreateDir=Dështoi në krijimin e një drejtorie. Kontrolloni që përdoruesi i serverit të uebit ka leje për të shkruar në dosjen e dokumenteve OnLi. Nëse parametri <b>safe_mode</b> është i aktivizuar në këtë PHP, kontrolloni që skedarët OnLi php janë në pronësi të përdoruesit të serverit të uebit.
 ErrorNoMailDefinedForThisUser=Asnjë postë nuk është përcaktuar për këtë përdorues
 ErrorSetupOfEmailsNotComplete=Konfigurimi i emaileve nuk është i plotë
 ErrorAccountingClosureSetupNotComplete=Setup of closure accounts not complete
@@ -88,7 +88,7 @@ ErrorFieldCanNotContainSpecialNorUpperCharacters=Fusha <b>%s</b> nuk duhet të p
 ErrorFieldMustHaveXChar=Fusha <b>%s</b> duhet të ketë të paktën class=' nottranslate'>%s</span> karaktere.
 ErrorNoAccountancyModuleLoaded=Asnjë modul kontabiliteti nuk është aktivizuar
 ErrorExportDuplicateProfil=Ky emër profili ekziston tashmë për këtë grup eksporti.
-ErrorLDAPSetupNotComplete=Përputhja Dolibarr-LDAP nuk është e plotë.
+ErrorLDAPSetupNotComplete=Përputhja OnLi-LDAP nuk është e plotë.
 ErrorLDAPMakeManualTest=Një skedar .ldif është krijuar në direktorinë %s. Mundohuni ta ngarkoni manualisht nga linja e komandës për të pasur më shumë informacion mbi gabimet.
 ErrorCantSaveADoneUserWithZeroPercentage=Nuk mund të ruhet një veprim me "statusi i pa filluar" nëse plotësohet edhe fusha "e kryer nga".
 ErrorPleaseTypeBankTransactionReportName=Ju lutemi, shkruani emrin e pasqyrës bankare ku duhet të raportohet hyrja (Formati VVYYYMM ose YYYYMMDD)
@@ -122,8 +122,8 @@ ErrorProdIdAlreadyExist=%s i është caktuar një e treta tjetër
 ErrorFailedToSendPassword=Dërgimi i fjalëkalimit dështoi
 ErrorFailedToLoadRSSFile=Dështon në marrjen e furnizimit RSS. Provoni të shtoni MAIN_SIMPLEXMLLOAD_DEBUG konstante nëse mesazhet e gabimit nuk japin informacion të mjaftueshëm.
 ErrorForbidden=Qasja u refuzua.<br>Ti përpiqesh të hysh në një faqe, zonë ose veçori të një moduli të çaktivizuar ose pa qenë në një sesion të vërtetuar ose që nuk lejohet për përdoruesin tënd.
-ErrorForbidden2=Leja për këtë hyrje mund të përcaktohet nga administratori juaj i Dolibarr nga menyja %s->%s.
-ErrorForbidden3=Duket se Dolibarr nuk përdoret përmes një sesioni të vërtetuar. Hidhini një sy dokumentacionit të konfigurimit të Dolibarr për të ditur se si të menaxhoni vërtetimet (htaccess, mod_auth ose të tjera...).
+ErrorForbidden2=Leja për këtë hyrje mund të përcaktohet nga administratori juaj i OnLi nga menyja %s->%s.
+ErrorForbidden3=Duket se OnLi nuk përdoret përmes një sesioni të vërtetuar. Hidhini një sy dokumentacionit të konfigurimit të OnLi për të ditur se si të menaxhoni vërtetimet (htaccess, mod_auth ose të tjera...).
 ErrorForbidden4=Shënim: pastroni skedarët e shfletuesit tuaj për të shkatërruar sesionet ekzistuese për këtë hyrje.
 ErrorNoImagickReadimage=Klasa Imagick nuk gjendet në këtë PHP. Nuk mund të disponohet asnjë pamje paraprake. Administratorët mund ta çaktivizojnë këtë skedë nga menyja Setup - Display.
 ErrorRecordAlreadyExists=Regjistrimi ekziston tashmë
@@ -147,8 +147,8 @@ ErrorWebServerUserHasNotPermission=Llogaria e përdoruesit <b>%s</b> nuk është
 ErrorNoActivatedBarcode=Asnjë lloj barkodi nuk është aktivizuar
 ErrUnzipFails=Zhzipja e %s me ZipArchive dështoi
 ErrNoZipEngine=Nuk ka motor për të zip/unzipuar %s skedar në këtë PHP
-ErrorFileMustBeADolibarrPackage=Skedari %s duhet të jetë një paketë zip Dolibarr
-ErrorModuleFileRequired=Ju duhet të zgjidhni një skedar të paketës së modulit Dolibarr
+ErrorFileMustBeAOnLiPackage=Skedari %s duhet të jetë një paketë zip OnLi
+ErrorModuleFileRequired=Ju duhet të zgjidhni një skedar të paketës së modulit OnLi
 ErrorPhpCurlNotInstalled=PHP CURL nuk është i instaluar, kjo është thelbësore për të folur me Paypal
 ErrorFailedToAddToMailmanList=Dështoi në shtimin e rekordit %s në listën e Mailman %s ose bazën SPIP
 ErrorFailedToRemoveToMailmanList=Heqja e rekordit %s dështoi në listën e Mailman %s ose bazës SPIP
@@ -161,7 +161,7 @@ ErrorDateMustBeInFuture=Data duhet të jetë më e madhe se sot
 ErrorStartDateGreaterEnd=Data e fillimit është më e madhe se data e përfundimit
 ErrorPaymentModeDefinedToWithoutSetup=Një mënyrë pagese u caktua për të shtypur %s por konfigurimi i modulit Fatura nuk u krye për të përcaktuar informacionin për t'u shfaqur për këtë mënyrë pagese.
 ErrorPHPNeedModule=Error, your PHP must have module <b>%s</b> installed to use this feature.
-ErrorOpenIDSetupNotComplete=Ju konfiguroni skedarin e konfigurimit Dolibarr për të lejuar vërtetimin e OpenID, por URL-ja e shërbimit OpenID nuk është përcaktuar në konstante %s
+ErrorOpenIDSetupNotComplete=Ju konfiguroni skedarin e konfigurimit OnLi për të lejuar vërtetimin e OpenID, por URL-ja e shërbimit OpenID nuk është përcaktuar në konstante %s
 ErrorWarehouseMustDiffers=Burimi dhe magazinat e synuara duhet të ndryshojnë
 ErrorBadFormat=Format i keq!
 ErrorMemberNotLinkedToAThirpartyLinkOrCreateFirst=Gabim, ky anëtar nuk është ende i lidhur me ndonjë palë të tretë. Lidhni një anëtar me një palë të tretë ekzistuese ose krijoni një palë të tretë të re përpara se të krijoni abonim me faturë.
@@ -225,7 +225,7 @@ ErrorUserNotAssignedToTask=Përdoruesi duhet të caktohet në detyrë që të je
 ErrorTaskAlreadyAssigned=Detyra i është caktuar tashmë përdoruesit
 ErrorModuleFileSeemsToHaveAWrongFormat=Paketa e modulit duket se ka një format të gabuar.
 ErrorModuleFileSeemsToHaveAWrongFormat2=At least one mandatory directory must exists into zip of module: <strong>%s</strong> or <strong>%s</strong>
-ErrorFilenameDosNotMatchDolibarrPackageRules=The file name of the module package (<strong>%s</strong>) does not match the expected name syntax: <strong>%s</strong>
+ErrorFilenameDosNotMatchOnLiPackageRules=The file name of the module package (<strong>%s</strong>) does not match the expected name syntax: <strong>%s</strong>
 ErrorDuplicateTrigger=Gabim, emri i kopjimit të kopjimit %s. I ngarkuar tashmë nga %s.
 ErrorNoWarehouseDefined=Gabim, nuk janë përcaktuar magazina.
 ErrorBadLinkSourceSetButBadValueForRef=Lidhja që përdorni nuk është e vlefshme. Një 'burim' për pagesë është përcaktuar, por vlera për 'ref' nuk është e vlefshme.
@@ -348,11 +348,11 @@ ErrorNoCloneWithoutEmail=The new user must have an email
 ErrorUserClone=Error in user clone categories
 ErrorQtyOrderedLessQtyShipped = The quantity ordered cannot be less than the quantity shipped.
 ErrorVariousPaymentOnBankAccountWithADifferentCurrencyNotYetSupported=Error, creating a various payment on a bank account with a currency different than the currency of the company is not yet supported.
-ErrorStreamMustBeEnabled=The PHP stream %s is not available. Check your PHP modules and Dolibarr parameter $dolibarr_main_stream_to_disable.
+ErrorStreamMustBeEnabled=The PHP stream %s is not available. Check your PHP modules and OnLi parameter $OnLi_main_stream_to_disable.
 ErrorYouTryToPayInvoicesWithDifferentCurrenciesInSamePayment=Error, you try to pay different invoices with different currencies in the same payment
 # Warnings
 WarningParamUploadMaxFileSizeHigherThanPostMaxSize=Parametri juaj PHP upload_max_filesize (%s) është më i lartë se parametri PHP post_max_size (%s). Ky nuk është një konfigurim i qëndrueshëm.
-WarningPasswordSetWithNoAccount=Për këtë anëtar u vendos një fjalëkalim. Megjithatë, nuk u krijua asnjë llogari përdoruesi. Pra, ky fjalëkalim është i ruajtur, por nuk mund të përdoret për t'u identifikuar në Dolibarr. Mund të përdoret nga një modul/ndërfaqe e jashtme, por nëse nuk keni nevojë të përcaktoni ndonjë hyrje apo fjalëkalim për një anëtar, mund të çaktivizoni opsionin "Menaxho një hyrje për çdo anëtar" nga konfigurimi i modulit të Anëtarit. Nëse ju duhet të menaxhoni një hyrje, por nuk keni nevojë për ndonjë fjalëkalim, mund ta mbani këtë fushë bosh për të shmangur këtë paralajmërim. Shënim: Email-i mund të përdoret gjithashtu si hyrje nëse anëtari është i lidhur me një përdorues.
+WarningPasswordSetWithNoAccount=Për këtë anëtar u vendos një fjalëkalim. Megjithatë, nuk u krijua asnjë llogari përdoruesi. Pra, ky fjalëkalim është i ruajtur, por nuk mund të përdoret për t'u identifikuar në OnLi. Mund të përdoret nga një modul/ndërfaqe e jashtme, por nëse nuk keni nevojë të përcaktoni ndonjë hyrje apo fjalëkalim për një anëtar, mund të çaktivizoni opsionin "Menaxho një hyrje për çdo anëtar" nga konfigurimi i modulit të Anëtarit. Nëse ju duhet të menaxhoni një hyrje, por nuk keni nevojë për ndonjë fjalëkalim, mund ta mbani këtë fushë bosh për të shmangur këtë paralajmërim. Shënim: Email-i mund të përdoret gjithashtu si hyrje nëse anëtari është i lidhur me një përdorues.
 WarningMandatorySetupNotComplete=Klikoni këtu për të konfiguruar parametrat kryesorë
 WarningEnableYourModulesApplications=Klikoni këtu për të aktivizuar modulet dhe aplikacionet tuaja
 WarningSafeModeOnCheckExecDir=Paralajmërim, opsioni PHP <b>safe_mode</b> është aktiv kështu që komanda duhet të ruhet brenda një drejtorie të deklaruar nga parametri php <b>safe_mode_exec_dir</b>.
@@ -399,7 +399,7 @@ WarningReadBankAlsoAllowedIfUserHasPermission=Warning, reading bank account is a
 WarningNoDataTransferedInAccountancyYet=Please note, there is no data in the accounting table. Please transfer your data recorded in the application to the accounting section or change the calculation mode to analyze the data recorded outside of accounting.
 WarningChangingThisMayBreakStopTaskScheduler=Warning, changing this value may disable the scheduler
 WarningAmountOfFileDiffersFromSumOfLines=Warning, amount of file (%s) differs from the sum of lines (%s)
-WarningModuleAffiliatedToAReportedCompany=Warning, this module has been reported to the Dolibarr foundation as being published by a company using illegal practices (non-compliance with the rules for using the Dolibarr brand, collecting your data without your consent or deploying malware).
+WarningModuleAffiliatedToAReportedCompany=Warning, this module has been reported to the OnLi foundation as being published by a company using illegal practices (non-compliance with the rules for using the OnLi brand, collecting your data without your consent or deploying malware).
 WarningModuleAffiliatedToAPiratPlatform=Be careful when getting a module (paid or free) from a suspicious non official platform like %s
 
 SwissQrOnlyVIR = Fatura SwissQR mund të shtohet vetëm në faturat e vendosura për t'u paguar me pagesa të transfertave të kreditit.

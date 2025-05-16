@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Lisää nykyinen sivu kirjanmerkkeihin
 BehaviourOnClick = Käyttäytyminen, kun kirjanmerkki URL-osoite on valittu
@@ -21,4 +21,4 @@ ReplaceWindow = Vaihda nykyinen välilehti
 SetHereATitleForLink = Aseta nimi kirjanmerkki
 ShowBookmark = Näytä kirjanmerkki
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Käytä ulkoista/absoluuttista linkkiä (https://externalurl.com) tai sisäistä/suhteellista linkkiä (/mypage.php). Voit myös käyttää puhelinta, kuten puh:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Käytä ulkoista/absoluuttista linkkiä (https://externalurl.com) tai sisäistä/suhteellista linkkiä (/mypage.php). Voit myös käyttää puhelinta, kuten puh:0123456.

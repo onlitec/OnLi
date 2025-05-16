@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=電子郵件
 EMailing=電子郵件
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=按類別分類的聯絡人
 MailingModuleDescContactsByFunction=按職位聯絡
 MailingModuleDescEmailsFromFile=來自文件的電子郵件
 MailingModuleDescEmailsFromUser=使用者輸入的電子郵件
-MailingModuleDescDolibarrUsers=有電子郵件的用戶
+MailingModuleDescOnLiUsers=有電子郵件的用戶
 MailingModuleDescThirdPartiesByCategories=第三方
 SendingFromWebInterfaceIsNotAllowed=不允許從 Web 介面發送。
 EmailCollectorFilterDesc=所有過濾器必須匹配才能收集電子郵件。<br>您可以使用字元“！”如果您需要否定測試，則在搜尋字串值之前

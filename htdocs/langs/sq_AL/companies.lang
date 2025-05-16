@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Të dhënat tuaja të kontaktit janë regjistruar. Së shpejti do të kthehemi tek ju...
 ContactUsDesc=Ky formular ju lejon të na dërgoni një mesazh për një kontakt të parë.
 ErrorCompanyNameAlreadyExists=Emri i kompanisë %s ekziston tashmë. Zgjidhni një tjetër.
@@ -14,7 +14,7 @@ MenuNewSupplier=Shitësi i ri
 MenuNewPrivateIndividual=Privat i ri
 NewCompany=Kompani e re (perspektivë, klient, shitës)
 NewThirdParty=Palë e Tretë e Re (perspektivë, klient, shitës)
-CreateDolibarrThirdPartySupplier=Krijo një palë të tretë (shitës)
+CreateOnLiThirdPartySupplier=Krijo një palë të tretë (shitës)
 CreateThirdPartyOnly=Krijo palë të tretë
 CreateThirdPartyAndContact=Krijo një palë të tretë + një kontakt fëmijësh
 ProspectionArea=Zona e kërkimit
@@ -335,7 +335,7 @@ CapitalOf=Kapitali i %s
 EditCompany=Redaktoni kompaninë
 ThisUserIsNot=Ky përdorues nuk është një klient i mundshëm ose shitës
 VATIntraCheck=Kontrollo
-VATIntraCheckDesc=ID-ja e TVSH-së duhet të përfshijë prefiksin e shtetit. Lidhja <b>%s</b> përdor kontrolluesin evropian VAT) (VIES) e cila kërkon qasje në internet nga serveri Dolibarr.
+VATIntraCheckDesc=ID-ja e TVSH-së duhet të përfshijë prefiksin e shtetit. Lidhja <b>%s</b> përdor kontrolluesin evropian VAT) (VIES) e cila kërkon qasje në internet nga serveri OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Kontrolloni ID-në e TVSH-së brenda Komunitetit në faqen e internetit të Komisionit Evropian
 VATIntraManualCheck=You can also check manually on the European Commission website <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Perspektivat sipas statusit
 NoParentCompany=Asnje
 ExportCardToFormat=Eksporto kartën në format
 ContactNotLinkedToCompany=Kontakti nuk është i lidhur me asnjë palë të tretë
-DolibarrLogin=Dolibarr hyrje
-NoDolibarrAccess=Nuk ka qasje në Dolibarr
+OnLiLogin=OnLi hyrje
+NoOnLiAccess=Nuk ka qasje në OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

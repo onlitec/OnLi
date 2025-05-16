@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=மின்னஞ்சல் அனுப்புதல்
 EMailing=மின்னஞ்சல் அனுப்புதல்
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=வகைகளின்படி தொட�
 MailingModuleDescContactsByFunction=நிலை மூலம் தொடர்புகள்
 MailingModuleDescEmailsFromFile=கோப்பிலிருந்து மின்னஞ்சல்கள்
 MailingModuleDescEmailsFromUser=பயனரின் மின்னஞ்சல்கள் உள்ளீடு
-MailingModuleDescDolibarrUsers=மின்னஞ்சல்களைக் கொண்ட பயனர்கள்
+MailingModuleDescOnLiUsers=மின்னஞ்சல்களைக் கொண்ட பயனர்கள்
 MailingModuleDescThirdPartiesByCategories=Third parties
 SendingFromWebInterfaceIsNotAllowed=இணைய இடைமுகத்திலிருந்து அனுப்ப அனுமதி இல்லை.
 EmailCollectorFilterDesc=All filters must match to have an email being collected.<br>You can use the character "!" before the search string value if you need a negative test

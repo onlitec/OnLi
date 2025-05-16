@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=קוד אבטחה
 NumberingShort=מס'
 Tools=Tools
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=אתה יכול ללחוץ על הקישור למטה כדי לבצע את התשלום שלך אם הוא עדיין לא בוצע.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=תזכורת לאירוע "__EVENT_LABEL__" ב-__EVENT_DATE__ בשעה __EVENT_TIME__<br><br>זו הודעה אוטומטית, נא לא להשיב.
-DemoDesc=Dolibarr הוא ERP/CRM קומפקטי התומך במספר מודולים עסקיים. הדגמה המציגה את כל המודולים אינה הגיונית שכן תרחיש זה לעולם לא מתרחש (כמה מאות זמינים). אז, מספר פרופילי הדגמה זמינים.
+DemoDesc=OnLi הוא ERP/CRM קומפקטי התומך במספר מודולים עסקיים. הדגמה המציגה את כל המודולים אינה הגיונית שכן תרחיש זה לעולם לא מתרחש (כמה מאות זמינים). אז, מספר פרופילי הדגמה זמינים.
 ChooseYourDemoProfil=בחר את פרופיל ההדגמה המתאים ביותר לצרכים שלך...
 ChooseYourDemoProfilMore=...או בנה פרופיל משלך<br>(בחירה ידנית של מודול)
 DemoFundation=ניהול חברי קרן
@@ -192,10 +192,10 @@ BugTracker=עוקב אחר באגים
 SendNewPasswordDesc=טופס זה מאפשר לך לבקש סיסמה חדשה. הוא יישלח לכתובת הדוא"ל שלך.<br>השינוי ייכנס לתוקף ברגע שתלחץ על קישור האישור בדוא"ל.<br> לבדוק את תיבת הדואר הנכנס שלך.
 EnterNewPasswordHere=הזן את הסיסמה החדשה שלך כאן
 BackToLoginPage=חזרה לדף הכניסה
-AuthenticationDoesNotAllowSendNewPassword=מצב האימות הוא <b>%s</b>.<translate' class='no ><br></span>במצב זה, Dolibarr לא יכול לדעת או לשנות את הסיסמה שלך.<br>צור קשר עם מנהל המערכת שלך אם ברצונך לשנות את הסיסמה שלך.
+AuthenticationDoesNotAllowSendNewPassword=מצב האימות הוא <b>%s</b>.<translate' class='no ><br></span>במצב זה, OnLi לא יכול לדעת או לשנות את הסיסמה שלך.<br>צור קשר עם מנהל המערכת שלך אם ברצונך לשנות את הסיסמה שלך.
 EnableGDLibraryDesc=התקן או הפעל את ספריית GD בהתקנת PHP שלך כדי להשתמש באפשרות זו.
 ProfIdShortDesc=<b>Prof Id %s</b> is an information depending on third party country.<br>For example, for country <b>%s</b>, it's code <b>%s</b>.
-DolibarrDemo=הדגמה של Dolibarr ERP/CRM
+OnLiDemo=הדגמה של OnLi ERP/CRM
 StatsByAmount=סטטיסטיקה על כמות מוצרים/שירותים
 StatsByAmountProducts=סטטיסטיקה על כמות המוצרים
 StatsByAmountServices=סטטיסטיקה על כמות השירותים
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=בקשת ההשארה %s אומתה.
 EMailTextHolidayApproved=בקשת העזיבה %s אושרה.
 EMailTextActionAdded=הפעולה %s נוספה לסדר היום.
 ImportedWithSet=ערכת נתוני ייבוא
-DolibarrNotification=התראה אוטומטית
+OnLiNotification=התראה אוטומטית
 ResizeDesc=הזן רוחב חדש <b>או</b> גובה חדש. היחס יישמר במהלך שינוי גודל...
 NewLength=רוחב חדש
 NewHeight=גובה חדש

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Təhlükəsizlik kodu
 NumberingShort=N°
 Tools=Alətlər
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Ödənişiniz hələ həyata keçirilməyibsə, onu etmək üçün aşağıdakı linkə klikləyə bilərsiniz.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm="__EVENT_LABEL__" hadisə xatırladıcısı, __EVENT_DATE__ tarixində __EVENT_TIME__<br><br>Bu, avtomatik olaraq təkrar mesaj deyil.
-DemoDesc=Dolibarr bir neçə biznes modulunu dəstəkləyən kompakt ERP/CRM-dir. Bütün modulları nümayiş etdirən demo heç bir məna kəsb etmir, çünki bu ssenari heç vaxt baş vermir (bir neçə yüz mövcuddur). Beləliklə, bir neçə demo profil mövcuddur.
+DemoDesc=OnLi bir neçə biznes modulunu dəstəkləyən kompakt ERP/CRM-dir. Bütün modulları nümayiş etdirən demo heç bir məna kəsb etmir, çünki bu ssenari heç vaxt baş vermir (bir neçə yüz mövcuddur). Beləliklə, bir neçə demo profil mövcuddur.
 ChooseYourDemoProfil=Ehtiyaclarınıza ən uyğun demo profili seçin...
 ChooseYourDemoProfilMore=...və ya öz profilinizi yaradın<br>(əl ilə modul seçimi)
 DemoFundation=Bir fondun üzvlərini idarə edin
@@ -192,10 +192,10 @@ BugTracker=Səhv izləyicisi
 SendNewPasswordDesc=Bu forma sizə yeni parol tələb etməyə imkan verir. O, e-poçt ünvanınıza göndəriləcək.<br>Dəyişiklik e-poçtdakı təsdiqləmə linkinə kliklədikdən sonra qüvvəyə minəcək.<br> Gələnlər qutusunu yoxlayın.
 EnterNewPasswordHere=Yeni parolunuzu bura daxil edin
 BackToLoginPage=Giriş səhifəsinə qayıt
-AuthenticationDoesNotAllowSendNewPassword=Authentication mode is <b>%s</b>.<br>In this mode, Dolibarr can't know nor change your password.<br>Contact your system administrator if you want to change your password.
+AuthenticationDoesNotAllowSendNewPassword=Authentication mode is <b>%s</b>.<br>In this mode, OnLi can't know nor change your password.<br>Contact your system administrator if you want to change your password.
 EnableGDLibraryDesc=Bu seçimi istifadə etmək üçün PHP quraşdırmanızda GD kitabxanasını quraşdırın və ya aktivləşdirin.
 ProfIdShortDesc=<b>Prof Id %s</b> is an information depending on third party country.<br>For example, for country <b>%s</b>, it's code <b>%s</b>.
-DolibarrDemo=Dolibarr ERP/CRM demo
+OnLiDemo=OnLi ERP/CRM demo
 StatsByAmount=Məhsulların/xidmətlərin miqdarı haqqında statistik məlumatlar
 StatsByAmountProducts=Məhsulların miqdarı ilə bağlı statistika
 StatsByAmountServices=Xidmətlərin həcminə dair statistika
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=%s sorğusu təsdiqləndi.
 EMailTextHolidayApproved=%s sorğusu təsdiqləndi.
 EMailTextActionAdded=Fəaliyyət %s Gündəliyə əlavə edildi.
 ImportedWithSet=İdxal məlumat dəsti
-DolibarrNotification=Avtomatik bildiriş
+OnLiNotification=Avtomatik bildiriş
 ResizeDesc=Yeni eni <b>VEYA</b> yeni hündürlük daxil edin. Ölçü dəyişdirilərkən nisbət saxlanılacaq...
 NewLength=Yeni eni
 NewHeight=Yeni hündürlük

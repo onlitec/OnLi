@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Gửi Email
 EMailing=Gửi Email
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Liên lạc theo danh mục
 MailingModuleDescContactsByFunction=Liên lạc theo vị trí
 MailingModuleDescEmailsFromFile=Email từ tập tin
 MailingModuleDescEmailsFromUser=Email đầu vào của người dùng
-MailingModuleDescDolibarrUsers=Người dùng có email
+MailingModuleDescOnLiUsers=Người dùng có email
 MailingModuleDescThirdPartiesByCategories=Bên thứ ba
 SendingFromWebInterfaceIsNotAllowed=Gửi từ giao diện web không được phép.
 EmailCollectorFilterDesc=Tất cả các bộ lọc phải khớp nhau để thu thập email.<br>Bạn có thể sử dụng ký tự "!" trước giá trị chuỗi tìm kiếm nếu bạn cần kiểm tra âm tính

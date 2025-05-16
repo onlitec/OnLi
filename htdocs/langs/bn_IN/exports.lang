@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=রপ্তানি
 ImportArea=আমদানি
 NewExport=নতুন রপ্তানি
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=এটি নির্বাচন করতে %s �
 ChooseFileToImport=ফাইল আপলোড করুন তারপর সোর্স ইম্পোর্ট ফাইল হিসাবে ফাইল নির্বাচন করতে %s আইকনে ক্লিক করুন...
 SourceFileFormat=সোর্স ফাইল ফরম্যাট
 FieldsInSourceFile=উৎস ফাইলে ক্ষেত্র
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=কোনো ক্ষেত্র নেই
 MoveField=ফিল্ড কলাম নম্বর %s সরান
 ExampleOfImportFile=ইমপোর্ট_ফাইলের_উদাহরণ

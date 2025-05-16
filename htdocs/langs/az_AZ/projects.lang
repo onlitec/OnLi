@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Ref. layihə
 ProjectRef=Layihə refer.
 ProjectId=Layihə ID
@@ -160,12 +160,12 @@ ConfirmCloneProject=Bu layihəni klonlayacağınıza əminsiniz?
 ProjectReportDate=Yeni layihənin başlanğıc tarixinə uyğun olaraq tapşırıq tarixlərini dəyişdirin
 ErrorShiftTaskDate=Tapşırıq tarixini yeni layihənin başlanğıc tarixinə görə dəyişmək mümkün deyil
 ProjectsAndTasksLines=Layihələr və tapşırıqlar
-ProjectCreatedInDolibarr=%s layihəsi yaradıldı
-ProjectValidatedInDolibarr=%s layihəsi təsdiqləndi
-ProjectModifiedInDolibarr=Layihə %s dəyişdirildi
-TaskCreatedInDolibarr=%s tapşırığı yaradıldı
-TaskModifiedInDolibarr=%s tapşırığı dəyişdirildi
-TaskDeletedInDolibarr=%s tapşırığı silindi
+ProjectCreatedInOnLi=%s layihəsi yaradıldı
+ProjectValidatedInOnLi=%s layihəsi təsdiqləndi
+ProjectModifiedInOnLi=Layihə %s dəyişdirildi
+TaskCreatedInOnLi=%s tapşırığı yaradıldı
+TaskModifiedInOnLi=%s tapşırığı dəyişdirildi
+TaskDeletedInOnLi=%s tapşırığı silindi
 OpportunityStatus=Aparıcı statusu
 OpportunityStatusShort=Aparıcı statusu
 OpportunityProbability=Aparıcı ehtimal

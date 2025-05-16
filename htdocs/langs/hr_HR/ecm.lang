@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - ecm
+# OnLi language file - Source file is en_US - ecm
 ECMNbOfDocs=Broj dokumenata u imeniku
 ECMSection=Mapa
 ECMSectionManual=Ručna mapa
@@ -16,7 +16,7 @@ ECMNbOfSubDir=Broj podmapa
 ECMNbOfFilesInSubDir=Broj datoteka u podmapama
 ECMCreationUser=Kreirao
 ECMArea=DMS/ECM područje
-ECMAreaDesc=Područje DMS/ECM (Document Management System / Electronic Content Management) omogućuje spremanje, dijeljenje i brzo pretraživanje svih vrsta dokumenata u Dolibarru.
+ECMAreaDesc=Područje DMS/ECM (Document Management System / Electronic Content Management) omogućuje spremanje, dijeljenje i brzo pretraživanje svih vrsta dokumenata u OnLiu.
 ECMAreaDesc2a=* Ručni imenici mogu se koristiti za spremanje dokumenata sa slobodnom organizacijom strukture stabla.
 ECMAreaDesc2b=* Automatski imenici popunjavaju se automatski prilikom dodavanja dokumenata sa stranice elementa.
 ECMAreaDesc3=* Javni direktoriji su datoteke u poddirektoriju <b>/medias</b> direktorija dokumenata, koje mogu čitati svi na internetu bez potrebe za prijavom i nema potrebe da se datoteka eksplicitno dijeli. Koristi se za pohranu slikovnih datoteka za, na primjer, modul za slanje e-pošte ili web stranice.

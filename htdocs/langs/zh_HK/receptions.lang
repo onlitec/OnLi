@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=供應商接收管理（創建接收文件）
 ReceptionsSetup=供應商接收設置
 RefReception=參考接收
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=收貨的編號模組
 ReceptionsReceiptModel=收貨文件模板
 NoMorePredefinedProductToDispatch=沒有更多預定義產品可發送
 ReceptionExist=接收已存在
-ReceptionBackToDraftInDolibarr=接收 %s 返回草稿
-ReceptionClassifyClosedInDolibarr=接收 %s 已歸類為關閉
-ReceptionUnClassifyCloseddInDolibarr=接收 %s 重新開啟
+ReceptionBackToDraftInOnLi=接收 %s 返回草稿
+ReceptionClassifyClosedInOnLi=接收 %s 已歸類為關閉
+ReceptionUnClassifyCloseddInOnLi=接收 %s 重新開啟
 RestoreWithCurrentQtySaved=使用最新保存的值填充數量
 ReceptionsRecorded=接收已記錄
 ReceptionUpdated=接收成功更新v

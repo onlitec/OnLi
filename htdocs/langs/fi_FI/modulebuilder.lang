@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - loan
+# OnLi language file - Source file is en_US - loan
 IdModule= Moduulin tunnus
 ModuleBuilderDesc=Vain kokeneet käyttäjät tai kehittäjät saavat käyttää tätä työkalua. Se tarjoaa apuohjelmia oman moduulin rakentamiseen tai muokkaamiseen. Vaihtoehtoisen <a href="%s" target="_blank" rel="noopener noreferrer">manuaalisen kehityksen dokumentaatio on täällä</a>.
 EnterNameOfModuleDesc=Syötä moduulin/sovelluksen nimi muotoon luo ilman välilyöntejä. Käytä isoja kirjaimia erottaaksesi sanat (esimerkiksi: MyModule, EcommerceForShop, SyncWithMySystem...)
@@ -30,7 +30,7 @@ EnterNameOfModuleToDeleteDesc=Voit poistaa moduulisi. VAROITUS: Kaikki moduulin 
 EnterNameOfObjectToDeleteDesc=You can delete an object. WARNING: All coding files (generated or created manually) related to the object will be deleted!
 DangerZone=Vaaravyöhyke
 BuildPackage=Rakenna paketti
-BuildPackageDesc=Voit luoda zip-paketin sovelluksestasi, jotta olet valmis jakamaan sen missä tahansa Dolibarrissa. Voit myös jakaa sitä tai myydä sitä markkinoilla, kuten <a href="https://www.dolistore.com">DoliStore.com</a>.
+BuildPackageDesc=Voit luoda zip-paketin sovelluksestasi, jotta olet valmis jakamaan sen missä tahansa OnLiissa. Voit myös jakaa sitä tai myydä sitä markkinoilla, kuten <a href="https://www.dolistore.com">DoliStore.com</a>.
 BuildDocumentation=Rakenna dokumentaatio
 ModuleIsNotActive=Tätä moduulia ei ole vielä aktivoitu. Siirry osoitteeseen %s ja julkaise se tai napsauta tätä
 ModuleIsLive=Tämä moduuli on aktivoitu. Kaikki muutokset voivat rikkoa nykyisen live-ominaisuuden.
@@ -110,7 +110,7 @@ HooksDefDesc=Määritä ominaisuudessa <b>module_parts['hooks']</b>, moduulin ku
 TriggerDefDesc=Määritä triggerissä tiedosto koodi, jonka haluat suorittaa, kun moduulisi ulkopuolinen liiketoimintatapahtuma suoritetaan (muiden moduulien käynnistämät tapahtumat).
 SeeIDsInUse=Katso asennuksessasi käytössä olevat tunnukset
 SeeReservedIDsRangeHere=Katso valikoima varattuja tunnuksia
-ToolkitForDevelopers=Toolkit Dolibarr-kehittäjille
+ToolkitForDevelopers=Toolkit OnLi-kehittäjille
 TryToUseTheModuleBuilder=If you have knowledge of SQL and PHP, you may use the native module builder wizard.<br>Enable the module <strong>%s</strong> and use the wizard by clicking the <span class="fa fa-bug"></span> on the top right menu.<br>Warning: This is an advanced developer feature, do <b>not</b> experiment on your production site!
 SeeTopRightMenu=Katso oikeasta yläkulmasta <span class="fa fa-bug"></span> valikko
 AddLanguageFile=Lisää Kieli tiedosto

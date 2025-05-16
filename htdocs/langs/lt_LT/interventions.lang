@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervencija
 Interventions=Intervencijos
 InterventionCard=Intervencijos kortelė
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Classify "Unbilled"
 InterventionClassifyDone=Classify "Done"
 SendInterventionRef=Submission of intervention %s
 SendInterventionByMail=Send intervention by email
-InterventionCreatedInDolibarr=Intervention %s created
-InterventionValidatedInDolibarr=Intervencija %s pripažinta galiojančia
-InterventionModifiedInDolibarr=Intervention %s modified
-InterventionClassifiedBilledInDolibarr=Intervention %s set as billed
-InterventionClassifiedUnbilledInDolibarr=Intervention %s set as unbilled
+InterventionCreatedInOnLi=Intervention %s created
+InterventionValidatedInOnLi=Intervencija %s pripažinta galiojančia
+InterventionModifiedInOnLi=Intervention %s modified
+InterventionClassifiedBilledInOnLi=Intervention %s set as billed
+InterventionClassifiedUnbilledInOnLi=Intervention %s set as unbilled
 InterventionSentByEMail=Intervention %s sent by email
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=Intervention %s deleted
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=Intervention %s deleted
 InterventionsArea=Interventions area
 DraftFichinter=Draft interventions
 LastModifiedInterventions=Latest %s modified interventions

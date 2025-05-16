@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Управување со прием на продавач (Креирај документи за прием)
 ReceptionsSetup=Поставување на прием на продавач
 RefReception=Уп. прием
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Модул за нумерирање за прием�
 ReceptionsReceiptModel=Шаблони за документи за приеми
 NoMorePredefinedProductToDispatch=Нема повеќе предефинирани производи за испраќање
 ReceptionExist=Постои прием
-ReceptionBackToDraftInDolibarr=Прием %s назад на нацрт
-ReceptionClassifyClosedInDolibarr=Приемот %s класифициран Затворен
-ReceptionUnClassifyCloseddInDolibarr=Приемот %s повторно се отвори
+ReceptionBackToDraftInOnLi=Прием %s назад на нацрт
+ReceptionClassifyClosedInOnLi=Приемот %s класифициран Затворен
+ReceptionUnClassifyCloseddInOnLi=Приемот %s повторно се отвори
 RestoreWithCurrentQtySaved=Пополнете количини со најновите зачувани вредности
 ReceptionsRecorded=Приемите снимени
 ReceptionUpdated=Приемот е успешно ажуриран

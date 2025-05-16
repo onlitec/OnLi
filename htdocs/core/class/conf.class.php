@@ -1,4 +1,7 @@
 <?php
+// ----------------------------------------------------------------------------
+// Arquivo modificado em 15/05/2025 por OnLi Developer - Não alterar sem autorização explícita
+// ----------------------------------------------------------------------------
 
 /* Copyright (C) 2003-2007  Rodolphe Quiedeville    <rodolphe@quiedeville.org>
  * Copyright (C) 2003       Xavier Dutoit           <doli@sydesy.com>
@@ -561,10 +564,10 @@ class Conf extends stdClass
 					$value = $objp->value;
 					if ($key) {
 						// Allow constants values to be overridden by environment variables
-						if (isset($_SERVER['DOLIBARR_'.$key])) {
-							$value = $_SERVER['DOLIBARR_'.$key];
-						} elseif (isset($_ENV['DOLIBARR_'.$key])) {
-							$value = $_ENV['DOLIBARR_'.$key];
+						if (isset($_SERVER['OnLi_'.$key])) {
+							$value = $_SERVER['OnLi_'.$key];
+						} elseif (isset($_ENV['OnLi_'.$key])) {
+							$value = $_ENV['OnLi_'.$key];
 						}
 
 						$this->global->$key = dolDecrypt($value);	// decrypt data excrypted with onli_set_const($db, $name, $value)
@@ -725,7 +728,7 @@ class Conf extends stdClass
 
 			// Load translation object with current language
 			if (empty($this->global->MAIN_LANG_DEFAULT)) {
-				$this->global->MAIN_LANG_DEFAULT = "en_US";
+				$this->global->MAIN_LANG_DEFAULT = "pt_BR";
 			}
 
 			$rootfordata = DOL_DATA_ROOT;

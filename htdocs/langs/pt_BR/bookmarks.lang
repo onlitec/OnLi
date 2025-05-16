@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bookmarks
+# OnLi language file - Source file is en_US - bookmarks
 AddThisPageToBookmarks =Adicione a página atual aos marcadores
 BookmarkTargetReplaceWindowShort =Guia atual
 BookmarksManagement =Gestor de marcadores
@@ -9,4 +9,4 @@ NoBookmarks =Nenhum marcador definido
 OpenANewWindow =Abra uma nova aba
 ReplaceWindow =Substituir guia atual
 SetHereATitleForLink =Definir um nome para o marcador
-UseAnExternalHttpLinkOrRelativeDolibarrLink =Use um link externo/absoluto (https://externalurl.com) ou um link interno/relativo (/mypage.php). Você também pode usar telefone como tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink =Use um link externo/absoluto (https://externalurl.com) ou um link interno/relativo (/mypage.php). Você também pode usar telefone como tel:0123456.

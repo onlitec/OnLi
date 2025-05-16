@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Your contact details have been recorded. We will get back to you soon...
 ContactUsDesc=This form allows you to send us a message for a first contact.
 ErrorCompanyNameAlreadyExists=Ettevõte nimega %s on juba olemas. Vali mõni muu.
@@ -14,7 +14,7 @@ MenuNewSupplier=Uus tarnija
 MenuNewPrivateIndividual=Uus eraisik
 NewCompany=Uus ettevõte (huviline, klient, müüja)
 NewThirdParty=Uus kolmas isik (huviline, klient, müüja)
-CreateDolibarrThirdPartySupplier=Loo kolmas isik (tarnija)
+CreateOnLiThirdPartySupplier=Loo kolmas isik (tarnija)
 CreateThirdPartyOnly=Uus kolmas isik
 CreateThirdPartyAndContact=Loo kolmas isik + alamkontakt
 ProspectionArea=Huviliste ala
@@ -335,7 +335,7 @@ CapitalOf=%s kapital
 EditCompany=Muuda ettevõtet
 ThisUserIsNot=See kasutaja ei ole huviline, klient ega tarnija
 VATIntraCheck=Kontrolli
-VATIntraCheckDesc=Käibemaksukohuslase numbri ID peab algama riigi prefiksiga. Link <b>%s</b> kasutab Euroopa VAT-kontrolli teenust (VIES), mis vajab Dolibarri serverist väljuvat netiühendust.
+VATIntraCheckDesc=Käibemaksukohuslase numbri ID peab algama riigi prefiksiga. Link <b>%s</b> kasutab Euroopa VAT-kontrolli teenust (VIES), mis vajab OnLii serverist väljuvat netiühendust.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Kontrolli Euroopa Liidu sisest KMKR numbrit Euroopa Komisjoni veebis
 VATIntraManualCheck=Samuti saad kontrollida käsitsi Euroopa Komisjoni veebist <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Huvilised staatuse järgi
 NoParentCompany=Mitte ükski
 ExportCardToFormat=Ekspordi kaart formaati
 ContactNotLinkedToCompany=Kontakt ole seotud ühegi kolmanda isikuga
-DolibarrLogin=Dolibarri kasutaja
-NoDolibarrAccess=Dolibarri ligipääs puudub
+OnLiLogin=OnLii kasutaja
+NoOnLiAccess=OnLii ligipääs puudub
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Kolmandate osapoolte lisa kontaktid/aadressid ja atribuudid
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

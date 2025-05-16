@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Elérhetőségét rögzítettük. Hamarosan jelentkezünk...
 ContactUsDesc=Ez az űrlap lehetővé teszi, hogy üzenetet küldjön nekünk az első kapcsolatfelvételhez.
 ErrorCompanyNameAlreadyExists=Cégnév %s már létezik. Válasszon egy másikat.
@@ -14,7 +14,7 @@ MenuNewSupplier=Új szállító
 MenuNewPrivateIndividual=Új magánszemély
 NewCompany=Új cég (potenciális ügyfél, szállító)
 NewThirdParty=Új harmadik fél (lehetséges, ügyfél, szállító)
-CreateDolibarrThirdPartySupplier=Harmadik fél (szállító) létrehozása
+CreateOnLiThirdPartySupplier=Harmadik fél (szállító) létrehozása
 CreateThirdPartyOnly=Harmadik fél létrehozása
 CreateThirdPartyAndContact=Harmadik fél létrehozása + szülő kapcsolat
 ProspectionArea=Potenciális ​​terület
@@ -335,7 +335,7 @@ CapitalOf=%s tőkéje
 EditCompany=Cég szerkesztése
 ThisUserIsNot=Ez a felhasználó nem potenciális ügyfél, nem szállító
 VATIntraCheck=Csekk
-VATIntraCheckDesc=Az adóazonosítónak tartalmaznia kell az ország előtagját. A <b>%s</b> hivatkozás az európai áfa-ellenőrző szolgáltatást (VIES) használja, amely internet-hozzáférést igényel a Dolibarr szervertől.
+VATIntraCheckDesc=Az adóazonosítónak tartalmaznia kell az ország előtagját. A <b>%s</b> hivatkozás az európai áfa-ellenőrző szolgáltatást (VIES) használja, amely internet-hozzáférést igényel a OnLi szervertől.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Ellenőrizze a Közösségen belüli áfaazonosítót az Európai Bizottság honlapján
 VATIntraManualCheck=Manuálisan is ellenőrizheti az Európai Bizottság webhelyén: <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Jelentkezők állapot szerint
 NoParentCompany=Egyik sem
 ExportCardToFormat=Kártya exportálása formázással
 ContactNotLinkedToCompany=Kapcsolat nincs partnerhez csatolva
-DolibarrLogin=Dolibarr bejelentkezés
-NoDolibarrAccess=Nem Dolibarr hozzáférés
+OnLiLogin=OnLi bejelentkezés
+NoOnLiAccess=Nem OnLi hozzáférés
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Harmadik féltől származó további kapcsolatok/címek és attribútumok
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

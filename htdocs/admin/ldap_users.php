@@ -406,7 +406,7 @@ print '</form>';
 /*
  * Test de la connection
  */
-if (getDolGlobalString('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_DOLIBARR_TO_LDAP) {
+if (getDolGlobalString('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_ONLI_TO_LDAP) {
 	$butlabel = $langs->trans("LDAPTestSynchroUser");
 	$testlabel = 'testuser';
 	$key = getDolGlobalString('LDAP_KEY_USERS');
@@ -414,7 +414,7 @@ if (getDolGlobalString('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_DOLIBARR_TO_LDAP)
 	$objectclass = getDolGlobalString('LDAP_USER_OBJECT_CLASS');
 
 	show_ldap_test_button($butlabel, $testlabel, $key, $dn, $objectclass);
-} elseif (getDolGlobalString('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {
+} elseif (getDolGlobalString('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_LDAP_TO_ONLI) {
 	$butlabel = $langs->trans("LDAPTestSearch");
 	$testlabel = 'testsearchuser';
 	$key = getDolGlobalString('LDAP_KEY_USERS');

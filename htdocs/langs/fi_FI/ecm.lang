@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - ecm
+# OnLi language file - Source file is en_US - ecm
 ECMNbOfDocs=Asiakirjojen lukumäärä hakemistossa
 ECMSection=Hakemisto
 ECMSectionManual=Manuaalinen hakemisto
@@ -16,7 +16,7 @@ ECMNbOfSubDir=Alihakemistojen määrä
 ECMNbOfFilesInSubDir=Tiedostojen määrä alihakemistoissa
 ECMCreationUser=Luoja
 ECMArea=DMS/ECM-alue
-ECMAreaDesc=DMS/ECM (Document Management System / Electronic Content Management) -alueen avulla voit tallentaa, jakaa ja nopeasti kaikenlaisia asiakirjoja Dolibarrissa.
+ECMAreaDesc=DMS/ECM (Document Management System / Electronic Content Management) -alueen avulla voit tallentaa, jakaa ja nopeasti kaikenlaisia asiakirjoja OnLiissa.
 ECMAreaDesc2a=* Manuaalisia hakemistoja voidaan käyttää asiakirjojen tallentamiseen puurakenteen vapaalla järjestelyllä.
 ECMAreaDesc2b=* Automaattiset hakemistot täytetään automaattisesti lisättäessä asiakirjoja elementin sivulta.
 ECMAreaDesc3=* Public directories are files into the subdirectory <b>/medias</b> of the documents directory, readable by everybody on internet with no need to be logged and no need to have the file shared explicitly. It is used to store image files for the emailing or website module for example.

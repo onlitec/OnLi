@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Сіздің байланыс деректеріңіз жазылды. Біз сізге жақын арада хабарласамыз...
 ContactUsDesc=Бұл пішін бірінші контакт үшін бізге хабарлама жіберуге мүмкіндік береді.
 ErrorCompanyNameAlreadyExists=%s компаниясының атауы бұрыннан бар. Басқа біреуін таңдаңыз.
@@ -14,7 +14,7 @@ MenuNewSupplier=Жаңа сатушы
 MenuNewPrivateIndividual=Жаңа жеке тұлға
 NewCompany=Жаңа компания (болашақ, тұтынушы, сатушы)
 NewThirdParty=Жаңа үшінші тарап (потенциал, тұтынушы, сатушы)
-CreateDolibarrThirdPartySupplier=Үшінші тарап құру (жеткізуші)
+CreateOnLiThirdPartySupplier=Үшінші тарап құру (жеткізуші)
 CreateThirdPartyOnly=Үшінші тарап құру
 CreateThirdPartyAndContact=Үшінші тарап + бала контактісін жасаңыз
 ProspectionArea=Іздеу аймағы
@@ -335,7 +335,7 @@ CapitalOf=%s астанасы
 EditCompany=Компанияны өңдеу
 ThisUserIsNot=Бұл пайдаланушы потенциалды, тұтынушы немесе сатушы емес
 VATIntraCheck=Тексеру
-VATIntraCheckDesc=ҚҚС идентификаторы ел префиксін қамтуы тиіс. <b> %s </b> сілтемесі Dolibarr серверінен Интернетке қосылуды қажет ететін Еуропалық ҚҚС тексеру қызметін (VIES) қолданады.
+VATIntraCheckDesc=ҚҚС идентификаторы ел префиксін қамтуы тиіс. <b> %s </b> сілтемесі OnLi серверінен Интернетке қосылуды қажет ететін Еуропалық ҚҚС тексеру қызметін (VIES) қолданады.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Еуропалық комиссияның веб-сайтынан ҚҚС бойынша Қауымдастық ішіндегі идентификаторды тексеріңіз
 VATIntraManualCheck=Сондай-ақ, Еуропалық комиссияның веб-сайтында қолмен тексеруге болады <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Статус бойынша перспективалар
 NoParentCompany=Ешқайсысы
 ExportCardToFormat=Пішімдеу үшін картаны экспорттаңыз
 ContactNotLinkedToCompany=Байланыс үшінші тараппен байланысты емес
-DolibarrLogin=Dolibarr логині
-NoDolibarrAccess=Dolibarr қатынасы жоқ
+OnLiLogin=OnLi логині
+NoOnLiAccess=OnLi қатынасы жоқ
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=پادرمیانی
 Interventions=پادرمیانی‌ها
 InterventionCard=کارت پادرمیانی
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=طبقه‌بندی به صورت "صورت‌حس�
 InterventionClassifyDone=طبقه‌بندی به صورت "انجام شده"
 SendInterventionRef=تسلیم پادرمیانی %s
 SendInterventionByMail=ارسال پادرمیانی با رایانامه
-InterventionCreatedInDolibarr=پادرمیانی %s ساخته شده
-InterventionValidatedInDolibarr=پادرمیانی %s تائیداعتبار شد
-InterventionModifiedInDolibarr=پادرمیانی %s ویرایش شد
-InterventionClassifiedBilledInDolibarr=پادرمیانی %s صورت‌حساب‌ صادر شده ثبت شد
-InterventionClassifiedUnbilledInDolibarr=پادرمیانی %s صورت‌حساب صادر نشده ثبت شد
+InterventionCreatedInOnLi=پادرمیانی %s ساخته شده
+InterventionValidatedInOnLi=پادرمیانی %s تائیداعتبار شد
+InterventionModifiedInOnLi=پادرمیانی %s ویرایش شد
+InterventionClassifiedBilledInOnLi=پادرمیانی %s صورت‌حساب‌ صادر شده ثبت شد
+InterventionClassifiedUnbilledInOnLi=پادرمیانی %s صورت‌حساب صادر نشده ثبت شد
 InterventionSentByEMail=پادرمیانی %s توسط رایانامه ارسال شد
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=پادرمیانی %s حذف شد
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=پادرمیانی %s حذف شد
 InterventionsArea=بخش پادرمیانی
 DraftFichinter=پادرمیانی‌های پیش‌نویس
 LastModifiedInterventions=آخرین %s پادرمیانی ویرایش شده

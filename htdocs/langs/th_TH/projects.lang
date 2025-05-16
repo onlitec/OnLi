@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=อ้าง โครงการ
 ProjectRef=อ้างอิงโครงการ
 ProjectId=Id โครงการ
@@ -161,12 +161,12 @@ ConfirmCloneProject=คุณแน่ใจหรือว่าโคลนโ
 ProjectReportDate=เปลี่ยนวันที่งานตามวันที่เริ่มต้นโครงการใหม่
 ErrorShiftTaskDate=เป็นไปไม่ได้ที่จะเปลี่ยนวันงานตามโครงการใหม่วันที่เริ่มต้น
 ProjectsAndTasksLines=โครงการและงาน
-ProjectCreatedInDolibarr=สร้างโครงการ %s แล้ว
-ProjectValidatedInDolibarr=ตรวจสอบโปรเจ็กต์ %s แล้ว
-ProjectModifiedInDolibarr=แก้ไขโปรเจ็กต์ %s แล้ว
-TaskCreatedInDolibarr=งาน %s สร้าง
-TaskModifiedInDolibarr=งาน %s การแก้ไข
-TaskDeletedInDolibarr=งาน %s ลบ
+ProjectCreatedInOnLi=สร้างโครงการ %s แล้ว
+ProjectValidatedInOnLi=ตรวจสอบโปรเจ็กต์ %s แล้ว
+ProjectModifiedInOnLi=แก้ไขโปรเจ็กต์ %s แล้ว
+TaskCreatedInOnLi=งาน %s สร้าง
+TaskModifiedInOnLi=งาน %s การแก้ไข
+TaskDeletedInOnLi=งาน %s ลบ
 OpportunityStatus=สถานะโอกาสในการขาย
 OpportunityStatusShort=สถานะโอกาสในการขาย
 OpportunityProbability=ความน่าจะเป็นของตะกั่ว

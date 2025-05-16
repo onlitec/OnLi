@@ -248,7 +248,7 @@ $urlwithroot = DOL_MAIN_URL_ROOT; // This is to use same domain name than curren
 $urlok = $urlwithroot.'/public/payment/paymentok.php?';
 $urlko = $urlwithroot.'/public/payment/paymentko.php?';
 
-if ($ws && !defined('USEDOLIBARRSERVER') && !defined('USEDOLIBARREDITOR')) {	// So defined('USEEXTERNALSERVER') should be set but is not always
+if ($ws && !defined('USEONLISERVER') && !defined('USEOnLiEDITOR')) {	// So defined('USEEXTERNALSERVER') should be set but is not always
 	include_once DOL_DOCUMENT_ROOT.'/website/class/website.class.php';
 	$tmpwebsite = new Website($db);
 	$tmpwebsite->fetch(0, $ws);

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Защитен код
 NumberingShort=№
 Tools=Инструменти
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Може да кликнете върху връзката по-долу, за да направите плащане, в случай, че не сте го извършили.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Напомняне за събитие „__EVENT_LABEL__“ на __EVENT_DATE__ в __EVENT_TIME__<br><br>Това е автоматично съобщение, моля, не отговаряйте.
-DemoDesc=Dolibarr е компактна ERP / CRM система, която поддържа различни работни модули. Няма смисъл от демонстрация, показваща всички модули, тъй като такъв сценарий никога не се случва (на разположение са стотици модули). Налични са няколко демо профила.
+DemoDesc=OnLi е компактна ERP / CRM система, която поддържа различни работни модули. Няма смисъл от демонстрация, показваща всички модули, тъй като такъв сценарий никога не се случва (на разположение са стотици модули). Налични са няколко демо профила.
 ChooseYourDemoProfil=Изберете демо профила, който най-добре отговаря на вашите нужди...
 ChooseYourDemoProfilMore=...или създайте свой собствен профил<br>(свободен избор на модули)
 DemoFundation=Управление на членове в организация
@@ -195,7 +195,7 @@ BackToLoginPage=Назад към страницата за вход
 AuthenticationDoesNotAllowSendNewPassword=Режимът за удостоверяване е <b>%s</b>.<br> В този режим, системата не може да знае, нито да промени паролата ви.<br> Свържете се с вашият системен администратор, ако искате да промените паролата си.
 EnableGDLibraryDesc=Инсталирайте или активирайте GD библиотеката на вашата PHP инсталация, за да използвате тази опция.
 ProfIdShortDesc=<b>Идент. %s</b> е информация, която зависи от държавата на контрагента.<br>Например, за държавата <b>%s</b>, това е <b>%s</b>.
-DolibarrDemo=Dolibarr ERP / CRM демо
+OnLiDemo=OnLi ERP / CRM демо
 StatsByAmount=Статистика за количеството продукти/услуги
 StatsByAmountProducts=Статистика за количеството продукти
 StatsByAmountServices=Статистика за количеството услуги
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=Молба за отпуск %s е валидиран�
 EMailTextHolidayApproved=Молба за отпуск %s е одобрена.
 EMailTextActionAdded=Действието %s е добавено към дневния ред.
 ImportedWithSet=Набор от данни за импортиране
-DolibarrNotification=Автоматично известяване
+OnLiNotification=Автоматично известяване
 ResizeDesc=Въведете нова ширина <b>или</b> нова височина. Съотношението ще се запази по време преоразмеряването...
 NewLength=Нова ширина
 NewHeight=Нова височина

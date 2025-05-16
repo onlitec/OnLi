@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - agenda
+# OnLi language file - Source file is en_US - agenda
 ActionsOwnedBy=Evento propiedad de
 ListOfActions=Lista de eventos
 EventReports=Informes de evento
@@ -13,24 +13,24 @@ ViewDay=Vista de día
 ViewWeek=Vista de la semana
 ViewPerType=Por tipo de vista
 AutoActions=Llenado automático
-AgendaAutoActionDesc=Aquí usted puede definir los eventos que desee que Dolibarr cree automáticamente en la Agenda. Si no se marca nada, solo las acciones manuales serán incluidas en los registros mostrados en la Agenda. El seguimiento automático de acciones comerciales realizadas en los objetos (validación y cambio de estado), serán descartados.
-AgendaSetupOtherDesc=Esta página ofrece opciones para permitir la exportación de sus eventos Dolibarr hacia un calendario externo (Thunderbird,Google Calendar etc...)
-AgendaExtSitesDesc=Esta página permite declarar las fuentes externas de calendarios para ver sus eventos en la agenda de Dolibarr.
-ActionsEvents=Eventos para los que Dolibarr creará una acción en la agenda de forma automática
+AgendaAutoActionDesc=Aquí usted puede definir los eventos que desee que OnLi cree automáticamente en la Agenda. Si no se marca nada, solo las acciones manuales serán incluidas en los registros mostrados en la Agenda. El seguimiento automático de acciones comerciales realizadas en los objetos (validación y cambio de estado), serán descartados.
+AgendaSetupOtherDesc=Esta página ofrece opciones para permitir la exportación de sus eventos OnLi hacia un calendario externo (Thunderbird,Google Calendar etc...)
+AgendaExtSitesDesc=Esta página permite declarar las fuentes externas de calendarios para ver sus eventos en la agenda de OnLi.
+ActionsEvents=Eventos para los que OnLi creará una acción en la agenda de forma automática
 EventRemindersByEmailNotEnabled=Los Recordatorios de evento por correo electrónico no se habilitaron en el %s módulo de configuración.
-PropalValidatedInDolibarr=Propuesta %s validada
-InvoiceValidatedInDolibarrFromPos=Factura %s validada desde POS
-InvoiceBackToDraftInDolibarr=Regresar factura %s al estado de borrador
-ShipmentValidatedInDolibarr=Envío %s validado
-OrderValidatedInDolibarr=Orden %s validada
-OrderDeliveredInDolibarr=Orden %s clasificado como entregado
-OrderCanceledInDolibarr=Orden %s cancelada
-OrderBilledInDolibarr=Orden %s clasificada como facturada
-OrderApprovedInDolibarr=Orden %s aprovada
-OrderRefusedInDolibarr=Orden %s rechazada
-OrderBackToDraftInDolibarr=Regresar orden %s al estado de borrador
+PropalValidatedInOnLi=Propuesta %s validada
+InvoiceValidatedInOnLiFromPos=Factura %s validada desde POS
+InvoiceBackToDraftInOnLi=Regresar factura %s al estado de borrador
+ShipmentValidatedInOnLi=Envío %s validado
+OrderValidatedInOnLi=Orden %s validada
+OrderDeliveredInOnLi=Orden %s clasificado como entregado
+OrderCanceledInOnLi=Orden %s cancelada
+OrderBilledInOnLi=Orden %s clasificada como facturada
+OrderApprovedInOnLi=Orden %s aprovada
+OrderRefusedInOnLi=Orden %s rechazada
+OrderBackToDraftInOnLi=Regresar orden %s al estado de borrador
 ShippingValidated=Envío %s validado
-CANCELInDolibarr=Cancelado
+CANCELInOnLi=Cancelado
 DateActionEnd=Fecha de finalización
 AgendaUrlOptions1=También puede agregar los siguientes parámetros para filtrar la salida:
 AgendaUrlOptions3=<b>logina=%s</b> para restringir la salida a las acciones propiedad del usuario <b>%s</b>.

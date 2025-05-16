@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Ndërhyrja
 Interventions=Ndërhyrjet
 InterventionCard=Karta e ndërhyrjes
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Klasifikoni "të pafaturuar"
 InterventionClassifyDone=Klasifiko "U krye"
 SendInterventionRef=Dorëzimi i ndërhyrjes %s
 SendInterventionByMail=Dërgo ndërhyrjen me email
-InterventionCreatedInDolibarr=Ndërhyrja %s u krijua
-InterventionValidatedInDolibarr=Ndërhyrja %s u vërtetua
-InterventionModifiedInDolibarr=Ndërhyrja %s u modifikua
-InterventionClassifiedBilledInDolibarr=Ndërhyrja %s u caktua si e faturuar
-InterventionClassifiedUnbilledInDolibarr=Ndërhyrja %s u caktua si e pafaturuar
+InterventionCreatedInOnLi=Ndërhyrja %s u krijua
+InterventionValidatedInOnLi=Ndërhyrja %s u vërtetua
+InterventionModifiedInOnLi=Ndërhyrja %s u modifikua
+InterventionClassifiedBilledInOnLi=Ndërhyrja %s u caktua si e faturuar
+InterventionClassifiedUnbilledInOnLi=Ndërhyrja %s u caktua si e pafaturuar
 InterventionSentByEMail=Ndërhyrja %s dërguar me email
-InterventionClosedInDolibarr= Ndërhyrja %s u mbyll
-InterventionDeletedInDolibarr=Ndërhyrja %s u fshi
+InterventionClosedInOnLi= Ndërhyrja %s u mbyll
+InterventionDeletedInOnLi=Ndërhyrja %s u fshi
 InterventionsArea=Zona e ndërhyrjeve
 DraftFichinter=Projekt ndërhyrje
 LastModifiedInterventions=Ndërhyrjet më të fundit të modifikuara %s

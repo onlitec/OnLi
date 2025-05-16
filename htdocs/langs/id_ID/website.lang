@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Kode
 WebsiteName=Nama situs web
 WebsiteSetupDesc=Buat di sini situs web yang ingin Anda gunakan. Kemudian masuk ke menu Website untuk mengeditnya.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=Untuk menyebarkan situs web ini secar
 SetHereVirtualHost= <u>Gunakan dengan Apache / NGinx /...</u><br> Buat di server web Anda (Apache, Nginx, ...) Host Virtual khusus dengan PHP yang diaktifkan dan direktori Root pada <br><strong>%s</strong>
 ExampleToUseInApacheVirtualHostConfig=Contoh untuk digunakan dalam pengaturan host virtual Apache:
 YouCanAlsoTestWithPHPS=<u>Gunakan dengan server tertanam PHP</u><br>Di lingkungan pengembangan, Anda dapat lebih suka menguji situs dengan server web tertanam PHP dengan menjalankan
-YouCanAlsoDeployToAnotherWHP=<u>Jalankan situs web Anda di dalam penyedia Hosting web Dolibarr</u><br>Jika Anda tidak memiliki server web seperti Apache atau NGinx yang tersedia di internet, Anda dapat mengekspor dan mengimpor situs web Anda ke contoh Dolibarr lain yang disediakan oleh penyedia hosting Dolibarr lain yang menyediakan integrasi penuh dengan modul Situs Web. Anda dapat menemukan daftar beberapa penyedia hosting Dolibarr di <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Jalankan situs web Anda di dalam penyedia Hosting web OnLi</u><br>Jika Anda tidak memiliki server web seperti Apache atau NGinx yang tersedia di internet, Anda dapat mengekspor dan mengimpor situs web Anda ke contoh OnLi lain yang disediakan oleh penyedia hosting OnLi lain yang menyediakan integrasi penuh dengan modul Situs Web. Anda dapat menemukan daftar beberapa penyedia hosting OnLi di <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Periksa juga bahwa pengguna host virtual (misalnya www-data) memiliki izin <strong> %s </strong> pada file ke <br> <strong> %s </strong>
 ReadPerm=Baca
 WritePerm=Menulis
 TestDeployOnWeb=Uji / gunakan di web
 PreviewSiteServedByWebServer= <u>Pratinjau %s di tab baru.</u><br><br>%s akan dilayani oleh server web eksternal (seperti Apache, Nginx, IIS). Anda harus menginstal dan mengatur server ini sebelum merujuk pada direktori:<br><strong>%s</strong><br>URL dilayani oleh server eksternal: <br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=URL dari host virtual yang dilayani oleh server web eksternal tidak ditentukan
 NoPageYet=Belum ada halaman
 YouCanCreatePageOrImportTemplate=Anda dapat membuat halaman baru atau mengimpor template situs web lengkap
@@ -163,8 +163,8 @@ PagesViewedTotal=Halaman dilihat (total)
 Everyone=Setiap orang
 AssignedContacts=Kontak yang ditugaskan
 WebsiteTypeLabel=Jenis situs Web
-WebsiteTypeDolibarrWebsite=Situs web (Modul CMS Situs Web)
-WebsiteTypeDolibarrPortal=Portal web asli dan siap digunakan (Portal Web Modul)
+WebsiteTypeOnLiWebsite=Situs web (Modul CMS Situs Web)
+WebsiteTypeOnLiPortal=Portal web asli dan siap digunakan (Portal Web Modul)
 WebPortalURL=URL portal web
 NewWebsiteAccount=Akun baru untuk situs web
 ModuleWebPortalName=Portal web
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=Anda akan segera diarahkan ke halaman detail pesa
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Kodi i Sigurisë
 NumberingShort=N°
 Tools=Tools
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Mund të klikoni në lidhjen më poshtë për të kryer pagesën nëse nuk është bërë tashmë.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Alarmi rikujtues i ngjarjes "__EVENT_LABEL__" më __EVENT_DATE__ në __EVENT_TIME__<br><br>Ky është një mesazh përsëritur automatikisht.
-DemoDesc=Dolibarr është një ERP/CRM kompakte që mbështet disa module biznesi. Një demonstrim që shfaq të gjitha modulet nuk ka kuptim pasi ky skenar nuk ndodh kurrë (disa qindra janë në dispozicion). Pra, disa profile demo janë në dispozicion.
+DemoDesc=OnLi është një ERP/CRM kompakte që mbështet disa module biznesi. Një demonstrim që shfaq të gjitha modulet nuk ka kuptim pasi ky skenar nuk ndodh kurrë (disa qindra janë në dispozicion). Pra, disa profile demo janë në dispozicion.
 ChooseYourDemoProfil=Zgjidhni profilin demo që i përshtatet më së miri nevojave tuaja...
 ChooseYourDemoProfilMore=...ose ndërto profilin tënd<br>(zgjedhja manuale e modulit)
 DemoFundation=Menaxhoni anëtarët e një fondacioni
@@ -192,10 +192,10 @@ BugTracker=Gjurmuesi i gabimeve
 SendNewPasswordDesc=Ky formular ju lejon të kërkoni një fjalëkalim të ri. Ai do të dërgohet në adresën tuaj të emailit.<br>Ndryshimi do të hyjë në fuqi sapo të klikoni në lidhjen e konfirmimit në email.<br> Kontrolloni kutinë tuaj.
 EnterNewPasswordHere=Shkruani fjalëkalimin tuaj të ri këtu
 BackToLoginPage=Kthehu në faqen e identifikimit
-AuthenticationDoesNotAllowSendNewPassword=Authentication mode is <b>%s</b>.<br>In this mode, Dolibarr can't know nor change your password.<br>Contact your system administrator if you want to change your password.
+AuthenticationDoesNotAllowSendNewPassword=Authentication mode is <b>%s</b>.<br>In this mode, OnLi can't know nor change your password.<br>Contact your system administrator if you want to change your password.
 EnableGDLibraryDesc=Instaloni ose aktivizoni bibliotekën GD në instalimin tuaj të PHP për të përdorur këtë opsion.
 ProfIdShortDesc=<b>Prof Id %s</b> is an information depending on third party country.<br>For example, for country <b>%s</b>, it's code <b>%s</b>.
-DolibarrDemo=Demo Dolibarr ERP/CRM
+OnLiDemo=Demo OnLi ERP/CRM
 StatsByAmount=Statistikat për sasinë e produkteve/shërbimeve
 StatsByAmountProducts=Statistikat për sasinë e produkteve
 StatsByAmountServices=Statistikat për sasinë e shërbimeve
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=Kërkesa për largim %s është vërtetuar.
 EMailTextHolidayApproved=Kërkesa për largim %s është miratuar.
 EMailTextActionAdded=Veprimi %s është shtuar në axhendë.
 ImportedWithSet=Seti i të dhënave të importit
-DolibarrNotification=Njoftim automatik
+OnLiNotification=Njoftim automatik
 ResizeDesc=Fut gjerësinë e re <b>OR</b> lartësinë e re. Raporti do të mbahet gjatë ndryshimit të madhësisë...
 NewLength=Gjerësia e re
 NewHeight=Lartësia e re

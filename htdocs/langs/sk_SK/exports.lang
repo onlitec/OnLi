@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=Exports
 ImportArea=Importovať
 NewExport=Nový export
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=Vyberte formát súboru, ktorý chcete použiť ako f
 ChooseFileToImport=Nahrajte súbor a potom kliknite na ikonu %s a vyberte súbor ako zdrojový importný súbor...
 SourceFileFormat=Zdrojový súbor
 FieldsInSourceFile=Polia v zdrojovom súbore
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=Žiadne položky
 MoveField=Presuňte pole %s číslo stĺpca
 ExampleOfImportFile=Example_of_import_file

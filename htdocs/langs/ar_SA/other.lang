@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=رمز الحماية
 NumberingShort=رقم
 Tools=أدوات
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=يمكنك النقر فوق الارتباط أدناه لإجراء الدفع الخاص بك إذا لم يكن قد تم بالفعل.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=تذكير الحدث "__EVENT_LABEL__" في __EVENT_DATE__ في __EVENT_TIME__ <br> <br> هذه رسالة تلقائية ، من فضلك لا ترد.
-DemoDesc=Dolibarr هو ERP / CRM مدمج يدعم العديد من وحدات الأعمال. العرض التوضيحي الذي يعرض جميع الوحدات لا معنى له لأن هذا السيناريو لا يحدث أبدًا (تتوفر عدة مئات). لذلك ، تتوفر عدة ملفات تعريف تجريبية.
+DemoDesc=OnLi هو ERP / CRM مدمج يدعم العديد من وحدات الأعمال. العرض التوضيحي الذي يعرض جميع الوحدات لا معنى له لأن هذا السيناريو لا يحدث أبدًا (تتوفر عدة مئات). لذلك ، تتوفر عدة ملفات تعريف تجريبية.
 ChooseYourDemoProfil=اختر الملف الشخصي التجريبي الذي يناسب احتياجاتك ...
 ChooseYourDemoProfilMore=... أو قم ببناء ملف التعريف الخاص بك <br> (اختيار وحدة يدوية)
 DemoFundation=أعضاء في إدارة مؤسسة
@@ -192,10 +192,10 @@ BugTracker=علة تعقب
 SendNewPasswordDesc=يتيح لك هذا النموذج طلب كلمة مرور جديدة. سيتم إرسالها إلى عنوان بريدك الإلكتروني. <br> سيصبح التغيير ساريًا بمجرد النقر فوق ارتباط التأكيد في البريد الإلكتروني. <br> تحقق من صندوق الوارد الخاص بك.
 EnterNewPasswordHere=أدخل كلمة المرور الجديدة هنا
 BackToLoginPage=عودة إلى صفحة تسجيل الدخول
-AuthenticationDoesNotAllowSendNewPassword=طريقة التوثيق <b>٪ ق.</b> <br> في هذا الوضع ، لا يمكن معرفة Dolibarr أو تغيير كلمة السر الخاصة بك. <br> اتصل بمسؤول النظام إذا كنت تريد تغيير كلمة السر الخاصة بك.
+AuthenticationDoesNotAllowSendNewPassword=طريقة التوثيق <b>٪ ق.</b> <br> في هذا الوضع ، لا يمكن معرفة OnLi أو تغيير كلمة السر الخاصة بك. <br> اتصل بمسؤول النظام إذا كنت تريد تغيير كلمة السر الخاصة بك.
 EnableGDLibraryDesc=قم بتثبيت أو تمكين مكتبة GD على تثبيت PHP الخاص بك لاستخدام هذا الخيار.
 ProfIdShortDesc=<b>الأستاذ عيد ٪ ق</b> هي المعلومات التي تعتمد على طرف ثالث. <br> على سبيل المثال ، لبلد <b>ق ٪</b> انها رمز <b>٪ ق.</b>
-DolibarrDemo=Dolibarr تخطيط موارد المؤسسات وإدارة علاقات العملاء التجريبي
+OnLiDemo=OnLi تخطيط موارد المؤسسات وإدارة علاقات العملاء التجريبي
 StatsByAmount=إحصاءات عن كمية المنتجات / الخدمات
 StatsByAmountProducts=إحصاءات عن كمية المنتجات
 StatsByAmountServices=إحصائيات حول حجم الخدمات
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=تم التحقق من صحة طلب الإجازة %s
 EMailTextHolidayApproved=تمت الموافقة على طلب الإجازة %s.
 EMailTextActionAdded=تمت إضافة الإجراء %s إلى الأجندة.
 ImportedWithSet=استيراد مجموعة البيانات
-DolibarrNotification=إشعار تلقائي
+OnLiNotification=إشعار تلقائي
 ResizeDesc=أدخل عرض جديدة <b>أو</b> ارتفاع جديد. وستبقى نسبة خلال تغيير حجم...
 NewLength=عرض جديد
 NewHeight=ارتفاع جديد

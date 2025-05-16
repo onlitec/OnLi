@@ -1740,7 +1740,7 @@ class Contact extends CommonObject
 		$this->id = 0;
 		$this->entity = 1;
 		$this->specimen = 1;
-		$this->lastname = 'DOLIBARR';
+		$this->lastname = 'ONLI';
 		$this->firstname = 'SPECIMEN';
 		$this->address = '21 jump street';
 		$this->zip = '99999';

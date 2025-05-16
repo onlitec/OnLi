@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Tähän tarjous linkitetty tilaus oli jo auki, joten muuta tilausta ei luotu automaattisesti
 OrdersArea=Asiakkaiden tilausalue
 SuppliersOrdersArea=Ostotilaukset
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Haluatko varmasti luoda vastaavan tilauksen <b>%s</b>?
 DispatchSupplierOrder=Vastaanotetaan Hankinta tilaus %s
 FirstApprovalAlreadyDone=Ensimmäinen hyväksyntä on jo tehty
 SecondApprovalAlreadyDone=Toinen hyväksyntä on jo tehty
-SupplierOrderReceivedInDolibarr=Hankinta Tilaus %s vastaanotettu %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=Hankinta Tilaus %s vastaanotettu %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=Hankinta Tilaa %s sarja laskutettu
 OtherOrders=Muut tilaukset
 SupplierOrderValidatedAndApproved=toimittajan tilaus on vahvistettu ja hyväksytty: %s

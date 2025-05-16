@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=שליחת דואר אלקטרוני
 EMailing=שליחת דואר אלקטרוני
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=אנשי קשר לפי קטגוריות
 MailingModuleDescContactsByFunction=אנשי קשר לפי תפקיד
 MailingModuleDescEmailsFromFile=מיילים מהקובץ
 MailingModuleDescEmailsFromUser=הודעות דוא"ל קלט על ידי משתמש
-MailingModuleDescDolibarrUsers=משתמשים עם אימיילים
+MailingModuleDescOnLiUsers=משתמשים עם אימיילים
 MailingModuleDescThirdPartiesByCategories=צדדים שלישיים
 SendingFromWebInterfaceIsNotAllowed=אסור לשלוח מממשק האינטרנט.
 EmailCollectorFilterDesc=כל המסננים חייבים להתאים כדי לאסוף אימייל.<br>תוכל להשתמש בתו "!" לפני ערך מחרוזת החיפוש אם אתה צריך בדיקה שלילית

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Detail kontak Anda telah dicatat. Kami akan segera menghubungi Anda kembali...
 ContactUsDesc=Formulir ini memungkinkan Anda mengirimkan pesan kepada kami untuk kontak pertama.
 ErrorCompanyNameAlreadyExists=Nama Perusahaan %s telah terdaftar. Silahkan masukan nama lain.
@@ -14,7 +14,7 @@ MenuNewSupplier=Vendor Baru
 MenuNewPrivateIndividual=Individu pribadi baru
 NewCompany=Perusahaan baru (prospek, pelanggan, vendor)
 NewThirdParty=Pihak Ketiga Baru (prospek, pelanggan, vendor)
-CreateDolibarrThirdPartySupplier=Buat pihak ketiga (vendor)
+CreateOnLiThirdPartySupplier=Buat pihak ketiga (vendor)
 CreateThirdPartyOnly=Buat pihak ketiga
 CreateThirdPartyAndContact=Buat pihak ketiga + kontak anak
 ProspectionArea=Area prospek
@@ -335,7 +335,7 @@ CapitalOf=Modal %s
 EditCompany=Edit perusahaan
 ThisUserIsNot=Pengguna ini bukan prospek, pelanggan, atau vendor
 VATIntraCheck=Periksa
-VATIntraCheckDesc=ID PPN harus menyertakan awalan negara. Tautan<b>%s</b>menggunakan layanan pemeriksa PPN Eropa (VIES) yang memerlukan akses internet dari server Dolibarr.
+VATIntraCheckDesc=ID PPN harus menyertakan awalan negara. Tautan<b>%s</b>menggunakan layanan pemeriksa PPN Eropa (VIES) yang memerlukan akses internet dari server OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Periksa ID PPN intra-Komunitas di situs web Komisi Eropa
 VATIntraManualCheck=Anda juga dapat memeriksa secara manual di situs web Komisi Eropa <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Prospek berdasarkan status
 NoParentCompany=Tidak ada
 ExportCardToFormat=Ekspor kartu ke format
 ContactNotLinkedToCompany=Kontak tidak tertaut ke pihak ketiga mana pun
-DolibarrLogin=Login Dolibarr
-NoDolibarrAccess=Tidak ada akses Dolibarr
+OnLiLogin=Login OnLi
+NoOnLiAccess=Tidak ada akses OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Kontak/alamat dan atribut tambahan pihak ketiga
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

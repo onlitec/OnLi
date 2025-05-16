@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=ការគ្រប់គ្រងការទទួលអ្នកលក់ (បង្កើតឯកសារទទួលភ្ញៀវ)
 ReceptionsSetup=ការរៀបចំការទទួលអ្នកលក់
 RefReception=យោង ទទួលភ្ញៀវ
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=ម៉ូឌុលលេខសម្រាប់ទ�
 ReceptionsReceiptModel=គំរូឯកសារសម្រាប់ការទទួលភ្ញៀវ
 NoMorePredefinedProductToDispatch=មិនមានផលិតផលដែលបានកំណត់ទុកជាមុនដើម្បីបញ្ជូនទេ។
 ReceptionExist=មានទទួលភ្ញៀវ
-ReceptionBackToDraftInDolibarr=ការទទួលភ្ញៀវ %s ត្រឡប់ទៅសេចក្តីព្រាង
-ReceptionClassifyClosedInDolibarr=ការទទួលភ្ញៀវ %s ចាត់ថ្នាក់បិទ
-ReceptionUnClassifyCloseddInDolibarr=ការទទួលភ្ញៀវ %s បើកឡើងវិញ
+ReceptionBackToDraftInOnLi=ការទទួលភ្ញៀវ %s ត្រឡប់ទៅសេចក្តីព្រាង
+ReceptionClassifyClosedInOnLi=ការទទួលភ្ញៀវ %s ចាត់ថ្នាក់បិទ
+ReceptionUnClassifyCloseddInOnLi=ការទទួលភ្ញៀវ %s បើកឡើងវិញ
 RestoreWithCurrentQtySaved=បំពេញបរិមាណជាមួយនឹងតម្លៃដែលបានរក្សាទុកចុងក្រោយបំផុត។
 ReceptionsRecorded=ការទទួលភ្ញៀវត្រូវបានកត់ត្រា
 ReceptionUpdated=បានធ្វើបច្ចុប្បន្នភាពការទទួលដោយជោគជ័យ

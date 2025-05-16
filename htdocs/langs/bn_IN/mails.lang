@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=ইমেইলিং
 EMailing=ইমেইলিং
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=বিভাগ দ্বারা পরি
 MailingModuleDescContactsByFunction=অবস্থান অনুযায়ী পরিচিতি
 MailingModuleDescEmailsFromFile=ফাইল থেকে ইমেল
 MailingModuleDescEmailsFromUser=ব্যবহারকারী দ্বারা ইমেল ইনপুট
-MailingModuleDescDolibarrUsers=ইমেল সহ ব্যবহারকারীরা
+MailingModuleDescOnLiUsers=ইমেল সহ ব্যবহারকারীরা
 MailingModuleDescThirdPartiesByCategories=তৃতীয় পক্ষ
 SendingFromWebInterfaceIsNotAllowed=ওয়েব ইন্টারফেস থেকে পাঠানো অনুমোদিত নয়।
 EmailCollectorFilterDesc=একটি ইমেল সংগ্রহ করার জন্য সমস্ত ফিল্টার অবশ্যই মেলে।<br>আপনি "!" অক্ষরটি ব্যবহার করতে পারেন। যদি আপনার একটি নেতিবাচক পরীক্ষার প্রয়োজন হয় অনুসন্ধান স্ট্রিং মান আগে

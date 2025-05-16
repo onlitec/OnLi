@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Engadir a páxina actual aos marcadores
 BehaviourOnClick = Comportamento cando un marcador URL é seleccionado
@@ -21,4 +21,4 @@ ReplaceWindow = Reemplazar a xanela actual
 SetHereATitleForLink = Indicar un nome para o marcador
 ShowBookmark = Amosar marcadores
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Use unha ligazón externa/absoluta (https://externalurl.com) ou unha ligazón interna/relativa (/mypage.php). Tamén pode usar o teléfono como tel:0123456. 
+UseAnExternalHttpLinkOrRelativeOnLiLink = Use unha ligazón externa/absoluta (https://externalurl.com) ou unha ligazón interna/relativa (/mypage.php). Tamén pode usar o teléfono como tel:0123456. 

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Kuna selle pakkumisega seotud tellimus oli juba avatud, siis uut tellimust automaatselt enam ei loodud
 OrdersArea=Müügitellimuste ala
 SuppliersOrdersArea=Ostutellimuste ala
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Kas tahad kindlasti kloonida seda tellimust <b>%s</b>?
 DispatchSupplierOrder=Vastuvõetav ostutellimus %s
 FirstApprovalAlreadyDone=Esimene kinnitamine on juba tehtud
 SecondApprovalAlreadyDone=Teine kinnitamine on juba tehtud
-SupplierOrderReceivedInDolibarr=Ostutellimus %s on vastu võetud %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=Ostutellimus %s on vastu võetud %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=Ostutellimus %s on märgitud arveldatuks
 OtherOrders=Muud tellimused
 SupplierOrderValidatedAndApproved=Tarnija tellimus on kinnitatud ja heaks kiidetud: %s

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Бетбелгілерге ағымдағы бетті қосыңыз
 BehaviourOnClick = Бетбелгі URL таңдалған кездегі әрекет
@@ -21,4 +21,4 @@ ReplaceWindow = Ағымдағы қойынды ауыстырыңыз
 SetHereATitleForLink = Бетбелгіге атау қойыңыз
 ShowBookmark = Бетбелгіні көрсету
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Сыртқы/абсолютті сілтемені (https://externalurl.com) немесе ішкі/салыстырмалы сілтемені (/mypage.php) пайдаланыңыз. Сондай-ақ тел:0123456 сияқты телефонды пайдалана аласыз.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Сыртқы/абсолютті сілтемені (https://externalurl.com) немесе ішкі/салыстырмалы сілтемені (/mypage.php) пайдаланыңыз. Сондай-ақ тел:0123456 сияқты телефонды пайдалана аласыз.

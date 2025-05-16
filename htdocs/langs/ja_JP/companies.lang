@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=あなたの連絡先詳細が記録された。すぐに連絡する予定である...
 ContactUsDesc=このフォームを使用すると、最初の連絡のためにメッセージを送信できる。
 ErrorCompanyNameAlreadyExists=法人名 %s は既に存在する。別の名称を選択すること。
@@ -14,7 +14,7 @@ MenuNewSupplier=新規仕入先
 MenuNewPrivateIndividual=新規個人
 NewCompany=新規法人 (見込客、顧客、仕入先)
 NewThirdParty=新規取引先 (見込客、顧客、仕入先)
-CreateDolibarrThirdPartySupplier=取引先を作成 (仕入先)
+CreateOnLiThirdPartySupplier=取引先を作成 (仕入先)
 CreateThirdPartyOnly=取引先を作成
 CreateThirdPartyAndContact=取引先と連絡先を作成
 ProspectionArea=見込客エリア
@@ -335,7 +335,7 @@ CapitalOf=%sの首都
 EditCompany=会社を編集する。
 ThisUserIsNot=このユーザは見込客・顧客・仕入先のいずれにも該当しない
 VATIntraCheck=チェック
-VATIntraCheckDesc=VAT IDには、国のプレフィックスを含めることが必要。リンク<b>%s </b>は、欧州VATチェッカーサービス(VIES)を使用し、そのためにはDolibarrサーバーからのインターネットアクセスが必要。
+VATIntraCheckDesc=VAT IDには、国のプレフィックスを含めることが必要。リンク<b>%s </b>は、欧州VATチェッカーサービス(VIES)を使用し、そのためにはOnLiサーバーからのインターネットアクセスが必要。
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=欧州委員会のウェブサイトでコミュニティ間のVAT IDを確認
 VATIntraManualCheck=欧州委員会のウェブサイト<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>で手動で確認することもできる
@@ -381,8 +381,8 @@ ProspectsByStatus=状態別の見通し
 NoParentCompany=なし
 ExportCardToFormat=形式にカードをエクスポートする
 ContactNotLinkedToCompany=どの取引先にも該当しない連絡先
-DolibarrLogin=Dolibarrログイン
-NoDolibarrAccess=Dolibarrへのアクセスなし
+OnLiLogin=OnLiログイン
+NoOnLiAccess=OnLiへのアクセスなし
 ExportDataset_company_1=第三者（組織/個人）と属性
 ExportDataset_company_2=取引先sの追加的な連絡先s/住所sと諸属性
 ExportDataset_company_3=サードパーティの支払い方法（銀行口座）

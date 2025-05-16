@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=ከዚህ ሀሳብ ጋር የተገናኘ ትእዛዝ አስቀድሞ ተከፍቷል፣ ስለዚህ ምንም ሌላ ትዕዛዝ በራስ ሰር አልተፈጠረም።
 OrdersArea=የደንበኞች ትዕዛዝ አካባቢ
 SuppliersOrdersArea=የትዕዛዝ ቦታን ይግዙ
@@ -129,8 +129,8 @@ ConfirmCloneOrder=እርግጠኛ ነህ ይህን ትዕዛዝ <b>%s</b>
 DispatchSupplierOrder=የግዢ ትዕዛዝ %s በመቀበል ላይ
 FirstApprovalAlreadyDone=የመጀመሪያ ማጽደቅ አስቀድሞ ተከናውኗል
 SecondApprovalAlreadyDone=ሁለተኛ ማጽደቅ አስቀድሞ ተከናውኗል
-SupplierOrderReceivedInDolibarr=የግዢ ትዕዛዝ %s ደርሶታል %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=የግዢ ትዕዛዝ %s ደርሶታል %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=የግዢ ትዕዛዝ %s ተከፍሏል
 OtherOrders=ሌሎች ትዕዛዞች
 SupplierOrderValidatedAndApproved=የአቅራቢው ትዕዛዝ የተረጋገጠ እና የጸደቀ ነው፡ %s

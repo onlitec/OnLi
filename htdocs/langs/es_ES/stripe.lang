@@ -1,6 +1,6 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Configuración del módulo Stripe
-StripeDesc=Ofrezca a sus clientes una página de pago en línea para pagos con tarjetas de crédito / débito a través de <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a>. Esto se puede utilizar para permitir que sus clientes realicen pagos ad-hoc o para pagos relacionados con un objeto Dolibarr en particular (factura, pedido, ...)
+StripeDesc=Ofrezca a sus clientes una página de pago en línea para pagos con tarjetas de crédito / débito a través de <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a>. Esto se puede utilizar para permitir que sus clientes realicen pagos ad-hoc o para pagos relacionados con un objeto OnLi en particular (factura, pedido, ...)
 StripeOrCBDoPayment=Pagar con tarjeta de crédito o Stripe
 FollowingUrlAreAvailableToMakePayments=Las siguientes URL están disponibles para permitir a un cliente efectuar un pago
 PaymentForm=Formulario de pago
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=URL para ofrecer una página de pago en
 ToOfferALinkForOnlinePaymentOnMemberSubscription=URL para ofrecer una página de pago en línea %s para una suscripción de miembro
 ToOfferALinkForOnlinePaymentOnDonation=URL para ofrecer una página de pago en línea %s para el pago de una donación
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=Si desea integrar la página de pago en un sitio web de Dolibarr, puede incluir el parámetro: <b>&ws=website_ref</b>.<br>Además, dos páginas llamadas <b>paymentok</b> y <b>paymentko</b> deben ser creadas en el sitio web para recibir la redirección después de un pago en línea exitoso o fallido.
+YouCanEmbedOnWebsite=Si desea integrar la página de pago en un sitio web de OnLi, puede incluir el parámetro: <b>&ws=website_ref</b>.<br>Además, dos páginas llamadas <b>paymentok</b> y <b>paymentko</b> deben ser creadas en el sitio web para recibir la redirección después de un pago en línea exitoso o fallido.
 SetupStripeToHavePaymentCreatedAutomatically=Configure su Stripe con la url <b>%s</b> para crear un pago automáticament al validarse por Stripe.
 AccountParameter=Parámetros de la cuenta
 UsageParameter=Parámetros de uso

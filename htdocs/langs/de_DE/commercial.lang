@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - commercial
+# OnLi language file - Source file is en_US - commercial
 Commercial=Einkauf | Vertrieb
 CommercialArea=Übersicht Einkauf & Vertrieb
 Customer=Kunde
@@ -95,7 +95,7 @@ SignatureFichinterRef=Unterzeichnung des Serviceauftrags %s
 SignatureSociete_ribRef=Unterschrift des SEPA-Mandats %s
 FeatureOnlineSignDisabled=Onlineunterschrift ist deaktiviert oder das Dokument wurde erstellt, bevor diese Funktion aktiviert wurde
 NoSignature=Abgelehnt
-UnsignedInDolibarr=Dokument nicht unterzeichnet
+UnsignedInOnLi=Dokument nicht unterzeichnet
 SignedSender=Intern signiert
 SignedReceiver=Signiert vom Geschäftspartner
 SignedReceiverOnline=Online signiert vom Geschäftspartner

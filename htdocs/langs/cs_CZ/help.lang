@@ -1,12 +1,12 @@
-# Dolibarr language file - Source file is en_US - help
+# OnLi language file - Source file is en_US - help
 CommunitySupport=Fórum/Wiki podpora
 EMailSupport=E-mailová podpora
 RemoteControlSupport=Online podpora v reálném čase / vzdálená podpora
 OtherSupport=Další podpora
 ToSeeListOfAvailableRessources=Pro kontaktování/zobrazení dostupných zdrojů:
 HelpCenter=Centrum nápovědy
-DolibarrHelpCenter=Centrum nápovědy a podpory Dolibarr
-ToGoBackToDolibarr=V opačném případě <a href="%s"> klikněte zde a pokračujte v práci Dolibarr </a>.
+OnLiHelpCenter=Centrum nápovědy a podpory OnLi
+ToGoBackToOnLi=V opačném případě <a href="%s"> klikněte zde a pokračujte v práci OnLi </a>.
 TypeOfSupport=Typ podpory
 TypeSupportCommunauty=Komunita (zdarma)
 TypeSupportCommercial=Obchodní
@@ -17,7 +17,7 @@ TypeHelpOnly=Pouze nápověda
 TypeHelpDev=Nápověda + Development
 TypeHelpDevForm=Nápověda + Vývoj + Školení
 BackToHelpCenter=V opačném případě se <a href="%s"> vrátíte zpět na domovskou stránku centra nápovědy </a>.
-LinkToGoldMember=Můžete volat některého z instruktorů vybraných společností Dolibarr pro váš jazyk (%s) kliknutím na jejich Widget (stav a maximální cena se automaticky aktualizují):
+LinkToGoldMember=Můžete volat některého z instruktorů vybraných společností OnLi pro váš jazyk (%s) kliknutím na jejich Widget (stav a maximální cena se automaticky aktualizují):
 PossibleLanguages=Podporované jazyky
-SubscribeToFoundation=Pomozte projektu Dolibarr, přihlaste se k nadaci
-SeeOfficalSupport=For official Dolibarr support in your language: <br><b><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></b>
+SubscribeToFoundation=Pomozte projektu OnLi, přihlaste se k nadaci
+SeeOfficalSupport=For official OnLi support in your language: <br><b><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></b>

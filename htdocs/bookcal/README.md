@@ -1,4 +1,4 @@
-# ONLINE APPOINTMENT FOR [DOLIBARR ERP CRM](https://www.onli.org)
+# ONLINE APPOINTMENT FOR [OnLi ERP CRM](https://www.onli.org)
 
 ## Features
 

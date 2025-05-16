@@ -167,7 +167,7 @@ function check_user_password_ldap($usertotest, $passwordtotest, $entitytotest)
 				// Note: Test on date validity is done later natively with isNotIntoValidityDateRange() by core after calling checkLoginPassEntity() that call this method
 
 				// ldap2onli synchronisation
-				if ($login && isModEnabled('ldap') && getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {	// ldap2onli synchronization
+				if ($login && isModEnabled('ldap') && getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') == Ldap::SYNCHRO_LDAP_TO_ONLI) {	// ldap2onli synchronization
 					dol_syslog("functions_ldap::check_user_password_ldap Sync ldap2onli");
 
 					// On charge les attributes du user ldap

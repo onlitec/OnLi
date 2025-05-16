@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=យោង គម្រោង
 ProjectRef=យោងគម្រោង
 ProjectId=លេខសម្គាល់គម្រោង
@@ -160,12 +160,12 @@ ConfirmCloneProject=តើអ្នកប្រាកដក្នុងការ
 ProjectReportDate=ផ្លាស់ប្តូរកាលបរិច្ឆេទកិច្ចការដោយយោងតាមកាលបរិច្ឆេទចាប់ផ្តើមគម្រោងថ្មី។
 ErrorShiftTaskDate=មិនអាចផ្លាស់ប្តូរកាលបរិច្ឆេទកិច្ចការដោយយោងតាមកាលបរិច្ឆេទចាប់ផ្តើមគម្រោងថ្មី។
 ProjectsAndTasksLines=គម្រោងនិងភារកិច្ច
-ProjectCreatedInDolibarr=គម្រោង %s ត្រូវបានបង្កើត
-ProjectValidatedInDolibarr=គម្រោង %s មានសុពលភាព
-ProjectModifiedInDolibarr=គម្រោង %s បានកែប្រែ
-TaskCreatedInDolibarr=កិច្ចការ %s ត្រូវបានបង្កើត
-TaskModifiedInDolibarr=កិច្ចការ %s បានកែប្រែ
-TaskDeletedInDolibarr=កិច្ចការ %s ត្រូវបានលុប
+ProjectCreatedInOnLi=គម្រោង %s ត្រូវបានបង្កើត
+ProjectValidatedInOnLi=គម្រោង %s មានសុពលភាព
+ProjectModifiedInOnLi=គម្រោង %s បានកែប្រែ
+TaskCreatedInOnLi=កិច្ចការ %s ត្រូវបានបង្កើត
+TaskModifiedInOnLi=កិច្ចការ %s បានកែប្រែ
+TaskDeletedInOnLi=កិច្ចការ %s ត្រូវបានលុប
 OpportunityStatus=ស្ថានភាពនាំមុខ
 OpportunityStatusShort=ស្ថានភាពនាំមុខ
 OpportunityProbability=ប្រូបាប៊ីលីតេនាំមុខ

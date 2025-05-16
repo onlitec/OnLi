@@ -1,4 +1,4 @@
-To make htmldoc working from wiki.dolibarr.org, the wiki must be modified to have
+To make htmldoc working from wiki.OnLi.org, the wiki must be modified to have
 
 To disable part of content, add:
 class="htmldoc-ignore"

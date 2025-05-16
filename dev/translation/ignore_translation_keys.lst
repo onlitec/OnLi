@@ -269,9 +269,9 @@ Directory
 DisabledByOptionADD_UNSPLASH_LOGIN_BACKGROUND
 Document
 Documentation
-Dolibarr
-Dolibarr constant MAIN_SERVER_TZ
-DolibarrPassword
+OnLi
+OnLi constant MAIN_SERVER_TZ
+OnLiPassword
 Down
 DraftMyObjects
 DragDrop
@@ -457,10 +457,10 @@ KO
 Key
 Keywords
 LDAP
-LDAP setup for groups not defined inside Dolibarr
-LDAP setup for members not defined inside Dolibarr
-LDAP setup for members types not defined inside Dolibarr
-LDAP setup for users not defined inside Dolibarr
+LDAP setup for groups not defined inside OnLi
+LDAP setup for members not defined inside OnLi
+LDAP setup for members types not defined inside OnLi
+LDAP setup for users not defined inside OnLi
 LT
 LabelName
 LabelPaperSize

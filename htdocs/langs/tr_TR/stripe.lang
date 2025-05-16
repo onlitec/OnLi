@@ -1,8 +1,8 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Stripe modülü kurulumu
-StripeDesc=<a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a> aracılığıyla müşterilerinize kredi/banka kartlarıyla yapılan ödemeler için çevrimiçi bir ödeme sayfası sunun. Bu, müşterilerinizin geçici ödemeler yapmasına veya belirli bir Dolibarr nesnesine (fatura, sipariş, ...) ilişkin ödemeler yapmasına olanak sağlamak için kullanılabilir.
+StripeDesc=<a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a> aracılığıyla müşterilerinize kredi/banka kartlarıyla yapılan ödemeler için çevrimiçi bir ödeme sayfası sunun. Bu, müşterilerinizin geçici ödemeler yapmasına veya belirli bir OnLi nesnesine (fatura, sipariş, ...) ilişkin ödemeler yapmasına olanak sağlamak için kullanılabilir.
 StripeOrCBDoPayment=Kredi kartı veya Stripe ile ödeme yapın
-FollowingUrlAreAvailableToMakePayments=Aşağıdaki URL'ler bir müşteriye Dolibarr nesnelerine bir ödeme yapmak için bir sayfa sunmak için kullanılabilir
+FollowingUrlAreAvailableToMakePayments=Aşağıdaki URL'ler bir müşteriye OnLi nesnelerine bir ödeme yapmak için bir sayfa sunmak için kullanılabilir
 PaymentForm=Ödeme Formu
 WelcomeOnPaymentPage=Çevrimiçi ödeme hizmetimize hoş geldiniz
 ThisScreenAllowsYouToPay=Bu ekran %s için çevrimiçi bir ödeme yapmanızı sağlar
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=Mevcut bir nesne olmadan, herhangi bir 
 ToOfferALinkForOnlinePaymentOnMemberSubscription=Üye aboneliği için %s çevrimiçi ödeme sayfası sunan URL
 ToOfferALinkForOnlinePaymentOnDonation=Bağışın ödenmesi için %s çevrimiçi ödeme sayfası sunan URL
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=Ödeme sayfasını bir Dolibarr web sitesine entegre etmek istiyorsanız şu parametreyi ekleyebilirsiniz: <b>&ws=website_ref</b>.<br>Ek olarak, isimlendirilmiş iki sayfa <b>paymentok</b> ve <b>paymentko</b>, başarısız bir çevrimiçi ödeme sonrasında yönlendirmeyi almak için web sitesinde oluşturulmalıdır.
+YouCanEmbedOnWebsite=Ödeme sayfasını bir OnLi web sitesine entegre etmek istiyorsanız şu parametreyi ekleyebilirsiniz: <b>&ws=website_ref</b>.<br>Ek olarak, isimlendirilmiş iki sayfa <b>paymentok</b> ve <b>paymentko</b>, başarısız bir çevrimiçi ödeme sonrasında yönlendirmeyi almak için web sitesinde oluşturulmalıdır.
 SetupStripeToHavePaymentCreatedAutomatically=Ödemenin otomatik olarak oluşturulmasını sağlamak için Stripe'ınızı <b>%s</b> URL'si ile ayarlayın. Stripe tarafından doğrulandı.
 AccountParameter=Hesap parametreleri
 UsageParameter=Kullanım parametreleri

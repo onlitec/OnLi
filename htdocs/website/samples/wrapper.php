@@ -21,7 +21,7 @@ $websitekey = basename(__DIR__);
 if (strpos($_SERVER["PHP_SELF"], 'website/samples/wrapper.php')) {
 	die("Sample file for website module. Can't be called directly.");
 }
-if (!defined('USEDOLIBARRSERVER') && !defined('USEDOLIBARREDITOR')) {
+if (!defined('USEOnLiSERVER') && !defined('USEOnLiEDITOR')) {
 	require_once './master.inc.php';
 } // Load master if not already loaded
 include_once DOL_DOCUMENT_ROOT.'/core/lib/images.lib.php';

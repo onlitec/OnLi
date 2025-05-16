@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 ErrorCompanyNameAlreadyExists=El nombre de la empresa %s ya existe. Elige otro.
 ErrorSetACountryFirst=Establecer el país primero
 SelectThirdParty=Seleccione un tercero
@@ -208,7 +208,7 @@ NewContactAddress=Nuevo contacto/dirección
 EditCompany=Editar empresa
 ThisUserIsNot=Este usuario no es un prospecto, cliente o proveedor
 VATIntraCheck=Controlar
-VATIntraCheckDesc=El ID de IVA debe incluir el prefijo del país. El enlace <b> %s </b> utiliza el servicio de verificación de IVA europeo (VIES) que requiere acceso a Internet desde el servidor Dolibarr.
+VATIntraCheckDesc=El ID de IVA debe incluir el prefijo del país. El enlace <b> %s </b> utiliza el servicio de verificación de IVA europeo (VIES) que requiere acceso a Internet desde el servidor OnLi.
 VATIntraCheckableOnEUSite=Consultar el ID de IVA intracomunitario en la web de la Comisión Europea
 VATIntraManualCheck=También puede consultar manualmente en el sitio web de la Comisión Europea <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
 ErrorVATCheckMS_UNAVAILABLE=Comprobar no es posible. El estado miembro no proporciona el servicio de cheques (%s).
@@ -234,8 +234,8 @@ ProspectsByStatus=Prospectos por estado
 NoParentCompany=Ninguno
 ExportCardToFormat=Exportar tarjeta a formato
 ContactNotLinkedToCompany=Contacto no vinculado a ningún tercero
-DolibarrLogin=Inicio de sesión en Dolibarr
-NoDolibarrAccess=Sin acceso a Dolibarr
+OnLiLogin=Inicio de sesión en OnLi
+NoOnLiAccess=Sin acceso a OnLi
 ImportDataset_company_1=Terceros y sus propiedades
 ImportDataset_company_2=Contactos/direcciones y atributos adicionales de terceros
 ImportDataset_company_4=Representantes de ventas de terceros (asignar representantes de ventas/usuarios a empresas)

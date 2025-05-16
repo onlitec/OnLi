@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=E-pasta sūtīšana
 EMailing=E-pasta sūtīšanas
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kontakti pa sadaļām
 MailingModuleDescContactsByFunction=Kontakti pēc amata
 MailingModuleDescEmailsFromFile=E-pasti no faila
 MailingModuleDescEmailsFromUser=Lietotāja ievadītie e-pasti
-MailingModuleDescDolibarrUsers=Lietotāji ar e-pastu
+MailingModuleDescOnLiUsers=Lietotāji ar e-pastu
 MailingModuleDescThirdPartiesByCategories=Trešās puses
 SendingFromWebInterfaceIsNotAllowed=Sūtīšana no tīmekļa saskarnes nav atļauta.
 EmailCollectorFilterDesc=Lai tiktu vākti e-pasta ziņojumi, visiem filtriem ir jāatbilst. <br> Varat izmantot rakstzīmi "!" pirms meklēšanas virknes vērtības, ja nepieciešams negatīvs tests

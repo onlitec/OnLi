@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=e-mailing
 EMailing=e-mailing
 EMailings=Correos electrónicos masivos
@@ -72,7 +72,7 @@ MailingModuleDescContactsByCategory=Contactos por categorías
 MailingModuleDescContactsByFunction=Contactos por puesto
 MailingModuleDescEmailsFromFile=Correos electrónicos del archivo
 MailingModuleDescEmailsFromUser=Entrada de correos electrónicos por parte del usuario
-MailingModuleDescDolibarrUsers=Usuarios con correos electrónicos
+MailingModuleDescOnLiUsers=Usuarios con correos electrónicos
 SendingFromWebInterfaceIsNotAllowed=No se permite el envío desde la interfaz web.
 EmailCollectorFilterDesc=Todos los filtros deben coincidir para que se recopile un correo electrónico.<br>Puede usar el carácter "!" antes del valor de la cadena de búsqueda si necesita una prueba negativa
 RecipientSelectionModules=Solicitudes definidas para la selección de destinatarios

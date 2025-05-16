@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervence
 Interventions=Intervence
 InterventionCard=Karta intervence
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Klasifikovat jako "Neúčtované"
 InterventionClassifyDone=Klasifikovat „Done“
 SendInterventionRef=Předložení intervenčního %s
 SendInterventionByMail=Zaslání zásahu e-mailem
-InterventionCreatedInDolibarr=Intervence %s vytvořena
-InterventionValidatedInDolibarr=Intervence %s ověřena
-InterventionModifiedInDolibarr=Intervence %s upravena
-InterventionClassifiedBilledInDolibarr=Intervenční %s nastavena jako zaúčtovaná
-InterventionClassifiedUnbilledInDolibarr=Intervence %s nastavená jako nezaúčtovaná
+InterventionCreatedInOnLi=Intervence %s vytvořena
+InterventionValidatedInOnLi=Intervence %s ověřena
+InterventionModifiedInOnLi=Intervence %s upravena
+InterventionClassifiedBilledInOnLi=Intervenční %s nastavena jako zaúčtovaná
+InterventionClassifiedUnbilledInOnLi=Intervence %s nastavená jako nezaúčtovaná
 InterventionSentByEMail=Intervence %s odeslána e-mailem
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=Intervence %s odstraněna
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=Intervence %s odstraněna
 InterventionsArea=Oblast intervencí
 DraftFichinter=Návrhy intervence
 LastModifiedInterventions=Poslední %s modifikované intervence

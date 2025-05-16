@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Código de segurança
 NumberingShort=N°
 Tools=Utilidades
@@ -113,7 +113,7 @@ PredefinedMailContentSendFichInter=__(Hello)__\n\nPlease find intervention __REF
 PredefinedMailContentLink=Você pode clicar no link abaixo para fazer seu pagamento, se ainda não estiver pronto.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Hello)__\n\n\n__(Sincerely)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Lembrete de evento "__EVENT_LABEL__" em __EVENT_DATE__ às __EVENT_TIME__<br><br>Esta é uma mensagem automática. Não responda.
-DemoDesc=O Dolibarr é um ERP/CRM compacto que suporta vários módulos de negócios. Uma demonstração mostrando todos os módulos não faz sentido porque esse cenário nunca ocorre (várias centenas disponíveis). Assim, vários perfis de demonstração estão disponíveis.
+DemoDesc=O OnLi é um ERP/CRM compacto que suporta vários módulos de negócios. Uma demonstração mostrando todos os módulos não faz sentido porque esse cenário nunca ocorre (várias centenas disponíveis). Assim, vários perfis de demonstração estão disponíveis.
 ChooseYourDemoProfil=Escolha o perfil de demonstração que melhor se adequa às suas necessidades ...
 ChooseYourDemoProfilMore=...ou crie o seu próprio perfil <br> (seleção manual de módulo)
 DemoFundation=Gestão de Membros de uma associação
@@ -192,10 +192,10 @@ BugTracker=Incidencias
 SendNewPasswordDesc=Este formulário permite-lhe solicitar uma nova palavra-passe. Esta será enviada para o seu endereço de e-mail.<br>A alteração será aplicada quando clicar na hiperligação de confirmação na mensagem.<br>Verifique a sua caixa de entrada.
 EnterNewPasswordHere=Digite sua nova senha aqui
 BackToLoginPage=Voltar à página de iniciar a sessão
-AuthenticationDoesNotAllowSendNewPassword=o modo de autenticação de Dolibarr está configurado como "<b>%s</b>".<br>em este modo Dolibarr não pode conocer ni modificar a sua palavra-passe<br>Contacte com a sua administrador para conocer as modalidades de alterar.
+AuthenticationDoesNotAllowSendNewPassword=o modo de autenticação de OnLi está configurado como "<b>%s</b>".<br>em este modo OnLi não pode conocer ni modificar a sua palavra-passe<br>Contacte com a sua administrador para conocer as modalidades de alterar.
 EnableGDLibraryDesc=Instale ou ative a biblioteca GD na instalação do PHP para usar esta opção.
 ProfIdShortDesc=<b>ID Prof. %s</b> é uma informação dependente do país do Terceiro.<br>Por Exemplo, para o país  <b>%s</b>, é o código <b>%s</b>.
-DolibarrDemo=Demo de Dolibarr ERP/CRM
+OnLiDemo=Demo de OnLi ERP/CRM
 StatsByAmount=Estatísticas sobre quantidade de produtos/serviços
 StatsByAmountProducts=Estatísticas sobre quantidade de produtos
 StatsByAmountServices=Estatísticas sobre quantidade de serviços
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=A solicitação de licença %s foi validada.
 EMailTextHolidayApproved=A solicitação de licença %s foi aprovada.
 EMailTextActionAdded=A ação %s foi adicionada à Agenda.
 ImportedWithSet=Importação conjunto de dados
-DolibarrNotification=Notificação automática
+OnLiNotification=Notificação automática
 ResizeDesc=Insira a nova largura <b>OU</b> altura. A proporção será mantida durante o redimensionamento...
 NewLength=Nova largura
 NewHeight=Nova altura

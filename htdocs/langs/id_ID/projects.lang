@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Ref. proyek
 ProjectRef=Referensi proyek
 ProjectId=Id Proyek
@@ -160,12 +160,12 @@ ConfirmCloneProject=Apakah Anda yakin akan mengkloning proyek ini?
 ProjectReportDate=Ubah tanggal tugas sesuai dengan tanggal mulai proyek baru
 ErrorShiftTaskDate=Tidak mungkin menggeser tanggal tugas sesuai dengan tanggal mulai proyek baru
 ProjectsAndTasksLines=Proyek dan tugas
-ProjectCreatedInDolibarr=Proyek %s dibuat
-ProjectValidatedInDolibarr=Proyek %s divalidasi
-ProjectModifiedInDolibarr=Proyek %s dimodifikasi
-TaskCreatedInDolibarr=Tugas %s dibuat
-TaskModifiedInDolibarr=Tugas %s dimodifikasi
-TaskDeletedInDolibarr=Tugas %s dihapus
+ProjectCreatedInOnLi=Proyek %s dibuat
+ProjectValidatedInOnLi=Proyek %s divalidasi
+ProjectModifiedInOnLi=Proyek %s dimodifikasi
+TaskCreatedInOnLi=Tugas %s dibuat
+TaskModifiedInOnLi=Tugas %s dimodifikasi
+TaskDeletedInOnLi=Tugas %s dihapus
 OpportunityStatus=Status kepemimpinan
 OpportunityStatusShort=Status kepemimpinan
 OpportunityProbability=Peluang memimpin

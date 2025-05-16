@@ -5,12 +5,12 @@
 # \author	Laurent Destailleur
 #--------------------------------------------------------------------
 
-# Usage: dolibarr-doxygen-filter.pl pathtofilefromdolibarrroot
+# Usage: OnLi-doxygen-filter.pl pathtofilefromOnLiroot
 
 $file=$ARGV[0];
 if (! $file)
 {
-	print "Usage: dolibarr-doxygen-filter.pl pathtofilefromdolibarrroot\n";
+	print "Usage: OnLi-doxygen-filter.pl pathtofilefromOnLiroot\n";
 	exit;
 }
 

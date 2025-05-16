@@ -1,8 +1,8 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Thiết lập mô-đun cổng thanh toán Stripe
-StripeDesc=Cung cấp cho khách hàng của bạn trang thanh toán trực tuyến để thanh toán bằng thẻ tín dụng/thẻ ghi nợ qua <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a> . Điều này có thể được sử dụng để cho phép khách hàng của bạn thực hiện thanh toán đặc biệt hoặc thanh toán liên quan đến một đối tượng Dolibarr cụ thể (hóa đơn, đơn đặt hàng, ...)
+StripeDesc=Cung cấp cho khách hàng của bạn trang thanh toán trực tuyến để thanh toán bằng thẻ tín dụng/thẻ ghi nợ qua <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a> . Điều này có thể được sử dụng để cho phép khách hàng của bạn thực hiện thanh toán đặc biệt hoặc thanh toán liên quan đến một đối tượng OnLi cụ thể (hóa đơn, đơn đặt hàng, ...)
 StripeOrCBDoPayment=Thanh toán bằng thẻ tín dụng hoặc Stripe
-FollowingUrlAreAvailableToMakePayments=Các URL sau có sẵn để cung cấp một trang cho khách hàng để thanh toán trên các đối tượng Dolibarr
+FollowingUrlAreAvailableToMakePayments=Các URL sau có sẵn để cung cấp một trang cho khách hàng để thanh toán trên các đối tượng OnLi
 PaymentForm=Hình thức thanh toán
 WelcomeOnPaymentPage=Chào mừng bạn đến với dịch vụ thanh toán trực tuyến của chúng tôi
 ThisScreenAllowsYouToPay=Màn hình này cho phép bạn thực hiện thanh toán trực tuyến tới %s.
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=URL để cung cấp trang thanh toán 
 ToOfferALinkForOnlinePaymentOnMemberSubscription=URL để cung cấp trang thanh toán trực tuyến %s cho đăng ký thành viên
 ToOfferALinkForOnlinePaymentOnDonation=URL để cung cấp trang thanh toán trực tuyến %s để thanh toán một khoản đóng góp
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=If you want to integrate the payment page into a Dolibarr website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
+YouCanEmbedOnWebsite=If you want to integrate the payment page into a OnLi website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
 SetupStripeToHavePaymentCreatedAutomatically=Thiết lập Stripe của bạn với url <b>%s</b> để thanh toán được tạo tự động khi được xác thực bởi Stripe.
 AccountParameter=Thông số tài khoản
 UsageParameter=Thông số sử dụng

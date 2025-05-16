@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Kuingilia kati
 Interventions=Uingiliaji kati
 InterventionCard=Kadi ya kuingilia kati
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Panga "Haijatozwa"
 InterventionClassifyDone=Panga "Imekamilika"
 SendInterventionRef=Uwasilishaji wa uingiliaji kati %s
 SendInterventionByMail=Tuma uingiliaji kati kwa barua pepe
-InterventionCreatedInDolibarr=Kuingilia kati %s kuundwa
-InterventionValidatedInDolibarr=Kuingilia kati %s imethibitishwa
-InterventionModifiedInDolibarr=Kuingilia kati %s imebadilishwa
-InterventionClassifiedBilledInDolibarr=Kuingilia kati %s weka kama inavyotozwa
-InterventionClassifiedUnbilledInDolibarr=Kuingilia kati %s weka kama isiyolipishwa
+InterventionCreatedInOnLi=Kuingilia kati %s kuundwa
+InterventionValidatedInOnLi=Kuingilia kati %s imethibitishwa
+InterventionModifiedInOnLi=Kuingilia kati %s imebadilishwa
+InterventionClassifiedBilledInOnLi=Kuingilia kati %s weka kama inavyotozwa
+InterventionClassifiedUnbilledInOnLi=Kuingilia kati %s weka kama isiyolipishwa
 InterventionSentByEMail=Kuingilia kati %s kutumwa kwa barua pepe
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=Kuingilia kati %s imefutwa
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=Kuingilia kati %s imefutwa
 InterventionsArea=Eneo la kuingilia kati
 DraftFichinter=Rasimu ya kuingilia kati
 LastModifiedInterventions=Hivi karibuni %s afua zilizobadilishwa

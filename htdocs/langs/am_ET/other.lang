@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=የሚስጥር መለያ ቁጥር
 NumberingShort=N°
 Tools=መሳሪያዎች
@@ -192,10 +192,10 @@ BugTracker=የሳንካ መከታተያ
 SendNewPasswordDesc=ይህ ቅጽ አዲስ የይለፍ ቃል እንዲጠይቁ ያስችልዎታል። ወደ ኢሜል አድራሻዎ ይላካል።<br>ለውጡ ውጤታማ የሚሆነው በኢሜል ውስጥ ያለውን የማረጋገጫ አገናኝ ጠቅ ካደረጉ በኋላ ነው።<br> የገቢ መልእክት ሳጥንዎን ያረጋግጡ።
 EnterNewPasswordHere=አዲሱን የይለፍ ቃልዎን እዚህ ያስገቡ
 BackToLoginPage=ወደ የመግቢያ ገጽ ተመለስ
-AuthenticationDoesNotAllowSendNewPassword=የማረጋገጫ ሁነታ <b>%s</b> ነው:: ><br>በዚህ ሁነታ Dolibarr የይለፍ ቃልህን ማወቅም ሆነ መለወጥ አይችልም።<br>የይለፍ ቃልህን መለወጥ ከፈለክ የስርዓት አስተዳዳሪህን አግኝ።
+AuthenticationDoesNotAllowSendNewPassword=የማረጋገጫ ሁነታ <b>%s</b> ነው:: ><br>በዚህ ሁነታ OnLi የይለፍ ቃልህን ማወቅም ሆነ መለወጥ አይችልም።<br>የይለፍ ቃልህን መለወጥ ከፈለክ የስርዓት አስተዳዳሪህን አግኝ።
 EnableGDLibraryDesc=ይህንን አማራጭ ለመጠቀም በPHP ጭነትዎ ላይ የጂዲ ቤተ-መጽሐፍትን ጫን ወይም አንቃ።
 ProfIdShortDesc=<b>Prof Id %s</b> is an information depending on third party country.<br>For example, for country <b>%s</b>, it's code <b>%s</b>.
-DolibarrDemo=ዶሊባርር ኢአርፒ/CRM ማሳያ
+OnLiDemo=ዶሊባርር ኢአርፒ/CRM ማሳያ
 StatsByAmount=የምርቶች/አገልግሎቶች ብዛት ላይ ስታቲስቲክስ
 StatsByAmountProducts=የምርቶች ብዛት ላይ ስታቲስቲክስ
 StatsByAmountServices=በአገልግሎት ብዛት ላይ ስታቲስቲክስ
@@ -233,7 +233,7 @@ EMailTextHolidayValidated=የመልቀቅ ጥያቄ %s ተረጋግጧል።
 EMailTextHolidayApproved=የመልቀቅ ጥያቄ %s ጸድቋል።
 EMailTextActionAdded=እርምጃው %s ወደ አጀንዳው ታክሏል።
 ImportedWithSet=የማስመጣት ውሂብ ስብስብ
-DolibarrNotification=ራስ-ሰር ማሳወቂያ
+OnLiNotification=ራስ-ሰር ማሳወቂያ
 ResizeDesc=አዲስ ስፋት <b>ወይም</b> አዲስ ቁመት አስገባ። መጠኑ በሚቀየርበት ጊዜ ምጥጥን ይቀመጣል...
 NewLength=አዲስ ስፋት
 NewHeight=አዲስ ቁመት

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Gestió de recepció de proveïdors (crear documents de recepció)
 ReceptionsSetup=Configuració de recepció del proveïdor
 RefReception=Ref. recepció
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Mòdul de numeració per a recepcions
 ReceptionsReceiptModel=Plantilles de documents per a recepcions
 NoMorePredefinedProductToDispatch=No hi ha més productes predefinits per a enviar
 ReceptionExist=Hi ha una recepció
-ReceptionBackToDraftInDolibarr=Recepció %s torna a esborrany
-ReceptionClassifyClosedInDolibarr=Recepció %s classificada Tancada
-ReceptionUnClassifyCloseddInDolibarr=La recepció %s torna a obrir
+ReceptionBackToDraftInOnLi=Recepció %s torna a esborrany
+ReceptionClassifyClosedInOnLi=Recepció %s classificada Tancada
+ReceptionUnClassifyCloseddInOnLi=La recepció %s torna a obrir
 RestoreWithCurrentQtySaved=Ompliu les quantitats amb els últims valors desats
 ReceptionsRecorded=Recepcions gravades
 ReceptionUpdated=La recepció s'ha actualitzat correctament

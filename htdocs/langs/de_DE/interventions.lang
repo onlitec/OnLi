@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Serviceauftrag
 Interventions=Serviceaufträge
 InterventionCard=Serviceauftrag - Arbeitsbericht
@@ -37,17 +37,17 @@ InterventionSign=Auf signiert setzen
 InterventionUnsign=Auf nicht signiert setzen
 SendInterventionRef=Serviceauftrag %s
 SendInterventionByMail=Serviceauftrag per E-Mail versenden
-InterventionCreatedInDolibarr=Serviceauftrag %s erstellt
-InterventionValidatedInDolibarr=Serviceauftrag %s freigegeben
-InterventionSignedInDolibarr=Serviceauftrag unterzeichnet
+InterventionCreatedInOnLi=Serviceauftrag %s erstellt
+InterventionValidatedInOnLi=Serviceauftrag %s freigegeben
+InterventionSignedInOnLi=Serviceauftrag unterzeichnet
 InterventionSignedOnline=Serviceauftrag online signiert
-InterventionUnsignedInDolibarr=Serviceauftrag nicht signiert
-InterventionModifiedInDolibarr=Serviceauftrag %s geändert
-InterventionClassifiedBilledInDolibarr=Serviceauftrag %s als "in Rechnung gestellt" markiert
-InterventionClassifiedUnbilledInDolibarr=Serviceauftrag %s als "nicht in Rechnung gestellt" markiert
+InterventionUnsignedInOnLi=Serviceauftrag nicht signiert
+InterventionModifiedInOnLi=Serviceauftrag %s geändert
+InterventionClassifiedBilledInOnLi=Serviceauftrag %s als "in Rechnung gestellt" markiert
+InterventionClassifiedUnbilledInOnLi=Serviceauftrag %s als "nicht in Rechnung gestellt" markiert
 InterventionSentByEMail=Serviceauftrag %s per E-Mail versendet
-InterventionClosedInDolibarr= Serviceauftrag %s geschlossen
-InterventionDeletedInDolibarr=Serviceauftrag %s gelöscht
+InterventionClosedInOnLi= Serviceauftrag %s geschlossen
+InterventionDeletedInOnLi=Serviceauftrag %s gelöscht
 InterventionsArea=Übersicht Serviceaufträge
 DraftFichinter=Serviceaufträge im Entwurf
 LastModifiedInterventions=Zuletzt bearbeitete Serviceaufträge (maximal %s)

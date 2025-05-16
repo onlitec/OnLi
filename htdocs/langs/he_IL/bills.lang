@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=חשבונית
 Bills=חשבוניות
 BillsCustomers=חשבוניות של לקוחות
@@ -640,8 +640,8 @@ AutoFillDateFromShort=הגדר תאריך התחלה
 AutoFillDateTo=הגדר תאריך סיום עבור קו השירות עם תאריך החשבונית הבאה
 AutoFillDateToShort=הגדר תאריך סיום
 MaxNumberOfGenerationReached=מספר מקסימלי של דור השיג
-BILL_DELETEInDolibarr=החשבונית נמחקה
-BILL_SUPPLIER_DELETEInDolibarr=חשבונית הספק נמחקה
+BILL_DELETEInOnLi=החשבונית נמחקה
+BILL_SUPPLIER_DELETEInOnLi=חשבונית הספק נמחקה
 UnitPriceXQtyLessDiscount=מחיר יחידה x כמות - הנחה
 CustomersInvoicesArea=אזור חיוב לקוחות
 SupplierInvoicesArea=אזור חיוב הספק

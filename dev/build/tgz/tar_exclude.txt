@@ -29,5 +29,5 @@ doli*.exe
 doli*.rpm
 doli*.deb
 doli*.zip
-cvschangelogbuilder_dolibarr*
-dolibarr_install.log
+cvschangelogbuilder_OnLi*
+OnLi_install.log

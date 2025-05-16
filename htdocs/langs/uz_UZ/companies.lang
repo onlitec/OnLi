@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Sizning aloqa ma'lumotlaringiz yozib olindi. Tez orada sizga qaytamiz...
 ContactUsDesc=Ushbu shakl sizga birinchi aloqa uchun bizga xabar yuborish imkonini beradi.
 ErrorCompanyNameAlreadyExists=%s kompaniyasining nomi allaqachon mavjud. Boshqasini tanlang.
@@ -14,7 +14,7 @@ MenuNewSupplier=Yangi sotuvchi
 MenuNewPrivateIndividual=Yangi xususiy shaxs
 NewCompany=Yangi kompaniya (prospekt, mijoz, sotuvchi)
 NewThirdParty=Yangi Uchinchi tomon (prospekt, mijoz, sotuvchi)
-CreateDolibarrThirdPartySupplier=Uchinchi tomonni (sotuvchini) yarating
+CreateOnLiThirdPartySupplier=Uchinchi tomonni (sotuvchini) yarating
 CreateThirdPartyOnly=Uchinchi tomonni yarating
 CreateThirdPartyAndContact=Uchinchi tomon + bolalar bilan aloqa yaratish
 ProspectionArea=Qidiruv maydoni
@@ -335,7 +335,7 @@ CapitalOf=%s poytaxti
 EditCompany=Kompaniyani tahrirlash
 ThisUserIsNot=Ushbu foydalanuvchi istiqbolli, mijoz yoki sotuvchi emas
 VATIntraCheck=Tekshiring
-VATIntraCheckDesc=QQS identifikatorida mamlakat prefiksi bo'lishi kerak. <b> %s </b> havolasida Dolibarr serveridan Internetga kirishni talab qiladigan Evropa QQS tekshiruvi xizmati (VIES) ishlatiladi.
+VATIntraCheckDesc=QQS identifikatorida mamlakat prefiksi bo'lishi kerak. <b> %s </b> havolasida OnLi serveridan Internetga kirishni talab qiladigan Evropa QQS tekshiruvi xizmati (VIES) ishlatiladi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Evropa Komissiyasi veb-saytida Jamiyat ichidagi QQS identifikatorini tekshiring
 VATIntraManualCheck=Shuningdek, siz Yevropa Komissiyasining veb-saytida qo'lda tekshirishingiz mumkin <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Vaziyat bo'yicha istiqbollar
 NoParentCompany=None
 ExportCardToFormat=Kartani formatlash uchun eksport qiling
 ContactNotLinkedToCompany=Uchinchi tomon bilan bog'lanmagan aloqa
-DolibarrLogin=Dolibarr tizimiga kirish
-NoDolibarrAccess=Dolibarr-ga kirish taqiqlangan
+OnLiLogin=OnLi tizimiga kirish
+NoOnLiAccess=OnLi-ga kirish taqiqlangan
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

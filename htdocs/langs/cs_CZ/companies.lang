@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Your contact details have been recorded. We will get back to you soon...
 ContactUsDesc=This form allows you to send us a message for a first contact.
 ErrorCompanyNameAlreadyExists=Společnost %s již existuje. Zadejte jiný název.
@@ -14,7 +14,7 @@ MenuNewSupplier=Nový dodavatel
 MenuNewPrivateIndividual=Nová soukromá osoba
 NewCompany=Nová společnost (cíl. zákazník, dodavatel)
 NewThirdParty=Nový subjekt (cíl, zákazník, dodavatel)
-CreateDolibarrThirdPartySupplier=Vytvořit subjekt (dodavatele)
+CreateOnLiThirdPartySupplier=Vytvořit subjekt (dodavatele)
 CreateThirdPartyOnly=Vytvořit subjekt
 CreateThirdPartyAndContact=Vytvořte subjekt + přidružený kontakt
 ProspectionArea=Oblast cílových kontaktů
@@ -335,7 +335,7 @@ CapitalOf=Hlavní město %s
 EditCompany=Upravit společnost
 ThisUserIsNot=Tento uživatel není cílem, zákazníkem ani prodejcem
 VATIntraCheck=Kontrola
-VATIntraCheckDesc=Kód DPH ID musí obsahovat předčíslí země. Odkaz <b> %s </b> používá službu European VAT Checker (VIES), která vyžaduje přístup na internet z Dolibarr serveru.
+VATIntraCheckDesc=Kód DPH ID musí obsahovat předčíslí země. Odkaz <b> %s </b> používá službu European VAT Checker (VIES), která vyžaduje přístup na internet z OnLi serveru.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Zkontrolujte ID DPH uvnitř Společenství na webových stránkách Evropské komise
 VATIntraManualCheck=You can also check manually on the European Commission website <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Cíle dle stavu
 NoParentCompany=Nikdo
 ExportCardToFormat=Exportovat kartu do formátu
 ContactNotLinkedToCompany=Kontakt není spojen s žádným subjektem
-DolibarrLogin=Přihlášení do Dolibarru
-NoDolibarrAccess=Žádný přístup k Dolibarr
+OnLiLogin=Přihlášení do OnLiu
+NoOnLiAccess=Žádný přístup k OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Dodatečné kontakty / adresy a atributy subjektů
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

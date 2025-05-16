@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=项目编号
 ProjectRef=项目编号
 ProjectId=项目ID号
@@ -160,12 +160,12 @@ ConfirmCloneProject=您确定要克隆这个项目吗？
 ProjectReportDate=根据新项目开始日期更改任务日期
 ErrorShiftTaskDate=无法根据新项目开始日期更改任务日期
 ProjectsAndTasksLines=项目和任务
-ProjectCreatedInDolibarr=项目 %s 已创建
-ProjectValidatedInDolibarr=项目 %s 已验证
-ProjectModifiedInDolibarr=项目 %s 已修改
-TaskCreatedInDolibarr=任务 %s 已创建
-TaskModifiedInDolibarr=任务 %s 已修改
-TaskDeletedInDolibarr=任务 %s 已删除
+ProjectCreatedInOnLi=项目 %s 已创建
+ProjectValidatedInOnLi=项目 %s 已验证
+ProjectModifiedInOnLi=项目 %s 已修改
+TaskCreatedInOnLi=任务 %s 已创建
+TaskModifiedInOnLi=任务 %s 已修改
+TaskDeletedInOnLi=任务 %s 已删除
 OpportunityStatus=商机状态
 OpportunityStatusShort=商机状态
 OpportunityProbability=商机概率

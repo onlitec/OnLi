@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 InterventionCard=Carte d'intervention
 AddIntervention=Créer une intervention
 ChangeIntoRepeatableIntervention=Passer à une intervention répétable
@@ -27,9 +27,9 @@ InterventionClassifyDone=Classer "Terminé"
 InterventionSign=Ensemble signé
 SendInterventionRef=Soumission de l'intervention %s
 SendInterventionByMail=Envoyer une intervention par email
-InterventionClassifiedBilledInDolibarr=Intervention %s définie comme facturée
-InterventionClassifiedUnbilledInDolibarr=Intervention %s définie comme non facturée
-InterventionDeletedInDolibarr=Intervention %s supprimé
+InterventionClassifiedBilledInOnLi=Intervention %s définie comme facturée
+InterventionClassifiedUnbilledInOnLi=Intervention %s définie comme non facturée
+InterventionDeletedInOnLi=Intervention %s supprimé
 InterventionsArea=Zone d'intervention
 DraftFichinter=Projet d'interventions
 LastModifiedInterventions=Dernières %s interventions modifiées

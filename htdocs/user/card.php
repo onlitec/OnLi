@@ -918,7 +918,7 @@ if ($action == 'create' || $action == 'adduserldap') {
 	print "<br>";
 
 
-	if (isModEnabled('ldap') && (getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') === Ldap::SYNCHRO_LDAP_TO_DOLIBARR)) {
+	if (isModEnabled('ldap') && (getDolGlobalInt('LDAP_SYNCHRO_ACTIVE') === Ldap::SYNCHRO_LDAP_TO_ONLI)) {
 		$liste = array();
 
 		// Show form to add an account from LDAP if sync LDAP -> OnLi is set

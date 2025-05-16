@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=发票
 Bills=发票
 BillsCustomers=客户发票
@@ -640,8 +640,8 @@ AutoFillDateFromShort=设置开始日期
 AutoFillDateTo=设置服务行的结束日期为下一张发票的日期
 AutoFillDateToShort=设置结束日期
 MaxNumberOfGenerationReached=生成发票数已达到最大限制
-BILL_DELETEInDolibarr=发票已删除
-BILL_SUPPLIER_DELETEInDolibarr=供应商发票已删除
+BILL_DELETEInOnLi=发票已删除
+BILL_SUPPLIER_DELETEInOnLi=供应商发票已删除
 UnitPriceXQtyLessDiscount=单价 x 数量 - 折扣
 CustomersInvoicesArea=客户结算区
 SupplierInvoicesArea=供应商结算区

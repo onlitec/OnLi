@@ -1,8 +1,8 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Настройка модуля Stripe
-StripeDesc=Предложите своим клиентам страницу онлайн-платежей для платежей кредитными/дебетовыми картами через <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a> . Это можно использовать, чтобы позволить вашим клиентам совершать разовые платежи или платежи, связанные с конкретным объектом Dolibarr (счет, заказ, ...)
+StripeDesc=Предложите своим клиентам страницу онлайн-платежей для платежей кредитными/дебетовыми картами через <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a> . Это можно использовать, чтобы позволить вашим клиентам совершать разовые платежи или платежи, связанные с конкретным объектом OnLi (счет, заказ, ...)
 StripeOrCBDoPayment=Оплата кредитной картой или Stripe
-FollowingUrlAreAvailableToMakePayments=После URL, можно предложить страницу к клиенту сделать платеж по Dolibarr объектов
+FollowingUrlAreAvailableToMakePayments=После URL, можно предложить страницу к клиенту сделать платеж по OnLi объектов
 PaymentForm=Форма оплаты
 WelcomeOnPaymentPage=Добро пожаловать в нашу службу онлайн-платежей
 ThisScreenAllowsYouToPay=На этом экране можно сделать онлайн-платежей для %s.
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=URL для предложения ст�
 ToOfferALinkForOnlinePaymentOnMemberSubscription=URL-адрес страницы онлайн-оплаты %s для подписки на членство
 ToOfferALinkForOnlinePaymentOnDonation=URL-адрес страницы онлайн-платежа %s для оплаты пожертвования
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=If you want to integrate the payment page into a Dolibarr website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
+YouCanEmbedOnWebsite=If you want to integrate the payment page into a OnLi website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
 SetupStripeToHavePaymentCreatedAutomatically=Настройте Stripe с URL-адресом <b> %s </b>, чтобы платеж создавался автоматически при подтверждении Stripe.
 AccountParameter=Счет параметры
 UsageParameter=Использование параметров

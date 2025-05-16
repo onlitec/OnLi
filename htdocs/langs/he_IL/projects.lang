@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=רפ. פּרוֹיֶקט
 ProjectRef=פרויקט ref.
 ProjectId=מזהה פרויקט
@@ -160,12 +160,12 @@ ConfirmCloneProject=האם אתה בטוח שתשכפל את הפרויקט הז
 ProjectReportDate=שנה את תאריכי המשימות בהתאם לתאריך תחילת הפרויקט החדש
 ErrorShiftTaskDate=בלתי אפשרי לשנות את תאריך המשימה בהתאם לתאריך תחילת הפרויקט החדש
 ProjectsAndTasksLines=פרויקטים ומשימות
-ProjectCreatedInDolibarr=פרויקט %s נוצר
-ProjectValidatedInDolibarr=אימות הפרויקט %s
-ProjectModifiedInDolibarr=פרויקט %s השתנה
-TaskCreatedInDolibarr=המשימה %s נוצרה
-TaskModifiedInDolibarr=המשימה %s השתנתה
-TaskDeletedInDolibarr=המשימה %s נמחקה
+ProjectCreatedInOnLi=פרויקט %s נוצר
+ProjectValidatedInOnLi=אימות הפרויקט %s
+ProjectModifiedInOnLi=פרויקט %s השתנה
+TaskCreatedInOnLi=המשימה %s נוצרה
+TaskModifiedInOnLi=המשימה %s השתנתה
+TaskDeletedInOnLi=המשימה %s נמחקה
 OpportunityStatus=מצב לידים
 OpportunityStatusShort=מצב לידים
 OpportunityProbability=הסתברות להוביל

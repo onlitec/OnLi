@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervencija
 Interventions=Intervencije
 InterventionCard=Kartica intervencije
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=Oddana intervencija %s
 SendInterventionByMail=Pošljite intervencijo po elektronski pošti
-InterventionCreatedInDolibarr=Intervencija %s je ustvarjena
-InterventionValidatedInDolibarr=Intervencija %s je potrjena
-InterventionSignedInDolibarr=Intervencija podpisana
+InterventionCreatedInOnLi=Intervencija %s je ustvarjena
+InterventionValidatedInOnLi=Intervencija %s je potrjena
+InterventionSignedInOnLi=Intervencija podpisana
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=Intervencija %s je spremenjena
-InterventionClassifiedBilledInDolibarr=Intervencijo %s označi kot "zaračunana"
-InterventionClassifiedUnbilledInDolibarr=Intervencijo %s označi kot "nezaračunana"
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=Intervencija %s je spremenjena
+InterventionClassifiedBilledInOnLi=Intervencijo %s označi kot "zaračunana"
+InterventionClassifiedUnbilledInOnLi=Intervencijo %s označi kot "nezaračunana"
 InterventionSentByEMail=Intervencija %s poslana po elektronski pošti
-InterventionClosedInDolibarr= Intervencija %s zaprta
-InterventionDeletedInDolibarr=Intervencija %s je izbrisana
+InterventionClosedInOnLi= Intervencija %s zaprta
+InterventionDeletedInOnLi=Intervencija %s je izbrisana
 InterventionsArea=Območje intervencij
 DraftFichinter=Osnutki posegov
 LastModifiedInterventions=Zadnje %s spremenjene intervencije

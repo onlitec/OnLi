@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Zásah
 Interventions=Zásahy
 InterventionCard=Karta zásahu
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Zaradiť ako "Neúčtovaný"
 InterventionClassifyDone=Klasifikovať ako "Hotovo"
 SendInterventionRef=Záznam zásahu %s
 SendInterventionByMail=Pošlite zásah e-mailom
-InterventionCreatedInDolibarr=Zásah %s vytvorený
-InterventionValidatedInDolibarr=Zásah %s overený
-InterventionModifiedInDolibarr=Zásah %s upravený
-InterventionClassifiedBilledInDolibarr=Zásah %s bude účtovaný
-InterventionClassifiedUnbilledInDolibarr=Zásah %s nebude účtovaný 
+InterventionCreatedInOnLi=Zásah %s vytvorený
+InterventionValidatedInOnLi=Zásah %s overený
+InterventionModifiedInOnLi=Zásah %s upravený
+InterventionClassifiedBilledInOnLi=Zásah %s bude účtovaný
+InterventionClassifiedUnbilledInOnLi=Zásah %s nebude účtovaný 
 InterventionSentByEMail=Zásah %s odoslaný e-mailom
-InterventionClosedInDolibarr= Intervencia %s uzavretá
-InterventionDeletedInDolibarr=Zásah %s odstránený
+InterventionClosedInOnLi= Intervencia %s uzavretá
+InterventionDeletedInOnLi=Zásah %s odstránený
 InterventionsArea=Oblasť zásahov
 DraftFichinter=Návrh intervencií
 LastModifiedInterventions=Najnovšie %s upravené zásahy

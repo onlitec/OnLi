@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=E-mailom
 EMailing=E-mailom
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kontakty podľa kategórií
 MailingModuleDescContactsByFunction=Kontakty podľa pozície
 MailingModuleDescEmailsFromFile=E-maily zo súboru
 MailingModuleDescEmailsFromUser=E-maily zadané používateľom
-MailingModuleDescDolibarrUsers=Používatelia s e-mailami
+MailingModuleDescOnLiUsers=Používatelia s e-mailami
 MailingModuleDescThirdPartiesByCategories=Tretie strany
 SendingFromWebInterfaceIsNotAllowed=Posielanie z webového rozhrania nie je povolené.
 EmailCollectorFilterDesc=Všetky filtre sa musia zhodovať, aby sa e-mail zhromažďuje.<br>Môžete použiť znak "!" pred hodnotou hľadaného reťazca, ak potrebujete negatívny test

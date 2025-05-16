@@ -1,4 +1,4 @@
-# DOLIBARR ERP & CRM custom directory for external modules
+# OnLi ERP & CRM custom directory for external modules
 
 This directory is dedicated to store external modules.
 To use it, just copy here the directory of the module into this directory.

@@ -1,4 +1,4 @@
-# MYMODULE FOR [DOLIBARR ERP & CRM](https://www.onli.org)
+# MYMODULE FOR [OnLi ERP & CRM](https://www.onli.org)
 
 ## Features
 

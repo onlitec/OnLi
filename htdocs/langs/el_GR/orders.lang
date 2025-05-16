@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Μια παραγγελία ήταν ήδη ανοιχτή και συνδεδεμένη με αυτήν την προσφορά, επομένως καμία άλλη παραγγελία δεν δημιουργήθηκε αυτόματα
 OrdersArea=Τομέας παραγγελιών πελατών
 SuppliersOrdersArea=Τομέας παραγγελιών αγοράς
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Είστε σίγουροι ότι θέλετε να αντι�
 DispatchSupplierOrder=Λήψη παραγγελίας αγοράς %s
 FirstApprovalAlreadyDone=Η πρώτη έγκριση έχει ήδη γίνει
 SecondApprovalAlreadyDone=Η δεύτερη έγκριση έχει ήδη γίνει
-SupplierOrderReceivedInDolibarr=Η παραγγελία αγοράς %s παρελήφθη %s
-SupplierOrderSubmitedInDolibarr=Η παραγγελία αγοράς %s καταχωρήθηκε (%s)
+SupplierOrderReceivedInOnLi=Η παραγγελία αγοράς %s παρελήφθη %s
+SupplierOrderSubmitedInOnLi=Η παραγγελία αγοράς %s καταχωρήθηκε (%s)
 SupplierOrderClassifiedBilled=Η παραγγελία αγοράς %s έχει οριστεί ως τιμολογημένη
 OtherOrders=Άλλες παραγγελίες
 SupplierOrderValidatedAndApproved=Η παραγγελία του προμηθευτή έχει επικυρωθεί και εγκριθεί: %s

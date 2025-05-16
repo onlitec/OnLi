@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=এই প্রস্তাবের সাথে একটি অর্ডার ইতিমধ্যেই খোলা ছিল, তাই অন্য কোনও অর্ডার স্বয়ংক্রিয়ভাবে তৈরি হয়নি৷
 OrdersArea=গ্রাহকদের আদেশ এলাকা
 SuppliersOrdersArea=ক্রয় আদেশ এলাকা
@@ -129,8 +129,8 @@ ConfirmCloneOrder=আপনি কি নিশ্চিত এই অর্ড�
 DispatchSupplierOrder=ক্রয় অর্ডার গ্রহণ করা হচ্ছে %s
 FirstApprovalAlreadyDone=প্রথম অনুমোদন ইতিমধ্যে সম্পন্ন
 SecondApprovalAlreadyDone=দ্বিতীয় অনুমোদন ইতিমধ্যে সম্পন্ন হয়েছে
-SupplierOrderReceivedInDolibarr=ক্রয় আদেশ %s গৃহীত %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=ক্রয় আদেশ %s গৃহীত %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=ক্রয় আদেশ %s সেট বিল করা হয়েছে
 OtherOrders=অন্যান্য আদেশ
 SupplierOrderValidatedAndApproved=সরবরাহকারীর অর্ডার যাচাইকৃত এবং অনুমোদিত : %s

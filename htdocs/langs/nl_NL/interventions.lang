@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Interventie
 Interventions=Interventies
 InterventionCard=Interventie details
@@ -37,17 +37,17 @@ InterventionSign=Set Gesigneerd
 InterventionUnsign=Ongesigneerd instellen
 SendInterventionRef=Inzending van de interventie %s
 SendInterventionByMail=Stuur interventie per e-mail
-InterventionCreatedInDolibarr=Interventie %s gecreëerd
-InterventionValidatedInDolibarr=Interventie %s gevalideerd
-InterventionSignedInDolibarr=Interventie ondertekend
+InterventionCreatedInOnLi=Interventie %s gecreëerd
+InterventionValidatedInOnLi=Interventie %s gevalideerd
+InterventionSignedInOnLi=Interventie ondertekend
 InterventionSignedOnline=Interventie online ondertekend
-InterventionUnsignedInDolibarr=Interventie niet ondertekend
-InterventionModifiedInDolibarr=Interventie %s gewijzigd
-InterventionClassifiedBilledInDolibarr=Interventie %s als gefactureerd geclassificeerd
-InterventionClassifiedUnbilledInDolibarr=Interventie %s als nog niet gefactureerd geclassificeerd
+InterventionUnsignedInOnLi=Interventie niet ondertekend
+InterventionModifiedInOnLi=Interventie %s gewijzigd
+InterventionClassifiedBilledInOnLi=Interventie %s als gefactureerd geclassificeerd
+InterventionClassifiedUnbilledInOnLi=Interventie %s als nog niet gefactureerd geclassificeerd
 InterventionSentByEMail=Interventie %s verzonden per e-mail
-InterventionClosedInDolibarr= Interventie %s gesloten
-InterventionDeletedInDolibarr=Interventie %s verwijderd
+InterventionClosedInOnLi= Interventie %s gesloten
+InterventionDeletedInOnLi=Interventie %s verwijderd
 InterventionsArea=Interventies onderdeel
 DraftFichinter=Concept interventies
 LastModifiedInterventions=Laatste %s aangepaste interventies

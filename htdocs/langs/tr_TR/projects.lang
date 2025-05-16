@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Referans Proje
 ProjectRef=Proje ref.
 ProjectId=Proje Kimliği
@@ -160,12 +160,12 @@ ConfirmCloneProject=Bu projenin kopyasını oluşturmak istediğinizden emin mis
 ProjectReportDate=Görev tarihlerini yeni proje başlangıç tarihine göre değiştirin
 ErrorShiftTaskDate=Görev tarihini yeni proje başlama tarihine göre kaydırmak olası değil
 ProjectsAndTasksLines=Projeler ve görevler
-ProjectCreatedInDolibarr=%s projesi oluşturuldu
-ProjectValidatedInDolibarr=%s projesi onaylandı
-ProjectModifiedInDolibarr=Proje %s değiştirildi
-TaskCreatedInDolibarr=%s görev oluşturuldu
-TaskModifiedInDolibarr=%s görev değiştirildi
-TaskDeletedInDolibarr=%s görev silindi
+ProjectCreatedInOnLi=%s projesi oluşturuldu
+ProjectValidatedInOnLi=%s projesi onaylandı
+ProjectModifiedInOnLi=Proje %s değiştirildi
+TaskCreatedInOnLi=%s görev oluşturuldu
+TaskModifiedInOnLi=%s görev değiştirildi
+TaskDeletedInOnLi=%s görev silindi
 OpportunityStatus=Potansiyel müşteri durumu
 OpportunityStatusShort=Potansiyel müşteri durumu
 OpportunityProbability=Kurşun olasılığı

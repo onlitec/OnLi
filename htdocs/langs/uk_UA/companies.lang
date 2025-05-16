@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Ваші контактні дані записано. Ми зв'яжемося з вами найближчим часом...
 ContactUsDesc=Ця форма дозволяє надіслати нам повідомлення для першого контакту.
 ErrorCompanyNameAlreadyExists=Компанія з назвою %s уже існує. Виберіть іншу.
@@ -14,7 +14,7 @@ MenuNewSupplier=Новий постачальник
 MenuNewPrivateIndividual=Нова фізична особа
 NewCompany=Нова компанія (потенційний, покупець, постачальник)
 NewThirdParty=Новий контрагент (потенційний, покупець, постачальник)
-CreateDolibarrThirdPartySupplier=Створити контрагента (постачальника)
+CreateOnLiThirdPartySupplier=Створити контрагента (постачальника)
 CreateThirdPartyOnly=Створити контрагента
 CreateThirdPartyAndContact=Створити контрагента та прив'язати контакт
 ProspectionArea=Розділ потенційних клієнтів
@@ -335,7 +335,7 @@ CapitalOf=Столиця %s
 EditCompany=Редагувати компанію
 ThisUserIsNot=Цей користувач не є потенційним клієнтом, клієнтом чи постачальником
 VATIntraCheck=Чек
-VATIntraCheckDesc=Ідентифікаційний номер платника ПДВ має містити префікс країни. Посилання <b> %s </b> використовує європейську службу перевірки ПДВ (VIES), яка вимагає доступу до Інтернету з сервера Dolibarr.
+VATIntraCheckDesc=Ідентифікаційний номер платника ПДВ має містити префікс країни. Посилання <b> %s </b> використовує європейську службу перевірки ПДВ (VIES), яка вимагає доступу до Інтернету з сервера OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Перевірте ідентифікаційний номер платника ПДВ всередині Співтовариства на веб-сайті Європейської комісії
 VATIntraManualCheck=Ви також можете перевірити вручну на веб-сайті Європейської комісії <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Перспективи за статусом
 NoParentCompany=Жодного
 ExportCardToFormat=Експортувати картку у формат
 ContactNotLinkedToCompany=Контакт не пов’язаний з третьою стороною
-DolibarrLogin=Вхід в систему Dolibarr
-NoDolibarrAccess=Немає доступу Dolibarr
+OnLiLogin=Вхід в систему OnLi
+NoOnLiAccess=Немає доступу OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

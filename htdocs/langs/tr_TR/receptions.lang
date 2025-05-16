@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Satıcı alım yönetimi (Alım dokümanlarını oluşturun)
 ReceptionsSetup=Satıcı Resepsiyonu kurulumu
 RefReception=Ref. resepsiyon
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Resepsiyonlar için numaralandırma modülü
 ReceptionsReceiptModel=Resepsiyonlar için belge şablonları
 NoMorePredefinedProductToDispatch=Artık gönderilecek önceden tanımlanmış ürün yok
 ReceptionExist=Bir resepsiyon var
-ReceptionBackToDraftInDolibarr=Alım %s taslağa geri dön
-ReceptionClassifyClosedInDolibarr=Alım %s olarak sınıflandırıldı Kapalı
-ReceptionUnClassifyCloseddInDolibarr=Resepsiyon %s yeniden açıldı
+ReceptionBackToDraftInOnLi=Alım %s taslağa geri dön
+ReceptionClassifyClosedInOnLi=Alım %s olarak sınıflandırıldı Kapalı
+ReceptionUnClassifyCloseddInOnLi=Resepsiyon %s yeniden açıldı
 RestoreWithCurrentQtySaved=Miktarları en son kaydedilen değerlerle doldurun
 ReceptionsRecorded=Kaydedilen resepsiyonlar
 ReceptionUpdated=Resepsiyon başarıyla güncellendi

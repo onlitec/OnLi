@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=การส่งออก
 ImportArea=นำเข้า
 NewExport=การส่งออกใหม่
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=เลือกรูปแบบไฟล์ที�
 ChooseFileToImport=อัปโหลดไฟล์ จากนั้นคลิกที่ไอคอน %s เพื่อเลือกไฟล์เป็นไฟล์นำเข้าต้นฉบับ...
 SourceFileFormat=แหล่งที่มาของรูปแบบไฟล์
 FieldsInSourceFile=เขตข้อมูลในแฟ้มแหล่งที่มา
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=ไม่มีสาขา
 MoveField=ย้ายหมายเลขคอลัมน์ฟิลด์ %s
 ExampleOfImportFile=Example_of_import_file

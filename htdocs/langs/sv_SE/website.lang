@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Kod
 WebsiteName=Webbplatsens namn
 WebsiteSetupDesc=Skapa här de webbplatser du vill använda. Gå sedan till menyn webbplatser för att redigera dem.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=To deploy this website live, you have
 SetHereVirtualHost= <u> Use with Apache/NGinx/... </u>  <br> Create on your web server (Apache, Nginx, ...) a dedicated Virtual Host with PHP enabled and a Root directory on <br>  <strong> %s </strong>
 ExampleToUseInApacheVirtualHostConfig=Exempel att använda i Apache virtuell värdinställning:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Kontrollera också att den virtuella värdanvändaren (till exempel www-data) har <strong> %s </strong>-behörigheter för filer till <br><strong>%s</strong>
 ReadPerm=Läsa
 WritePerm=Skriva
 TestDeployOnWeb=Test / distribuera på webben
 PreviewSiteServedByWebServer=<u> Förhandsgranska %s i en ny flik. </u> <br> <br> %s kommer att serveras av en extern webbserver (som Apache, Nginx, IIS). Du måste installera och konfigurera den här servern innan du pekar på katalogen: <br> <strong> %s </strong> <br> URL betjänad av extern server: <br> <strong> %s </strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=URL för den virtuella värd som serveras av extern webbserver som inte definierats
 NoPageYet=Inga sidor ännu
 YouCanCreatePageOrImportTemplate=Du kan skapa en ny sida eller importera en fullständig webbplatsmall
@@ -163,8 +163,8 @@ PagesViewedTotal=Visade sidor (totalt)
 Everyone=Alla
 AssignedContacts=Tilldelade kontakter
 WebsiteTypeLabel=Typ av webbplats
-WebsiteTypeDolibarrWebsite=Webbplats (Module WebSites CMS)
-WebsiteTypeDolibarrPortal=Inbyggd och färdig att använda webbportal (Module Web Portal)
+WebsiteTypeOnLiWebsite=Webbplats (Module WebSites CMS)
+WebsiteTypeOnLiPortal=Inbyggd och färdig att använda webbportal (Module Web Portal)
 WebPortalURL=Webbportalens URL
 NewWebsiteAccount=Nya konton för webbplatser
 ModuleWebPortalName=webbportal
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=You will be redirected to the order details page 
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Yhteystietosi on nyt tallennettu. Olemme sinuun piakkoin yhteydessä...
 ContactUsDesc=Tällä lomakkeella voit lähettää meille viestin ensimmäistä yhteydenottoa varten.
 ErrorCompanyNameAlreadyExists=Yritys %s on jo olemassa. Valitse toinen yritys.
@@ -14,7 +14,7 @@ MenuNewSupplier=Uusi toimittaja
 MenuNewPrivateIndividual=Uusi yksityishenkilö
 NewCompany=Uusi yritys (asiakas, toimittaja, mahd. asiakas)
 NewThirdParty=Uusi sidosryhmä (asiakas toimittaja, mahd. asiakas)
-CreateDolibarrThirdPartySupplier=Luo sidosryhmä (toimittaja)
+CreateOnLiThirdPartySupplier=Luo sidosryhmä (toimittaja)
 CreateThirdPartyOnly=Luo sidosryhmä
 CreateThirdPartyAndContact=Luo sidosryhmä + ala yhteystieto
 ProspectionArea=Uusien mahdollisuuksien alue
@@ -335,7 +335,7 @@ CapitalOf=%s:n pääoma
 EditCompany=Muokkaa yritystä
 ThisUserIsNot=Tämä ei ole mahdollinen asiakas, asiakas tai toimittaja
 VATIntraCheck=Tarkista
-VATIntraCheckDesc=ALV-tunnuksen täytyy sisältää maatunnus. Linkki <b>%s</b> on European VAT checker service (VIES) - palvelu ja tarvitsee internet-yhteyden Dolibarr-palvelimelta
+VATIntraCheckDesc=ALV-tunnuksen täytyy sisältää maatunnus. Linkki <b>%s</b> on European VAT checker service (VIES) - palvelu ja tarvitsee internet-yhteyden OnLi-palvelimelta
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Tarkasta ALV-tunnus E.U: n sivuilta
 VATIntraManualCheck=Voit myös tarkistaa itse Euroopan komission verkkosivuilta <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Mahdolliset asiakkaat tilan mukaan
 NoParentCompany=Ei mitään
 ExportCardToFormat=Vie kortti muodossa
 ContactNotLinkedToCompany=Yhteystiedot eivät liity minkään sidosryhmään
-DolibarrLogin=Dolibarr sisäänkirjautumis sivu
-NoDolibarrAccess=Ei Dolibarr pääsyä
+OnLiLogin=OnLi sisäänkirjautumis sivu
+NoOnLiAccess=Ei OnLi pääsyä
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Sidosryhmien yhteystiedot/osoitteet ja ominaisuudet
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

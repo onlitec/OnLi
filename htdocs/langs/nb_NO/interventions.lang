@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Intervensjon
 Interventions=Intervensjoner
 InterventionCard=Intervensjonskort
@@ -37,17 +37,17 @@ InterventionSign=Sett Signert
 InterventionUnsign=Sett til ikke signert
 SendInterventionRef=Send intervensjon %s
 SendInterventionByMail=Send intervensjon via e-post
-InterventionCreatedInDolibarr=Intervensjon %s opprettet
-InterventionValidatedInDolibarr=Intervensjon %s validert
-InterventionSignedInDolibarr=Intervensjon signert
+InterventionCreatedInOnLi=Intervensjon %s opprettet
+InterventionValidatedInOnLi=Intervensjon %s validert
+InterventionSignedInOnLi=Intervensjon signert
 InterventionSignedOnline=Intervensjon signert online
-InterventionUnsignedInDolibarr=Signering av intervensjon fjernet
-InterventionModifiedInDolibarr=Intervensjon %s endret
-InterventionClassifiedBilledInDolibarr=Intervensjon %s satt til fakturert
-InterventionClassifiedUnbilledInDolibarr=Intervensjon %s satt til ufakturert
+InterventionUnsignedInOnLi=Signering av intervensjon fjernet
+InterventionModifiedInOnLi=Intervensjon %s endret
+InterventionClassifiedBilledInOnLi=Intervensjon %s satt til fakturert
+InterventionClassifiedUnbilledInOnLi=Intervensjon %s satt til ufakturert
 InterventionSentByEMail=Intervensjon %s sendt via epost
-InterventionClosedInDolibarr= Intervensjon %s lukket
-InterventionDeletedInDolibarr=Intervensjon %s ble slettet
+InterventionClosedInOnLi= Intervensjon %s lukket
+InterventionDeletedInOnLi=Intervensjon %s ble slettet
 InterventionsArea=Område for intervensjoner
 DraftFichinter=Intervensjonskladder
 LastModifiedInterventions=Siste %s endrede intervensjoner

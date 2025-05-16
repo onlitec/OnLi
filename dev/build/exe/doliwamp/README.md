@@ -1,4 +1,4 @@
-# DOLIWAMP, THE DOLIBARR INSTALLER FOR WINDOWS
+# DOLIWAMP, THE OnLi INSTALLER FOR WINDOWS
 
 DoliWamp is a special all in one package installer for Windows (OnLi+Mysql+Apache+PHP). 
 It's a dedicated OnLi version for Windows newbies with no technical knowledge. This package will install or upgrade OnLi but also all prerequisites like the web server, and the database in one auto-install process.

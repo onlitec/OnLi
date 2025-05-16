@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - commercial
+# OnLi language file - Source file is en_US - commercial
 Commercial=Kaupankäynti
 CommercialArea=Kaupankäyntialue
 Customer=Asiakas
@@ -95,7 +95,7 @@ SignatureFichinterRef=Työmääräyksen allekirjoitus %s
 SignatureSociete_ribRef=SEPA-valtuutuksen allekirjoitus %s
 FeatureOnlineSignDisabled=Sähköinen allekirjoitus on poissa käytöstä tai dokumentti on luotu ennen sen käyttöönottoa
 NoSignature=Ei ole kirjautunut
-UnsignedInDolibarr=Document unsigned
+UnsignedInOnLi=Document unsigned
 SignedSender=Signed internally
 SignedReceiver=Signed by third party
 SignedReceiverOnline=Signed by third party online

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 MailCard=Tarjeta EMailing
 MailTo=A
 MailToUsers=Para el usuario(s)
@@ -53,7 +53,7 @@ MailingModuleDescContactsByCompanyCategory=Contactos por categoría de terceros
 MailingModuleDescContactsByCategory=Contactos por categorías
 MailingModuleDescEmailsFromFile=E-mails del archivo
 MailingModuleDescEmailsFromUser=Correo electrónico enviado por el usuario
-MailingModuleDescDolibarrUsers=Usuarios con mensajes de correo electrónico
+MailingModuleDescOnLiUsers=Usuarios con mensajes de correo electrónico
 MailingModuleDescThirdPartiesByCategories=Clientes / Proveedores
 LineInFile=Línea %s en el archivo
 RecipientSelectionModules=Solicitudes definidas para la selección del destinatario

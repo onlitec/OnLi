@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Atsauces projekts
 ProjectRef=Projekta atsauces Nr.
 ProjectId=Projekta ID
@@ -160,12 +160,12 @@ ConfirmCloneProject=Vai tiešām vēlaties klonēt šo projektu?
 ProjectReportDate=Mainīt uzdevumu datumus saskaņā ar jauno projekta sākuma datumu
 ErrorShiftTaskDate=Nav iespējams novirzīt uzdevumu datumu saskaņā ar jaunu projektu uzsākšanas datuma
 ProjectsAndTasksLines=Projekti un uzdevumi
-ProjectCreatedInDolibarr=Projekts %s izveidots
-ProjectValidatedInDolibarr=Projekts %s apstiprināts
-ProjectModifiedInDolibarr=Projekts %s ir labots
-TaskCreatedInDolibarr=Uzdevums %s izveidots
-TaskModifiedInDolibarr=Uzdevums %s labots
-TaskDeletedInDolibarr=Uzdevums %s dzēsts
+ProjectCreatedInOnLi=Projekts %s izveidots
+ProjectValidatedInOnLi=Projekts %s apstiprināts
+ProjectModifiedInOnLi=Projekts %s ir labots
+TaskCreatedInOnLi=Uzdevums %s izveidots
+TaskModifiedInOnLi=Uzdevums %s labots
+TaskDeletedInOnLi=Uzdevums %s dzēsts
 OpportunityStatus=Svina statuss
 OpportunityStatusShort=Svina statuss
 OpportunityProbability=Svina varbūtība

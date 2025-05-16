@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=您的联系方式已被记录。我们会尽快回复您...
 ContactUsDesc=通过此表单，您可以向我们发送首次联系的消息。
 ErrorCompanyNameAlreadyExists=公司名称%s已经存在。请使用其它名称。
@@ -14,7 +14,7 @@ MenuNewSupplier=新建供应商
 MenuNewPrivateIndividual=新建私营个体
 NewCompany=新建公司 (准客户，客户，供应商)
 NewThirdParty=新建合作方（准客户、客户、供应商）
-CreateDolibarrThirdPartySupplier=创建合作方（供应商）
+CreateOnLiThirdPartySupplier=创建合作方（供应商）
 CreateThirdPartyOnly=创建合作方
 CreateThirdPartyAndContact=创建合作方+联系人
 ProspectionArea=准客户区
@@ -335,7 +335,7 @@ CapitalOf=注册资金 %s
 EditCompany=编辑公司
 ThisUserIsNot=该用户不是准客户、客户或供应商
 VATIntraCheck=支票
-VATIntraCheckDesc=增值税 ID 必须包含国家/地区前缀。链接<b> %s </b>  使用欧洲增值税检查服务 (VIES)，该服务需要从 Dolibarr 服务器访问互联网。
+VATIntraCheckDesc=增值税 ID 必须包含国家/地区前缀。链接<b> %s </b>  使用欧洲增值税检查服务 (VIES)，该服务需要从 OnLi 服务器访问互联网。
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=在欧盟委员会网站上查看共同体内增值税 ID
 VATIntraManualCheck=您还可以在欧盟委员会网站上手动查看 <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
@@ -381,8 +381,8 @@ ProspectsByStatus=按状态排序的准客户
 NoParentCompany=无
 ExportCardToFormat=导出名片格式
 ContactNotLinkedToCompany=联系人未链接到任何合作方
-DolibarrLogin=登陆Dolibarr
-NoDolibarrAccess=没有Dolibarr访问
+OnLiLogin=登陆OnLi
+NoOnLiAccess=没有OnLi访问
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=合作方附加联系人/地址和属性
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

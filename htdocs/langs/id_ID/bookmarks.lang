@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Tambahkan halaman saat ini ke penanda
 BehaviourOnClick = Perilaku ketika URL bookmark dipilih
@@ -21,4 +21,4 @@ ReplaceWindow = Ganti tab saat ini
 SetHereATitleForLink = Tetapkan nama untuk penanda
 ShowBookmark = Tampilkan Penanda
 UrlOrLink = Alamat
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Gunakan tautan eksternal/absolut (https://externalurl.com) atau tautan internal/relatif (/mypage.php). Anda juga dapat menggunakan telepon seperti telp:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Gunakan tautan eksternal/absolut (https://externalurl.com) atau tautan internal/relatif (/mypage.php). Anda juga dapat menggunakan telepon seperti telp:0123456.

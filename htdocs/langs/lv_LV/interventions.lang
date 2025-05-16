@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Iejaukšanās
 Interventions=Iejaukšanās
 InterventionCard=Iejaukšanās kartiņa
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Klasificēt "neapmaksātas"
 InterventionClassifyDone=Klasificēt "Pabeigts"
 SendInterventionRef=Submission of intervention %s
 SendInterventionByMail=Sūtīt interviju pa e-pastu
-InterventionCreatedInDolibarr=Izveidota intervence %s
-InterventionValidatedInDolibarr=Intervence %s validēta
-InterventionModifiedInDolibarr=Intervention %s modified
-InterventionClassifiedBilledInDolibarr=Intervention %s set as billed
-InterventionClassifiedUnbilledInDolibarr=Intervention %s set as unbilled
+InterventionCreatedInOnLi=Izveidota intervence %s
+InterventionValidatedInOnLi=Intervence %s validēta
+InterventionModifiedInOnLi=Intervention %s modified
+InterventionClassifiedBilledInOnLi=Intervention %s set as billed
+InterventionClassifiedUnbilledInOnLi=Intervention %s set as unbilled
 InterventionSentByEMail=Intervence %s nosūtīta pa e-pastu
-InterventionClosedInDolibarr= Iejaukšanās %s slēgta
-InterventionDeletedInDolibarr=Intervention %s deleted
+InterventionClosedInOnLi= Iejaukšanās %s slēgta
+InterventionDeletedInOnLi=Intervention %s deleted
 InterventionsArea=Intervences zona
 DraftFichinter=Intervences projekts
 LastModifiedInterventions=Jaunākās %s labotās iejaukšanās

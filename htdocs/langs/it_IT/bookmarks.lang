@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Aggiungi la seguente pagina ai segnalibri
 BehaviourOnClick = Comportamento quando viene selezionato un URL segnalibro
@@ -21,4 +21,4 @@ ReplaceWindow = Sostituisci finestra attuale
 SetHereATitleForLink = Dai un titolo al segnalibro
 ShowBookmark = Visualizza segnalibro
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Utilizza un link esterno/assoluto (https://externalurl.com) o un link interno/relativo (/mypage.php). Puoi anche usare il telefono come tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Utilizza un link esterno/assoluto (https://externalurl.com) o un link interno/relativo (/mypage.php). Puoi anche usare il telefono come tel:0123456.

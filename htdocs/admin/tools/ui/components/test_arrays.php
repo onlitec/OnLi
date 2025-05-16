@@ -47,7 +47,7 @@ $form = new Form($db);
 
 // 1 = Test inside a onli page, 0 = Use hard coded header
 // Using a onli constant avoid phpstan hardcoded value always true or false
-$usedolheader = getDolGlobalInt('MAIN_TEST_UI_IN_DOLIBARR_PAGE', 1);
+$usedolheader = getDolGlobalInt('MAIN_TEST_UI_IN_OnLi_PAGE', 1);
 
 // HEADER
 //--------

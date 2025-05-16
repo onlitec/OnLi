@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - exports
+# OnLi language file - Source file is en_US - exports
 ExportsArea=Содирот
 ImportArea=Воридот
 NewExport=Содироти нав
@@ -67,7 +67,7 @@ ChooseFormatOfFileToImport=Формати файлро, ки ҳамчун фор
 ChooseFileToImport=Файлро бор кунед ва пас тасвири %s -ро клик кунед, то файлро ҳамчун файли воридоти манбаъ интихоб кунед ...
 SourceFileFormat=Формати файли манбаъ
 FieldsInSourceFile=Майдонҳо дар файли манбаъ
-FieldsInTargetDatabase=Target fields in Dolibarr database
+FieldsInTargetDatabase=Target fields in OnLi database
 NoFields=Майдон нест
 MoveField=Рақами сутуни майдони %s -ро кӯчонед
 ExampleOfImportFile=Example_of_import_file

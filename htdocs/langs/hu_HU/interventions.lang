@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Beavatkozás
 Interventions=Intervenciók
 InterventionCard=Beavatkozási kártya
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=%s beavatkozás benyújtása
 SendInterventionByMail=Beavatkozás küldése e-mailben
-InterventionCreatedInDolibarr=%s beavatkozás létrehozva
-InterventionValidatedInDolibarr=%s beavatkozás érvényesítve
-InterventionSignedInDolibarr=A beavatkozás aláírva
+InterventionCreatedInOnLi=%s beavatkozás létrehozva
+InterventionValidatedInOnLi=%s beavatkozás érvényesítve
+InterventionSignedInOnLi=A beavatkozás aláírva
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=%s beavatkozás módosítva
-InterventionClassifiedBilledInDolibarr=%s beavatkozás számlázottként beállítva
-InterventionClassifiedUnbilledInDolibarr=A %s beavatkozás számlázatlanként beállítva
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=%s beavatkozás módosítva
+InterventionClassifiedBilledInOnLi=%s beavatkozás számlázottként beállítva
+InterventionClassifiedUnbilledInOnLi=A %s beavatkozás számlázatlanként beállítva
 InterventionSentByEMail=%s beavatkozás e-mailben elküldve
-InterventionClosedInDolibarr= A %s beavatkozás lezárva
-InterventionDeletedInDolibarr=%s beavatkozás törölve
+InterventionClosedInOnLi= A %s beavatkozás lezárva
+InterventionDeletedInOnLi=%s beavatkozás törölve
 InterventionsArea=Beavatkozási terület
 DraftFichinter=Beavatkozások tervezete
 LastModifiedInterventions=A legutóbbi %s módosított beavatkozás

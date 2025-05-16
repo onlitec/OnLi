@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=ارسال ایمیل
 EMailing=ارسال ایمیل
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=طرف‌های تماس با دسته‌ب�
 MailingModuleDescContactsByFunction=طرف‌های تماس با سمت‌ها
 MailingModuleDescEmailsFromFile=رایانامه‌ها از فایل
 MailingModuleDescEmailsFromUser=ورودی رایانامه کاربر
-MailingModuleDescDolibarrUsers=کاربران دارای رایانامه
+MailingModuleDescOnLiUsers=کاربران دارای رایانامه
 MailingModuleDescThirdPartiesByCategories=شخص‌سوم‌ها
 SendingFromWebInterfaceIsNotAllowed=ارسال از رابط وب مجاز نیست.
 EmailCollectorFilterDesc=All filters must match to have an email being collected.<br>You can use the character "!" before the search string value if you need a negative test

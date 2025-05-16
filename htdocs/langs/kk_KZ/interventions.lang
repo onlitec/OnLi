@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Интервенция
 Interventions=Интервенциялар
 InterventionCard=Интервенциялық карта
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=«Төленбеген» жіктеу
 InterventionClassifyDone=«Орындалды» деп жіктеу
 SendInterventionRef=%s араласуын ұсыну
 SendInterventionByMail=Интервенцияны электрондық пошта арқылы жіберіңіз
-InterventionCreatedInDolibarr=%s араласуы жасалды
-InterventionValidatedInDolibarr=%s араласуы расталды
-InterventionModifiedInDolibarr=%s араласуы өзгертілді
-InterventionClassifiedBilledInDolibarr=%s араласуы есепке қойылды
-InterventionClassifiedUnbilledInDolibarr=%s араласуы есепке алынбаған ретінде орнатылды
+InterventionCreatedInOnLi=%s араласуы жасалды
+InterventionValidatedInOnLi=%s араласуы расталды
+InterventionModifiedInOnLi=%s араласуы өзгертілді
+InterventionClassifiedBilledInOnLi=%s араласуы есепке қойылды
+InterventionClassifiedUnbilledInOnLi=%s араласуы есепке алынбаған ретінде орнатылды
 InterventionSentByEMail=Интервенция %s электрондық пошта арқылы жіберілді
-InterventionClosedInDolibarr= %s араласу жабылды
-InterventionDeletedInDolibarr=%s араласуы жойылды
+InterventionClosedInOnLi= %s араласу жабылды
+InterventionDeletedInOnLi=%s араласуы жойылды
 InterventionsArea=Интервенциялар аймағы
 DraftFichinter=Жобалық араласулар
 LastModifiedInterventions=Соңғы %s өзгертілген араласулар

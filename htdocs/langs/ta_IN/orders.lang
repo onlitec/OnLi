@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=An order was already open linked to this proposal, so no other order was created automatically
 OrdersArea=வாடிக்கையாளர்கள் ஆர்டர் செய்யும் பகுதி
 SuppliersOrdersArea=கொள்முதல் ஆர்டர்கள் பகுதி
@@ -129,8 +129,8 @@ ConfirmCloneOrder=<b> %s </b> இந்த ஆர்டரை நிச்சய
 DispatchSupplierOrder=%s கொள்முதல் ஆர்டரைப் பெறுகிறது
 FirstApprovalAlreadyDone=முதல் ஒப்புதல் ஏற்கனவே முடிந்துவிட்டது
 SecondApprovalAlreadyDone=இரண்டாவது ஒப்புதல் ஏற்கனவே முடிந்தது
-SupplierOrderReceivedInDolibarr=%s வாங்கிய ஆர்டர் %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=%s வாங்கிய ஆர்டர் %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=பர்ச்சேஸ் ஆர்டர் %s செட் பில் செய்யப்பட்டது
 OtherOrders=பிற ஆர்டர்கள்
 SupplierOrderValidatedAndApproved=சப்ளையர் ஆர்டர் சரிபார்க்கப்பட்டு அங்கீகரிக்கப்பட்டது: %s

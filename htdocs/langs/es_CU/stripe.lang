@@ -1,6 +1,6 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Configuración del módulo de bandas
-StripeDesc=Ofrezca a sus clientes una página de pago en línea para pagos con tarjetas de crédito/débito a través de <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a>. Esto se puede utilizar para permitir que sus clientes realicen pagos ad-hoc o pagos relacionados con un objeto particular de Dolibarr (factura, pedido, ...)
+StripeDesc=Ofrezca a sus clientes una página de pago en línea para pagos con tarjetas de crédito/débito a través de <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a>. Esto se puede utilizar para permitir que sus clientes realicen pagos ad-hoc o pagos relacionados con un objeto particular de OnLi (factura, pedido, ...)
 StripeOrCBDoPayment=Paga con tarjeta de crédito o Stripe
 STRIPE_PAYONLINE_SENDEMAIL=Notificación por correo electrónico después de un intento de pago (éxito o fracaso)
 StripeDoPayment=Paga con Stripe

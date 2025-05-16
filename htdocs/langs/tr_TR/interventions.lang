@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Müdahale
 Interventions=Müdahaleler
 InterventionCard=Müdahale kartı
@@ -37,17 +37,17 @@ InterventionSign=İmzalı olarak ayarlı
 InterventionUnsign=İmzalanmamış olarak ayarlı
 SendInterventionRef=%s müdahalesinin sunulması
 SendInterventionByMail=Müdahaleyi e-posta ile gönder
-InterventionCreatedInDolibarr=Oluşturulan müdahale %s
-InterventionValidatedInDolibarr=Doğrulanan müdahale %s
-InterventionSignedInDolibarr=Müdahale imzalandı
+InterventionCreatedInOnLi=Oluşturulan müdahale %s
+InterventionValidatedInOnLi=Doğrulanan müdahale %s
+InterventionSignedInOnLi=Müdahale imzalandı
 InterventionSignedOnline=Müdahale çevrimiçi imzalandı
-InterventionUnsignedInDolibarr=Müdahale imzasız
-InterventionModifiedInDolibarr=Değiştirilen müdahale %s
-InterventionClassifiedBilledInDolibarr=Faturalandı olarak ayarlanan müdahale %s
-InterventionClassifiedUnbilledInDolibarr=Faturalanmadı olarak ayarlanan müdahale %s
+InterventionUnsignedInOnLi=Müdahale imzasız
+InterventionModifiedInOnLi=Değiştirilen müdahale %s
+InterventionClassifiedBilledInOnLi=Faturalandı olarak ayarlanan müdahale %s
+InterventionClassifiedUnbilledInOnLi=Faturalanmadı olarak ayarlanan müdahale %s
 InterventionSentByEMail=%s referans no'lu müdahale e-posta ile gönderildi
-InterventionClosedInDolibarr= Müdahale %s kapatıldı
-InterventionDeletedInDolibarr=Silinen müdahale %s
+InterventionClosedInOnLi= Müdahale %s kapatıldı
+InterventionDeletedInOnLi=Silinen müdahale %s
 InterventionsArea=Müdahaleler alanı
 DraftFichinter=Taslak müdahale
 LastModifiedInterventions=Değiştirilen son %s müdahale

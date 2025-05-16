@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Dine kontaktoplysninger er blevet registreret. Vi vender snart tilbage til dig...
 ContactUsDesc=Denne formular giver dig mulighed for at sende os en besked til en første kontakt.
 ErrorCompanyNameAlreadyExists=Firmanavn %s eksisterer allerede. Vælg et andet.
@@ -14,7 +14,7 @@ MenuNewSupplier=Ny leverandør
 MenuNewPrivateIndividual=Ny privatperson
 NewCompany=Nyt firma (kundeemne, kunde, leverandør)
 NewThirdParty=Ny tredjepart (kundeemne, kunde, leverandør)
-CreateDolibarrThirdPartySupplier=Opret en tredjepart (leverandør)
+CreateOnLiThirdPartySupplier=Opret en tredjepart (leverandør)
 CreateThirdPartyOnly=Opret tredjepart
 CreateThirdPartyAndContact=Opret en tredjepart + en underkontakt
 ProspectionArea=Kundeemne område
@@ -335,7 +335,7 @@ CapitalOf=Egenkapital på %s
 EditCompany=Rediger virksomhed
 ThisUserIsNot=Denne bruger er ikke kundeemne, kunde eller leverandør
 VATIntraCheck=Kontrollere
-VATIntraCheckDesc=Momsnummer skal indeholde landepræfikset. Linket <b>%s</b> bruger den europæiske Validering af momsregistreringsnummer (VIES), som kræver internetadgang fra Dolibarr serveren.
+VATIntraCheckDesc=Momsnummer skal indeholde landepræfikset. Linket <b>%s</b> bruger den europæiske Validering af momsregistreringsnummer (VIES), som kræver internetadgang fra OnLi serveren.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Tjek momsnummeret inden for Fællesskabet på Europa-Kommissionens websted
 VATIntraManualCheck=Du kan også kontrollere manuelt på Europa-Kommissionens websted <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Kundeemner efter status
 NoParentCompany=Ingen
 ExportCardToFormat=Eksporter kort til format
 ContactNotLinkedToCompany=Kontakt ikke knyttet til nogen tredjepart
-DolibarrLogin=Dolibarr login
-NoDolibarrAccess=Ingen Dolibarr adgang
+OnLiLogin=OnLi login
+NoOnLiAccess=Ingen OnLi adgang
 ExportDataset_company_1=Tredjeparter (organisationer/fysiske personer) og attributter
 ExportDataset_company_2=Tredjeparts yderligere kontakter/adresser og attributter
 ExportDataset_company_3=Tredjeparts betalingsmåder (bankkonti)

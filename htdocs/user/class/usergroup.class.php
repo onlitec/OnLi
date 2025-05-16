@@ -694,7 +694,7 @@ class UserGroup extends CommonObject
 	/**
 	 *	Create group into database
 	 *
-	 *	@param		int		$notrigger	0=triggers enabled, 1=triggers disabled
+	 *	@param	 int		$notrigger	0=triggers enabled, 1=triggers disabled
 	 *	@return     int					Return integer <0 if KO, >=0 if OK
 	 */
 	public function create($notrigger = 0)
@@ -992,7 +992,7 @@ class UserGroup extends CommonObject
 		$this->ref = 'SPECIMEN';
 		$this->specimen = 1;
 
-		$this->name = 'DOLIBARR GROUP SPECIMEN';
+		$this->name = 'ONLI GROUP SPECIMEN';
 		$this->note = 'This is a note';
 		$this->datec = time();
 		$this->tms = time();

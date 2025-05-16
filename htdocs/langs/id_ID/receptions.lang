@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Manajemen penerimaan vendor (Membuat dokumen penerimaan)
 ReceptionsSetup=Pengaturan Penerimaan Vendor
 RefReception=Ref. penerimaan
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Modul penomoran untuk penerimaan
 ReceptionsReceiptModel=Templat dokumen untuk penerimaan
 NoMorePredefinedProductToDispatch=Tidak ada lagi produk yang telah ditentukan untuk dikirim
 ReceptionExist=Resepsi ada
-ReceptionBackToDraftInDolibarr=Penerimaan %s kembali ke draf
-ReceptionClassifyClosedInDolibarr=Penerimaan %s diklasifikasikan Tertutup
-ReceptionUnClassifyCloseddInDolibarr=Penerimaan %s dibuka kembali
+ReceptionBackToDraftInOnLi=Penerimaan %s kembali ke draf
+ReceptionClassifyClosedInOnLi=Penerimaan %s diklasifikasikan Tertutup
+ReceptionUnClassifyCloseddInOnLi=Penerimaan %s dibuka kembali
 RestoreWithCurrentQtySaved=Isi jumlah dengan nilai tersimpan terbaru
 ReceptionsRecorded=Resepsi direkam
 ReceptionUpdated=Penerimaan berhasil diperbarui

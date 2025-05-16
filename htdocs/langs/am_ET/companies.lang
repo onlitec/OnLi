@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=የእውቂያ ዝርዝሮችዎ ተመዝግበዋል። በቅርቡ እንመለሳለን...
 ContactUsDesc=ይህ ቅጽ ለመጀመሪያ ግንኙነት መልእክት እንድትልኩልን ይፈቅድልሃል።
 ErrorCompanyNameAlreadyExists=የኩባንያ ስም %s አስቀድሞ አለ። ሌላ ይምረጡ።
@@ -14,7 +14,7 @@ MenuNewSupplier=አዲስ ሻጭ
 MenuNewPrivateIndividual=አዲስ የግል ሰው
 NewCompany=አዲስ ኩባንያ (ተፈላጊ, ደንበኛ, ሻጭ)
 NewThirdParty=አዲስ ሶስተኛ ወገን (ተፈላጊ፣ ደንበኛ፣ ሻጭ)
-CreateDolibarrThirdPartySupplier=ሶስተኛ ወገን (ሻጭ) ይፍጠሩ
+CreateOnLiThirdPartySupplier=ሶስተኛ ወገን (ሻጭ) ይፍጠሩ
 CreateThirdPartyOnly=ሶስተኛ ወገን ፍጠር
 CreateThirdPartyAndContact=የሶስተኛ ወገን + የልጅ ግንኙነት ይፍጠሩ
 ProspectionArea=የእይታ አካባቢ
@@ -335,7 +335,7 @@ CapitalOf=የ%s ካፒታል
 EditCompany=ኩባንያ አርትዕ
 ThisUserIsNot=ይህ ተጠቃሚ ተጠባባቂ፣ ደንበኛ ወይም ሻጭ አይደለም።
 VATIntraCheck=ይፈትሹ
-VATIntraCheckDesc=የቫት መታወቂያው የአገር ቅድመ ቅጥያ ማካተት አለበት። አገናኙ <b>%s</b> የአውሮፓ ቫት አረጋጋጭ አገልግሎትን ይጠቀማል ከ Dolibarr አገልጋይ የበይነመረብ መዳረሻ ያስፈልገዋል.
+VATIntraCheckDesc=የቫት መታወቂያው የአገር ቅድመ ቅጥያ ማካተት አለበት። አገናኙ <b>%s</b> የአውሮፓ ቫት አረጋጋጭ አገልግሎትን ይጠቀማል ከ OnLi አገልጋይ የበይነመረብ መዳረሻ ያስፈልገዋል.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=የውስጠ-ማህበረሰብ ተ.እ.ታን መታወቂያ በአውሮፓ ኮሚሽን ድረ-ገጽ ላይ ያረጋግጡ
 VATIntraManualCheck=እንዲሁም በአውሮፓ ኮሚሽን ድህረ ገጽ ላይ እራስዎ መመልከት ይችላሉ <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=ተስፋዎች በሁኔታ
 NoParentCompany=ምንም
 ExportCardToFormat=ካርድ ወደ ቅርጸት ይላኩ።
 ContactNotLinkedToCompany=እውቂያ ከማንኛውም ሶስተኛ ወገን ጋር አልተገናኘም።
-DolibarrLogin=Dolibarr መግቢያ
-NoDolibarrAccess=የዶሊባርር መዳረሻ የለም።
+OnLiLogin=OnLi መግቢያ
+NoOnLiAccess=የዶሊባርር መዳረሻ የለም።
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Third-parties additional contacts/addresses and attributes
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Kumb. mradi
 ProjectRef=Ref ya mradi.
 ProjectId=Kitambulisho cha Mradi
@@ -160,12 +160,12 @@ ConfirmCloneProject=Je, una uhakika wa kuunda mradi huu?
 ProjectReportDate=Badilisha tarehe za kazi kulingana na tarehe mpya ya kuanza kwa mradi
 ErrorShiftTaskDate=Haiwezekani kuhamisha tarehe ya kazi kulingana na tarehe mpya ya kuanza kwa mradi
 ProjectsAndTasksLines=Miradi na kazi
-ProjectCreatedInDolibarr=Mradi %s kuundwa
-ProjectValidatedInDolibarr=Mradi %s imethibitishwa
-ProjectModifiedInDolibarr=Mradi %s imebadilishwa
-TaskCreatedInDolibarr=Jukumu %s kuundwa
-TaskModifiedInDolibarr=Jukumu %s imebadilishwa
-TaskDeletedInDolibarr=Jukumu %s imefutwa
+ProjectCreatedInOnLi=Mradi %s kuundwa
+ProjectValidatedInOnLi=Mradi %s imethibitishwa
+ProjectModifiedInOnLi=Mradi %s imebadilishwa
+TaskCreatedInOnLi=Jukumu %s kuundwa
+TaskModifiedInOnLi=Jukumu %s imebadilishwa
+TaskDeletedInOnLi=Jukumu %s imefutwa
 OpportunityStatus=Hali ya uongozi
 OpportunityStatusShort=Hali ya uongozi
 OpportunityProbability=Uwezekano wa kuongoza

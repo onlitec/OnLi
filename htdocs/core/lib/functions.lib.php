@@ -1,4 +1,7 @@
 <?php
+// ----------------------------------------------------------------------------
+// Arquivo modificado em 15/05/2025 por OnLi Developer - Não alterar sem autorização explícita
+// ----------------------------------------------------------------------------
 /* Copyright (C) 2000-2007	Rodolphe Quiedeville		<rodolphe@quiedeville.org>
  * Copyright (C) 2003		Jean-Louis Bergamo			<jlb@j1b.org>
  * Copyright (C) 2004-2024	Laurent Destailleur			<eldy@users.sourceforge.net>
@@ -2502,7 +2505,7 @@ function dol_syslog($message, $level = LOG_INFO, $ident = 0, $suffixinfilename =
 	}
 
 	// Check if we are into execution of code of a website
-	if (defined('USEEXTERNALSERVER') && !defined('USEDOLIBARRSERVER') && !defined('USEDOLIBARREDITOR')) {
+	if (defined('USEEXTERNALSERVER') && !defined('USEOnLiSERVER') && !defined('USEOnLiEDITOR')) {
 		global $website, $websitekey;
 		if (is_object($website) && !empty($website->ref)) {
 			$suffixinfilename .= '_website_'.$website->ref;
@@ -2827,7 +2830,7 @@ function dolButtonToOpenUrlInDialogPopup($name, $label, $buttonstring, $url, $di
 									console.log("open popup name='.$name.'");
 	       						},
 								close: function (event, ui) {
-									console.log("Popup is closed, run jsonclose='.$jsonclose.');
+									console.log("Popup is closed");
 									'.(empty($jsonclose) ? '' : $jsonclose.';').'
 								}
 							});

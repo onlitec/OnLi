@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Narudžba je već bila otvorena povezana s ovim prijedlogom, tako da nijedna druga narudžba nije stvorena automatski
 OrdersArea=Narudžbe kupaca
 SuppliersOrdersArea=Narudžbe dobavljačima
@@ -131,8 +131,8 @@ ConfirmCloneOrder=Jeste li sigurni da želite za kloniranje ove narudžbe <b>%s<
 DispatchSupplierOrder=Primanje narudžbenice %s
 FirstApprovalAlreadyDone=Prvo odobrenje je već napravljeno
 SecondApprovalAlreadyDone=Drugo odobrenje je već napravljeno
-SupplierOrderReceivedInDolibarr=Narudžbenica %s primljena %s
-SupplierOrderSubmitedInDolibarr=Narudžbenica %s predana (%s)
+SupplierOrderReceivedInOnLi=Narudžbenica %s primljena %s
+SupplierOrderSubmitedInOnLi=Narudžbenica %s predana (%s)
 SupplierOrderClassifiedBilled=Narudžbenica %s set naplaćen
 OtherOrders=Ostale narudžbe
 SupplierOrderValidatedAndApproved=Narudžba dobavljača je potvrđena i odobrena: %s

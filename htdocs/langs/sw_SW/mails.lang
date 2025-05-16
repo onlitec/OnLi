@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Barua pepe
 EMailing=Barua pepe
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Anwani kwa kategoria
 MailingModuleDescContactsByFunction=Anwani kwa nafasi
 MailingModuleDescEmailsFromFile=Barua pepe kutoka kwa faili
 MailingModuleDescEmailsFromUser=Ingizo la barua pepe kwa mtumiaji
-MailingModuleDescDolibarrUsers=Watumiaji walio na Barua pepe
+MailingModuleDescOnLiUsers=Watumiaji walio na Barua pepe
 MailingModuleDescThirdPartiesByCategories=Vyama vya tatu
 SendingFromWebInterfaceIsNotAllowed=Kutuma kutoka kwa kiolesura cha wavuti hairuhusiwi.
 EmailCollectorFilterDesc=Vichujio vyote lazima vilingane ili kuwa na barua pepe inayokusanywa. <br> Unaweza kutumia mhusika "!" kabla ya nambari ya utaftaji ikiwa unahitaji jaribio hasi

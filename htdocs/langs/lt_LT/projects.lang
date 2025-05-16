@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Projekto nuoroda
 ProjectRef=Project ref.
 ProjectId=Projekto ID
@@ -160,12 +160,12 @@ ConfirmCloneProject=Are you sure to clone this project?
 ProjectReportDate=Change task dates according to new project start date
 ErrorShiftTaskDate=Neįmanoma perkelti užduoties datą į naujo projekto pradžios datą
 ProjectsAndTasksLines=Projektai ir užduotys
-ProjectCreatedInDolibarr=Projektas %s sukurtas
-ProjectValidatedInDolibarr=Project %s validated
-ProjectModifiedInDolibarr=Project %s modified
-TaskCreatedInDolibarr=Užduotis %s sukurta
-TaskModifiedInDolibarr=Užduotis %s modifikuota
-TaskDeletedInDolibarr=Užduotis %s ištrinta
+ProjectCreatedInOnLi=Projektas %s sukurtas
+ProjectValidatedInOnLi=Project %s validated
+ProjectModifiedInOnLi=Project %s modified
+TaskCreatedInOnLi=Užduotis %s sukurta
+TaskModifiedInOnLi=Užduotis %s modifikuota
+TaskDeletedInOnLi=Užduotis %s ištrinta
 OpportunityStatus=Lead status
 OpportunityStatusShort=Lead status
 OpportunityProbability=Lead probability

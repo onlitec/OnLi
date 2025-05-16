@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Παρέμβαση
 Interventions=Παρεμβάσεις
 InterventionCard=Καρτέλα παρέμβασης
@@ -37,17 +37,17 @@ InterventionSign=Ορισμός ως υπογεγραμμένο
 InterventionUnsign=Ορισμός ως ανυπόγραφο
 SendInterventionRef=Υποβολή παρέμβασης %s
 SendInterventionByMail=Αποστολή παρέμβασης με email
-InterventionCreatedInDolibarr=Η παρέμβαση %s δημιουργήθηκε
-InterventionValidatedInDolibarr=Η παρέμβαση %s επικυρώθηκε
-InterventionSignedInDolibarr=Η παρέμβαση υπεγράφη
+InterventionCreatedInOnLi=Η παρέμβαση %s δημιουργήθηκε
+InterventionValidatedInOnLi=Η παρέμβαση %s επικυρώθηκε
+InterventionSignedInOnLi=Η παρέμβαση υπεγράφη
 InterventionSignedOnline=Η παρέμβαση υπογράφηκε online
-InterventionUnsignedInDolibarr=Ανυπόγραφη Παρέμβαση
-InterventionModifiedInDolibarr=Η παρέμβαση %s τροποποιήθηκε
-InterventionClassifiedBilledInDolibarr=Η παρέμβαση %s ορίστηκε ως τιμολογημένη
-InterventionClassifiedUnbilledInDolibarr=Η παρέμβαση %s ορίστηκε ως μη τιμολογημένη
+InterventionUnsignedInOnLi=Ανυπόγραφη Παρέμβαση
+InterventionModifiedInOnLi=Η παρέμβαση %s τροποποιήθηκε
+InterventionClassifiedBilledInOnLi=Η παρέμβαση %s ορίστηκε ως τιμολογημένη
+InterventionClassifiedUnbilledInOnLi=Η παρέμβαση %s ορίστηκε ως μη τιμολογημένη
 InterventionSentByEMail=Η παρέμβαση %s εστάλη μέσω email
-InterventionClosedInDolibarr= Η παρέμβαση %s έκλεισε
-InterventionDeletedInDolibarr=Η παρέμβαση %s διαγράφηκε
+InterventionClosedInOnLi= Η παρέμβαση %s έκλεισε
+InterventionDeletedInOnLi=Η παρέμβαση %s διαγράφηκε
 InterventionsArea=Τομέας παρεμβάσεων
 DraftFichinter=Προσχέδια παρεμβάσεων
 LastModifiedInterventions=Τελευταίες %s τροποποιημένες παρεμβάσεις

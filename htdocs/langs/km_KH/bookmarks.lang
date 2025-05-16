@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = បន្ថែមទំព័របច្ចុប្បន្នទៅចំណាំ
 BehaviourOnClick = ឥរិយាបថនៅពេល URL ចំណាំត្រូវបានជ្រើសរើស
@@ -21,4 +21,4 @@ ReplaceWindow = ជំនួសផ្ទាំងបច្ចុប្បន្�
 SetHereATitleForLink = កំណត់ឈ្មោះសម្រាប់ចំណាំ
 ShowBookmark = បង្ហាញចំណាំ
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = ប្រើតំណខាងក្រៅ/ដាច់ខាត (https://externalurl.com) ឬតំណខាងក្នុង/ទាក់ទង (/mypage.php)។ អ្នកក៏អាចប្រើទូរស័ព្ទដូចជា tel: 0123456។
+UseAnExternalHttpLinkOrRelativeOnLiLink = ប្រើតំណខាងក្រៅ/ដាច់ខាត (https://externalurl.com) ឬតំណខាងក្នុង/ទាក់ទង (/mypage.php)។ អ្នកក៏អាចប្រើទូរស័ព្ទដូចជា tel: 0123456។

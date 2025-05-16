@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Fatura
 Bills=Faturalar
 BillsCustomers=Müşteri faturaları
@@ -648,8 +648,8 @@ AutoFillDateFromShort=Başlangıç tarihini ayarla
 AutoFillDateTo=Hizmet hattının bitiş tarihini bir sonraki fatura tarihiyle ayarlayın
 AutoFillDateToShort=Bitiş tarihini ayarla
 MaxNumberOfGenerationReached=Maksimum gen sayısı. ulaşmış
-BILL_DELETEInDolibarr=Fatura silindi
-BILL_SUPPLIER_DELETEInDolibarr=Tedarikçi fatura silindi
+BILL_DELETEInOnLi=Fatura silindi
+BILL_SUPPLIER_DELETEInOnLi=Tedarikçi fatura silindi
 UnitPriceXQtyLessDiscount=Birim fiyatı x Adet - İndirim
 CustomersInvoicesArea=Müşteri faturalandırma alanı
 SupplierInvoicesArea=Tedarikçi faturalandırma alanı

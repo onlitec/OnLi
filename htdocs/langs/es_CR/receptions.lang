@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 Reception=Recepción
 ReceptionsArea=Area de recepciones
 StatisticsOfReceptions=Estadisticas para recepciones.
@@ -23,5 +23,5 @@ ProductQtyInSuppliersReceptionAlreadyRecevied=Cantidad de productos ya recibidos
 ValidateOrderFirstBeforeReception=Primero debes validar la orden antes de poder hacer recepciones.
 ReceptionsReceiptModel=Plantillas de documento para recepciones
 NoMorePredefinedProductToDispatch=No hay más productos solicitados pendientes por recibir
-ReceptionUnClassifyCloseddInDolibarr=Recepción %s re-abrir
+ReceptionUnClassifyCloseddInOnLi=Recepción %s re-abrir
 ReceptionDistribution=Recepción de distribución

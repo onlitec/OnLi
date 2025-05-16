@@ -1,68 +1,68 @@
 #----------------------------------------------------------------------------
-# \file         dolibarr.pl
-# \brief        Dolibarr script install for Virtualmin Pro
+# \file         OnLi.pl
+# \brief        OnLi script install for Virtualmin Pro
 # \author       (c)2009-2020 Regis Houssin  <regis.houssin@inodbox.com>
 #----------------------------------------------------------------------------
 
 
-# script_dolibarr_desc()
-sub script_dolibarr_desc
+# script_OnLi_desc()
+sub script_OnLi_desc
 {
-return "Dolibarr";
+return "OnLi";
 }
 
-sub script_dolibarr_uses
+sub script_OnLi_uses
 {
 return ( "php" );
 }
 
-# script_dolibarr_longdesc()
-sub script_dolibarr_longdesc
+# script_OnLi_longdesc()
+sub script_OnLi_longdesc
 {
-return "Dolibarr ERP/CRM is a powerful Open Source software to manage a professional or foundation activity (small and medium enterprises, freelancers).";
+return "OnLi ERP/CRM is a powerful Open Source software to manage a professional or foundation activity (small and medium enterprises, freelancers).";
 }
 
-sub script_dolibarr_author
+sub script_OnLi_author
 {
 return "Regis Houssin";
 }
 
-# script_dolibarr_versions()
-sub script_dolibarr_versions
+# script_OnLi_versions()
+sub script_OnLi_versions
 {
 return ( "14.0.5", "13.0.5", "12.0.5", "11.0.5", "10.0.7", "9.0.4", "8.0.6", "7.0.5" );
 }
 
-sub script_dolibarr_release
+sub script_OnLi_release
 {
 return 2;	# for mysqli fix
 }
 
-sub script_dolibarr_category
+sub script_OnLi_category
 {
 return "Commerce";
 }
 
-sub script_dolibarr_php_vers
+sub script_OnLi_php_vers
 {
 return ( 5 );
 }
 
-sub script_dolibarr_php_modules
+sub script_OnLi_php_modules
 {
 local ($d, $ver, $phpver, $opts) = @_;
 local ($dbtype, $dbname) = split(/_/, $opts->{'db'}, 2);
 return $dbtype eq "mysql" ? ("mysql") : ("pgsql");
 }
 
-sub script_dolibarr_dbs
+sub script_OnLi_dbs
 {
 local ($d, $ver) = @_;
 return ("mysql", "postgres");
 }
 
-# script_dolibarr_depends(&domain, version)
-sub script_dolibarr_depends
+# script_OnLi_depends(&domain, version)
+sub script_OnLi_depends
 {
 local ($d, $ver, $sinfo, $phpver) = @_;
 local @rv;
@@ -74,7 +74,7 @@ if ($ver >= 3.6) {
 		push(@rv, "Could not work out exact PHP version");
 		}
 	elsif ($phpv < 5.3) {
-		push(@rv, "Dolibarr requires PHP version 5.3 or later");
+		push(@rv, "OnLi requires PHP version 5.3 or later");
 		}
 	}
 if ($ver >= 12.0) {
@@ -84,16 +84,16 @@ if ($ver >= 12.0) {
 		push(@rv, "Could not work out exact PHP version");
 		}
 	elsif ($phpv < 5.6) {
-		push(@rv, "Dolibarr requires PHP version 5.6 or later");
+		push(@rv, "OnLi requires PHP version 5.6 or later");
 		}
 	}
 
 return @rv;
 }
 
-# script_dolibarr_params(&domain, version, &upgrade-info)
-# Returns HTML for table rows for options for installing dolibarr
-sub script_dolibarr_params
+# script_OnLi_params(&domain, version, &upgrade-info)
+# Returns HTML for table rows for options for installing OnLi
+sub script_OnLi_params
 {
 local ($d, $ver, $upgrade) = @_;
 local $rv;
@@ -101,7 +101,7 @@ local $hdir = &public_html_dir($d, 1);
 if ($upgrade) {
 	# Options are fixed when upgrading
 	local ($dbtype, $dbname) = split(/_/, $upgrade->{'opts'}->{'db'}, 2);
-	$rv .= &ui_table_row("Database for Dolibarr tables", $dbname);
+	$rv .= &ui_table_row("Database for OnLi tables", $dbname);
 	local $dir = $upgrade->{'opts'}->{'dir'};
 	$dir =~ s/^$d->{'home'}\///;
 	$rv .= &ui_table_row("Install directory", $dir);
@@ -109,10 +109,10 @@ if ($upgrade) {
 else {
 	# Show editable install options
 	local @dbs = &domain_databases($d, [ "mysql"]);
-	$rv .= &ui_table_row("Database for Dolibarr tables",
-		     &ui_database_select("db", undef, \@dbs, $d, "dolibarr"));
+	$rv .= &ui_table_row("Database for OnLi tables",
+		     &ui_database_select("db", undef, \@dbs, $d, "OnLi"));
 	$rv .= &ui_table_row("Install sub-directory under <tt>$hdir</tt>",
-			     &ui_opt_textbox("dir", &substitute_scriptname_template("dolibarr", $d), 30, "At top level"));
+			     &ui_opt_textbox("dir", &substitute_scriptname_template("OnLi", $d), 30, "At top level"));
 	if ($d->{'ssl'} && $ver >= 3.0) {
 		$rv .= &ui_table_row("Force https connection?",
 				     &ui_yesno_radio("forcehttps", 0));
@@ -121,9 +121,9 @@ else {
 return $rv;
 }
 
-# script_dolibarr_parse(&domain, version, &in, &upgrade-info)
+# script_OnLi_parse(&domain, version, &in, &upgrade-info)
 # Returns either a hash ref of parsed options, or an error string
-sub script_dolibarr_parse
+sub script_OnLi_parse
 {
 local ($d, $ver, $in, $upgrade) = @_;
 if ($upgrade) {
@@ -144,43 +144,43 @@ else {
 	}
 }
 
-# script_dolibarr_check(&domain, version, &opts, &upgrade-info)
+# script_OnLi_check(&domain, version, &opts, &upgrade-info)
 # Returns an error message if a required option is missing or invalid
-sub script_dolibarr_check
+sub script_OnLi_check
 {
 local ($d, $ver, $opts, $upgrade) = @_;
 $opts->{'dir'} =~ /^\// || return "Missing or invalid install directory";
 $opts->{'db'} || return "Missing database";
 if (-r "$opts->{'dir'}/conf/conf.php") {
-	return "Dolibarr appears to be already installed in the selected directory";
+	return "OnLi appears to be already installed in the selected directory";
 	}
 local ($dbtype, $dbname) = split(/_/, $opts->{'db'}, 2);
 local $clash = &find_database_table($dbtype, $dbname, "llx_.*");
-$clash && return "Dolibarr appears to be already using the selected database (table $clash)";
+$clash && return "OnLi appears to be already using the selected database (table $clash)";
 return undef;
 }
 
-# script_dolibarr_files(&domain, version, &opts, &upgrade-info)
-# Returns a list of files needed by dolibarr, each of which is a hash ref
+# script_OnLi_files(&domain, version, &opts, &upgrade-info)
+# Returns a list of files needed by OnLi, each of which is a hash ref
 # containing a name, filename and URL
-sub script_dolibarr_files
+sub script_OnLi_files
 {
 local ($d, $ver, $opts, $upgrade) = @_;
 local @files = ( { 'name' => "source",
-	   'file' => "Dolibarr_$ver.tar.gz",
-	   'url' => "http://prdownloads.sourceforge.net/dolibarr/dolibarr-$ver.tgz" } );
+	   'file' => "OnLi_$ver.tar.gz",
+	   'url' => "http://prdownloads.sourceforge.net/OnLi/OnLi-$ver.tgz" } );
 return @files;
 }
 
-sub script_dolibarr_commands
+sub script_OnLi_commands
 {
 return ("tar", "gunzip");
 }
 
-# script_dolibarr_install(&domain, version, &opts, &files, &upgrade-info)
-# Actually installs dolibarr, and returns either 1 and an informational
+# script_OnLi_install(&domain, version, &opts, &files, &upgrade-info)
+# Actually installs OnLi, and returns either 1 and an informational
 # message, or 0 and an error
-sub script_dolibarr_install
+sub script_OnLi_install
 {
 local ($d, $version, $opts, $files, $upgrade, $domuser, $dompass) = @_;
 
@@ -201,7 +201,7 @@ return (0, "Database connection failed : $dberr") if ($dberr);
 # Extract tar file to temp dir and copy to target
 local $temp = &transname();
 local $err = &extract_script_archive($files->{'source'}, $temp, $d,
-			     $opts->{'dir'}, "dolibarr-$ver/htdocs");
+			     $opts->{'dir'}, "OnLi-$ver/htdocs");
 $err && return (0, "Failed to extract source : $err");
 
 # Add config file
@@ -258,16 +258,16 @@ if ($upgrade) {
 			  [ "versionfrom", $upgrade->{'version'} ],
 			  [ "versionto", $ver ],
 	 		 );
-	local $err = &call_dolibarr_wizard_page(\@params, "upgrade", $d, $opts);
-	return (-1, "Dolibarr wizard failed : $err") if ($err);
+	local $err = &call_OnLi_wizard_page(\@params, "upgrade", $d, $opts);
+	return (-1, "OnLi wizard failed : $err") if ($err);
 
 	# Second page (Migrate some data)
 	local @params = ( [ "action", "upgrade" ],
 			  [ "versionfrom", $upgrade->{'version'} ],
 			  [ "versionto", $ver ],
 			 );
-	local $err = &call_dolibarr_wizard_page(\@params, "upgrade2", $d, $opts);
-	return (-1, "Dolibarr wizard failed : $err") if ($err);
+	local $err = &call_OnLi_wizard_page(\@params, "upgrade2", $d, $opts);
+	return (-1, "OnLi wizard failed : $err") if ($err);
 
 	# Third page (Update version number)
 	local @params = ( [ "action", "upgrade" ],
@@ -276,8 +276,8 @@ if ($upgrade) {
 			  [ "installlock", "444" ],
 			 );
 	local $p = $ver >= 3.8 ? "step5" : "etape5";
-	local $err = &call_dolibarr_wizard_page(\@params, $p, $d, $opts);
-	return (-1, "Dolibarr wizard failed : $err") if ($err);
+	local $err = &call_OnLi_wizard_page(\@params, $p, $d, $opts);
+	return (-1, "OnLi wizard failed : $err") if ($err);
 
 	# Remove the installation directory. (deprecated)
 	# local $dinstall = "$opts->{'dir'}/install";
@@ -297,20 +297,20 @@ else {
 			  [ "db_pass", $dbpass ],
 			  [ "action", "set" ],
 			  [ "main_force_https", $opts->{'forcehttps'} ],
-			  [ "dolibarr_main_db_character_set", $charset ],
-			  [ "dolibarr_main_db_collation", $collate ],
+			  [ "OnLi_main_db_character_set", $charset ],
+			  [ "OnLi_main_db_collation", $collate ],
 			  [ "usealternaterootdir", "1" ],
 			  [ "main_alt_dir_name", "custom" ],
 			 );
 	local $p = $ver >= 3.8 ? "step1" : "etape1";
-	local $err = &call_dolibarr_wizard_page(\@params, $p, $d, $opts);
-	return (-1, "Dolibarr wizard failed : $err") if ($err);
+	local $err = &call_OnLi_wizard_page(\@params, $p, $d, $opts);
+	return (-1, "OnLi wizard failed : $err") if ($err);
 
 	# Second page (Populate database)
 	local @params = ( [ "action", "set" ] );
 	local $p = $ver >= 3.8 ? "step2" : "etape2";
-	local $err = &call_dolibarr_wizard_page(\@params, $p, $d, $opts);
-	return (-1, "Dolibarr wizard failed : $err") if ($err);
+	local $err = &call_OnLi_wizard_page(\@params, $p, $d, $opts);
+	return (-1, "OnLi wizard failed : $err") if ($err);
 
 	# Third page (Add administrator account)
 	local @params = ( [ "action", "set" ],
@@ -320,8 +320,8 @@ else {
 			  [ "installlock", "444" ],
 	 		 );
 	local $p = $ver >= 3.8 ? "step5" : "etape5";
-	local $err = &call_dolibarr_wizard_page(\@params, $p, $d, $opts);
-	return (-1, "Dolibarr wizard failed : $err") if ($err);
+	local $err = &call_OnLi_wizard_page(\@params, $p, $d, $opts);
+	return (-1, "OnLi wizard failed : $err") if ($err);
 
 	# Remove the installation directory (deprecated)
 	# local $dinstall = "$opts->{'dir'}/install";
@@ -337,11 +337,11 @@ else {
 local $rp = $opts->{'dir'};
 $rp =~ s/^$d->{'home'}\///;
 local $adminurl = $url;
-return (1, "Dolibarr installation complete. Go to <a target=_new href='$url'>$url</a> to use it.", "Under $rp using $dbtype database $dbname", $url, 'admin', $dompass);
+return (1, "OnLi installation complete. Go to <a target=_new href='$url'>$url</a> to use it.", "Under $rp using $dbtype database $dbname", $url, 'admin', $dompass);
 }
 
-# call_dolibarr_wizard_page(&parameters, step-no, &domain, &opts)
-sub call_dolibarr_wizard_page
+# call_OnLi_wizard_page(&parameters, step-no, &domain, &opts)
+sub call_OnLi_wizard_page
 {
 local ($params, $page, $d, $opts) = @_;
 local $params = join("&", map { $_->[0]."=".&urlize($_->[1]) } @$params );
@@ -354,10 +354,10 @@ if ($ierror) {
 return undef;
 }
 
-# script_dolibarr_uninstall(&domain, version, &opts)
-# Un-installs a dolibarr installation, by deleting the directory.
+# script_OnLi_uninstall(&domain, version, &opts)
+# Un-installs a OnLi installation, by deleting the directory.
 # Returns 1 on success and a message, or 0 on failure and an error
-sub script_dolibarr_uninstall
+sub script_OnLi_uninstall
 {
 local ($d, $version, $opts) = @_;
 
@@ -376,12 +376,12 @@ if ($opts->{'newdb'}) {
         &delete_script_database($d, $opts->{'db'});
         }
 
-return (1, "Dolibarr directory and tables deleted.");
+return (1, "OnLi directory and tables deleted.");
 }
 
-# script_dolibarr_realversion(&domain, &opts)
+# script_OnLi_realversion(&domain, &opts)
 # Returns the real version number of some script install, or undef if unknown
-sub script_dolibarr_realversion
+sub script_OnLi_realversion
 {
 local ($d, $opts, $sinfo) = @_;
 local $lref = &read_file_lines("$opts->{'dir'}/filefunc.inc.php", 1);
@@ -393,41 +393,41 @@ foreach my $l (@$lref) {
 return undef;
 }
 
-# script_dolibarr_check_latest(version)
+# script_OnLi_check_latest(version)
 # Checks if some version is the latest for this project, and if not returns
 # a newer one. Otherwise returns undef.
-sub script_dolibarr_check_latest
+sub script_OnLi_check_latest
 {
 local ($ver) = @_;
-local @vers = &osdn_package_versions("dolibarr",
-				$ver >= 14.0 ? "dolibarr\\-(12\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 13.0 ? "dolibarr\\-(12\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 12.0 ? "dolibarr\\-(12\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 11.0 ? "dolibarr\\-(11\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 10.0 ? "dolibarr\\-(10\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 9.0 ? "dolibarr\\-(9\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 8.0 ? "dolibarr\\-(8\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 7.0 ? "dolibarr\\-(7\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 6.0 ? "dolibarr\\-(6\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 5.0 ? "dolibarr\\-(5\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 4.0 ? "dolibarr\\-(4\\.0\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 3.9 ? "dolibarr\\-(3\\.9\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 3.8 ? "dolibarr\\-(3\\.8\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 3.7 ? "dolibarr\\-(3\\.7\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 3.6 ? "dolibarr\\-(3\\.6\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 3.5 ? "dolibarr\\-(3\\.5\\.[0-9\\.]+)\\.tgz" :
-				$ver >= 2.9 ? "dolibarr\\-(2\\.9\\.[0-9\\.]+)\\.tgz" :
-                              "dolibarr\\-(2\\.8\\.[0-9\\.]+)\\.tgz");
+local @vers = &osdn_package_versions("OnLi",
+				$ver >= 14.0 ? "OnLi\\-(12\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 13.0 ? "OnLi\\-(12\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 12.0 ? "OnLi\\-(12\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 11.0 ? "OnLi\\-(11\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 10.0 ? "OnLi\\-(10\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 9.0 ? "OnLi\\-(9\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 8.0 ? "OnLi\\-(8\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 7.0 ? "OnLi\\-(7\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 6.0 ? "OnLi\\-(6\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 5.0 ? "OnLi\\-(5\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 4.0 ? "OnLi\\-(4\\.0\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 3.9 ? "OnLi\\-(3\\.9\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 3.8 ? "OnLi\\-(3\\.8\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 3.7 ? "OnLi\\-(3\\.7\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 3.6 ? "OnLi\\-(3\\.6\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 3.5 ? "OnLi\\-(3\\.5\\.[0-9\\.]+)\\.tgz" :
+				$ver >= 2.9 ? "OnLi\\-(2\\.9\\.[0-9\\.]+)\\.tgz" :
+                              "OnLi\\-(2\\.8\\.[0-9\\.]+)\\.tgz");
 return "Failed to find versions" if (!@vers);
 return $ver eq $vers[0] ? undef : $vers[0];
 }
 
-sub script_dolibarr_site
+sub script_OnLi_site
 {
-return 'https://www.dolibarr.org/';
+return 'https://www.OnLi.org/';
 }
 
-sub script_dolibarr_passmode
+sub script_OnLi_passmode
 {
 return 2;
 }

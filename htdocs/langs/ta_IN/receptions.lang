@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Vendor reception management (Create reception documents)
 ReceptionsSetup=Vendor Reception setup
 RefReception=Ref. வரவேற்பு
@@ -49,9 +49,9 @@ ReceptionsNumberingModules=வரவேற்புகளுக்கான எ�
 ReceptionsReceiptModel=வரவேற்புகளுக்கான ஆவண வார்ப்புருக்கள்
 NoMorePredefinedProductToDispatch=அனுப்புவதற்கு முன் வரையறுக்கப்பட்ட தயாரிப்புகள் இல்லை
 ReceptionExist=வரவேற்பு உள்ளது
-ReceptionBackToDraftInDolibarr=வரவேற்பு %s வரைவுக்குத் திரும்பு
-ReceptionClassifyClosedInDolibarr=வரவேற்பு %s வகைப்படுத்தப்பட்டது மூடப்பட்டது
-ReceptionUnClassifyCloseddInDolibarr=வரவேற்பு %s மீண்டும் திறக்கப்பட்டது
+ReceptionBackToDraftInOnLi=வரவேற்பு %s வரைவுக்குத் திரும்பு
+ReceptionClassifyClosedInOnLi=வரவேற்பு %s வகைப்படுத்தப்பட்டது மூடப்பட்டது
+ReceptionUnClassifyCloseddInOnLi=வரவேற்பு %s மீண்டும் திறக்கப்பட்டது
 RestoreWithCurrentQtySaved=Fill quantities with latest saved values
 ReceptionsRecorded=Receptions recorded
 ReceptionUpdated=Reception successfully updated

@@ -1,9 +1,9 @@
-/dolibarr_*.deb
-/dolibarr_*.dsc
-/dolibarr_*.changes
-/dolibarr_*.gz
-/dolibarr-*.tgz
-/dolibarr-*.rpm
-/dolibarr-*.zip
+/OnLi_*.deb
+/OnLi_*.dsc
+/OnLi_*.changes
+/OnLi_*.gz
+/OnLi-*.tgz
+/OnLi-*.rpm
+/OnLi-*.zip
 /*.exe
 /html

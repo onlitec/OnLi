@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Interwencja
 Interventions=Interwencje
 InterventionCard=Karta interwencji
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Sklasyfikować "Unbilled"
 InterventionClassifyDone=Sklasyfikuj "Gotowe"
 SendInterventionRef=Złożenie interwencyjnego% s
 SendInterventionByMail=Wyślij interwencję e-mailem
-InterventionCreatedInDolibarr=Interwencja %s stworzona
-InterventionValidatedInDolibarr=Interwencja %s zatwierdzona
-InterventionModifiedInDolibarr=Interwencja %s zmodyfikowana
-InterventionClassifiedBilledInDolibarr=Interwencja %s oznaczona jako zafakturowana
-InterventionClassifiedUnbilledInDolibarr=Interwencja %s oznaczona jako niezafakturowana
+InterventionCreatedInOnLi=Interwencja %s stworzona
+InterventionValidatedInOnLi=Interwencja %s zatwierdzona
+InterventionModifiedInOnLi=Interwencja %s zmodyfikowana
+InterventionClassifiedBilledInOnLi=Interwencja %s oznaczona jako zafakturowana
+InterventionClassifiedUnbilledInOnLi=Interwencja %s oznaczona jako niezafakturowana
 InterventionSentByEMail=Interwencja %s wysłana pocztą elektroniczną
-InterventionClosedInDolibarr= Interwencja %s zamknięta
-InterventionDeletedInDolibarr=Interwencja %s usunięta
+InterventionClosedInOnLi= Interwencja %s zamknięta
+InterventionDeletedInOnLi=Interwencja %s usunięta
 InterventionsArea=Obszar interwencji
 DraftFichinter=Szkic interwencji
 LastModifiedInterventions=Ostatnie %s zmodyfikowane interwencje

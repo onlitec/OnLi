@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Müdaxilə
 Interventions=Müdaxilələr
 InterventionCard=Müdaxilə kartı
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled="Faturasız" təsnif edin
 InterventionClassifyDone="Bitti"ni təsnif edin
 SendInterventionRef=Müdaxilənin təqdim edilməsi %s
 SendInterventionByMail=E-poçt vasitəsilə müdaxilə göndərin
-InterventionCreatedInDolibarr=%s müdaxiləsi yaradıldı
-InterventionValidatedInDolibarr=Müdaxilə %s təsdiqləndi
-InterventionModifiedInDolibarr=Müdaxilə %s dəyişdirildi
-InterventionClassifiedBilledInDolibarr=Müdaxilə %s hesablanmış kimi təyin edildi
-InterventionClassifiedUnbilledInDolibarr=Müdaxilə %s hesabsız olaraq təyin edildi
+InterventionCreatedInOnLi=%s müdaxiləsi yaradıldı
+InterventionValidatedInOnLi=Müdaxilə %s təsdiqləndi
+InterventionModifiedInOnLi=Müdaxilə %s dəyişdirildi
+InterventionClassifiedBilledInOnLi=Müdaxilə %s hesablanmış kimi təyin edildi
+InterventionClassifiedUnbilledInOnLi=Müdaxilə %s hesabsız olaraq təyin edildi
 InterventionSentByEMail=Müdaxilə %s e-poçt vasitəsilə göndərildi
-InterventionClosedInDolibarr= Müdaxilə %s bağlandı
-InterventionDeletedInDolibarr=Müdaxilə %s silindi
+InterventionClosedInOnLi= Müdaxilə %s bağlandı
+InterventionDeletedInOnLi=Müdaxilə %s silindi
 InterventionsArea=Müdaxilə sahəsi
 DraftFichinter=Layihə müdaxilələri
 LastModifiedInterventions=Ən son %s dəyişdirilmiş müdaxilələr

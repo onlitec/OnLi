@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Lasku
 Bills=Laskut
 BillsCustomers=Asiakkaiden laskut
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Aseta alkamispäivä
 AutoFillDateTo=Aseta palvelurivin päättymispäivä seuraavan laskun päivämäärän mukaan
 AutoFillDateToShort=Aseta päättymispäivä
 MaxNumberOfGenerationReached=Luotujen enimmäismäärä saavutettu
-BILL_DELETEInDolibarr=Lasku poistettu
-BILL_SUPPLIER_DELETEInDolibarr=Toimittaja lasku poistettu
+BILL_DELETEInOnLi=Lasku poistettu
+BILL_SUPPLIER_DELETEInOnLi=Toimittaja lasku poistettu
 UnitPriceXQtyLessDiscount=Yksikköhinta x kpl - alennus
 CustomersInvoicesArea=Asiakkaan laskutusalue
 SupplierInvoicesArea=Toimittaja laskutusalue

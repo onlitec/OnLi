@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=код
 WebsiteName=Назва сайту
 WebsiteSetupDesc=Створіть тут веб-сайти, які ви хочете використовувати. Потім перейдіть до меню Веб-сайти, щоб відредагувати їх.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=To deploy this website live, you have
 SetHereVirtualHost= <u> Використовуйте з Apache/NGinx/... </u> <br> Створіть на своєму веб-сервері (Apache, Nginx, ...) виділений віртуальний хост з увімкненим та кореневим каталогом на a0342fccfda06c7b0f043fccfda07c07f0b0fccfda07c0b0f06f77c0b0f06f77c0b0f06f77c0f06f77c0b0f06cf7c0b
 ExampleToUseInApacheVirtualHostConfig=Приклад для використання в налаштуваннях віртуального хоста Apache:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Перевірте також, що користувач віртуального хосту (наприклад, www-data) має <strong> %s </strong> дозволи на файли в <br> a0e7843947c06bz607c06b2f07f06b2f07f06b2f07f06b2f66f6f06cf06b2f8
 ReadPerm=Читати
 WritePerm=Пишіть
 TestDeployOnWeb=Тестування/розгортання в Інтернеті
 PreviewSiteServedByWebServer= <u> Попередній перегляд %s у новій вкладці. </u> <br> <br> %s буде обслуговуватися зовнішнім веб-сервером (наприклад, Apache, Nginx, IIS). You must install and setup this server before to point to directory: <br>  <strong> %s </strong>  <br> URL served by external server: <br>  <strong> %s </strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=URL-адреса віртуального хосту, що обслуговується зовнішнім веб-сервером, не визначена
 NoPageYet=Ще немає сторінок
 YouCanCreatePageOrImportTemplate=Ви можете створити нову сторінку або імпортувати повний шаблон веб-сайту
@@ -163,8 +163,8 @@ PagesViewedTotal=Переглянуті сторінки (всього)
 Everyone=Всі
 AssignedContacts=Призначені контакти
 WebsiteTypeLabel=Тип веб-сайту
-WebsiteTypeDolibarrWebsite=Веб-сайт (модуль WebSites CMS)
-WebsiteTypeDolibarrPortal=Власний і готовий до використання веб-портал (модуль веб-порталу)
+WebsiteTypeOnLiWebsite=Веб-сайт (модуль WebSites CMS)
+WebsiteTypeOnLiPortal=Власний і готовий до використання веб-портал (модуль веб-порталу)
 WebPortalURL=URL веб-порталу
 NewWebsiteAccount=Нові акаунти для сайтів
 ModuleWebPortalName=Веб-портал
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=You will be redirected to the order details page 
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

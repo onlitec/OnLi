@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=干預
 Interventions=干預
 InterventionCard=干預卡
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=提交干預措施%s
 SendInterventionByMail=通過電子郵件發送干預
-InterventionCreatedInDolibarr=干預%s已建立
-InterventionValidatedInDolibarr=干預%s已驗證
-InterventionSignedInDolibarr=干預已簽名
+InterventionCreatedInOnLi=干預%s已建立
+InterventionValidatedInOnLi=干預%s已驗證
+InterventionSignedInOnLi=干預已簽名
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=干預%s已修改
-InterventionClassifiedBilledInDolibarr=干預%s設定為已開票
-InterventionClassifiedUnbilledInDolibarr=干預%s設定為未開票
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=干預%s已修改
+InterventionClassifiedBilledInOnLi=干預%s設定為已開票
+InterventionClassifiedUnbilledInOnLi=干預%s設定為未開票
 InterventionSentByEMail=以電子郵件發送的干預%s
-InterventionClosedInDolibarr= Intervention %s closed
-InterventionDeletedInDolibarr=干預%s已刪除
+InterventionClosedInOnLi= Intervention %s closed
+InterventionDeletedInOnLi=干預%s已刪除
 InterventionsArea=干預區
 DraftFichinter=干預草案
 LastModifiedInterventions=最新%s已修改干預

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=仕入先領収管理（領収文書作成）
 ReceptionsSetup=仕入先領収設定
 RefReception=参照領収
@@ -46,9 +46,9 @@ ReceptionsNumberingModules=領収の採番モジュール
 ReceptionsReceiptModel=領収のドキュメントテンプレート
 NoMorePredefinedProductToDispatch=ディスパッチする事前定義された製品はもうない
 ReceptionExist=領収がある
-ReceptionBackToDraftInDolibarr=領収%sは下書きに戻す
-ReceptionClassifyClosedInDolibarr=領収%sは閉鎖済指定
-ReceptionUnClassifyCloseddInDolibarr=領収%sは再開
+ReceptionBackToDraftInOnLi=領収%sは下書きに戻す
+ReceptionClassifyClosedInOnLi=領収%sは閉鎖済指定
+ReceptionUnClassifyCloseddInOnLi=領収%sは再開
 RestoreWithCurrentQtySaved=数量を最新の保存値で埋める
 ReceptionsRecorded=受信記録
 ReceptionUpdated=受領は正常に更新済

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=វិក្កយបត្រ
 Bills=វិក្កយបត្រ
 BillsCustomers=វិក្កយបត្ររបស់អតិថិជន
@@ -640,8 +640,8 @@ AutoFillDateFromShort=កំណត់កាលបរិច្ឆេទចាប�
 AutoFillDateTo=កំណត់កាលបរិច្ឆេទបញ្ចប់សម្រាប់ខ្សែសេវាកម្មជាមួយនឹងកាលបរិច្ឆេទវិក្កយបត្របន្ទាប់
 AutoFillDateToShort=កំណត់កាលបរិច្ឆេទបញ្ចប់
 MaxNumberOfGenerationReached=ចំនួនអតិបរមានៃ gen ។ ឈានដល់
-BILL_DELETEInDolibarr=វិក្កយបត្រត្រូវបានលុប
-BILL_SUPPLIER_DELETEInDolibarr=វិក្កយបត្រអ្នកផ្គត់ផ្គង់ត្រូវបានលុប
+BILL_DELETEInOnLi=វិក្កយបត្រត្រូវបានលុប
+BILL_SUPPLIER_DELETEInOnLi=វិក្កយបត្រអ្នកផ្គត់ផ្គង់ត្រូវបានលុប
 UnitPriceXQtyLessDiscount=តម្លៃឯកតា x Qty - បញ្ចុះតម្លៃ
 CustomersInvoicesArea=តំបន់ចេញវិក្កយបត្ររបស់អតិថិជន
 SupplierInvoicesArea=តំបន់ចេញវិក័យប័ត្ររបស់អ្នកផ្គត់ផ្គង់

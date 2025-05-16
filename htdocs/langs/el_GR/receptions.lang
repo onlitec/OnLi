@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Διαχείριση παραλαβών (Δημιουργία εγγράφων παραλαβής)
 ReceptionsSetup=Ρύθμιση παραλαβών
 RefReception=Αναφ. παραλαβής
@@ -46,9 +46,9 @@ ReceptionsNumberingModules=Ενότητα αρίθμησης για παραλα
 ReceptionsReceiptModel=Πρότυπα εγγράφων για παραλαβές
 NoMorePredefinedProductToDispatch=Δεν υπάρχουν άλλα προκαθορισμένα προϊόντα για αποστολή
 ReceptionExist=Υπάρχει ήδη μια παραλαβή
-ReceptionBackToDraftInDolibarr=Επιστροφή σε προσχέδιο της παραλαβής %s
-ReceptionClassifyClosedInDolibarr=Η παραλαβή %s ταξινομήθηκε ως Κλειστή
-ReceptionUnClassifyCloseddInDolibarr=Άνοιγμα ξανά της παραλαβής %s
+ReceptionBackToDraftInOnLi=Επιστροφή σε προσχέδιο της παραλαβής %s
+ReceptionClassifyClosedInOnLi=Η παραλαβή %s ταξινομήθηκε ως Κλειστή
+ReceptionUnClassifyCloseddInOnLi=Άνοιγμα ξανά της παραλαβής %s
 RestoreWithCurrentQtySaved=Συμπληρώστε τις ποσότητες με τις πιο πρόσφατες αποθηκευμένες τιμές
 ReceptionsRecorded=Οι παραλαβές καταγράφηκαν
 ReceptionUpdated=Η παραλαβή ενημερώθηκε με επιτυχία.

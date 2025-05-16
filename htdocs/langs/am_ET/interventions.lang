@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=ጣልቃ መግባት
 Interventions=ጣልቃገብነቶች
 InterventionCard=የጣልቃ ገብነት ካርድ
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled="ያልተከፈለ" መደብ
 InterventionClassifyDone=«ተከናውኗል»ን ይመድቡ
 SendInterventionRef=ጣልቃ መግባት %s
 SendInterventionByMail=ጣልቃ ገብነትን በኢሜል ላክ
-InterventionCreatedInDolibarr=ጣልቃ ገብነት %s ተፈጥሯል
-InterventionValidatedInDolibarr=ጣልቃ ገብነት %s የተረጋገጠ
-InterventionModifiedInDolibarr=ጣልቃ ገብነት %s ተቀይሯል
-InterventionClassifiedBilledInDolibarr=ጣልቃ ገብነት %s እንደ ክፍያ ተቀናብሯል
-InterventionClassifiedUnbilledInDolibarr=ጣልቃ ገብነት %s ያልተከፈለ ሆኖ ተቀናብሯል
+InterventionCreatedInOnLi=ጣልቃ ገብነት %s ተፈጥሯል
+InterventionValidatedInOnLi=ጣልቃ ገብነት %s የተረጋገጠ
+InterventionModifiedInOnLi=ጣልቃ ገብነት %s ተቀይሯል
+InterventionClassifiedBilledInOnLi=ጣልቃ ገብነት %s እንደ ክፍያ ተቀናብሯል
+InterventionClassifiedUnbilledInOnLi=ጣልቃ ገብነት %s ያልተከፈለ ሆኖ ተቀናብሯል
 InterventionSentByEMail=ጣልቃ ገብነት %s በኢሜይል ተልኳል
-InterventionClosedInDolibarr= ጣልቃ ገብነት %s ተዘግቷል
-InterventionDeletedInDolibarr=ጣልቃ ገብነት %s ተሰርዟል
+InterventionClosedInOnLi= ጣልቃ ገብነት %s ተዘግቷል
+InterventionDeletedInOnLi=ጣልቃ ገብነት %s ተሰርዟል
 InterventionsArea=ጣልቃ ገብነት አካባቢ
 DraftFichinter=ረቂቅ ጣልቃገብነቶች
 LastModifiedInterventions=የቅርብ ጊዜ %s የተሻሻሉ ጣልቃገብነቶች

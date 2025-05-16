@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Código
 WebsiteName=Nombre del sitio web
 WebsiteSetupDesc=Cree aquí los sitios web que necesite. Entonces entre en el menú de sitios web para editarlos.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=Para implementar este sitio web en vi
 SetHereVirtualHost= <u>Usar con Apache/NGinx /...</u><br>Crea en su servidor web (Apache, Nginx, ...) de un host virtual dedicado con PHP habilitado y un directorio raíz en <br> <strong> %s </strong>
 ExampleToUseInApacheVirtualHostConfig=Ejemplo para usar en la configuración del host virtual Apache:
 YouCanAlsoTestWithPHPS=<u>Utilizar con servidor integrado PHP</u><br>En el entorno de desarrollo, puede preferir probar el sitio con el servidor web integrado PHP ejecutando
-YouCanAlsoDeployToAnotherWHP=<u>Ejecute su sitio web dentro de un proveedor de alojamiento web Dolibarr</u><br>Si no tiene un servidor web como Apache o NGinx disponible en Internet, puede exportar e importar su sitio web a otra instancia de Dolibarr proporcionada por otro proveedor de alojamiento de Dolibarr que proporcione integración completa con el módulo del sitio web. Puede encontrar una lista de algunos proveedores de hosting de Dolibarr en <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Ejecute su sitio web dentro de un proveedor de alojamiento web OnLi</u><br>Si no tiene un servidor web como Apache o NGinx disponible en Internet, puede exportar e importar su sitio web a otra instancia de OnLi proporcionada por otro proveedor de alojamiento de OnLi que proporcione integración completa con el módulo del sitio web. Puede encontrar una lista de algunos proveedores de hosting de OnLi en <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Compruebe también que el usuario del host virtual (por ejemplo, www-data) tiene <strong>%s</strong>permisos en archivos en <br><strong>%s</strong>
 ReadPerm=Leido
 WritePerm=Escribir
 TestDeployOnWeb=Prueba/despliegue en la web
 PreviewSiteServedByWebServer=<u>Vista previa de %s en una nueva pestaña.</u> <br><br>%s será servido por un servidor web externo (como Apache, Nginx, IIS). Debe instalar y configurar este servidor antes de apuntar al directorio:<br><strong>%s</strong><br> URL servida por el servidor externo: <br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Vista previa de %s en una nueva pestaña.</u><br><br>El servidor Dolibarr servirá al %s, por lo que no necesita instalar ningún servidor web adicional (como Apache, Nginx, IIS).<br>El El inconveniente es que las URL de las páginas no son fáciles de usar y comienzan con la ruta de su Dolibarr.<br>URL servida por Dolibarr:<br><strong>%s</strong><br><br>Para implementar o probar usando su propio servidor web externo (como Apache, Nginx, Lighttp) utilizan el enlace "%s".
+PreviewSiteServedByOnLi=<u>Vista previa de %s en una nueva pestaña.</u><br><br>El servidor OnLi servirá al %s, por lo que no necesita instalar ningún servidor web adicional (como Apache, Nginx, IIS).<br>El El inconveniente es que las URL de las páginas no son fáciles de usar y comienzan con la ruta de su OnLi.<br>URL servida por OnLi:<br><strong>%s</strong><br><br>Para implementar o probar usando su propio servidor web externo (como Apache, Nginx, Lighttp) utilizan el enlace "%s".
 VirtualHostUrlNotDefined=URL del Host Virtual servido por un servidor externo no definido
 NoPageYet=No hay páginas todavía
 YouCanCreatePageOrImportTemplate=Puede crear una nueva página o importar una plantilla de sitio web completa
@@ -166,8 +166,8 @@ PagesViewedTotal=Páginas vistas (total)
 Everyone=Todos
 AssignedContacts=Contactos asignados
 WebsiteTypeLabel=Tipo de sitio web
-WebsiteTypeDolibarrWebsite=Sitio web (Módulo WebSites CMS)
-WebsiteTypeDolibarrPortal=Portal web nativo y listo para usar (Módulo Portal Web)
+WebsiteTypeOnLiWebsite=Sitio web (Módulo WebSites CMS)
+WebsiteTypeOnLiPortal=Portal web nativo y listo para usar (Módulo Portal Web)
 WebPortalURL=URL del portal web
 NewWebsiteAccount=Nuevas cuentas para sitios web
 ModuleWebPortalName=Portal web
@@ -367,7 +367,7 @@ youWillBeRedirectedToOrderPage=En breve serás redirigido a la página de detall
 WebPortalSetupNotComplete=La configuración del portal web no está completa
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.
 ContentSecurityPolicy=Content Security Policy
 WebsiteSecurityForceRP=Website Security RP
 WebsiteSecurityForceSTS=Website Security STS

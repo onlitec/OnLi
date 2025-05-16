@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Rheoli derbynfa gwerthwr (Creu dogfennau derbynfa)
 ReceptionsSetup=Gosodiad Derbynfa Gwerthwr
 RefReception=Cyf. derbyniad
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Modiwl rhifo ar gyfer derbynfeydd
 ReceptionsReceiptModel=Templedi dogfennau ar gyfer derbynfeydd
 NoMorePredefinedProductToDispatch=Dim mwy o gynhyrchion wedi'u diffinio ymlaen llaw i'w hanfon
 ReceptionExist=Mae derbyniad yn bodoli
-ReceptionBackToDraftInDolibarr=Derbyn %s yn ôl i'r drafft
-ReceptionClassifyClosedInDolibarr=Derbynfa %s wedi'i ddosbarthu Ar Gau
-ReceptionUnClassifyCloseddInDolibarr=Derbynfa %s yn ail agor
+ReceptionBackToDraftInOnLi=Derbyn %s yn ôl i'r drafft
+ReceptionClassifyClosedInOnLi=Derbynfa %s wedi'i ddosbarthu Ar Gau
+ReceptionUnClassifyCloseddInOnLi=Derbynfa %s yn ail agor
 RestoreWithCurrentQtySaved=Llenwch symiau gyda'r gwerthoedd arbed diweddaraf
 ReceptionsRecorded=Derbyniadau wedi'u cofnodi
 ReceptionUpdated=Cafodd y dderbynfa ei diweddaru'n llwyddiannus

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Pievienot pašreizējo lapu grāmatzīmēm
 BehaviourOnClick = Rīcība, kad ir atlasīts grāmatzīmes URL
@@ -21,4 +21,4 @@ ReplaceWindow = Nomainiet pašreizējo cilni
 SetHereATitleForLink = Ierakstiet grāmatzīmes nosaukumu
 ShowBookmark = Rādīt grāmatzīmi
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Izmantojiet ārējo/absolūto saiti (https://externalurl.com) vai iekšējo/relatīvo saiti (/mypage.php). Varat arī izmantot tālruni, piemēram, tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Izmantojiet ārējo/absolūto saiti (https://externalurl.com) vai iekšējo/relatīvo saiti (/mypage.php). Varat arī izmantot tālruni, piemēram, tel:0123456.

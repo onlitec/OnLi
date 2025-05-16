@@ -51,8 +51,22 @@ $allowinstall = 0;
 $allowupgrade = false;
 $checksok = 1;
 
+// DEBUGGING LANGUAGE SELECTION
+@error_log('DEBUG OnLi Lang: $_GET[selectlang] = ' . (isset($_GET["selectlang"]) ? $_GET["selectlang"] : 'not set'));
+@error_log('DEBUG OnLi Lang: $langs->getDefaultLang() before assignment = ' . $langs->getDefaultLang());
+// END DEBUGGING
+
 $setuplang = GETPOST("selectlang", 'aZ09', 3) ? GETPOST("selectlang", 'aZ09', 3) : $langs->getDefaultLang();
+
+// DEBUGGING LANGUAGE SELECTION
+@error_log('DEBUG OnLi Lang: $setuplang after assignment = ' . $setuplang);
+// END DEBUGGING
+
 $langs->setDefaultLang($setuplang);
+
+// DEBUGGING LANGUAGE SELECTION
+@error_log('DEBUG OnLi Lang: $langs->defaultlang after setDefaultLang = ' . $langs->defaultlang);
+// END DEBUGGING
 
 $langs->load("install");
 

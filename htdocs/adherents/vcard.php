@@ -95,7 +95,7 @@ if ($object->socid) {
 $v = new vCard();
 $v->setProdId('OnLi '.DOL_VERSION);
 
-$v->setUid('DOLIBARR-ADHERENTID-'.$object->id);
+$v->setUid('ONLI-ADHERENTID-'.$object->id);
 $v->setName($object->lastname, $object->firstname, "", (string) $object->civility, "");
 $v->setFormattedName($object->getFullName($langs, 1));
 

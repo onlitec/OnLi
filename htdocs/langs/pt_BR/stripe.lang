@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Configuração do módulo de boleto
 StripeOrCBDoPayment=Pagar com cartão de crédito ou boleto
 YouWillBeRedirectedOnStripe=Você será redirecionado na página de boleto protegida para inserir as informações do cartão de crédito

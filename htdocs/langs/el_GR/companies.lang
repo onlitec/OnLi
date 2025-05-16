@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Τα στοιχεία επικοινωνίας σας έχουν καταγραφεί. Θα επικοινωνήσουμε μαζί σας σύντομα...
 ContactUsDesc=Αυτή η φόρμα σάς δίνει τη δυνατοτητα να μας στείλετε ένα μήνυμα για μια πρώτη επαφή.
 ErrorCompanyNameAlreadyExists=Το όνομα τις εταιρίας %s υπάρχει ήδη. Επιλέξτε κάποιο άλλο.
@@ -14,7 +14,7 @@ MenuNewSupplier=Νέος προμηθευτής
 MenuNewPrivateIndividual=Νέος Ιδιώτης
 NewCompany=Νέα εταιρία ( προοπτική, πελάτης, προμηθευτής)
 NewThirdParty=Νέο τρίτο μέρος (προοπτική, πελάτης, προμηθευτής)
-CreateDolibarrThirdPartySupplier=Δημιουργία τρίτου μέρους (προμηθευτής)
+CreateOnLiThirdPartySupplier=Δημιουργία τρίτου μέρους (προμηθευτής)
 CreateThirdPartyOnly=Δημιουργία τρίτου μέρους
 CreateThirdPartyAndContact=Δημιουργία τρίτου μέρους + θυγατρικής επαφής
 ProspectionArea=Τομέας προοπτικών
@@ -335,7 +335,7 @@ CapitalOf=Κεφάλαιο της %s
 EditCompany=Επεξεργασία Εταιρίας
 ThisUserIsNot=Αυτός ο χρήστης δεν είναι υποψήφιος πελάτης, πελάτης ή προμηθευτής
 VATIntraCheck=Έλεγχος
-VATIntraCheckDesc=Το ΑΦΜ πρέπει να περιλαμβάνει το πρόθεμα χώρας. Ο σύνδεσμος <b>%s</b> χρησιμοποιεί την ευρωπαϊκή υπηρεσία ελέγχου ΦΠΑ (VIES), η οποία απαιτεί πρόσβαση στο Διαδίκτυο από το διακομιστή Dolibarr.
+VATIntraCheckDesc=Το ΑΦΜ πρέπει να περιλαμβάνει το πρόθεμα χώρας. Ο σύνδεσμος <b>%s</b> χρησιμοποιεί την ευρωπαϊκή υπηρεσία ελέγχου ΦΠΑ (VIES), η οποία απαιτεί πρόσβαση στο Διαδίκτυο από το διακομιστή OnLi.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Ελέγξτε το ενδοκοινοτικό ΑΦΜ στον δικτυακό τόπο της Ευρωπαϊκής Επιτροπής
 VATIntraManualCheck=Μπορείτε επίσης να ελέγξετε με μη αυτόματο τρόπο στον ιστότοπο της Ευρωπαϊκής Επιτροπής <a href="%s" target="_blank" rel="noopener noreferrer"> %s </a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Προοπτικές ανά κατάσταση
 NoParentCompany=Καμία
 ExportCardToFormat=Εξαγωγή κάρτας σε μορφή
 ContactNotLinkedToCompany=Η επαφή δεν συνδέεται με κανένα τρίτο μέρος
-DolibarrLogin=Είσοδος Dolibarr
-NoDolibarrAccess=Χωρίς πρόσβαση στο Dolibarr
+OnLiLogin=Είσοδος OnLi
+NoOnLiAccess=Χωρίς πρόσβαση στο OnLi
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Πρόσθετες επαφές/διευθύνσεις και χαρακτηριστικά Πελατών/Προμηθευτών
 ExportDataset_company_3=Τρόποι πληρωμής τρίτων μερών (τραπεζικοί λογαριασμοί)

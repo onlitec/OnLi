@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=អន្តរាគមន៍
 Interventions=អន្តរាគមន៍
 InterventionCard=កាតអន្តរាគមន៍
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=ចាត់ថ្នាក់ "មិនទាន�
 InterventionClassifyDone=ចាត់ថ្នាក់ "រួចរាល់"
 SendInterventionRef=ការបញ្ជូនអន្តរាគមន៍ %s
 SendInterventionByMail=ផ្ញើអន្តរាគមន៍តាមអ៊ីមែល
-InterventionCreatedInDolibarr=អន្តរាគមន៍ %s ត្រូវបានបង្កើតឡើង
-InterventionValidatedInDolibarr=អន្តរាគមន៍ %s មានសុពលភាព
-InterventionModifiedInDolibarr=អន្តរាគមន៍ %s បានកែប្រែ
-InterventionClassifiedBilledInDolibarr=អន្តរាគមន៍ %s កំណត់ជាវិក្កយបត្រ
-InterventionClassifiedUnbilledInDolibarr=អន្តរាគមន៍ %s កំណត់ថាមិនទាន់ចេញវិក្កយបត្រ
+InterventionCreatedInOnLi=អន្តរាគមន៍ %s ត្រូវបានបង្កើតឡើង
+InterventionValidatedInOnLi=អន្តរាគមន៍ %s មានសុពលភាព
+InterventionModifiedInOnLi=អន្តរាគមន៍ %s បានកែប្រែ
+InterventionClassifiedBilledInOnLi=អន្តរាគមន៍ %s កំណត់ជាវិក្កយបត្រ
+InterventionClassifiedUnbilledInOnLi=អន្តរាគមន៍ %s កំណត់ថាមិនទាន់ចេញវិក្កយបត្រ
 InterventionSentByEMail=អន្តរាគមន៍ %s បានផ្ញើតាមអ៊ីមែល
-InterventionClosedInDolibarr= អន្តរាគមន៍ %s បានបិទ
-InterventionDeletedInDolibarr=អន្តរាគមន៍ %s ត្រូវបានលុប
+InterventionClosedInOnLi= អន្តរាគមន៍ %s បានបិទ
+InterventionDeletedInOnLi=អន្តរាគមន៍ %s ត្រូវបានលុប
 InterventionsArea=តំបន់អន្តរាគមន៍
 DraftFichinter=សេចក្តីព្រាងអន្តរាគមន៍
 LastModifiedInterventions=%s អន្តរាគមន៍ដែលបានកែប្រែចុងក្រោយបំផុត

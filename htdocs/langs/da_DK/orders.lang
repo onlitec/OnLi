@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=En åben ordre var allerede knyttet til dette tilbud, så ingen anden ordre blev oprettet automatisk
 OrdersArea=Kundeordrer
 SuppliersOrdersArea=Indkøbsordreområde
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Er du sikker på, at du vil klone denne ordre <b> %s </b>?
 DispatchSupplierOrder=Modtagelse af indkøbsordre%s
 FirstApprovalAlreadyDone=Første godkendelse allerede udført
 SecondApprovalAlreadyDone=Anden godkendelse allerede udført
-SupplierOrderReceivedInDolibarr=Indkøbsordre %s modtaget %s
-SupplierOrderSubmitedInDolibarr=Indkøbsordre %s indsendt (%s)
+SupplierOrderReceivedInOnLi=Indkøbsordre %s modtaget %s
+SupplierOrderSubmitedInOnLi=Indkøbsordre %s indsendt (%s)
 SupplierOrderClassifiedBilled=Indkøbsordre %s er faktureret
 OtherOrders=Andre ordrer
 SupplierOrderValidatedAndApproved=Leverandørordre er valideret og godkendt: %s

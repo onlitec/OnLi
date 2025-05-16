@@ -29,7 +29,7 @@
 // We allow POST of rich content with js and style, but only for this php file and if into some given POST variable
 define('NOSCANPOSTFORINJECTION', array('PAGE_CONTENT', 'WEBSITE_CSS_INLINE', 'WEBSITE_JS_INLINE', 'WEBSITE_HTML_HEADER', 'htmlheader'));
 
-define('USEDOLIBARREDITOR', 1);
+define('USEOnLiEDITOR', 1);
 define('FORCE_CKEDITOR', 1); // We need CKEditor, even if module is off.
 if (!defined('DISABLE_JS_GRAHP')) {
 	define('DISABLE_JS_GRAPH', 1);
@@ -1640,7 +1640,7 @@ if ($action == 'updatecss' && $usercanedit) {
 				/* We disable php code since htmlheader is never executed as an include but only read by fgets_content.
 				$htmlheadercontent.= "<?php // BEGIN PHP\n";
 				$htmlheadercontent.= '$websitekey=basename(__DIR__);'."\n";
-				$htmlheadercontent.= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once './master.inc.php'; } // Load env if not already loaded"."\n";
+				$htmlheadercontent.= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once './master.inc.php'; } // Load env if not already loaded"."\n";
 				$htmlheadercontent.= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				$htmlheadercontent.= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				$htmlheadercontent.= "ob_start();\n";
@@ -1677,7 +1677,7 @@ if ($action == 'updatecss' && $usercanedit) {
 
 				$csscontent .= "<?php // BEGIN PHP\n";
 				$csscontent .= '$websitekey=basename(__DIR__);'."\n";
-				$csscontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded\n"; // For the css, we need to set path of master using the dirname of css file.
+				$csscontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded\n"; // For the css, we need to set path of master using the dirname of css file.
 				$csscontent .= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				$csscontent .= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				$csscontent .= "ob_start();\n";
@@ -1720,7 +1720,7 @@ if ($action == 'updatecss' && $usercanedit) {
 
 				$jscontent .= "<?php // BEGIN PHP\n";
 				$jscontent .= '$websitekey=basename(__DIR__);'."\n";
-				$jscontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded\n"; // For the css, we need to set path of master using the dirname of css file.
+				$jscontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded\n"; // For the css, we need to set path of master using the dirname of css file.
 				$jscontent .= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				$jscontent .= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				$jscontent .= "ob_start();\n";
@@ -1758,7 +1758,7 @@ if ($action == 'updatecss' && $usercanedit) {
 
 				/*$robotcontent.= "<?php // BEGIN PHP\n";
 				$robotcontent.= '$websitekey=basename(__DIR__);'."\n";
-				$robotcontent.= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once './master.inc.php'; } // Load env if not already loaded"."\n";
+				$robotcontent.= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once './master.inc.php'; } // Load env if not already loaded"."\n";
 				$robotcontent.= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				$robotcontent.= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				$robotcontent.= "ob_start();\n";
@@ -1824,7 +1824,7 @@ if ($action == 'updatecss' && $usercanedit) {
 
 				$manifestjsoncontent .= "<?php // BEGIN PHP\n";
 				$manifestjsoncontent .= '$websitekey=basename(__DIR__);'."\n";
-				$manifestjsoncontent .= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded\n"; // For the css, we need to set path of master using the dirname of css file.
+				$manifestjsoncontent .= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded\n"; // For the css, we need to set path of master using the dirname of css file.
 				$manifestjsoncontent .= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				$manifestjsoncontent .= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				$manifestjsoncontent .= "ob_start();\n";
@@ -1863,7 +1863,7 @@ if ($action == 'updatecss' && $usercanedit) {
 
 				/*$readmecontent.= "<?php // BEGIN PHP\n";
 				   $readmecontent.= '$websitekey=basename(__DIR__);'."\n";
-				   $readmecontent.= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded"."\n";	// For the css, we need to set path of master using the dirname of css file.
+				   $readmecontent.= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded"."\n";	// For the css, we need to set path of master using the dirname of css file.
 				   $readmecontent.= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				   $readmecontent.= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				   $readmecontent.= "ob_start();\n";
@@ -1902,7 +1902,7 @@ if ($action == 'updatecss' && $usercanedit) {
 
 				/*$readmecontent.= "<?php // BEGIN PHP\n";
 				 $readmecontent.= '$websitekey=basename(__DIR__);'."\n";
-				 $readmecontent.= "if (! defined('USEDOLIBARRSERVER') && ! defined('USEDOLIBARREDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded"."\n";	// For the css, we need to set path of master using the dirname of css file.
+				 $readmecontent.= "if (! defined('USEOnLiSERVER') && ! defined('USEOnLiEDITOR')) { require_once __DIR__.'/master.inc.php'; } // Load env if not already loaded"."\n";	// For the css, we need to set path of master using the dirname of css file.
 				 $readmecontent.= "require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';\n";
 				 $readmecontent.= "require_once DOL_DOCUMENT_ROOT.'/core/website.inc.php';\n";
 				 $readmecontent.= "ob_start();\n";

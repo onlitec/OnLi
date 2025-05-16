@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=விலைப்பட்டியல்
 Bills=இன்வாய்ஸ்கள்
 BillsCustomers=வாடிக்கையாளர் இன்வாய்ஸ்கள்
@@ -640,8 +640,8 @@ AutoFillDateFromShort=தொடக்க தேதியை அமைக்க�
 AutoFillDateTo=சேவை வரிக்கான இறுதித் தேதியை அடுத்த விலைப்பட்டியல் தேதியுடன் அமைக்கவும்
 AutoFillDateToShort=முடிவு தேதியை அமைக்கவும்
 MaxNumberOfGenerationReached=ஜென்மத்தின் அதிகபட்ச எண்ணிக்கை. அடைந்தது
-BILL_DELETEInDolibarr=விலைப்பட்டியல் நீக்கப்பட்டது
-BILL_SUPPLIER_DELETEInDolibarr=சப்ளையர் இன்வாய்ஸ் நீக்கப்பட்டது
+BILL_DELETEInOnLi=விலைப்பட்டியல் நீக்கப்பட்டது
+BILL_SUPPLIER_DELETEInOnLi=சப்ளையர் இன்வாய்ஸ் நீக்கப்பட்டது
 UnitPriceXQtyLessDiscount=யூனிட் விலை x Qty - தள்ளுபடி
 CustomersInvoicesArea=வாடிக்கையாளர் பில்லிங் பகுதி
 SupplierInvoicesArea=சப்ளையர் பில்லிங் பகுதி

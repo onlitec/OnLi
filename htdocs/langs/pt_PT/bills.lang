@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Fatura
 Bills=Faturas
 BillsCustomers=Faturas a clientes
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Definir data de início
 AutoFillDateTo=Definir data final para a linha de serviço com a próxima data da fatura
 AutoFillDateToShort=Definir data final
 MaxNumberOfGenerationReached=Número máximo de gen. alcançado
-BILL_DELETEInDolibarr=Fatura eliminada
-BILL_SUPPLIER_DELETEInDolibarr=Fornecedor fatura excluído
+BILL_DELETEInOnLi=Fatura eliminada
+BILL_SUPPLIER_DELETEInOnLi=Fornecedor fatura excluído
 UnitPriceXQtyLessDiscount=Preço unitário x Quantidade - Desconto
 CustomersInvoicesArea=cliente faturamento área
 SupplierInvoicesArea=Faturamento do fornecedor área

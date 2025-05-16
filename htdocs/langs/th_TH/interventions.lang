@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=การแทรกแซง
 Interventions=การแทรกแซง
 InterventionCard=บัตรแทรกแซง
@@ -37,17 +37,17 @@ InterventionSign=Set Signed
 InterventionUnsign=Set Unsigned
 SendInterventionRef=การส่งของการแทรกแซง %s
 SendInterventionByMail=ส่งการแทรกแซงทางอีเมล
-InterventionCreatedInDolibarr=s แทรกแซง% สร้าง
-InterventionValidatedInDolibarr=s% แทรกแซงการตรวจสอบ
-InterventionSignedInDolibarr=Intervention signed
+InterventionCreatedInOnLi=s แทรกแซง% สร้าง
+InterventionValidatedInOnLi=s% แทรกแซงการตรวจสอบ
+InterventionSignedInOnLi=Intervention signed
 InterventionSignedOnline=Intervention signed online
-InterventionUnsignedInDolibarr=Intervention unsigned
-InterventionModifiedInDolibarr=s% แทรกแซงการแก้ไข
-InterventionClassifiedBilledInDolibarr=ชุดแทรกแซง %s เป็นการเรียกเก็บเงิน
-InterventionClassifiedUnbilledInDolibarr=การแทรกแซง %s เป็นชุดยังไม่เรียกเก็บ
+InterventionUnsignedInOnLi=Intervention unsigned
+InterventionModifiedInOnLi=s% แทรกแซงการแก้ไข
+InterventionClassifiedBilledInOnLi=ชุดแทรกแซง %s เป็นการเรียกเก็บเงิน
+InterventionClassifiedUnbilledInOnLi=การแทรกแซง %s เป็นชุดยังไม่เรียกเก็บ
 InterventionSentByEMail=การแทรกแซง %s ส่งทางอีเมล
-InterventionClosedInDolibarr= การแทรกแซง %s ปิดแล้ว
-InterventionDeletedInDolibarr=s แทรกแซง% ลบ
+InterventionClosedInOnLi= การแทรกแซง %s ปิดแล้ว
+InterventionDeletedInOnLi=s แทรกแซง% ลบ
 InterventionsArea=พื้นที่การแทรกแซง
 DraftFichinter=การแทรกแซงร่าง
 LastModifiedInterventions=การแทรกแซงที่แก้ไข %s ล่าสุด

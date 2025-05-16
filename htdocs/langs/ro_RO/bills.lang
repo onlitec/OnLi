@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Factură
 Bills=Facturi
 BillsCustomers=Facturi Clienţi
@@ -648,8 +648,8 @@ AutoFillDateFromShort=Setați data de începere
 AutoFillDateTo=Setați data de încheiere pentru linia de servicii cu data facturii următoare
 AutoFillDateToShort=Setați data de încheiere
 MaxNumberOfGenerationReached=Numărul maxim de generări a fost atins
-BILL_DELETEInDolibarr=Factură ştearsă
-BILL_SUPPLIER_DELETEInDolibarr=Factură furnizor ştearsă
+BILL_DELETEInOnLi=Factură ştearsă
+BILL_SUPPLIER_DELETEInOnLi=Factură furnizor ştearsă
 UnitPriceXQtyLessDiscount=Preţ unitar x Cantitate - Discount
 CustomersInvoicesArea=Facturare clienţi
 SupplierInvoicesArea=Facturare furnizori

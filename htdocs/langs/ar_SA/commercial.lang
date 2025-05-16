@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - commercial
+# OnLi language file - Source file is en_US - commercial
 Commercial=التجارة
 CommercialArea=منطقة التجارة
 Customer=العميل
@@ -95,7 +95,7 @@ SignatureFichinterRef=توقيع التدخل %s
 SignatureSociete_ribRef=توقيع تفويض SEPA %s
 FeatureOnlineSignDisabled=تم تعطيل ميزة التوقيع عبر الإنترنت أو تم إنشاء المستند قبل تمكين الميزة
 NoSignature=لم يتم التوقيع
-UnsignedInDolibarr=الوثيقة غير موقعة
+UnsignedInOnLi=الوثيقة غير موقعة
 SignedSender=تم التوقيع داخليا
 SignedReceiver=تم التوقيع من قبل طرف ثالث
 SignedReceiverOnline=تم التوقيع بواسطة طرف ثالث عبر الإنترنت

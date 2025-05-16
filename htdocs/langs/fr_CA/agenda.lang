@@ -1,13 +1,13 @@
-# Dolibarr language file - Source file is en_US - agenda
-NewCompanyToDolibarr=Le tiers %s a été créé
-InvoicePaidInDolibarr=La facture %s a changé en payé
-MemberValidatedInDolibarr=Membre %s validé
-MemberModifiedInDolibarr=Membre %s modifié
-MemberResiliatedInDolibarr=Membre %s terminé
-MemberDeletedInDolibarr=Membre %s supprimé
-ShipmentDeletedInDolibarr=Envoi %s supprimé
-OrderCreatedInDolibarr=L'ordre %s a été créé
-OrderDeliveredInDolibarr=Commande %s classée Délivrée
+# OnLi language file - Source file is en_US - agenda
+NewCompanyToOnLi=Le tiers %s a été créé
+InvoicePaidInOnLi=La facture %s a changé en payé
+MemberValidatedInOnLi=Membre %s validé
+MemberModifiedInOnLi=Membre %s modifié
+MemberResiliatedInOnLi=Membre %s terminé
+MemberDeletedInOnLi=Membre %s supprimé
+ShipmentDeletedInOnLi=Envoi %s supprimé
+OrderCreatedInOnLi=L'ordre %s a été créé
+OrderDeliveredInOnLi=Commande %s classée Délivrée
 ProposalDeleted=Proposition supprimée
 AgendaModelModule=Modèles de document pour l'événement
 AgendaUrlOptions1=Vous pouvez aussi ajouter les paramètres suivants pour filtrer les réponses :

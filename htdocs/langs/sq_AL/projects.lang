@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Ref. projekti
 ProjectRef=Projekt ref.
 ProjectId=ID-ja e projektit
@@ -160,12 +160,12 @@ ConfirmCloneProject=Jeni i sigurt që do ta klononi këtë projekt?
 ProjectReportDate=Ndryshoni datat e detyrave sipas datës së re të fillimit të projektit
 ErrorShiftTaskDate=Është e pamundur të ndryshohet data e detyrës sipas datës së re të fillimit të projektit
 ProjectsAndTasksLines=Projektet dhe detyrat
-ProjectCreatedInDolibarr=Projekti %s u krijua
-ProjectValidatedInDolibarr=Projekti %s u vërtetua
-ProjectModifiedInDolibarr=Projekti %s u modifikua
-TaskCreatedInDolibarr=Detyra %s u krijua
-TaskModifiedInDolibarr=Detyra %s u modifikua
-TaskDeletedInDolibarr=Detyra %s u fshi
+ProjectCreatedInOnLi=Projekti %s u krijua
+ProjectValidatedInOnLi=Projekti %s u vërtetua
+ProjectModifiedInOnLi=Projekti %s u modifikua
+TaskCreatedInOnLi=Detyra %s u krijua
+TaskModifiedInOnLi=Detyra %s u modifikua
+TaskDeletedInOnLi=Detyra %s u fshi
 OpportunityStatus=Statusi i drejtuesit
 OpportunityStatusShort=Statusi i drejtuesit
 OpportunityProbability=Probabiliteti i plumbit

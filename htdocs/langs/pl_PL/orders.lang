@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Zamówienie powiązane z tą propozycją było już otwarte, więc żadne inne zamówienie nie zostało utworzone automatycznie
 OrdersArea=Obszar zamówień klientów
 SuppliersOrdersArea=Obszar zamówień zakupowych
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Jesteś pewien, że chcesz zduplikować zamówienie <b>%s</b>?
 DispatchSupplierOrder=Otrzymanie zamówienia zakupu %s
 FirstApprovalAlreadyDone=Wykonano pierwsze zatwierdzenie
 SecondApprovalAlreadyDone=Wykonano drugie zatwierdzenie
-SupplierOrderReceivedInDolibarr=Zamówienie %s otrzymało %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=Zamówienie %s otrzymało %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=Zamówienie %s zostało rozliczone
 OtherOrders=Inne zamówienia
 SupplierOrderValidatedAndApproved=Zamówienie dostawcy zostało sprawdzone i zatwierdzone: %s

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - ecm
+# OnLi language file - Source file is en_US - ecm
 ECMNbOfDocs=No. of documents in directory
 ECMSection=Directory
 ECMSectionManual=Directory manuale
@@ -16,7 +16,7 @@ ECMNbOfSubDir=Numero di sottodirectory
 ECMNbOfFilesInSubDir=Numero di file nelle sub-directory
 ECMCreationUser=Creatore
 ECMArea=Area DMS/ECM
-ECMAreaDesc=L'area DMS/ECM (Document Management System / Electronic Content Management) consente di salvare, condividere e cercare rapidamente tutti i tipi di documenti in Dolibarr.
+ECMAreaDesc=L'area DMS/ECM (Document Management System / Electronic Content Management) consente di salvare, condividere e cercare rapidamente tutti i tipi di documenti in OnLi.
 ECMAreaDesc2a=* È possibile utilizzare directory manuali per salvare documenti con una libera organizzazione della struttura ad albero.
 ECMAreaDesc2b=* Le directory automatiche vengono riempite automaticamente quando si aggiungono documenti dalla pagina di un elemento.
 ECMAreaDesc3=* Public directories are files into the subdirectory <b>/medias</b> of the documents directory, readable by everybody on internet with no need to be logged and no need to have the file shared explicitly. It is used to store image files for the emailing or website module for example.

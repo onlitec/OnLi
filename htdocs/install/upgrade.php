@@ -367,7 +367,7 @@ if (!GETPOST('action', 'aZ09') || preg_match('/upgrade/i', GETPOST('action', 'aZ
 				// Scan if there is migration scripts that depends of OnLi version
 				// for modules htdocs/module/sql or htdocs/custom/module/sql (files called "onli_x.y.z-a.b.c.sql" or "onli_always.sql")
 				$modulesfile = array();
-				foreach ($conf->file->dol_document_root as $type => $dirroot) {
+				foreach ($conf->file->onli_document_root as $type => $dirroot) {
 					$handlemodule = @opendir($dirroot); // $dirroot may be '..'
 					if (is_resource($handlemodule)) {
 						while (($filemodule = readdir($handlemodule)) !== false) {

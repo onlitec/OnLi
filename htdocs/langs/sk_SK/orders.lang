@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=Objednávka prepojená s týmto návrhom už bola otvorená, takže sa automaticky nevytvorila žiadna ďalšia objednávka
 OrdersArea=Zákaznícke objednávky
 SuppliersOrdersArea=Oblasť nákupných objednávok
@@ -129,8 +129,8 @@ ConfirmCloneOrder=Naozaj chcete klonovať túto objednávku <b>%s</b>?
 DispatchSupplierOrder=Prijímanie objednávky %s
 FirstApprovalAlreadyDone=Prvé schválenie už prebehlo
 SecondApprovalAlreadyDone=Druhé schválenie už prebehlo
-SupplierOrderReceivedInDolibarr=Objednávka %s prijatá %s
-SupplierOrderSubmitedInDolibarr=Objednávka %s bola odoslaná (%s)
+SupplierOrderReceivedInOnLi=Objednávka %s prijatá %s
+SupplierOrderSubmitedInOnLi=Objednávka %s bola odoslaná (%s)
 SupplierOrderClassifiedBilled=Fakturovaná súprava objednávky %s
 OtherOrders=Ostatné objednávky
 SupplierOrderValidatedAndApproved=Objednávka dodávateľa je overená a schválená: %s

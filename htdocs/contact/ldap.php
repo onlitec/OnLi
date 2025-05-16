@@ -148,13 +148,13 @@ print dol_get_fiche_end();
  */
 print '<div class="tabsAction">';
 
-if (getDolGlobalString('LDAP_CONTACT_ACTIVE') && getDolGlobalInt('LDAP_CONTACT_ACTIVE') != Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {
+if (getDolGlobalString('LDAP_CONTACT_ACTIVE') && getDolGlobalInt('LDAP_CONTACT_ACTIVE') != Ldap::SYNCHRO_LDAP_TO_ONLI) {
 	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=onli2ldap">'.$langs->trans("ForceSynchronize").'</a>';
 }
 
 print "</div>\n";
 
-if (getDolGlobalString('LDAP_CONTACT_ACTIVE') && getDolGlobalInt('LDAP_CONTACT_ACTIVE') != Ldap::SYNCHRO_LDAP_TO_DOLIBARR) {
+if (getDolGlobalString('LDAP_CONTACT_ACTIVE') && getDolGlobalInt('LDAP_CONTACT_ACTIVE') != Ldap::SYNCHRO_LDAP_TO_ONLI) {
 	print "<br>\n";
 }
 

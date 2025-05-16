@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=التدخل
 Interventions=المداخلات
 InterventionCard=تدخل البطاقة
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=تصنيف "فواتير"
 InterventionClassifyDone=تصنيف "تم"
 SendInterventionRef=تقديم التدخل٪ الصورة
 SendInterventionByMail=أرسل المداخلة عبر البريد الإلكتروني
-InterventionCreatedInDolibarr=التدخل٪ الصورة خلقت
-InterventionValidatedInDolibarr=التدخل%s التأكد من صلاحيتها
-InterventionModifiedInDolibarr=التدخل٪ الصورة المعدلة
-InterventionClassifiedBilledInDolibarr=التدخل٪ الصورة كما وصفت مجموعة
-InterventionClassifiedUnbilledInDolibarr=التدخل٪ الصورة مجموعة كما فواتير
+InterventionCreatedInOnLi=التدخل٪ الصورة خلقت
+InterventionValidatedInOnLi=التدخل%s التأكد من صلاحيتها
+InterventionModifiedInOnLi=التدخل٪ الصورة المعدلة
+InterventionClassifiedBilledInOnLi=التدخل٪ الصورة كما وصفت مجموعة
+InterventionClassifiedUnbilledInOnLi=التدخل٪ الصورة مجموعة كما فواتير
 InterventionSentByEMail=تم إرسال التدخل %s عبر البريد الإلكتروني
-InterventionClosedInDolibarr= التدخل %s مغلق
-InterventionDeletedInDolibarr=التدخل٪ الصورة حذفها
+InterventionClosedInOnLi= التدخل %s مغلق
+InterventionDeletedInOnLi=التدخل٪ الصورة حذفها
 InterventionsArea=منطقة التدخلات
 DraftFichinter=مشروع التدخلات
 LastModifiedInterventions=Latest %s modified interventions

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=اس تجویز سے منسلک ایک آرڈر پہلے ہی کھلا ہوا تھا، اس لیے کوئی دوسرا آرڈر خود بخود نہیں بنایا گیا۔
 OrdersArea=صارفین کے آرڈر کے علاقے
 SuppliersOrdersArea=خریداری کے آرڈر کا علاقہ
@@ -129,8 +129,8 @@ ConfirmCloneOrder=کیا آپ واقعی اس آرڈر کو کلون کرنا چ
 DispatchSupplierOrder=خریداری کا آرڈر %s وصول کرنا
 FirstApprovalAlreadyDone=پہلی منظوری ہو چکی ہے۔
 SecondApprovalAlreadyDone=دوسری منظوری پہلے ہی ہو چکی ہے۔
-SupplierOrderReceivedInDolibarr=خریداری کا آرڈر %s موصول ہوا %s
-SupplierOrderSubmitedInDolibarr=Purchase Order %s submitted (%s)
+SupplierOrderReceivedInOnLi=خریداری کا آرڈر %s موصول ہوا %s
+SupplierOrderSubmitedInOnLi=Purchase Order %s submitted (%s)
 SupplierOrderClassifiedBilled=پرچیز آرڈر %s سیٹ بل کر دیا گیا۔
 OtherOrders=دوسرے احکامات
 SupplierOrderValidatedAndApproved=سپلائر آرڈر کی توثیق اور منظوری دی گئی ہے: %s

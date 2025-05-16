@@ -1,8 +1,8 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Stripe模組設定
-StripeDesc=通過<a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a>為客戶提供一個Stripe線上支付頁面，以使用信用卡/簽帳卡付款。這可允許您的客戶進行臨時付款或用於與特定Dolibarr項目（發票，訂單等）有關的付款。
+StripeDesc=通過<a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external"> Stripe </a>為客戶提供一個Stripe線上支付頁面，以使用信用卡/簽帳卡付款。這可允許您的客戶進行臨時付款或用於與特定OnLi項目（發票，訂單等）有關的付款。
 StripeOrCBDoPayment=用信用卡或Stripe付款
-FollowingUrlAreAvailableToMakePayments=以下網址可用於向客戶提供頁面以對Dolibarr項目進行付款
+FollowingUrlAreAvailableToMakePayments=以下網址可用於向客戶提供頁面以對OnLi項目進行付款
 PaymentForm=付款表單
 WelcomeOnPaymentPage=歡迎使用我們的線上支付服務
 ThisScreenAllowsYouToPay=這個畫面允許你進行線上支付到%s。
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=提供%s沒有現有項目的任意金�
 ToOfferALinkForOnlinePaymentOnMemberSubscription=提供%s會員訂閱線上支付頁面的網址
 ToOfferALinkForOnlinePaymentOnDonation=提供%s捐款支付的線上支付頁面網址
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=If you want to integrate the payment page into a Dolibarr website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
+YouCanEmbedOnWebsite=If you want to integrate the payment page into a OnLi website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
 SetupStripeToHavePaymentCreatedAutomatically=使用網址<b> %s </b>設定您的Stripe，以便在Stripe驗證後自動建立付款。
 AccountParameter=帳戶參數
 UsageParameter=使用參數

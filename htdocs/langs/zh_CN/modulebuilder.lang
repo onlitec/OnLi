@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - loan
+# OnLi language file - Source file is en_US - loan
 IdModule= Module id
 ModuleBuilderDesc=该工具只能由有经验的用户或开发人员使用。它提供了构建或编辑您自己的模块的实用程序。替代<a href="%s" target="_blank" rel="noopener noreferrer">手动开发的文档位于此处</a>。
 EnterNameOfModuleDesc=输入要创建的模块/应用程序的名称，不可有空格符。使用大写字母分隔单词（例如：MyModule、EcommerceForShop、SyncWithMySystem…） 
@@ -30,7 +30,7 @@ EnterNameOfModuleToDeleteDesc=You can delete your module. WARNING: All coding fi
 EnterNameOfObjectToDeleteDesc=You can delete an object. WARNING: All coding files (generated or created manually) related to the object will be deleted!
 DangerZone=危险区
 BuildPackage=Build package
-BuildPackageDesc=您可以为您的应用程序生成一个zip包，以便您可以在任何Dolibarr上分发它。您也可以在 <a href="https://www.dolistore.com">DoliStore.com</a> 等市场上分发或销售它。
+BuildPackageDesc=您可以为您的应用程序生成一个zip包，以便您可以在任何OnLi上分发它。您也可以在 <a href="https://www.dolistore.com">DoliStore.com</a> 等市场上分发或销售它。
 BuildDocumentation=构建文档
 ModuleIsNotActive=此模块尚未激活。请前往 %s 激活或点击此处
 ModuleIsLive=此模块已激活。任何更改都可能会破坏当前有效的功能。
@@ -110,7 +110,7 @@ HooksDefDesc=Define in the property <b>module_parts['hooks']</b>, in the module 
 TriggerDefDesc=在触发器文件中定义在执行模块外部的业务事件（由其他模块触发的事件）时要执行的代码。
 SeeIDsInUse=查看安装中使用的ID
 SeeReservedIDsRangeHere=查看保留ID的范围
-ToolkitForDevelopers=Dolibarr开发人员工具包
+ToolkitForDevelopers=OnLi开发人员工具包
 TryToUseTheModuleBuilder=If you have knowledge of SQL and PHP, you may use the native module builder wizard.<br>Enable the module <strong>%s</strong> and use the wizard by clicking the <span class="fa fa-bug"></span> on the top right menu.<br>Warning: This is an advanced developer feature, do <b>not</b> experiment on your production site!
 SeeTopRightMenu=请参阅右上方菜单中的<span class="fa fa-bug"></span>
 AddLanguageFile=添加语言文件

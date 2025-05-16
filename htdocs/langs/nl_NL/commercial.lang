@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - commercial
+# OnLi language file - Source file is en_US - commercial
 Commercial=Handel
 CommercialArea=Handelsomgeving
 Customer=Klant
@@ -95,7 +95,7 @@ SignatureFichinterRef=Handtekening interventie %s
 SignatureSociete_ribRef=Ondertekening van SEPA-mandaat %s
 FeatureOnlineSignDisabled=Online tekenen niet mogelijkheid of document is aangemaakt voordat dit was aangezet
 NoSignature=Niet ondertekend
-UnsignedInDolibarr=Document niet ondertekend
+UnsignedInOnLi=Document niet ondertekend
 SignedSender=Intern ondertekend
 SignedReceiver=Ondertekend door derde partij
 SignedReceiverOnline=Ondertekend door derde partij online

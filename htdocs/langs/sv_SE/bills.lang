@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Faktura
 Bills=Fakturor
 BillsCustomers=Kundfakturor
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Ange startdatum
 AutoFillDateTo=Ange slutdatum för servicelinje med nästa fakturadatum
 AutoFillDateToShort=Ange slutdatum
 MaxNumberOfGenerationReached=Max antal gen. nådde
-BILL_DELETEInDolibarr=Faktura deleted
-BILL_SUPPLIER_DELETEInDolibarr=Leverantörsfaktura borttagen
+BILL_DELETEInOnLi=Faktura deleted
+BILL_SUPPLIER_DELETEInOnLi=Leverantörsfaktura borttagen
 UnitPriceXQtyLessDiscount=Enhetspris x Antal - Rabatt
 CustomersInvoicesArea=Kundfaktureringsområde
 SupplierInvoicesArea=Leverantörsfaktureringsområde

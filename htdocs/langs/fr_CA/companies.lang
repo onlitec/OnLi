@@ -1,10 +1,10 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Vos coordonnées ont été enregistrées. Nous vous recontacterons prochainement...
 ConfirmDeleteCompany=Êtes-vous sûr de vouloir supprimer cette entreprise et toutes les informations associées ?
 ConfirmDeleteContact=Etes-vous sûr de vouloir supprimer ce contact ?
 MenuNewProspect=Nouvelle perspective
 NewCompany=Nouvelle entreprise (prospect, client, fournisseur)
-CreateDolibarrThirdPartySupplier=Créer un tiers (fournisseur)
+CreateOnLiThirdPartySupplier=Créer un tiers (fournisseur)
 CreateThirdPartyAndContact=Créer un tiers + un contact enfant
 ThirdPartyAddress=Adresse de tiers
 AliasNames=Nom de l'alias (commercial, marque, ... )
@@ -96,7 +96,7 @@ ContactForOrdersOrShipments=Contact de commandes ou de livraison
 NoContactForAnyOrderOrShipments=Ce contact n'est contact d'aucune commande ou livraison
 NewContactAddress=Nouveau contact/adresse
 ThisUserIsNot=Cet utilisateur n'est pas un prospect, un client ou un fournisseur
-VATIntraCheckDesc=Le numéro de TVA doit inclure le préfixe du pays. Le lien <b>%s</b> utilise le service de vérification de la TVA européenne (VIES) qui nécessite un accès Internet depuis le serveur Dolibarr.
+VATIntraCheckDesc=Le numéro de TVA doit inclure le préfixe du pays. Le lien <b>%s</b> utilise le service de vérification de la TVA européenne (VIES) qui nécessite un accès Internet depuis le serveur OnLi.
 VATIntraCheckableOnEUSite=Vérifiez le numéro de TVA intracommunautaire sur le site de la Commission européenne
 VATIntraManualCheck=Vous pouvez également vérifier manuellement sur le site Web de la Commission européenne <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
 NorProspectNorCustomer=Ni prospect, ni client

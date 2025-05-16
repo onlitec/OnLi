@@ -3,7 +3,7 @@
 	#php_admin_value mail.force_extra_parameters "-f postmaster@mydomain.com"
 	#php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f postmaster@mydomain.com"
 	
-	php_admin_value open_basedir /tmp/:/home/.../htdocs:/home/.../dolibarr_documents:
+	php_admin_value open_basedir /tmp/:/home/.../htdocs:/home/.../OnLi_documents:
 
 	
 	# Add this to use a custom apparmor profile when using apache php handler
@@ -44,22 +44,22 @@
 	</Directory>
 
 	# Leaving /public and /api, /dav, .well_known but also wrappers for document, viewimage and public json/img accessible to everyone
-    <Directory /home/admin/wwwroot/dolibarr/htdocs/public/>
+    <Directory /home/admin/wwwroot/OnLi/htdocs/public/>
         AuthType None
         Satisfy any
         Require all granted
     </Directory>
-    <Directory /home/admin/wwwroot/dolibarr/htdocs/api/>
+    <Directory /home/admin/wwwroot/OnLi/htdocs/api/>
         AuthType None
         Satisfy any
         Require all granted
     </Directory>
-    <Directory /home/admin/wwwroot/dolibarr/htdocs/dav/>
+    <Directory /home/admin/wwwroot/OnLi/htdocs/dav/>
         AuthType None
         Satisfy any
         Require all granted
     </Directory>
-    <Directory /home/admin/wwwroot/dolibarr/htdocs/.well-known/>
+    <Directory /home/admin/wwwroot/OnLi/htdocs/.well-known/>
         AuthType None
         Satisfy any
         Require all granted

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=কোড
 WebsiteName=ওয়েবসাইটের নাম
 WebsiteSetupDesc=আপনি যে ওয়েবসাইটগুলি ব্যবহার করতে চান তা এখানে তৈরি করুন৷ তারপর সেগুলি সম্পাদনা করতে মেনু ওয়েবসাইটগুলিতে যান৷
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=To deploy this website live, you have
 SetHereVirtualHost=<u>Apache/NGinx এর সাথে ব্যবহার করুন/...</u><br>এ তৈরি করুন আপনার ওয়েব সার্ভার (Apache, Nginx, ...) PHP সক্ষম সহ একটি ডেডিকেটেড ভার্চুয়াল হোস্ট এবং একটি রুট ডিরেক্টরি <br><strong> %s</strong>
 ExampleToUseInApacheVirtualHostConfig=Apache ভার্চুয়াল হোস্ট সেটআপে ব্যবহার করার উদাহরণ:
 YouCanAlsoTestWithPHPS=<u>Use with PHP embedded server</u><br>On develop environment, you may prefer to test the site with the PHP embedded web server by running
-YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a Dolibarr web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another Dolibarr instance provided by another Dolibarr hosting provider that provide full integration with the Website module. You can find a list of some Dolibarr hosting providers on <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Run your web site inside a OnLi web Hosting provider</u><br>If you don't have a web server like Apache or NGinx available on internet, you can export and import your web site onto another OnLi instance provided by another OnLi hosting provider that provide full integration with the Website module. You can find a list of some OnLi hosting providers on <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Check also that the virtual host user (for example www-data) has <strong>%s</strong> permissions on files into<br><strong>%s</strong>
 ReadPerm=পড়ুন
 WritePerm=লিখুন
 TestDeployOnWeb=ওয়েবে পরীক্ষা/নিয়োগ করুন
 PreviewSiteServedByWebServer=<u>Preview %s in a new tab.</u><br><br>The %s will be served by an external web server (like Apache, Nginx, IIS). You must install and setup this server before to point to directory:<br><strong>%s</strong><br>URL served by external server:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Preview %s in a new tab.</u><br><br>The %s will be served by Dolibarr server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your Dolibarr.<br>URL served by Dolibarr:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
+PreviewSiteServedByOnLi=<u>Preview %s in a new tab.</u><br><br>The %s will be served by OnLi server so it does not need any extra web server (like Apache, Nginx, IIS) to be installed.<br>The inconvenient is that the URLs of pages are not user friendly and start with the path of your OnLi.<br>URL served by OnLi:<br><strong>%s</strong><br><br>To deploy or test using your own external web server (like Apache, Nginx, Lighttp) use the link "%s".
 VirtualHostUrlNotDefined=বহিরাগত ওয়েব সার্ভার দ্বারা পরিবেশিত ভার্চুয়াল হোস্টের URL সংজ্ঞায়িত করা হয়নি
 NoPageYet=এখনো কোনো পৃষ্ঠা নেই
 YouCanCreatePageOrImportTemplate=আপনি একটি নতুন পৃষ্ঠা তৈরি করতে পারেন বা একটি সম্পূর্ণ ওয়েবসাইট টেমপ্লেট আমদানি করতে পারেন৷
@@ -163,8 +163,8 @@ PagesViewedTotal=পৃষ্ঠা দেখা (মোট)
 Everyone=সবাই
 AssignedContacts=বরাদ্দ পরিচিতি
 WebsiteTypeLabel=ওয়েব সাইটের ধরন
-WebsiteTypeDolibarrWebsite=Web site (Module WebSites CMS)
-WebsiteTypeDolibarrPortal=Native and ready to use web portal (Module Web Portal)
+WebsiteTypeOnLiWebsite=Web site (Module WebSites CMS)
+WebsiteTypeOnLiPortal=Native and ready to use web portal (Module Web Portal)
 WebPortalURL=Web portal URL
 NewWebsiteAccount=New accounts for websites
 ModuleWebPortalName=Web portal
@@ -364,4 +364,4 @@ youWillBeRedirectedToOrderPage=You will be redirected to the order details page 
 WebPortalSetupNotComplete=Web portal setup is not complete
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.

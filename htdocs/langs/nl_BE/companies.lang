@@ -1,10 +1,10 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 ConfirmDeleteCompany=Weet u zeker dat u dit bedrijf en alle gerelateerde gegevens wilt verwijderen?
 MenuNewThirdParty=Nieuwe derde partij
 MenuNewProspect=Nieuwe Prospect
 MenuNewSupplier=Nieuwe verkoper
 NewCompany=Nieuw bedrijf (prospect, klant, leverancier)
-CreateDolibarrThirdPartySupplier=Creëer een derde partij (leverancier)
+CreateOnLiThirdPartySupplier=Creëer een derde partij (leverancier)
 CreateThirdPartyAndContact=Maak een derde partij + een child-contact
 ThirdPartyAddress=Adres derde
 CountryIsInEEC=Land ligt binnen de Europese Economische Gemeenschap

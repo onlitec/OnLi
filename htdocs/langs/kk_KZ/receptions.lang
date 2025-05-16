@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Жеткізушілерді қабылдауды басқару (қабылдау құжаттарын жасау)
 ReceptionsSetup=Жеткізуші қабылдауды орнату
 RefReception=Сілт. қабылдау
@@ -47,9 +47,9 @@ ReceptionsNumberingModules=Қабылдауға арналған нөмірле�
 ReceptionsReceiptModel=Қабылдауға арналған құжаттар шаблондары
 NoMorePredefinedProductToDispatch=Алдын ала анықталған өнімдер жіберілмейді
 ReceptionExist=Қабылдау бар
-ReceptionBackToDraftInDolibarr=Қабылдау %s нобайға оралу
-ReceptionClassifyClosedInDolibarr=Қабылдау %s жіктелді Жабық
-ReceptionUnClassifyCloseddInDolibarr=%s қабылдау қайта ашылды
+ReceptionBackToDraftInOnLi=Қабылдау %s нобайға оралу
+ReceptionClassifyClosedInOnLi=Қабылдау %s жіктелді Жабық
+ReceptionUnClassifyCloseddInOnLi=%s қабылдау қайта ашылды
 RestoreWithCurrentQtySaved=Мөлшерді соңғы сақталған мәндермен толтырыңыз
 ReceptionsRecorded=Қабылдаулар жазылды
 ReceptionUpdated=Қабылдау сәтті жаңартылды

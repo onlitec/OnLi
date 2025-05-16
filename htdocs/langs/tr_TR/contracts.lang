@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - contracts
+# OnLi language file - Source file is en_US - contracts
 ContractsArea=Sözleşmeler alanı
 ListOfContracts=Sözleşme listesi
 AllContracts=Bütün sözleşmeler
@@ -45,9 +45,9 @@ ValidateAContract=Bir sözleşme doğrula
 UnsignContract=Sözleşmeyi imzalama
 ContractSign=İmzalı olarak ayarlı
 ContractUnsign=İmzalanmamış olarak ayarlı
-ContractSignedInDolibarr=Sözleşme imzalandı
+ContractSignedInOnLi=Sözleşme imzalandı
 ContractSignedOnline=Sözleşme çevrimiçi imzalandı
-ContractUnsignedInDolibarr=Sözleşme imzalanmamış
+ContractUnsignedInOnLi=Sözleşme imzalanmamış
 ActivateService=Hizmet etkinleştir
 ConfirmActivateService=Bu hizmeti <b>%s</b>tarihli olarak etkinleştirmek istediğinizden emin misiniz?
 RefContract=Sözleşme referansı

@@ -1,5 +1,5 @@
-# Dolibarr language file - Source file is en_US - boxes
-BoxDolibarrStateBoard=إحصائيات عن كائنات الأعمال الرئيسية في قاعدة البيانات
+# OnLi language file - Source file is en_US - boxes
+BoxOnLiStateBoard=إحصائيات عن كائنات الأعمال الرئيسية في قاعدة البيانات
 BoxLoginInformation=معلومات تسجيل الدخول
 BoxLastRssInfos=معلومات RSS
 BoxLastProducts=أحدث %s منتجات | خدمات

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Placer la page courante dans les marques-pages
 BehaviourOnClick = Comportement sur sélection de l'URL
@@ -21,4 +21,4 @@ ReplaceWindow = Remplacer fenêtre courante
 SetHereATitleForLink = Saisir ici un titre pour le marque-page
 ShowBookmark = Afficher marque-page
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Utilisez un lien externe/absolu (https://externalurl.com) ou un lien interne/relatif (/mapage.php). Vous pouvez également utiliser un lien de téléphone comme tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Utilisez un lien externe/absolu (https://externalurl.com) ou un lien interne/relatif (/mapage.php). Vous pouvez également utiliser un lien de téléphone comme tel:0123456.

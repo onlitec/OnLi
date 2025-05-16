@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=Elektron pochta xabarlari
 EMailing=Elektron pochta xabarlari
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=Kategoriyalar bo'yicha aloqalar
 MailingModuleDescContactsByFunction=Kontaktlar joylashuvi bo'yicha
 MailingModuleDescEmailsFromFile=Fayldan elektron pochta xabarlari
 MailingModuleDescEmailsFromUser=Foydalanuvchi tomonidan kiritilgan elektron pochta xabarlari
-MailingModuleDescDolibarrUsers=Elektron pochta xabarlari bo'lgan foydalanuvchilar
+MailingModuleDescOnLiUsers=Elektron pochta xabarlari bo'lgan foydalanuvchilar
 MailingModuleDescThirdPartiesByCategories=Uchinchi shaxslar
 SendingFromWebInterfaceIsNotAllowed=Veb-interfeysdan yuborishga yo'l qo'yilmaydi.
 EmailCollectorFilterDesc=Email to‘planishi uchun barcha filtrlar mos kelishi kerak.<br>Siz “!” belgisidan foydalanishingiz mumkin. Agar salbiy test kerak bo'lsa, qidiruv satri qiymatidan oldin

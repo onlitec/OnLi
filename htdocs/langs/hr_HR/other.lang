@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - other
+# OnLi language file - Source file is en_US - other
 SecurityCode=Sigurnosni kod
 NumberingShort=br
 Tools=Alati
@@ -116,7 +116,7 @@ PredefinedMailContentSendFichInter=__(Zdravo)__\n\nU prilogu pronađite interven
 PredefinedMailContentLink=Možete kliknuti na poveznicu u nastavku da izvršite uplatu ako već nije učinjena.\n\n%s\n\n
 PredefinedMailContentGeneric=__(Zdravo)__\n\n\n__(Iskreno)__\n\n__SENDEREMAIL_SIGNATURE__
 PredefinedMailContentSendActionComm=Podsjetnik na događaj "__EVENT_LABEL__" __EVENT_DATE__ u __EVENT_TIME__<br><br>Ovo je automatska poruka, nemojte odgovarati.
-DemoDesc=Dolibarr je kompaktni ERP/CRM koji podržava nekoliko poslovnih modula. Demo koji prikazuje sve module nema smisla jer se ovaj scenarij nikada ne događa (dostupno nekoliko stotina). Dakle, dostupno je nekoliko demo profila.
+DemoDesc=OnLi je kompaktni ERP/CRM koji podržava nekoliko poslovnih modula. Demo koji prikazuje sve module nema smisla jer se ovaj scenarij nikada ne događa (dostupno nekoliko stotina). Dakle, dostupno je nekoliko demo profila.
 ChooseYourDemoProfil=Odaberite demo profil koji najbolje odgovara vašim potrebama...
 ChooseYourDemoProfilMore=...ili napravite vlastiti profil <br> (ručni odabir modula)
 DemoFundation=Upravljanje članovima zaklade
@@ -195,10 +195,10 @@ BugTracker=Praćenje bugova
 SendNewPasswordDesc=This form allows you to request a new password. It will be sent to your email address.<br>Change will become effective once you click on the confirmation link in the email.<br>Check your inbox.
 EnterNewPasswordHere=Unesite svoju novu lozinku ovdje
 BackToLoginPage=Povratak na stranicu za prijavu
-AuthenticationDoesNotAllowSendNewPassword=Ovjera vjerodostojnosti način je <b>%s</b> .<br>U ovom načinu rada Dolibarr ne može znati niti promijeniti vašu lozinku.<br>Obratite se svom administratoru sustava ako želite promijeniti lozinku.
+AuthenticationDoesNotAllowSendNewPassword=Ovjera vjerodostojnosti način je <b>%s</b> .<br>U ovom načinu rada OnLi ne može znati niti promijeniti vašu lozinku.<br>Obratite se svom administratoru sustava ako želite promijeniti lozinku.
 EnableGDLibraryDesc=Instalirajte ili omogućite GD knjižnicu na svojoj PHP instalaciji da biste koristili ovu opciju.
 ProfIdShortDesc=<b>Prof Id %s</b> je podatak ovisan o državi komitenta. <br> Na primjer, za zemlju <b>%s</b>, kod je <b>%s</b>.
-DolibarrDemo=Dolibarr ERP/CRM demo
+OnLiDemo=OnLi ERP/CRM demo
 StatsByAmount=Statistika o količini proizvoda/usluga
 StatsByAmountProducts=Statistika o količini proizvoda
 StatsByAmountServices=Statistika o količini usluga
@@ -239,7 +239,7 @@ EMailTextHolidayApproved=Zahtjev za dopustom %s je odobren.
 EMailTextActionAdded=Radnja %s dodana je na dnevni red.
 EMailTextContractModified=Ugovor %s je izmijenjen. %s
 ImportedWithSet=Skup podataka o uvozu
-DolibarrNotification=Automatska obavijest
+OnLiNotification=Automatska obavijest
 ResizeDesc=Unesite novu širinu <b>ILI</b> novu visinu. Omjer će se zadržati tijekom promjene veličine...
 NewLength=Nova širina
 NewHeight=Nova visina

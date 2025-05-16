@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = Lägg till aktuell sida till bokmärken
 BehaviourOnClick = Beteende när en webbadress för ett bokmärke väljs
@@ -21,4 +21,4 @@ ReplaceWindow = Ersätt aktuell flik
 SetHereATitleForLink = Ange ett namn för bokmärket
 ShowBookmark = Visa bokmärke
 UrlOrLink = URL
-UseAnExternalHttpLinkOrRelativeDolibarrLink = Använd en extern/absolut länk (https://externalurl.com) eller en intern/relativ länk (/mypage.php). Du kan också använda telefon som tel:0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = Använd en extern/absolut länk (https://externalurl.com) eller en intern/relativ länk (/mypage.php). Du kan också använda telefon som tel:0123456.

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - website
+# OnLi language file - Source file is en_US - website
 Shortname=Kode
 WebsiteName=Navn på nettstedet
 WebsiteSetupDesc=Opprett de nettstedene du ønsker å bruke her. Deretter går du inn i meny Nettsteder for å redigere dem.
@@ -50,13 +50,13 @@ ToDeployYourWebsiteOnLiveYouHave3Solutions=For å sette denne nettsiden live, ha
 SetHereVirtualHost=<u>Bruk med Apache/NGinx/...</u><br>Opprett på webserveren din (Apache, Nginx, ...) en dedikert virtuell vert med PHP aktivert og en rotkatalog på <br><strong>%s</strong>
 ExampleToUseInApacheVirtualHostConfig=Eksempel på Apache virtuelt vertsoppsett:
 YouCanAlsoTestWithPHPS=<u>Bruk med PHP innebygd server</u><br>I utviklingsmiljø kan du teste nettstedet med den innebygde PHP-nettserveren ved å kjøre
-YouCanAlsoDeployToAnotherWHP=<u>Kjør nettstedet ditt i en Dolibarr-nettvertsleverandør</u><br>Hvis du ikke har en nettserver som Apache eller NGinx tilgjengelig på internett, kan du eksportere og importere nettstedet ditt til en annen Dolibarr-instans levert av en annen Dolibarr-vertsleverandør som gir full integrasjon med Nettsidemodulen. Du kan finne en liste over noen Dolibarr-vertsleverandører på <a href="https://saas.dolibarr.org" target="_blank" rel="noopener noreferrer external">https://saas.dolibarr.org</a>
+YouCanAlsoDeployToAnotherWHP=<u>Kjør nettstedet ditt i en OnLi-nettvertsleverandør</u><br>Hvis du ikke har en nettserver som Apache eller NGinx tilgjengelig på internett, kan du eksportere og importere nettstedet ditt til en annen OnLi-instans levert av en annen OnLi-vertsleverandør som gir full integrasjon med Nettsidemodulen. Du kan finne en liste over noen OnLi-vertsleverandører på <a href="https://saas.OnLi.org" target="_blank" rel="noopener noreferrer external">https://saas.OnLi.org</a>
 CheckVirtualHostPerms=Sjekk også at den virtuelle vertsbrukeren (for eksempel www-data) har <strong>%s</strong> tillatelser på filer i<br><strong>%s</strong>
 ReadPerm=Les
 WritePerm=Skriv
 TestDeployOnWeb=Test/distribuer på nett
 PreviewSiteServedByWebServer=<u> Forhåndsvis %s i en ny fane. </u><br><br>%s vil bli servet av en ekstern webserver (som Apache, Nginx, IIS). Du må installere og sette opp denne serveren før du peker på katalogen:<br><strong>%s</strong><br>URL servet av ekstern server:<br><strong>%s</strong>
-PreviewSiteServedByDolibarr=<u>Forhåndsvis  i en ny fane.</u><br><br>%s vil bli servet av Dolibarr-serveren, så den trenger ikke noen ekstra webserver (som Apache, Nginx, IIS) som skal installeres.<br>Det ubeleilige er at nettadressene til sidene ikke er brukervennlige og starter med banen til Dolibarr.<br>URL servet av Dolibarr:<br><strong>%s</strong><br><br>For å distribuere eller teste ved hjelp av din egen eksterne webserver (som Apache, Nginx, Lighttp), bruk linken "%s".
+PreviewSiteServedByOnLi=<u>Forhåndsvis  i en ny fane.</u><br><br>%s vil bli servet av OnLi-serveren, så den trenger ikke noen ekstra webserver (som Apache, Nginx, IIS) som skal installeres.<br>Det ubeleilige er at nettadressene til sidene ikke er brukervennlige og starter med banen til OnLi.<br>URL servet av OnLi:<br><strong>%s</strong><br><br>For å distribuere eller teste ved hjelp av din egen eksterne webserver (som Apache, Nginx, Lighttp), bruk linken "%s".
 VirtualHostUrlNotDefined=URL til ekstern webserver ikke definert
 NoPageYet=Ingen sider ennå
 YouCanCreatePageOrImportTemplate=Du kan opprette en ny side eller importere en full nettsidemal
@@ -166,8 +166,8 @@ PagesViewedTotal=Viste sider (totalt)
 Everyone=Alle
 AssignedContacts=Tildelte kontakter
 WebsiteTypeLabel=Type nettsted
-WebsiteTypeDolibarrWebsite=Nettsted (Module WebSites CMS)
-WebsiteTypeDolibarrPortal=Innebygget og klar til bruk nettportal (modulnettportal)
+WebsiteTypeOnLiWebsite=Nettsted (Module WebSites CMS)
+WebsiteTypeOnLiPortal=Innebygget og klar til bruk nettportal (modulnettportal)
 WebPortalURL=Nettportalens URL
 NewWebsiteAccount=Nye kontoer for nettsider
 ModuleWebPortalName=Nettportal
@@ -367,7 +367,7 @@ youWillBeRedirectedToOrderPage=Du vil straks bli omdirigert til ordredetaljer-si
 WebPortalSetupNotComplete=Nettportaloppsettet er ikke fullført
 DeleteWebsiteAccount=Delete website account
 ConfirmDeleteWebsiteAccount=Are you sure you want to delete this account.
-ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by Dolibarr, the login may be no more possible.
+ConfirmDeleteWebsiteAccount2=If this account was used to login on the public portal or any otherweb site powered by OnLi, the login may be no more possible.
 ContentSecurityPolicy=Content Security Policy
 WebsiteSecurityForceRP=Website Security RP
 WebsiteSecurityForceSTS=Website Security STS

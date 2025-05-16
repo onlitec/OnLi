@@ -307,7 +307,7 @@ $modulesdir = dolGetModulesDirs();
 $listoffiles = array();
 $listoffilesexternalmodules = array();
 
-// Search into dir of modules (the $modulesdir is already a list that loop on $conf->file->dol_document_root)
+// Search into dir of modules (the $modulesdir is already a list that loop on $conf->file->onli_document_root)
 $i = 0;
 foreach ($modulesdir as $keydir => $tmpsearchdir) {
 	$searchdir = $tmpsearchdir; // $searchdir can be '.../htdocs/core/modules/' or '.../htdocs/custom/mymodule/core/modules/'

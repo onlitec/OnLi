@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Számla
 Bills=Számlák
 BillsCustomers=Vásárlói számlák
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Kezdési dátum beállítása
 AutoFillDateTo=Szolgáltatási sor befejezési dátumának beállítása a következő számla dátumával
 AutoFillDateToShort=Befejezési dátum beállítása
 MaxNumberOfGenerationReached=Elérte a generációk maximális számát
-BILL_DELETEInDolibarr=Számla törölve\n
-BILL_SUPPLIER_DELETEInDolibarr=A szállítói számla törölve
+BILL_DELETEInOnLi=Számla törölve\n
+BILL_SUPPLIER_DELETEInOnLi=A szállítói számla törölve
 UnitPriceXQtyLessDiscount=Egységár x Mennyiség – Kedvezmény
 CustomersInvoicesArea=Ügyfélszámlázási terület
 SupplierInvoicesArea=Szállítói számlázási terület

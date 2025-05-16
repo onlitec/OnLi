@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - interventions
+# OnLi language file - Source file is en_US - interventions
 Intervention=Can thiệp
 Interventions=Các can thiệp
 InterventionCard=Thẻ can thiệp
@@ -31,14 +31,14 @@ InterventionClassifyUnBilled=Phân loại "chưa lập hoá đơn"
 InterventionClassifyDone=Phân loại "Xong"
 SendInterventionRef=Đệ trình can thiệp %s
 SendInterventionByMail=Gửi can thiệp qua email
-InterventionCreatedInDolibarr=Can thiệp %s đã tạo
-InterventionValidatedInDolibarr=Can thiệp %s đã xác nhận
-InterventionModifiedInDolibarr=Can thiệp %s được sửa đổi
-InterventionClassifiedBilledInDolibarr=Can thiệp %s đã đặt là ra hóa đơn
-InterventionClassifiedUnbilledInDolibarr=Can thiệp %s đã đặt là không có hóa đơn
+InterventionCreatedInOnLi=Can thiệp %s đã tạo
+InterventionValidatedInOnLi=Can thiệp %s đã xác nhận
+InterventionModifiedInOnLi=Can thiệp %s được sửa đổi
+InterventionClassifiedBilledInOnLi=Can thiệp %s đã đặt là ra hóa đơn
+InterventionClassifiedUnbilledInOnLi=Can thiệp %s đã đặt là không có hóa đơn
 InterventionSentByEMail=Can thiệp %s được gửi qua email
-InterventionClosedInDolibarr= Can thiệp %s đã đóng
-InterventionDeletedInDolibarr=Can thiệp %s đã xóa
+InterventionClosedInOnLi= Can thiệp %s đã đóng
+InterventionDeletedInOnLi=Can thiệp %s đã xóa
 InterventionsArea=Khu vực can thiệp
 DraftFichinter=Dự thảo can thiệp
 LastModifiedInterventions=Can thiệp sửa đổi mới nhất %s

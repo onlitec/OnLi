@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=চালান
 Bills=চালান
 BillsCustomers=গ্রাহক চালান
@@ -640,8 +640,8 @@ AutoFillDateFromShort=শুরুর তারিখ সেট করুন
 AutoFillDateTo=পরবর্তী চালান তারিখের সাথে পরিষেবা লাইনের জন্য শেষ তারিখ সেট করুন
 AutoFillDateToShort=শেষ তারিখ সেট করুন
 MaxNumberOfGenerationReached=জেনার সর্বাধিক সংখ্যা। পৌঁছেছে
-BILL_DELETEInDolibarr=চালান মুছে ফেলা হয়েছে
-BILL_SUPPLIER_DELETEInDolibarr=সরবরাহকারী চালান মুছে ফেলা হয়েছে
+BILL_DELETEInOnLi=চালান মুছে ফেলা হয়েছে
+BILL_SUPPLIER_DELETEInOnLi=সরবরাহকারী চালান মুছে ফেলা হয়েছে
 UnitPriceXQtyLessDiscount=ইউনিট মূল্য x পরিমাণ - ছাড়
 CustomersInvoicesArea=গ্রাহক বিলিং এলাকা
 SupplierInvoicesArea=সরবরাহকারী বিলিং এলাকা

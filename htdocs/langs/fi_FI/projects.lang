@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - projects
+# OnLi language file - Source file is en_US - projects
 RefProject=Viite. hanke
 ProjectRef=Projektin viite.
 ProjectId=Projektin tunnus
@@ -161,12 +161,12 @@ ConfirmCloneProject=Oletko varma, että kloonaat tämän projektin?
 ProjectReportDate=Muuta tehtävää päivämäärät uuden projektin alun mukaan päiväys
 ErrorShiftTaskDate=Tehtävää päiväys ei voida siirtää uuden projektin alkamisen mukaan päiväys
 ProjectsAndTasksLines=Projektit ja tehtävät
-ProjectCreatedInDolibarr=Projekti %s luotu
-ProjectValidatedInDolibarr=Projekti %s vahvistettu
-ProjectModifiedInDolibarr=Projektia %s muokattu
-TaskCreatedInDolibarr=Tehtävä %s luotu
-TaskModifiedInDolibarr=Tehtävää %s muokattu
-TaskDeletedInDolibarr=Tehtävä %s poistettu
+ProjectCreatedInOnLi=Projekti %s luotu
+ProjectValidatedInOnLi=Projekti %s vahvistettu
+ProjectModifiedInOnLi=Projektia %s muokattu
+TaskCreatedInOnLi=Tehtävä %s luotu
+TaskModifiedInOnLi=Tehtävää %s muokattu
+TaskDeletedInOnLi=Tehtävä %s poistettu
 OpportunityStatus=Johdon tila
 OpportunityStatusShort=Johdon tila
 OpportunityProbability=Johdon todennäköisyys

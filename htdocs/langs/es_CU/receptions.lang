@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Gestión de recepción de proveedores (Crear documentos de recepción)
 RefReception=Árbitro. recepción
 Reception=Recepción
@@ -24,4 +24,4 @@ ProductQtyInSuppliersReceptionAlreadyRecevied=Cantidad de producto del pedido de
 ValidateOrderFirstBeforeReception=Primero debe validar el pedido antes de poder realizar recepciones.
 ReceptionsReceiptModel=Plantillas de documentos para recepciones
 NoMorePredefinedProductToDispatch=No más productos predefinidos para enviar
-ReceptionUnClassifyCloseddInDolibarr=Recepción %s reabrir
+ReceptionUnClassifyCloseddInOnLi=Recepción %s reabrir

@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Dina kontaktuppgifter har registrerats. Vi återkommer snart...
 ContactUsDesc=Detta formulär låter dig skicka ett meddelande till oss för en första kontakt.
 ErrorCompanyNameAlreadyExists=Företagets namn %s finns redan. Välj en annan en.
@@ -14,7 +14,7 @@ MenuNewSupplier=Ny leverantör
 MenuNewPrivateIndividual=Ny privatperson
 NewCompany=Nytt företag (prospekt, kund, leverantör)
 NewThirdParty=Ny tredjepart (prospekt, kund, leverantör)
-CreateDolibarrThirdPartySupplier=Skapa en tredjepart (leverantör)
+CreateOnLiThirdPartySupplier=Skapa en tredjepart (leverantör)
 CreateThirdPartyOnly=Skapa tredjepart
 CreateThirdPartyAndContact=Skapa en tredjepart + en underordnad kontakt
 ProspectionArea=Prospektering
@@ -335,7 +335,7 @@ CapitalOf=Kapital %s
 EditCompany=Redigera företag
 ThisUserIsNot=Denna användare är inte ett prospekt, kund eller leverantör
 VATIntraCheck=Check
-VATIntraCheckDesc=Momsregistreringsnummer måste innehålla land prefix. Länken <b> %s </b> använder den europeiska mervärdesskattjänsten (VIES) som kräver internetåtkomst från Dolibarr-servern.
+VATIntraCheckDesc=Momsregistreringsnummer måste innehålla land prefix. Länken <b> %s </b> använder den europeiska mervärdesskattjänsten (VIES) som kräver internetåtkomst från OnLi-servern.
 VATIntraCheckURL=https://ec.europa.eu/taxation_customs/vies/#/vat-validation
 VATIntraCheckableOnEUSite=Kontrollera momsnumret inom gemenskapen på Europeiska kommissionens webbplats
 VATIntraManualCheck=Du kan också kontrollera på EU's webbsida <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>
@@ -381,8 +381,8 @@ ProspectsByStatus=Prospekt efter status
 NoParentCompany=Ingen
 ExportCardToFormat=Exportera kort till format
 ContactNotLinkedToCompany=Kontakt inte länkad till någon tredjepart
-DolibarrLogin=Dolibarr inloggning
-NoDolibarrAccess=Dolibarr ej nåbar
+OnLiLogin=OnLi inloggning
+NoOnLiAccess=OnLi ej nåbar
 ExportDataset_company_1=Third-parties (organizations/natural persons) and attributes
 ExportDataset_company_2=Tredjepartens ytterligare kontakter/adresser och attribut
 ExportDataset_company_3=Third-parties payment modes (bank accounts)

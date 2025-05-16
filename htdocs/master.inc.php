@@ -1,4 +1,7 @@
 <?php
+// ----------------------------------------------------------------------------
+// Arquivo modificado em 15/05/2025 por OnLi Developer - Não alterar sem autorização explícita
+// ----------------------------------------------------------------------------
 /* Copyright (C) 2002-2007	Rodolphe Quiedeville	<rodolphe@quiedeville.org>
  * Copyright (C) 2003		Xavier Dutoit			<doli@sydesy.com>
  * Copyright (C) 2004-2012	Laurent Destailleur		<eldy@users.sourceforge.net>
@@ -97,15 +100,16 @@ $conf->file->main_authentication = empty($onli_main_authentication) ? 'onli' : $
 $conf->file->main_force_https = empty($onli_main_force_https) ? '' : $onli_main_force_https; // Force https
 $conf->file->strict_mode = empty($onli_strict_mode) ? '' : $onli_strict_mode; // Force php strict mode (for debug)
 $conf->file->instance_unique_id = empty($onli_main_instance_unique_id) ? (empty($onli_main_cookie_cryptkey) ? '' : $onli_main_cookie_cryptkey) : $onli_main_instance_unique_id; // Unique id of instance
-$conf->file->dol_main_url_root = $onli_main_url_root;	// Define url inside the config file
-$conf->file->dol_document_root = array('main' => (string) DOL_DOCUMENT_ROOT); // Define an array of document root directories ('/home/htdocs')
-$conf->file->dol_url_root = array('main' => (string) DOL_URL_ROOT); // Define an array of url root path ('' or '/onli')
+$conf->file->onli_main_url_root = $onli_main_url_root;	// Define url inside the config file
+$conf->file->onli_document_root = array('main' => (string) DOL_DOCUMENT_ROOT); // Define an array of document root directories ('/home/htdocs')
+$conf->file->dol_document_root = $conf->file->onli_document_root;
+$conf->file->onli_url_root = array('main' => (string) DOL_URL_ROOT); // Define an array of url root path ('' or '/onli')
 if (!empty($onli_main_document_root_alt)) {
 	// onli_main_document_root_alt can contains several directories
 	$values = preg_split('/[;,]/', $onli_main_document_root_alt);
 	$i = 0;
 	foreach ($values as $value) {
-		$conf->file->dol_document_root['alt'.($i++)] = (string) $value;
+		$conf->file->onli_document_root['alt'.($i++)] = (string) $value;
 	}
 	$values = preg_split('/[;,]/', (string) $onli_main_url_root_alt);
 	$i = 0;
@@ -125,7 +129,7 @@ if (!empty($onli_main_document_root_alt)) {
 			print "\"/custom\"<br>\n";
 			exit;
 		}
-		$conf->file->dol_url_root['alt'.($i++)] = (string) $value;
+		$conf->file->onli_url_root['alt'.($i++)] = (string) $value;
 	}
 }
 
@@ -157,7 +161,7 @@ if (!defined('NOREQUIREDB')) {
 
 	if ($db->error) {
 		// If we were into a website context
-		if (!defined('USEDOLIBARREDITOR') && !defined('USEDOLIBARRSERVER') && !empty($_SERVER['SCRIPT_FILENAME']) && (strpos($_SERVER['SCRIPT_FILENAME'], DOL_DATA_ROOT.'/website') === 0)) {
+		if (!defined('USEONLIEDITOR') && !defined('USEONLISERVER') && !empty($_SERVER['SCRIPT_FILENAME']) && (strpos($_SERVER['SCRIPT_FILENAME'], DOL_DATA_ROOT.'/website') === 0)) {
 			$sapi_type = php_sapi_name();
 			if (substr($sapi_type, 0, 3) != 'cgi') {
 				http_response_code(503); // To tel search engine this is a temporary error
@@ -224,14 +228,8 @@ if ($db !== null) {
 	$conf->setValues($db);
 }
 
-// Set default language (must be after the setValues setting global conf 'MAIN_LANG_DEFAULT'. Page main.inc.php will overwrite langs->defaultlang with user value later)
-if (!defined('NOREQUIRETRAN')) {
-	$langcode = (GETPOST('lang', 'aZ09') ? GETPOST('lang', 'aZ09', 1) : getDolGlobalString('MAIN_LANG_DEFAULT', 'auto'));
-	if (defined('MAIN_LANG_DEFAULT')) {	// So a page can force the language whatever is setup and parameters in URL
-		$langcode = constant('MAIN_LANG_DEFAULT');
-	}
-	$langs->setDefaultLang($langcode);
-}
+// Force default language sempre a partir da constante MAIN_LANG_DEFAULT
+$langs->setDefaultLang(constant('MAIN_LANG_DEFAULT'));
 
 // Create object $mysoc (A thirdparty object that contains properties of companies managed by OnLi.
 if (!defined('NOREQUIREDB') && !defined('NOREQUIRESOC') && $db != null) {

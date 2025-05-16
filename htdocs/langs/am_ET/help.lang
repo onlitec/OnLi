@@ -1,12 +1,12 @@
-# Dolibarr language file - Source file is en_US - help
+# OnLi language file - Source file is en_US - help
 CommunitySupport=መድረክ/ዊኪ ድጋፍ
 EMailSupport=የኢሜል ድጋፍ
 RemoteControlSupport=የመስመር ላይ ቅጽበታዊ / የርቀት ድጋፍ
 OtherSupport=ሌላ ድጋፍ
 ToSeeListOfAvailableRessources=ያሉትን ምንጮች ለማግኘት/ለመመልከት፡-
 HelpCenter=የእገዛ ማዕከል
-DolibarrHelpCenter=ዶሊባርር የእርዳታ እና ድጋፍ ማዕከል
-ToGoBackToDolibarr=አለበለዚያ <a href="%s"> Dolibarr መጠቀም ለመቀጠል እዚህ ጠቅ ያድርጉ</a>።
+OnLiHelpCenter=ዶሊባርር የእርዳታ እና ድጋፍ ማዕከል
+ToGoBackToOnLi=አለበለዚያ <a href="%s"> OnLi መጠቀም ለመቀጠል እዚህ ጠቅ ያድርጉ</a>።
 TypeOfSupport=የድጋፍ አይነት
 TypeSupportCommunauty=ማህበረሰብ (ነጻ)
 TypeSupportCommercial=ንግድ
@@ -20,4 +20,4 @@ BackToHelpCenter=አለበለዚያ <a href="%s">ወደ የእገዛ ማዕከ�
 LinkToGoldMember=ለቋንቋዎ በዶሊባርር ከተመረጡት አሰልጣኞች አንዱን መደወል ይችላሉ (%s) መግብርን ጠቅ በማድረግ (ሁኔታ እና ከፍተኛ ዋጋ በራስ-ሰር ይሻሻላል)።
 PossibleLanguages=የሚደገፉ ቋንቋዎች
 SubscribeToFoundation=የዶሊባርር ፕሮጀክትን ያግዙ, ለመሠረት ይመዝገቡ
-SeeOfficalSupport=For official Dolibarr support in your language: <br><b><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></b>
+SeeOfficalSupport=For official OnLi support in your language: <br><b><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></b>

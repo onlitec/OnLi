@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - companies
+# OnLi language file - Source file is en_US - companies
 newSocieteAdded=Vos coordonnées ont été enregistrées. Nous reviendrons vers vous prochainement...
 ConfirmDeleteContact=Êtes-vous sûr de vouloir supprimer ce contact ?
 MenuNewThirdParty=Nouveau Tiers
@@ -6,7 +6,7 @@ MenuNewCustomer=Nouveau Client
 MenuNewProspect=Nouveau Prospect
 MenuNewSupplier=Nouveau Fournisseur
 NewThirdParty=Nouveau Tiers (prospect, client, fournisseur)
-CreateDolibarrThirdPartySupplier=Créer un tiers (fournisseur)
+CreateOnLiThirdPartySupplier=Créer un tiers (fournisseur)
 CreateThirdPartyAndContact=Créer un tiers + un contact/adresse
 IdThirdParty=Id tiers
 IdCompany=Id Société
@@ -82,7 +82,7 @@ ContactForProposals=Contact de propositions commerciale
 NoContactForAnyOrder=Ce contact n'est un contact pour aucune commande
 NoContactForAnyOrderOrShipments=Ce contact n'est pas un contact pour toute commande ou expédition
 NewContactAddress=Nouveau Contact / Adresse
-VATIntraCheckDesc=Le numéro de TVA doit inclure le préfixe du pays. Le lien <b>%s</b> utilise le service européen de vérification de la TVA (VIES) qui nécessite un accès internet depuis le serveur Dolibarr.
+VATIntraCheckDesc=Le numéro de TVA doit inclure le préfixe du pays. Le lien <b>%s</b> utilise le service européen de vérification de la TVA (VIES) qui nécessite un accès internet depuis le serveur OnLi.
 NorProspectNorCustomer=Ni prospect, ni client
 Staff=Employés
 ProspectStatus=Statut du prospect

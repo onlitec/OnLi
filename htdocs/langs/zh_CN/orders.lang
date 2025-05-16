@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - orders
+# OnLi language file - Source file is en_US - orders
 OrderExists=链接到此报价单的订单已打开，因此不会自动创建其他订单
 OrdersArea=客户订单区
 SuppliersOrdersArea=采购订单区
@@ -129,8 +129,8 @@ ConfirmCloneOrder=您确定要复制此订单<b> %s </b>吗？
 DispatchSupplierOrder=接收采购订单%s
 FirstApprovalAlreadyDone=第一次批准已經完成
 SecondApprovalAlreadyDone=第二次批准已经完成
-SupplierOrderReceivedInDolibarr=采购订单%s已收到%s
-SupplierOrderSubmitedInDolibarr=采购订单 %s 已提交（%s）
+SupplierOrderReceivedInOnLi=采购订单%s已收到%s
+SupplierOrderSubmitedInOnLi=采购订单 %s 已提交（%s）
 SupplierOrderClassifiedBilled=采购订单%s设置为已开票
 OtherOrders=其他订单
 SupplierOrderValidatedAndApproved=采购订单已验证并获得批准：%s

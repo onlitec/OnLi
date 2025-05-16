@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - marque pages / bookmarks
+# OnLi language file - Source file is en_US - marque pages / bookmarks
 
 AddThisPageToBookmarks = إضافة الصفحة الحالية إلى الإشارات المرجعية
 BehaviourOnClick = السلوك عند تحديد عنوان URL للإشارة المرجعية
@@ -21,4 +21,4 @@ ReplaceWindow = استبدال علامة التبويب الحالية
 SetHereATitleForLink = حدد اسمًا للإشارة المرجعية
 ShowBookmark = وتظهر علامة
 UrlOrLink = العنوان
-UseAnExternalHttpLinkOrRelativeDolibarrLink = استخدم رابطًا خارجيًا / مطلقًا (https://externalurl.com) أو رابطًا داخليًا / نسبيًا (/mypage.php). يمكنك أيضًا استخدام الهاتف مثل الهاتف: 0123456.
+UseAnExternalHttpLinkOrRelativeOnLiLink = استخدم رابطًا خارجيًا / مطلقًا (https://externalurl.com) أو رابطًا داخليًا / نسبيًا (/mypage.php). يمكنك أيضًا استخدام الهاتف مثل الهاتف: 0123456.

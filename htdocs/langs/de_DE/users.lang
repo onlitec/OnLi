@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - users
+# OnLi language file - Source file is en_US - users
 HRMArea=Personalmanagment – Übersicht
 UserCard=Benutzer – Übersicht
 GroupCard=Gruppe – Übersicht
@@ -36,7 +36,7 @@ SuperAdministrator=Multicompany-Administrator
 SuperAdministratorDesc=Multicompany-Systemadministrator (kann Konfiguration und Benutzer ändern)
 DefaultRights=Standardberechtigungen
 DefaultRightsDesc=Legen Sie die <u>Standard</u>-Berechtigungen fest, die einem <u>neuen</u> Benutzer automatisch zugewiesen werden. Um Berechtigungen von bestehenden Benutzern zu ändern, wechseln Sie in die Benutzer-Karte.
-DolibarrUsers=Benutzer
+OnLiUsers=Benutzer
 LastName=Nachname
 FirstName=Vorname
 ListOfGroups=Liste der Gruppen
@@ -60,13 +60,13 @@ PhotoFile=Bilddatei
 ListOfUsersInGroup=Liste der Benutzer in dieser Gruppe
 ListOfGroupsForUser=Liste der Gruppen dieses Benutzers
 LinkToCompanyContact=Mit Geschäftspartner/Kontakt verknüpfen
-LinkedToDolibarrMember=Mit Mitglied verknüpfen
-LinkedToDolibarrUser=Verknüpfung mit Benutzer
-LinkedToDolibarrThirdParty=Verknüpfung mit Geschäftspartner
-CreateDolibarrLogin=Benutzerkonto erstellen
-CreateDolibarrThirdParty=Neuen Geschäftspartner erstellen
-LoginAccountDisableInDolibarr=Benutzerkonto in Dolibarr deaktiviert
-PASSWORDInDolibarr=Passwort in Dolibarr geändert
+LinkedToOnLiMember=Mit Mitglied verknüpfen
+LinkedToOnLiUser=Verknüpfung mit Benutzer
+LinkedToOnLiThirdParty=Verknüpfung mit Geschäftspartner
+CreateOnLiLogin=Benutzerkonto erstellen
+CreateOnLiThirdParty=Neuen Geschäftspartner erstellen
+LoginAccountDisableInOnLi=Benutzerkonto in OnLi deaktiviert
+PASSWORDInOnLi=Passwort in OnLi geändert
 UsePersonalValue=Eigenen Wert verwenden
 ExportDataset_user_1=Benutzer und -eigenschaften
 ExportDataset_user_2=Liste von Sicherheitsereignissen

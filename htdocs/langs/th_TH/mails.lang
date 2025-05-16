@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - mails
+# OnLi language file - Source file is en_US - mails
 Mailing=การส่งอีเมล
 EMailing=การส่งอีเมล
 EMailings=Mass EMails
@@ -99,7 +99,7 @@ MailingModuleDescContactsByCategory=ผู้ติดต่อตามหม�
 MailingModuleDescContactsByFunction=ติดต่อตามตำแหน่ง
 MailingModuleDescEmailsFromFile=อีเมล์จากไฟล์
 MailingModuleDescEmailsFromUser=อีเมลที่ป้อนโดยผู้ใช้
-MailingModuleDescDolibarrUsers=ผู้ใช้ที่มีอีเมล
+MailingModuleDescOnLiUsers=ผู้ใช้ที่มีอีเมล
 MailingModuleDescThirdPartiesByCategories=บุคคลที่สาม
 SendingFromWebInterfaceIsNotAllowed=ไม่อนุญาตให้ส่งจากเว็บอินเตอร์เฟส
 EmailCollectorFilterDesc=ตัวกรองทั้งหมดต้องตรงกันจึงจะรวบรวมอีเมลได้<br>คุณสามารถใช้อักขระ "!" ได้ ก่อนค่าสตริงการค้นหา หากคุณต้องการการทดสอบเชิงลบ

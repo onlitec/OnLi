@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - products
+# OnLi language file - Source file is en_US - products
 ProductRef=Məhsul ref.
 ProductLabel=Məhsul etiketi
 ProductLabelTranslated=Tərcümə edilmiş məhsul etiketi
@@ -297,7 +297,7 @@ MinSupplierPrice=Minimum alış qiyməti
 MinCustomerPrice=Minimum satış qiyməti
 NoDynamicPrice=Dinamik qiymət yoxdur
 DynamicPriceConfiguration=Dinamik qiymət konfiqurasiyası
-DynamicPriceDesc=Müştəri və ya Satıcı qiymətlərini hesablamaq üçün riyazi düsturlar təyin edə bilərsiniz. Belə düsturlar bütün riyazi operatorlardan, bəzi sabitlərdən və dəyişənlərdən istifadə edə bilər. Burada istifadə etmək istədiyiniz dəyişənləri təyin edə bilərsiniz. Dəyişən avtomatik yeniləməyə ehtiyac duyarsa, Dolibarr-a dəyəri avtomatik yeniləməyə icazə vermək üçün xarici URL təyin edə bilərsiniz.
+DynamicPriceDesc=Müştəri və ya Satıcı qiymətlərini hesablamaq üçün riyazi düsturlar təyin edə bilərsiniz. Belə düsturlar bütün riyazi operatorlardan, bəzi sabitlərdən və dəyişənlərdən istifadə edə bilər. Burada istifadə etmək istədiyiniz dəyişənləri təyin edə bilərsiniz. Dəyişən avtomatik yeniləməyə ehtiyac duyarsa, OnLi-a dəyəri avtomatik yeniləməyə icazə vermək üçün xarici URL təyin edə bilərsiniz.
 AddVariable=Dəyişən əlavə edin
 AddUpdater=Yeniləyici əlavə edin
 GlobalVariables=Qlobal dəyişənlər
@@ -385,7 +385,7 @@ NewProductAttribute=Yeni atribut
 NewProductAttributeValue=Yeni atribut dəyəri
 ErrorCreatingProductAttributeValue=Atribut dəyərini yaratarkən xəta baş verdi. Bu, həmin istinadla artıq mövcud dəyər olduğuna görə ola bilər
 ProductCombinationGeneratorWarning=Davam etsəniz, yeni variantlar yaratmazdan əvvəl bütün əvvəlkilər SİLİNƏCƏK. Artıq mövcud olanlar yeni dəyərlərlə yenilənəcək
-TooMuchCombinationsWarning=Çoxlu variantların yaradılması yüksək CPU, yaddaş istifadəsi və Dolibarrın onları yarada bilməməsi ilə nəticələnə bilər. "%s" seçimini aktivləşdirmək yaddaş istifadəsini azaltmağa kömək edə bilər.
+TooMuchCombinationsWarning=Çoxlu variantların yaradılması yüksək CPU, yaddaş istifadəsi və OnLiın onları yarada bilməməsi ilə nəticələnə bilər. "%s" seçimini aktivləşdirmək yaddaş istifadəsini azaltmağa kömək edə bilər.
 DoNotRemovePreviousCombinations=Əvvəlki variantları silməyin
 UsePercentageVariations=Faiz dəyişikliklərindən istifadə edin
 PercentageVariation=Faiz dəyişikliyi

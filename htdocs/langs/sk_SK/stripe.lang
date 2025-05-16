@@ -1,8 +1,8 @@
-# Dolibarr language file - Source file is en_US - stripe
+# OnLi language file - Source file is en_US - stripe
 StripeSetup=Nastavenie prúžkového modulu
-StripeDesc=Ponúknite svojim zákazníkom online platobnú stránku pre platby kreditnými/debetnými kartami cez <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a>. Môžete to použiť, aby ste svojim zákazníkom umožnili uskutočňovať ad-hoc platby alebo platby súvisiace s konkrétnym objektom Dolibarr (faktúra, objednávka, ...)
+StripeDesc=Ponúknite svojim zákazníkom online platobnú stránku pre platby kreditnými/debetnými kartami cez <a href="https://www.stripe.com" target="_blank" rel="noopener noreferrer external">Stripe</a>. Môžete to použiť, aby ste svojim zákazníkom umožnili uskutočňovať ad-hoc platby alebo platby súvisiace s konkrétnym objektom OnLi (faktúra, objednávka, ...)
 StripeOrCBDoPayment=Plaťte kreditnou kartou alebo Stripe
-FollowingUrlAreAvailableToMakePayments=Nasledovné adresy URL sú k dispozícii ponúknuť stránky na zákazníka, aby platbu na Dolibarr objektov
+FollowingUrlAreAvailableToMakePayments=Nasledovné adresy URL sú k dispozícii ponúknuť stránky na zákazníka, aby platbu na OnLi objektov
 PaymentForm=Platba formulár
 WelcomeOnPaymentPage=Vitajte v našej online platobnej službe
 ThisScreenAllowsYouToPay=Táto obrazovka vám umožní vykonať on-line platbu %s.
@@ -23,7 +23,7 @@ ToOfferALinkForOnlinePaymentOnFreeAmount=Adresa URL, ktorá ponúka %s stránku 
 ToOfferALinkForOnlinePaymentOnMemberSubscription=Adresa URL, ktorá ponúka %s online platobnú stránku pre členské predplatné
 ToOfferALinkForOnlinePaymentOnDonation=Adresa URL, ktorá ponúka %s stránku online platieb na platbu daru
 YouCanAddTagOnUrl=You can also add url parameter <b>&tag=value</b> to any of those URL (mandatory only for payment not linked to an object) to add your own payment comment tag.<br>For the URL of payments with no existing object, you may also add the parameter <strong>&noidempotency=1</strong> so the same link with same tag can be used several times (some payment mode may limit the payment to 1 for each different link without this parameter)
-YouCanEmbedOnWebsite=If you want to integrate the payment page into a Dolibarr website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
+YouCanEmbedOnWebsite=If you want to integrate the payment page into a OnLi website, you can include the parameter: <b>&ws=website_ref</b>.<br>Additionally, two pages named <b>paymentok</b> and <b>paymentko</b> must be created in the website to receive the redirect after a successful of failed online payment.
 SetupStripeToHavePaymentCreatedAutomatically=Nastavte svoj Stripe pomocou adresy URL <b>%s</b>, kedy sa platba vytvorí automaticky potvrdené spoločnosťou Stripe.
 AccountParameter=Parametre účtu
 UsageParameter=Používanie parametrov

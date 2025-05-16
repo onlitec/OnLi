@@ -65,7 +65,7 @@ if ($contact->socid) {
 $v = new vCard();
 $v->setProdId('OnLi '.DOL_VERSION);
 
-$v->setUid('DOLIBARR-CONTACTID-'.$contact->id);
+$v->setUid('ONLI-CONTACTID-'.$contact->id);
 $v->setName($contact->lastname, $contact->firstname, "", $contact->civility, "");
 $v->setFormattedName($contact->getFullName($langs, 1));
 

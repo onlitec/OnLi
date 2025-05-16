@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Управление приемом поставщика (создание приемных документов)
 ReceptionsSetup=Настройка приема поставщиков
 RefReception=Ссылка поступление
@@ -49,9 +49,9 @@ ReceptionsNumberingModules=Модуль нумерации поступлени�
 ReceptionsReceiptModel=Шаблоны документов для поступления
 NoMorePredefinedProductToDispatch=Больше нет готовых продуктов для отправки
 ReceptionExist=Поступление существует
-ReceptionBackToDraftInDolibarr=Прием %s обратно в черновик
-ReceptionClassifyClosedInDolibarr=Прием %s классифицировано Закрыто
-ReceptionUnClassifyCloseddInDolibarr=Прием %s повторно открыт
+ReceptionBackToDraftInOnLi=Прием %s обратно в черновик
+ReceptionClassifyClosedInOnLi=Прием %s классифицировано Закрыто
+ReceptionUnClassifyCloseddInOnLi=Прием %s повторно открыт
 RestoreWithCurrentQtySaved=Fill quantities with latest saved values
 ReceptionsRecorded=Receptions recorded
 ReceptionUpdated=Reception successfully updated

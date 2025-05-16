@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - receptions
+# OnLi language file - Source file is en_US - receptions
 ReceptionDescription=Gestion de l'accueil des fournisseurs (Création des documents d'accueil)
 RefReception=Ref. réception
 ShowReception=Montrer les réceptions
@@ -23,6 +23,6 @@ ProductQtyInReceptionAlreadySent=Quantité de produit de la commande client en c
 ProductQtyInSuppliersReceptionAlreadyRecevied=Quantité de produit de la commande fournisseur ouverte déjà reçue
 ReceptionsNumberingModules=Module de numérotation pour réceptions
 ReceptionsReceiptModel=Modèles de documents pour les réceptions
-ReceptionBackToDraftInDolibarr=Réception %s retour au brouillon
-ReceptionUnClassifyCloseddInDolibarr=Réouverture de la réception %s
+ReceptionBackToDraftInOnLi=Réception %s retour au brouillon
+ReceptionUnClassifyCloseddInOnLi=Réouverture de la réception %s
 ReceptionDistribution=Répartition de la réception

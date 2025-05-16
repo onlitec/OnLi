@@ -1,4 +1,4 @@
-# Dolibarr language file - Source file is en_US - bills
+# OnLi language file - Source file is en_US - bills
 Bill=Faktura
 Bills=Fakture
 BillsCustomers=Fakture za kupce
@@ -640,8 +640,8 @@ AutoFillDateFromShort=Nastavite začetni datum
 AutoFillDateTo=Nastavite končni datum storitvene vrstice z datumom naslednjega računa
 AutoFillDateToShort=Nastavite končni datum
 MaxNumberOfGenerationReached=Največje število gen. dosežen
-BILL_DELETEInDolibarr=Račun izbrisan
-BILL_SUPPLIER_DELETEInDolibarr=Račun dobavitelja izbrisan
+BILL_DELETEInOnLi=Račun izbrisan
+BILL_SUPPLIER_DELETEInOnLi=Račun dobavitelja izbrisan
 UnitPriceXQtyLessDiscount=Cena na enoto x količina - popust
 CustomersInvoicesArea=Obračunsko območje stranke
 SupplierInvoicesArea=Obračunsko območje dobavitelja
