@@ -1,7 +1,7 @@
 # OnLi language file - Source file is en_US - mailmanspip
 MailmanSpipSetup=Configuração do módulo Mailman e SPIP
 MailmanTitle=Sistema de envio em massa Mailman
-TestSubscribe=Para testar a inscriçao nas listas Mailman
+TestSubscribe=Para testar a inscrição nas listas Mailman
 TestUnSubscribe=Para testa a desenscriçao das listas do Mailman
 MailmanCreationSuccess=O teste da assinatura foi realizado com sucesso
 MailmanDeletionSuccess=O teste de cancelamento da assinatura foi realizado com sucesso
@@ -9,7 +9,7 @@ SynchroMailManEnabled=O Mailman sera atualizado
 SynchroSpipEnabled=O SPIP sera atualizado
 DescADHERENT_MAILMAN_URL=URL para inscriçoes Mailman
 DescADHERENT_MAILMAN_UNSUB_URL=URL para desenscriçoes Mailman
-DescADHERENT_MAILMAN_LISTS=Lista(s) para inscriçao automatica de novos membros (separado por virgula)
+DescADHERENT_MAILMAN_LISTS=Lista(s) para inscrição automática de novos membros (separado por vírgula)
 SPIPTitle=Gerenciamento do conteudo do sistema SPIP
 DescADHERENT_SPIP_DB=Nome do banco de dados SPIP
 DescADHERENT_SPIP_USER=Login do banco de dados SPIP

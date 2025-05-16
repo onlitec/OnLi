@@ -1,13 +1,13 @@
 # OnLi language file - Source file is en_US - interventions
-InterventionCard=Ficha de Intervenção
-NewIntervention=Nova Intervenção
-AddIntervention=Criar Intervenção
+InterventionCard=Ficha de Atendimento
+NewIntervention=Novo Atendimento
+AddIntervention=Criar Atendimento
 ChangeIntoRepeatableIntervention=Mudança para intervenção repetível
 ActionsOnFicheInter=Açoes na intervençao
 InterventionContact=Contato Intervenção
 ValidateIntervention=Confirmar Intervenção
 ModifyIntervention=Modificar intervençao
-ConfirmDeleteIntervention=Você tem certeza que deseja excluir esta intervenção?
+ConfirmDeleteIntervention=Você tem certeza que deseja excluir este atendimento?
 ConfirmValidateIntervention=Você tem certeza que deseja validar esta intervenção sob o nome <b>%s</b>?
 ConfirmModifyIntervention=Você tem certeza que deseja modificar esta intervenção?
 ConfirmDeleteInterventionLine=Você tem certeza que deseja excluir esta linha de intervenção?

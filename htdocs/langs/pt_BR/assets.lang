@@ -1,5 +1,5 @@
 # OnLi language file - Source file is en_US - assets
-DeleteAnAssetType=Excluir um tipo de recurso
-ConfirmDeleteAssetType=Tem certeza de que deseja excluir este tipo de recurso?
-AssetsTypeId=Id Tipo de ativo
-AssetsTypeLabel=Rótulo do tipo de ativo
+DeleteAnAssetType=Excluir um tipo de ativo
+ConfirmDeleteAssetType=Tem certeza de que deseja excluir este tipo de ativo?
+AssetsTypeId=ID do tipo de ativo
+AssetsTypeLabel=Nome do tipo de ativo

@@ -1,9 +1,9 @@
 # OnLi language file - Source file is en_US - cron
-Permission23101 =Leia trabalho Programado
-Permission23102 =Criar / atualização de tarefa agendada
-Permission23103 =Excluir trabalho agendado
-Permission23104 =Executar trabalho agendado
-CronSetup=Configuração do gerenciamento de trabalho agendado
+Permission23101 =Leia tarefas agendadas
+Permission23102 =Criar / atualizar tarefas agendadas
+Permission23103 =Excluir tarefas agendadas
+Permission23104 =Executar tarefas agendadas
+CronSetup=Configuração do gerenciamento de tarefas agendadas
 URLToLaunchCronJobs=URL para verificar e iniciar tarefas cron qualificadas a partir de um navegador
 OrToLaunchASpecificJob=Ou para verificar e iniciar um trabalho específico a partir de um navegador
 KeyForCronAccess=Chave seguranca para URL que lanca tarefas cron
@@ -16,9 +16,9 @@ CronLastOutput=Saída da última execução
 CronLastResult=Código do último resultado
 CronList=As tarefas agendadas
 CronDelete=Excluir tarefas agendadas
-CronConfirmDelete=Você tem certeza que deseja excluir esses cron jobs agendados?
+CronConfirmDelete=Você tem certeza que deseja excluir essas tarefas agendadas?
 CronConfirmExecute=Você tem certeza que deseja executar agora estas tarefas agendadas?
-CronInfo=O módulo de Tarefa Agendada permite agendar tarefas para executá-las automaticamente. As tarefas também podem ser iniciadas manualmente.
+CronInfo=O módulo de Tarefa Agendada permite agendar tarefas para executá-las automáticamente. As tarefas também podem ser iniciadas manualmente.
 CronDtEnd=Não depois
 CronDtNextLaunch=Próxima execução
 CronNoJobs=Nenhuma tarefa registrada

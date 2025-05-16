@@ -167,7 +167,7 @@ $conffiletoshow = "htdocs/conf/conf.php";
 
 // Include configuration
 // @phpstan-ignore-next-line
-$result = @include_once $conffile; // Keep @ because with some error reporting mode, this breaks the redirect done when file is not found
+$result = @include_once __DIR__ . '/' . $conffile; // Use absolute path to htdocs/conf/conf.php
 
 // Defino constante PHP MAIN_LANG_DEFAULT com valor do conf.php, para forçar idioma padrão
 if (!defined('MAIN_LANG_DEFAULT') && !empty($onli_main_lang_default)) {

@@ -229,7 +229,9 @@ if ($db !== null) {
 }
 
 // Force default language sempre a partir da constante MAIN_LANG_DEFAULT
-$langs->setDefaultLang(constant('MAIN_LANG_DEFAULT'));
+if (!defined('NOREQUIRETRAN')) {
+	$langs->setDefaultLang(constant('MAIN_LANG_DEFAULT'));
+}
 
 // Create object $mysoc (A thirdparty object that contains properties of companies managed by OnLi.
 if (!defined('NOREQUIREDB') && !defined('NOREQUIRESOC') && $db != null) {

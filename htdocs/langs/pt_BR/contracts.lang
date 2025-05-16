@@ -1,6 +1,6 @@
 # OnLi language file - Source file is en_US - contracts
-ContractStatusNotRunning=Fora de vigência
-ServiceStatusInitial=Fora de vigência
+ContractStatusNotRunning=Inativo
+ServiceStatusInitial=Inativo
 ServiceStatusRunning=Em vigência
 ServiceStatusNotLate=Em vigência, não vencido
 ServiceStatusNotLateShort=Não vencido
@@ -49,7 +49,7 @@ ConfirmDeleteContractLine=Você tem certeza que deseja excluir esta linha do con
 MoveToAnotherContract=Mover o serviço a outro contrato deste Fornecedor.
 ConfirmMoveToAnotherContract=Escolhi o contrato e confirmo o alterar de serviço ao presente contrato.
 ConfirmMoveToAnotherContractQuestion=Escolher para qual contrato existente (do mesmo terceiro) você deseja mover este serviço.
-NoExpiredServices=Nao tem servicos ativos vencidos
+NoExpiredServices=Não tem servicos ativos vencidos
 ListOfServicesToExpireWithDuration=Lista de servicos a vencer em %s dias
 ListOfServicesToExpireWithDurationNeg=Lista de serviços expirados a mais de %s dias
 ListOfServicesToExpire=Lista de servicos a vencer
