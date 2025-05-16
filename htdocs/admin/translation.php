@@ -53,12 +53,7 @@ $mode = GETPOST('mode', 'aZ09') ? GETPOST('mode', 'aZ09') : 'searchkey';
 
 $langcode = GETPOST('langcode', 'alphanohtml');
 $transkey = GETPOST('transkey', 'alphanohtml');
-if ($mode == 'searchkey') {
-	$transvalue = GETPOST('transvalue', 'alphanohtml');
-} else {
-	$transvalue = GETPOST('transvalue', 'restricthtml');
-}
-
+$transvalue = html_entity_decode(GETPOST('transvalue', 'restricthtml'), ENT_QUOTES, 'UTF-8');
 $entity = $conf->entity;
 if (isModEnabled('multicompany') && !$user->entity) {
 	$entity = GETPOST('entity', 'int');
@@ -153,6 +148,8 @@ if ($action == 'update') {
 			$action = "";
 			$transkey = "";
 			$transvalue = "";
+			// Show override list after saving
+			$mode = 'overwrite';
 		} else {
 			$db->rollback();
 			if ($db->lasterrno() == 'DB_ERROR_RECORD_ALREADY_EXISTS') {
@@ -191,6 +188,8 @@ if ($action == 'add') {
 			$action = "";
 			$transkey = "";
 			$transvalue = "";
+			// Show override list after adding
+			$mode = 'overwrite';
 		} else {
 			$db->rollback();
 			if ($db->lasterrno() == 'DB_ERROR_RECORD_ALREADY_EXISTS') {
@@ -369,7 +368,7 @@ if ($mode == 'overwrite') {
 	$infoOnTransProcess .= ' ('.str_replace('{s1}', '<a href="'.$urlwikitranslatordoc.'" target="_blank" rel="noopener noreferrer external">'.$langs->trans("Here").'</a>', $langs->trans("SeeAlso", '{s1}')).')<br>';
 	$infoOnTransProcess .= '<br>';
 	$infoOnTransProcess .= $langs->trans("TranslationOverwriteDesc", $langs->transnoentitiesnoconv("Language"), $langs->transnoentitiesnoconv("TranslationKey"), $langs->transnoentitiesnoconv("NewTranslationStringToShow"))."\n";
-	$infoOnTransProcess .= ' ('.$langs->trans("TranslationOverwriteDesc2").').'."<br>\n";
+	$infoOnTransProcess .= ' ('.$langs->trans("TranslationOverwriteDesc2").').<br>' . "\n";
 	$infoOnTransProcess .= '</span></div>';
 
 	print $infoOnTransProcess;
@@ -410,7 +409,7 @@ if ($mode == 'overwrite') {
 
 	// Value
 	print '<td>';
-	print '<input type="text" class="quatrevingtpercent"'.$disablededit.' name="transvalue" id="transvalue" value="'.(!empty($transvalue) ? $transvalue : "").'">';
+	print '<input type="text" class="quatrevingtpercent"'.$disablededit.' name="transvalue" id="transvalue" value="'.htmlspecialchars(!empty($transvalue) ? $transvalue : "", ENT_QUOTES, 'UTF-8').'">';
 	print '</td>';
 
 	// Multi company
@@ -441,20 +440,21 @@ if ($mode == 'overwrite') {
 
 		while ($i < $num) {
 			$obj = $db->fetch_object($result);
+			$obj->transvalue = html_entity_decode($obj->transvalue, ENT_QUOTES, 'UTF-8');
 
 			print "\n";
 
 			print '<tr class="oddeven">';
 
 			// Lang
-			print '<td>'.dol_escape_htmltag($obj->lang).'</td>'."\n";
+			print '<td>'.htmlspecialchars($obj->lang, ENT_QUOTES, 'UTF-8').'</td>'."\n";
 
 			// Trans key
 			print '<td>';
 			if ($action == 'edit' && $obj->rowid == GETPOSTINT('rowid')) {
-				print '<input type="text" class="quatrevingtpercent" name="transkey" value="'.dol_escape_htmltag($obj->transkey).'">';
+				print '<input type="text" class="quatrevingtpercent" name="transkey" value="'.htmlspecialchars($obj->transkey, ENT_QUOTES, 'UTF-8').'">';
 			} else {
-				print dol_escape_htmltag($obj->transkey);
+				print htmlspecialchars($obj->transkey, ENT_QUOTES, 'UTF-8');
 			}
 			print '</td>'."\n";
 
@@ -463,18 +463,18 @@ if ($mode == 'overwrite') {
 			/*print '<input type="hidden" name="const['.$i.'][rowid]" value="'.$obj->rowid.'">';
 			print '<input type="hidden" name="const['.$i.'][lang]" value="'.$obj->lang.'">';
 			print '<input type="hidden" name="const['.$i.'][name]" value="'.$obj->transkey.'">';
-			print '<input type="text" id="value_'.$i.'" class="flat inputforupdate" size="30" name="const['.$i.'][value]" value="'.dol_escape_htmltag($obj->transvalue).'">';
+			print '<input type="text" id="value_'.$i.'" class="flat inputforupdate" size="30" name="const['.$i.'][value]" value="'.htmlspecialchars($obj->transvalue, ENT_QUOTES, 'UTF-8').'">';
 			*/
 			if ($action == 'edit' && $obj->rowid == GETPOSTINT('rowid')) {
-				print '<input type="text" class="quatrevingtpercent" name="transvalue" value="'.dol_escape_htmltag($obj->transvalue).'">';
+				print '<input type="text" class="quatrevingtpercent" name="transvalue" value="'.htmlspecialchars($obj->transvalue, ENT_QUOTES, 'UTF-8').'">';
 			} else {
 				//print $obj->transkey.' '.$langsenfileonly->tab_translate[$obj->transkey];
 				$titleforvalue = $langs->trans("Translation").' en_US for key '.$obj->transkey.':<br>'.(!empty($langsenfileonly->tab_translate[$obj->transkey]) ? $langsenfileonly->trans($obj->transkey) : '<span class="opacitymedium">'.$langs->trans("None").'</span>');
 				/*if ($obj->lang != 'en_US') {
 					$titleforvalue .= '<br>'.$langs->trans("Translation").' '.$obj->lang.' '...;
 				}*/
-				print '<span title="'.dol_escape_htmltag($titleforvalue).'" class="classfortooltip">';
-				print dol_escape_htmltag($obj->transvalue);
+				print '<span title="'.htmlspecialchars($titleforvalue, ENT_QUOTES, 'UTF-8').'" class="classfortooltip">';
+				print htmlspecialchars($obj->transvalue, ENT_QUOTES, 'UTF-8');
 				print '</span>';
 			}
 			print '</td>';
@@ -485,7 +485,7 @@ if ($mode == 'overwrite') {
 				if ($action == 'edit' && $obj->rowid == GETPOSTINT('rowid')) {
 					print '<input type="text" class="flat" size="1" name="entity" value="' . ((int) $obj->entity) . '">';
 				} else {
-					print dol_escape_htmltag($obj->entity);
+					print htmlspecialchars($obj->entity, ENT_QUOTES, 'UTF-8');
 				}
 				print '</td>';
 			} else {
@@ -495,9 +495,9 @@ if ($mode == 'overwrite') {
 			print '<td class="center">';
 			if ($action == 'edit' && $obj->rowid == GETPOSTINT('rowid')) {
 				print '<input type="hidden" class="button" name="rowid" value="'.$obj->rowid.'">';
-				print '<input type="submit" class="button buttongen button-save" name="save" value="'.dol_escape_htmltag($langs->trans("Save")).'">';
+				print '<input type="submit" class="button buttongen button-save" name="save" value="'.htmlspecialchars($langs->trans("Save"), ENT_QUOTES, 'UTF-8').'">';
 				print ' &nbsp; ';
-				print '<input type="submit" class="button buttongen button-cancel" name="cancel" value="'.dol_escape_htmltag($langs->trans("Cancel")).'">';
+				print '<input type="submit" class="button buttongen button-cancel" name="cancel" value="'.htmlspecialchars($langs->trans("Cancel"), ENT_QUOTES, 'UTF-8').'">';
 			} else {
 				print '<a class="reposition editfielda paddingrightonly" href="'.$_SERVER['PHP_SELF'].'?rowid='.$obj->rowid.'&entity='.$obj->entity.'&mode='.urlencode($mode).'&action=edit&token='.newToken().'">'.img_edit().'</a>';
 				print ' &nbsp; ';
@@ -560,7 +560,7 @@ if ($mode == 'searchkey') {
 	//print 'param='.$param.' $_SERVER["PHP_SELF"]='.$_SERVER["PHP_SELF"].' num='.$num.' page='.$page.' nbtotalofrecords='.$nbtotalofrecords." sortfield=".$sortfield." sortorder=".$sortorder;
 	$title = $langs->trans("Translation");
 	if ($nbtotalofrecords > 0) {
-		$title .= ' <span class="opacitymedium colorblack paddingleft">('.$nbtotalofrecords.' / '.$nbtotalofrecordswithoutfilters.' - <span title="'.dol_escape_htmltag(($nbtotaloffiles - $nbtotaloffilesexternal).' core - '.($nbtotaloffilesexternal).' external').'">'.$nbtotaloffiles.' '.$langs->trans("Files").'</span>)</span>';
+		$title .= ' <span class="opacitymedium colorblack paddingleft">('.$nbtotalofrecords.' / '.$nbtotalofrecordswithoutfilters.' - <span title="'.htmlspecialchars(($nbtotaloffiles - $nbtotaloffilesexternal).' core - '.($nbtotaloffilesexternal).' external', ENT_QUOTES, 'UTF-8').'">'.$nbtotaloffiles.' '.$langs->trans("Files").'</span>)</span>';
 	}
 	print_barre_liste($title, $page, $_SERVER["PHP_SELF"], $param, $sortfield, $sortorder, '', $num, -1 * $nbtotalofrecords, '', 0, '', '', $limit, 0, 0, 1);
 
@@ -576,9 +576,9 @@ if ($mode == 'searchkey') {
 	print $formadmin->select_language($langcode, 'langcode', 0, array(), 0, 0, 0, 'minwidth100 maxwidth250', 1);
 	print '</td>'."\n";
 	print '<td>';
-	print '<input type="text" class="flat maxwidthonsmartphone" name="transkey" value="'.dol_escape_htmltag($transkey).'">';
+	print '<input type="text" class="flat maxwidthonsmartphone" name="transkey" value="'.htmlspecialchars($transkey, ENT_QUOTES, 'UTF-8').'">';
 	print '</td><td>';
-	print '<input type="text" class="quatrevingtpercent" name="transvalue" value="'.dol_escape_htmltag($transvalue).'">';
+	print '<input type="text" class="quatrevingtpercent" name="transvalue" value="'.htmlspecialchars($transvalue, ENT_QUOTES, 'UTF-8').'">';
 	// Limit to superadmin
 	/*if (isModEnabled('multicompany') && !$user->entity)
 	{
@@ -629,9 +629,9 @@ if ($mode == 'searchkey') {
 		if ($limit && $i > ($offset + $limit)) {
 			break;
 		}
-		print '<tr class="oddeven"><td>'.dolPrintHTML($langcode).'</td>';
+		print '<tr class="oddeven"><td>'.htmlspecialchars($langcode, ENT_QUOTES, 'UTF-8').'</td>';
 		// Key
-		print '<td class="" title="'.dolPrintHTMLForAttribute($key).'">'.dolPrintHTML($key).'</td>';
+		print '<td class="" title="'.htmlspecialchars($key, ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars($key, ENT_QUOTES, 'UTF-8').'</td>';
 		print '<td class="tdoverflowmax300 small">';
 		$titleforvalue = $langs->trans("Translation").' en_US for key '.$key.':<br>';
 		if (!empty($langsenfileonly->tab_translate[$key])) {
@@ -641,8 +641,8 @@ if ($mode == 'searchkey') {
 		} else {
 			$titleforvalue .= '<span class="opacitymedium">'.$langs->trans("None").'</span>';
 		}
-		print '<span title="'.dolPrintHTMLForAttribute($titleforvalue).'" class="classfortooltip">';
-		print dolPrintHTML($val);
+		print '<span title="'.htmlspecialchars($titleforvalue, ENT_QUOTES, 'UTF-8').'" class="classfortooltip">';
+		print htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
 		if (substr_count($langsenfileonly->tab_translate[$key], '%s') > 4) {
 			print '<br><div class="warning">Error, more than 4 %s in the source</div>';
 		}

@@ -164,3 +164,5 @@ ParentProduct=Produto principal
 ProductsPricePerCustomer=Preços do produto por cliente
 ProductSupplierExtraFields=Atributos adicionais (preços de fornecedores)
 DeleteLinkedProduct=Excluir o produto componente vinculado à combinação
+CustomsNomenclature=Nomenclatura aduaneira
+CustomsNomenclatureHelp=Preencha o código da nomenclatura aduaneira (NCM/SH) do produto para fins fiscais e alfandegários.
