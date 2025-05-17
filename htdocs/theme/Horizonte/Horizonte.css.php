@@ -2,6 +2,8 @@
 /* OnLi Horizonte Theme - Horizonte Theme */
 /* Removendo o Bootstrap para evitar conflitos de CSS */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+/* Import FontAwesome so icons render correctly */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
 /* Reset e estilos base - versão mais leve */
 body {
@@ -11,11 +13,51 @@ body {
 }
 
 body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+/* Modern theme custom properties */
+:root {
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-secondary: #06b6d4;
+    --color-accent: #f59e0b;
+    --color-bg: #f3f4f6;
+    --color-text: #1f2937;
+    --horizonte-header-height: 4rem;
+}
+
+/* Adiciono regras de layout e container após o :root */
+/* Layout geral: containers e colunas */
+#id-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 5rem !important;
+}
+#id-left {
+    flex: 0 0 250px;
+}
+#id-right {
+    flex: 1;
+}
+/* Container principal centralizado */
+.page-container, main, .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+/* Ajuste de imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Corrigindo cores e contrastes */
@@ -96,18 +138,40 @@ input, select, textarea {
 }
 
 /* Estilos para o menu principal */
-.tmenudiv {
-    background-color: #fff !important;
-    border-bottom: 1px solid #dee2e6;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.tmenudiv, .tmenudiv ul {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+}
+.tmenudiv ul li {
+    margin: 0 1rem 0 0;
 }
 
-.tmenu {
-    display: table !important;
-    background-color: transparent !important;
+.tmenudiv {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 1rem 1rem !important;
+    min-height: 4rem !important;
+    background-color: var(--color-primary) !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+    height: var(--horizonte-header-height) !important;
+}
+.tmenu a, .tmenu span {
+    color: #fff !important;
+    margin-right: 1rem;
+    text-decoration: none;
+    font-weight: 500;
     padding: 0.5rem 1rem;
-    width: 100%;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+}
+.tmenu a:hover {
+    background-color: var(--color-primary-dark) !important;
 }
 
 /* Estilos para a área inicial */
@@ -230,23 +294,40 @@ table.liste thead th {
     font-size: 14px;
     color: #6c757d;
 }
-.tmenu a, .tmenu span {
-    color: #212529;
-    margin-right: 1rem;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
+
+/* Buttons */
+.btn, button, input[type="submit"], .butaction {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-secondary) !important;
+    color: #fff !important;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     transition: background-color 0.2s;
-    display: inline-block;
 }
-.tmenu a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: #007bff;
+.btn:hover, button:hover, .butaction:hover {
+    background-color: #0284c7 !important;
 }
-.tmenu a.tmenusel {
-    background-color: rgba(255,255,255,0.2);
-    color: #007bff;
+
+/* Sidebar vmenu modern */
+.vmenu {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem !important;
+}
+.vmenu a, .vmenu span {
+    display: block;
+    color: var(--color-text) !important;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+}
+.vmenu a:hover, .vmenu span:hover {
+    background-color: var(--color-bg) !important;
 }
 
 /* Estilos para dashboard e tabelas de configuração */
@@ -393,4 +474,87 @@ form {
 .error {
     background-color: #f8d7da;
     color: #721c24;
+}
+
+/* Horizontal menu for getmenudiv (mobile/tablet menu) */
+body.getmenudiv ul {
+    display: flex !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.getmenudiv li {
+    margin: 0 1rem 0 0 !important;
+    padding: 0 !important;
+}
+body.getmenudiv li a, body.getmenudiv li span {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.5rem 0 !important;
+}
+
+/* Ajustes personalizados de menu superior e menu esquerdo */
+.tmenudiv ul li {
+    flex: 0 0 auto !important;
+}
+.tmenudiv ul li a, .tmenudiv ul li span {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.tmenudiv {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+}
+/* Ajuste do bloco de login/versão no topo */
+.login_block, .login_block_other {
+    margin-top: 0 !important;
+    background-color: var(--color-primary) !important;
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.25rem 1rem !important;
+}
+/* Reduzindo espaçamento do menu esquerdo */
+.vmenu {
+    padding: 0.25rem 1rem !important;
+}
+
+/* Full width override para menu superior */
+body > .tmenudiv {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0.5rem 1rem !important;
+    background-color: var(--color-primary) !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+}
+/* Ajusta conteúdo principal para não ficar sob o menu */
+#id-container {
+    margin-top: 5rem !important;
+}
+
+/* Posiciona login_block no canto superior direito */
+.login_block.usedropdown {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    background-color: var(--color-primary) !important;
+    z-index: 1001 !important;
+    padding: 0.75rem 1rem !important;
+    min-height: 3rem !important;
+    height: var(--horizonte-header-height) !important;
+}
+.login_block.usedropdown .login_block_tools,
+.login_block.usedropdown .login_block_other,
+.login_block.usedropdown .login_block_user {
+    display: inline-flex !important;
+    align-items: center !important;
 }

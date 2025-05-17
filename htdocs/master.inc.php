@@ -102,7 +102,6 @@ $conf->file->strict_mode = empty($onli_strict_mode) ? '' : $onli_strict_mode; //
 $conf->file->instance_unique_id = empty($onli_main_instance_unique_id) ? (empty($onli_main_cookie_cryptkey) ? '' : $onli_main_cookie_cryptkey) : $onli_main_instance_unique_id; // Unique id of instance
 $conf->file->onli_main_url_root = $onli_main_url_root;	// Define url inside the config file
 $conf->file->onli_document_root = array('main' => (string) DOL_DOCUMENT_ROOT); // Define an array of document root directories ('/home/htdocs')
-$conf->file->dol_document_root = $conf->file->onli_document_root;
 $conf->file->onli_url_root = array('main' => (string) DOL_URL_ROOT); // Define an array of url root path ('' or '/onli')
 if (!empty($onli_main_document_root_alt)) {
 	// onli_main_document_root_alt can contains several directories
@@ -132,6 +131,9 @@ if (!empty($onli_main_document_root_alt)) {
 		$conf->file->onli_url_root['alt'.($i++)] = (string) $value;
 	}
 }
+
+// Atualiza dol_document_root para incluir alt directories (módulos custom)
+$conf->file->dol_document_root = $conf->file->onli_document_root;
 
 // Load the main includes of common libraries
 if (!defined('NOREQUIREUSER')) {
