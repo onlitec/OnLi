@@ -1,0 +1,29 @@
+# Traduções do módulo LayoutConfig (pt_BR)
+
+LayoutConfig=Configuração de Layout
+Settings=Configurações
+SettingsSaved=Configurações salvas com sucesso
+Colors=Cores
+Dimensions=Dimensões
+Presets=Presets
+ImportExport=Importar/Exportar
+ColorPrimary=Cor Primária
+ColorPrimaryDark=Cor Primária Escura
+ColorSecondary=Cor Secundária
+ColorAccent=Cor de Destaque
+ColorBackground=Cor de Fundo
+ColorText=Cor do Texto
+HeaderHeight=Altura do Header
+ContainerMaxWidth=Largura Máxima do Container
+PresetSelect=Selecionar Preset
+DefaultPreset=Padrão
+SavePreset=Salvar Preset
+ApplyPreset=Aplicar Preset
+DeletePreset=Excluir Preset
+ExportPresets=Exportar Presets
+ImportPresets=Importar Presets
+PresetName=Nome do Preset
+InvalidJSON=JSON inválido
+PresetsImported=Presets importados com sucesso
+ExportPlaceholder=JSON de Exportação
+ImportPlaceholder=Cole JSON para Importar 

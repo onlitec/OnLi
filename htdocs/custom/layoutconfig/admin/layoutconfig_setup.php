@@ -1,0 +1,116 @@
+<?php
+require_once __DIR__ . /../lib/layoutconfig.lib.php;
+require '../../../main.inc.php';
+
+if (!$user->admin) accessforbidden();
+$langs->load('layoutconfig@layoutconfig');
+
+$action = GETPOST('action', 'alpha');
+if ($action === 'save') {
+    // TODO: salvar configurações via AJAX ou post
+    setEventMessage($langs->trans('SettingsSaved'), 'mesgs');
+    header('Location: '.$_SERVER['PHP_SELF']); exit;
+}
+
+// Cabeçalho
+$head = layoutconfigAdminPrepareHead();
+llxHeader('', $langs->trans('LayoutConfig'), '', '', 0, 0, '', '', '', '', '', '', '', $head);
+
+// Adiciona CSS e JS do Pickr e script customizado
+print '<link rel="stylesheet" href="/OnLi/htdocs/custom/layoutconfig/js/pickr/classic.min.css" />';
+print '<script src="/OnLi/htdocs/custom/layoutconfig/js/pickr/pickr.min.js"></script>';
+print '<script src="'.dol_buildpath('/custom/layoutconfig/js/layoutconfig.js',1).'" defer></script>';
+
+dol_fiche_head($head, 'settings', $langs->trans('Settings'), 0, 'layoutconfig@layoutconfig');
+
+print '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
+print '<input type="hidden" name="action" value="save">';
+
+// Interface: guias serão adicionadas posteriormente
+print '<div class="tabBar"><ul>'; 
+print '<li class="tab"><a href="#tab-colors">'.$langs->trans('Colors').'</a></li>';
+print '<li class="tab"><a href="#tab-dimensions">'.$langs->trans('Dimensions').'</a></li>';
+print '<li class="tab"><a href="#tab-presets">'.$langs->trans('Presets').'</a></li>';
+print '<li class="tab"><a href="#tab-importexport">'.$langs->trans('ImportExport').'</a></li>';
+print '</ul></div>';
+
+print '<div id="tab-colors">';
+// UI de Color Pickers
+print '<h3>'.$langs->trans('Colors').'</h3>';
+print '<div id="colors-picker-container">';
+$vars = array(
+    '--color-primary' => 'ColorPrimary',
+    '--color-primary-dark' => 'ColorPrimaryDark',
+    '--color-secondary' => 'ColorSecondary',
+    '--color-accent' => 'ColorAccent',
+    '--color-bg' => 'ColorBackground',
+    '--color-text' => 'ColorText'
+);
+foreach ($vars as $cssVar => $langKey) {
+    print '<div class="form-group">';
+    print '<label for="pickr-'.trim($cssVar,'-').'">'.$langs->trans($langKey).'</label>';
+    print '<button id="pickr-'.trim($cssVar,'-').'" class="pickr-btn" data-var="'.$cssVar.'"></button>';
+    print '</div>';
+}
+print '</div>';
+print '</div>';
+
+print '<div id="tab-dimensions">';
+// UI de Dimensions (Sliders/Inputs)
+print '<h3>'.$langs->trans('Dimensions').'</h3>';
+print '<div id="dimensions-container">';
+$dimVars = array(
+    '--horizonte-header-height' => 'HeaderHeight',
+    '--horizonte-container-maxwidth' => 'ContainerMaxWidth'
+);
+foreach ($dimVars as $cssVar => $langKey) {
+    print '<div class="form-group">';
+    print '<label for="dim-'.trim($cssVar,'-').'">'.$langs->trans($langKey).'</label>';
+    print '<input type="number" id="dim-'.trim($cssVar,'-').'" class="flat dim-input" data-var="'.$cssVar.'" step="0.1" placeholder="" />';
+    print '</div>';
+}
+print '</div>';
+print '</div>';
+
+print '<div id="tab-presets">';
+// UI de Presets
+print '<h3>'.$langs->trans('Presets').'</h3>';
+print '<div id="presets-container">';
+print '<div class="form-group">';
+print '<label for="preset-select">'.$langs->trans('PresetSelect').'</label>';
+print '<select id="preset-select" class="flat">';
+print '<option value="default">'.$langs->trans('DefaultPreset').'</option>';
+print '</select>';
+print '<button type="button" id="apply-preset" class="button">'.$langs->trans('ApplyPreset').'</button>';
+print '<button type="button" id="delete-preset" class="button">'.$langs->trans('DeletePreset').'</button>';
+print '</div>';
+print '<div class="form-group">';
+print '<label for="new-preset-name">'.$langs->trans('PresetName').'</label>';
+print '<input type="text" id="new-preset-name" class="flat" placeholder="'.$langs->trans('PresetName').'" />';
+print '<button type="button" id="save-preset" class="button">'.$langs->trans('SavePreset').'</button>';
+print '</div>';
+print '</div>';
+print '</div>';
+
+print '<div id="tab-importexport">';
+// UI de Import/Export
+print '<h3>'.$langs->trans('ImportExport').'</h3>';
+// Export
+print '<div class="form-group">';
+print '<label>'.$langs->trans('ExportPresets').'</label>';
+print '<textarea id="export-json" readonly rows="5" class="flat" placeholder="'.$langs->trans('ExportPlaceholder').'"></textarea>';
+print '<button type="button" id="btn-export" class="button">'.$langs->trans('ExportPresets').'</button>';
+print '</div>';
+// Import
+print '<div class="form-group">';
+print '<label>'.$langs->trans('ImportPresets').'</label>';
+print '<textarea id="import-json" rows="5" class="flat" placeholder="'.$langs->trans('ImportPlaceholder').'"></textarea>';
+print '<button type="button" id="btn-import" class="button">'.$langs->trans('ImportPresets').'</button>';
+print '</div>';
+print '</div>';
+
+print '<div class="tabsAction"><input type="submit" class="button" value="'.$langs->trans('Save').'" /></div>';
+print '</form>';
+
+llxFooter();
+$db->close(); 

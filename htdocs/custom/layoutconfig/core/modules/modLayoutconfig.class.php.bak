@@ -1,0 +1,46 @@
+<?php
+include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
+/**
+ *  Classe de definição do módulo LayoutConfig
+ */
+class modLayoutconfig extends DolibarrModules
+{
+    public function __construct($db)
+    {
+        parent::__construct($db);
+        $this->numero = 500000;
+        $this->rights_class = 'layoutconfig';
+        $this->family = 'Custom';
+        $this->name = 'layoutconfig';
+        $this->description = 'Módulo para customização de layout do tema Horizonte.';
+        $this->version = '1.0.0';
+        $this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
+        $this->picto = 'layoutconfig@layoutconfig';
+
+        // Páginas de configuração
+        $this->config_page_url = array('layoutconfig_setup.php@layoutconfig');
+
+        // Permissões
+        $r=0;
+        $this->rights[$r][0] = $this->numero+1;
+        $this->rights[$r][1] = 'Admin layoutconfig';
+        $this->rights[$r][2] = 'w';
+        $this->rights[$r][3] = 'layoutconfig_admin';
+        $this->rights[$r][4] = 1;
+
+        // Diretórios a criar no enable
+        $this->dirs = array('/layoutconfig/custom');
+    }
+
+    public function init()
+    {
+        $sql = array();
+        return $this->loadTables();
+    }
+
+    public function remove()
+    {
+        $sql = array();
+        return $this->removeTables();
+    }
+} 
