@@ -24,6 +24,7 @@ DeleteBillOfMaterials=Excluir lista de materiais
 DeleteMo=Excluir ordem de fabricação
 MenuMRP=Ordens de fabricação
 NewMO=Nova ordem de fabricação
+NewWorkstation=Nova estação de trabalho
 QtyToProduce=Qtd. para produzir
 DateStartPlannedMo=Data início planejada
 DateEndPlannedMo=Data final planejada

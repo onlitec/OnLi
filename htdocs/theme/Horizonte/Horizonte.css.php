@@ -174,6 +174,37 @@ input, select, textarea {
     background-color: var(--color-primary-dark) !important;
 }
 
+/* Ajuste do menu superior para full width e altura correta */
+body > .tmenudiv {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: var(--horizonte-header-height) !important;
+    margin: 0 !important;
+    padding: 0 2rem !important;
+    background-color: var(--color-primary) !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Ajuste do tamanho dos ícones do menu superior para garantir que o texto abaixo seja exibido corretamente */
+.tmenudiv i, .tmenudiv ul li i, .tmenudiv ul li a i {
+    font-size: 1rem !important; /* Ajustado para 1rem para melhor exibição do texto abaixo */
+    min-width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    vertical-align: middle;
+}
+
+/* Ajuste do espaçamento dos itens do menu superior */
+.tmenudiv ul li {
+    margin: 0 1.5rem 0 0 !important;
+}
+
 /* Estilos para a área inicial */
 .fichehalfleft, .fichehalfright {
     float: left;
@@ -557,4 +588,50 @@ body > .tmenudiv {
 .login_block.usedropdown .login_block_user {
     display: inline-flex !important;
     align-items: center !important;
+}
+
+/* Inclui o módulo layoutconfig */
+include_once 'layoutconfig.php';
+
+/* Estilos para o módulo layoutconfig */
+.layoutconfig {
+    /* Defina aqui as propriedades do layout desejadas */
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: 1rem;
+}
+
+.layoutconfig .header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.layoutconfig .content {
+    padding: 1rem;
+}
+
+.layoutconfig .footer {
+    background-color: var(--color-primary-dark);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Ajustes adicionais para o layout */
+.layoutconfig .menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.layoutconfig .menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.layoutconfig .menu a:hover {
+    background-color: var(--color-accent);
 }

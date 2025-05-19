@@ -19,6 +19,7 @@ NoProposal=Sem propostas
 ProposalsStatistics=Estatísticas de Orçamentos
 AmountOfProposalsByMonthHT=Valor por mês (sem imposto)
 NbOfProposals=Número Orçamentos
+NumberOfProposals=Número de Propostas
 ShowPropal=Ver Orçamento
 PropalsDraft=Rascunho
 PropalStatusDraft=Rascunho (a Confirmar)
